@@ -39,5 +39,6 @@ founding plan is docs/plans/orchestrator-v1.md.
 ## Pointers
 
 - docs/classification.md — the binding declaration
+- docs/process/README.md — the orchestration process spec (v1)
 - docs/backlog.md — what is done and what is next
 - docs/plans/orchestrator-v1.md — the founding plan

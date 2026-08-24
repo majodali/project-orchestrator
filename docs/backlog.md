@@ -25,12 +25,20 @@
   coordinating-repo model headed for the methodology's next update
   ([plan](plans/orchestrator-v1.md), design rulings 1–2).
 
-## Upcoming
+- [x] **Process specification v1** — [docs/process/](process/README.md)
+  written and the plan flipped `active` at the owner's go-ahead:
+  [plan-model](process/plan-model.md) (hierarchy, node lifecycle,
+  Backlog relationship per owner ruling 1),
+  [plan-register](process/plan-register.md) (register format,
+  single-writer rule, Article 7 custom-definition mechanics),
+  [dispatch](process/dispatch.md) (loop, judgment routing, handoff
+  contract, context packets, v1 trigger surfaces and gates),
+  [profiles](process/profiles.md) (C-tier profile table, C2/C3 rows
+  provisional), [cost-log](process/cost-log.md) (per-task record).
+  **Gate pending: owner review of the spec documents** (plan
+  chunk 2).
 
-- [ ] **Process specification v1** — node lifecycle, plan-register
-  custom type, C-tier process profiles, handoff contracts and context
-  packets, cost-log convention
-  ([plan chunk 2](plans/orchestrator-v1.md)).
+## Upcoming
 - [ ] **Role definitions v1** — role set refined from the
   methodology's roles, model-tier mapping, per-role context packets,
   amendment proposals as surfaced

@@ -1,6 +1,6 @@
 # Orchestrator v1 — process spec, roles, and plugin
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -117,7 +117,7 @@ plan goes `active`.
 (defined as an Article 7 custom definition in the Classification, as
 the standardization candidate it is); process profiles by C-tier;
 handoff contracts and context-packet definitions; the cost-log
-convention. Resolves open questions 1–2 below.
+convention. Elaborates design rulings 1–2 into specification.
 Gate: owner reviews the spec documents.
 
 ### Chunk 3 — Role definitions v1

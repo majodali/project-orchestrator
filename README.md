@@ -22,6 +22,8 @@ Constitution, Article 3).
 
 - [docs/classification.md](docs/classification.md) — the binding
   declaration (C1 / S0, pinned methodology v1.2.0)
+- [docs/process/](docs/process/README.md) — the orchestration
+  process specification (v1)
 - [docs/backlog.md](docs/backlog.md) — what is done and what is next
 - [docs/plans/orchestrator-v1.md](docs/plans/orchestrator-v1.md) — the
   founding plan
