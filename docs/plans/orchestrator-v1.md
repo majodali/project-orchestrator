@@ -23,12 +23,21 @@ These bind every chunk; the spec and plugin are designed inside them.
    Reviewer · Auditor); where refinement exposes a gap, the fix is an
    amendment proposal upstream, never a silent local divergence.
 2. **Subscription billing only.** All agent execution runs on surfaces
-   billed to the owner's Claude Max subscription — Claude Code
-   interactive sessions, Claude Code cloud sessions, and their
-   scheduled Routines. Surfaces billed on API credits (direct API
-   calls, Managed Agents) are out of scope for v1. Consequence: cost
-   tracking is coarse (per-session/per-task token and model records),
-   accepted for v1.
+   billed to the owner's Claude Max subscription. Verified 2026-08-24,
+   those are: Claude Code sessions (interactive and cloud, including
+   Routines) and programmatic use via the Claude Agent SDK or headless
+   `claude -p` under subscription (OAuth) authentication — Anthropic's
+   announced 2026-06-15 move of programmatic usage to a separate
+   API-rate credit pool was paused before taking effect, with advance
+   notice promised before any future change. Direct Anthropic API
+   calls and Managed Agents bill API credits and stay out of scope.
+   Watch items: (a) the paused credit-pool change may return in some
+   form — runtime swappability (constraint 3) is the hedge; (b) an
+   execution environment with `ANTHROPIC_API_KEY` set silently bills
+   API credits even when a subscription is active — orchestrator
+   execution environments MUST verify subscription auth is the
+   credential in effect. Consequence: cost tracking is coarse
+   (per-session/per-task token and model records), accepted for v1.
 3. **Documentation is the spec.** The process specification under
    `docs/` is authoritative; the plugin is a built artifact
    (Constitution Article 3). The spec is written runtime-agnostic so
@@ -61,7 +70,13 @@ To be elaborated by chunks 2–4; recorded here as current intent.
   monotonic) progression. The orchestrator maintains a project-local
   **plan register** recording the hierarchy and each node's current
   stage, and makes its dispatch decisions from that register plus the
-  process spec.
+  process spec. Per the owner's ruling (2026-08-24): the Backlog
+  remains the source of truth for project execution, the plan register
+  exists to make the hierarchy explicit; every task identified during
+  planning, execution, or validation of any unit of work and not
+  executed immediately — future-unit planning, unspecified chunk
+  verification, anything discovered mid-flight — goes into the
+  Backlog, at any time.
 - **Process profiles by classification.** Which roles, gates, and
   artifacts a project uses depends on its declared Classification
   (C-tier above all), with bounded per-project customization —
@@ -136,27 +151,32 @@ retrospective against the two goals; Backlog groomed for v2 themes
 portfolio-level orchestration). Plan closed out.
 Gate: owner review; plan → closed.
 
-## Open design questions
+## Design rulings and open questions
 
-1. **Plan register vs. Backlog (K-003).** The methodology defines the
-   Backlog as the single linear source of progress truth; the
-   hierarchical plan register must not silently claim that role.
-   Candidate resolution, to be settled in chunk 2: the plan register
-   is a per-project custom document type holding structure and node
-   stages; the Backlog stays authoritative for what-is-done/what-is-
-   next, its entries referencing plan nodes (stage designations via a
-   declared Workflow where applicable). If the custom type proves
-   convergent across projects, propose standardization by amendment.
-2. **Home of cross-project orchestration state.** Project-local
-   registers cover single-project work; what (if anything) the
-   orchestrator keeps at portfolio level — and its relationship to the
-   methodology's Portfolio register and open multi-repo-projects
-   Backlog item — is deliberately deferred; v1 orchestrates one
-   project at a time.
+Rulings by the owner, 2026-08-24 (chunk 2 elaborates them into spec):
+
+1. **Plan register vs. Backlog (K-003) — resolved.** The Backlog
+   remains the single source of truth for project execution; the plan
+   register is a separate document making the plan hierarchy and node
+   stages explicit. The Backlog carries every task identified during
+   planning, execution, or validation of any unit of work that is not
+   executed immediately, and items may be added at any time. The plan
+   register enters as an Article 7 custom definition, proposed for
+   standardization when convergent.
+2. **Cross-project and multi-repo orchestration — resolved in shape.**
+   Every cross-project or multi-repo project has one designated
+   **coordinating repo**; every participating repo records the full
+   set of involved repos and which one coordinates. The owner will add
+   this to the methodology in its next update; the spec is written
+   against that model. v1 still orchestrates one project at a time.
+
+Open:
+
 3. **Trigger surfaces.** Which events may start orchestrator work
    without a human in the loop (Routines on a schedule, PR-activity
-   events), and what the orchestrator may do unbidden in v1 — current
-   intent: dispatch within an owner-approved chunk only.
+   events) — current intent, owner-confirmed: dispatch within an
+   owner-approved chunk only. To be made specific when chunk 2
+   defines the process; expected to evolve.
 
 ## References
 

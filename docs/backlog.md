@@ -15,6 +15,15 @@
   [orchestrator-v1](plans/orchestrator-v1.md), status `draft`,
   awaiting the owner's chunk-boundary review (W-001 gate; chunk 1 of
   the plan).
+- [x] **Founding plan revised at owner review** — subscription-billing
+  constraint verified against current Anthropic policy (Agent SDK /
+  headless use under subscription auth included; June 2026 credit-pool
+  change paused; `ANTHROPIC_API_KEY`-precedence trap recorded as a
+  MUST-check) and the owner's rulings recorded: Backlog stays the
+  execution source of truth with the plan register making hierarchy
+  explicit, and multi-repo projects follow a designated
+  coordinating-repo model headed for the methodology's next update
+  ([plan](plans/orchestrator-v1.md), design rulings 1–2).
 
 ## Upcoming
 
