@@ -5,13 +5,14 @@ Defines the register that records a managed project's plan hierarchy
 and node stages ([plan-model.md](plan-model.md)).
 
 **Custom-definition mechanics.** Per methodology
-[Article 7](https://github.com/majodali/methodology/blob/v1.2.0/docs/constitution.md#article-7--the-c0-baseline-custom-definitions-and-the-sandbox),
-each managed project defines *Plan register* in the Custom
-definitions section of its own Classification, citing this document
-as the source, and the register instance links that definition. This
-document is the master text; the per-project definition is one line
-plus the citation. If the type proves convergent across projects, it
-becomes a standardization candidate by amendment.
+[Article 7](https://github.com/majodali/methodology/blob/v1.3.0/docs/constitution.md#article-7--the-c0-baseline-custom-definitions-and-the-sandbox)'s
+definition-by-citation form (v1.3.0), each managed project defines
+*Plan register* **by citation**: the Custom definitions section of its
+own Classification records a reference to this document, which remains
+authoritative for the type's content, and the register instance links
+that definition. The per-project definition is one line plus the
+citation. Convergent citations across projects remain standardization
+candidates by amendment, like any other convergent definitions.
 
 ## Location and shape
 
