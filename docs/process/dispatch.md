@@ -57,6 +57,40 @@ If the Orchestrator cannot classify a decision as low-judgment, it is
 not one. A dispatched role that meets a decision above its own
 authority returns `needs-judgment` rather than deciding.
 
+## Owner-decision economics
+
+Owner ruling at trial 2 (2026-08-25): the owner's attention is the
+scarcest resource in the loop; these rules spend it at gates, in
+batches, against stated defaults.
+
+- **Defaults are mandatory.** Every decision routed toward the owner
+  MUST carry a recommended default and its one-line rationale. A
+  decision without a default is not ready to route.
+- **Decisions batch at the gate.** The gate summary lists them
+  numbered, defaults stated; the owner's go-ahead adopts every
+  default not explicitly overridden by number. One decision per
+  gate, not N.
+- **Only four classes interrupt the loop** (the *immediate class*):
+  approved-scope expansion — additional repositories included;
+  changes to existing test conditions (W-002); deviations from this
+  spec or the methodology; budget overrun. Everything else waits for
+  the gate.
+- **Findings route to registers, never to chat.** Spec defects go to
+  this repo's Backlog (the R6 path), risks to the Risk register,
+  discovered scope to the managed project's Backlog. Chat carries
+  only what needs a human answer.
+- **Standing pre-authorizations.** A scope grant MAY pre-clear
+  bounded decision classes — tier raises where the Planner argues
+  them; parallel dispatch of plan-marked-independent nodes; named
+  additional repositories, read or write. Each exercise of a
+  pre-authorization is recorded in the journal. A pre-cleared
+  decision stops being a decision.
+- **Cross-repo reach is scope.** Approved scope is single-repo by
+  default; a repository beyond the project's own MUST be named in
+  the grant before any role touches it. A needed-but-unreachable
+  repo is recorded (Backlog, or `blocked` where it stops the node)
+  — never worked around.
+
 ## The handoff contract
 
 Every task hands the role a fully enumerated brief; every completed
@@ -125,8 +159,8 @@ that routinely proves insufficient is a spec defect to fix here.
 
 | Stage | Packet beyond the base (base = brief items 1–2) |
 |---|---|
-| plan | Parent's plan and specification documents, whole; sibling one-liners with stages |
-| specify | The node's plan and the parent's specification, whole documents |
+| plan | Parent's plan and specification documents, whole; sibling one-liners with stages; the process spec's profiles.md |
+| specify | The node's plan and the parent's specification, whole documents; the process spec's profiles.md and plan-model.md |
 | break down | The node's specification; profile's leaf-size guidance |
 | execute | The node's specification; design notes and code paths it names |
 | verify | The node's specification and criteria; the work's diff; test output |
@@ -163,3 +197,21 @@ the W-001 ceremony: summarize, review, explicit go-ahead — recorded
 where the summary was given and reflected in the plan document.
 Risk-triggered gating and parallel review are explicitly out of v1
 (founding plan, standing constraint 6).
+
+**A scope grant states**: the approved nodes and stages; where the
+gates are; any budget (task count or token total); any standing
+pre-authorizations; any additional repositories.
+
+**The gate summary follows this template** (target: under ~20
+lines; the Liaison relays it verbatim in substance):
+
+```
+GATE <node or gate name> — <scope recap, one line>
+Delta:     <node> <from> → <to> [hold]      (one line per node moved)
+Open:      <every non-terminal node in scope: actionable | in-flight
+            | blocked (reason) | gated>     (the no-silent-drops list)
+Decisions  (go adopts all defaults; override by number):
+  1. <decision> — default: <choice> (<one-line rationale>)
+Costs:     <tasks, total tokens, models>
+Blockers:  <only if any>
+```

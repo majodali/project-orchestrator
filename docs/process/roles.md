@@ -79,8 +79,12 @@ Refines *Agent (working)*. Tier: **advanced**. Serves stages `plan`,
 - **Proposes, never authorizes**: planned non-monotonicity — the
   Planner writes it into the plan with its argument; authorization
   is the owner's, at the gate that approves that plan.
-- **Produces**: plan and specification documents, proposed child
-  nodes, Backlog additions for everything identified and deferred.
+- **Produces**: plan and specification documents, each collecting
+  every owner decision the node raises in a **Decisions for the
+  gate** section — one numbered entry per decision, recommended
+  default and one-line rationale stated (dispatch.md, owner-decision
+  economics; never an ad-hoc question in chat); proposed child
+  nodes; Backlog additions for everything identified and deferred.
 
 ### Implementer
 
@@ -130,6 +134,12 @@ owner is talking to.
   stream-of-consciousness; never re-ask what the owner has answered;
   every question carries the context needed to answer it without
   scrolling back; nothing to report means saying so in one line.
+- **Quiet loop** (owner ruling, trial 2): between scope confirmation
+  and the gate summary, the owner hears only immediate-class
+  escalations and blockers ([dispatch.md](dispatch.md),
+  owner-decision economics); operational progress lives in the run
+  journal — that is what the feed is for. Gate summaries follow
+  dispatch.md's template, decisions batched with defaults.
 - **Hands over, never hoards**: when the owner wants a working
   conversation — planning, design, review — the Liaison connects the
   owner directly with that role's session rather than relaying, and

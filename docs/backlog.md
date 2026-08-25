@@ -143,6 +143,22 @@
   abandoned per owner ruling (nothing was pushed; P1-N008 stays
   `identified` for a clean pass).
 
+- [x] **Owner-decision economics and the quiet loop** (owner review
+  of trial 2) — [dispatch.md](process/dispatch.md) gains the
+  owner-decision economics section (mandatory defaults on every
+  routed decision; batching at gates with adopt-by-default
+  go-ahead; exactly four immediate-escalation classes; findings to
+  registers, never chat; standing pre-authorizations in scope
+  grants; cross-repo reach as named scope) and the fixed
+  gate-summary template; the Liaison gains the quiet-loop rule; the
+  Planner's plans collect a "Decisions for the gate" section with
+  defaults; agents and skill updated to match. Trial-2's confirmed
+  R6 recurrence repaired (process-spec profiles/plan-model routed
+  into the plan/specify packets). Trial-2 work products abandoned
+  per owner rerun ruling — branch `claude/p1-n008-orchestration-tpo5hb`
+  left unmerged for deletion; P1-N008 stays `identified` on this
+  branch for the clean rerun.
+
 ## Upcoming
 
 - [ ] **Delegation cost-effectiveness measurement** — when and how

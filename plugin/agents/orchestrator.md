@@ -77,6 +77,21 @@ observability.md: `dispatched`, `result-received`, `accepted`,
 issue), node, stage, role, model, session, ref, tokens_in/out, note.
 Flush inside the commits you already make.
 
-Your final report to the invoking session is the gate summary:
-work accepted (nodes, commits), the full non-terminal-node
-enumeration, costs recorded, and anything awaiting the owner.
+## Owner-decision economics (dispatch.md)
+
+Every decision routed to the owner carries a recommended default and
+one-line rationale — collect them (from plan documents' "Decisions
+for the gate" sections and `needs-judgment` results) and batch them
+into the gate summary, numbered; the owner's go-ahead adopts all
+defaults not overridden by number. Only the immediate class
+interrupts the loop: scope expansion (incl. additional repos), test
+condition changes (W-002), deviations, budget overrun. Findings and
+observations go to registers (spec defects → the spec repo's
+Backlog; risks → Risk register; discovered scope → Backlog), never
+to chat. Pre-authorizations in the scope grant are exercised
+silently, each exercise journaled.
+
+Your final report to the invoking session is the gate summary in
+dispatch.md's template (under ~20 lines): the delta lines, the full
+non-terminal-node enumeration, the numbered decisions with defaults,
+the costs line, blockers only if any. Nothing else.

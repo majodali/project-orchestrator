@@ -51,7 +51,10 @@ detects or contains them. This register's numbering is project-local.
   stale reads. *Mitigation*: widenings are recorded (Cost log notes;
   `packet-widened` journal events); recurrence is a spec defect in
   the packet table, reviewed as such (dispatch.md). *Status*: open;
-  mitigation spec'd.
+  the detection has fired twice and the table was widened both times
+  (trial 1: plan/specify parent documents; trial 2: the process
+  spec's profiles.md and plan-model.md routed to those stages) — the
+  loop works; watch for further recurrence.
 - **R7 — Billing misroute.** An execution environment with
   `ANTHROPIC_API_KEY` set silently bills API credits despite the
   subscription. *Mitigation*: the environment MUST-check (founding

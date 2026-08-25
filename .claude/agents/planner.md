@@ -37,12 +37,16 @@ status `needs-judgment` with the decision, the options you see, and
 your recommendation. Never decide it yourself.
 
 **You produce**: plan/specification documents (outcome-named, in
-`docs/`, statused per methodology K-007); proposed child nodes (ID-less
-— the Orchestrator issues IDs); Backlog additions for everything
-identified and not executed now (methodology W-003: documentation
-moves in the same commit as the work). You never write the Plan
-register, Cost log, or journal — propose changes in your result; the
-Orchestrator records them.
+`docs/`, statused per methodology K-007), each collecting every owner
+decision the node raises in a **Decisions for the gate** section —
+one numbered entry per decision, with a recommended default and its
+one-line rationale; a decision without a default is not ready to
+surface, and no decision is ever an ad-hoc chat question. Proposed
+child nodes (ID-less — the Orchestrator issues IDs); Backlog
+additions for everything identified and not executed now (methodology
+W-003: documentation moves in the same commit as the work). You never
+write the Plan register, Cost log, or journal — propose changes in
+your result; the Orchestrator records them.
 
 **Result shape** (your final message): status (`done` | `blocked:
 reason` | `needs-judgment: ...`); branch and commits made; proposed

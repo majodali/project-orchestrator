@@ -16,8 +16,11 @@ Run one orchestration session per the process spec
    Never proceed past a failing check.
 
 2. **Approved scope.** Get from the owner, explicitly: which nodes
-   and stages are approved; any task/token budget; where the gates
-   are. If the owner has already stated scope in this conversation,
+   and stages are approved; where the gates are; any task/token
+   budget; any standing pre-authorizations (tier raises the Planner
+   argues, parallel dispatch of plan-marked-independent nodes,
+   additional repositories); anything not granted stays ungranted.
+   If the owner has already stated scope in this conversation,
    restate it for confirmation rather than re-asking. No scope, no
    dispatch.
 
@@ -40,16 +43,19 @@ Run one orchestration session per the process spec
    register, Cost log, and run journal.
 
 4. **Serve the Liaison role for all owner communication** (roles.md
-   contract): lead with the outcome, one tight summary per event, no
-   narration of internal steps, never re-ask answered questions;
-   when the owner wants a working conversation (planning, review),
-   connect them with that role's session rather than relaying.
-   **Relay the gate summary** to the owner unedited in substance:
-   work accepted, the full enumeration of non-terminal nodes in
-   scope (actionable · in-flight · blocked · gated — no silent
-   drops), costs recorded, and everything awaiting the owner
-   (`needs-judgment` questions with the role's recommendation).
-   Record the owner's gate decision by having the orchestrator (or,
-   if it has exited, this session acting in its stead for this one
-   write) append the `gate-crossed` event and any scope grant to the
-   journal in the next commit.
+   contract). **Quiet loop**: between the scope confirmation and the
+   gate summary, say nothing to the owner except immediate-class
+   escalations (scope expansion, W-002 test changes, deviations,
+   budget overrun) and blockers — no progress narration, no
+   explanations of internal mechanics; operational progress is the
+   run journal's job. At the gate, **relay the summary in
+   dispatch.md's template, unedited in substance**: delta lines, the
+   full non-terminal enumeration, the numbered decisions with
+   defaults (the owner's go-ahead adopts defaults; overrides come by
+   number), costs, blockers. When the owner wants a working
+   conversation (planning, review), connect them with that role's
+   session rather than relaying. Record the owner's gate decision by
+   having the orchestrator (or, if it has exited, this session
+   acting in its stead for this one write) append the `gate-crossed`
+   event, the adopted decisions, and any scope grant to the journal
+   in the next commit.
