@@ -33,7 +33,8 @@ parent's verification. Two progressions govern movement:
   monotonicity bounds how often earlier features' tests are reopened,
   it does not forbid it.
 
-Non-monotonicity comes in two independent kinds, treated differently:
+Departures from the monotonic ideal come in two independent kinds,
+treated differently:
 
 - **Planned** — the plan itself schedules the rewrite (e.g. a roadmap
   that ships feature v1 knowing v2 supersedes it) as a practical
@@ -44,11 +45,16 @@ Non-monotonicity comes in two independent kinds, treated differently:
   discussion happens there, once, not mid-execution. Preference for
   monotonicity means planned instances are rare and argued for in the
   plan.
-- **Unplanned** — execution discovers that previously defined
-  functional tests must be rewritten to proceed. This is a learning:
-  the affected node takes a backward transition with the reason
-  recorded, and no test is touched before the W-002 discussion with
-  the human owner. Rework of a `done` node reopens it with the
+- **Unplanned** — execution or verification discovers that previously
+  completed work needs rework. Just as likely as not, the functional
+  tests stand and it is previously completed artifacts — code, docs,
+  design — that need the rework, with the standing tests as the
+  criteria the rework must re-pass; only sometimes must previously
+  defined functional tests themselves be rewritten (a true
+  non-monotonicity). Either way it is a learning: the affected node
+  takes a backward transition with the reason recorded, and where
+  tests must change, no test is touched before the W-002 discussion
+  with the human owner. Rework of a `done` node reopens it with the
   driving reason recorded, or becomes a new node.
 
 ## Features
