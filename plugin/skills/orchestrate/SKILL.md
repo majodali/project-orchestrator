@@ -6,14 +6,19 @@ description: Run an orchestration session on this methodology-managed project - 
 Run one orchestration session per the process spec
 (majodali/project-orchestrator `docs/process/`).
 
-1. **Preconditions.** Verify `docs/plan-register.md` exists — if not,
-   this project is not enrolled: offer `/orchestrator:enroll` and
-   stop. Warn if `ANTHROPIC_API_KEY` is set in the environment
-   (billing Risk R7). Run the form checker and show the result:
+1. **Preconditions — lean startup.** Verify `docs/plan-register.md`
+   exists — if not, this project is not enrolled: offer
+   `/orchestrator:enroll` and stop. Warn if `ANTHROPIC_API_KEY` is
+   set in the environment (billing Risk R7). Run the form checker:
 
    `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/form_check.py"`
 
-   Never proceed past a failing check.
+   Never proceed past a failing check. Startup reads are exactly the
+   Plan register, the Backlog, and `docs/process/dispatch.md` —
+   trial 3 spent ~30 minutes on an 18-file orientation before a
+   10-minute loop; do not repeat that. Never wait on timers,
+   scheduled wakeups, or sleep — dispatched agents notify on
+   completion.
 
 2. **Approved scope.** Get from the owner, explicitly: which nodes
    and stages are approved; where the gates are; any task/token

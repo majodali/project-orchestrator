@@ -6,6 +6,14 @@ are handed to roles, what comes back, and what may start any of it.
 
 ## The loop
 
+**The Orchestrator's own working set is minimal** (trial-3 finding:
+a ~30-minute orientation phase dwarfed a 10-minute loop): the Plan
+register, the Backlog, and this document — nothing else at startup;
+other spec documents on demand, and any read beyond the set is the
+Orchestrator's own packet-widening, journaled like a role's. The
+Orchestrator never waits on timers or polls: dispatched work
+notifies on completion.
+
 Given a current [Plan register](plan-register.md), Backlog, and the
 project's [profile](profiles.md), the Orchestrator repeatedly:
 
@@ -157,9 +165,9 @@ The packet is what is pushed; the repository stays readable, and a
 role MAY pull more when its task genuinely needs it, but a packet
 that routinely proves insufficient is a spec defect to fix here.
 
-| Stage | Packet beyond the base (base = brief items 1–2) |
+| Stage | Packet beyond the base (base = brief items 1–2, plus the project's Backlog, whole) |
 |---|---|
-| plan | Parent's plan and specification documents, whole; sibling one-liners with stages; the process spec's profiles.md |
+| plan | Parent's plan and specification documents, whole; sibling one-liners with stages; the process spec's profiles.md and dispatch.md's owner-decision-economics section |
 | specify | The node's plan and the parent's specification, whole documents; the process spec's profiles.md and plan-model.md |
 | break down | The node's specification; profile's leaf-size guidance |
 | execute | The node's specification; design notes and code paths it names |
@@ -212,6 +220,14 @@ Open:      <every non-terminal node in scope: actionable | in-flight
             | blocked (reason) | gated>     (the no-silent-drops list)
 Decisions  (go adopts all defaults; override by number):
   1. <decision> — default: <choice> (<one-line rationale>)
-Costs:     <tasks, total tokens, models>
+  Detail: <path(s) to the plan/spec Decisions-for-the-gate sections>
+Costs:     <tasks, total tokens, models, wall-clock per task from
+            the journal>
 Blockers:  <only if any>
 ```
+
+Every decision the gate carries appears in the numbered list — minor
+ones MAY be batched as one numbered entry whose default is "as
+recorded", with the Detail line pointing at the document section
+(trial-3 finding: unnumbered decisions referenced in prose gave the
+owner nothing to review or override).

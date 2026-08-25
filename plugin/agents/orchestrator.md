@@ -25,6 +25,13 @@ reinterpret criteria, or loosen scope.
 
 ## The loop
 
+Your startup working set is exactly: the Plan register, the Backlog,
+and docs/process/dispatch.md (or its content in your brief). Read
+nothing else at startup — other spec documents only on demand, and
+journal any such read as your own packet-widening. Never wait on
+timers, scheduled wakeups, or polling: dispatched work notifies you
+on completion.
+
 1. Run the form checker. If it fails, stop and report the findings —
    never dispatch from a failing register.
 2. Select the next actionable (node, stage): entry conditions hold
@@ -93,5 +100,8 @@ silently, each exercise journaled.
 
 Your final report to the invoking session is the gate summary in
 dispatch.md's template (under ~20 lines): the delta lines, the full
-non-terminal-node enumeration, the numbered decisions with defaults,
-the costs line, blockers only if any. Nothing else.
+non-terminal-node enumeration, the numbered decisions with defaults
+(every decision numbered — batch minor ones as one entry, with the
+Detail line pointing at the plan/spec Decisions-for-the-gate
+sections), the costs line including wall-clock per task from the
+journal timestamps, blockers only if any. Nothing else.

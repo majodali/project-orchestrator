@@ -159,8 +159,31 @@
   left unmerged for deletion; P1-N008 stays `identified` on this
   branch for the clean rerun.
 
+- [x] **Trial-3 review: latency diagnosis and gate polish** — the
+  run journal's timestamps split trial 3's ~40 minutes into a
+  healthy 10-minute loop (two ~3-minute Planner runs, ~1-minute
+  acceptances) and a ~30-minute pre-dispatch orientation phase: the
+  Orchestrator gave itself an unbounded packet (18 files) and a
+  timer detour. Fixes: the Orchestrator's own minimal working set
+  spec'd (register + Backlog + dispatch.md, further reads journaled
+  as its own packet-widening; no timers or polling, ever); gate
+  template gains the Detail line and the every-decision-numbered
+  rule (minor calls batched as one entry), and Costs gains per-task
+  wall-clock from journal timestamps; third R6 firing repaired
+  (base packet gains the whole Backlog; plan packet gains
+  dispatch.md's owner-decision-economics section).
+
 ## Upcoming
 
+- [ ] **Latency comparison: local session trial** — run the same
+  N008 scope in a local terminal session and compare journal
+  wall-clock against trial 3's web run, isolating surface latency
+  from process overhead (owner-raised, 2026-08-25).
+- [ ] **External-harness orchestration experiment** — one node run
+  through a harness outside Claude Code (Claude Agent SDK under
+  subscription auth, per standing constraint 2) to compare latency
+  and cost against Claude Code surfaces; informs the phase-2
+  runtime decision (owner-raised, 2026-08-25).
 - [ ] **Delegation cost-effectiveness measurement** — when and how
   delegating Orchestrator admin batches (or any role handoff) pays
   for itself: judgment today, measured from Cost log + journal data
