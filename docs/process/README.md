@@ -51,6 +51,9 @@ Reading order for a session learning the process:
    audited: machine form checks, agent semantic checks.
 8. [observability.md](observability.md) — the run journal: the
    operational feed for troubleshooting and optimization.
+9. [rulings.md](rulings.md) — the Ruling register: gate decisions
+   captured as precedents, applied to staged questions, promoted
+   into this spec when patterns recur.
 
 Known failure modes of the process and their containment are
 registered in the project's [Risk register](../open-risks.md).

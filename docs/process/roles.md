@@ -52,7 +52,10 @@ Refines *Agent (session)*. Tier: **frugal**.
   and acceptance ([auditing.md](auditing.md)); gate summaries.
 - **Decides**: only what [dispatch.md](dispatch.md) makes mechanical
   — actionability, selection order, packet contents per the table,
-  acceptance against the handoff contract and form checks.
+  acceptance against the handoff contract and form checks, and
+  **exact-match precedent application** ([rulings.md](rulings.md) —
+  exact means no judgment needed; if it needs judgment, it is not
+  exact and goes to the gate with the precedent cited).
 - **Never**: writes code or specifications, resolves ambiguity,
   reinterprets criteria, loosens scope. If classification of a
   decision as low-judgment is itself unclear, the decision is not
@@ -82,9 +85,11 @@ Refines *Agent (working)*. Tier: **advanced**. Serves stages `plan`,
 - **Produces**: plan and specification documents, each collecting
   every owner decision the node raises in a **Decisions for the
   gate** section — one numbered entry per decision, recommended
-  default and one-line rationale stated (dispatch.md, owner-decision
-  economics; never an ad-hoc question in chat); proposed child
-  nodes; Backlog additions for everything identified and deferred.
+  default and one-line rationale stated, near-match precedents from
+  the [Ruling register](rulings.md) cited in the rationale
+  (dispatch.md, owner-decision economics; never an ad-hoc question
+  in chat); proposed child nodes; Backlog additions for everything
+  identified and deferred.
 
 ### Implementer
 

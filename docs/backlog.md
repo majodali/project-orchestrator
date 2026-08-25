@@ -173,6 +173,22 @@
   (base packet gains the whole Backlog; plan packet gains
   dispatch.md's owner-decision-economics section).
 
+- [x] **Ruling register — precedents from gate decisions** (owner
+  direction, 2026-08-25) — [rulings.md](process/rulings.md): gate
+  decisions classified by type (handoff/tier/completion/scope/
+  verification/comms) and scope (node/project/process), captured at
+  every gate crossing (overrides especially), applied silently on
+  exact match (journaled `precedent-applied`, one summary line),
+  cited by the Planner on near match, and promoted on recurrence —
+  project-scope at three applications, process-scope on capture —
+  into the spec, with cross-project convergence and
+  methodology-boundary patterns following the Article 7/8 paths.
+  Precedents never decide the immediate class. Wired through
+  dispatch, roles, observability (`precedent-applied` event),
+  checker, enroll skill, and agents; this repo's instance
+  [docs/rulings.md](rulings.md) created, first entries due at the
+  pending P1-N008 gate.
+
 ## Upcoming
 
 - [ ] **Latency comparison: local session trial** — run the same

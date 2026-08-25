@@ -15,6 +15,9 @@ owner decision — confirm it before writing anything.
    - **Plan register** — cites the spec's `docs/process/plan-register.md`
    - **Cost log** — cites the spec's `docs/process/cost-log.md`
    - **Run journal** (artifact) — cites the spec's `docs/process/observability.md`
+   - **Ruling register** — cites the spec's `docs/process/rulings.md`
+     (create `docs/rulings.md` empty with its header; first entries
+     land at the project's first gate)
 
    Cite by URL (https://github.com/majodali/project-orchestrator/
    blob/main/docs/process/...) except in the spec repo itself, where

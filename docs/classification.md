@@ -38,3 +38,6 @@ form, v1.3.0) at self-hosted enrollment, 2026-08-25:
   [docs/process/observability.md](process/observability.md);
   instance: `orchestration/journal.jsonl` (telemetry, never
   authoritative).
+- **Ruling register** (Document) — cites
+  [docs/process/rulings.md](process/rulings.md);
+  instance: [docs/rulings.md](rulings.md).

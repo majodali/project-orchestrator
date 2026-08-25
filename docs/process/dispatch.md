@@ -71,6 +71,12 @@ Owner ruling at trial 2 (2026-08-25): the owner's attention is the
 scarcest resource in the loop; these rules spend it at gates, in
 batches, against stated defaults.
 
+- **Precedent first.** Before a decision is staged to a gate, the
+  Orchestrator checks the [Ruling register](rulings.md) for an
+  exact-match active ruling; a match decides silently (journaled,
+  listed one-line in the gate summary). A near-match is the
+  Planner's to cite as its default's rationale. Gate crossings
+  capture new rulings from every adopted or overridden decision.
 - **Defaults are mandatory.** Every decision routed toward the owner
   MUST carry a recommended default and its one-line rationale. A
   decision without a default is not ready to route.
@@ -221,6 +227,7 @@ Open:      <every non-terminal node in scope: actionable | in-flight
 Decisions  (go adopts all defaults; override by number):
   1. <decision> — default: <choice> (<one-line rationale>)
   Detail: <path(s) to the plan/spec Decisions-for-the-gate sections>
+Precedents: <rulings applied this run, e.g. RU-003 → T012; omit if none>
 Costs:     <tasks, total tokens, models, wall-clock per task from
             the journal>
 Blockers:  <only if any>

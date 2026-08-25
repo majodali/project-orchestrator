@@ -39,8 +39,9 @@ omitted.
 Event kinds (v1, extendable by spec change): `dispatched` ·
 `result-received` (with the task's returned status) · `accepted` ·
 `check-failed` · `needs-judgment` · `blocked` · `stale` ·
-`backward-transition` · `packet-widened` · `gate-opened` ·
-`gate-crossed`.
+`backward-transition` · `packet-widened` · `precedent-applied` (a
+[Ruling register](rulings.md) match deciding a staged question) ·
+`gate-opened` · `gate-crossed`.
 
 ## Write and read rules
 

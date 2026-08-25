@@ -32,7 +32,8 @@ NEED_BACKLOG_REF = {"identified", "planned", "specified",
                     "executing", "verifying"}
 EVENTS = {"dispatched", "result-received", "accepted", "check-failed",
           "needs-judgment", "blocked", "stale", "backward-transition",
-          "packet-widened", "gate-opened", "gate-crossed"}
+          "packet-widened", "precedent-applied", "gate-opened",
+          "gate-crossed"}
 TASK_TERMINAL = {"accepted", "blocked", "stale"}
 
 NODE_RE = re.compile(
@@ -230,7 +231,9 @@ def check_definitions(root, has_register, has_costlog, has_journal):
     for present, marker, label in (
             (has_register, "plan-register", "Plan register"),
             (has_costlog, "cost-log", "Cost log"),
-            (has_journal, "observability", "Run journal")):
+            (has_journal, "observability", "Run journal"),
+            ((root / "docs" / "rulings.md").exists(), "rulings",
+             "Ruling register")):
         if present and marker not in section:
             find("violation", "definitions", cls,
                  f"{label} instance exists but the Classification's "

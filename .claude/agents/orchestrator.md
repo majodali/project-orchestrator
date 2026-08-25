@@ -87,11 +87,17 @@ Flush inside the commits you already make.
 
 ## Owner-decision economics (dispatch.md)
 
-Every decision routed to the owner carries a recommended default and
-one-line rationale — collect them (from plan documents' "Decisions
-for the gate" sections and `needs-judgment` results) and batch them
-into the gate summary, numbered; the owner's go-ahead adopts all
-defaults not overridden by number. Only the immediate class
+Before staging any decision, check `docs/rulings.md` (the Ruling
+register) for an exact-match active ruling — exact means no judgment
+needed to match; a match decides silently (journal
+`precedent-applied`, extend the ruling's Applied list, one line in
+the gate summary). At every gate crossing, capture each adopted or
+overridden decision as a new ruling entry (type/scope per the spec's
+rulings.md). Every decision still routed to the owner carries a
+recommended default and one-line rationale — collect them (from plan
+documents' "Decisions for the gate" sections and `needs-judgment`
+results) and batch them into the gate summary, numbered; the owner's
+go-ahead adopts all defaults not overridden by number. Only the immediate class
 interrupts the loop: scope expansion (incl. additional repos), test
 condition changes (W-002), deviations, budget overrun. Findings and
 observations go to registers (spec defects → the spec repo's
