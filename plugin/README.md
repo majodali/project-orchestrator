@@ -33,10 +33,23 @@ enables the plugin, and cloud sessions install it at session start:
 }
 ```
 
-This repo carries that file itself (with a local `directory` source,
-since the marketplace is the repo); managed projects use the `github`
-source shown above. The same file serves local sessions too — no
-`/plugin` commands needed anywhere once it is committed.
+This repo carries that file itself; managed projects use the same
+`github` source. The file serves local sessions too — no `/plugin`
+commands needed anywhere once it is committed.
+
+**Cloud fallback (Risk R9).** Plugin auto-loading in cloud sessions
+is not yet documented behavior, so the role agents are additionally
+mirrored into `.claude/agents/` — which cloud sessions ARE documented
+to load unconditionally. `plugin/agents/` is the source of truth;
+regenerate the mirror after editing an agent with
+`python3 plugin/scripts/sync_fallback.py` (`--check` verifies without
+writing). When the plugin's skills are unavailable in a session,
+everything remains reachable in plain language: the scripts run
+directly (`python3 plugin/scripts/form_check.py`,
+`journal_tail.py`), and an orchestration session is started by asking
+the session to run the dispatch loop per `docs/process/dispatch.md`
+with your approved scope — the mirrored agents give it the roles to
+dispatch.
 
 ## Components
 

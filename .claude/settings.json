@@ -2,8 +2,8 @@
   "extraKnownMarketplaces": {
     "project-orchestrator": {
       "source": {
-        "source": "directory",
-        "path": "."
+        "source": "github",
+        "repo": "majodali/project-orchestrator"
       }
     }
   },

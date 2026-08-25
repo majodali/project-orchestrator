@@ -27,9 +27,14 @@ link checks over this tree.
 
 `docs/` holds the authoritative process specification; the plugin
 under `plugin/` is the built artifact implementing it (installable
-via this repo's marketplace file). This repo is itself enrolled:
-docs/plan-register.md, docs/cost-log.md, orchestration/journal.jsonl.
-The founding plan is docs/plans/orchestrator-v1.md.
+via this repo's marketplace file; role agents mirrored to
+`.claude/agents/` for sessions where plugins don't load — regenerate
+with `python3 plugin/scripts/sync_fallback.py`). This repo is itself
+enrolled: docs/plan-register.md, docs/cost-log.md,
+orchestration/journal.jsonl. To orchestrate without the plugin's
+skills, follow docs/process/dispatch.md with owner-approved scope,
+dispatching the `.claude/agents/` roles. The founding plan is
+docs/plans/orchestrator-v1.md.
 
 ## Conventions
 

@@ -106,8 +106,13 @@
   P1-N001–N008, [Cost log](cost-log.md), journal begun. Demo-gate
   finding: `/plugin` is terminal-only, so web/cloud enablement is by
   checked-in `.claude/settings.json` (marketplace + enabledPlugins;
-  added here, and to the enroll skill for managed projects). **Gate
-  pending: owner observes the demo** (plan chunk 4).
+  added here, and to the enroll skill for managed projects). Second
+  demo-gate finding: the settings-declared plugin did not observably
+  load in a web session (docs silent — [Risk R9](open-risks.md)):
+  marketplace source switched to `github`, and the role agents
+  mirrored to `.claude/agents/` (documented to load unconditionally
+  in cloud) via `sync_fallback.py` with a `--check` drift mode.
+  **Gate pending: owner observes the demo** (plan chunk 4).
 
 ## Upcoming
 

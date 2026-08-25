@@ -65,6 +65,21 @@ detects or contains them. This register's numbering is project-local.
   structural errors surface before fan-out compounds them. *Status*:
   open; mitigation spec'd.
 
+- **R9 — Surface-dependent plugin loading.** Whether checked-in
+  marketplace/plugin settings take effect is documented for local
+  terminal sessions but not for Claude Code on the Web, and the
+  first web demo attempt found the plugin absent (`/plugin` is
+  terminal-only; auto-install from `.claude/settings.json` did not
+  observably run). *Mitigation*: `github`-source marketplace in the
+  settings (the most conventional shape); role agents mirrored into
+  `.claude/agents/`, which cloud sessions are documented to load
+  unconditionally (`plugin/scripts/sync_fallback.py`, `--check` for
+  drift); scripts and dispatch remain usable in plain language per
+  `CLAUDE.md`. *Status*: open — resolves when a web session
+  demonstrates the plugin loading (or the fallback is confirmed as
+  the standing web path and the docs gap reported upstream to
+  Anthropic).
+
 Unexpected interplay is by nature not enumerable in advance: the
 pilot (plan chunk 5) treats every failure it hits as a candidate
 entry here, and the semantic-audit questions in
