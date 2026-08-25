@@ -178,7 +178,15 @@
   [p1-n008-mtool-checker-extension-point](plans/p1-n008-mtool-checker-extension-point.md)
   — leaf; completes at a transportable proposal artifact in this
   repo, upstream delivery and disposition excluded (five decisions
-  batched for the gate).
+  batched for the gate). Specified:
+  [spec](specs/p1-n008-mtool-checker-extension-point.md) — criteria
+  for the artifact (problem framing, capability contract, five design
+  questions with recommendations, dated evidence, bounded conformance
+  sketch, explicit ask), its transportability (no unglossed local
+  vocabulary, absolute links, project voice), the same-commit
+  [auditing](process/auditing.md) pointer, and the scope guards (no
+  cross-repo reach, no local divergence, checks clean). No new owner
+  decision surfaced.
 - [ ] **Deliver the extension-point proposal upstream** — carry the
   finished P1-N008 artifact to methodology-tools as an issue or PR
   and record its disposition. Separate from P1-N008 because
