@@ -131,9 +131,10 @@ Gate: owner reviews roles and any amendment proposals.
 ### Chunk 4 — Plugin v1
 
 The Claude Code plugin implementing the spec: role agent definitions,
-process skills, and the Orchestrator agent maintaining the plan
-register. Trialed self-hosted — orchestrating this repository's own
-remaining work.
+process skills, the Orchestrator agent maintaining the plan register,
+and the form checker mechanizing the deterministic audit invariants
+(`docs/process/auditing.md`). Trialed self-hosted — orchestrating
+this repository's own remaining work.
 Gate: owner observes a self-hosted orchestration demo.
 
 ### Chunk 5 — Pilot on a real project

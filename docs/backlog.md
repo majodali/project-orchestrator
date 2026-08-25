@@ -37,6 +37,20 @@
   provisional), [cost-log](process/cost-log.md) (per-task record).
   **Gate pending: owner review of the spec documents** (plan
   chunk 2).
+- [x] **Chunk-2 review revisions** — owner-approved 2026-08-24:
+  features formalized in [plan-model](process/plan-model.md) (a
+  feature defined informally as cohesive validated behavior and
+  formally as its validating functional-test set; monotonicity
+  redefined over functional tests; planned vs. unplanned
+  non-monotonicity made independent, with W-002 routed to the
+  approving gate or to the owner respectively; feature-first
+  decomposition guidance, no feature inventory kept);
+  [auditing](process/auditing.md) added (deterministic form checks as
+  a project-shipped checker run at dispatch/acceptance and on changed
+  days — transitional until the `mtool` custom-type checker extension
+  point — semantic checks as sparse Auditor agent tasks); the
+  Workflow-as-lifecycle SHOULD retained with its audit-dividend
+  rationale.
 
 ## Upcoming
 
@@ -60,6 +74,14 @@
 - [ ] **Plugin v1** — role agent definitions, process skills,
   Orchestrator agent; self-hosted trial
   ([plan chunk 4](plans/orchestrator-v1.md)).
+- [ ] **Propose the `mtool` custom-type checker extension point
+  upstream** — one generic methodology-tools capability: a custom
+  type defined by citation declares a checker with its defining
+  project, discovered and run by `mtool audit form`, findings merged
+  into the standard delivery pipeline. Proposed once the form checker
+  has proven itself in the plugin trial
+  ([auditing](process/auditing.md)); until it lands, the Auditor's
+  side-by-side checker run is the transitional discharge.
 - [ ] **Pilot on a real project** — end-to-end run on one
   owner-chosen portfolio project; costs and lessons recorded
   ([plan chunk 5](plans/orchestrator-v1.md)).

@@ -6,7 +6,9 @@ Part of the [orchestration process specification](README.md).
 
 A managed project's plan is a tree of **nodes**. The root node is the
 project's current major outcome (typically one per active plan
-document); interior nodes are decompositions; leaf nodes are units of
+document) — typically a comprehensive collection of definitions,
+features, technical requirements, and other facets, not a single
+statement. Interior nodes are decompositions; leaf nodes are units of
 work executable in a single role session. Depth is not fixed — nodes
 are broken down until their children are leaf-sized, and no further
 (no empty ceremony).
@@ -23,10 +25,54 @@ parent's verification. Two progressions govern movement:
   re-descent MUST be recorded (in the node's plan or specification
   document, per K-007's currency discipline).
 - **Incremental (left-to-right, ideally monotonic).** Siblings are
-  dependency-ordered. Execution proceeds so that earlier siblings
-  reach `done` before later ones enter `execute`, and rework of a
-  `done` node is the exception: when needed, the node is reopened
-  with the driving reason recorded, or the rework is a new node.
+  dependency-ordered, and execution proceeds so that earlier siblings
+  reach `done` before later ones enter `execute`. **Monotonicity is
+  defined over functional tests**: a unit of work is monotonic iff it
+  requires no previously defined functional test to be rewritten in
+  order to pass. Adding tests is always monotonic; the preference for
+  monotonicity bounds how often earlier features' tests are reopened,
+  it does not forbid it.
+
+Non-monotonicity comes in two independent kinds, treated differently:
+
+- **Planned** — the plan itself schedules the rewrite (e.g. a roadmap
+  that ships feature v1 knowing v2 supersedes it) as a practical
+  measure for overall efficiency. It is authorized at the gate that
+  approves the plan containing it, which pre-clears the specific test
+  rewrites it entails — the
+  [W-002](https://github.com/majodali/methodology/blob/v1.2.0/docs/rules/working-agreement.md#w-002--existing-tests-are-signals-not-obstacles)
+  discussion happens there, once, not mid-execution. Preference for
+  monotonicity means planned instances are rare and argued for in the
+  plan.
+- **Unplanned** — execution discovers that previously defined
+  functional tests must be rewritten to proceed. This is a learning:
+  the affected node takes a backward transition with the reason
+  recorded, and no test is touched before the W-002 discussion with
+  the human owner. Rework of a `done` node reopens it with the
+  driving reason recorded, or becomes a new node.
+
+## Features
+
+A **feature** is a cohesive behavior of the project that must be
+validated for a solution to be accepted. That is the informal
+reading, and it guides planning. Formally, **a feature is its
+validation**: the set of functional tests that constitute it. The
+formal reading is what the process computes with — acceptance means
+every feature's tests pass, a feature node's verification criteria
+name (or generate) its test set, and monotonicity above is defined
+over the accumulated functional-test corpus.
+
+Decomposition SHOULD follow features: the first tier below the root
+is typically feature-by-feature, plus iteration-zero setup nodes;
+deeper tiers continue by feature functionality until a feature is
+**atomic** — no meaningful sub-behavior validates separately, a
+Planner judgment — and only below that by technical structure
+(component, implementation step). This is guidance for the Planner,
+not law: where a project's nature argues for a different cut, the
+plan records why. No separate feature inventory is kept — the plan
+register's feature-shaped upper tiers carry the structure; if
+verification pressure ever demands an explicit feature→test mapping,
+that is a spec change to argue for then, not ceremony to keep now.
 
 ## The node lifecycle
 
@@ -83,4 +129,9 @@ no more. Owner ruling, 2026-08-24
   stages as their stage designations and the two documents cannot
   disagree by construction. The Orchestrator keeps register and
   Backlog designations in sync in the same commit whenever it
-  records a stage change.
+  records a stage change. The SHOULD also carries an audit dividend:
+  a declared Workflow makes Backlog stage designations
+  methodology-audited state (Article 4 declaration accuracy), so
+  upstream tooling already checks their currency — the orchestration
+  checker then owns only the register-side invariants
+  ([auditing.md](auditing.md)).

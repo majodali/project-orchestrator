@@ -19,8 +19,11 @@ project's [profile](profiles.md), the Orchestrator repeatedly:
 2. **Dispatches** a task: the (node, stage) pair, the role the
    profile assigns to that stage, and the assembled context packet.
 3. **Accepts** the result: verifies the handoff contract below was
-   met, records the stage change in the register (and synced Backlog
-   designation) and the [cost-log entry](cost-log.md), then loops.
+   met and the [form checks](auditing.md) pass, records the stage
+   change in the register (and synced Backlog designation) and the
+   [cost-log entry](cost-log.md), then loops. The form checks also
+   run before step 1's selection — a failing register blocks dispatch
+   until repaired.
 4. **Stops** at a gate, on an empty actionable set, on a blocked
    task, or on exhausting approved scope — and summarizes to the
    owner (W-001: deliver, summarize, stop).

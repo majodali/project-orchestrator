@@ -45,6 +45,8 @@ Reading order for a session learning the process:
    C-tier.
 5. [cost-log.md](cost-log.md) — the Cost log document type: what
    every task records.
+6. [auditing.md](auditing.md) — how the orchestration artifacts are
+   audited: machine form checks, agent semantic checks.
 
 ## Roles
 
