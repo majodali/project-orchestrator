@@ -206,13 +206,18 @@
   once the pilot generates enough of it (v2 theme; plan chunk 6
   grooms it).
 - [ ] **Propose the `mtool` custom-type checker extension point
-  upstream** (node P1-N008) — one generic methodology-tools
-  capability: a custom type defined by citation declares a checker
-  with its defining project, discovered and run by `mtool audit
-  form`, findings merged into the standard delivery pipeline.
-  Proposed once the form checker has proven itself in the plugin
-  trial ([auditing](process/auditing.md)); until it lands, the
-  Auditor's side-by-side checker run is the transitional discharge.
+  upstream** (node P1-N008, `specified`) — planned and specified by
+  trial 3's orchestrated run
+  ([plan](plans/p1-n008-mtool-checker-extension-point.md) ·
+  [spec](specs/p1-n008-mtool-checker-extension-point.md), 22
+  criteria); gate crossed 2026-08-26 with all defaults adopted and
+  captured as [rulings](rulings.md) RU-001–RU-005: execute approved
+  (conformance sketch only, node completes at the artifact, owner
+  hand-carries the proposal to methodology-tools, owner gate at
+  `verifying`). Execute awaits its dispatch — candidate vehicle for
+  the local-session latency trial below. The methodology-tools 403
+  noted at planning gates its reconnaissance step; the spec requires
+  assumptions marked as such if unresolved.
   Plan drafted:
   [p1-n008-mtool-checker-extension-point](plans/p1-n008-mtool-checker-extension-point.md)
   — leaf; completes at a transportable proposal artifact in this
