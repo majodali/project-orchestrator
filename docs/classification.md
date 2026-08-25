@@ -25,7 +25,16 @@ No deviations recorded.
 
 ## Custom definitions
 
-No custom definitions.
+Adopted by citation (methodology Article 7, definition-by-citation
+form, v1.3.0) at self-hosted enrollment, 2026-08-25:
 
-<!-- The Plan-register document type sketched in the founding plan will
-     be defined here when chunk 2 designs it (Constitution Article 7). -->
+- **Plan register** (Document) — cites
+  [docs/process/plan-register.md](process/plan-register.md);
+  instance: [docs/plan-register.md](plan-register.md).
+- **Cost log** (Document) — cites
+  [docs/process/cost-log.md](process/cost-log.md);
+  instance: [docs/cost-log.md](cost-log.md).
+- **Run journal** (artifact) — cites
+  [docs/process/observability.md](process/observability.md);
+  instance: `orchestration/journal.jsonl` (telemetry, never
+  authoritative).

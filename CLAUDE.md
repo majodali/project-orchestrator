@@ -19,14 +19,17 @@ and minimizing model and context cost.
 
 ## Build / run / test
 
-Documentation only so far; no build. `mtool` (methodology-tools) runs
-form audits and link checks over this tree.
+`python3 plugin/scripts/form_check.py` — orchestration form checks
+(must pass clean). `mtool` (methodology-tools) runs form audits and
+link checks over this tree.
 
 ## Architecture at a glance
 
 `docs/` holds the authoritative process specification; the plugin
-under `.claude/` (future) is a built artifact implementing it. The
-founding plan is docs/plans/orchestrator-v1.md.
+under `plugin/` is the built artifact implementing it (installable
+via this repo's marketplace file). This repo is itself enrolled:
+docs/plan-register.md, docs/cost-log.md, orchestration/journal.jsonl.
+The founding plan is docs/plans/orchestrator-v1.md.
 
 ## Conventions
 

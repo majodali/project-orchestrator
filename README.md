@@ -24,6 +24,8 @@ Constitution, Article 3).
   declaration (C1 / S0, pinned methodology v1.2.0)
 - [docs/process/](docs/process/README.md) — the orchestration
   process specification (v1)
+- [plugin/](plugin/README.md) — the Claude Code plugin implementing
+  it (`/plugin marketplace add majodali/project-orchestrator`)
 - [docs/backlog.md](docs/backlog.md) — what is done and what is next
 - [docs/plans/orchestrator-v1.md](docs/plans/orchestrator-v1.md) — the
   founding plan

@@ -1,0 +1,13 @@
+{
+  "name": "project-orchestrator",
+  "owner": {
+    "name": "majodali"
+  },
+  "plugins": [
+    {
+      "name": "orchestrator",
+      "source": "./plugin",
+      "description": "Role-based orchestration of methodology-managed projects: dispatch loop, role agents, form checker, run journal."
+    }
+  ]
+}

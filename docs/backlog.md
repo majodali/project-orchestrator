@@ -91,22 +91,34 @@
   diffs, auditing the liveness and journal cross-check invariants,
   plan-model the thin-slice-first breakdown guidance.
 
+- [x] **Plugin v1 built and repo enrolled self-hosted** (node
+  P1-N005, `executing` until the demo gate) — the `orchestrator`
+  plugin under [plugin/](../plugin/README.md), installable via the
+  repo's marketplace file: six role agents pinned to the spec's tier
+  models (orchestrator/haiku dispatch loop spawning
+  planner/opus, implementer/sonnet, reviewer/opus, auditor/haiku,
+  semantic-auditor/opus), skills `orchestrate` · `enroll` ·
+  `journal-tail`, `form_check.py` mechanizing the
+  [auditing](process/auditing.md) invariants (first run caught four
+  real backlog-ref gaps — fixed in this commit), `journal_tail.py`,
+  and the SessionStart billing check (R7). Self-hosted enrollment:
+  Classification citations, [Plan register](plan-register.md) seeded
+  P1-N001–N008, [Cost log](cost-log.md), journal begun. **Gate
+  pending: owner observes the demo** (plan chunk 4).
+
 ## Upcoming
 
-- [ ] **Plugin v1** — role agent definitions, process skills,
-  Orchestrator agent; self-hosted trial
-  ([plan chunk 4](plans/orchestrator-v1.md)).
 - [ ] **Propose the `mtool` custom-type checker extension point
-  upstream** — one generic methodology-tools capability: a custom
-  type defined by citation declares a checker with its defining
-  project, discovered and run by `mtool audit form`, findings merged
-  into the standard delivery pipeline. Proposed once the form checker
-  has proven itself in the plugin trial
-  ([auditing](process/auditing.md)); until it lands, the Auditor's
-  side-by-side checker run is the transitional discharge.
-- [ ] **Pilot on a real project** — end-to-end run on one
-  owner-chosen portfolio project; costs and lessons recorded
+  upstream** (node P1-N008) — one generic methodology-tools
+  capability: a custom type defined by citation declares a checker
+  with its defining project, discovered and run by `mtool audit
+  form`, findings merged into the standard delivery pipeline.
+  Proposed once the form checker has proven itself in the plugin
+  trial ([auditing](process/auditing.md)); until it lands, the
+  Auditor's side-by-side checker run is the transitional discharge.
+- [ ] **Pilot on a real project** (node P1-N006) — end-to-end run on
+  one owner-chosen portfolio project; costs and lessons recorded
   ([plan chunk 5](plans/orchestrator-v1.md)).
-- [ ] **Cost reporting v1 and close-out** — aggregation over cost
-  logs, retrospective, v2 themes groomed
-  ([plan chunk 6](plans/orchestrator-v1.md)).
+- [ ] **Cost reporting v1 and close-out** (node P1-N007) —
+  aggregation over cost logs and run journals, retrospective, v2
+  themes groomed ([plan chunk 6](plans/orchestrator-v1.md)).

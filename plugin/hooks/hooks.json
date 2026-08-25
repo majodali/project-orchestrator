@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/billing_check.sh",
+            "statusMessage": "Orchestrator billing check (R7)",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

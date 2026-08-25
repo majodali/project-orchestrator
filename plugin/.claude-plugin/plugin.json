@@ -1,0 +1,10 @@
+{
+  "name": "orchestrator",
+  "description": "The majodali project orchestrator: role agents, dispatch skills, form checker, and run journal for methodology-managed projects. Built artifact of the process spec in docs/process/ (the spec is authoritative).",
+  "version": "0.1.0",
+  "author": {
+    "name": "majodali"
+  },
+  "homepage": "https://github.com/majodali/project-orchestrator",
+  "license": "UNLICENSED"
+}
