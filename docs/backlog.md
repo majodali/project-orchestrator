@@ -161,6 +161,18 @@
 
 ## Upcoming
 
+- [ ] **R6 candidate: widen the plan/specify context packets again** —
+  T002 (P1-N008, plan stage) needed `docs/process/dispatch.md` (owner-
+  decision economics, cross-repo-reach-is-scope, the dependency
+  default) to frame its "Decisions for the gate" correctly, and it is
+  not in either packet row of [dispatch](process/dispatch.md)'s table.
+  Trial-1 finding 4 already widened plan/specify to whole
+  parent-plan/spec documents plus profiles.md and plan-model.md; this
+  is the same recurrence pattern one level further. Orchestrator
+  judgment at T002's acceptance: log rather than decide — a single
+  instance isn't yet the "routinely proves insufficient" bar
+  dispatch.md sets for treating packet gaps as spec defects; revisit
+  if a second Planner task reports the same widening.
 - [ ] **Delegation cost-effectiveness measurement** — when and how
   delegating Orchestrator admin batches (or any role handoff) pays
   for itself: judgment today, measured from Cost log + journal data
