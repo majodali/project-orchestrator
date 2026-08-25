@@ -56,5 +56,6 @@ The profile decides which role serves each stage; the default map —
 plan/specify → Planner · break down → Planner · execute →
 Implementer · verify → Reviewer (self-verification by Implementer at
 C1) · register upkeep and dispatch → Orchestrator · audits → Auditor
-— is stated here and elaborated in [roles.md](roles.md), including
-the model-tier mapping, which lives there in one place.
+· owner communication → Liaison (the session role) — is stated here
+and elaborated in [roles.md](roles.md), including the model-tier
+mapping, which lives there in one place.

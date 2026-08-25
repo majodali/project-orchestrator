@@ -153,7 +153,9 @@ role, tier — including the failed and repeated work the journals
 carry between acceptances); retrospective against the two goals;
 Backlog groomed for v2 themes (risk-triggered gating, parallel
 reviews, C2+ promotion of this repo, portfolio-level orchestration,
-hosted journal views). Plan closed out.
+hosted journal views, a dedicated human-liaison interface outside
+Claude Code, delegation cost-effectiveness testing). Plan closed
+out.
 Gate: owner review; plan → closed.
 
 ## Design rulings and open questions

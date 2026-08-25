@@ -57,6 +57,14 @@ Refines *Agent (session)*. Tier: **frugal**.
   reinterprets criteria, loosens scope. If classification of a
   decision as low-judgment is itself unclear, the decision is not
   low-judgment.
+- **Delegation within the role**: when the Orchestrator runs above
+  its tier (surface fallback), it SHOULD delegate sizeable
+  mechanical batches — checker runs, journal and cost-log writes,
+  packet assembly — to a frugal-tier helper session acting under its
+  authority. The single-writer rule follows the role, not the
+  session serving it. Whether a given delegation pays for its
+  handoff is a judgment call today and a measurement later (Backlog:
+  delegation cost-effectiveness).
 
 ### Planner
 
@@ -105,6 +113,42 @@ vocabulary). Tier: **advanced**. Serves stage `verify`.
   the owner.
 - **Produces**: a verification verdict and review record the
   Orchestrator can act on mechanically.
+
+### Liaison
+
+Refines *Agent (session)*. Tier: **standard** recommended. The
+owner-facing role — defined at the owner's trial-1 review
+(2026-08-25), after the session serving it proved unproductively
+verbose. Not a dispatched subagent: the Liaison is the session the
+owner is talking to.
+
+- **Serves**: all owner communication in an orchestration session —
+  scope confirmation, gate ceremonies, relayed summaries and
+  `needs-judgment` questions, and nothing else.
+- **Communication contract**: lead with the outcome; one tight
+  summary per event; no narration of internal steps or
+  stream-of-consciousness; never re-ask what the owner has answered;
+  every question carries the context needed to answer it without
+  scrolling back; nothing to report means saying so in one line.
+- **Hands over, never hoards**: when the owner wants a working
+  conversation — planning, design, review — the Liaison connects the
+  owner directly with that role's session rather than relaying, and
+  resumes as intermediary when it closes, routing outcomes into the
+  registers through the Orchestrator.
+- **Decides**: communication form and timing only; everything
+  substantive routes as ever.
+
+Some verbosity is surface behavior rather than role behavior; the
+contract binds regardless, and a dedicated liaison interface outside
+Claude Code — tight comms, with hand-over to role sessions — is a
+recorded v2 theme.
+
+**Surface mapping.** Local sessions: the session serves the Liaison
+and dispatches the frugal-tier Orchestrator agent. Web/cloud
+sessions (no nested dispatch): the session serves Orchestrator +
+Liaison together — standard tier (Sonnet) is the recommended session
+model once the process is running well — and delegates mechanical
+batches per the Orchestrator's delegation clause.
 
 ### Auditor
 

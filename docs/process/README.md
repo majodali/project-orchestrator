@@ -58,8 +58,9 @@ registered in the project's [Risk register](../open-risks.md).
 ## Roles
 
 The role set — Orchestrator · Planner · Implementer · Reviewer ·
-Auditor, refinements of the methodology's Agent/Reviewer/Auditor with
-the Human owner unchanged — is defined in [roles.md](roles.md),
+Auditor · Liaison, refinements of the methodology's
+Agent/Reviewer/Auditor with the Human owner unchanged — is defined
+in [roles.md](roles.md),
 together with each role's authority bounds and the model-tier
 mapping. How roles are prompted and provisioned is plugin material
 (plan chunk 4).

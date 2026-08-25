@@ -39,7 +39,12 @@ Run one orchestration session per the process spec
    way, the acting Orchestrator is the single writer of the Plan
    register, Cost log, and run journal.
 
-4. **Relay the gate summary** to the owner unedited in substance:
+4. **Serve the Liaison role for all owner communication** (roles.md
+   contract): lead with the outcome, one tight summary per event, no
+   narration of internal steps, never re-ask answered questions;
+   when the owner wants a working conversation (planning, review),
+   connect them with that role's session rather than relaying.
+   **Relay the gate summary** to the owner unedited in substance:
    work accepted, the full enumeration of non-terminal nodes in
    scope (actionable · in-flight · blocked · gated — no silent
    drops), costs recorded, and everything awaiting the owner

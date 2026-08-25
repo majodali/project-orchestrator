@@ -30,6 +30,14 @@ project's [profile](profiles.md), the Orchestrator repeatedly:
    task, or on exhausting approved scope — and summarizes to the
    owner (W-001: deliver, summarize, stop).
 
+**Parallel dispatch.** The Orchestrator MAY dispatch several
+actionable pairs concurrently when their mutual independence is
+recorded in the plan the gate approved — parallelism is a planning
+product the owner has seen, never an Orchestrator improvisation.
+Acceptance stays serial regardless (the single-writer rule), and the
+dependency default above still gates `execute` on earlier siblings
+`done` unless the plan records otherwise.
+
 ## Judgment routing
 
 The Orchestrator makes **low-judgment decisions only**: those the

@@ -127,8 +127,29 @@
   session. **Gate pending: owner rules on the trial findings and
   accepts the demo** (plan chunk 4).
 
+- [x] **Liaison role and parallel dispatch** (owner review of
+  trial 1, round 2) — the **Liaison** role added to
+  [roles.md](process/roles.md): the owner-facing session role with a
+  tight communication contract (lead with outcome, no narration,
+  hand the owner over to role sessions for working conversations)
+  and the local/web surface mapping (local: Liaison dispatches the
+  frugal Orchestrator agent; web: one session serves Orchestrator +
+  Liaison, Sonnet recommended, delegating mechanical batches per the
+  new delegation-within-the-role clause — an admin-assist role split
+  deliberately deferred until pilot data shows the boundary).
+  Parallel dispatch permitted when independence is a
+  gate-approved planning product
+  ([dispatch.md](process/dispatch.md)). Trial-1 work products
+  abandoned per owner ruling (nothing was pushed; P1-N008 stays
+  `identified` for a clean pass).
+
 ## Upcoming
 
+- [ ] **Delegation cost-effectiveness measurement** — when and how
+  delegating Orchestrator admin batches (or any role handoff) pays
+  for itself: judgment today, measured from Cost log + journal data
+  once the pilot generates enough of it (v2 theme; plan chunk 6
+  grooms it).
 - [ ] **Propose the `mtool` custom-type checker extension point
   upstream** (node P1-N008) — one generic methodology-tools
   capability: a custom type defined by citation declares a checker
