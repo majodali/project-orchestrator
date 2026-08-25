@@ -39,6 +39,20 @@
   chunk 2).
 
 ## Upcoming
+
+- [ ] **Migrate to methodology v1.3.0 on release** — staged upstream
+  amendments (observed on `main`, 2026-08-24) touch this project:
+  bump the Classification pin and Binding block; declare the
+  **Family** field (member of family `methodology`, lead
+  github.com/majodali/methodology — composition ratified by the owner
+  2026-08-24, cached in the upstream Portfolio register's Families
+  section); reword the custom-definition mechanics in
+  [plan-register](process/plan-register.md) and
+  [cost-log](process/cost-log.md) onto the new Article 7
+  definition-by-citation mechanism (managed projects then adopt both
+  types by pure citation to this spec, per family cohesion). Not
+  actionable until the owner tags the release: compliance targets
+  reference releases only, and amendments are never retroactive.
 - [ ] **Role definitions v1** — role set refined from the
   methodology's roles, model-tier mapping, per-role context packets,
   amendment proposals as surfaced
