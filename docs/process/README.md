@@ -41,19 +41,20 @@ Reading order for a session learning the process:
 3. [dispatch.md](dispatch.md) — the orchestration loop: dispatch
    rules, judgment routing, handoff contracts, context packets,
    trigger surfaces, and gates.
-4. [profiles.md](profiles.md) — which of the above applies at each
+4. [roles.md](roles.md) — the role contracts and the model-tier
+   mapping, in one place.
+5. [profiles.md](profiles.md) — which of the above applies at each
    C-tier.
-5. [cost-log.md](cost-log.md) — the Cost log document type: what
+6. [cost-log.md](cost-log.md) — the Cost log document type: what
    every task records.
-6. [auditing.md](auditing.md) — how the orchestration artifacts are
+7. [auditing.md](auditing.md) — how the orchestration artifacts are
    audited: machine form checks, agent semantic checks.
 
 ## Roles
 
-The role set (Orchestrator · Planner · Implementer · Reviewer ·
-Auditor — refinements of the methodology's Agent/Reviewer/Auditor,
-with the Human owner unchanged) is defined by plan chunk 3; this spec
-references roles by name and constrains what each may decide, not yet
-how each is prompted or provisioned. Until chunk 3 lands, role names
-here are forward references to the
-[founding plan's design sketch](../plans/orchestrator-v1.md).
+The role set — Orchestrator · Planner · Implementer · Reviewer ·
+Auditor, refinements of the methodology's Agent/Reviewer/Auditor with
+the Human owner unchanged — is defined in [roles.md](roles.md),
+together with each role's authority bounds and the model-tier
+mapping. How roles are prompted and provisioned is plugin material
+(plan chunk 4).

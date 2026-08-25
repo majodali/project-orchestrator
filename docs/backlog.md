@@ -52,6 +52,20 @@
   Workflow-as-lifecycle SHOULD retained with its audit-dividend
   rationale.
 
+- [x] **Role definitions v1** — [roles.md](process/roles.md): the
+  five roles as contracts (serves / decides / routes / produces),
+  each a refinement of the methodology's role set with the Human
+  owner unchanged; the model-tier mapping in one place (frugal
+  `claude-haiku-4-5` · standard `claude-sonnet-5` · advanced
+  `claude-opus-5`, owner may designate stronger per node); exhaustive
+  decides-lists backing dispatch's `needs-judgment` rule; the
+  Auditor's `mtool` compliance contract; per-project customization
+  bounds (tier raises free, high-judgment tier lowering is a recorded
+  deviation). No methodology amendment proved necessary — refinements
+  stay within the vocabulary's role definitions, and sharing rides
+  the staged v1.3.0 machinery. **Gate pending: owner review** (plan
+  chunk 3).
+
 ## Upcoming
 
 - [ ] **Migrate to methodology v1.3.0 on release** — staged upstream
@@ -67,10 +81,6 @@
   types by pure citation to this spec, per family cohesion). Not
   actionable until the owner tags the release: compliance targets
   reference releases only, and amendments are never retroactive.
-- [ ] **Role definitions v1** — role set refined from the
-  methodology's roles, model-tier mapping, per-role context packets,
-  amendment proposals as surfaced
-  ([plan chunk 3](plans/orchestrator-v1.md)).
 - [ ] **Plugin v1** — role agent definitions, process skills,
   Orchestrator agent; self-hosted trial
   ([plan chunk 4](plans/orchestrator-v1.md)).
