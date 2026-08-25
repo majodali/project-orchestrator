@@ -6,8 +6,10 @@ leaves one entry, from the very first orchestrated task.
 
 **Custom-definition mechanics.** As with the
 [Plan register](plan-register.md): each managed project defines *Cost
-log* in its Classification's Custom definitions section citing this
-document; the instance links the definition.
+log* by citation — its Classification's Custom definitions section
+records a reference to this document, which remains authoritative for
+the type's content; the instance links the definition (methodology
+Article 7's definition-by-citation form, v1.3.0).
 
 ## Location and shape
 
