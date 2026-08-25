@@ -28,7 +28,12 @@ Field rules:
   key between register history, summaries, and this log.
 - **model** — the exact model identifier the session ran on, as
   reported by the harness, not the tier name: tiers change their
-  meaning over time, records must not.
+  meaning over time, records must not. Owner ruling sought at
+  trial 1, now recorded: model identifiers in the Cost log and run
+  journal are operational data this spec requires; session-level
+  rules against model identifiers in repository artifacts are read
+  as governing commit messages, PR text, and code comments — which
+  stay clean — not these data files.
 - **input tok / output tok** — session token usage as the harness
   reports it, rounded to the nearest thousand (`k`). When the surface
   exposes no usage, record `n/a` — never estimate into the log.

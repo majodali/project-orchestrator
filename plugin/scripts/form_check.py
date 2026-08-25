@@ -35,7 +35,9 @@ EVENTS = {"dispatched", "result-received", "accepted", "check-failed",
           "packet-widened", "gate-opened", "gate-crossed"}
 TASK_TERMINAL = {"accepted", "blocked", "stale"}
 
-NODE_RE = re.compile(r"^(\s*)- (P\d+-N\d+) \[([a-z-]+)\] (.*)$")
+NODE_RE = re.compile(
+    r"^(\s*)- (P\d+-N\d+) \[([a-z-]+)\]"
+    r"(?: \[(gated|blocked): ([^\]]+)\])? (.*)$")
 NODEISH_RE = re.compile(r"^\s*- (?:P\d+-N\d+\b|[^\s].*\[[a-z-]+\])")
 TASK_RE = re.compile(r"^T\d{3,}$")
 
@@ -61,7 +63,7 @@ def parse_register(path):
                  f"line {lineno}: node-like line does not parse: "
                  f"{line.strip()!r}")
             continue
-        indent, nid, stage, rest = m.groups()
+        indent, nid, stage, hold, hold_why, rest = m.groups()
         depth = len(indent)
         if nid in nodes:
             find("violation", "register-id", path,
@@ -71,6 +73,7 @@ def parse_register(path):
             stack.pop()
         parent = stack[-1][1] if stack else None
         nodes[nid] = {"id": nid, "stage": stage, "line": lineno,
+                      "hold": hold, "hold_why": hold_why,
                       "name": rest.split(" — ")[0].strip(),
                       "parent": parent, "children": []}
         if parent:
@@ -184,14 +187,24 @@ def cross_checks(nodes, cost_tasks, events, root):
     for t in sorted(set(cost_tasks) - accepted):
         find("violation", "journal-crosscheck", journal_path,
              f"Cost log row {t} has no accepted journal event")
-    # Liveness (in-flight check) for executing/verifying nodes.
+    # Liveness: an executing/verifying node must be in-flight (an
+    # open dispatched task) or hold-marked gated/blocked — the four
+    # arms of auditing.md, with actionable not applying to these
+    # stages. A hold marker on a done node is stale by definition.
     by_task = {}
     for e in events:
         if e.get("task"):
             by_task.setdefault(e["task"], []).append(e["event"])
     for nid, n in nodes.items():
+        if n["stage"] == "done" and n.get("hold"):
+            find("violation", "liveness",
+                 root / "docs" / "plan-register.md",
+                 f"{nid} is [done] but carries a "
+                 f"[{n['hold']}: ...] hold marker")
         if n["stage"] not in {"executing", "verifying"}:
             continue
+        if n.get("hold"):
+            continue  # gated/blocked: declared hold, liveness met
         open_tasks = [
             t for t, kinds in by_task.items()
             if any(e.get("task") == t and e.get("node") == nid
@@ -200,8 +213,8 @@ def cross_checks(nodes, cost_tasks, events, root):
         ]
         if not open_tasks:
             find("violation", "liveness", journal_path,
-                 f"{nid} is [{n['stage']}] but the journal shows no "
-                 f"open dispatched task for it")
+                 f"{nid} is [{n['stage']}] with no hold marker and "
+                 f"no open dispatched task in the journal")
 
 
 def check_definitions(root, has_register, has_costlog, has_journal):

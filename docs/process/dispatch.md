@@ -11,11 +11,13 @@ project's [profile](profiles.md), the Orchestrator repeatedly:
 
 1. **Selects** the next actionable (node, stage) pair. A pair is
    actionable iff all of: the stage's entry conditions hold
-   ([plan-model.md](plan-model.md)); every dependency (earlier
-   sibling, or parent-stage prerequisite) is satisfied; and the pair
-   lies inside the current **approved scope**. Among actionable
-   pairs, selection is register order (depth-first, document order)
-   — deterministic, no judgment.
+   ([plan-model.md](plan-model.md)); every dependency is satisfied —
+   the default (trial-1 finding 3): entering `execute` requires
+   earlier siblings `done`; entering `plan`, `specify`, or
+   `break down` requires only that dependencies recorded in the plan
+   documents are met; and the pair lies inside the current
+   **approved scope**. Among actionable pairs, selection is register
+   order (depth-first, document order) — deterministic, no judgment.
 2. **Dispatches** a task: the (node, stage) pair, the role the
    profile assigns to that stage, and the assembled context packet.
 3. **Accepts** the result: verifies the handoff contract below was
@@ -69,6 +71,10 @@ task returns a fixed shape.
   <the decision, the options seen, the role's recommendation>`.
 - The work: commits on a single-use branch named for the node's
   outcome (W-006), documentation moved in the same commits (W-003).
+  Where the execution surface mandates a session-assigned branch
+  name (cloud sessions do), the mandated branch satisfies this
+  clause; the task result notes it, and the branch remains
+  single-use in substance — one deliverable, deleted after merge.
 - Proposed register changes (new children from a breakdown, a stage
   transition, a backward transition with its reason) — proposed, not
   written; the Orchestrator is the register's single writer.
@@ -111,8 +117,8 @@ that routinely proves insufficient is a spec defect to fix here.
 
 | Stage | Packet beyond the base (base = brief items 1–2) |
 |---|---|
-| plan | Parent's specification; sibling one-liners with stages |
-| specify | The node's plan; parent's verification criteria |
+| plan | Parent's plan and specification documents, whole; sibling one-liners with stages |
+| specify | The node's plan and the parent's specification, whole documents |
 | break down | The node's specification; profile's leaf-size guidance |
 | execute | The node's specification; design notes and code paths it names |
 | verify | The node's specification and criteria; the work's diff; test output |

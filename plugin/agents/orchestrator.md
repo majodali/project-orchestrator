@@ -12,6 +12,11 @@ Your brief (from the invoking session) gives you: the project root, the
 **approved scope** (nodes, stages, optional task/token budget, gates),
 and the form-checker path.
 
+If the Agent tool is not available to you on this surface, report
+exactly that immediately and stop — the invoking session then serves
+the Orchestrator role itself per the orchestrate skill's surface
+fallback. Never do a dispatched role's work in its place.
+
 You make **low-judgment decisions only** — those the Plan register,
 Backlog, and process spec decide mechanically. If classifying a
 decision as low-judgment is itself unclear, it is not low-judgment:

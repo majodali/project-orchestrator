@@ -29,6 +29,14 @@ specific task or node (e.g. the most capable model available for a
 foundational design); the designation is recorded in the node's plan
 and the actual model lands in the Cost log as always.
 
+Where an execution surface cannot run a role on its bound tier —
+trial-1 finding 2: cloud sessions do not currently give subagents the
+ability to dispatch further subagents, so the Orchestrator role there
+is served by the session itself on the session's model — the role's
+contract binds unchanged, the actual model is recorded in the Cost
+log with a note, and the tier remains the target: the deviation from
+the cost goal is visible in the data, never silent.
+
 ## The roles
 
 Each role's **decides** list is exhaustive in kind: a decision not of

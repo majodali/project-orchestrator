@@ -75,10 +75,18 @@ detects or contains them. This register's numbering is project-local.
   `.claude/agents/`, which cloud sessions are documented to load
   unconditionally (`plugin/scripts/sync_fallback.py`, `--check` for
   drift); scripts and dispatch remain usable in plain language per
-  `CLAUDE.md`. *Status*: open — resolves when a web session
-  demonstrates the plugin loading (or the fallback is confirmed as
-  the standing web path and the docs gap reported upstream to
-  Anthropic).
+  `CLAUDE.md`. *Trial-1 result (2026-08-25)*: the fallback works —
+  mirrored agents and scripts ran in a web session end to end. A
+  second surface limitation surfaced there: **cloud sessions do not
+  give subagents the Agent tool**, so the orchestrator agent could
+  not dispatch role agents (it stopped correctly — R4 held).
+  *Further mitigation*: the orchestrate skill's surface fallback —
+  the session itself serves the Orchestrator role, contract
+  unchanged, actual model recorded in the Cost log with a note
+  (roles.md, surface-tier clause). *Status*: open — the frugal-tier
+  Orchestrator is unavailable on web until nested dispatch exists
+  there; revisit at the pilot, and report both docs gaps upstream to
+  Anthropic.
 
 Unexpected interplay is by nature not enumerable in advance: the
 pilot (plan chunk 5) treats every failure it hits as a candidate

@@ -37,6 +37,14 @@ Entry anatomy, in order:
   stable-naming principle applied to entries).
 - **Stage designation** — exactly one, in brackets, from the
   [node lifecycle](plan-model.md).
+- **Hold marker** (optional) — a second bracket after the stage,
+  `[gated: <which gate>]` or `[blocked: <reason>]`, making a
+  non-terminal node's hold state explicit in the register itself so
+  the liveness invariant ([auditing.md](auditing.md)) reads from
+  declared state, not inference. The Orchestrator sets and clears
+  hold markers at the events that cause them (trial-1 finding: a
+  node holding at a human gate had no representation, so the checker
+  could only see it as falsely in-flight).
 - **Name** — outcome-named, boring, greppable (W-006).
 - **Links** — after an em dash, as `label: target` pairs: the node's
   specification or plan document once one exists; other links only

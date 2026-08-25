@@ -29,8 +29,12 @@ and these run on every changed day. The v1 invariant list:
 - **Definitions**: register and log instances link their custom
   definitions (Article 7).
 - **Liveness**: every non-terminal node is exactly one of actionable,
-  in-flight, blocked-with-reason, or gated — orphan states are
-  findings ([Risk R3](../open-risks.md)).
+  in-flight (an open dispatched task in the journal), blocked (a
+  `[blocked: reason]` hold marker), or gated (a `[gated: ...]` hold
+  marker) — orphan states are findings ([Risk R3](../open-risks.md)),
+  and all four arms are checkable from declared state
+  ([plan-register.md](plan-register.md) hold markers; trial-1
+  finding 1 closed the gated arm's representation gap).
 - **Journal cross-check**: every register stage change has its
   [run-journal](observability.md) event, every Cost log row its
   `accepted` event; a journal telling less than the registers is a

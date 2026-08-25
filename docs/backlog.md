@@ -112,7 +112,20 @@
   marketplace source switched to `github`, and the role agents
   mirrored to `.claude/agents/` (documented to load unconditionally
   in cloud) via `sync_fallback.py` with a `--check` drift mode.
-  **Gate pending: owner observes the demo** (plan chunk 4).
+  Trial 1 (web session, 2026-08-25) exercised the fallback end to
+  end and its findings were applied: hold markers
+  (`[gated: ...]`/`[blocked: ...]`) added to the Plan register type
+  and the checker's liveness grew all four arms (finding 1);
+  orchestrate gained the surface fallback for cloud's missing nested
+  dispatch, with the tier deviation visible in the Cost log
+  (finding 2, R9 extended); the dispatch dependency default defined
+  (finding 3); the plan/specify packet rows widened to whole
+  documents (finding 4, an R6 detection working); surface-mandated
+  session branches recognized under W-006; the model-IDs-are-data
+  ruling recorded in the Cost log spec. Trial work on the unpushed
+  session branch was not merged; T001 remains live in the design
+  session. **Gate pending: owner rules on the trial findings and
+  accepts the demo** (plan chunk 4).
 
 ## Upcoming
 

@@ -21,14 +21,23 @@ Run one orchestration session per the process spec
    restate it for confirmation rather than re-asking. No scope, no
    dispatch.
 
-3. **Spawn the orchestrator agent** (frugal tier) with a brief
-   containing: the project root; the approved scope, budget, and
-   gates, verbatim; the form-checker path
+3. **Run the loop on whichever surface allows it.** Preferred: spawn
+   the orchestrator agent (frugal tier) with a brief containing the
+   project root; the approved scope, budget, and gates, verbatim;
+   the form-checker path
    (`${CLAUDE_PLUGIN_ROOT}/scripts/form_check.py`); and the role
    agents available to it (planner, implementer, reviewer, auditor,
-   semantic-auditor). The orchestrator runs the dispatch loop and is
-   the single writer of the Plan register, Cost log, and run
-   journal; do not maintain those yourself in this session.
+   semantic-auditor). **Surface fallback** (cloud sessions do not
+   currently let a subagent dispatch further subagents): if the
+   orchestrator agent reports it cannot dispatch, or the surface is
+   known not to support nested agents, serve the Orchestrator role
+   in THIS session instead — its full contract binds (low-judgment
+   only, single writer, containment rules), you dispatch the role
+   agents directly, and every Cost log row for orchestration work
+   records this session's actual model with a note (the tier stays
+   the target; the deviation stays visible in the data). Either
+   way, the acting Orchestrator is the single writer of the Plan
+   register, Cost log, and run journal.
 
 4. **Relay the gate summary** to the owner unedited in substance:
    work accepted, the full enumeration of non-terminal nodes in

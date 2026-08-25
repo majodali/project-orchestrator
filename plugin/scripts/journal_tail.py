@@ -11,7 +11,8 @@ import re
 import sys
 from pathlib import Path
 
-NODE_RE = re.compile(r"^\s*- (P\d+-N\d+) \[[a-z-]+\] (.*)$")
+NODE_RE = re.compile(
+    r"^\s*- (P\d+-N\d+) \[[a-z-]+\](?: \[[^\]]+\])? (.*)$")
 
 
 def node_names(root):
