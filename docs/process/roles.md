@@ -3,7 +3,7 @@
 Part of the [orchestration process specification](README.md).
 The orchestrator's roles are **refinements of the methodology's role
 set** (Human owner · Agent · Reviewer · Auditor,
-[vocabulary](https://github.com/majodali/methodology/blob/v1.2.0/docs/vocabulary.md#roles));
+[vocabulary](https://github.com/majodali/methodology/blob/v1.3.0/docs/vocabulary.md#roles));
 the Human owner is unchanged and holds everything the methodology
 reserves to humans. No methodology amendment was needed for this
 refinement: each role below stays within its parent's definition, and

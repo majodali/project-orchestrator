@@ -2,12 +2,12 @@
 
 ## Methodology — binding
 
-This project follows majodali/methodology v1.2.0 as declared in
+This project follows majodali/methodology v1.3.0 as declared in
 docs/classification.md. That file strictly defines this project's
 document lifecycles and workflows. Read it before any work; nothing
 in this file or under .claude/ overrides it.
 
-Classification: C1 / S0 / component/library / none-local
+Classification: C1 / S0 / component-library / none-local
 Deviations: none
 
 ## What this project is

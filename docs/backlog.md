@@ -66,6 +66,18 @@
   the staged v1.3.0 machinery. **Gate pending: owner review** (plan
   chunk 3).
 
+- [x] **Migrated to methodology v1.3.0** — released and tagged by the
+  owner 2026-08-25; pin and Binding block bumped (migration notes:
+  none for all four amendments, so the bump is the whole migration).
+  The Classification declares **Family**: methodology (member), lead
+  github.com/majodali/methodology — composition ratified 2026-08-24,
+  reciprocated by the lead's Portfolio Families section. The
+  custom-definition mechanics in
+  [plan-register](process/plan-register.md) and
+  [cost-log](process/cost-log.md) reworded onto Article 7's
+  definition-by-citation mechanism: managed projects adopt both types
+  by pure citation to this spec, which remains authoritative (family
+  cohesion).
 - [x] **Failure detection and observability** — from the owner's
   chunk-3 review questions: the [Risk register](open-risks.md)
   adopted (K-005 pressure) and seeded with eight orchestration
@@ -81,19 +93,6 @@
 
 ## Upcoming
 
-- [ ] **Migrate to methodology v1.3.0 on release** — staged upstream
-  amendments (observed on `main`, 2026-08-24) touch this project:
-  bump the Classification pin and Binding block; declare the
-  **Family** field (member of family `methodology`, lead
-  github.com/majodali/methodology — composition ratified by the owner
-  2026-08-24, cached in the upstream Portfolio register's Families
-  section); reword the custom-definition mechanics in
-  [plan-register](process/plan-register.md) and
-  [cost-log](process/cost-log.md) onto the new Article 7
-  definition-by-citation mechanism (managed projects then adopt both
-  types by pure citation to this spec, per family cohesion). Not
-  actionable until the owner tags the release: compliance targets
-  reference releases only, and amendments are never retroactive.
 - [ ] **Plugin v1** — role agent definitions, process skills,
   Orchestrator agent; self-hosted trial
   ([plan chunk 4](plans/orchestrator-v1.md)).

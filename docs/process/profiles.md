@@ -4,7 +4,7 @@ Part of the [orchestration process specification](README.md).
 Which parts of the process apply to a managed project is decided by
 its declared Classification — above all its C-tier — mirroring how
 methodology rule applicability works
-([Article 4](https://github.com/majodali/methodology/blob/v1.2.0/docs/constitution.md#article-4--applicability-then-precedence)):
+([Article 4](https://github.com/majodali/methodology/blob/v1.3.0/docs/constitution.md#article-4--applicability-then-precedence)):
 mechanically, from the declaration, with bounded per-project
 customization recorded in the project's Classification.
 

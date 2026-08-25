@@ -41,7 +41,7 @@ treated differently:
   measure for overall efficiency. It is authorized at the gate that
   approves the plan containing it, which pre-clears the specific test
   rewrites it entails — the
-  [W-002](https://github.com/majodali/methodology/blob/v1.2.0/docs/rules/working-agreement.md#w-002--existing-tests-are-signals-not-obstacles)
+  [W-002](https://github.com/majodali/methodology/blob/v1.3.0/docs/rules/working-agreement.md#w-002--existing-tests-are-signals-not-obstacles)
   discussion happens there, once, not mid-execution. Preference for
   monotonicity means planned instances are rare and argued for in the
   plan.
@@ -119,7 +119,7 @@ Rules:
 ## Relationship to the Backlog (K-003)
 
 The Backlog remains the single source of truth for project execution
-([K-003](https://github.com/majodali/methodology/blob/v1.2.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth));
+([K-003](https://github.com/majodali/methodology/blob/v1.3.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth));
 the Plan register exists to make the hierarchy explicit, and claims
 no more. Owner ruling, 2026-08-24
 ([founding plan](../plans/orchestrator-v1.md), ruling 1):

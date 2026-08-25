@@ -3,7 +3,7 @@
 The authoritative specification of how orchestrated development runs
 on majodali portfolio projects. The plugin and any orchestration
 tooling are built artifacts implementing this spec
-([methodology Constitution, Article 3](https://github.com/majodali/methodology/blob/v1.2.0/docs/constitution.md#article-3--authority)).
+([methodology Constitution, Article 3](https://github.com/majodali/methodology/blob/v1.3.0/docs/constitution.md#article-3--authority)).
 
 Normative keywords MUST, MUST NOT, SHOULD, SHOULD NOT, and MAY are
 used per BCP 14, following the methodology's convention.
@@ -12,7 +12,7 @@ used per BCP 14, following the methodology's convention.
 never overrides it. Where the two conflict, the methodology is right
 and this spec has a defect: record it, fix it, and where the friction
 is real, propose an amendment upstream
-([Article 8](https://github.com/majodali/methodology/blob/v1.2.0/docs/constitution.md#article-8--amendments-versions-and-migration)).
+([Article 8](https://github.com/majodali/methodology/blob/v1.3.0/docs/constitution.md#article-8--amendments-versions-and-migration)).
 Every orchestrated action on a managed project complies with that
 project's own compliance target.
 

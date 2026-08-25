@@ -4,7 +4,7 @@ Part of the [orchestration process specification](README.md).
 How the Plan register, the Cost log, and their consistency with the
 Backlog are kept honest — following the methodology's form/semantic
 split
-([Article 9](https://github.com/majodali/methodology/blob/v1.2.0/docs/constitution.md#article-9--audits))
+([Article 9](https://github.com/majodali/methodology/blob/v1.3.0/docs/constitution.md#article-9--audits))
 and delivering findings through its audit process. Owner-approved
 direction, 2026-08-24.
 
