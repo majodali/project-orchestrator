@@ -40,5 +40,6 @@ founding plan is docs/plans/orchestrator-v1.md.
 
 - docs/classification.md — the binding declaration
 - docs/process/README.md — the orchestration process spec (v1)
+- docs/open-risks.md — risk register (orchestration failure modes)
 - docs/backlog.md — what is done and what is next
 - docs/plans/orchestrator-v1.md — the founding plan

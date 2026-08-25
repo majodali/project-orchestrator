@@ -131,10 +131,12 @@ Gate: owner reviews roles and any amendment proposals.
 ### Chunk 4 — Plugin v1
 
 The Claude Code plugin implementing the spec: role agent definitions,
-process skills, the Orchestrator agent maintaining the plan register,
-and the form checker mechanizing the deterministic audit invariants
-(`docs/process/auditing.md`). Trialed self-hosted — orchestrating
-this repository's own remaining work.
+process skills, the Orchestrator agent maintaining the plan register
+and writing the run journal, the form checker mechanizing the
+deterministic audit invariants (`docs/process/auditing.md`), the
+journal tail view (`docs/process/observability.md`), and the
+session-start billing check (Risk R7). Trialed self-hosted —
+orchestrating this repository's own remaining work.
 Gate: owner observes a self-hosted orchestration demo.
 
 ### Chunk 5 — Pilot on a real project
@@ -146,10 +148,12 @@ Gate: owner reviews pilot results and the lessons record.
 
 ### Chunk 6 — Cost reporting v1 and close-out
 
-Aggregate reporting over the cost logs (per node, role, tier);
-retrospective against the two goals; Backlog groomed for v2 themes
-(risk-triggered gating, parallel reviews, C2+ promotion of this repo,
-portfolio-level orchestration). Plan closed out.
+Aggregate reporting over the cost logs and run journals (per node,
+role, tier — including the failed and repeated work the journals
+carry between acceptances); retrospective against the two goals;
+Backlog groomed for v2 themes (risk-triggered gating, parallel
+reviews, C2+ promotion of this repo, portfolio-level orchestration,
+hosted journal views). Plan closed out.
 Gate: owner review; plan → closed.
 
 ## Design rulings and open questions

@@ -28,6 +28,13 @@ and these run on every changed day. The v1 invariant list:
   unique and sequential; every accepted stage change has its row.
 - **Definitions**: register and log instances link their custom
   definitions (Article 7).
+- **Liveness**: every non-terminal node is exactly one of actionable,
+  in-flight, blocked-with-reason, or gated — orphan states are
+  findings ([Risk R3](../open-risks.md)).
+- **Journal cross-check**: every register stage change has its
+  [run-journal](observability.md) event, every Cost log row its
+  `accepted` event; a journal telling less than the registers is a
+  finding.
 
 **The checker ships with this project** as a built artifact of plan
 chunk 4: the spec lives here, so the machinery mechanizing it lives

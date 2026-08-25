@@ -49,6 +49,11 @@ Reading order for a session learning the process:
    every task records.
 7. [auditing.md](auditing.md) — how the orchestration artifacts are
    audited: machine form checks, agent semantic checks.
+8. [observability.md](observability.md) — the run journal: the
+   operational feed for troubleshooting and optimization.
+
+Known failure modes of the process and their containment are
+registered in the project's [Risk register](../open-risks.md).
 
 ## Roles
 

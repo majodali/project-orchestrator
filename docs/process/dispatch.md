@@ -77,6 +77,31 @@ task returns a fixed shape.
 - Session usage for the [cost log](cost-log.md): model, and token
   counts as reported by the harness.
 
+## Failure containment
+
+The loop's failure modes are registered in the
+[Risk register](../open-risks.md); these are the containment rules
+they cite:
+
+- **Bounded attempts.** The Orchestrator counts consecutive
+  unsuccessful round-trips per (node, stage) — a verification
+  rejection, a redispatch after a check failure, the same
+  `needs-judgment` question returning. After the **second**
+  consecutive failure the pair becomes `blocked` and escalates to
+  the owner with the history; the loop never retries its way through
+  a disagreement.
+- **No silent drops.** Every gate or stop summary MUST enumerate all
+  non-terminal nodes in scope, each as exactly one of: actionable ·
+  in-flight · blocked (with reason) · gated. A node fitting none of
+  these is an orphan — a check failure, not a footnote.
+- **Stale tasks.** A dispatched task with no result when the
+  orchestration session ends is recorded `stale` in the
+  [run journal](observability.md); redispatch requires a fresh form
+  check first. Nothing is presumed still running across sessions.
+- **Scope budgets.** When granting scope at a gate, the owner MAY
+  attach a budget — a task count or token total; exhaustion is a
+  stop condition like any other, reported in the summary.
+
 ## Context packets
 
 Dispatch prompts MUST enumerate the packet — never "read the docs".

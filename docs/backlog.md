@@ -66,6 +66,19 @@
   the staged v1.3.0 machinery. **Gate pending: owner review** (plan
   chunk 3).
 
+- [x] **Failure detection and observability** — from the owner's
+  chunk-3 review questions: the [Risk register](open-risks.md)
+  adopted (K-005 pressure) and seeded with eight orchestration
+  failure modes (R1–R8), each citing its spec-level containment;
+  [observability.md](process/observability.md) added — the run
+  journal (`orchestration/journal.jsonl`, telemetry never truth,
+  flushed inside existing Orchestrator commits, session IDs as
+  drill-down keys, JSONL as the extraction interface); dispatch
+  gained failure containment (bounded attempts, no silent drops,
+  stale tasks, scope budgets), the Reviewer an authority check on
+  diffs, auditing the liveness and journal cross-check invariants,
+  plan-model the thin-slice-first breakdown guidance.
+
 ## Upcoming
 
 - [ ] **Migrate to methodology v1.3.0 on release** — staged upstream

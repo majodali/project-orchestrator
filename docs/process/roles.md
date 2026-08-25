@@ -88,7 +88,10 @@ vocabulary). Tier: **advanced**. Serves stage `verify`.
 
 - **Decides**: whether the node's verification criteria are met;
   review findings and their severity; mechanical resolution of
-  traceability links at C2+ (Article 9).
+  traceability links at C2+ (Article 9); whether the diff stayed
+  within the executing role's authority — in particular, an existing
+  test condition changed without a planned-non-monotonicity
+  pre-clearance or a recorded W-002 discussion fails verification.
 - **Routes**: acceptance disputes and criteria found inadequate — a
   backward-transition proposal with reasons, or `needs-judgment` to
   the owner.

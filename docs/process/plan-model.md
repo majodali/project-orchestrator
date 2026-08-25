@@ -75,7 +75,10 @@ deeper tiers continue by feature functionality until a feature is
 Planner judgment — and only below that by technical structure
 (component, implementation step). This is guidance for the Planner,
 not law: where a project's nature argues for a different cut, the
-plan records why. No separate feature inventory is kept — the plan
+plan records why. A broad breakdown SHOULD lead with a thin
+end-to-end slice as its first child where feasible, so a structural
+error in the decomposition surfaces before fan-out compounds it
+([Risk R8](../open-risks.md)). No separate feature inventory is kept — the plan
 register's feature-shaped upper tiers carry the structure; if
 verification pressure ever demands an explicit feature→test mapping,
 that is a spec change to argue for then, not ceremony to keep now.
