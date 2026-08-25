@@ -213,6 +213,32 @@
   Proposed once the form checker has proven itself in the plugin
   trial ([auditing](process/auditing.md)); until it lands, the
   Auditor's side-by-side checker run is the transitional discharge.
+  Plan drafted:
+  [p1-n008-mtool-checker-extension-point](plans/p1-n008-mtool-checker-extension-point.md)
+  — leaf; completes at a transportable proposal artifact in this
+  repo, upstream delivery and disposition excluded (five decisions
+  batched for the gate). Specified:
+  [spec](specs/p1-n008-mtool-checker-extension-point.md) — criteria
+  for the artifact (problem framing, capability contract, five design
+  questions with recommendations, dated evidence, bounded conformance
+  sketch, explicit ask), its transportability (no unglossed local
+  vocabulary, absolute links, project voice), the same-commit
+  [auditing](process/auditing.md) pointer, and the scope guards (no
+  cross-repo reach, no local divergence, checks clean). No new owner
+  decision surfaced.
+- [ ] **Deliver the extension-point proposal upstream** — carry the
+  finished P1-N008 artifact to methodology-tools as an issue or PR
+  and record its disposition. Separate from P1-N008 because
+  methodology-tools is outside this project's approved scope
+  (dispatch's cross-repo-reach rule) and because upstream acceptance
+  is not this project's to verify; the default route is the owner
+  hand-carrying it (P1-N008 plan, decision 2).
+- [ ] **Adopt the checker extension point once it lands** — when
+  `mtool` ships the capability: adapt `form_check.py` to the accepted
+  contract, retire the side-by-side transitional arrangement in
+  [auditing](process/auditing.md), and update the Auditor's contract
+  in [roles.md](process/roles.md) to run the checker through `mtool`
+  rather than beside it.
 - [ ] **Pilot on a real project** (node P1-N006) — end-to-end run on
   one owner-chosen portfolio project; costs and lessons recorded
   ([plan chunk 5](plans/orchestrator-v1.md)).
