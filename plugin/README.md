@@ -8,10 +8,35 @@ Article 3).
 
 ## Install
 
+Local terminal sessions:
+
 ```
 /plugin marketplace add majodali/project-orchestrator
 /plugin install orchestrator@project-orchestrator
 ```
+
+Claude Code on the Web / cloud sessions do not support the `/plugin`
+command; there the plugin is enabled by checked-in settings instead —
+`.claude/settings.json` in the project declares the marketplace and
+enables the plugin, and cloud sessions install it at session start:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "project-orchestrator": {
+      "source": {"source": "github", "repo": "majodali/project-orchestrator"}
+    }
+  },
+  "enabledPlugins": {
+    "orchestrator@project-orchestrator": true
+  }
+}
+```
+
+This repo carries that file itself (with a local `directory` source,
+since the marketplace is the repo); managed projects use the `github`
+source shown above. The same file serves local sessions too — no
+`/plugin` commands needed anywhere once it is committed.
 
 ## Components
 

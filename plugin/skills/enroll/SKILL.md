@@ -40,7 +40,29 @@ owner decision — confirm it before writing anything.
 4. **Create the run journal** (`orchestration/journal.jsonl`) with a
    first `gate-crossed` event recording the enrollment decision.
 
-5. **Verify and commit**: run
+5. **Enable the plugin for every session surface**: add to the
+   project's `.claude/settings.json` (create it if absent, merging
+   with any existing content):
+
+   ```json
+   {
+     "extraKnownMarketplaces": {
+       "project-orchestrator": {
+         "source": {"source": "github", "repo": "majodali/project-orchestrator"}
+       }
+     },
+     "enabledPlugins": {
+       "orchestrator@project-orchestrator": true
+     }
+   }
+   ```
+
+   The `/plugin` command is terminal-only; this checked-in file is
+   what makes the plugin load in Claude Code on the Web and cloud
+   sessions (installed at session start), and it serves local
+   sessions equally.
+
+6. **Verify and commit**: run
    `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/form_check.py"` — it must
    pass clean; fix what it flags before committing. One commit,
    documentation together with the change (methodology W-003),

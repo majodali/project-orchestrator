@@ -103,7 +103,10 @@
   real backlog-ref gaps — fixed in this commit), `journal_tail.py`,
   and the SessionStart billing check (R7). Self-hosted enrollment:
   Classification citations, [Plan register](plan-register.md) seeded
-  P1-N001–N008, [Cost log](cost-log.md), journal begun. **Gate
+  P1-N001–N008, [Cost log](cost-log.md), journal begun. Demo-gate
+  finding: `/plugin` is terminal-only, so web/cloud enablement is by
+  checked-in `.claude/settings.json` (marketplace + enabledPlugins;
+  added here, and to the enroll skill for managed projects). **Gate
   pending: owner observes the demo** (plan chunk 4).
 
 ## Upcoming

@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "project-orchestrator": {
+      "source": {
+        "source": "directory",
+        "path": "."
+      }
+    }
+  },
+  "enabledPlugins": {
+    "orchestrator@project-orchestrator": true
+  }
+}
