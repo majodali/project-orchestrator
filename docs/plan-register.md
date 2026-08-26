@@ -12,6 +12,6 @@ honestly; chunks 1–3 completed before this register existed.
   - P1-N003 [done] Process specification v1 (chunk 2)
   - P1-N004 [done] Role definitions v1 (chunk 3)
   - P1-N005 [executing] Plugin v1 with self-hosted trial (chunk 4)
-  - P1-N008 [specified] mtool checker extension-point proposal — spec: specs/p1-n008-mtool-checker-extension-point.md
+  - P1-N008 [verifying] [gated: verifying] mtool checker extension-point proposal — plan: plans/p1-n008-mtool-checker-extension-point.md · spec: specs/p1-n008-mtool-checker-extension-point.md
   - P1-N006 [identified] Pilot on a real project (chunk 5)
   - P1-N007 [identified] Cost reporting v1 and close-out (chunk 6)
