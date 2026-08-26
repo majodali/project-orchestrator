@@ -1,21 +1,22 @@
 #!/usr/bin/env python3
-"""Mirror the plugin's role agents into .claude/agents/.
+"""Mirror the primary role agents into the plugin package.
 
-Cloud sessions are documented to auto-load a repo's .claude/agents/;
-plugin loading there is not (yet) documented. This mirror is the
-guaranteed fallback (Risk R9). plugin/agents/ is the source of truth;
-the mirror is build output.
+`.claude/agents/` is the SOURCE OF TRUTH: across four trials on two
+surfaces it is the path that actually loads, while the plugin has
+never been observed loading (owner ruling, 2026-08-26, closing
+Risk R9). `plugin/agents/` is generated from it, so the plugin stays
+a faithful package of the same role contracts.
 
-Usage: sync_fallback.py [--check] [project-root]
-  --check: exit 1 if the mirror is out of sync (for audits/CI),
+Usage: sync_agents.py [--check] [project-root]
+  --check: exit 1 if the package copy is out of sync (for audits/CI),
            changing nothing.
 """
 import shutil
 import sys
 from pathlib import Path
 
-HEADER = ("<!-- Mirrored from plugin/agents/ by sync_fallback.py -"
-          " do not edit here; edit the plugin copy and re-run. -->\n")
+HEADER = ("<!-- Generated from .claude/agents/ by sync_agents.py -"
+          " do not edit here; edit the primary copy and re-run. -->\n")
 
 
 def main():
@@ -24,10 +25,10 @@ def main():
     if check:
         args.remove("--check")
     root = Path(args[0]) if args else Path.cwd()
-    src = root / "plugin" / "agents"
-    dst = root / ".claude" / "agents"
+    src = root / ".claude" / "agents"
+    dst = root / "plugin" / "agents"
     if not src.is_dir():
-        print("sync_fallback: no plugin/agents/ here.")
+        print("sync_agents: no .claude/agents/ here.")
         return 1
     expected = {}
     for f in sorted(src.glob("*.md")):
@@ -42,13 +43,13 @@ def main():
     current = {f.name: f.read_text()
                for f in dst.glob("*.md")} if dst.is_dir() else {}
     if expected == current:
-        print(f"sync_fallback: in sync ({len(expected)} agents).")
+        print(f"sync_agents: in sync ({len(expected)} agents).")
         return 0
     if check:
         drift = sorted(set(expected) ^ set(current)
                        | {n for n in expected
                           if current.get(n) not in (None, expected[n])})
-        print(f"sync_fallback: OUT OF SYNC: {', '.join(drift)}")
+        print(f"sync_agents: OUT OF SYNC: {', '.join(drift)}")
         return 1
     dst.mkdir(parents=True, exist_ok=True)
     for f in dst.glob("*.md"):
@@ -56,7 +57,7 @@ def main():
             f.unlink()
     for name, text in expected.items():
         (dst / name).write_text(text)
-    print(f"sync_fallback: mirrored {len(expected)} agents to "
+    print(f"sync_agents: mirrored {len(expected)} agents to "
           f"{dst}.")
     return 0
 

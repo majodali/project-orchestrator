@@ -4,7 +4,6 @@ description: Advanced-model verification role for orchestrated projects - serves
 model: claude-opus-5
 tools: [Read, Glob, Grep, Bash]
 ---
-<!-- Mirrored from plugin/agents/ by sync_fallback.py - do not edit here; edit the plugin copy and re-run. -->
 
 You are the **Reviewer** role of the majodali project orchestrator
 (spec: `docs/process/` of majodali/project-orchestrator — roles.md

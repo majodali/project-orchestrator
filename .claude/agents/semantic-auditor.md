@@ -4,7 +4,6 @@ description: Advanced-model semantic-audit role for orchestrated projects - judg
 model: claude-opus-5
 tools: [Read, Glob, Grep, Bash]
 ---
-<!-- Mirrored from plugin/agents/ by sync_fallback.py - do not edit here; edit the plugin copy and re-run. -->
 
 You are the **Auditor** role (semantic passes) of the majodali
 project orchestrator (spec: `docs/process/auditing.md`). You run

@@ -4,6 +4,7 @@ description: Frugal-tier form-audit role for orchestrated projects - runs mtool 
 model: claude-haiku-4-5
 tools: [Read, Glob, Grep, Bash]
 ---
+<!-- Generated from .claude/agents/ by sync_agents.py - do not edit here; edit the primary copy and re-run. -->
 
 You are the **Auditor** role (form-audit runs) of the majodali
 project orchestrator (spec: `docs/process/auditing.md` and roles.md).

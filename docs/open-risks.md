@@ -76,7 +76,7 @@ detects or contains them. This register's numbering is project-local.
   observably run). *Mitigation*: `github`-source marketplace in the
   settings (the most conventional shape); role agents mirrored into
   `.claude/agents/`, which cloud sessions are documented to load
-  unconditionally (`plugin/scripts/sync_fallback.py`, `--check` for
+  unconditionally (`plugin/scripts/sync_agents.py`, `--check` for
   drift); scripts and dispatch remain usable in plain language per
   `CLAUDE.md`. *Trial-1 result (2026-08-25)*: the fallback works —
   mirrored agents and scripts ran in a web session end to end. A
@@ -91,11 +91,14 @@ detects or contains them. This register's numbering is project-local.
   the same `.claude/agents/` + `CLAUDE.md` fallback, which again
   worked end to end. Across four trials on two surfaces the fallback
   is the path that actually runs; the plugin has never been observed
-  loading. *Status*: open — the mirror is de facto primary (decision
-  for the owner: make it so in the spec, or diagnose plugin loading
-  first); the frugal-tier Orchestrator stays unavailable while
-  nested dispatch is missing; report both docs gaps upstream to
-  Anthropic.
+  loading. *Status*: **closed 2026-08-26** by owner ruling — `.claude/agents/`
+  is now primary and the plugin package is generated from it
+  (`plugin/scripts/sync_agents.py`), so the path that demonstrably
+  loads is the one the spec depends on. Residual, tracked in the
+  Backlog rather than here: the frugal-tier Orchestrator stays
+  unavailable on web while nested dispatch is missing (the
+  orchestration service's task-pull loop addresses it), and both
+  documentation gaps are still worth reporting upstream to Anthropic.
 
 - **R10 — The service becomes a second source of truth.** Live state
   in the service drifts from the registers in git, and decisions get

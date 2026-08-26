@@ -124,8 +124,15 @@
   session branches recognized under W-006; the model-IDs-are-data
   ruling recorded in the Cost log spec. Trial work on the unpushed
   session branch was not merged; T001 remains live in the design
-  session. **Gate pending: owner rules on the trial findings and
-  accepts the demo** (plan chunk 4).
+  session. **Demo gate accepted by the owner 2026-08-26** (node
+  P1-N005 `done`): four trials across web and local surfaces
+  exercised the plugin, checker, journal, Ruling register and every
+  containment mechanism end to end, completing P1-N008's full node
+  lifecycle. At the same gate [R9](open-risks.md) was closed by
+  ruling — **`.claude/agents/` is primary** (the path that actually
+  loads on every surface) and the plugin package is now generated
+  from it by `plugin/scripts/sync_agents.py`, renamed and reversed
+  from the former fallback mirror.
 
 - [x] **Liaison role and parallel dispatch** (owner review of
   trial 1, round 2) — the **Liaison** role added to
@@ -269,8 +276,48 @@
   chunk-5 pilot and chunk-6 runtime assumptions marked superseded
   (K-007).
 
+- [x] **Service plan approved and broken down** (node P2-N001) — the
+  owner created
+  [majodali/project-orchestrator-service](https://github.com/majodali/project-orchestrator-service)
+  and adopted all four defaults 2026-08-26: new repo at S1 /
+  serverless-aws with this repo coordinating; the five proposed chunk
+  boundaries; C2 promotion of this repo when chunk 5 begins; the
+  founding plan kept active through its chunk-4 close-out. The
+  [plan](plans/orchestration-service.md) is `active` and broken down
+  into P2-N002–N006; rulings [RU-006 and RU-007](rulings.md) captured
+  from the recurring decisions (the one-off boundary and disposition
+  calls were not recorded, per the register's own rule).
+
 ## Upcoming
 
+- [ ] **Service chunk 1 — skeleton and plan state** (node P2-N002) —
+  repository bootstrap and Classification for
+  project-orchestrator-service, a deployed MCP service exposing
+  plan-state read/update, `.mcp.json` enlistment proven from a web
+  and a local session against this repo, and the degrade-to-git-only
+  fallback exercised (R12)
+  ([plan](plans/orchestration-service.md)).
+- [ ] **Service chunk 2 — owner questions and the plan view** (node
+  P2-N003) — question queue (elicitation for immediate class, queue
+  plus UI for gate batches) and the first UI: plan hierarchy with
+  drill-down, waiting-questions list, live updates.
+- [ ] **Service chunk 3 — topics and coordination** (node P2-N004) —
+  project topics for status and cross-session coordination, including
+  who is blocked on what; channels-push availability on the web
+  surface verified here (R11), with pull as the fallback.
+- [ ] **Service chunk 4 — the task-pull loop** (node P2-N005) — a
+  session asks the service for the next task in its role and confirms
+  progress; the write lease in anger. The standing substitute for
+  server-side spawning.
+- [ ] **Service chunk 5 — migration and pilot** (node P2-N006) — move
+  this repo's orchestration onto the service, then run the deferred
+  portfolio pilot through it; C2 promotion of this repo begins here.
+- [ ] **Declare the multi-repo relationship** — record the
+  coordinating-repo relationship between this repo and
+  project-orchestrator-service in both Classifications once the
+  methodology's multi-repo update lands (the owner's staged model);
+  until then the service repo declares family membership under
+  v1.3.0's Family field alone.
 - [ ] **Latency comparison: local session trial** — run the same
   N008 scope in a local terminal session and compare journal
   wall-clock against trial 3's web run, isolating surface latency

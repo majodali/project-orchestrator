@@ -27,9 +27,10 @@ link checks over this tree.
 
 `docs/` holds the authoritative process specification; the plugin
 under `plugin/` is the built artifact implementing it (installable
-via this repo's marketplace file; role agents mirrored to
-`.claude/agents/` for sessions where plugins don't load — regenerate
-with `python3 plugin/scripts/sync_fallback.py`). This repo is itself
+via this repo's marketplace file). **`.claude/agents/` holds the
+primary role agents** — the path that loads on every surface; the
+plugin's copies are generated from them with
+`python3 plugin/scripts/sync_agents.py`. This repo is itself
 enrolled: docs/plan-register.md, docs/cost-log.md,
 orchestration/journal.jsonl. To orchestrate without the plugin's
 skills, follow docs/process/dispatch.md with owner-approved scope,

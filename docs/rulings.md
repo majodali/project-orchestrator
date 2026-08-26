@@ -32,6 +32,19 @@ spec. First entries land at the pending P1-N008 gate.
   project. Source: P1-N008 gate (decision 5, default adopted),
   2026-08-26. Applied: —
 
+- RU-006 [active] scope/process — When does a new capability get its
+  own repository rather than joining an existing one? Ruling: when it
+  is separately deployable, holds secrets, or would raise the host
+  repo's S-level; the originating repo is then the coordinating repo.
+  Rationale: the orchestration service is deployable and holds
+  tokens; this repo is C1/S0 documentation and tooling. Source:
+  P2-N001 gate (decision 1, default adopted), 2026-08-26. Applied: —
+- RU-007 [active] scope/project — When is this repo promoted to C2?
+  Ruling: when it begins orchestrating C2+ work — chunk 5 of the
+  service plan, not before. Rationale: the owner's standing intent
+  ties promotion to what the project actually governs. Source:
+  P2-N001 gate (decision 3, default adopted), 2026-08-26. Applied: —
+
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events

@@ -1,6 +1,6 @@
 # Orchestration service
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Chunk boundaries below are
@@ -115,8 +115,12 @@ To be elaborated per chunk; recorded here as current intent.
 
 ### Chunk 1 — Service skeleton and plan state
 
-Repository, Classification (S1, serverless-aws, family member with
-`project-orchestrator` as coordinating repo), and a deployed service
+Repository
+([majodali/project-orchestrator-service](https://github.com/majodali/project-orchestrator-service)),
+Classification (S1, serverless-aws, family member with
+`project-orchestrator` as coordinating repo — declared under
+v1.3.0's Family field until the methodology's multi-repo update
+lands), and a deployed service
 exposing plan-state read/update over MCP, with `.mcp.json` enlistment
 proven from both a web and a local session against this repository.
 Gate: the owner sees a session read and update real plan state.
@@ -153,6 +157,12 @@ updated where practice demands.
 Gate: owner reviews pilot results.
 
 ## Decisions for the gate
+
+**All four defaults adopted by the owner, 2026-08-26**; the repository
+[majodali/project-orchestrator-service](https://github.com/majodali/project-orchestrator-service)
+exists and chunk 1 begins there. The two recurring decisions were
+captured as rulings [RU-006 and RU-007](../rulings.md); the
+boundary and disposition calls were one-offs and were not.
 
 1. **Repository shape** — default: a new repository for the service,
    S1 / serverless-aws, with `project-orchestrator` as the designated

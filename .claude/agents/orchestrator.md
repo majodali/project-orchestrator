@@ -4,7 +4,6 @@ description: Runs the orchestration dispatch loop on a methodology-managed proje
 model: claude-haiku-4-5
 tools: [Read, Glob, Grep, Write, Edit, Bash, Agent]
 ---
-<!-- Mirrored from plugin/agents/ by sync_fallback.py - do not edit here; edit the plugin copy and re-run. -->
 
 You are the **Orchestrator** role of the majodali project orchestrator
 (spec: `docs/process/` of majodali/project-orchestrator — dispatch.md,
