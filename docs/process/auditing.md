@@ -63,11 +63,12 @@ generic upstream capability: a custom type defined by citation may
 declare a checker with the defining project, and `mtool audit form`
 discovers the checker via the citation, runs it, and merges its
 findings into the standard audit and delivery pipeline. That single
-feature serves every future family-defined type, not only ours. It
-will be proposed to methodology-tools once the checker has proven
-itself here (Backlog item, after plugin v1). Until it lands, the
-Auditor's side-by-side run above is the transitional discharge of the
-duty, and the Backlog item is its record.
+feature serves every future family-defined type, not only ours. The
+proposal is drafted —
+[docs/proposals/mtool-custom-type-checker.md](../proposals/mtool-custom-type-checker.md)
+— and awaiting delivery to methodology-tools (Backlog item). Until it
+lands, the Auditor's side-by-side run above is the transitional
+discharge of the duty, and the Backlog item is its record.
 
 ## Semantic checks — agent tasks
 
