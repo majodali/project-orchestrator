@@ -295,8 +295,16 @@
   project-orchestrator-service, a deployed MCP service exposing
   plan-state read/update, `.mcp.json` enlistment proven from a web
   and a local session against this repo, and the degrade-to-git-only
-  fallback exercised (R12)
-  ([plan](plans/orchestration-service.md)).
+  fallback exercised (R12). Planned as an interior node
+  ([plan](plans/p2-n002-service-skeleton.md), five proposed children
+  led by a reachability slice; nine decisions with defaults awaiting
+  the owner): git stays the only writer of state — the service
+  validates a transition and returns the exact register edit, the
+  session commits it, the service verifies at the SHA and updates its
+  projection. Deployment is an owner action (no AWS credentials in
+  agent sessions); the rest is buildable and verifiable against a
+  locally run instance
+  ([parent plan](plans/orchestration-service.md)).
 - [ ] **Service chunk 2 — owner questions and the plan view** (node
   P2-N003) — question queue (elicitation for immediate class, queue
   plus UI for gate batches) and the first UI: plan hierarchy with
@@ -312,6 +320,31 @@
 - [ ] **Service chunk 5 — migration and pilot** (node P2-N006) — move
   this repo's orchestration onto the service, then run the deferred
   portfolio pilot through it; C2 promotion of this repo begins here.
+- [ ] **Service enlistment section in the process spec** — the
+  additive v1-spec update the service implies: how a managed
+  repository enlists (`.mcp.json`, per-server timeout, the token
+  environment variable), and the standing rule that a session whose
+  service is unreachable proceeds on the v1 process without retrying
+  or waiting. Chunk 1 documents enlistment in the service repository;
+  folding it into [docs/process/](process/README.md) rides the chunk-5
+  migration unless an earlier chunk needs it
+  ([P2-N002 plan](plans/p2-n002-service-skeleton.md)).
+- [ ] **OAuth authentication for the service** — replace the chunk-1
+  bearer token supplied by environment expansion if that proves
+  awkward on any surface, or when the service is enlisted by
+  repositories beyond the owner's own (P2-N002 plan, decision 5).
+- [ ] **Custom domain for the service endpoint** — the default
+  API endpoint URL is what chunk 1 enlists against; a domain and
+  certificate buy nothing until the endpoint is shared or moved
+  (P2-N002 plan, decision 9).
+- [ ] **Multi-project plan state in the service** — chunk 1 serves
+  this repository's register only; serving several enlisted projects
+  arrives with the chunk-5 migration and pilot (P2-N002 plan,
+  decision 4).
+- [ ] **CI for project-orchestrator-service** — run the service
+  repository's tests and form checks on push; chunk 1 verifies by
+  local command, which is enough for one contributor and not enough
+  for long.
 - [ ] **Declare the multi-repo relationship** — record the
   coordinating-repo relationship between this repo and
   project-orchestrator-service in both Classifications once the
