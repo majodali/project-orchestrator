@@ -205,32 +205,31 @@
   for itself: judgment today, measured from Cost log + journal data
   once the pilot generates enough of it (v2 theme; plan chunk 6
   grooms it).
-- [ ] **Propose the `mtool` custom-type checker extension point
-  upstream** (node P1-N008, `specified`) — planned and specified by
-  trial 3's orchestrated run
+- [x] **`mtool` custom-type checker extension-point proposal drafted**
+  (node P1-N008) — planned and specified by trial 3's orchestrated run
   ([plan](plans/p1-n008-mtool-checker-extension-point.md) ·
   [spec](specs/p1-n008-mtool-checker-extension-point.md), 22
   criteria); gate crossed 2026-08-26 with all defaults adopted and
-  captured as [rulings](rulings.md) RU-001–RU-005: execute approved
-  (conformance sketch only, node completes at the artifact, owner
-  hand-carries the proposal to methodology-tools, owner gate at
-  `verifying`). Execute awaits its dispatch — candidate vehicle for
-  the local-session latency trial below. The methodology-tools 403
-  noted at planning gates its reconnaissance step; the spec requires
-  assumptions marked as such if unresolved.
-  Plan drafted:
-  [p1-n008-mtool-checker-extension-point](plans/p1-n008-mtool-checker-extension-point.md)
-  — leaf; completes at a transportable proposal artifact in this
-  repo, upstream delivery and disposition excluded (five decisions
-  batched for the gate). Specified:
-  [spec](specs/p1-n008-mtool-checker-extension-point.md) — criteria
-  for the artifact (problem framing, capability contract, five design
-  questions with recommendations, dated evidence, bounded conformance
-  sketch, explicit ask), its transportability (no unglossed local
-  vocabulary, absolute links, project voice), the same-commit
-  [auditing](process/auditing.md) pointer, and the scope guards (no
-  cross-repo reach, no local divergence, checks clean). No new owner
-  decision surfaced.
+  captured as [rulings](rulings.md) RU-001–RU-005 (conformance sketch
+  only, node completes at the artifact, owner hand-carries the
+  proposal to methodology-tools, owner gate at `verifying`). Executed:
+  [docs/proposals/mtool-custom-type-checker.md](proposals/mtool-custom-type-checker.md)
+  — a transportable, standalone proposal to methodology-tools arguing
+  one generic capability (a defining project declares a checker
+  alongside an Article-7 custom type; `mtool audit form` resolves the
+  citation to it, runs it, and folds its findings into the standard
+  audit); five design questions (discovery, execution and trust,
+  finding schema, versioning, unavailability) each with a
+  recommendation and trade-off; this project's own form checker
+  offered as dated, honestly-statused evidence (self-hosted only,
+  chunk-4 demo gate still pending as of writing); an illustrative,
+  non-runnable conformance sketch; and an explicit ask covering
+  acceptance, amendment, and rejection. `docs/process/auditing.md`'s
+  "intended end-state" section repointed to the drafted proposal in
+  the same commit, its stale forward-looking sentence removed. Stays
+  `draft`: nothing delivered, no code in `plugin/` touched, no local
+  checker/invariant/role-contract changed, no cross-repo reach taken.
+  Owner review of the artifact is the pending `verifying` gate.
 - [ ] **Deliver the extension-point proposal upstream** — carry the
   finished P1-N008 artifact to methodology-tools as an issue or PR
   and record its disposition. Separate from P1-N008 because

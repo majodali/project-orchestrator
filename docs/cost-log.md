@@ -10,3 +10,4 @@ written by the Orchestrator at acceptance. Work before enrollment
 |---|---|---|---|---|---|---|---|---|
 | 2026-08-25 | T002 | P1-N008 | plan | planner | claude-opus-5[1m] | n/a | n/a | harness reported ~44k tokens total, no input/output split; packet widened (dispatch.md; backlog.md whole; form_check.py partial) |
 | 2026-08-25 | T003 | P1-N008 | specify | planner | claude-opus-5[1m] | n/a | n/a | harness reported ~36k tokens total, no input/output split; packet widened (auditing.md excerpt; backlog.md; plan-register.md excerpt) |
+| 2026-08-26 | T004 | P1-N008 | execute | implementer | claude-sonnet-5 | n/a | n/a | harness reported ~68k tokens total (26 tool calls, ~110 min wall-clock), no input/output split; packet widened (git log/remote/branch metadata commands, not file reads; one grepped line of plan-register.md's existing Article-7 citation) |
