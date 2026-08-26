@@ -55,6 +55,20 @@ Event kinds (v1, extendable by spec change): `dispatched` ·
   register stage change has its journal event; every Cost log row
   has its `accepted` event. The journal may contain more than the
   registers show (rejections, check failures, loops) — never less.
+- **Session end.** A task still open when an orchestration session
+  ends MUST be journaled `stale` unless the same session continues
+  it; reopening emits a fresh `dispatched`. A task left open across
+  sessions is unreadable to everyone but the session that dispatched
+  it (trial-1 finding: an open task was read as alive by one session
+  and dead by another).
+- **Wall-clock is attended time.** Timestamps measure elapsed time,
+  which on an attended surface includes waiting for the owner to
+  answer permission prompts. Events SHOULD note the surface and
+  permission mode when a task runs attended, so latency analysis can
+  separate agent time from human time (trial-4 finding: an execute
+  task showed 1h51m elapsed for ~68k tokens — approval waiting, not
+  model latency). Dispatched role sessions SHOULD run in a
+  permission mode that does not gate ordinary in-scope tool calls.
 - **Following**: the feed is the journal tail; the plugin ships a
   view that renders recent events with their register context (plan
   chunk 4). **Drilling in**: `session` identifiers resolve to

@@ -86,9 +86,15 @@ detects or contains them. This register's numbering is project-local.
   *Further mitigation*: the orchestrate skill's surface fallback —
   the session itself serves the Orchestrator role, contract
   unchanged, actual model recorded in the Cost log with a note
-  (roles.md, surface-tier clause). *Status*: open — the frugal-tier
-  Orchestrator is unavailable on web until nested dispatch exists
-  there; revisit at the pilot, and report both docs gaps upstream to
+  (roles.md, surface-tier clause). *Trial-4 result (2026-08-26, local
+  terminal)*: the plugin did **not** load there either — the run used
+  the same `.claude/agents/` + `CLAUDE.md` fallback, which again
+  worked end to end. Across four trials on two surfaces the fallback
+  is the path that actually runs; the plugin has never been observed
+  loading. *Status*: open — the mirror is de facto primary (decision
+  for the owner: make it so in the spec, or diagnose plugin loading
+  first); the frugal-tier Orchestrator stays unavailable while
+  nested dispatch is missing; report both docs gaps upstream to
   Anthropic.
 
 Unexpected interplay is by nature not enumerable in advance: the

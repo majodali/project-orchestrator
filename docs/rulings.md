@@ -10,7 +10,7 @@ spec. First entries land at the pending P1-N008 gate.
 - RU-001 [active] completion/node — Execute a proposal draft before
   its evidencing node closes? Ruling: yes. Rationale: the evidence
   already exists; holding just delays ratified wording. Source:
-  P1-N008 gate (decision 1, default adopted), 2026-08-26. Applied: —
+  P1-N008 gate (decision 1, default adopted), 2026-08-26. Applied: T004.
 - RU-002 [active] handoff/process — How does upstream-bound output
   reach a repo outside granted scope? Ruling: the owner hand-carries
   it; cross-repo scope is granted only explicitly. Rationale: no
@@ -20,17 +20,22 @@ spec. First entries land at the pending P1-N008 gate.
   external party complete at the artifact or at upstream
   disposition? Ruling: at the artifact. Rationale: external
   acceptance is not ours to verify. Source: P1-N008 gate
-  (decision 3, default adopted), 2026-08-26. Applied: —
+  (decision 3, default adopted), 2026-08-26. Applied: T004.
 - RU-004 [active] completion/node — Full reference implementation or
   conformance sketch for the extension-point proposal? Ruling:
   sketch only. Rationale: the contract is still under discussion.
   Source: P1-N008 gate (decision 4, default adopted), 2026-08-26.
-  Applied: —
+  Applied: T004.
 - RU-005 [active] verification/project — Are proposal-class nodes
   owner-gated, and where? Ruling: yes, gate at `verifying`.
   Rationale: the owner sees the artifact before it represents the
   project. Source: P1-N008 gate (decision 5, default adopted),
   2026-08-26. Applied: —
+
+Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
+the register's first live exercise, and the reason `form_check.py`
+now cross-checks Applied lists against `precedent-applied` events
+(the lists were not maintained on the first run).
 
 Promotion flags: RU-002 and RU-003 are process-scope — flagged for
 the next design pass on this spec (rulings.md promotion rule).

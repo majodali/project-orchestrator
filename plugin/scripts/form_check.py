@@ -218,6 +218,47 @@ def cross_checks(nodes, cost_tasks, events, root):
                  f"no open dispatched task in the journal")
 
 
+def check_rulings(events, root):
+    """Every precedent-applied event names an active ruling, and that
+    ruling's Applied list records the task (rulings.md lifecycle)."""
+    path = root / "docs" / "rulings.md"
+    applied = [e for e in events if e["event"] == "precedent-applied"]
+    if not applied:
+        return
+    if not path.exists():
+        find("violation", "rulings", path,
+             "journal has precedent-applied events but there is no "
+             "Ruling register")
+        return
+    # Entries wrap across lines: accumulate each into one block.
+    rulings, cur = {}, None
+    for line in path.read_text().splitlines():
+        m = re.match(r"^- (RU-\d+) \[([^\]]+)\]", line.strip())
+        if m:
+            cur = m.group(1)
+            rulings[cur] = {"status": m.group(2), "line": line}
+        elif cur and line.startswith("  "):
+            rulings[cur]["line"] += " " + line.strip()
+        elif not line.strip():
+            cur = None
+    for e in applied:
+        rid = e.get("ref")
+        if rid not in rulings:
+            find("violation", "rulings", path,
+                 f"precedent-applied names {rid!r}, which the Ruling "
+                 f"register does not define")
+            continue
+        if rulings[rid]["status"] != "active":
+            find("violation", "rulings", path,
+                 f"{rid} was applied (task {e.get('task')}) but its "
+                 f"status is {rulings[rid]['status']!r}")
+        task = e.get("task")
+        if task and task not in rulings[rid]["line"]:
+            find("violation", "rulings", path,
+                 f"{rid} was applied to {task} but its Applied list "
+                 f"does not record it")
+
+
 def check_definitions(root, has_register, has_costlog, has_journal):
     cls = root / "docs" / "classification.md"
     if not cls.exists():
@@ -254,6 +295,7 @@ def main():
     cost_tasks = parse_cost_log(root / "docs" / "cost-log.md")
     events = parse_journal(root / "orchestration" / "journal.jsonl")
     cross_checks(nodes, cost_tasks, events, root)
+    check_rulings(events, root)
     check_definitions(root, True,
                       (root / "docs" / "cost-log.md").exists(),
                       (root / "orchestration" / "journal.jsonl").exists())

@@ -220,6 +220,28 @@
   capability contract, design-question quality, evidence honesty,
   transportability).
 
+- [x] **Trial 4 (local session) and its analysis** — P1-N008 run
+  through `execute` → `verifying` → `done` in a local terminal
+  session: the first complete node lifecycle, and the
+  [proposal](proposals/mtool-custom-type-checker.md) drafted (299
+  lines). Journal analysis: the **Ruling register's first live
+  exercise** — RU-001/003/004 decided the execute dispatch silently
+  (three `precedent-applied` events, a near-empty gate); their
+  Applied lists were not maintained, so `form_check.py` now
+  cross-checks `precedent-applied` events against the register
+  (undefined ruling, superseded ruling, unrecorded application),
+  which caught all three gaps on its first run. **Latency finding**:
+  T004 showed 1h51m elapsed for ~68k tokens and 26 tool calls
+  against 3–3.5 min for the web Planner tasks — attended-surface
+  permission-prompt waiting, not model latency; observability and
+  cost-log specs now say wall-clock is attended time and dispatched
+  role sessions SHOULD run in a mode that does not gate in-scope
+  tool calls. Also applied: session-end `stale` rule for open tasks;
+  execute packet row widened to repository metadata (fourth R6
+  firing); R9 updated — the plugin did not load locally either, so
+  the `.claude/agents/` mirror is the path that has actually run in
+  all four trials.
+
 ## Upcoming
 
 - [ ] **Latency comparison: local session trial** — run the same

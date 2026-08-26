@@ -37,6 +37,11 @@ Field rules:
 - **input tok / output tok** — session token usage as the harness
   reports it, rounded to the nearest thousand (`k`). When the surface
   exposes no usage, record `n/a` — never estimate into the log.
+- **wall-clock** (in notes, from the journal) — elapsed
+  dispatch→result. On an attended surface this includes time waiting
+  for the owner's permission answers; note the surface and mode so
+  the figure is interpretable, and never read attended elapsed time
+  as model latency.
 - **notes** — deviations only: a retry, a `needs-judgment` bounce, a
   packet that had to be widened. Empty is the healthy state.
 
