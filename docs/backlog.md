@@ -311,6 +311,29 @@
   agent sessions); the rest is buildable and verifiable against a
   locally run instance
   ([parent plan](plans/orchestration-service.md)).
+- [ ] **Chunk-1 child: service repository bootstrap** (node P2-N007)
+  — methodology scaffolding and project skeleton for
+  project-orchestrator-service, with a secret-hygiene baseline
+  ([plan](plans/p2-n002-service-skeleton.md) ·
+  [spec](specs/p2-n002-service-skeleton.md)).
+- [ ] **Chunk-1 child: reachability slice** (node P2-N008) — a
+  deployed MCP server a session can actually call: one identity tool,
+  the IaC, the auth path, the runbook, the `.mcp.json`. The thin
+  end-to-end slice that surfaces R11 at the chunk's start, and the
+  child carrying the owner-action dependency; measures cold and warm
+  latency and sets the enlistment timeout from it.
+- [ ] **Chunk-1 child: plan-state read** (node P2-N009) —
+  `plan_read` over the real Plan register, SHA-stamped, taking an
+  explicit `ref` and citing plan-model.md rather than re-declaring
+  the lifecycle.
+- [ ] **Chunk-1 child: plan-state update with the advisory lease**
+  (node P2-N010) — the three-step git-authoritative write model
+  (lease → update returning the exact edit → confirm with the SHA);
+  the gate demonstrator, with the by-hand-vs-by-service equivalence
+  check.
+- [ ] **Chunk-1 child: degrade to git-only, and enlistment
+  documentation** (node P2-N011) — the R12 exercise (dead endpoint
+  *and* unset credential) plus the enlistment runbook.
 - [ ] **Service chunk 2 — owner questions and the plan view** (node
   P2-N003) — question queue (elicitation for immediate class, queue
   plus UI for gate batches) and the first UI: plan hierarchy with
