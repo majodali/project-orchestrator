@@ -173,8 +173,8 @@ that routinely proves insufficient is a spec defect to fix here.
 
 | Stage | Packet beyond the base (base = brief items 1–2, plus the project's Backlog, whole) |
 |---|---|
-| plan | Parent's plan and specification documents, whole; sibling one-liners with stages; the process spec's profiles.md and dispatch.md's owner-decision-economics section |
-| specify | The node's plan and the parent's specification, whole documents; the process spec's profiles.md and plan-model.md |
+| plan | Parent's plan and specification documents, whole; sibling one-liners with stages; the process spec's profiles.md and dispatch.md's owner-decision-economics section; the Ruling register |
+| specify | The node's plan and the parent's specification, whole documents; the process spec's profiles.md and plan-model.md; the Ruling register |
 | break down | The node's specification; profile's leaf-size guidance |
 | execute | The node's specification; design notes and code paths it names; repository metadata (git log/branch/remote) where the work cites real history |
 | verify | The node's specification and criteria; the work's diff; test output |
