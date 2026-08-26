@@ -189,30 +189,16 @@
   [docs/rulings.md](rulings.md) created, first entries due at the
   pending P1-N008 gate.
 
-## Upcoming
-
-- [ ] **Latency comparison: local session trial** — run the same
-  N008 scope in a local terminal session and compare journal
-  wall-clock against trial 3's web run, isolating surface latency
-  from process overhead (owner-raised, 2026-08-25).
-- [ ] **External-harness orchestration experiment** — one node run
-  through a harness outside Claude Code (Claude Agent SDK under
-  subscription auth, per standing constraint 2) to compare latency
-  and cost against Claude Code surfaces; informs the phase-2
-  runtime decision (owner-raised, 2026-08-25).
-- [ ] **Delegation cost-effectiveness measurement** — when and how
-  delegating Orchestrator admin batches (or any role handoff) pays
-  for itself: judgment today, measured from Cost log + journal data
-  once the pilot generates enough of it (v2 theme; plan chunk 6
-  grooms it).
-- [x] **`mtool` custom-type checker extension-point proposal drafted**
-  (node P1-N008) — planned and specified by trial 3's orchestrated run
+- [x] **`mtool` custom-type checker extension-point proposal drafted
+  and approved** (node P1-N008, `done`) — planned and specified by
+  trial 3's orchestrated run
   ([plan](plans/p1-n008-mtool-checker-extension-point.md) ·
   [spec](specs/p1-n008-mtool-checker-extension-point.md), 22
-  criteria); gate crossed 2026-08-26 with all defaults adopted and
-  captured as [rulings](rulings.md) RU-001–RU-005 (conformance sketch
-  only, node completes at the artifact, owner hand-carries the
-  proposal to methodology-tools, owner gate at `verifying`). Executed:
+  criteria); specify-stage gate crossed 2026-08-26 with all five
+  decisions adopted and captured as [rulings](rulings.md)
+  RU-001–RU-005 (conformance sketch only, node completes at the
+  artifact, owner hand-carries the proposal to methodology-tools,
+  owner gate at `verifying`). Executed:
   [docs/proposals/mtool-custom-type-checker.md](proposals/mtool-custom-type-checker.md)
   — a transportable, standalone proposal to methodology-tools arguing
   one generic capability (a defining project declares a checker
@@ -229,7 +215,27 @@
   the same commit, its stale forward-looking sentence removed. Stays
   `draft`: nothing delivered, no code in `plugin/` touched, no local
   checker/invariant/role-contract changed, no cross-repo reach taken.
-  Owner review of the artifact is the pending `verifying` gate.
+  The `verifying` gate crossed 2026-08-26 on the owner's review of the
+  artifact against the judgment-shaped criteria (problem framing,
+  capability contract, design-question quality, evidence honesty,
+  transportability).
+
+## Upcoming
+
+- [ ] **Latency comparison: local session trial** — run the same
+  N008 scope in a local terminal session and compare journal
+  wall-clock against trial 3's web run, isolating surface latency
+  from process overhead (owner-raised, 2026-08-25).
+- [ ] **External-harness orchestration experiment** — one node run
+  through a harness outside Claude Code (Claude Agent SDK under
+  subscription auth, per standing constraint 2) to compare latency
+  and cost against Claude Code surfaces; informs the phase-2
+  runtime decision (owner-raised, 2026-08-25).
+- [ ] **Delegation cost-effectiveness measurement** — when and how
+  delegating Orchestrator admin batches (or any role handoff) pays
+  for itself: judgment today, measured from Cost log + journal data
+  once the pilot generates enough of it (v2 theme; plan chunk 6
+  grooms it).
 - [ ] **Deliver the extension-point proposal upstream** — carry the
   finished P1-N008 artifact to methodology-tools as an issue or PR
   and record its disposition. Separate from P1-N008 because

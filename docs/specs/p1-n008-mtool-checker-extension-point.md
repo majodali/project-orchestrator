@@ -1,6 +1,6 @@
 # `mtool` custom-type checker extension point — proposal specification
 
-Status: draft
+Status: closed → Backlog entry
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
