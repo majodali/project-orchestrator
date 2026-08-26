@@ -97,6 +97,32 @@ detects or contains them. This register's numbering is project-local.
   nested dispatch is missing; report both docs gaps upstream to
   Anthropic.
 
+- **R10 — The service becomes a second source of truth.** Live state
+  in the service drifts from the registers in git, and decisions get
+  made against the projection. *Mitigation*: git is authoritative by
+  constraint ([orchestration-service](plans/orchestration-service.md),
+  constraint 1); the service reconciles from git on read and commits
+  answers back; `form_check.py` keeps checking git and nothing else,
+  so a divergence is a finding rather than a silent truth. *Status*:
+  open; binds the service's design from chunk 1.
+- **R11 — MCP surface constraints.** The transport imposes limits that
+  a naive design would trip: a 5-second default tool-call timeout
+  (configurable per server), auto-backgrounding of calls past two
+  minutes, elicitation dialogs that block rather than background, no
+  sampling, cloud egress that needs the service's domain allowlisted
+  or connector routing, and channels-based push whose availability on
+  the web surface is **unverified**. *Mitigation*: configure timeouts
+  explicitly; use elicitation only for immediate-class questions and
+  the queue for everything else; verify channels before any design
+  depends on push, with topics degrading to pull otherwise. *Status*:
+  open; verification due in chunk 3.
+- **R12 — Service outage stops work.** A coordination plane that
+  becomes a dependency turns its own downtime into a work stoppage.
+  *Mitigation*: degrade-to-git-only is a standing constraint
+  (constraint 3) — sessions fall back to the v1 process, which is
+  fully functional without the service; the fallback is exercised, not
+  assumed. *Status*: open; fallback exercise due in chunk 1.
+
 Unexpected interplay is by nature not enumerable in advance: the
 pilot (plan chunk 5) treats every failure it hits as a candidate
 entry here, and the semantic-audit questions in

@@ -141,12 +141,23 @@ Gate: owner observes a self-hosted orchestration demo.
 
 ### Chunk 5 — Pilot on a real project
 
+**Superseded 2026-08-26** by
+[orchestration-service](orchestration-service.md) chunk 5, because the
+pilot now runs through the service rather than bare Claude Code
+surfaces. Retained here until this plan closes out.
+
 Run the orchestrator end to end on one portfolio project chosen by the
 owner (an implicit-C0 or C1 project first). Record costs and lessons;
 propose upstream amendments arising from practice.
 Gate: owner reviews pilot results and the lessons record.
 
 ### Chunk 6 — Cost reporting v1 and close-out
+
+**Runtime assumptions superseded 2026-08-26** by
+[orchestration-service](orchestration-service.md): reporting will read
+service-held state alongside the cost logs and journals, and the v2
+themes below are carried into that plan. The reporting and
+retrospective outcomes stand.
 
 Aggregate reporting over the cost logs and run journals (per node,
 role, tier — including the failed and repeated work the journals

@@ -242,6 +242,33 @@
   the `.claude/agents/` mirror is the path that has actually run in
   all four trials.
 
+- [x] **Orchestration-service plan drafted** (node P2-N001) — four
+  trials established that the v1 process works and that two things do
+  not, structurally: agent-to-owner communication (noise bounded by
+  the surface's interactive style) and coordination (sessions cannot
+  see each other, so no live plan view and no way to know a sibling is
+  blocked on the owner). Two alternatives were weighed and rejected at
+  the owner's review 2026-08-26 — keep tuning the spec (the ceiling is
+  the surface), and a standalone Agent-SDK engine (re-hosts
+  everything, and the SDK documents API-key auth while subscription
+  OAuth is restricted to Claude Code and Claude.ai, so its inference
+  would bill API credits against standing constraint 2). The chosen
+  shape inverts control: an **orchestration service** that Claude Code
+  sessions in any environment call over MCP, enlisted by a checked-in
+  `.mcp.json`, holding live plan state, project topics, and the
+  owner-question queue, and publishing a plan view — with all
+  inference staying inside subscription-billed sessions
+  ([plan](plans/orchestration-service.md), status `draft`; five
+  proposed chunks; four decisions with defaults awaiting the owner).
+  Standing constraints: git remains authoritative and the service is a
+  projection; the service holds the write lease; work degrades to
+  git-only when the service is down; no server-side spawning (owner
+  ruling — multiple live role sessions plus a **task-pull loop**
+  instead, since more concurrent agents cost more attention than they
+  save). Risks [R10–R12](open-risks.md) opened; the founding plan's
+  chunk-5 pilot and chunk-6 runtime assumptions marked superseded
+  (K-007).
+
 ## Upcoming
 
 - [ ] **Latency comparison: local session trial** — run the same
