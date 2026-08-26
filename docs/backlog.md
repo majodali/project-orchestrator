@@ -297,8 +297,14 @@
   and a local session against this repo, and the degrade-to-git-only
   fallback exercised (R12). Planned as an interior node
   ([plan](plans/p2-n002-service-skeleton.md), five proposed children
-  led by a reachability slice; nine decisions with defaults awaiting
-  the owner): git stays the only writer of state — the service
+  led by a reachability slice) and specified
+  ([spec](specs/p2-n002-service-skeleton.md): the breakdown stands,
+  with integration criteria built around one gate demonstration — a
+  session enlisted only by the checked-in `.mcp.json` reads the real
+  register and moves a real node, and the change lands as an ordinary
+  commit readable with the service switched off; twelve decisions with
+  defaults now awaiting the owner): git stays the only writer of
+  state — the service
   validates a transition and returns the exact register edit, the
   session commits it, the service verifies at the SHA and updates its
   projection. Deployment is an owner action (no AWS credentials in
@@ -341,6 +347,21 @@
   this repository's register only; serving several enlisted projects
   arrives with the chunk-5 migration and pilot (P2-N002 plan,
   decision 4).
+- [ ] **Role-aware identity on the service's write path** — chunk 1
+  authenticates a client, not a role: one shared bearer token cannot
+  tell an Orchestrator from an Implementer, so the single-writer rule
+  stays a process rule the session honors (P2-N002 spec, decision 12).
+  Real role identity arrives with chunk 4's task-pull loop, which has
+  to know who is asking anyway.
+- [ ] **Secret scanning over both repositories' histories** — chunk 1
+  checks "no secret in history" by hand at its gate (P2-N002 spec,
+  I7); the durable form is a push-time scan (GitHub secret scanning or
+  an equivalent hook) on this repo and the service repo.
+- [ ] **Revisit the service's tool latency budget as plan state grows**
+  — chunk 1 sets the enlistment timeout from cold and warm
+  measurements against today's single register (P2-N002 spec, G7); a
+  larger register or multi-project state can push a tool past it.
+  Re-measure at the chunk-5 migration.
 - [ ] **CI for project-orchestrator-service** — run the service
   repository's tests and form checks on push; chunk 1 verifies by
   local command, which is enough for one contributor and not enough

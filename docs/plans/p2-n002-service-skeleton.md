@@ -273,6 +273,12 @@ dispatch is available at the gate's discretion
 
 ## Verification criteria for this node
 
+Refined into checkable form by the
+[specification](../specs/p2-n002-service-skeleton.md), which is
+authoritative for verification; the list below is the plan-stage
+statement it grew from. The specification also carries decisions
+10–12, continuing this document's numbering.
+
 The chunk is complete when:
 
 1. `project-orchestrator-service` is an enrolled methodology project:
