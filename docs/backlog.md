@@ -330,16 +330,28 @@
   repo, which has no `main` — they dangle until repaired
   ([plan](plans/p2-n002-service-skeleton.md) ·
   [spec](specs/p2-n002-service-skeleton.md)).
-- [ ] **Chunk-1 child: reachability slice** (node P2-N008) — carries
-  two repairs from P2-N007: the dangling `blob/main/` cross-repo links
-  in the service repo's Classification and README (this repo has no
-  `main`; its default branch is the design branch), and the deferred
-  `mtool` audit once a session with `mtool` runs. Then: a deployed MCP
-  server a session can actually call: one identity tool,
-  the IaC, the auth path, the runbook, the `.mcp.json`. The thin
-  end-to-end slice that surfaces R11 at the chunk's start, and the
-  child carrying the owner-action dependency; measures cold and warm
-  latency and sets the enlistment timeout from it.
+- [~] **Chunk-1 child: reachability slice** (node P2-N008,
+  `verifying`, blocked on owner actions) — delivered in the service
+  repo on branch `p2-n008-reachability-slice` (`fa3e979`): an MCP
+  server over streamable HTTP (`@modelcontextprotocol/sdk` + Hono)
+  exposing one `service_identity` tool, bearer-token auth that fails
+  **closed** when unconfigured, one Hono app wrapped by both a local
+  server and a Lambda handler so the two cannot drift, a SAM template
+  (Lambda + HTTP API, auth token by Secrets Manager dynamic reference,
+  never a literal), `scripts/deploy.sh`, `docs/runbook.md` written
+  before any owner action is requested, and a documented `.mcp.json`
+  template with an explicit 30s timeout (the MCP default of 5s is too
+  low) — not committed to this repo, since enlisting it is the
+  owner's call. 15 tests pass; build and lint clean; `sam validate
+  --lint` and `sam build` succeed. Independently re-verified at
+  acceptance over real HTTP: 401 unauthenticated, 401 on a wrong
+  token, and a real MCP `initialize` handshake with a valid one.
+  Operational discovery kept in the repo README: `esbuild` must sit
+  in `dependencies`, not `devDependencies`, or SAM's isolated build
+  sandbox cannot see it. **Unverifiable here and awaiting the owner**:
+  the deployed endpoint itself (O2), cold/warm latency (G7 — the
+  runbook holds a placeholder table, not fabricated numbers), and
+  both-surface enlistment against a live endpoint (I6).
 - [ ] **Chunk-1 child: plan-state read** (node P2-N009) —
   `plan_read` over the real Plan register, SHA-stamped, taking an
   explicit `ref` and citing plan-model.md rather than re-declaring
