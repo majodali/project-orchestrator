@@ -17,7 +17,7 @@ honestly; chunks 1–3 completed before this register existed.
   - P1-N007 [identified] Cost reporting v1 and close-out (chunk 6)
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
   - P2-N002 [broken-down] Service skeleton and plan state (chunk 1) — plan: plans/p2-n002-service-skeleton.md · spec: specs/p2-n002-service-skeleton.md
-    - P2-N007 [identified] Service repository bootstrap
+    - P2-N007 [done] Service repository bootstrap
     - P2-N008 [identified] Reachability slice: a deployed MCP server a session can call
     - P2-N009 [identified] Plan-state read
     - P2-N010 [identified] Plan-state update, git-authoritative, with the advisory lease

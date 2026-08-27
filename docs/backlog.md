@@ -311,13 +311,31 @@
   agent sessions); the rest is buildable and verifiable against a
   locally run instance
   ([parent plan](plans/orchestration-service.md)).
-- [ ] **Chunk-1 child: service repository bootstrap** (node P2-N007)
-  — methodology scaffolding and project skeleton for
-  project-orchestrator-service, with a secret-hygiene baseline
+- [x] **Chunk-1 child: service repository bootstrap** (node P2-N007,
+  `done`) — project-orchestrator-service enrolled as a methodology
+  project (C1 / S1 / backend-service / serverless-aws, v1.3.0, family
+  `methodology`; coordinating repo named in prose per the multi-repo
+  caveat; Plan register, Cost log and Ruling register cited to this
+  repo's instances per decision 2) with its own Backlog. TypeScript/
+  Node skeleton (ESLint flat config, Prettier, Vitest) builds, tests
+  and lints clean — independently re-verified at acceptance, and the
+  pushed `main` SHA confirmed against the remote. Secret-hygiene
+  baseline in place; a pattern scan over full history found nothing.
+  Initial commit `775842c` on `main` (empty-repo exception to W-006,
+  recorded). **Two open items carried into child B**: the `mtool`
+  form audit and link check could not run (no `mtool` in dispatch
+  environments), so that criterion is deferred to the Auditor's
+  standing changed-day duty rather than silently closed; and the new
+  Classification's cross-repo links point at `blob/main/` in this
+  repo, which has no `main` — they dangle until repaired
   ([plan](plans/p2-n002-service-skeleton.md) ·
   [spec](specs/p2-n002-service-skeleton.md)).
-- [ ] **Chunk-1 child: reachability slice** (node P2-N008) — a
-  deployed MCP server a session can actually call: one identity tool,
+- [ ] **Chunk-1 child: reachability slice** (node P2-N008) — carries
+  two repairs from P2-N007: the dangling `blob/main/` cross-repo links
+  in the service repo's Classification and README (this repo has no
+  `main`; its default branch is the design branch), and the deferred
+  `mtool` audit once a session with `mtool` runs. Then: a deployed MCP
+  server a session can actually call: one identity tool,
   the IaC, the auth path, the runbook, the `.mcp.json`. The thin
   end-to-end slice that surfaces R11 at the chunk's start, and the
   child carrying the owner-action dependency; measures cold and warm
