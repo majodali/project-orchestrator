@@ -334,6 +334,20 @@
 - [ ] **Chunk-1 child: degrade to git-only, and enlistment
   documentation** (node P2-N011) — the R12 exercise (dead endpoint
   *and* unset credential) plus the enlistment runbook.
+- [ ] **Fallback task-claim protocol** — when the service is
+  unreachable after retries, a session picks its next task from the
+  repo directly; how does it claim one so two sessions do not collide?
+  Owner's proposal (2026-08-26): put the task ID in the branch name
+  and let first-to-create win — git as the lease of last resort.
+  Shapes chunk-1 child P2-N011 and chunk 4.
+- [ ] **Claim release when a session dies** — a branch-name claim
+  outlives the session that made it; define how an abandoned claim is
+  detected and released (the journal's `stale` rule is the in-service
+  analogue). Owner-raised 2026-08-26.
+- [ ] **Service reconciliation after an outage** — when the service
+  returns, git has moved without it; define how it rebuilds its
+  projection from the repo and reconciles claims made while it was
+  down. Owner-raised 2026-08-26; bears on R10 and R12.
 - [ ] **Service chunk 2 — owner questions and the plan view** (node
   P2-N003) — question queue (elicitation for immediate class, queue
   plus UI for gate batches) and the first UI: plan hierarchy with

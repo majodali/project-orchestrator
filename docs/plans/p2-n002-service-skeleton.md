@@ -1,6 +1,6 @@
 # Service skeleton and plan state
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Flips `active` when the
@@ -399,3 +399,20 @@ are not re-raised.
 - [docs/process/](../process/README.md) — the v1 process this chunk
   is the fallback for and does not change
 - [Ruling register](../rulings.md) — RU-006, RU-007
+
+## Gate outcome, 2026-08-26
+
+All twelve staged decisions settled at the P2-N002 gate. Eleven
+adopted as defaulted; **decision 4 overridden by the owner**: the
+service is **TypeScript/Node** (MCP SDK) on Lambda / HTTP API /
+DynamoDB via SAM, not Python — TypeScript is common across current
+portfolio projects, and matching this repo's Python helper scripts
+was a weak reason across a repo boundary. Recorded as
+[RU-008](../rulings.md), which also minted the `stack` ruling type.
+
+The owner's fallback questions — how a session claims a task when the
+service is unreachable (proposed: the task ID in the branch name,
+first to create it wins), how a claim is released when a session dies,
+and how the service reconciles when it returns — are recorded as
+Backlog items and shape child E and chunk 4 rather than this
+document.

@@ -44,6 +44,12 @@ spec. First entries land at the pending P1-N008 gate.
   service plan, not before. Rationale: the owner's standing intent
   ties promotion to what the project actually governs. Source:
   P2-N001 gate (decision 3, default adopted), 2026-08-26. Applied: —
+- RU-008 [active] stack/process — What language and runtime do new
+  majodali services use? Ruling: TypeScript/Node. Rationale: common
+  across current portfolio projects; the MCP SDK and Lambda support
+  it first-class, and cross-repo consistency beats matching one
+  repo's helper scripts. Source: P2-N002 gate (decision 4,
+  **owner override** of the Python default), 2026-08-26. Applied: —
 
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
