@@ -363,9 +363,14 @@
   as `${MCP_AUTH_TOKEN}` expansion rather than a literal and an
   explicit 30s timeout; `.claude/settings.json` sets
   `enableAllProjectMcpServers` so sessions load it without an
-  interactive approval. **Still open**: both-surface enlistment proof
-  (I6) — a web session and a local session each listing and calling
-  `service_identity` through the enlisted server.
+  interactive approval. **Web-surface enlistment proven** the same
+  day: this cloud session picked the server up from `.mcp.json`,
+  Claude Code surfaced `mcp__project-orchestrator__service_identity`,
+  and calling it returned `{service: project-orchestrator-service,
+  version: 0.1.0, commit: bad6abd, project: majodali/project-orchestrator}`
+  — no curl, no hand-set header, the harness's own MCP client against
+  the deployed endpoint. **Still open**: the local-surface half of I6,
+  which needs an owner session with this branch checked out.
 - [ ] **Service repo lint hygiene: ignore `.aws-sam/`** — the service
   repo's `eslint.config.js` ignores `dist`, `node_modules` and
   `coverage` but not `.aws-sam/`, so `npm run lint` fails after a
