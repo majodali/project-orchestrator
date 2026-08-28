@@ -352,6 +352,12 @@
   the deployed endpoint itself (O2), cold/warm latency (G7 — the
   runbook holds a placeholder table, not fabricated numbers), and
   both-surface enlistment against a live endpoint (I6).
+- [ ] **Service repo lint hygiene: ignore `.aws-sam/`** — the service
+  repo's `eslint.config.js` ignores `dist`, `node_modules` and
+  `coverage` but not `.aws-sam/`, so `npm run lint` fails after a
+  `sam build` unless the artifact is deleted first. Found and worked
+  around during T009; belongs in the service repo, tracked here until
+  a task there picks it up.
 - [ ] **Chunk-1 child: plan-state read** (node P2-N009) —
   `plan_read` over the real Plan register, SHA-stamped, taking an
   explicit `ref` and citing plan-model.md rather than re-declaring
