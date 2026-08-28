@@ -58,6 +58,16 @@ spec. First entries land at the pending P1-N008 gate.
   Source: owner request at the P2-N008 slice merge, 2026-08-27.
   Applied: T009.
 
+- RU-010 [active] handoff/project — How does work reach `main` in
+  this coordinating repo, given the owner created `main` from the
+  design branch and made it default? Ruling: the same way as a work
+  repo — by pull request from the design branch, opened by the
+  orchestrating session, owner reviews and merges. Rationale: the
+  owner directed a PR when the design branch first needed to reach
+  `main`; one handoff shape across coordinating and work repos beats
+  two. Extends RU-009 rather than competing with it. Source: owner
+  request at the enlistment merge, 2026-08-28. Applied: —
+
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events
