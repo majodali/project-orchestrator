@@ -330,8 +330,8 @@
   repo, which has no `main` — they dangle until repaired
   ([plan](plans/p2-n002-service-skeleton.md) ·
   [spec](specs/p2-n002-service-skeleton.md)).
-- [~] **Chunk-1 child: reachability slice** (node P2-N008,
-  `verifying`) — delivered in the service
+- [x] **Chunk-1 child: reachability slice** (node P2-N008, `done`)
+  — delivered in the service
   repo on branch `p2-n008-reachability-slice` (`fa3e979`): an MCP
   server over streamable HTTP (`@modelcontextprotocol/sdk` + Hono)
   exposing one `service_identity` tool, bearer-token auth that fails
@@ -369,8 +369,13 @@
   and calling it returned `{service: project-orchestrator-service,
   version: 0.1.0, commit: bad6abd, project: majodali/project-orchestrator}`
   — no curl, no hand-set header, the harness's own MCP client against
-  the deployed endpoint. **Still open**: the local-surface half of I6,
-  which needs an owner session with this branch checked out.
+  the deployed endpoint. The owner then reached the service the same
+  way from a local session, closing the second half of I6 and the
+  node. Verification here was attended (owner plus
+  Orchestrator) rather than dispatched to the Reviewer role: the
+  criteria are live demonstrations on two surfaces, one of which only
+  the owner's machine can perform, so a subagent could not have
+  judged them.
 - [ ] **Service repo lint hygiene: ignore `.aws-sam/`** — the service
   repo's `eslint.config.js` ignores `dist`, `node_modules` and
   `coverage` but not `.aws-sam/`, so `npm run lint` fails after a

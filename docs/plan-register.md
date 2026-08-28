@@ -18,7 +18,7 @@ honestly; chunks 1–3 completed before this register existed.
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
   - P2-N002 [broken-down] Service skeleton and plan state (chunk 1) — plan: plans/p2-n002-service-skeleton.md · spec: specs/p2-n002-service-skeleton.md
     - P2-N007 [done] Service repository bootstrap
-    - P2-N008 [verifying] [blocked: enlistment proven on the web surface; the local-surface half needs an owner session on this branch] Reachability slice: a deployed MCP server a session can call
+    - P2-N008 [done] Reachability slice: a deployed MCP server a session can call
     - P2-N009 [identified] Plan-state read
     - P2-N010 [identified] Plan-state update, git-authoritative, with the advisory lease
     - P2-N011 [identified] Degrade to git-only, and enlistment documentation
