@@ -331,7 +331,7 @@
   ([plan](plans/p2-n002-service-skeleton.md) ·
   [spec](specs/p2-n002-service-skeleton.md)).
 - [~] **Chunk-1 child: reachability slice** (node P2-N008,
-  `verifying`, blocked on owner actions) — delivered in the service
+  `verifying`) — delivered in the service
   repo on branch `p2-n008-reachability-slice` (`fa3e979`): an MCP
   server over streamable HTTP (`@modelcontextprotocol/sdk` + Hono)
   exposing one `service_identity` tool, bearer-token auth that fails
@@ -341,17 +341,31 @@
   never a literal), `scripts/deploy.sh`, `docs/runbook.md` written
   before any owner action is requested, and a documented `.mcp.json`
   template with an explicit 30s timeout (the MCP default of 5s is too
-  low) — not committed to this repo, since enlisting it is the
-  owner's call. 15 tests pass; build and lint clean; `sam validate
+  low) — the template this repo's committed `.mcp.json` was filled in
+  from. 15 tests pass; build and lint clean; `sam validate
   --lint` and `sam build` succeed. Independently re-verified at
   acceptance over real HTTP: 401 unauthenticated, 401 on a wrong
   token, and a real MCP `initialize` handshake with a valid one.
   Operational discovery kept in the repo README: `esbuild` must sit
   in `dependencies`, not `devDependencies`, or SAM's isolated build
-  sandbox cannot see it. **Unverifiable here and awaiting the owner**:
-  the deployed endpoint itself (O2), cold/warm latency (G7 — the
-  runbook holds a placeholder table, not fabricated numbers), and
-  both-surface enlistment against a live endpoint (I6).
+  sandbox cannot see it.
+  **Deployed 2026-08-27** to `us-west-2`. The first deployment
+  answered 404 on every path: a named API Gateway stage sends
+  `rawPath=/prod/health` while Hono registers `/health`. Repaired in
+  T009 by pinning `StageName: "$default"` (the project's first
+  recorded backward transition, `verifying` → `executing`), with
+  three regression tests over real API Gateway v2 event shapes.
+  Re-verified live from a cloud session after redeploy: `/health`
+  200 (cold 1.81s, warm 0.58s — G7's numbers, now real), `/mcp` 401
+  unauthenticated and 401 on a wrong token, `/prod/health` 404
+  (the stage prefix is gone). The enlistment file `.mcp.json` is now
+  committed here, pointing at the live endpoint, carrying the token
+  as `${MCP_AUTH_TOKEN}` expansion rather than a literal and an
+  explicit 30s timeout; `.claude/settings.json` sets
+  `enableAllProjectMcpServers` so sessions load it without an
+  interactive approval. **Still open**: both-surface enlistment proof
+  (I6) — a web session and a local session each listing and calling
+  `service_identity` through the enlisted server.
 - [ ] **Service repo lint hygiene: ignore `.aws-sam/`** — the service
   repo's `eslint.config.js` ignores `dist`, `node_modules` and
   `coverage` but not `.aws-sam/`, so `npm run lint` fails after a
