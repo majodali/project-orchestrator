@@ -56,7 +56,7 @@ spec. First entries land at the pending P1-N008 gate.
   Rationale: the owner asked for one at the first such merge, and a
   PR is where the "what was and was not verified" record belongs.
   Source: owner request at the P2-N008 slice merge, 2026-08-27.
-  Applied: T009.
+  Applied: T009, T010.
 
 - RU-010 [active] handoff/project — How does work reach `main` in
   this coordinating repo, given the owner created `main` from the
