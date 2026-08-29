@@ -439,20 +439,79 @@
   this repo's `docs/plan-register.md`, verified identical at
   acceptance. It will drift silently the next time the register
   moves; replace it with a fetched copy once the service repo has CI.
-- [ ] **Plugin tooling on the portfolio stack** (node P1-N009) —
-  rewrite `plugin/scripts/form_check.py`, `journal_tail.py` and
-  `sync_agents.py` in TypeScript/Node per [RU-011](rulings.md), and
-  share the register parser with the service repo rather than
-  keeping two implementations of one grammar. The Python predates
-  RU-008 by a day and violated no ruling; the owner's call is
-  portfolio consistency and reuse (2026-08-29). The hard part is
-  not the translation — it is deciding how two repositories share
-  one parser without a private registry, and doing it without
-  breaking the dispatch loop, which runs the form checker on every
-  acceptance. Behaviour is the contract: the rewritten checker must
-  agree with the current one on every finding, and the duplication
-  that caught the P2-N009 stage-vocabulary gap is deliberately
-  being given up, so the replacement needs its own guard.
+  P1-N009's conformance corpus may absorb this: a shared fixture set
+  that travels with the grammar is the same fixture, kept honest by
+  the same drift check.
+- [ ] **Plugin tooling on the portfolio stack** (node P1-N009,
+  `planned`) — rewrite `plugin/scripts/form_check.py`,
+  `journal_tail.py` and `sync_agents.py` in TypeScript/Node per
+  [RU-011](rulings.md), and give the Plan-register grammar one
+  implementation instead of two. The Python predates RU-008 by a day
+  and violated no ruling; the owner's call is portfolio consistency
+  and reuse (2026-08-29). Planned as an **interior** node
+  ([plan](plans/p1-n009-plugin-tooling-portfolio-stack.md)): the
+  grammar and the lifecycle stage set become one dependency-free
+  canonical file here, copied into the service repo by a generator
+  with a `--check` drift mode (the `sync_agents` pattern) rather
+  than a registry, submodule, or shared-library repo; the scripts
+  run as direct `.ts` under Node's type stripping, so nothing needs
+  a build step or `node_modules` at plugin-install time (verified on
+  Node v22.22.2 — what a `/plugin` install physically ships remains
+  an assumption for the specify stage, and the design is correct
+  either way). Behaviour is the contract: the port is proven
+  finding-for-finding against `form_check.py` as a differential
+  oracle, which stays the invoked checker until one commit moves
+  every invocation site and retires it, so the dispatch loop never
+  lacks a working checker. The accidental cross-check that caught
+  the P2-N009 stage-vocabulary gap is deliberately given up, and
+  replaced by a conformance corpus both consumers run plus the stage
+  vocabulary shared as data. Five candidate children sketched, led
+  by a thin end-to-end slice (toolchain plus `journal_tail`); ten
+  decisions with defaults await the owner. Scoped to this repository
+  — the service-side adoption is the next entry.
+- [ ] **Service-side adoption of the shared register grammar** — the
+  other half of P1-N009's reuse: `src/planRegister/parser.ts` gives
+  way to the vendored canonical file, and the service repo gains the
+  drift check. Belongs to node P2-N010, which has to open the parser
+  anyway to settle the stage-vocabulary question, and which should
+  therefore execute after P1-N009's shared-unit child. Kept out of
+  P1-N009 to avoid an immediate-class scope expansion
+  ([P1-N009 plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
+  decision 3); if the owner overrides that decision the two halves
+  land together and this entry closes with it.
+- [ ] **`node` becomes a runtime assumption where `python3` was** —
+  once the tooling is TypeScript, every surface that runs the form
+  checker needs `node` on `PATH` at a version that strips types
+  (≥22.18 / ≥23.6). Claude Code runs on Node, but a native-binary
+  install need not expose one. Candidate Risk-register entry (R13)
+  rather than a defect: the mitigations are a clear failure message
+  from the skills and a declared floor, both P1-N009's specify stage
+  to define; the entry here is the record until the Orchestrator
+  decides whether it earns a risk ID.
+- [ ] **Verify what a `/plugin` install physically ships** — whether
+  a plugin directory can carry build artifacts or `node_modules`,
+  and what `${CLAUDE_PLUGIN_ROOT}` points at in practice. Could not
+  be established while planning P1-N009 (no plugin cache in the
+  dispatch environment; per [R9](open-risks.md) the plugin has never
+  been observed loading), so that node's design deliberately does
+  not depend on the answer. Worth settling before any tooling does.
+- [ ] **A machine-readable finding mode for the form checker** — the
+  `--emit=json` entry point the
+  [extension-point proposal](proposals/mtool-custom-type-checker.md)
+  sketches. Not built at P1-N009 (RU-004: sketch, not implementation,
+  while the contract is under discussion); the port only preserves
+  one stable entry-point path so adopting the settled contract is a
+  declaration rather than a restructuring.
+- [ ] **Revisit `billing_check.sh`'s language** — the SessionStart
+  billing hook stays shell at P1-N009 (decision 7: no runtime
+  dependency and no startup cost on a ten-line environment-variable
+  test). Reopen if it grows logic, or if the owner prefers uniformity
+  over the exception.
+- [ ] **A shared-library repository for the portfolio** — when a
+  third consumer of the register grammar (or any other shared unit)
+  appears, the vendor-plus-drift-check mechanism P1-N009 chooses
+  stops paying and a proper home earns its Classification and
+  enrollment. RU-006 is the test to apply then.
 - [ ] **Chunk-1 child: plan-state update with the advisory lease**
   (node P2-N010) — the three-step git-authoritative write model
   (lease → update returning the exact edit → confirm with the SHA);
@@ -556,9 +615,16 @@
   methodology-tools is outside this project's approved scope
   (dispatch's cross-repo-reach rule) and because upstream acceptance
   is not this project's to verify; the default route is the owner
-  hand-carrying it (P1-N008 plan, decision 2).
+  hand-carrying it (P1-N008 plan, decision 2). The proposal is not
+  reopened by P1-N009 (its evidence link is SHA-pinned and its
+  entry-point sketch is labelled illustrative), but if delivery
+  follows the rewrite, say so in the covering message rather than
+  editing the artifact ([P1-N009
+  plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
+  decision 8).
 - [ ] **Adopt the checker extension point once it lands** — when
-  `mtool` ships the capability: adapt `form_check.py` to the accepted
+  `mtool` ships the capability: adapt the form checker (Python
+  today, TypeScript after P1-N009) to the accepted
   contract, retire the side-by-side transitional arrangement in
   [auditing](process/auditing.md), and update the Auditor's contract
   in [roles.md](process/roles.md) to run the checker through `mtool`
