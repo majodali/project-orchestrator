@@ -330,16 +330,58 @@
   repo, which has no `main` — they dangle until repaired
   ([plan](plans/p2-n002-service-skeleton.md) ·
   [spec](specs/p2-n002-service-skeleton.md)).
-- [ ] **Chunk-1 child: reachability slice** (node P2-N008) — carries
-  two repairs from P2-N007: the dangling `blob/main/` cross-repo links
-  in the service repo's Classification and README (this repo has no
-  `main`; its default branch is the design branch), and the deferred
-  `mtool` audit once a session with `mtool` runs. Then: a deployed MCP
-  server a session can actually call: one identity tool,
-  the IaC, the auth path, the runbook, the `.mcp.json`. The thin
-  end-to-end slice that surfaces R11 at the chunk's start, and the
-  child carrying the owner-action dependency; measures cold and warm
-  latency and sets the enlistment timeout from it.
+- [x] **Chunk-1 child: reachability slice** (node P2-N008, `done`)
+  — delivered in the service
+  repo on branch `p2-n008-reachability-slice` (`fa3e979`): an MCP
+  server over streamable HTTP (`@modelcontextprotocol/sdk` + Hono)
+  exposing one `service_identity` tool, bearer-token auth that fails
+  **closed** when unconfigured, one Hono app wrapped by both a local
+  server and a Lambda handler so the two cannot drift, a SAM template
+  (Lambda + HTTP API, auth token by Secrets Manager dynamic reference,
+  never a literal), `scripts/deploy.sh`, `docs/runbook.md` written
+  before any owner action is requested, and a documented `.mcp.json`
+  template with an explicit 30s timeout (the MCP default of 5s is too
+  low) — the template this repo's committed `.mcp.json` was filled in
+  from. 15 tests pass; build and lint clean; `sam validate
+  --lint` and `sam build` succeed. Independently re-verified at
+  acceptance over real HTTP: 401 unauthenticated, 401 on a wrong
+  token, and a real MCP `initialize` handshake with a valid one.
+  Operational discovery kept in the repo README: `esbuild` must sit
+  in `dependencies`, not `devDependencies`, or SAM's isolated build
+  sandbox cannot see it.
+  **Deployed 2026-08-27** to `us-west-2`. The first deployment
+  answered 404 on every path: a named API Gateway stage sends
+  `rawPath=/prod/health` while Hono registers `/health`. Repaired in
+  T009 by pinning `StageName: "$default"` (the project's first
+  recorded backward transition, `verifying` → `executing`), with
+  three regression tests over real API Gateway v2 event shapes.
+  Re-verified live from a cloud session after redeploy: `/health`
+  200 (cold 1.81s, warm 0.58s — G7's numbers, now real), `/mcp` 401
+  unauthenticated and 401 on a wrong token, `/prod/health` 404
+  (the stage prefix is gone). The enlistment file `.mcp.json` is now
+  committed here, pointing at the live endpoint, carrying the token
+  as `${MCP_AUTH_TOKEN}` expansion rather than a literal and an
+  explicit 30s timeout; `.claude/settings.json` sets
+  `enableAllProjectMcpServers` so sessions load it without an
+  interactive approval. **Web-surface enlistment proven** the same
+  day: this cloud session picked the server up from `.mcp.json`,
+  Claude Code surfaced `mcp__project-orchestrator__service_identity`,
+  and calling it returned `{service: project-orchestrator-service,
+  version: 0.1.0, commit: bad6abd, project: majodali/project-orchestrator}`
+  — no curl, no hand-set header, the harness's own MCP client against
+  the deployed endpoint. The owner then reached the service the same
+  way from a local session, closing the second half of I6 and the
+  node. Verification here was attended (owner plus
+  Orchestrator) rather than dispatched to the Reviewer role: the
+  criteria are live demonstrations on two surfaces, one of which only
+  the owner's machine can perform, so a subagent could not have
+  judged them.
+- [ ] **Service repo lint hygiene: ignore `.aws-sam/`** — the service
+  repo's `eslint.config.js` ignores `dist`, `node_modules` and
+  `coverage` but not `.aws-sam/`, so `npm run lint` fails after a
+  `sam build` unless the artifact is deleted first. Found and worked
+  around during T009; belongs in the service repo, tracked here until
+  a task there picks it up.
 - [ ] **Chunk-1 child: plan-state read** (node P2-N009) —
   `plan_read` over the real Plan register, SHA-stamped, taking an
   explicit `ref` and citing plan-model.md rather than re-declaring

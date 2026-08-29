@@ -50,6 +50,23 @@ spec. First entries land at the pending P1-N008 gate.
   it first-class, and cross-repo consistency beats matching one
   repo's helper scripts. Source: P2-N002 gate (decision 4,
   **owner override** of the Python default), 2026-08-26. Applied: —
+- RU-009 [active] handoff/project — How does completed work reach
+  `main` in a managed project's work repo? Ruling: by pull request,
+  opened by the orchestrating session; the owner reviews and merges.
+  Rationale: the owner asked for one at the first such merge, and a
+  PR is where the "what was and was not verified" record belongs.
+  Source: owner request at the P2-N008 slice merge, 2026-08-27.
+  Applied: T009.
+
+- RU-010 [active] handoff/project — How does work reach `main` in
+  this coordinating repo, given the owner created `main` from the
+  design branch and made it default? Ruling: the same way as a work
+  repo — by pull request from the design branch, opened by the
+  orchestrating session, owner reviews and merges. Rationale: the
+  owner directed a PR when the design branch first needed to reach
+  `main`; one handoff shape across coordinating and work repos beats
+  two. Extends RU-009 rather than competing with it. Source: owner
+  request at the enlistment merge, 2026-08-28. Applied: —
 
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
