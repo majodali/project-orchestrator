@@ -439,6 +439,20 @@
   this repo's `docs/plan-register.md`, verified identical at
   acceptance. It will drift silently the next time the register
   moves; replace it with a fetched copy once the service repo has CI.
+- [ ] **Plugin tooling on the portfolio stack** (node P1-N009) —
+  rewrite `plugin/scripts/form_check.py`, `journal_tail.py` and
+  `sync_agents.py` in TypeScript/Node per [RU-011](rulings.md), and
+  share the register parser with the service repo rather than
+  keeping two implementations of one grammar. The Python predates
+  RU-008 by a day and violated no ruling; the owner's call is
+  portfolio consistency and reuse (2026-08-29). The hard part is
+  not the translation — it is deciding how two repositories share
+  one parser without a private registry, and doing it without
+  breaking the dispatch loop, which runs the form checker on every
+  acceptance. Behaviour is the contract: the rewritten checker must
+  agree with the current one on every finding, and the duplication
+  that caught the P2-N009 stage-vocabulary gap is deliberately
+  being given up, so the replacement needs its own guard.
 - [ ] **Chunk-1 child: plan-state update with the advisory lease**
   (node P2-N010) — the three-step git-authoritative write model
   (lease → update returning the exact edit → confirm with the SHA);

@@ -68,10 +68,22 @@ spec. First entries land at the pending P1-N008 gate.
   two. Extends RU-009 rather than competing with it. Source: owner
   request at the enlistment merge, 2026-08-28. Applied: —
 
+- RU-011 [active] stack/process — What language do majodali
+  repo-local tooling and scripts use, as distinct from deployed
+  services? Ruling: TypeScript/Node, the same answer RU-008 gives
+  services. Rationale: the owner prefers portfolio consistency and
+  reuse over per-repo convenience; the orchestrator's form checker
+  and the service's `plan_read` parse the same register grammar and
+  should not be two implementations in two languages. RU-008 was
+  minted a day after the plugin's Python scripts were written and
+  its wording reaches only services, so this is a gap being closed,
+  not an override. Source: owner decision on noticing the
+  inconsistency, 2026-08-29. Applied: —
+
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events
 (the lists were not maintained on the first run).
 
-Promotion flags: RU-002 and RU-003 are process-scope — flagged for
+Promotion flags: RU-002, RU-003 and RU-011 are process-scope — flagged for
 the next design pass on this spec (rulings.md promotion rule).
