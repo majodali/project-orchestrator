@@ -13,7 +13,7 @@ honestly; chunks 1–3 completed before this register existed.
   - P1-N004 [done] Role definitions v1 (chunk 3)
   - P1-N005 [done] Plugin v1 with self-hosted trial (chunk 4)
   - P1-N008 [done] mtool checker extension-point proposal — plan: plans/p1-n008-mtool-checker-extension-point.md · spec: specs/p1-n008-mtool-checker-extension-point.md
-  - P1-N009 [identified] Plugin tooling on the portfolio stack
+  - P1-N009 [planned] [gated: owner review of the ten plan decisions] Plugin tooling on the portfolio stack — plan: plans/p1-n009-plugin-tooling-portfolio-stack.md
   - P1-N006 [identified] Pilot on a real project (chunk 5) — superseded in place by P2-N001 chunk 5; kept until the founding plan closes out
   - P1-N007 [identified] Cost reporting v1 and close-out (chunk 6)
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md

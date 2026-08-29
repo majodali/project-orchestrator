@@ -125,6 +125,20 @@ detects or contains them. This register's numbering is project-local.
   (constraint 3) — sessions fall back to the v1 process, which is
   fully functional without the service; the fallback is exercised, not
   assumed. *Status*: open; fallback exercise due in chunk 1.
+- **R13 — The tooling's runtime assumption moves from `python3` to
+  `node`.** The form checker is the loop's own guard: the Orchestrator
+  runs it before every dispatch selection and at every acceptance. The
+  TypeScript rewrite (P1-N009, ruling RU-011) replaces a `python3`
+  dependency with a `node` one, and direct-run `.ts` source additionally
+  requires Node ≥22.18 rather than any Node. A surface with an older or
+  absent Node loses the checker, and loses it silently unless something
+  looks. *Mitigation*: Claude Code itself runs on Node, so the runtime is
+  present wherever a session is; the version floor is stated in the plan
+  and a committed `esbuild` bundle is the named fallback if it proves
+  unacceptable; the cutover moves every invocation site in one commit so
+  no surface is left calling a script that no longer exists. *Status*:
+  open; opened at P1-N009's plan stage, 2026-08-29, from a Planner
+  finding.
 
 Unexpected interplay is by nature not enumerable in advance: the
 pilot (plan chunk 5) treats every failure it hits as a candidate
