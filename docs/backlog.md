@@ -382,10 +382,63 @@
   `sam build` unless the artifact is deleted first. Found and worked
   around during T009; belongs in the service repo, tracked here until
   a task there picks it up.
-- [ ] **Chunk-1 child: plan-state read** (node P2-N009) —
-  `plan_read` over the real Plan register, SHA-stamped, taking an
-  explicit `ref` and citing plan-model.md rather than re-declaring
-  the lifecycle.
+- [~] **Chunk-1 child: plan-state read** (node P2-N009,
+  `verifying`, blocked on owner action O3) — delivered in the service
+  repo on branch `p2-n009-plan-state-read` (`cd67d75`, five commits):
+  a register parser implementing the grammar of
+  [plan-register.md](process/plan-register.md) into structured nodes
+  (ID, title, stage, hold marker kind and reason, plan/spec links,
+  parent/child edges from list nesting); a `plan_read` MCP tool whose
+  every response carries the ref, the resolved commit SHA and the
+  fetch time as non-optional fields (I5); whole-tree and subtree
+  queries; a GitHub App fetch boundary (App JWT → installation token
+  → ref resolved to a SHA → content pinned to that SHA) behind an
+  injectable interface so the parser and the tool contract test
+  without the credential. `src/` contains no filesystem read and one
+  production fetcher, so no code path in the Lambda bundle can answer
+  a plan-state question from local disk or an unauthenticated URL —
+  the I5 second-source hazard is structurally absent, not merely
+  avoided. Orchestrator re-verified independently: 60/60 tests (the
+  18 pre-existing unaltered), build and lint clean; the parser run
+  against the live register returns 19 nodes and 0 errors, agreeing
+  exactly with `form_check.py`; hold markers, links and hierarchy
+  round-trip; malformed node-like lines are reported with line number
+  and raw text rather than dropped; subtree queries return exactly
+  the subtree and `null` for an unknown ID; no key material anywhere
+  in the tree. **Blocked**: the criterion "a session reads P2 nodes
+  and their stages through it" against the *deployed* service, and
+  the cold/warm latency row, both need owner action O3 (create and
+  install the GitHub App, store its private key) followed by a
+  redeploy. The runbook gained O3 as Step 2 and introduces no owner
+  action outside O1–O6 (I8).
+- [ ] **`plan_read` passes through a stage outside the lifecycle
+  vocabulary** — the parser matches `form_check.py`'s node regex
+  line for line, but `form_check.py` additionally rejects a stage
+  outside its `STAGES` set and the service does not: a register
+  reading `[verifiying]` parses as a node whose stage is
+  `verifiying`, reported to the caller as fact. The Implementer chose
+  pass-through silently; it is a defensible reading of "cite the
+  vocabulary rather than re-declare it" (a copy of the stage list in
+  the service is a second truth that can drift, which is what I2
+  warns against), but it was a design question that should have come
+  back as `needs-judgment` rather than being settled in place.
+  Decide it at P2-N010, where the transition-legality table has to
+  exist anyway and the vocabulary question cannot be deferred again.
+- [ ] **Re-verify `plan_read` against the deployed service** (node
+  P2-N009 tail) — once O3 is done and the stack redeployed: the
+  deployed-read criterion, plus cold and warm latency measured
+  against the 30s enlistment budget and written into the runbook's
+  table, which currently says "not yet measured" in both rows.
+- [ ] **`sam validate --lint` and `sam build` for the P2-N009
+  template changes** — no SAM CLI in the dispatch environment, so the
+  new parameters and environment wiring were checked only as YAML and
+  by the equivalent esbuild bundle. P2-N008 had both; this change
+  does not yet.
+- [ ] **Keep the service repo's register fixture in sync** — 
+  `test/fixtures/plan-register.sample.md` is a byte-for-byte copy of
+  this repo's `docs/plan-register.md`, verified identical at
+  acceptance. It will drift silently the next time the register
+  moves; replace it with a fetched copy once the service repo has CI.
 - [ ] **Chunk-1 child: plan-state update with the advisory lease**
   (node P2-N010) — the three-step git-authoritative write model
   (lease → update returning the exact edit → confirm with the SHA);
