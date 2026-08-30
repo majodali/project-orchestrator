@@ -598,9 +598,19 @@
   (`journal_tail` carries no grammar of its own) — the two cannot
   both hold here, and the Implementer chose D1 and surfaced it. That
   reading is right, but the conflict was arguably a
-  `needs-judgment`. Resolve it at P1-N011: a duplicate-ID fixture in
-  the corpus, run through both implementations, makes the divergence
-  visible and decides it deliberately.
+  `needs-judgment`. **Made visible, not decided, at P1-N011**: fixture
+  `journal-tail-duplicate-id` (two node lines sharing one ID, different
+  titles) run through both `journal_tail` implementations records the
+  divergence verbatim — the Python's ad hoc lookup shows the *last*
+  occurrence's title, the TypeScript port (through the shared unit)
+  shows the *first*'s — without picking a side. Still open:
+  **`needs-judgment`** — which behaviour the shared unit's contract
+  should actually have (keep-first-and-report, matching D1's "no
+  grammar of its own"; or keep-last silently, matching the Python's
+  pre-port behaviour; or something else) is the owner's or the
+  Orchestrator's to decide before node P1-N012 ports `form_check`
+  itself, since the same shared-unit duplicate-ID semantics will
+  apply there too.
 - [ ] **A JSON configuration file cannot carry a required
   comment** — criterion 1 asks that every divergence from the
   service repository's configuration be enumerated in a comment in
@@ -609,17 +619,91 @@
   entry instead of inventing a non-standard extension. Worth
   pre-empting the next time a specify stage writes a
   comment-in-the-file criterion.
-- [ ] **(node P1-N011, P1-N009 child B) The travelling package:
+- [x] **(node P1-N011, P1-N009 child B) The travelling package:
   conformance corpus, recorded expectations, and the vendoring
-  generator** — roughly twenty minimal project roots provoking every
-  finding rule `form_check.py` can emit, including the misspelled
-  `[verifiying]` fixture that encodes the P2-N009 disagreement;
-  expectations captured from the Python and reviewed *before* any
-  retirement commit, so the equality evidence outlives the oracle;
-  and the generator that carries unit and corpus to a consumer with
-  a `--check` drift mode proven against a scratch destination. Also
-  absorbs the "keep the service repo's register fixture in sync"
-  entry above, on the service side, at P2-N010.
+  generator** — shipped: `plugin/scripts/lib/corpus/` holds 19 minimal
+  project-root fixtures (`fixtures/`), a fixture → rule manifest
+  (`manifest.ts`), and 18 committed expectation files (`expectations/`)
+  covering all 11 rule IDs the current form checker's `find()` call
+  sites can emit (`register-parse`, `register-id`, `register-stage`,
+  `register-structure` — both arms — `backlog-ref`, `costlog-form` —
+  malformed row, malformed task ID, duplicate task ID, non-sequential
+  warning — `journal-form` — bad JSON, missing field, unknown event
+  kind — `journal-crosscheck` — both directions — `liveness` — both
+  arms — `rulings` — no register, undefined ruling, inactive ruling,
+  missing Applied entry — `definitions` — no classification, all four
+  markers missing), plus the not-enrolled case and a snapshot of this
+  repository's own live tree, all passing clean. `manifest.ts`'s
+  `DECLARED_RULE_SET` is checked against the corpus's actual output at
+  every run, not just asserted. The misspelled `[verifiying]` fixture
+  (`register-stage-verifiying`) carries the D2 comment naming the
+  P2-N009 finding and records both readings: its expectation file
+  carries the checker's reading (a `register-stage` violation), and
+  `test/corpus-register-stage-verifiying.test.ts` carries the shared
+  unit's reading directly against the same fixture file (parses with
+  no error, stage reported exactly as written). A dedicated fixture,
+  `journal-tail-duplicate-id`, makes the `journal_tail` duplicate-ID
+  divergence from P1-N010's Backlog finding visible without deciding
+  it (see that entry above, now marked still-open `needs-judgment`).
+  `plugin/scripts/run_corpus.ts` is the one-command corpus runner
+  (spec B3/B4): default mode compares a fresh run against the
+  committed expectations and exits non-zero on any divergence
+  (finding-count, exit-code, or fingerprint mismatch, and missing rule
+  coverage); `--capture` mode (re)writes expectations from a live run,
+  which is how these were generated — every one read and reviewed
+  before this commit (criterion 3: 18 files, read in full, cross-
+  checked against the fixture design each was meant to provoke).
+  `plugin/scripts/sync_shared_unit.ts [--check] <destination>` is the
+  vendoring generator: explicit manifest (`plan-register.ts` plus the
+  whole `corpus/` directory — not `node-preflight.ts`, not the harness
+  tools, which stay local), a "generated — do not edit here" banner
+  inserted into `.ts`/`.md` copies and a root `GENERATED.md` marker for
+  `.json`/`.jsonl` files that have no comment syntax to carry one in,
+  `--check` comparing every file byte-for-byte regardless of banner.
+  D4 proven against a scratch destination and recorded in this task's
+  result: vendor (94 files) → `--check` passes → one byte changed in
+  the copy → `--check` exits 1 naming exactly `plan-register.ts` →
+  re-vendor → `--check` passes again; the vendored copy (banner
+  included) still passes the consumer-shape type-check. Criterion 6
+  (no future orphan): audited by grep at every commit — no fixture,
+  the manifest, or an expectation file names `form_check.py`,
+  `journal_tail.py`, `sync_agents.py` or `python3` (all describe the
+  checker and the journal_tail implementations generically instead);
+  the corpus's own `README.md` is the one deliberate exception, since
+  it has to quote those four strings to document the search rule
+  itself — flagged there and here for node P1-N013's permitted-
+  survivors set. Root `python3 plugin/scripts/form_check.py` stayed
+  clean at every commit (fixtures live under `plugin/scripts/lib/`,
+  never under `docs/` or `orchestration/`, so the root checker's fixed
+  read paths never see them). `npm run typecheck`, `typecheck:consumer`
+  and `lint` clean; `npm test` is 34/35 — the one failure
+  (`test/plan-register.test.ts`, "yields the same {id, stage, hold,
+  parent, line} facts...") pre-dates this child (reproduced on the
+  base branch before any of this child's commits) and is untouched
+  here per W-002; see the new Backlog entry below. Also absorbs the
+  "keep the service repo's register fixture in sync" entry above, on
+  the service side, at P2-N010.
+- [ ] **`test/plan-register.test.ts`'s live-register cross-check went
+  stale the moment it was accepted** — node P1-N010's
+  "yields the same {id, stage, hold, parent, line} facts
+  form_check.py's parser yields" test hardcodes a snapshot of
+  `docs/plan-register.md` as of T014's commit, including
+  `P1-N010: identified`. T014's own acceptance commit
+  (`099b2c6`) flipped that line to `[done]` moments later — an
+  ordinary, sanctioned register write, not a defect — and the test
+  has failed on every commit since, including the base of this
+  child's branch, before this child touched anything. Same category
+  as the already-tracked "keep the service repo's register fixture in
+  sync" finding, one node earlier and in this repository: a golden
+  snapshot of the *live* register is guaranteed to drift at the next
+  acceptance. Left untouched here (W-002 — this child's brief carries
+  no pre-clearance naming this test, and the fix is either an
+  Orchestrator-scope register-vs-test question or a structural one:
+  compute the "expected" side by invoking the shared unit against
+  whatever the register *currently* says, cross-checked against a
+  fresh checker run at test time, rather than freezing a snapshot at
+  authoring time). `npm test` is 34/35 as of this child's last commit
+  for exactly this reason.
 - [ ] **(node P1-N012, P1-N009 child C) The form checker on the
   shared unit, proven finding-for-finding against the Python** — the
   port, the committed differential harness over corpus and live
