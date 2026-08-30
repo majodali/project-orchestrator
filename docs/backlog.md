@@ -852,6 +852,21 @@
   other message is reproduced verbatim, including Python-`repr()`
   string quoting for task IDs, ruling statuses, and unknown event
   kinds.
+- [ ] **Criterion 4's literal wording cannot distinguish policy from
+  vocabulary** — Child C's criterion 4 says a search for stage-name
+  literals returns hits "only inside the shared unit and inside
+  corpus fixtures", but a correct port necessarily keeps
+  `INTERIOR_OK` and `NEED_BACKLOG_REF` — *which* stages permit
+  children, *which* need a Backlog entry — beside the vocabulary,
+  exactly as `form_check.py` does. Those are checker policy, not a
+  second grammar. The Implementer disclosed the hits and justified
+  them rather than reporting a clean grep, and the Orchestrator
+  confirmed at acceptance that `STAGES` is defined exactly once, in
+  `plugin/scripts/lib/plan-register.ts`. D1 is satisfied in
+  substance; the criterion's text is over-broad. Worth fixing the
+  wording when P1-N009's own `verifying` assembles its evidence, so
+  the verifier is not asked to reconcile a grep that cannot come
+  back clean.
 - [ ] **(node P1-N013, P1-N009 child D) The cutover:
   `sync_agents` ported, every invocation site moved, the Python
   retired, in one commit** — the seven-row inventory, the
