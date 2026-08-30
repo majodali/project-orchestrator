@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
@@ -14,20 +15,64 @@ import {
  * project-orchestrator-service's test/planRegisterParser.test.ts (the
  * unit this file merges and adapts).
  *
- * The live-register cross-check reads this repository's real
- * docs/plan-register.md directly (the shared unit performs no I/O
- * itself; this test does the reading) and asserts the same node set
- * — ID, stage, hold marker, parent, line number — that
- * plugin/scripts/form_check.py's `parse_register` produces on the
- * identical file, cross-checked by running
- * `python3 -c "...form_check.parse_register..."` at authoring time
- * (24 nodes, 0 parse errors; recorded in this task's result).
+ * **Design rule (P1-N009 node P1-N012, owner disposition 2026-08-30):
+ * a repository test must never freeze Plan-register facts, because the
+ * register moves at every acceptance.** The live-register cross-check
+ * below used to hardcode a snapshot of `docs/plan-register.md` as of
+ * one commit — `P1-N010 … P1-N013` asserted `identified` — which broke
+ * at the very next acceptance that touched the register (an ordinary,
+ * sanctioned write, not a defect) and stayed broken (`npm test` 34/35)
+ * until this node, per the owner's explicit W-002 licence naming this
+ * one test, in this one direction: assert the *agreement itself*.
+ * It now parses the live register with **both** implementations at
+ * test-run time — `parseRegister` here, and `form_check.py`'s own
+ * `parse_register` via a `python3` subprocess, run fresh on every test
+ * run rather than trusted from a recorded transcript — and compares
+ * their output. Whatever the register currently says, the test passes
+ * iff the two parsers agree on it; it cannot go stale at an
+ * acceptance, by construction.
  */
 
+const REPO_ROOT = fileURLToPath(new URL("..", import.meta.url));
 const REGISTER_PATH = fileURLToPath(
   new URL("../docs/plan-register.md", import.meta.url),
 );
 const LIVE_REGISTER = readFileSync(REGISTER_PATH, "utf-8");
+
+interface PyNodeFact {
+  id: string;
+  stage: string;
+  hold: "gated" | "blocked" | null;
+  parent: string | null;
+  line: number;
+}
+
+/**
+ * Runs form_check.py's own `parse_register` against the live register,
+ * fresh, and returns its node facts in document order. A subprocess,
+ * not a transcript: there is nothing here for the register to go
+ * stale against.
+ */
+function parseLiveRegisterWithPython(): PyNodeFact[] {
+  const script = [
+    "import importlib.util, json",
+    "from pathlib import Path",
+    'spec = importlib.util.spec_from_file_location("form_check", "plugin/scripts/form_check.py")',
+    "form_check = importlib.util.module_from_spec(spec)",
+    "spec.loader.exec_module(form_check)",
+    'nodes, order = form_check.parse_register(Path("docs/plan-register.md"))',
+    "out = []",
+    "for nid in order:",
+    "    n = nodes[nid]",
+    '    out.append({"id": n["id"], "stage": n["stage"], "hold": n["hold"], "parent": n["parent"], "line": n["line"]})',
+    "print(json.dumps(out))",
+  ].join("\n");
+  const stdout = execFileSync("python3", ["-c", script], {
+    cwd: REPO_ROOT,
+    encoding: "utf-8",
+  });
+  return JSON.parse(stdout) as PyNodeFact[];
+}
 
 describe("STAGES — the lifecycle vocabulary, as data", () => {
   it("carries exactly the seven stages, in plan-model.md's order", () => {
@@ -43,152 +88,24 @@ describe("STAGES — the lifecycle vocabulary, as data", () => {
   });
 });
 
-describe("parseRegister — the live register (cross-checked against form_check.py)", () => {
+describe("parseRegister — the live register (cross-checked against form_check.py, fresh each run)", () => {
   const result = parseRegister(LIVE_REGISTER);
+  const pyNodes = parseLiveRegisterWithPython();
 
   it("parses every node in the live register, with no parse errors", () => {
-    expect(result.order).toHaveLength(24);
     expect(result.errors).toEqual([]);
+    expect(result.order).toHaveLength(pyNodes.length);
   });
 
-  it("yields the same {id, stage, hold, parent, line} facts form_check.py's parser yields", () => {
-    const expected: Array<{
-      id: string;
-      stage: string;
-      hold: null;
-      parent: string | null;
-      line: number;
-    }> = [
-      {
-        id: "P1-N001",
-        stage: "broken-down",
-        hold: null,
-        parent: null,
-        line: 10,
-      },
-      { id: "P1-N002", stage: "done", hold: null, parent: "P1-N001", line: 11 },
-      { id: "P1-N003", stage: "done", hold: null, parent: "P1-N001", line: 12 },
-      { id: "P1-N004", stage: "done", hold: null, parent: "P1-N001", line: 13 },
-      { id: "P1-N005", stage: "done", hold: null, parent: "P1-N001", line: 14 },
-      { id: "P1-N008", stage: "done", hold: null, parent: "P1-N001", line: 15 },
-      {
-        id: "P1-N009",
-        stage: "broken-down",
-        hold: null,
-        parent: "P1-N001",
-        line: 16,
-      },
-      {
-        id: "P1-N010",
-        stage: "identified",
-        hold: null,
-        parent: "P1-N009",
-        line: 17,
-      },
-      {
-        id: "P1-N011",
-        stage: "identified",
-        hold: null,
-        parent: "P1-N009",
-        line: 18,
-      },
-      {
-        id: "P1-N012",
-        stage: "identified",
-        hold: null,
-        parent: "P1-N009",
-        line: 19,
-      },
-      {
-        id: "P1-N013",
-        stage: "identified",
-        hold: null,
-        parent: "P1-N009",
-        line: 20,
-      },
-      {
-        id: "P1-N006",
-        stage: "identified",
-        hold: null,
-        parent: "P1-N001",
-        line: 21,
-      },
-      {
-        id: "P1-N007",
-        stage: "identified",
-        hold: null,
-        parent: "P1-N001",
-        line: 22,
-      },
-      {
-        id: "P2-N001",
-        stage: "broken-down",
-        hold: null,
-        parent: null,
-        line: 23,
-      },
-      {
-        id: "P2-N002",
-        stage: "broken-down",
-        hold: null,
-        parent: "P2-N001",
-        line: 24,
-      },
-      { id: "P2-N007", stage: "done", hold: null, parent: "P2-N002", line: 25 },
-      { id: "P2-N008", stage: "done", hold: null, parent: "P2-N002", line: 26 },
-      { id: "P2-N009", stage: "done", hold: null, parent: "P2-N002", line: 27 },
-      {
-        id: "P2-N010",
-        stage: "identified",
-        hold: null,
-        parent: "P2-N002",
-        line: 28,
-      },
-      {
-        id: "P2-N011",
-        stage: "identified",
-        hold: null,
-        parent: "P2-N002",
-        line: 29,
-      },
-      {
-        id: "P2-N003",
-        stage: "identified",
-        hold: null,
-        parent: "P2-N001",
-        line: 30,
-      },
-      {
-        id: "P2-N004",
-        stage: "identified",
-        hold: null,
-        parent: "P2-N001",
-        line: 31,
-      },
-      {
-        id: "P2-N005",
-        stage: "identified",
-        hold: null,
-        parent: "P2-N001",
-        line: 32,
-      },
-      {
-        id: "P2-N006",
-        stage: "identified",
-        hold: null,
-        parent: "P2-N001",
-        line: 33,
-      },
-    ];
-
-    expect(result.order).toEqual(expected.map((e) => e.id));
-    for (const e of expected) {
-      const n = result.nodes.get(e.id);
-      expect(n, `node ${e.id} missing`).toBeDefined();
-      expect(n!.stage).toBe(e.stage);
-      expect(n!.hold).toBe(e.hold);
-      expect(n!.parentId).toBe(e.parent);
-      expect(n!.line).toBe(e.line);
+  it("yields the same {id, stage, hold, parent, line} facts as form_check.py's parser, computed fresh — not a frozen snapshot", () => {
+    expect(result.order).toEqual(pyNodes.map((n) => n.id));
+    for (const pn of pyNodes) {
+      const n = result.nodes.get(pn.id);
+      expect(n, `node ${pn.id} missing`).toBeDefined();
+      expect(n!.stage).toBe(pn.stage);
+      expect(n!.hold ? n!.hold.kind : null).toBe(pn.hold);
+      expect(n!.parentId).toBe(pn.parent);
+      expect(n!.line).toBe(pn.line);
     }
   });
 });
