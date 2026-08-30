@@ -867,6 +867,48 @@
   wording when P1-N009's own `verifying` assembles its evidence, so
   the verifier is not asked to reconcile a grep that cannot come
   back clean.
+- [ ] **`run_corpus.ts` contains NUL bytes, and ripgrep silently
+  drops it from searches** — its `fingerprint()` builds keys with
+  literal `\x00` separators, so ripgrep classifies the file as binary
+  and omits it from `files_with_matches` output **without warning**.
+  Confirmed at acceptance of T017: GNU `grep -rl` finds 6 TypeScript
+  files containing `form_check`; ripgrep finds 5, and the missing one
+  is `run_corpus.ts`. This is not cosmetic — criterion 4 of the
+  cutover proves "no orphan reference survives" by a repository-wide
+  search, and a file the search cannot see is exactly the orphan it
+  would miss. The guard would have passed while being wrong. Fix by
+  using a separator that is not a NUL byte (the fingerprint never
+  needs one), or the search must pass a binary-inclusive flag and
+  say why. The Implementer found this incidentally and flagged it
+  rather than letting its own rewrite bury it.
+- [ ] **Two further additions to spec C2's permitted set** — beyond
+  `plugin/scripts/lib/corpus/README.md`, already ruled in: the
+  `fixtures/live-tree/` snapshot, which is a frozen historical copy
+  of this repository's own documents and whose sanitisation would be
+  the very defect C2 names; and the provenance doc comments in the
+  ported tools that record what they were ported *from*. Both are
+  history, not instructions, and both fall under C2's own rule. To be
+  amended into the specification at P1-N009's `verifying` rather than
+  discovered by a failing search. Distinct from these: a handful of
+  genuinely stale present-tense claims in those same files ("nothing
+  is retired yet", "run_corpus genuinely invokes the Python") that
+  the cutover must correct, because they will be false after it.
+- [ ] **A `needs-judgment` return leaves its cost unrecorded** — the
+  Cost log takes one row per *accepted* task, and `form_check`
+  enforces that every row has an `accepted` event. T017 consumed
+  ~253k tokens and 19m11s and produced no row, because it correctly
+  returned `needs-judgment` instead of a result. The work was real
+  and mostly reusable, but the project's own cost accounting cannot
+  see it. Either the Cost log's definition widens to one row per
+  dispatched task with an outcome column, or the journal becomes the
+  authority for unaccepted work and the Cost log says so. A spec
+  decision for the next design pass, recorded here with a real
+  instance rather than argued in the abstract.
+- [ ] **Orchestrator brief defect: the T017 packet said "all five
+  test files" when there are four** — a small enumeration error, but
+  the packet table is the context-frugality contract and an
+  enumeration that miscounts is one a role must reconcile. Recorded
+  in the same series as the earlier brief-assembly gaps.
 - [ ] **(node P1-N013, P1-N009 child D) The cutover:
   `sync_agents` ported, every invocation site moved, the Python
   retired, in one commit** — the seven-row inventory, the
