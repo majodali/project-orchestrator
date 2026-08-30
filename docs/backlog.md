@@ -455,7 +455,7 @@
   that travels with the grammar is the same fixture, kept honest by
   the same drift check.
 - [ ] **Plugin tooling on the portfolio stack** (node P1-N009,
-  `planned`) — rewrite `plugin/scripts/form_check.py`,
+  `specified`) — rewrite `plugin/scripts/form_check.py`,
   `journal_tail.py` and `sync_agents.py` in TypeScript/Node per
   [RU-011](rulings.md), and give the Plan-register grammar one
   implementation instead of two. The Python predates RU-008 by a day
@@ -477,10 +477,28 @@
   lacks a working checker. The accidental cross-check that caught
   the P2-N009 stage-vocabulary gap is deliberately given up, and
   replaced by a conformance corpus both consumers run plus the stage
-  vocabulary shared as data. Five candidate children sketched, led
-  by a thin end-to-end slice (toolchain plus `journal_tail`); ten
-  decisions with defaults await the owner. Scoped to this repository
-  — the service-side adoption is the next entry.
+  vocabulary shared as data. Scoped to this repository — the
+  service-side adoption is the next entry. **Gate crossed
+  2026-08-29**: all ten decisions adopted as defaulted, the owner
+  weighed and rejected combining the two repositories (so
+  [RU-006](rulings.md) stands), and decision 1 became
+  [RU-012](rulings.md). **Specified 2026-08-30**
+  ([spec](specs/p1-n009-plugin-tooling-portfolio-stack.md)): criteria
+  in five groups — behavioural equality with the retired checker over
+  a corpus that includes registers which *fail* (one fixture per
+  finding rule, expectations generated from the Python before it is
+  deleted so the evidence outlives the oracle); the replacement drift
+  guard, proven by breaking it rather than by being present, and
+  carried on the checker's own invocation path because this repo has
+  no CI; the shared unit's fitness to travel, provable without
+  touching the service repo; cutover completeness under the rule
+  *a mention a reader will act on moves, a mention recording the past
+  stays*; and a commit-by-commit walk proving the documented checker
+  command existed and passed at every commit of the node. Specifying
+  found one defect in the sketch: `sync_agents` cannot be ported
+  *after* the cutover, because `CLAUDE.md` names it and the cutover
+  commit retires the Python — so five candidate children become
+  four. Four further decisions (11–14) await the owner with defaults.
 - [ ] **Service-side adoption of the shared register grammar** — the
   other half of P1-N009's reuse: `src/planRegister/parser.ts` gives
   way to the vendored canonical file, and the service repo gains the
@@ -491,6 +509,16 @@
   ([P1-N009 plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
   decision 3); if the owner overrides that decision the two halves
   land together and this entry closes with it.
+- [ ] **P2-N002's live criteria name the command P1-N009 deletes** —
+  `docs/plans/p2-n002-service-skeleton.md` (`active`, criterion 9) and
+  `docs/specs/p2-n002-service-skeleton.md` (`draft`, criterion P2)
+  both require `python3 plugin/scripts/form_check.py` to pass clean.
+  Both are undischarged: they are checked at P2-N002's `verifying`,
+  which falls after P1-N009's cutover deletes that file. Surfaced as
+  P1-N009 spec decision 14, whose default has the cutover commit
+  rename the command in place (a rename, not a change of substance)
+  under W-003. This entry is the record if the owner instead prefers
+  P2-N002 to absorb it; it closes either way at the cutover.
 - [ ] **`node` becomes a runtime assumption where `python3` was** —
   once the tooling is TypeScript, every surface that runs the form
   checker needs `node` on `PATH` at a version that strips types
