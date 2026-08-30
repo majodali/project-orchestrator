@@ -1,0 +1,42 @@
+{
+  // The consumer-shape type-check (P1-N009 child A, node P1-N010,
+  // spec criteria T1/T2): compiles the canonical shared unit alone,
+  // under a configuration matching project-orchestrator-service's
+  // build config (strict, target ES2022, module/moduleResolution
+  // NodeNext, noUncheckedIndexedAccess) — most importantly, WITHOUT
+  // "allowImportingTsExtensions", the one setting a consumer's
+  // NodeNext build does not carry. If the unit ever grew a relative
+  // import, this config is what would catch it: NodeNext requires a
+  // ".js" specifier the unit does not have and this config does not
+  // permit ".ts" to stand in for one.
+  //
+  // Divergence from tsconfig.json in this same repository:
+  //   - no "allowImportingTsExtensions" — see above; this is the
+  //     entire point of this second config.
+  //   - "include" names only the shared unit, not this repository's
+  //     tool entry points (journal_tail.ts etc.), which are not part
+  //     of what travels to a second repository (P1-N009 decision 1 /
+  //     RU-012) and are not required to compile under the consumer's
+  //     settings — only under this repository's own (tsconfig.json).
+  //
+  // Divergence from the service repository's own tsconfig.json:
+  //   - "noEmit": true, no "outDir" / "declaration" / "sourceMap" /
+  //     "rootDir" — this config only proves the unit type-checks
+  //     clean under the consumer's rules; it does not build anything,
+  //     because nothing in this repository is built (decision 4).
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "noEmit": true
+  },
+  "include": ["plugin/scripts/lib/plan-register.ts"]
+}

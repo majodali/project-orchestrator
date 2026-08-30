@@ -532,14 +532,48 @@
   because the set it carries is the unit *and* the corpus.
 - [ ] **(node P1-N010, P1-N009 child A) The Node toolchain and
   the shared register grammar, proven end to end by `journal_tail`**
-  — iteration zero plus the thin slice: `package.json`, TypeScript,
-  ESLint, Prettier, Vitest and a committed lockfile in the service
-  repository's shape; the Node-floor preflight with its version
-  comparison unit-tested; the Plan-register grammar and the
-  lifecycle stage set as one zero-import file that both a direct-run
-  Node tool and the service's `NodeNext` build can consume unedited;
-  and `journal_tail` ported onto it, output-equal to the Python.
-  Nothing is retired and no invocation site moves. Criteria in the
+  — shipped: `package.json` (`"type": "module"`, `engines.node >=22`,
+  dev-only dependencies matching project-orchestrator-service's
+  versions), TypeScript, ESLint flat config (typescript-eslint +
+  `eslint-config-prettier`), Prettier, Vitest, `package-lock.json`
+  committed, `node_modules` git-ignored, all as named `npm` scripts
+  (`typecheck`, `typecheck:consumer`, `lint`, `format`,
+  `format:write`, `test`); every divergence from the service
+  repository's configuration enumerated in a comment in the file
+  that differs (`tsconfig.json`'s `noEmit` +
+  `allowImportingTsExtensions` against `tsconfig.consumer.json`'s
+  absence of the latter, matching the service's build config).
+  `plugin/scripts/lib/plan-register.ts` is the shared grammar and
+  lifecycle-stage-vocabulary unit: one file, zero imports, no I/O — a
+  merge-and-adapt of the service repository's (pre-P1-N009)
+  `src/planRegister/parser.ts` + `types.ts`, plus `STAGES` as data
+  cited to [plan-model](process/plan-model.md); it carries no policy
+  (D5) — parse-level facts only (a node-like line that does not
+  parse, a duplicate ID). It passes both `tsc -p tsconfig.json` and
+  `tsc -p tsconfig.consumer.json` (the consumer-shape check: `strict`,
+  `NodeNext`, `noUncheckedIndexedAccess`, no
+  `allowImportingTsExtensions`) and `eslint .` clean. Its own Vitest
+  suite (`test/plan-register.test.ts`) covers malformed-line and
+  duplicate-ID parse errors and cross-checks the live register
+  against `form_check.py`'s independently-run `parse_register` (24
+  nodes, 0 errors, matching id/stage/hold/parent/line for every
+  node). `plugin/scripts/lib/node-preflight.ts` is the Node-floor
+  preflight (decision 12, RU-013): a pure `checkNodeVersion`
+  comparison, unit-tested against a version-string table
+  (`test/node-preflight.test.ts`, 22.17.x/22.18.0/23.5.x/23.6.0/24.x/
+  a prerelease string, 13 cases), plus `preflightNodeOrExit`, which
+  every tool this node ships calls first. `plugin/scripts/journal_tail.ts`
+  ports `journal_tail.py` onto the shared unit (it carries no grammar
+  of its own): output-identical to the Python for N=1, N=10, N
+  greater than the journal's length, and the no-journal case (same
+  message, exit 1) — diffed byte-for-byte, transcripts in this task's
+  result. Demonstrated running with no `node_modules` present, by
+  absolute path, from an unrelated working directory, with an
+  explicit project-root argument. Nothing is retired and no
+  invocation site moves: `plugin/scripts/journal_tail.py` (and
+  `form_check.py`, `sync_agents.py`) are untouched, and
+  `python3 plugin/scripts/form_check.py` passes clean at every
+  commit of this child. Criteria in the
   [plan](plans/p1-n009-plugin-tooling-portfolio-stack.md).
 - [ ] **(node P1-N011, P1-N009 child B) The travelling package:
   conformance corpus, recorded expectations, and the vendoring
