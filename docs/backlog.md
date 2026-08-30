@@ -436,11 +436,15 @@
   Decide it at P2-N010, where the transition-legality table has to
   exist anyway and the vocabulary question cannot be deferred again.
 - [ ] **Write `plan_read`'s latency row into the service runbook**
-  (G7) — warm is measured (0.82–0.94s, 2026-08-30); cold still needs
-  a call after a genuine idle period. The runbook's table says "not
-  yet measured" in both rows and is a service-repo edit, so it wants
-  a task there rather than a note here. The deployed-read criterion
-  itself is closed.
+  (G7) — both numbers now measured from this session, 2026-08-30:
+  **warm 0.82–1.07s** over four calls, **2.52s on the first call
+  after an idle period**, whose ~1.4s excess over the adjacent warm
+  call matches the identity tool's cold-start delta and is recorded
+  as a cold start on that evidence rather than on proof the
+  container was recycled. Both sit far inside the 20s function
+  timeout and the 30s enlistment budget. The runbook's table still
+  says "not yet measured" in both rows and is a service-repo edit,
+  so it wants a task there rather than a note here.
 - [ ] **`sam validate --lint` and `sam build` for the P2-N009
   template changes** — no SAM CLI in the dispatch environment, so the
   new parameters and environment wiring were checked only as YAML and

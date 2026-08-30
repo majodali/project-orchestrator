@@ -1,6 +1,6 @@
 # Plugin tooling on the portfolio stack — specification
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -551,3 +551,15 @@ applied by plan decision 10. No active ruling reaches the four below.
   first)
 - [p2-n002-service-skeleton spec](p2-n002-service-skeleton.md) — the
   shape this document follows, and the subject of decision 14
+
+## Gate outcome, 2026-08-30
+
+All four staged decisions (11–14) adopted as defaulted; none
+overridden. Decision 14's rename therefore lands in the cutover
+commit: `docs/plans/p2-n002-service-skeleton.md` criterion 9 and
+`docs/specs/p2-n002-service-skeleton.md` criterion **P2** both name
+`python3 plugin/scripts/form_check.py`, both are checked at a
+`verifying` that falls after this node retires that file, and both
+are renamed with no change of substance. Decision 12's failure
+posture is captured as [RU-013](../rulings.md).
+

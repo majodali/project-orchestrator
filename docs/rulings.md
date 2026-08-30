@@ -94,10 +94,21 @@ spec. First entries land at the pending P1-N008 gate.
   consumer. Source: P1-N009 gate (decisions 1 and 2, defaults
   adopted), 2026-08-29. Applied: —
 
+- RU-013 [active] stack/process — What does a majodali tool do when
+  the runtime it needs is missing or too old? Ruling: preflight and
+  exit non-zero, naming what was required and what was found; never
+  degrade quietly and never skip the check it exists to perform.
+  Rationale: [R13](open-risks.md)'s failure mode is losing the form
+  checker *silently*, and a loud exit converts that into a blocked
+  dispatch, which the audit process already treats as the correct
+  outcome. Generalizes beyond this node: any tool with a runtime
+  floor. Source: P1-N009 gate (decision 12, default adopted),
+  2026-08-30. Applied: —
+
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events
 (the lists were not maintained on the first run).
 
-Promotion flags: RU-002, RU-003, RU-011 and RU-012 are process-scope — flagged for
+Promotion flags: RU-002, RU-003, RU-011, RU-012 and RU-013 are process-scope — flagged for
 the next design pass on this spec (rulings.md promotion rule).
