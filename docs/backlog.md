@@ -513,7 +513,62 @@
   found one defect in the sketch: `sync_agents` cannot be ported
   *after* the cutover, because `CLAUDE.md` names it and the cutover
   commit retires the Python — so five candidate children become
-  four. Four further decisions (11–14) await the owner with defaults.
+  four. **Gate crossed 2026-08-30**: decisions 11–14 adopted as
+  defaulted (the command shape `node plugin/scripts/form_check.ts`;
+  a declared Node floor with a loud non-zero preflight, now
+  [RU-013](rulings.md); the conformance corpus triggered by both a
+  test suite and the checker's own invocation; and the two live
+  P2-N002 criteria renamed in the cutover commit).
+  **Broken down 2026-08-30** into the four children below, in a
+  strict dependency chain with no independent pair, so no parallel
+  dispatch is licensed. The break-down stage settled both boundaries
+  the plan left open: the shared grammar unit moves *forward* into
+  the thin slice, so `journal_tail` is born on it and no transient
+  second transcription is ever written; and `sync_agents` rides with
+  the cutover, because it writes its own name into the six files it
+  generates, so porting it necessarily rewrites `plugin/agents/` and
+  that belongs in the one commit already rewriting every name. The
+  vendoring generator moved the other way, into the corpus child,
+  because the set it carries is the unit *and* the corpus.
+- [ ] **(P1-N009 child A — ID to be issued) The Node toolchain and
+  the shared register grammar, proven end to end by `journal_tail`**
+  — iteration zero plus the thin slice: `package.json`, TypeScript,
+  ESLint, Prettier, Vitest and a committed lockfile in the service
+  repository's shape; the Node-floor preflight with its version
+  comparison unit-tested; the Plan-register grammar and the
+  lifecycle stage set as one zero-import file that both a direct-run
+  Node tool and the service's `NodeNext` build can consume unedited;
+  and `journal_tail` ported onto it, output-equal to the Python.
+  Nothing is retired and no invocation site moves. Criteria in the
+  [plan](plans/p1-n009-plugin-tooling-portfolio-stack.md).
+- [ ] **(P1-N009 child B — ID to be issued) The travelling package:
+  conformance corpus, recorded expectations, and the vendoring
+  generator** — roughly twenty minimal project roots provoking every
+  finding rule `form_check.py` can emit, including the misspelled
+  `[verifiying]` fixture that encodes the P2-N009 disagreement;
+  expectations captured from the Python and reviewed *before* any
+  retirement commit, so the equality evidence outlives the oracle;
+  and the generator that carries unit and corpus to a consumer with
+  a `--check` drift mode proven against a scratch destination. Also
+  absorbs the "keep the service repo's register fixture in sync"
+  entry above, on the service side, at P2-N010.
+- [ ] **(P1-N009 child C — ID to be issued) The form checker on the
+  shared unit, proven finding-for-finding against the Python** — the
+  port, the committed differential harness over corpus and live
+  register, the fingerprint-equality rule with its line/node-identity
+  exception, annotated deviation sites paired with Backlog entries,
+  and the corpus self-check on every invocation with a message that
+  distinguishes *the checker disagrees with its own corpus* from
+  *the register is malformed*. Both guards are proven by breaking
+  them. The Python is still the invoked checker when this child ends.
+- [ ] **(P1-N009 child D — ID to be issued) The cutover:
+  `sync_agents` ported, every invocation site moved, the Python
+  retired, in one commit** — the seven-row inventory, the
+  permitted-survivors rule (*a mention a reader will act on moves; a
+  mention recording the past stays*), regenerate-and-diff-empty for
+  `plugin/agents/`, decision 14's two renames, retirement of the
+  harness with its evidence preserved, and the Backlog rewritten to
+  what shipped in the same commit (W-003).
 - [ ] **Service-side adoption of the shared register grammar** — the
   other half of P1-N009's reuse: `src/planRegister/parser.ts` gives
   way to the vendored canonical file, and the service repo gains the
