@@ -8,12 +8,15 @@
  * disagree, the spec is right and this checker has a bug (methodology
  * Article 3).
  *
- * **Nothing is retired by this file's existence.**
- * `plugin/scripts/form_check.py` stays the invoked checker until the
- * cutover (node P1-N013, decision 5); this file is not yet pointed at
- * by any invocation site. It exists so its finding-for-finding
- * agreement with the Python can be measured (spec B2/B3) while nothing
- * depends on it.
+ * **The invoked checker, since the P1-N013 cutover.** Ported at node
+ * P1-N012, proven finding-for-finding equal to `form_check.py` by a
+ * committed differential harness (spec B2/B3) while the Python was
+ * still the invoked checker; made the sole checker, and the Python
+ * deleted, in node P1-N013's single cutover commit (decision 5). The
+ * differential harness is gone with the Python it compared against
+ * (RU-014); the corpus self-check below and `run_corpus.ts` (spec B4)
+ * are what still prove this file agrees with what the Python once
+ * produced.
  *
  * The actual checks live in ./lib/form-check-core.ts (`runFormCheck`),
  * a pure function ported line-for-line from form_check.py's own
@@ -24,7 +27,7 @@
  * **The self-check** (P1-N009 decision 13, spec D3): every invocation
  * runs `runFormCheck` in-process against every fixture in
  * ./lib/corpus/ and compares the result to its recorded expectations
- * (the same shape plugin/scripts/run_corpus.ts checks the Python
+ * (the same shape plugin/scripts/run_corpus.ts checks this checker
  * against) — a regression guard against this checker itself drifting
  * from its own conformance corpus, running before every dispatch and
  * every acceptance because it runs before this checker does anything

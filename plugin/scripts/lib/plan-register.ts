@@ -25,11 +25,13 @@
  * facts only — a node-like line that does not parse, a duplicate ID —
  * and the stage vocabulary as data; it does not itself decide
  * whether a node's stage is legal. That judgment belongs to a
- * checker (plugin/scripts/form_check.py today; its TypeScript port
- * at node P1-N012).
+ * checker (plugin/scripts/form_check.ts, since the P1-N013 cutover —
+ * a TypeScript port of form_check.py, ported at node P1-N012 and made
+ * the sole checker at P1-N013).
  *
- * The grammar mirrors plugin/scripts/form_check.py's `NODE_RE` /
- * `NODEISH_RE` line for line, and is a merge-and-adapt of
+ * The grammar mirrors form_check.py's `NODE_RE` / `NODEISH_RE` line
+ * for line (that Python is retired; this is the historical record of
+ * what the grammar was ported from), and is a merge-and-adapt of
  * project-orchestrator-service's (pre-P1-N009)
  * src/planRegister/parser.ts and types.ts into one file with the
  * import between them removed and the stage vocabulary added as

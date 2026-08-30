@@ -20,13 +20,17 @@
  * the comment is orientation for a reader, not the check itself.
  *
  * This file names no script by its filename or interpreter (spec C2's
- * future permitted-survivors rule, guarded against early by this
- * child's own criterion 6) — every fixture, this manifest, and every
- * expectation file describe the checker and the journal_tail
- * implementations generically rather than by filename. `run_corpus.ts`
- * and `sync_shared_unit.ts`, which actually invoke the Python, are
- * harness tools rather than fixture/manifest/expectation data, and
- * are outside this rule's scope.
+ * permitted-survivors rule, guarded against early by this child's own
+ * criterion 6) — every fixture, this manifest, and every expectation
+ * file describe the checker and the journal_tail implementations
+ * generically rather than by filename. `run_corpus.ts` and
+ * `sync_shared_unit.ts` are harness tools rather than
+ * fixture/manifest/expectation data, and are outside this rule's
+ * scope: before the P1-N013 cutover, `run_corpus.ts` invoked
+ * `form_check.py` directly by its real path; after it, `run_corpus.ts`
+ * calls this repository's own checker in-process and `sync_shared_unit.ts`
+ * still names `sync_agents.py` in a provenance comment recording what
+ * `sync_agents.ts` was ported from.
  */
 
 export type FixtureKind =

@@ -8,7 +8,7 @@ Render the project's orchestration feed
 
 1. Run:
 
-   `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/journal_tail.py" 15`
+   `node "${CLAUDE_PLUGIN_ROOT}/scripts/journal_tail.ts" 15`
 
    (More events if the owner asked for a longer window.)
 

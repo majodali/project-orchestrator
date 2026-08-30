@@ -19,10 +19,3 @@ secrets.json
 .idea/
 *.log
 npm-debug.log*
-
-# Python bytecode cache — test/plan-register.test.ts (node P1-N012)
-# loads form_check.py via importlib in a subprocess to cross-check the
-# shared unit against it fresh on every test run, which writes one of
-# these under plugin/scripts/ each time.
-__pycache__/
-*.pyc

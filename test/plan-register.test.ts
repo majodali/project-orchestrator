@@ -1,4 +1,3 @@
-import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
@@ -22,57 +21,37 @@ import {
  * one commit — `P1-N010 … P1-N013` asserted `identified` — which broke
  * at the very next acceptance that touched the register (an ordinary,
  * sanctioned write, not a defect) and stayed broken (`npm test` 34/35)
- * until this node, per the owner's explicit W-002 licence naming this
- * one test, in this one direction: assert the *agreement itself*.
- * It now parses the live register with **both** implementations at
- * test-run time — `parseRegister` here, and `form_check.py`'s own
- * `parse_register` via a `python3` subprocess, run fresh on every test
- * run rather than trusted from a recorded transcript — and compares
- * their output. Whatever the register currently says, the test passes
- * iff the two parsers agree on it; it cannot go stale at an
- * acceptance, by construction.
+ * until node P1-N012, per the owner's explicit W-002 licence naming
+ * this one test, in this one direction: assert the *agreement itself*
+ * against a second, independent parser (`form_check.py`'s own
+ * `parse_register`, run fresh via a `python3` subprocess on every test
+ * run) rather than a recorded transcript.
+ *
+ * **RU-014, applied (node P1-N013, the cutover, owner decision on the
+ * T017 escalation, option (c)):** the cross-check above needed a
+ * second, independent implementation to compare against, and the
+ * cutover retires the only one there was — `form_check.py` is deleted
+ * in this same commit, so the comparison's premise is gone, not merely
+ * inconvenient. Retired here: the `"yields the same {id, stage, hold,
+ * parent, line} facts as form_check.py's parser"` test and its
+ * `parseLiveRegisterWithPython()` helper. Kept: `"parses every node in
+ * the live register, with no parse errors"` below, with the enclosing
+ * `describe` block renamed so it no longer claims a cross-check it no
+ * longer performs. The lost coverage — that this unit's parser agrees
+ * with what `form_check.py` produced — now lives in two places that
+ * both predate this commit: `form_check.ts`'s own built-in corpus
+ * self-check (spec D3) and `plugin/scripts/run_corpus.ts` (spec B4),
+ * which check this same shared unit's parsing against expectations
+ * captured from `form_check.py` and reviewed *before* the Python was
+ * deleted — over the 18-fixture conformance corpus rather than the
+ * live register alone, but the same unit (`parseRegister`) and the
+ * same claim.
  */
 
-const REPO_ROOT = fileURLToPath(new URL("..", import.meta.url));
 const REGISTER_PATH = fileURLToPath(
   new URL("../docs/plan-register.md", import.meta.url),
 );
 const LIVE_REGISTER = readFileSync(REGISTER_PATH, "utf-8");
-
-interface PyNodeFact {
-  id: string;
-  stage: string;
-  hold: "gated" | "blocked" | null;
-  parent: string | null;
-  line: number;
-}
-
-/**
- * Runs form_check.py's own `parse_register` against the live register,
- * fresh, and returns its node facts in document order. A subprocess,
- * not a transcript: there is nothing here for the register to go
- * stale against.
- */
-function parseLiveRegisterWithPython(): PyNodeFact[] {
-  const script = [
-    "import importlib.util, json",
-    "from pathlib import Path",
-    'spec = importlib.util.spec_from_file_location("form_check", "plugin/scripts/form_check.py")',
-    "form_check = importlib.util.module_from_spec(spec)",
-    "spec.loader.exec_module(form_check)",
-    'nodes, order = form_check.parse_register(Path("docs/plan-register.md"))',
-    "out = []",
-    "for nid in order:",
-    "    n = nodes[nid]",
-    '    out.append({"id": n["id"], "stage": n["stage"], "hold": n["hold"], "parent": n["parent"], "line": n["line"]})',
-    "print(json.dumps(out))",
-  ].join("\n");
-  const stdout = execFileSync("python3", ["-c", script], {
-    cwd: REPO_ROOT,
-    encoding: "utf-8",
-  });
-  return JSON.parse(stdout) as PyNodeFact[];
-}
 
 describe("STAGES — the lifecycle vocabulary, as data", () => {
   it("carries exactly the seven stages, in plan-model.md's order", () => {
@@ -88,25 +67,12 @@ describe("STAGES — the lifecycle vocabulary, as data", () => {
   });
 });
 
-describe("parseRegister — the live register (cross-checked against form_check.py, fresh each run)", () => {
+describe("parseRegister — the live register", () => {
   const result = parseRegister(LIVE_REGISTER);
-  const pyNodes = parseLiveRegisterWithPython();
 
   it("parses every node in the live register, with no parse errors", () => {
     expect(result.errors).toEqual([]);
-    expect(result.order).toHaveLength(pyNodes.length);
-  });
-
-  it("yields the same {id, stage, hold, parent, line} facts as form_check.py's parser, computed fresh — not a frozen snapshot", () => {
-    expect(result.order).toEqual(pyNodes.map((n) => n.id));
-    for (const pn of pyNodes) {
-      const n = result.nodes.get(pn.id);
-      expect(n, `node ${pn.id} missing`).toBeDefined();
-      expect(n!.stage).toBe(pn.stage);
-      expect(n!.hold ? n!.hold.kind : null).toBe(pn.hold);
-      expect(n!.parentId).toBe(pn.parent);
-      expect(n!.line).toBe(pn.line);
-    }
+    expect(result.order.length).toBeGreaterThan(0);
   });
 });
 

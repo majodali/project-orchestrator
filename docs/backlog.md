@@ -530,6 +530,17 @@
   that belongs in the one commit already rewriting every name. The
   vendoring generator moved the other way, into the corpus child,
   because the set it carries is the unit *and* the corpus.
+  **Executed 2026-08-30**: children A–D (below) all shipped in
+  dependency order, A→B→C→D, no parallel dispatch, exactly as broken
+  down. The cutover (child D) landed the only commit that changes what
+  anybody runs: `sync_agents` ported, all seven invocation sites
+  moved, `form_check.py`/`journal_tail.py`/`sync_agents.py` deleted,
+  the differential harness (`check_equality.ts`) retired with its
+  evidence preserved in the corpus self-check and `run_corpus.ts`, and
+  RU-014 applied to the one test the Python's deletion would otherwise
+  have broken outright. This node's own `verifying`/`done` transition
+  and final evidence assembly remain the Orchestrator's, not narrated
+  here.
 - [x] **(node P1-N010, P1-N009 child A) The Node toolchain and
   the shared register grammar, proven end to end by `journal_tail`**
   — shipped: `package.json` (`"type": "module"`, `engines.node >=22`,
@@ -881,32 +892,69 @@
   [spec](specs/p1-n008-mtool-checker-extension-point.md)), whose
   contract this would be an early consumer of. Sized as its own node
   when the owner wants it; not folded into P1-N009.
-- [ ] **`run_corpus.ts` contains NUL bytes, and ripgrep silently
-  drops it from searches** — its `fingerprint()` builds keys with
-  literal `\x00` separators, so ripgrep classifies the file as binary
-  and omits it from `files_with_matches` output **without warning**.
-  Confirmed at acceptance of T017: GNU `grep -rl` finds 6 TypeScript
-  files containing `form_check`; ripgrep finds 5, and the missing one
-  is `run_corpus.ts`. This is not cosmetic — criterion 4 of the
-  cutover proves "no orphan reference survives" by a repository-wide
-  search, and a file the search cannot see is exactly the orphan it
-  would miss. The guard would have passed while being wrong. Fix by
-  using a separator that is not a NUL byte (the fingerprint never
-  needs one), or the search must pass a binary-inclusive flag and
-  say why. The Implementer found this incidentally and flagged it
-  rather than letting its own rewrite bury it.
-- [ ] **Two further additions to spec C2's permitted set** — beyond
-  `plugin/scripts/lib/corpus/README.md`, already ruled in: the
-  `fixtures/live-tree/` snapshot, which is a frozen historical copy
-  of this repository's own documents and whose sanitisation would be
-  the very defect C2 names; and the provenance doc comments in the
-  ported tools that record what they were ported *from*. Both are
-  history, not instructions, and both fall under C2's own rule. To be
-  amended into the specification at P1-N009's `verifying` rather than
-  discovered by a failing search. Distinct from these: a handful of
-  genuinely stale present-tense claims in those same files ("nothing
-  is retired yet", "run_corpus genuinely invokes the Python") that
-  the cutover must correct, because they will be false after it.
+- [x] **`run_corpus.ts` contained NUL bytes, and ripgrep silently
+  dropped it from searches — fixed at the P1-N013 cutover** — its
+  `fingerprint()` built keys with literal `\x00` separators, so
+  ripgrep classified the file as binary and omitted it from
+  `files_with_matches` output **without warning**. Confirmed at
+  acceptance of T017: GNU `grep -rl` found 6 TypeScript files
+  containing `form_check`; ripgrep found 5, missing exactly
+  `run_corpus.ts`. Not cosmetic — criterion 4 of the cutover proves
+  "no orphan reference survives" by a repository-wide search, and a
+  file the search cannot see is exactly the orphan it would miss.
+  Fixed by owner direction, folded into the same conversion that made
+  `run_corpus.ts` call the checker in-process rather than shelling out
+  to `python3`: the separator is now `␟` (U+241F, SYMBOL FOR UNIT
+  SEPARATOR) — printable, not a control byte, and not a character any
+  severity/rule/path string can contain. Proved, not just fixed: after
+  the change, `rg -l form_check --type ts` and `grep -rlE form_check
+  --include='*.ts'` return the identical 8-file set (both commands'
+  output recorded in this task's result), and a repository-wide,
+  all-file rerun of the same comparison for `form_check.py`,
+  `journal_tail.py`, `sync_agents.py` and `python3` also returns
+  identical file sets from both tools.
+- [ ] **Additions to spec C2's permitted set, beyond the three known
+  at gate time** — `plugin/scripts/lib/corpus/README.md` (ruled in at
+  P1-N011: quotes all four search strings to describe C2's own rule)
+  plus two T017 found and this node's cutover confirms are needed:
+  the `fixtures/live-tree/` snapshot, a frozen historical copy of this
+  repository's own documents whose sanitisation would be the very
+  defect C2 names; and provenance doc comments in the ported tools
+  recording what they were ported *from* (`form_check.ts`,
+  `journal_tail.ts`, `sync_agents.ts`, `sync_shared_unit.ts`,
+  `run_corpus.ts`, `lib/form-check-core.ts`, `lib/parse-output.ts`,
+  `lib/plan-register.ts`). **Two more, found discharging C2 at the
+  cutover itself:** `plugin/scripts/lib/corpus/manifest.ts` quotes the
+  same four strings for the same reason as the README it sits beside
+  (C2's own rule needs stating in both places that state it, not just
+  the one the plan happened to name); and `test/plan-register.test.ts`
+  names `form_check.py` in the doc comment RU-014 itself requires —
+  recording where the coverage lost by retiring the Python-cross-check
+  test now lives. **A fifth match the Implementer does *not* propose
+  widening for:** `docs/backlog.md`'s completed-child narrative for
+  this node's children A–C sits under the `## Upcoming` heading (this
+  file has exactly two `##` sections; an interior node's own top-level
+  entry stays under Upcoming until the whole node reaches `done`, even
+  once several children are marked `[x]` beneath it) rather than under
+  the literal `## Completed` heading C2 names — a structural fact about
+  this repository's own Backlog convention, not a defect in the text.
+  Left as found: rewriting or relocating shipped-child history to fit
+  the literal wording would either falsify history or falsely claim
+  P1-N009 itself complete, either one worse than the wording gap.
+  Flagged for the owner's judgment at `verifying` rather than resolved
+  here. All of the above: history, not instructions, and none of it
+  read by anyone as a live command to act on — to be amended into the
+  specification at P1-N009's `verifying` rather than left disagreeing
+  with what shipped. **Distinct from all of this, and separately
+  corrected in the cutover commit itself, not left for `verifying`:**
+  the handful of genuinely stale present-tense claims T017 found in
+  these same files (`form_check.ts` and `journal_tail.ts`'s "nothing
+  is retired yet" paragraphs; `plan-register.ts`'s "checker
+  (`form_check.py` today)"; `sync_shared_unit.ts`'s "mirroring
+  `sync_agents.py`" mentions; `corpus/README.md` and `manifest.ts`'s
+  claim that `run_corpus.ts` and `sync_shared_unit.ts` "genuinely
+  invoke the Python") — these were false the moment the cutover
+  landed, so they moved with it rather than waiting for a later gate.
 - [ ] **A `needs-judgment` return leaves its cost unrecorded** — the
   Cost log takes one row per *accepted* task, and `form_check`
   enforces that every row has an `accepted` event. T017 consumed
@@ -923,14 +971,89 @@
   the packet table is the context-frugality contract and an
   enumeration that miscounts is one a role must reconcile. Recorded
   in the same series as the earlier brief-assembly gaps.
-- [ ] **(node P1-N013, P1-N009 child D) The cutover:
-  `sync_agents` ported, every invocation site moved, the Python
-  retired, in one commit** — the seven-row inventory, the
-  permitted-survivors rule (*a mention a reader will act on moves; a
-  mention recording the past stays*), regenerate-and-diff-empty for
-  `plugin/agents/`, decision 14's two renames, retirement of the
-  harness with its evidence preserved, and the Backlog rewritten to
-  what shipped in the same commit (W-003).
+- [x] **(node P1-N013, P1-N009 child D) The cutover: `sync_agents`
+  ported, every invocation site moved, the Python retired, in one
+  commit** — shipped: `plugin/scripts/sync_agents.ts` (same argument
+  shape as the Python — `[--check] [project-root]` — same in-sync /
+  out-of-sync / no-`.claude/agents/`-here messages, `--check` never
+  writes); `plugin/scripts/run_corpus.ts` converted from a `python3
+  form_check.py` subprocess to an in-process call to `runFormCheck`,
+  fixing along the way the NUL-byte fingerprint separator that made
+  ripgrep silently drop this file from searches (owner direction — see
+  the dedicated Backlog entry above); `check_equality.ts` deleted, not
+  reduced, per this child's own criterion 6 reasoning below;
+  `plugin/scripts/form_check.py`, `journal_tail.py` and `sync_agents.py`
+  deleted. **Criterion 1 (C3, `sync_agents` still generates)**:
+  regenerating `plugin/agents/` from the now-edited
+  `.claude/agents/auditor.md` (the only role file this cutover
+  touches) produced the same six files with a banner naming
+  `sync_agents.ts`, byte-identical otherwise to what the Python last
+  produced (diffed in a scratch directory before the cutover — see
+  this task's result); `--check` passes at the cutover commit and at
+  `done`; no file under `plugin/agents/` was hand-edited. **Criterion
+  2 (C1, every site moves, verified by repository-wide search rather
+  than by re-reading the table)**: all seven rows discharged —
+  `.claude/agents/auditor.md`; the six regenerated `plugin/agents/*.md`;
+  `plugin/skills/enroll/SKILL.md`; `plugin/skills/orchestrate/SKILL.md`
+  (both mentions); `plugin/skills/journal-tail/SKILL.md`;
+  `plugin/README.md` (the fallback paragraph, and the Components list,
+  which was missing `sync_agents` entirely before this commit —
+  T017's finding, now fixed); `CLAUDE.md` (Build/run/test, which now
+  also states the Node floor per criterion 7/RU-013, and Architecture
+  at a glance). **Criterion 3 (C4, one commit, both halves)**: this
+  commit's `git show --stat` carries the three `.py` deletions,
+  `check_equality.ts`'s deletion, every site edit above, decision 14's
+  two renames, the RU-014 test change, and this Backlog rewrite
+  together; every earlier commit in this node's branch (the
+  `sync_agents` port, the `run_corpus` conversion) left the Python in
+  place and no documented command pointing at an absent file.
+  **Criterion 4 (C2, no orphan reference)**: a repository-wide search
+  for `form_check.py`, `journal_tail.py`, `sync_agents.py` and
+  `python3`, with both `rg` and GNU `grep` (confirmed to return
+  identical file sets — the NUL-byte fix means this is no longer two
+  different answers), returns matches only inside the specified
+  permitted set, five further additions the Implementer found and
+  did not resolve unilaterally (Backlog entry above, for the owner's
+  judgment at `verifying`), and one genuinely stale block deleted
+  outright: `.gitignore`'s Python-bytecode-cache comment, which
+  claimed `test/plan-register.test.ts` still loads `form_check.py` via
+  `importlib` — false after RU-014, and with no `.py` file anywhere in
+  the tree the `__pycache__`/`*.pyc` ignore rules themselves are dead,
+  so the whole block was removed rather than reworded. The genuinely
+  stale present-tense claims T017 named were corrected in this same
+  commit (see the Backlog entry above). **Criterion 5 (decision 14)**:
+  `docs/plans/p2-n002-service-skeleton.md` criterion 9 and
+  `docs/specs/p2-n002-service-skeleton.md` criterion P2 renamed, each
+  with the required one-line note (Backlog entry above). **Criterion
+  6 (the harness retired, evidence preserved)**: `check_equality.ts`
+  deleted outright, not reduced — it is spec B3's differential harness
+  by name, its job (proving the port equal to the Python) is complete
+  once the Python is gone, and spec B4's durable check already has two
+  homes that do not depend on it: `form_check.ts`'s built-in corpus
+  self-check (spec D3, runs on every invocation) and
+  `plugin/scripts/run_corpus.ts` (spec B4, now in-process), both
+  checking this same shared unit's parsing against expectations
+  captured from `form_check.py` and reviewed before it was deleted.
+  `run_corpus.ts` after retirement: `18 fixture(s) match their
+  recorded expectations; all 11 declared rules provoked` — unchanged
+  from before the conversion and the deletion, recorded in this task's
+  result. RU-014's disposition of `test/plan-register.test.ts` is the
+  same shape at the unit-test layer: the cross-check test and its
+  `parseLiveRegisterWithPython()` helper retired, the surviving
+  assertion kept and its `describe` block renamed, and the doc comment
+  records where the lost coverage now lives (spec D3 and B4, as
+  above) — `npm test` 35/35 → 34/34, the disclosed and ruled-on
+  outcome. **Criterion 7 (the new checker clean from here on, RU-013
+  in `CLAUDE.md`)**: `node plugin/scripts/form_check.ts .` clean (24
+  nodes, 0 violations, 0 warnings) at the cutover commit and at `done`;
+  its corpus self-check passes as part of every invocation;
+  `CLAUDE.md`'s Build/run/test line states the Node floor
+  (`>=22.18.0 (>=23.6.0 on the 23.x line)`) next to the command, per
+  RU-013. **Criterion 8 (the Backlog is the truth)**: this entry
+  itself, the three Backlog entries above it closed or corrected in
+  this same commit, and no new finding from this child left
+  unrecorded. `npm run typecheck`, `typecheck:consumer` and `lint`
+  clean; `npm test` 34/34.
 - [ ] **Service-side adoption of the shared register grammar** — the
   other half of P1-N009's reuse: `src/planRegister/parser.ts` gives
   way to the vendored canonical file, and the service repo gains the
@@ -941,25 +1064,30 @@
   ([P1-N009 plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
   decision 3); if the owner overrides that decision the two halves
   land together and this entry closes with it.
-- [ ] **P2-N002's live criteria name the command P1-N009 deletes** —
-  `docs/plans/p2-n002-service-skeleton.md` (`active`, criterion 9) and
-  `docs/specs/p2-n002-service-skeleton.md` (`draft`, criterion P2)
-  both require `python3 plugin/scripts/form_check.py` to pass clean.
-  Both are undischarged: they are checked at P2-N002's `verifying`,
-  which falls after P1-N009's cutover deletes that file. Surfaced as
-  P1-N009 spec decision 14, whose default has the cutover commit
-  rename the command in place (a rename, not a change of substance)
-  under W-003. This entry is the record if the owner instead prefers
-  P2-N002 to absorb it; it closes either way at the cutover.
-- [ ] **`node` becomes a runtime assumption where `python3` was** —
-  once the tooling is TypeScript, every surface that runs the form
-  checker needs `node` on `PATH` at a version that strips types
-  (≥22.18 / ≥23.6). Claude Code runs on Node, but a native-binary
-  install need not expose one. Candidate Risk-register entry (R13)
-  rather than a defect: the mitigations are a clear failure message
-  from the skills and a declared floor, both P1-N009's specify stage
-  to define; the entry here is the record until the Orchestrator
-  decides whether it earns a risk ID.
+- [x] **P2-N002's live criteria renamed at the P1-N009 cutover
+  (decision 14, option (a), the default)** — `docs/plans/p2-n002-service-skeleton.md`
+  criterion 9 and `docs/specs/p2-n002-service-skeleton.md` criterion
+  P2 named `python3 plugin/scripts/form_check.py`; both now name `node
+  plugin/scripts/form_check.ts`, each with a one-line note that the
+  command changed at P1-N009 (node P1-N013) and nothing about the
+  criterion's substance did. Still checked at P2-N002's own
+  `verifying`, which falls after this node — only the command they
+  name moved, in this commit, under W-003.
+- [x] **`node` became a runtime assumption where `python3` was —
+  live as of the P1-N013 cutover, not just candidate** — every surface
+  that runs the form checker now needs `node` on `PATH` at a version
+  that strips types (≥22.18 / ≥23.6); `python3` is no longer a
+  fallback, because `plugin/scripts/*.py` no longer exists. Claude
+  Code runs on Node, so the runtime is present wherever a session is.
+  This was recorded here as a candidate Risk-register entry while
+  P1-N009 was still being specified; the Orchestrator has since opened
+  [R13](open-risks.md) and closed [RU-013](rulings.md) (both already
+  in place before this node's execute stage), so the mitigations this
+  entry asked for — a clear, loud failure message and a declared
+  floor — already exist: every tool this node ships calls
+  `preflightNodeOrExit` before doing anything else (`lib/node-preflight.ts`),
+  and `CLAUDE.md`'s Build/run/test line states the floor next to the
+  command, per RU-013.
 - [ ] **Verify what a `/plugin` install physically ships** — whether
   a plugin directory can carry build artifacts or `node_modules`,
   and what `${CLAUDE_PLUGIN_ROOT}` points at in practice. Could not

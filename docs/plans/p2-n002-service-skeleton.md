@@ -302,8 +302,11 @@ The chunk is complete when:
    file carries no token.
 8. Both repositories' Backlogs and this repository's registers are
    current in the same commits as the work (W-003).
-9. `python3 plugin/scripts/form_check.py` passes clean in the
-   coordinating repository.
+9. `node plugin/scripts/form_check.ts` passes clean in the
+   coordinating repository. (Command renamed at P1-N009's cutover,
+   node P1-N013, decision 14 — the Python it named was retired and
+   ported to TypeScript/Node; nothing about this criterion's
+   substance changed.)
 
 Criterion 4 is the owner-facing gate; the rest are the conditions
 that make it mean something.

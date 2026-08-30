@@ -66,7 +66,8 @@ owner decision — confirm it before writing anything.
    sessions equally.
 
 6. **Verify and commit**: run
-   `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/form_check.py"` — it must
-   pass clean; fix what it flags before committing. One commit,
-   documentation together with the change (methodology W-003),
-   Backlog entry included.
+   `node "${CLAUDE_PLUGIN_ROOT}/scripts/form_check.ts"` (Node
+   >=22.18.0, or >=23.6.0 on the 23.x line) — it must pass clean; fix
+   what it flags before committing. One commit, documentation
+   together with the change (methodology W-003), Backlog entry
+   included.
