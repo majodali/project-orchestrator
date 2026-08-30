@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 
-import { parseFormCheckOutput, relativizePath } from "../plugin/scripts/lib/parse-output.ts";
+import {
+  parseFormCheckOutput,
+  relativizePath,
+} from "../plugin/scripts/lib/parse-output.ts";
 
 /**
  * The form-checker output parser the corpus runner uses to both
