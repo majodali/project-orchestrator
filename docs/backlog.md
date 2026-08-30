@@ -683,53 +683,45 @@
   here per W-002; see the new Backlog entry below. Also absorbs the
   "keep the service repo's register fixture in sync" entry above, on
   the service side, at P2-N010.
-- [ ] **`test/plan-register.test.ts`'s live-register cross-check went
+- [x] **`test/plan-register.test.ts`'s live-register cross-check went
   stale the moment it was accepted** — node P1-N010's
   "yields the same {id, stage, hold, parent, line} facts
-  form_check.py's parser yields" test hardcodes a snapshot of
+  form_check.py's parser yields" test hardcoded a snapshot of
   `docs/plan-register.md` as of T014's commit, including
   `P1-N010: identified`. T014's own acceptance commit
   (`099b2c6`) flipped that line to `[done]` moments later — an
   ordinary, sanctioned register write, not a defect — and the test
-  has failed on every commit since, including the base of this
-  child's branch, before this child touched anything. Same category
-  as the already-tracked "keep the service repo's register fixture in
-  sync" finding, one node earlier and in this repository: a golden
-  snapshot of the *live* register is guaranteed to drift at the next
-  acceptance. Left untouched here (W-002 — this child's brief carries
-  no pre-clearance naming this test, and the fix is either an
-  Orchestrator-scope register-vs-test question or a structural one:
-  compute the "expected" side by invoking the shared unit against
-  whatever the register *currently* says, cross-checked against a
-  fresh checker run at test time, rather than freezing a snapshot at
-  authoring time). `npm test` is 34/35 as of this child's last commit
-  for exactly this reason.
-- [ ] **[W-002 — awaiting owner decision] `test/plan-register.test.ts`
+  failed on every commit since. **Resolved at node P1-N012**: see the
+  entry below (test rewritten to assert agreement at test-run time
+  rather than freeze a snapshot).
+- [x] **[W-002 — resolved at P1-N012] `test/plan-register.test.ts`
   freezes a snapshot of the live register, so it breaks at every
   acceptance** — the test asserts `P1-N010 … P1-N013` are
   `identified`. The Orchestrator's own T014 acceptance commit
   (`099b2c6`) moved P1-N010 to `done` and broke it; the T015
-  acceptance moves P1-N011 and breaks it further. Confirmed failing
-  on the base branch before T015's branch existed, so it is not that
+  acceptance moved P1-N011 and broke it further. Confirmed failing
+  on the base branch before T015's branch existed, so it was not that
   task's doing, and the Implementer correctly left it alone under
-  W-002. `npm test` is therefore red (34/35) while every other check
+  W-002. `npm test` was therefore red (34/35) while every other check
   — `typecheck`, `typecheck:consumer`, `lint`, the corpus runner and
-  `form_check.py` — is clean. The test is not wrong in spirit: its
-  purpose (criterion 4, the unit's parse agreeing with the Python's
-  on the live register) is right, and it caught nothing false. It is
-  wrong in construction: any test that freezes register facts is
-  invalidated by the project's most routine operation. **Proposed
-  fix**: assert the agreement itself — parse the live register with
-  both implementations at test-run time and compare — rather than
-  freezing a snapshot of what they currently say. **Owner
-  disposition, 2026-08-30**: do not modify the test; the suite stays
-  red until P1-N012, which is where the live-register cross-check
-  naturally lands and where the fix costs nothing extra. Until then
-  `npm test` at 34/35 is a known state, not a regression — and any
-  further red must be checked against this entry rather than assumed
-  to be the same failure. The design rule this exposes — a
-  repository test must not freeze Plan-register facts, because the
-  register moves at every acceptance — goes into P1-N012's brief.
+  `form_check.py` — stayed clean. The test was not wrong in spirit:
+  its purpose (criterion 4, the unit's parse agreeing with the
+  Python's on the live register) was right, and it caught nothing
+  false. It was wrong in construction: any test that freezes register
+  facts is invalidated by the project's most routine operation.
+  **Owner disposition, 2026-08-30**: do not modify the test until
+  P1-N012, which is where the live-register cross-check naturally
+  lands and where the fix costs nothing extra; carry `npm test` at
+  34/35 as a known state, not a regression, until then.
+  **Resolved at node P1-N012**: `test/plan-register.test.ts` now
+  computes both sides fresh at test-run time — `parseRegister` against
+  the live `docs/plan-register.md`, and `form_check.py`'s own
+  `parse_register` via a `python3` subprocess run in the test itself,
+  no recorded transcript — and asserts the two agree, whatever the
+  register currently says. `npm test` is 35/35 as of this node's last
+  commit. The design rule this exposed travels forward: **a repository
+  test must never freeze Plan-register facts, because the register
+  moves at every acceptance.**
 - [ ] **The corpus README must survive the cutover's orphan search**
   — spec C2's rule is that no textual match for `form_check.py`,
   `journal_tail.py`, `sync_agents.py` or `python3` may survive
@@ -739,15 +731,127 @@
   add this file to C2's permitted-survivors set when the cutover is
   specified, so the search rule stays true rather than being amended
   after it fails.
-- [ ] **(node P1-N012, P1-N009 child C) The form checker on the
-  shared unit, proven finding-for-finding against the Python** — the
-  port, the committed differential harness over corpus and live
-  register, the fingerprint-equality rule with its line/node-identity
-  exception, annotated deviation sites paired with Backlog entries,
-  and the corpus self-check on every invocation with a message that
-  distinguishes *the checker disagrees with its own corpus* from
-  *the register is malformed*. Both guards are proven by breaking
-  them. The Python is still the invoked checker when this child ends.
+- [x] **(node P1-N012, P1-N009 child C) The form checker on the
+  shared unit, proven finding-for-finding against the Python** —
+  shipped: `plugin/scripts/lib/form-check-core.ts` is `runFormCheck`,
+  a pure, line-for-line port of `form_check.py`'s eight functions and
+  25 `find()` call sites onto the shared grammar unit (it imports
+  `parseRegister` and `STAGES`; it declares no node-line regex and no
+  second stage-vocabulary array — the register-parse/register-id
+  findings come from the shared unit's own `RegisterParseResult.errors`,
+  translated into the Python's exact message shape). Cost-log,
+  journal, rulings and definitions parsing are ported with matching
+  Python-`repr()`-style message formatting (a small `pyRepr`/`pyStr`
+  helper) so message prose matches, not merely finding identity.
+  `plugin/scripts/form_check.ts` is the one entry point (spec C6/C7):
+  it preflights the Node floor, runs the corpus self-check (below),
+  then runs `runFormCheck` against the target root and prints/exits
+  exactly as the Python does — including *not* resolving the
+  project-root argument to an absolute path, matching
+  `Path(sys.argv[1])`'s behaviour exactly (a real port bug caught and
+  fixed during this child, not a preserved deviation: an early
+  `path.resolve()` would have silently changed every finding's printed
+  path from what the Python prints for the same invocation). One
+  sentence for spec C7: an `--emit=json` flag would attach in `main()`
+  as a branch before the print loop, replacing it with one
+  `JSON.stringify` and touching nothing else; not built (RU-004).
+  **Criterion 1 (B3, the committed harness)**:
+  `plugin/scripts/check_equality.ts` runs `form_check.py` (subprocess)
+  and `runFormCheck` (in-process) over all 18 checker-rule/not-enrolled/
+  live-tree corpus fixtures **and** this repository's own live
+  register, comparing `(severity, rule, fixture-relative path)`
+  fingerprint multisets, finding counts and exit codes; its recorded
+  output (this task's result) shows all 19 roots agreeing, exit 0.
+  **Criterion 2 (B2, finding-for-finding)**: exact agreement on every
+  root — same fingerprints, same counts, same exit codes, no
+  line/node/task/ruling ever named differently. One surviving message
+  wording difference, justified in this task's result and recorded
+  below: `journal-form`'s "invalid JSON" diagnostic text differs
+  between Python's `json` module and V8's `JSON.parse` (different
+  runtimes' parsers describe the same malformed input differently);
+  the violation's rule, path and line number are identical either way.
+  **Criterion 3 (B5, preserved deviations)**: one deviation found and
+  preserved — `checkBacklogRefs` never implements
+  [auditing.md](process/auditing.md)'s Register↔Backlog clause "where
+  a Workflow is declared, Backlog stage designations match register
+  stages" (`form_check.py` never implemented it either, in any form;
+  this project declares no Workflow, so it has never been exercised).
+  One annotated site (`lib/form-check-core.ts`, the `checkBacklogRefs`
+  doc comment, citing decision 6 and B5), one matching Backlog entry
+  (below) — the same set. The two already-documented v1 approximations
+  (Backlog-ref stage coverage; the journal cross-check's
+  accepted-event/cost-row approximation) carry over unchanged and
+  unannotated, per spec B5's own carve-out. **Criterion 4 (D1, no
+  second grammar)**: a repository-wide search for `P\d+-N\d+`-shaped
+  patterns and for a second `STAGES`-like array returns no hit outside
+  `lib/plan-register.ts` and the corpus fixtures — `INTERIOR_OK` and
+  `NEED_BACKLOG_REF` in `form-check-core.ts` are checker *policy*
+  (which stages permit children; which need a Backlog entry), not a
+  second copy of the *vocabulary*, exactly as `form_check.py` itself
+  kept them beside its own `STAGES` set; the doc comment makes the
+  distinction explicit for a future reader. **Criterion 5 (D3, the
+  self-check)**: `form_check.ts` runs the whole corpus against itself,
+  in-process, before doing anything else, on every invocation; a
+  corrupted expectation run against the clean live register produced a
+  message opening "SELF-CHECK FAILED — this checker disagrees with its
+  own conformance corpus... This is a problem with the checker, not
+  with your project", naming the corrupted fixture, exit 1 — reverted,
+  transcript in this task's result. Measured wall-clock, `time node
+  plugin/scripts/form_check.ts .`: consistently ~0.09–0.11s, well under
+  the one-second budget. **Criterion 6 (D2's executable half)**:
+  temporarily disabling the stage-vocabulary check in
+  `form-check-core.ts` and re-running produced a self-check failure
+  naming exactly `register-stage-verifiying` ("expected 1 finding(s)…
+  got 0 finding(s)") and "the corpus never provoked: register-stage" —
+  reverted, transcript in this task's result. **Criterion 7**:
+  demonstrated running `node plugin/scripts/form_check.ts` by absolute
+  path from `/tmp` (an unrelated working directory) against a scratch
+  checkout with `node_modules` removed entirely, with an explicit
+  project-root argument — exit 0 on the clean register. **Criterion
+  8**: the loop is untouched — `form_check.ts` is not pointed at by any
+  invocation site, `form_check.py` is byte-identical to the base
+  branch, and `python3 plugin/scripts/form_check.py` passed clean at
+  every commit of this child. `npm run typecheck`, `typecheck:consumer`
+  and `lint` clean; `npm test` is 35/35 (see the two entries above —
+  this child also carried the licensed W-002 fix to
+  `test/plan-register.test.ts`).
+- [ ] **[Preserved deviation, P1-N009 decision 6 — fix separately]
+  `form_check` never checks that a Backlog entry's stage designation
+  matches the register's, "where a Workflow is declared"** —
+  [auditing.md](process/auditing.md)'s Register↔Backlog invariant has
+  two clauses: a Backlog entry exists referencing the node (which the
+  checker implements), and, where a Workflow is declared, that entry's
+  own stage designation agrees with the register's (which it does
+  not, in either the Python or the TypeScript port — there is no code
+  path for it in `form_check.py` to preserve behaviourally, only its
+  absence). This project's Classification declares "Workflow: none
+  declared", so the gap has never been exercised here and porting its
+  absence changes nothing observable today. Found and annotated at
+  node P1-N012 (`plugin/scripts/lib/form-check-core.ts`,
+  `checkBacklogRefs`'s doc comment) per decision 6: preserve, record,
+  fix separately — a rewrite that also changes behaviour cannot be
+  verified by comparison against the Python oracle. Worth its own node
+  if this project (or a project it orchestrates) ever declares a
+  Workflow — the transition-legality table that P2-N010 already has to
+  build for the stage-vocabulary question is a natural place to design
+  the check.
+- [ ] **One justified message-wording difference between the Python
+  and TypeScript form checkers: the "invalid JSON" diagnostic text**
+  — `journal-form`'s malformed-JSON finding names the same line, the
+  same file and the same rule in both implementations, but the
+  parenthesized diagnostic differs because it is generated by each
+  runtime's own JSON parser: Python's `json` module says `Expecting
+  value` for `not json at all`; V8's `JSON.parse` (node
+  plugin/scripts/form_check.ts) says `Unexpected token 'o', "not json
+  at all" is not valid JSON` for the identical input. Neither
+  implementation's own text is under this project's control — both
+  are the standard library's own error message — so there is nothing
+  to port or align; recorded here per spec B2's requirement that every
+  surviving wording difference be enumerated and justified, not
+  silently accepted. No other wording difference was found: every
+  other message is reproduced verbatim, including Python-`repr()`
+  string quoting for task IDs, ruling statuses, and unknown event
+  kinds.
 - [ ] **(node P1-N013, P1-N009 child D) The cutover:
   `sync_agents` ported, every invocation site moved, the Python
   retired, in one commit** — the seven-row inventory, the
