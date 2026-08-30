@@ -382,8 +382,8 @@
   `sam build` unless the artifact is deleted first. Found and worked
   around during T009; belongs in the service repo, tracked here until
   a task there picks it up.
-- [~] **Chunk-1 child: plan-state read** (node P2-N009,
-  `verifying`, blocked on owner action O3) — delivered in the service
+- [x] **Chunk-1 child: plan-state read** (node P2-N009, `done`)
+  — delivered in the service
   repo on branch `p2-n009-plan-state-read` (`cd67d75`, five commits):
   a register parser implementing the grammar of
   [plan-register.md](process/plan-register.md) into structured nodes
@@ -410,7 +410,18 @@
   the cold/warm latency row, both need owner action O3 (create and
   install the GitHub App, store its private key) followed by a
   redeploy. The runbook gained O3 as Step 2 and introduces no owner
-  action outside O1–O6 (I8).
+  action outside O1–O6 (I8). **Closed 2026-08-30**: the owner
+  completed O3, merged the work to the service repo's `main`
+  (`4094d34`) and redeployed. Proven live from this cloud session
+  through the harness's own MCP client, not curl: `plan_read` at
+  `ref: claude/project-orchestrator-design-9pylac`, `nodeId: P2-N002`
+  returned that subtree exactly — six nodes, correct stages,
+  P2-N009's own `[blocked: …]` hold marker with kind and reason
+  intact, parent/child edges, document links, line numbers, zero
+  parse errors — stamped with the register's true SHA at that ref and
+  the fetch time. Warm latency 0.82–0.94s over three calls (three
+  GitHub round-trips), against a 20s function timeout and a 30s
+  enlistment budget.
 - [ ] **`plan_read` passes through a stage outside the lifecycle
   vocabulary** — the parser matches `form_check.py`'s node regex
   line for line, but `form_check.py` additionally rejects a stage
@@ -424,11 +435,12 @@
   back as `needs-judgment` rather than being settled in place.
   Decide it at P2-N010, where the transition-legality table has to
   exist anyway and the vocabulary question cannot be deferred again.
-- [ ] **Re-verify `plan_read` against the deployed service** (node
-  P2-N009 tail) — once O3 is done and the stack redeployed: the
-  deployed-read criterion, plus cold and warm latency measured
-  against the 30s enlistment budget and written into the runbook's
-  table, which currently says "not yet measured" in both rows.
+- [ ] **Write `plan_read`'s latency row into the service runbook**
+  (G7) — warm is measured (0.82–0.94s, 2026-08-30); cold still needs
+  a call after a genuine idle period. The runbook's table says "not
+  yet measured" in both rows and is a service-repo edit, so it wants
+  a task there rather than a note here. The deployed-read criterion
+  itself is closed.
 - [ ] **`sam validate --lint` and `sam build` for the P2-N009
   template changes** — no SAM CLI in the dispatch environment, so the
   new parameters and environment wiring were checked only as YAML and

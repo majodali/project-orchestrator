@@ -1,6 +1,6 @@
 # Plugin tooling on the portfolio stack
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -439,3 +439,18 @@ following.
   plugin has never been observed loading)
 - [p1-n008 plan](p1-n008-mtool-checker-extension-point.md) — the
   sibling Backlog-discovered node this one is shaped after
+
+## Gate outcome, 2026-08-29
+
+All ten staged decisions adopted as defaulted; none overridden. The
+owner had separately raised whether the two repositories should be
+combined into one, which would have dissolved decision 1 entirely,
+and judged against it after weighing the costs — a single repository
+must declare one S-level and one Type, so the documentation tree
+would inherit the service's S1 obligations and one of the two Type
+declarations would be false (Article 4); and this pair is the only
+live exercise of the multi-repo coordination the process spec
+describes. [RU-006](../rulings.md) therefore stands unamended, and
+decision 1's vendoring answer is captured as
+[RU-012](../rulings.md).
+

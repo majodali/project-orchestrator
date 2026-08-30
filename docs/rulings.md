@@ -80,10 +80,24 @@ spec. First entries land at the pending P1-N008 gate.
   not an override. Source: owner decision on noticing the
   inconsistency, 2026-08-29. Applied: —
 
+- RU-012 [active] stack/process — How do two majodali repositories
+  share one unit of code, absent a package registry? Ruling: one
+  canonical copy in the repository that owns the thing's
+  specification, vendored outward by a generator with a `--check`
+  drift mode; the consumer never edits its copy. Rationale: the least
+  machinery that makes drift mechanically detectable — no registry, no
+  release cadence, no clone-time dependency — and the pattern already
+  runs here as `.claude/agents/` → `plugin/agents/`. A registry,
+  submodule, subtree, or shared-library repo each buy less than they
+  cost at two consumers; RU-006 is the near match, and reaching for a
+  third repository is what it warns against. Revisit at a third
+  consumer. Source: P1-N009 gate (decisions 1 and 2, defaults
+  adopted), 2026-08-29. Applied: —
+
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events
 (the lists were not maintained on the first run).
 
-Promotion flags: RU-002, RU-003 and RU-011 are process-scope — flagged for
+Promotion flags: RU-002, RU-003, RU-011 and RU-012 are process-scope — flagged for
 the next design pass on this spec (rulings.md promotion rule).
