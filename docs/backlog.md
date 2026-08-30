@@ -867,6 +867,20 @@
   wording when P1-N009's own `verifying` assembles its evidence, so
   the verifier is not asked to reconcile a grep that cannot come
   back clean.
+- [ ] **Upstream proposal for `mtool`: no source file may read as
+  binary to grep** — owner direction, 2026-08-30, prompted by the
+  NUL-byte finding below and by the owner having hit the same
+  failure before: a checker should assert that every source file in
+  a managed tree is treated as text by grep, because a file that
+  reads as binary drops out of searches silently and any check built
+  on a search quietly loses coverage. This is upstream work, so
+  [RU-002](rulings.md) applies — the artifact is written here and the
+  owner hand-carries it; cross-repo scope is not assumed. The natural
+  vehicle is the checker extension point already proposed at P1-N008
+  ([plan](plans/p1-n008-mtool-checker-extension-point.md) ·
+  [spec](specs/p1-n008-mtool-checker-extension-point.md)), whose
+  contract this would be an early consumer of. Sized as its own node
+  when the owner wants it; not folded into P1-N009.
 - [ ] **`run_corpus.ts` contains NUL bytes, and ripgrep silently
   drops it from searches** — its `fingerprint()` builds keys with
   literal `\x00` separators, so ripgrep classifies the file as binary

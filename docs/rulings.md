@@ -105,10 +105,25 @@ spec. First entries land at the pending P1-N008 gate.
   floor. Source: P1-N009 gate (decision 12, default adopted),
   2026-08-30. Applied: —
 
+- RU-014 [active] verification/process — When a port retires the only
+  other implementation a test compares against, what happens to that
+  test? Ruling: retire the comparison, keep whatever assertion still
+  stands without the retired side, and record in the same commit
+  where the lost coverage now lives. Rationale: a cross-check needs
+  two implementations, and deleting one is the deliberate outcome of
+  a port, not an accident — so the test's premise is gone, not
+  merely inconvenient. Freezing a transcript of the retired side is
+  the anti-pattern the same test was already rewritten to remove,
+  and keeping the retired runtime alive for tests alone defeats the
+  port. Every port ends this way, which is why this is a ruling and
+  not a one-off. The W-002 ceremony still applies: the owner rules
+  before the test changes. Source: P1-N013, owner decision on the
+  T017 escalation, option (c), 2026-08-30. Applied: —
+
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events
 (the lists were not maintained on the first run).
 
-Promotion flags: RU-002, RU-003, RU-011, RU-012 and RU-013 are process-scope — flagged for
+Promotion flags: RU-002, RU-003, RU-011, RU-012, RU-013 and RU-014 are process-scope — flagged for
 the next design pass on this spec (rulings.md promotion rule).
