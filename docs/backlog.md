@@ -721,10 +721,15 @@
   invalidated by the project's most routine operation. **Proposed
   fix**: assert the agreement itself — parse the live register with
   both implementations at test-run time and compare — rather than
-  freezing a snapshot of what they currently say. Changing an
-  existing test's conditions is W-002 and an immediate-escalation
-  class, so this waits for the owner rather than being fixed in
-  passing.
+  freezing a snapshot of what they currently say. **Owner
+  disposition, 2026-08-30**: do not modify the test; the suite stays
+  red until P1-N012, which is where the live-register cross-check
+  naturally lands and where the fix costs nothing extra. Until then
+  `npm test` at 34/35 is a known state, not a regression — and any
+  further red must be checked against this entry rather than assumed
+  to be the same failure. The design rule this exposes — a
+  repository test must not freeze Plan-register facts, because the
+  register moves at every acceptance — goes into P1-N012's brief.
 - [ ] **The corpus README must survive the cutover's orphan search**
   — spec C2's rule is that no textual match for `form_check.py`,
   `journal_tail.py`, `sync_agents.py` or `python3` may survive
