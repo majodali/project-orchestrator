@@ -1,0 +1,24 @@
+node_modules
+coverage
+package-lock.json
+
+# Existing content predates this toolchain and is out of this node's
+# scope (P1-N009 child A retires nothing, re-points nothing, and does
+# not touch plugin/skills/, plugin/README.md, CLAUDE.md, or
+# .claude/agents/). Prettier's job here is the configuration and
+# TypeScript source this node adds — plugin/scripts/**/*.ts, test/,
+# and the root config files — not a repo-wide reformat of documents
+# this node does not own.
+docs/
+plugin/agents/
+plugin/skills/
+plugin/hooks/
+plugin/README.md
+plugin/.claude-plugin/
+plugin/scripts/*.py
+plugin/scripts/*.sh
+.claude/
+.claude-plugin/
+orchestration/
+README.md
+CLAUDE.md
