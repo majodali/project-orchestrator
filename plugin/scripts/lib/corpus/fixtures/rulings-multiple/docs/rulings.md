@@ -1,0 +1,6 @@
+# Ruling register (fixture)
+
+- RU-002 [superseded by RU-003, because it was wrong] some old ruling.
+  Source: fixture, 2026-01-01. Applied: T002.
+- RU-003 [active] scope/node — Some ruling. Rationale: fixture only.
+  Source: fixture, 2026-01-01. Applied: T099.
