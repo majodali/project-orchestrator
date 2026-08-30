@@ -135,7 +135,10 @@ detects or contains them. This register's numbering is project-local.
   looks. *Mitigation*: Claude Code itself runs on Node, so the runtime is
   present wherever a session is; the version floor is stated in the plan
   and a committed `esbuild` bundle is the named fallback if it proves
-  unacceptable; the cutover moves every invocation site in one commit so
+  unacceptable; [RU-013](rulings.md) makes the posture general — a
+  tool whose floor is unmet exits non-zero naming required versus
+  found, and node P1-N010's preflight criterion is where that lands
+  for these three tools; the cutover moves every invocation site in one commit so
   no surface is left calling a script that no longer exists. *Status*:
   open; opened at P1-N009's plan stage, 2026-08-29, from a Planner
   finding.

@@ -530,7 +530,7 @@
   that belongs in the one commit already rewriting every name. The
   vendoring generator moved the other way, into the corpus child,
   because the set it carries is the unit *and* the corpus.
-- [ ] **(P1-N009 child A — ID to be issued) The Node toolchain and
+- [ ] **(node P1-N010, P1-N009 child A) The Node toolchain and
   the shared register grammar, proven end to end by `journal_tail`**
   — iteration zero plus the thin slice: `package.json`, TypeScript,
   ESLint, Prettier, Vitest and a committed lockfile in the service
@@ -541,7 +541,7 @@
   and `journal_tail` ported onto it, output-equal to the Python.
   Nothing is retired and no invocation site moves. Criteria in the
   [plan](plans/p1-n009-plugin-tooling-portfolio-stack.md).
-- [ ] **(P1-N009 child B — ID to be issued) The travelling package:
+- [ ] **(node P1-N011, P1-N009 child B) The travelling package:
   conformance corpus, recorded expectations, and the vendoring
   generator** — roughly twenty minimal project roots provoking every
   finding rule `form_check.py` can emit, including the misspelled
@@ -552,7 +552,7 @@
   a `--check` drift mode proven against a scratch destination. Also
   absorbs the "keep the service repo's register fixture in sync"
   entry above, on the service side, at P2-N010.
-- [ ] **(P1-N009 child C — ID to be issued) The form checker on the
+- [ ] **(node P1-N012, P1-N009 child C) The form checker on the
   shared unit, proven finding-for-finding against the Python** — the
   port, the committed differential harness over corpus and live
   register, the fingerprint-equality rule with its line/node-identity
@@ -561,7 +561,7 @@
   distinguishes *the checker disagrees with its own corpus* from
   *the register is malformed*. Both guards are proven by breaking
   them. The Python is still the invoked checker when this child ends.
-- [ ] **(P1-N009 child D — ID to be issued) The cutover:
+- [ ] **(node P1-N013, P1-N009 child D) The cutover:
   `sync_agents` ported, every invocation site moved, the Python
   retired, in one commit** — the seven-row inventory, the
   permitted-survivors rule (*a mention a reader will act on moves; a
