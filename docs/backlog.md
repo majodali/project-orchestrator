@@ -878,6 +878,21 @@
   wording when P1-N009's own `verifying` assembles its evidence, so
   the verifier is not asked to reconcile a grep that cannot come
   back clean.
+- [ ] **Two further C2 permitted-set candidates, and one declined**
+  — T018 discharged the orphan search and surfaced three questions
+  for P1-N009's `verifying` rather than settling them: (i)
+  `plugin/scripts/lib/corpus/manifest.ts` quotes the four search
+  strings for the same reason the README beside it does; (ii)
+  `test/plan-register.test.ts` names `form_check.py` in the
+  disposition comment [RU-014](rulings.md) itself mandates; and
+  (iii) this file's narrative of the node's completed children sits
+  structurally under `## Upcoming` rather than the literal
+  `## Completed` section C2 names, because an interior node stays
+  under Upcoming until it reaches `done` itself. The Implementer
+  declined to widen the set for (iii) — relocating it would either
+  falsify history or falsely claim node-level completion — and left
+  it for the owner. All three want a one-line amendment to spec C2
+  at `verifying`, not a change to what shipped.
 - [ ] **Upstream proposal for `mtool`: no source file may read as
   binary to grep** — owner direction, 2026-08-30, prompted by the
   NUL-byte finding below and by the owner having hit the same
@@ -965,7 +980,12 @@
   dispatched task with an outcome column, or the journal becomes the
   authority for unaccepted work and the Cost log says so. A spec
   decision for the next design pass, recorded here with a real
-  instance rather than argued in the abstract.
+  instance rather than argued in the abstract. **Now a live signal**:
+  the ported checker raises `costlog-form — task IDs not sequential`
+  on the T017 gap at every run, and will keep doing so until the
+  definition is settled. It is a true finding, not noise, and it is
+  the first thing the port caught on the live tree that the project
+  had not already written down.
 - [ ] **Orchestrator brief defect: the T017 packet said "all five
   test files" when there are four** — a small enumeration error, but
   the packet table is the context-frugality contract and an
