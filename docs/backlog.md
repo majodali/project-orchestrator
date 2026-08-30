@@ -530,7 +530,7 @@
   that belongs in the one commit already rewriting every name. The
   vendoring generator moved the other way, into the corpus child,
   because the set it carries is the unit *and* the corpus.
-- [ ] **(node P1-N010, P1-N009 child A) The Node toolchain and
+- [x] **(node P1-N010, P1-N009 child A) The Node toolchain and
   the shared register grammar, proven end to end by `journal_tail`**
   — shipped: `package.json` (`"type": "module"`, `engines.node >=22`,
   dev-only dependencies matching project-orchestrator-service's
@@ -575,6 +575,40 @@
   `python3 plugin/scripts/form_check.py` passes clean at every
   commit of this child. Criteria in the
   [plan](plans/p1-n009-plugin-tooling-portfolio-stack.md).
+  **Re-verified at acceptance** rather than accepted on report: the
+  four equality cases diffed again byte-for-byte (identical, exit
+  codes matching including 1 on the no-journal case); the
+  bare-checkout run repeated from an unrelated directory under a
+  stronger condition than the criterion asks, since `node_modules`
+  was absent entirely rather than moved aside; the unit re-grepped
+  for `import`/`require` (hits in the doc comment only); `npm ci`
+  from the committed lockfile followed by `typecheck`,
+  `typecheck:consumer`, `lint` and `test` (29/29) all clean; and
+  `form_check.py` re-run at each of the three commits from a
+  worktree — 24 nodes, 0 violations, every time.
+- [ ] **`journal_tail`'s duplicate-ID behaviour changed in the
+  port** — `journal_tail.py`'s ad hoc `node_names()` builds a dict
+  in a loop, so a duplicate node ID silently takes the last
+  occurrence; the TypeScript port routes through the shared unit,
+  which reports a duplicate ID as a parse error and keeps the first.
+  Never observable on the live register, which has no duplicates,
+  and none of criterion 7's four required cases exercises it. It is
+  a genuine tension between decision 6 (preserve the Python's
+  behaviour, record the deviation, fix separately) and criterion D1
+  (`journal_tail` carries no grammar of its own) — the two cannot
+  both hold here, and the Implementer chose D1 and surfaced it. That
+  reading is right, but the conflict was arguably a
+  `needs-judgment`. Resolve it at P1-N011: a duplicate-ID fixture in
+  the corpus, run through both implementations, makes the divergence
+  visible and decides it deliberately.
+- [ ] **A JSON configuration file cannot carry a required
+  comment** — criterion 1 asks that every divergence from the
+  service repository's configuration be enumerated in a comment in
+  the file that differs, but `package.json` is strict JSON with no
+  comment syntax. Documented in the commit message and the Backlog
+  entry instead of inventing a non-standard extension. Worth
+  pre-empting the next time a specify stage writes a
+  comment-in-the-file criterion.
 - [ ] **(node P1-N011, P1-N009 child B) The travelling package:
   conformance corpus, recorded expectations, and the vendoring
   generator** — roughly twenty minimal project roots provoking every

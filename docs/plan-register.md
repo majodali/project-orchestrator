@@ -14,7 +14,7 @@ honestly; chunks 1–3 completed before this register existed.
   - P1-N005 [done] Plugin v1 with self-hosted trial (chunk 4)
   - P1-N008 [done] mtool checker extension-point proposal — plan: plans/p1-n008-mtool-checker-extension-point.md · spec: specs/p1-n008-mtool-checker-extension-point.md
   - P1-N009 [broken-down] Plugin tooling on the portfolio stack — plan: plans/p1-n009-plugin-tooling-portfolio-stack.md · spec: specs/p1-n009-plugin-tooling-portfolio-stack.md
-    - P1-N010 [identified] Node toolchain and the shared register grammar, proven by journal_tail
+    - P1-N010 [done] Node toolchain and the shared register grammar, proven by journal_tail
     - P1-N011 [identified] The travelling package: conformance corpus, recorded expectations, vendoring generator
     - P1-N012 [identified] The form checker on the shared unit, proven finding-for-finding
     - P1-N013 [identified] The cutover: sync_agents ported, every invocation site moved, the Python retired
