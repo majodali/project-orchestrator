@@ -704,6 +704,36 @@
   fresh checker run at test time, rather than freezing a snapshot at
   authoring time). `npm test` is 34/35 as of this child's last commit
   for exactly this reason.
+- [ ] **[W-002 — awaiting owner decision] `test/plan-register.test.ts`
+  freezes a snapshot of the live register, so it breaks at every
+  acceptance** — the test asserts `P1-N010 … P1-N013` are
+  `identified`. The Orchestrator's own T014 acceptance commit
+  (`099b2c6`) moved P1-N010 to `done` and broke it; the T015
+  acceptance moves P1-N011 and breaks it further. Confirmed failing
+  on the base branch before T015's branch existed, so it is not that
+  task's doing, and the Implementer correctly left it alone under
+  W-002. `npm test` is therefore red (34/35) while every other check
+  — `typecheck`, `typecheck:consumer`, `lint`, the corpus runner and
+  `form_check.py` — is clean. The test is not wrong in spirit: its
+  purpose (criterion 4, the unit's parse agreeing with the Python's
+  on the live register) is right, and it caught nothing false. It is
+  wrong in construction: any test that freezes register facts is
+  invalidated by the project's most routine operation. **Proposed
+  fix**: assert the agreement itself — parse the live register with
+  both implementations at test-run time and compare — rather than
+  freezing a snapshot of what they currently say. Changing an
+  existing test's conditions is W-002 and an immediate-escalation
+  class, so this waits for the owner rather than being fixed in
+  passing.
+- [ ] **The corpus README must survive the cutover's orphan search**
+  — spec C2's rule is that no textual match for `form_check.py`,
+  `journal_tail.py`, `sync_agents.py` or `python3` may survive
+  outside a permitted set. `plugin/scripts/lib/corpus/README.md`
+  necessarily quotes all four to describe that very rule. The
+  Implementer flagged it rather than letting P1-N013 discover it:
+  add this file to C2's permitted-survivors set when the cutover is
+  specified, so the search rule stays true rather than being amended
+  after it fails.
 - [ ] **(node P1-N012, P1-N009 child C) The form checker on the
   shared unit, proven finding-for-finding against the Python** — the
   port, the committed differential harness over corpus and live
