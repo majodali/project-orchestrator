@@ -435,6 +435,17 @@
   back as `needs-judgment` rather than being settled in place.
   Decide it at P2-N010, where the transition-legality table has to
   exist anyway and the vocabulary question cannot be deferred again.
+- [ ] **The break-down packet row may be one document short** —
+  `dispatch.md`'s packet table gives the break down stage "the node's
+  specification; profile's leaf-size guidance", but the child sketch
+  a breakdown tests lives in the node's *plan*, and `profiles.md` has
+  no section by that name: the substance is its Breakdown row
+  (C1: required above single-session size) plus `plan-model.md`'s
+  definition of a leaf as a unit executable in a single role session.
+  The T013 brief supplied both, recorded as the Orchestrator's own
+  packet widening. If the next breakdown needs the same additions,
+  the row is a spec defect rather than two one-offs — fix it then,
+  with evidence, rather than now on one instance.
 - [ ] **Write `plan_read`'s latency row into the service runbook**
   (G7) — both numbers now measured from this session, 2026-08-30:
   **warm 0.82–1.07s** over four calls, **2.52s on the first call
