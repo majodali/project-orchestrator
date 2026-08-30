@@ -1,0 +1,3 @@
+# Ruling register (fixture)
+
+Empty.

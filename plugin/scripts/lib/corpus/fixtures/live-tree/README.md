@@ -1,0 +1,7 @@
+A snapshot of this repository's own live docs/ and orchestration/ —
+copied, not symlinked, so the corpus stays self-contained and a
+consumer that vendors it gets a real, independently-runnable example
+of a passing tree. Refreshed as the last step before this child's
+final commit, so it reflects the state form_check.py's own "clean at
+every commit" claim is checked against (spec B1: "the corpus contains
+... the live register tree as of this child's last commit").

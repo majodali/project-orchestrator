@@ -1,0 +1,7 @@
+# Cost log (fixture)
+
+T001 has a Cost log row but no matching journal accepted event.
+
+| date | task | node | stage | role | model | input tok | output tok | notes |
+|---|---|---|---|---|---|---|---|---|
+| 2026-01-01 | T001 | P1-N001 | execute | implementer | model-x | n/a | n/a | - |
