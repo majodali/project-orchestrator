@@ -3,8 +3,9 @@
  * Vendors the shared Plan-register grammar unit and its conformance
  * corpus into a destination directory (P1-N009 child B, node P1-N011,
  * spec T3/D4, decision 1 / RU-012). The same pattern `sync_agents.ts`
- * (this node's sibling `sync_agents.py`, ported at the cutover) runs
- * for `.claude/agents/` -> `plugin/agents/`: a canonical copy here,
+ * (this node's sibling — `sync_agents.py` until it was ported at the
+ * P1-N013 cutover, decision 5) runs for `.claude/agents/` ->
+ * `plugin/agents/`: a canonical copy here,
  * copied outward, with a "generated — do not edit here" banner and a
  * `--check` drift mode that changes nothing.
  *
@@ -17,13 +18,16 @@
  * What does not travel: plugin/scripts/lib/node-preflight.ts (local
  * tooling policy, not shared grammar — its own doc comment says so)
  * and plugin/scripts/lib/parse-output.ts / run_corpus.ts /
- * sync_shared_unit.ts itself (harness tools that invoke the Python
- * checker directly, which a vendored destination has no use for and
- * likely does not even have on its PATH).
+ * sync_shared_unit.ts itself (harness tools bound to this
+ * repository's own checker, corpus directory and layout — before the
+ * P1-N013 cutover, run_corpus.ts ran the Python checker directly by
+ * its real path; after it, this repository's own checker in-process —
+ * either way, tools a vendored destination has no use for and would
+ * not share the layout to run anyway).
  *
  * Banner placement, by format: `.ts` and `.md` files can carry an
  * inline "generated — do not edit here" comment, so this generator
- * inserts one (mirroring sync_agents.py's after-frontmatter
+ * inserts one (mirroring sync_agents.ts's after-frontmatter
  * insertion: after the file's own leading doc comment, if it has
  * one, otherwise as the first line). `.json` and `.jsonl` files have
  * no comment syntax and are largely fixture *data* — the corpus's
@@ -40,7 +44,7 @@
  *   --check: exit 1 if the destination is out of sync (or missing),
  *            changing nothing. Default: vendor (create/update).
  *   destination-directory: required — this generator never guesses a
- *            consumer's layout the way sync_agents.py can guess
+ *            consumer's layout the way sync_agents.ts can guess
  *            plugin/agents/ from a project-root convention this
  *            generator does not share with a second repository.
  *   source-project-root: defaults to this repository (two directories
@@ -121,7 +125,7 @@ function bannerFor(rel: string): string | null {
 }
 
 /** Inserts the banner after a leading `/** ... *\/` doc comment for
- * `.ts` files (mirroring sync_agents.py's after-frontmatter
+ * `.ts` files (mirroring sync_agents.ts's after-frontmatter
  * insertion), or after a leading `# Title` line for `.md` files;
  * otherwise prepends it. */
 function withBanner(content: string, rel: string): string {

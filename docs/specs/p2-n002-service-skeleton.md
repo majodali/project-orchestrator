@@ -148,10 +148,12 @@ and register state the chunk must leave behind.
 - **P1 — The service repository is enrolled.** Classification, Binding
   block, README and Backlog present and mutually consistent; `mtool`
   form audit and link check pass clean on that tree.
-- **P2 — This repository is clean.** `python3
-  plugin/scripts/form_check.py` passes; register and Backlog stage
-  designations agree; each of the five children reached `done` against
-  its own criteria.
+- **P2 — This repository is clean.** `node plugin/scripts/form_check.ts`
+  passes (command renamed at P1-N009's cutover, node P1-N013,
+  decision 14 — the Python it named was retired and ported to
+  TypeScript/Node; nothing about this criterion's substance changed);
+  register and Backlog stage designations agree; each of the five
+  children reached `done` against its own criteria.
 - **P3 — Documentation moved with the work (W-003).** Both
   repositories' Backlogs and this repository's registers were updated
   in the same commits as the work they describe, and this chunk's

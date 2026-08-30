@@ -16,9 +16,9 @@ On each run:
    over the project at its declared level, if `mtool` is available in
    the environment; record its findings verbatim.
 2. Run the orchestration form checker
-   (`form_check.py`, path in your brief) — the transitional
-   side-by-side run until `mtool` grows the custom-type checker
-   extension point.
+   (`form_check.ts`, run with `node`; path in your brief) — the
+   transitional side-by-side run until `mtool` grows the custom-type
+   checker extension point.
 3. Assemble the combined findings in the methodology's
    finding-fingerprint shape — (rule ID, severity, file) over
    violations and warnings — for delivery per the methodology's

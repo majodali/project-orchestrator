@@ -19,9 +19,12 @@ and minimizing model and context cost.
 
 ## Build / run / test
 
-`python3 plugin/scripts/form_check.py` — orchestration form checks
-(must pass clean). `mtool` (methodology-tools) runs form audits and
-link checks over this tree.
+`node plugin/scripts/form_check.ts` — orchestration form checks (must
+pass clean). Requires Node >=22.18.0 (>=23.6.0 on the 23.x line,
+RU-013): the tool preflights this itself and exits non-zero, naming
+what was required and what was found, rather than degrading quietly.
+`mtool` (methodology-tools) runs form audits and link checks over
+this tree.
 
 ## Architecture at a glance
 
@@ -30,7 +33,7 @@ under `plugin/` is the built artifact implementing it (installable
 via this repo's marketplace file). **`.claude/agents/` holds the
 primary role agents** — the path that loads on every surface; the
 plugin's copies are generated from them with
-`python3 plugin/scripts/sync_agents.py`. This repo is itself
+`node plugin/scripts/sync_agents.ts`. This repo is itself
 enrolled: docs/plan-register.md, docs/cost-log.md,
 orchestration/journal.jsonl. To orchestrate without the plugin's
 skills, follow docs/process/dispatch.md with owner-approved scope,

@@ -42,13 +42,14 @@ commands needed anywhere once it is committed.
 agents are the path that actually loads; the plugin has never been
 observed loading. So `.claude/agents/` holds the source of truth and
 this package's `agents/` is generated from it — after editing a role,
-run `python3 plugin/scripts/sync_agents.py` (`--check` verifies
+run `node plugin/scripts/sync_agents.ts` (`--check` verifies
 without writing). The plugin remains a faithful package of the same
 role contracts, for surfaces where it does load. When the plugin's
 skills are unavailable in a session,
 everything remains reachable in plain language: the scripts run
-directly (`python3 plugin/scripts/form_check.py`,
-`journal_tail.py`), and an orchestration session is started by asking
+directly (`node plugin/scripts/form_check.ts`,
+`journal_tail.ts` — Node >=22.18.0, or >=23.6.0 on the 23.x line),
+and an orchestration session is started by asking
 the session to run the dispatch loop per `docs/process/dispatch.md`
 with your approved scope — the mirrored agents give it the roles to
 dispatch.
@@ -68,10 +69,11 @@ dispatch.
   session: scope → dispatch loop → gate summary),
   `/orchestrator:enroll` (onboard a project),
   `/orchestrator:journal-tail` (the owner's feed).
-- **Scripts** (`scripts/`) — `form_check.py` (the deterministic
+- **Scripts** (`scripts/`) — `form_check.ts` (the deterministic
   invariants of [`auditing.md`](../docs/process/auditing.md); run
-  directly anytime: `python3 plugin/scripts/form_check.py`),
-  `journal_tail.py`, `billing_check.sh`.
+  directly anytime: `node plugin/scripts/form_check.ts`),
+  `journal_tail.ts`, `sync_agents.ts` (mirrors `.claude/agents/` into
+  this package — see above), `billing_check.sh`.
 - **Hooks** (`hooks/hooks.json`) — SessionStart warning when
   `ANTHROPIC_API_KEY` is set (Risk R7: it would silently bill API
   credits instead of the subscription).

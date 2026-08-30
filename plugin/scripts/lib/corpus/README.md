@@ -39,23 +39,28 @@ that predate any commit deleting what produced them.
 ## Why no fixture, this manifest, or an expectation file names a
    script by its filename
 
-Node P1-N013 (the cutover, this node's fourth child) will search the
+Node P1-N013 (the cutover, this node's fourth child) searches the
 repository for `form_check.py`, `journal_tail.py`, `sync_agents.py`
-and `python3`, and treat any match outside a stated permitted set as
-an orphan reference — a mention a future reader would act on that was
-left pointing at a file the cutover just deleted. This corpus commits
-before any file is deleted, so nothing here needs the cutover's
-retirement to make its wording stale; but a plain filename match would
-still cost that search rule an exception it does not need. So every
+and `python3`, and treats any match outside a stated permitted set as
+an orphan reference — a mention a reader would act on that was left
+pointing at a file the cutover deleted. This corpus committed before
+any file was deleted, so nothing here needed the cutover's retirement
+to make its wording stale; but a plain filename match would still
+have cost that search rule an exception it did not need. So every
 fixture, `manifest.ts` and every `expectations/*.json` file describes
 "the form checker" and "the Python/TypeScript journal_tail
 implementations" rather than typing the filename, and this file does
 the same. `run_corpus.ts` and `sync_shared_unit.ts` do not follow that
-convention — they are harness tools that genuinely invoke the Python
-by its real path, and that is exactly the kind of mention the cutover
-should still find and reason about when it runs (spec C2, decision on
-the harness's own retirement is node P1-N013's, per the parent plan's
-breakdown).
+convention — they are harness tools, and each names a Python script
+by its real path as a fact about what it once ran or was ported from:
+before the cutover, `run_corpus.ts` invoked `form_check.py` directly
+as a subprocess; after it, `run_corpus.ts` calls this repository's own
+checker in-process, and `sync_shared_unit.ts` still names
+`sync_agents.py` in a provenance comment recording what
+`sync_agents.ts` was ported from. Exactly the kind of mention the
+cutover's search finds and reasons about, rather than exempts by
+convention (spec C2, decision on the harness's own retirement was node
+P1-N013's, per the parent plan's breakdown).
 
 No match currently exists in this corpus outside `run_corpus.ts` and
 `sync_shared_unit.ts` — checked by grepping this directory for the

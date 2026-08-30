@@ -3,10 +3,10 @@
  * Render the tail of a project's orchestration run journal.
  *
  * Port of journal_tail.py (P1-N009 child A, node P1-N010) — same
- * directory, same base name, new extension (decision 11). Nothing is
- * retired: plugin/scripts/journal_tail.py remains the invoked tool
- * until the cutover (P1-N013, decision 5); this file is not yet
- * pointed at by any invocation site.
+ * directory, same base name, new extension (decision 11). The invoked
+ * tool since the P1-N013 cutover: journal_tail.py stayed the invoked
+ * tool until that node's single cutover commit deleted it and moved
+ * every invocation site here (decision 5).
  *
  * The owner's feed (docs/process/observability.md): recent events
  * with their Plan-register context, session IDs as drill-down keys.
