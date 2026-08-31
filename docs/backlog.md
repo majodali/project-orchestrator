@@ -878,6 +878,28 @@
   wording when P1-N009's own `verifying` assembles its evidence, so
   the verifier is not asked to reconcile a grep that cannot come
   back clean.
+- [ ] **The Cost log's sequentiality check cannot tell a gap in
+  flight from a gap forever** — `auditing.md` line 28 requires task
+  IDs "unique and sequential", and the checker mechanizes that
+  faithfully, so the two do not disagree: the *specification* is
+  under-specified. Task IDs are issued at dispatch and rows are
+  written at acceptance, so a gap appears whenever a dispatched task
+  does not reach acceptance. Two very different cases produce it.
+  **Transient**: parallel dispatch accepted out of order, which
+  resolves itself — and which the process spec explicitly permits
+  when a plan records mutual independence, so it will become routine
+  the first time that is exercised. **Permanent**: a task that never
+  lands — `needs-judgment` (T017 today), `blocked`, or `stale`. A
+  warning that fires routinely gets ignored, and the permanent case
+  then hides inside the transient noise, which is the failure mode
+  this whole register exists to prevent. **Proposed fix**, cheap
+  because the checker already reads the journal and already
+  cross-references rows to `accepted` events: classify the gap. A
+  missing ID whose journal shows a terminal non-accepted event, or a
+  `dispatched` with no terminal event yet, is expected and silent; a
+  missing ID with **no journal record at all** is the real finding —
+  an ID issued and lost. That is an `auditing.md` change first and a
+  checker change second, in that order (Article 3).
 - [ ] **Two further C2 permitted-set candidates, and one declined**
   — T018 discharged the orphan search and surfaced three questions
   for P1-N009's `verifying` rather than settling them: (i)

@@ -1,6 +1,6 @@
 # Plugin tooling on the portfolio stack — specification
 
-Status: active
+Status: closed → Backlog entry
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -270,6 +270,27 @@ touching the service repository**.
   `docs/specs/p2-n002-service-skeleton.md` **subject to decision 14**.
   A match outside that set is a defect. Rewriting the historical
   mentions to pretend the Python never existed would be a defect too.
+
+  *Amended at this node's `verifying`, 2026-08-31, from what the
+  cutover actually discharged — the set was written before the
+  corpus and the ported tools existed.* Also permitted:
+  `plugin/scripts/lib/corpus/README.md` and
+  `plugin/scripts/lib/corpus/manifest.ts`, which quote the four
+  strings to describe this very rule;
+  `plugin/scripts/lib/corpus/fixtures/live-tree/*`, a frozen
+  historical snapshot of this repository's own documents;
+  `test/plan-register.test.ts`, which names the retired checker in
+  the disposition comment [RU-014](../rulings.md) mandates; and the
+  provenance doc comments in the ported tools recording what each
+  was ported *from*. Every one is history or self-description, not
+  an instruction a reader acts on. One further point, resolved
+  rather than amended: this node's completed-children narrative in
+  `docs/backlog.md` sits structurally under `## Upcoming` rather
+  than the `## Completed` section named above, because an interior
+  node stays under Upcoming until it reaches `done` itself.
+  Relocating it would either falsify history or claim a completion
+  that had not happened; the rule's intent is satisfied where it
+  stands.
 - **C3 — The generated copies are generated.** The ported
   `sync_agents --check` passes at the cutover commit and at `done`,
   and regenerating `plugin/agents/` produces an empty diff — no file
