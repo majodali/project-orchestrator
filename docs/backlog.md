@@ -900,7 +900,7 @@
   missing ID with **no journal record at all** is the real finding —
   an ID issued and lost. That is an `auditing.md` change first and a
   checker change second, in that order (Article 3).
-- [ ] **Two further C2 permitted-set candidates, and one declined**
+- [x] **Two further C2 permitted-set candidates, and one declined**
   — T018 discharged the orphan search and surfaced three questions
   for P1-N009's `verifying` rather than settling them: (i)
   `plugin/scripts/lib/corpus/manifest.ts` quotes the four search
@@ -914,7 +914,12 @@
   declined to widen the set for (iii) — relocating it would either
   falsify history or falsely claim node-level completion — and left
   it for the owner. All three want a one-line amendment to spec C2
-  at `verifying`, not a change to what shipped.
+  at `verifying`, not a change to what shipped. **Resolved at
+  P1-N009's `verifying`, 2026-08-31**: (i) and (ii) amended into
+  spec C2's permitted set with the reason stated — history and
+  self-description, not instructions a reader acts on; (iii)
+  resolved rather than amended, the rule's intent being satisfied
+  where that narrative stands.
 - [ ] **Upstream proposal for `mtool`: no source file may read as
   binary to grep** — owner direction, 2026-08-30, prompted by the
   NUL-byte finding below and by the owner having hit the same
