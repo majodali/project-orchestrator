@@ -925,6 +925,31 @@
   self-description, not instructions a reader acts on; (iii)
   resolved rather than amended, the rule's intent being satisfied
   where that narrative stands.
+- [ ] **Role contracts adopt the v1.4.0 conduct rules** (node
+  P1-N014) — v1.4.0 arrived with three rules that describe what this
+  project already does by hand in every dispatch, and one set that
+  governs everything it writes:
+  **[W-008](https://github.com/majodali/methodology/blob/main/docs/rules/working-agreement.md)**
+  (reports map their deliverables) is the role task-result contract,
+  which the release notes say this project's role contracts "can
+  inherit verbatim";
+  **[K-010](https://github.com/majodali/methodology/blob/main/docs/rules/knowledge.md)**
+  (superseded content is never silently readable) is the stale
+  present-tense claim T018 spent real effort clearing out of the
+  ported tools;
+  **[K-011](https://github.com/majodali/methodology/blob/main/docs/rules/knowledge.md)**
+  (found contradictions are marked, not routed around) is what T017
+  did on instinct when plan decision 6 collided with spec criterion
+  D1 — a named duty is better than good judgment; and **P-001–P-006**
+  bind new and edited prose from adoption, so every brief, plan and
+  spec written from here should be born compliant rather than
+  scheduled for an editorial pass. Scope: the six contracts in
+  `.claude/agents/` (with `plugin/agents/` regenerated), the dispatch
+  and roles sections of the process spec that state the handoff
+  contract, and the brief template the Orchestrator assembles from.
+  Not a migration duty — v1.4.0 requires nothing — but the adoption
+  the release explicitly anticipates, and cheapest before the pilot
+  and close-out write more prose under the old habits.
 - [ ] **Upstream proposal for `mtool`: no source file may read as
   binary to grep** — owner direction, 2026-08-30, prompted by the
   NUL-byte finding below and by the owner having hit the same
