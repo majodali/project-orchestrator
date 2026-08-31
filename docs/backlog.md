@@ -925,6 +925,36 @@
   self-description, not instructions a reader acts on; (iii)
   resolved rather than amended, the rule's intent being satisfied
   where that narrative stands.
+- [ ] **Methodology amendments for delegated, multi-agent work**
+  (node P1-N015) — four amendments the owner approved in sketch on
+  2026-08-31, to be drafted as adjudicable proposals and
+  hand-carried upstream under [RU-002](rulings.md), following
+  P1-N008's precedent. **A1**: scope the report rule by audience
+  rather than by artifact — W-008's "a chat report that delivers a
+  written artifact" misfires twice here, because "chat" assumes a
+  human reader when most reports go agent to agent, and "delivers a
+  written artifact" excludes the reports that most need the
+  discipline, namely a decision, a finding or a refusal. **A2**:
+  name whose duty marking is when sessions nest — K-011 binds "a
+  session" and does not say which one owns the duty; P1-N014's
+  decision 2 answers it, and upstreaming the answer saves every
+  other project re-deriving it. **A3**: give delegated work a
+  vocabulary — the methodology has no term for a dispatched task, a
+  role, a context packet, a handoff contract or a gate attached to a
+  plan node, so every multi-agent project mints custom definitions
+  that will diverge. **A4**: state K-010's converse — an `active`
+  document's unmarked content asserts current intent, so a
+  contradiction there is false rather than stale and must be fixed,
+  not marked. The founding plan's v1.3.0 pin after migration is the
+  evidencing instance. Split principle the owner confirmed: the
+  methodology owns rules any project could need, this project owns
+  the mechanisms that implement them.
+- [ ] **The portfolio register's row for this project is stale** —
+  `docs/registers/portfolio.md` upstream records this project pinned
+  at 1.3.0, and does not list `project-orchestrator-service` at all.
+  Both statements stopped being true on 2026-08-30 and 2026-08-27
+  respectively. Not ours to edit; carry it to the owner with the
+  P1-N015 proposals rather than as a separate errand.
 - [ ] **Role contracts adopt the v1.4.0 conduct rules** — node
   P1-N014, stage `identified`, opened 2026-08-30, planned 2026-08-31.
   States the report duty, the supersession duties, and the reach of
