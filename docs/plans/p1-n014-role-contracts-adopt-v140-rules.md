@@ -1,6 +1,6 @@
 # Role contracts adopt the v1.4.0 conduct rules
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -533,3 +533,23 @@ than degrade quietly, is the near match behind decision 6.
   and the migration clause for existing documents.
 - [methodology v1.4.0 release entry](https://github.com/majodali/methodology/blob/v1.4.0/docs/releases.md)
   — the amendments' migration notes, and the queued tooling.
+
+## Gate outcome, 2026-08-31
+
+All nine staged decisions adopted as defaulted; none overridden.
+
+The owner then opened a prior question that this node cannot answer
+for itself. Decision 1 has the process specification **cite** the
+methodology's rules rather than restate them, which is only sound
+while the upstream text says what this project needs it to say. The
+owner's judgment is that v1.4.0's report rule and prose rules are
+written for a project running one session at a time, or several in
+series, and that adapting them here — rather than amending them
+upstream — would produce exactly the continual interpretation and
+divergence decision 1 exists to prevent.
+
+This node therefore holds at `planned` until the amendment work is
+done. Nothing decided above is reopened: the nine defaults stand,
+and the specify stage resumes against whatever the upstream text
+then says.
+
