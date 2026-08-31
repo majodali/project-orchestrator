@@ -925,31 +925,45 @@
   self-description, not instructions a reader acts on; (iii)
   resolved rather than amended, the rule's intent being satisfied
   where that narrative stands.
-- [ ] **Role contracts adopt the v1.4.0 conduct rules** (node
-  P1-N014) — v1.4.0 arrived with three rules that describe what this
-  project already does by hand in every dispatch, and one set that
-  governs everything it writes:
-  **[W-008](https://github.com/majodali/methodology/blob/main/docs/rules/working-agreement.md)**
-  (reports map their deliverables) is the role task-result contract,
-  which the release notes say this project's role contracts "can
-  inherit verbatim";
-  **[K-010](https://github.com/majodali/methodology/blob/main/docs/rules/knowledge.md)**
-  (superseded content is never silently readable) is the stale
-  present-tense claim T018 spent real effort clearing out of the
-  ported tools;
-  **[K-011](https://github.com/majodali/methodology/blob/main/docs/rules/knowledge.md)**
-  (found contradictions are marked, not routed around) is what T017
-  did on instinct when plan decision 6 collided with spec criterion
-  D1 — a named duty is better than good judgment; and **P-001–P-006**
-  bind new and edited prose from adoption, so every brief, plan and
-  spec written from here should be born compliant rather than
-  scheduled for an editorial pass. Scope: the six contracts in
-  `.claude/agents/` (with `plugin/agents/` regenerated), the dispatch
-  and roles sections of the process spec that state the handoff
-  contract, and the brief template the Orchestrator assembles from.
-  Not a migration duty — v1.4.0 requires nothing — but the adoption
-  the release explicitly anticipates, and cheapest before the pilot
-  and close-out write more prose under the old habits.
+- [ ] **Role contracts adopt the v1.4.0 conduct rules** — node
+  P1-N014, stage `identified`, opened 2026-08-30, planned 2026-08-31.
+  States the report duty, the supersession duties, and the reach of
+  the prose rules once each, in `docs/process/` and the six role
+  contracts in `.claude/agents/`, with `plugin/agents/` regenerated.
+  Planned as a leaf, nine decisions staged with defaults.
+  Plan: [p1-n014-role-contracts-adopt-v140-rules](plans/p1-n014-role-contracts-adopt-v140-rules.md).
+- [ ] **Methodology citations in the process spec point at the
+  superseded pin** — identified 2026-08-31 while planning P1-N014,
+  not executed. Nine links under `docs/process/` and in
+  [open-risks.md](open-risks.md) target the `v1.3.0` tag; the pin has
+  been 1.4.0 since 2026-08-30. Stale rather than false: each claim
+  they support still stands at the current pin. Editorial pass,
+  retargeting the links and giving each identifier its name (P-004 —
+  citations carry names). Reasoning:
+  [p1-n014 plan](plans/p1-n014-role-contracts-adopt-v140-rules.md),
+  contradictions section.
+- [ ] **Editorial pass over the Backlog to the declared row shape** —
+  identified 2026-08-31 while planning P1-N014, not executed. Depends
+  on decision 8 of that plan being adopted, which declares the shape
+  and the lag in this file's header. Existing entries run 100–250
+  words with their reasoning inline, which is what P-006 (registers
+  hold uniform rows) exists to prevent. Scheduled work, not a
+  migration duty (methodology v1.4.0 style guide, Migration).
+- [ ] **Editorial pass over `docs/process/` to the house style** —
+  identified 2026-08-31 while planning P1-N014, not executed.
+  Highest-traffic reference documents first, per the style guide's
+  own ordering: [dispatch.md](process/dispatch.md), then
+  [roles.md](process/roles.md), then
+  [plan-model.md](process/plan-model.md). Separate from P1-N014,
+  which binds only the prose it writes.
+- [ ] **Adopt `mtool`'s style and supersession-marker checks when
+  they ship** — identified 2026-08-31 while planning P1-N014, not
+  executed. The methodology's v1.4.0 release notes queue style lint
+  (warnings, not violations) and marker greppability in
+  methodology-tools. Standing constraint 4 of the
+  [founding plan](plans/orchestrator-v1.md) makes that tooling
+  upstream, so nothing equivalent is built here; the Auditor picks
+  them up like any other `mtool` result kind.
 - [ ] **Upstream proposal for `mtool`: no source file may read as
   binary to grep** — owner direction, 2026-08-30, prompted by the
   NUL-byte finding below and by the owner having hit the same
