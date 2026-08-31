@@ -288,6 +288,11 @@
   from the recurring decisions (the one-off boundary and disposition
   calls were not recorded, per the register's own rule).
 
+- [x] **Migrated to methodology v1.4.0** — 2026-08-30; migration
+  notes none mandatory, so the pin bump is the whole migration. The
+  P- prose rules and W-008 report contract now bind this project's
+  sessions; role contracts may inherit W-008 verbatim (queued).
+
 ## Upcoming
 
 - [ ] **Service chunk 1 — skeleton and plan state** (node P2-N002) —

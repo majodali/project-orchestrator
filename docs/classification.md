@@ -5,7 +5,9 @@
      the declaration-accuracy MUST (Constitution Article 4). -->
 
 - **C-tier**: C1
-- **Pinned methodology version**: 1.3.0 (compliance target; migrated on the 2026-08-25 release — all four v1.3.0 amendments ship migration-note: none)
+- **Pinned methodology version**: 1.4.0 (compliance target;
+  migrated from 1.3.0 on 2026-08-30 — v1.4.0 migration notes:
+  none mandatory, so the pin bump is the whole migration)
 - **S-level**: S0
 - **Type**: component/library
 - **Target**: none/local
