@@ -964,6 +964,18 @@
   [founding plan](plans/orchestrator-v1.md) makes that tooling
   upstream, so nothing equivalent is built here; the Auditor picks
   them up like any other `mtool` result kind.
+- [ ] **The `plan`-stage packet omits two process documents it keeps
+  needing** — T019 widened its packet to `docs/process/README.md`
+  (the subordination clause) and `docs/process/auditing.md` (the
+  semantic Auditor's gate pass and the spec-is-right rule), and
+  judged both structural rather than one-off: a plan-stage packet
+  that omits them will produce the same widening whenever a node
+  touches the process specification itself. That is now the second
+  packet-table observation on this project, after the break-down
+  row's missing plan document. Neither is urgent, and the table is
+  the context-frugality contract, so changing it is a specification
+  change reviewed as such — worth doing once, with both instances as
+  evidence, rather than twice in a hurry.
 - [ ] **Upstream proposal for `mtool`: no source file may read as
   binary to grep** — owner direction, 2026-08-30, prompted by the
   NUL-byte finding below and by the owner having hit the same
