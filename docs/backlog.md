@@ -1065,6 +1065,30 @@
   [founding plan](plans/orchestrator-v1.md) makes that tooling
   upstream, so nothing equivalent is built here; the Auditor picks
   them up like any other `mtool` result kind.
+- [ ] **Process spec maintenance: branch lifecycle, PR citation,
+  packet table** (node P1-N016) — three queued corrections to
+  `docs/process/`, opened as one node on 2026-09-01 because the
+  specification is this project's product and three edits in passing
+  is how a specification rots. **(i) The branch lifecycle has no
+  mechanism.** W-006 requires a single-use branch to be deleted after
+  merge; `dispatch.md` and `roles.md` say work lands on such a branch
+  and neither says who deletes it or when. Ten merged branches
+  survived until the owner cleared them. The Orchestrator performs
+  the merge, so deletion belongs in `dispatch.md`'s acceptance step,
+  alongside recording the register and the Cost log — and the reason
+  role branches are pushed at all (a container restart mid-session
+  already cost work once) belongs there too, so the push does not
+  read as waste. **(ii) The specification never mentions pull
+  requests.** [RU-009](rulings.md) and [RU-010](rulings.md) carry the
+  whole practice of reaching `main` by PR; per P1-N014's decision 1
+  the spec cites them rather than leaving the rule in the register
+  alone. Note the boundary the rulings do not cover and the spec
+  should: a role branch merging into the design branch is internal
+  integration and takes no PR, because the gate is where the owner
+  reviews. **(iii) The `plan`-stage packet row is wrong.** It omits
+  `docs/process/README.md`, which three consecutive tasks had to
+  widen for, and the break-down row omits the node's plan, where the
+  child sketch a breakdown tests actually lives.
 - [ ] **`docs/process/README.md` is the packet gap, three times
   running** — T019 widened to it for the subordination clause, T020
   widened to it for the *Defined terms* section, and the earlier
