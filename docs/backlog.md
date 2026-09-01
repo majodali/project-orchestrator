@@ -1099,6 +1099,24 @@
   real `node --input-type=module` subprocess. Nothing stops a future
   test writing the natural-looking, silently-wrong form, so the
   service repo carries a Backlog entry proposing a shared helper.
+- [ ] **Deploy the service from CI on merge** (node P2-N012) —
+  owner direction, 2026-09-01, after a deploy took the service down
+  and nothing noticed until a session curled the endpoint. Checks on
+  every pull request (build, lint, test, `sam validate --lint`),
+  deploy on merge to `main`, and a **post-deploy smoke test that
+  fails the run** — `/health` returns 200 and `tools/list` carries
+  the expected tools, or the workflow goes red. That last part is
+  what turns today's outage into a two-minute event. Credentials are
+  settled and provisioned: GitHub OIDC to
+  `arn:aws:iam::656557768279:role/project-orchestrator-service-deploy`,
+  so no long-lived secret exists to leak from an S1 repository. One
+  real decision remains and it is the owner's, because it changes a
+  Classification: the service currently declares
+  `Workflow: none declared (⇒ deployed is false)`, and v1.4.0's
+  Workflow declaration format requires three parts — ordered stages,
+  a designated live stage, and a Backlog default rule. Declaring one
+  is what makes `deployed` derivable, and the service repository's
+  own migration entry predicted this moment.
 - [ ] **`plan_lease_release` fails against real DynamoDB: `token` is
   a reserved keyword** — surfaced by the chunk 1 gate demonstration
   itself, on the first call ever made against the production table.
