@@ -1173,6 +1173,17 @@
   [decision 2](plans/p2-n012-deploy-from-ci-on-merge.md), because a
   false assumption here costs one task rather than the node. Criteria
   in the [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
+  **Blocked 2026-09-01, before dispatch**: this environment's network
+  egress policy denies `docs.aws.amazon.com`, `aws.amazon.com` and
+  `repost.aws` — a 403 at the CONNECT, for both `curl` and the fetch
+  tool — so no role running here can read the documentation the
+  criteria require it to cite. Web *search* still returns AWS-authored
+  summaries, which is evidence of a different grade than "the
+  documentation URL and the date it was read". Unblocking is the
+  owner's: allow the domain in the environment's network policy, or
+  answer the six assumptions himself as an attestation, or accept a
+  lower evidence grade — the last being a deviation from the criteria
+  he has just adopted.
 - [ ] **Pull-request checks that cannot deploy** (node P2-N014, child
   B of P2-N012) — the `pull_request` workflow: build, lint, test and
   `sam validate --lint`, each able to fail the check;
