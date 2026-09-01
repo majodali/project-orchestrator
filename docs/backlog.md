@@ -1161,8 +1161,8 @@
   separate `break down` task, as chunk 1's children did. Decision 10
   is already discharged: the service's `main` is `1d48503` and carries
   both outage fixes.
-- [ ] **Alias assumptions verified against AWS documentation** (node
-  P2-N013, child A of P2-N012) — the six platform assumptions the
+- [x] **Alias assumptions verified against AWS documentation** (node
+  P2-N013, child A of P2-N012, `done`) — the six platform assumptions the
   design rests on, answered yes or no in a committed finding with the
   documentation URL and the date read: environment variables are
   per-version rather than per-alias; the handler can read its invoked
@@ -1187,6 +1187,19 @@
   the domain in the environment's network policy, and
   `docs.aws.amazon.com` now answers 200 with the guide's prose in the
   HTML rather than behind a script. The criteria stand as adopted.
+  **Delivered 2026-09-01** (T030): all six answered yes, on branch
+  `p2-n013-alias-assumptions` (`f95b9e8`) in the service repository at
+  `docs/findings/alias-assumptions.md`, each with its
+  `docs.aws.amazon.com` URL, the date read, a verbatim quote, and the
+  criterion that later exercises it live. The one conditional answer
+  is assumption 5: a stack update leaves `live` alone **unless** the
+  template manages that alias through SAM's `AutoPublishAlias`, which
+  republishes and repoints it on every code-changing deploy and would
+  defeat "deploy, then promote" the first time CI ran. The finding
+  gives child C the alternative rather than leaving it to
+  rediscover — a plain `AWS::Lambda::Alias` whose `FunctionVersion`
+  comes from a template parameter, with promotion done outside
+  CloudFormation as an `aws lambda update-alias` call.
 - [ ] **Pull-request checks that cannot deploy** (node P2-N014, child
   B of P2-N012) — the `pull_request` workflow: build, lint, test and
   `sam validate --lint`, each able to fail the check;
@@ -1322,7 +1335,14 @@
   answer. Fix is an `unblocked` kind in `EVENTS` and in
   [observability.md](process/observability.md)'s vocabulary, with the
   note carrying what changed. Small, and it belongs with P1-N016's
-  process-spec pass rather than opened as its own node.
+  process-spec pass rather than opened as its own node. **A second
+  gap, same day**: opening a Risk-register entry has no kind either.
+  R15 came out of T030 and had to be recorded inside that task's
+  `accepted` note, because `precedent-applied` is for rulings and
+  names one — using it for a risk fails the register cross-check,
+  correctly. Two omissions of the same shape suggest the vocabulary
+  was drawn from the dispatch loop's happy path; the pass should ask
+  what else a node does that the journal cannot say.
 - [ ] **Process spec maintenance: branch lifecycle, PR citation,
   packet table** (node P1-N016) — three queued corrections to
   `docs/process/`, opened as one node on 2026-09-01 because the
