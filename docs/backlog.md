@@ -1091,7 +1091,14 @@
   caught it, and reported success on a bundle that cannot run in
   production. The replacement is a test that imports the built bundle
   from an ESM context and asserts a callable handler — cheap, and it
-  would have failed before the deploy rather than after.
+  would have failed before the deploy rather than after. **Fixed at
+  T025**, and the trap is wider than the one command: a plain
+  `await import(builtArtifact)` **inside Vitest** also fails to
+  reproduce the defect, because Vite's module runner is a third
+  CommonJS-flavoured context. The committed test therefore spawns a
+  real `node --input-type=module` subprocess. Nothing stops a future
+  test writing the natural-looking, silently-wrong form, so the
+  service repo carries a Backlog entry proposing a shared helper.
 - [ ] **Process spec maintenance: branch lifecycle, PR citation,
   packet table** (node P1-N016) — three queued corrections to
   `docs/process/`, opened as one node on 2026-09-01 because the
