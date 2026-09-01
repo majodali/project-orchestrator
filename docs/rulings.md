@@ -57,7 +57,7 @@ spec. First entries land at the pending P1-N008 gate.
   PR is where the "what was and was not verified" record belongs.
   Source: owner request at the P2-N008 slice merge, 2026-08-27.
   Applied: T009, T010, and the v1.4.0 migration of 2026-08-31
-  (no task — an orchestrator-run change, not a dispatched one).
+  (no task — an orchestrator-run change, not a dispatched one) Also T024 (PR #5).
 
 - RU-010 [active] handoff/project — How does work reach `main` in
   this coordinating repo, given the owner created `main` from the
