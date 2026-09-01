@@ -1,0 +1,10 @@
+# Plan register (fixture)
+
+<!-- D2 (P1-N009 spec): encodes the P2-N009 finding — the service's
+     TypeScript parser passes an out-of-vocabulary stage through as
+     fact (docs/backlog.md, "plan_read passes through a stage outside
+     the lifecycle vocabulary"), while the form checker rejects it. Both
+     readings are recorded in this fixture's expectation file: the
+     parse succeeds and reports the stage exactly as written, AND the
+     checker raises register-stage. -->
+- P1-N001 [verifiying] Misspelled stage, still parses as a fact

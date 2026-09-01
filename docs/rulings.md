@@ -15,12 +15,12 @@ spec. First entries land at the pending P1-N008 gate.
   reach a repo outside granted scope? Ruling: the owner hand-carries
   it; cross-repo scope is granted only explicitly. Rationale: no
   scope expansion for a delivery a human can make. Source: P1-N008
-  gate (decision 2, default adopted), 2026-08-26. Applied: —
+  gate (decision 2, default adopted), 2026-08-26. Applied: T020.
 - RU-003 [active] completion/process — Does a node targeting an
   external party complete at the artifact or at upstream
   disposition? Ruling: at the artifact. Rationale: external
   acceptance is not ours to verify. Source: P1-N008 gate
-  (decision 3, default adopted), 2026-08-26. Applied: T004.
+  (decision 3, default adopted), 2026-08-26. Applied: T004, T020.
 - RU-004 [active] completion/node — Full reference implementation or
   conformance sketch for the extension-point proposal? Ruling:
   sketch only. Rationale: the contract is still under discussion.
@@ -30,7 +30,7 @@ spec. First entries land at the pending P1-N008 gate.
   owner-gated, and where? Ruling: yes, gate at `verifying`.
   Rationale: the owner sees the artifact before it represents the
   project. Source: P1-N008 gate (decision 5, default adopted),
-  2026-08-26. Applied: —
+  2026-08-26. Applied: T020.
 
 - RU-006 [active] scope/process — When does a new capability get its
   own repository rather than joining an existing one? Ruling: when it
@@ -56,7 +56,8 @@ spec. First entries land at the pending P1-N008 gate.
   Rationale: the owner asked for one at the first such merge, and a
   PR is where the "what was and was not verified" record belongs.
   Source: owner request at the P2-N008 slice merge, 2026-08-27.
-  Applied: T009.
+  Applied: T009, T010, and the v1.4.0 migration of 2026-08-31
+  (no task — an orchestrator-run change, not a dispatched one).
 
 - RU-010 [active] handoff/project — How does work reach `main` in
   this coordinating repo, given the owner created `main` from the
@@ -66,12 +67,81 @@ spec. First entries land at the pending P1-N008 gate.
   owner directed a PR when the design branch first needed to reach
   `main`; one handoff shape across coordinating and work repos beats
   two. Extends RU-009 rather than competing with it. Source: owner
-  request at the enlistment merge, 2026-08-28. Applied: —
+  request at the enlistment merge, 2026-08-28. Applied: the
+  2026-08-28 enlistment merge (PR #2) and the 2026-09-01 branch
+  tidy-up (PR #4).
+
+- RU-011 [active] stack/process — What language do majodali
+  repo-local tooling and scripts use, as distinct from deployed
+  services? Ruling: TypeScript/Node, the same answer RU-008 gives
+  services. Rationale: the owner prefers portfolio consistency and
+  reuse over per-repo convenience; the orchestrator's form checker
+  and the service's `plan_read` parse the same register grammar and
+  should not be two implementations in two languages. RU-008 was
+  minted a day after the plugin's Python scripts were written and
+  its wording reaches only services, so this is a gap being closed,
+  not an override. Source: owner decision on noticing the
+  inconsistency, 2026-08-29. Applied: —
+
+- RU-012 [active] stack/process — How do two majodali repositories
+  share one unit of code, absent a package registry? Ruling: one
+  canonical copy in the repository that owns the thing's
+  specification, vendored outward by a generator with a `--check`
+  drift mode; the consumer never edits its copy. Rationale: the least
+  machinery that makes drift mechanically detectable — no registry, no
+  release cadence, no clone-time dependency — and the pattern already
+  runs here as `.claude/agents/` → `plugin/agents/`. A registry,
+  submodule, subtree, or shared-library repo each buy less than they
+  cost at two consumers; RU-006 is the near match, and reaching for a
+  third repository is what it warns against. Revisit at a third
+  consumer. Source: P1-N009 gate (decisions 1 and 2, defaults
+  adopted), 2026-08-29. Applied: —
+
+- RU-013 [active] stack/process — What does a majodali tool do when
+  the runtime it needs is missing or too old? Ruling: preflight and
+  exit non-zero, naming what was required and what was found; never
+  degrade quietly and never skip the check it exists to perform.
+  Rationale: [R13](open-risks.md)'s failure mode is losing the form
+  checker *silently*, and a loud exit converts that into a blocked
+  dispatch, which the audit process already treats as the correct
+  outcome. Generalizes beyond this node: any tool with a runtime
+  floor. Source: P1-N009 gate (decision 12, default adopted),
+  2026-08-30. Applied: —
+
+- RU-014 [active] verification/process — When a port retires the only
+  other implementation a test compares against, what happens to that
+  test? Ruling: retire the comparison, keep whatever assertion still
+  stands without the retired side, and record in the same commit
+  where the lost coverage now lives. Rationale: a cross-check needs
+  two implementations, and deleting one is the deliberate outcome of
+  a port, not an accident — so the test's premise is gone, not
+  merely inconvenient. Freezing a transcript of the retired side is
+  the anti-pattern the same test was already rewritten to remove,
+  and keeping the retired runtime alive for tests alone defeats the
+  port. Every port ends this way, which is why this is a ruling and
+  not a one-off. The W-002 ceremony still applies: the owner rules
+  before the test changes. Source: P1-N013, owner decision on the
+  T017 escalation, option (c), 2026-08-30. Applied: —
+
+- RU-015 [active] handoff/process — How does this project deliver a
+  change to a repository it cannot write to? Ruling: final normative
+  text, the current upstream text quoted verbatim beside it, and a
+  provenance line naming the version, the commit and the date the
+  quote was taken, with an instruction to re-verify before the change
+  is carried. Never a patch file. Rationale: a session that cannot
+  apply or test a patch produces one that fails on context it never
+  verified, while a verbatim quote gives the carrier the same
+  mechanical certainty and no fragile artifact. The provenance line is
+  the part that earns its keep — without it a quote that went stale
+  between drafting and delivery is undetectable by the reader.
+  Generalizes past the methodology to any upstream this project
+  proposes into. Source: P1-N015 gate (decision 2, default adopted),
+  2026-09-01. Applied: T022, T023.
 
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events
 (the lists were not maintained on the first run).
 
-Promotion flags: RU-002 and RU-003 are process-scope — flagged for
+Promotion flags: RU-002, RU-003, RU-011, RU-012, RU-013, RU-014 and RU-015 are process-scope — flagged for
 the next design pass on this spec (rulings.md promotion rule).

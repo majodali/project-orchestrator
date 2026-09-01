@@ -1,0 +1,28 @@
+{
+  "name": "project-orchestrator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Node toolchain for majodali/project-orchestrator's repo-local tooling (RU-011) and the shared Plan-register grammar unit (RU-012).",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "typecheck:consumer": "tsc -p tsconfig.consumer.json",
+    "lint": "eslint .",
+    "format": "prettier --check .",
+    "format:write": "prettier --write .",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.3.0",
+    "eslint": "^10.9.1",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.6",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.68.0",
+    "vitest": "^4.1.11"
+  }
+}

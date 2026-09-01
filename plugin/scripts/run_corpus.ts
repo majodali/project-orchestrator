@@ -1,0 +1,231 @@
+#!/usr/bin/env node
+/**
+ * The conformance-corpus runner (P1-N009 child B, node P1-N011, spec
+ * B3/B4). A committed, one-command harness: runs the current form
+ * checker over every fixture named in `lib/corpus/manifest.ts` and
+ * compares the result to the matching file under
+ * `lib/corpus/expectations/`, exiting non-zero on any divergence.
+ *
+ * Two modes:
+ *   node plugin/scripts/run_corpus.ts            — compare (default)
+ *   node plugin/scripts/run_corpus.ts --capture   — (re)write the
+ *     expectations/*.json files from a fresh run, for review before
+ *     committing (spec B4: expectations are generated from the
+ *     checker and reviewed, not hand-written).
+ *
+ * The checker invoked here is `runFormCheck` (./lib/form-check-core.ts),
+ * called in-process against each fixture directory as its project-root
+ * argument (P1-N013, the cutover: converted from a `python3
+ * form_check.py` subprocess, which this file invoked directly while
+ * the Python was the checker's other implementation — see git history
+ * before this node for that version). The expectations this compares
+ * against were captured from `form_check.py` and reviewed before the
+ * cutover (spec B4), so this durable run continues to prove "the port
+ * matches the Python" after the Python is gone, without needing the
+ * Python to say so again.
+ *
+ * Fingerprint shape (spec B2): for each fixture, the multiset of
+ * (severity, rule, path relative to the fixture root), the total
+ * finding count, and the exit code. Message prose is recorded too,
+ * for a human reviewing `--capture` output, not for exact-match
+ * comparison here.
+ *
+ * The fingerprint separator is `␟` (U+241F, SYMBOL FOR UNIT
+ * SEPARATOR) — a printable character, not a control byte, chosen so
+ * this file never reads as binary to a search tool. An earlier
+ * version used a literal NUL byte (`\x00`) as the separator, which
+ * made ripgrep classify this file as binary and silently omit it from
+ * `rg` searches — including the repository-wide search criterion 4 of
+ * the cutover runs to prove no orphan reference survives, which would
+ * have missed this file's own mentions of the retired scripts (fixed
+ * at P1-N013, owner direction, 2026-08-30). Severity, rule and path
+ * strings never contain `␟`, so it cannot cause a false collision the
+ * way a plain space could if a path ever contained one.
+ */
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+import { preflightNodeOrExit } from "./lib/node-preflight.ts";
+import { runFormCheck, type Finding } from "./lib/form-check-core.ts";
+import { relativizePath } from "./lib/parse-output.ts";
+import {
+  FIXTURES,
+  DECLARED_RULE_SET,
+  type FixtureEntry,
+} from "./lib/corpus/manifest.ts";
+
+preflightNodeOrExit("run_corpus");
+
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = path.resolve(HERE, "..", "..");
+const CORPUS_DIR = path.join(HERE, "lib", "corpus");
+const FIXTURES_DIR = path.join(CORPUS_DIR, "fixtures");
+const EXPECTATIONS_DIR = path.join(CORPUS_DIR, "expectations");
+
+const SEP = "␟"; // ␟ SYMBOL FOR UNIT SEPARATOR
+
+interface ExpectationFile {
+  fixture: string;
+  exitCode: number;
+  totalFindings: number;
+  findings: Array<{
+    severity: "violation" | "warning";
+    rule: string;
+    path: string;
+    message: string;
+  }>;
+}
+
+interface RunResult {
+  exitCode: number;
+  relFindings: ExpectationFile["findings"];
+}
+
+function runChecker(fixtureId: string): RunResult {
+  const fixtureRoot = path.join(FIXTURES_DIR, fixtureId);
+  const result = runFormCheck(fixtureRoot);
+  const relFindings: ExpectationFile["findings"] = result.findings.map(
+    (f: Finding) => ({
+      severity: f.severity,
+      rule: f.rule,
+      path: relativizePath(fixtureRoot, f.path),
+      message: f.msg,
+    }),
+  );
+  return { exitCode: result.exitCode, relFindings };
+}
+
+function expectationPath(fixtureId: string): string {
+  return path.join(EXPECTATIONS_DIR, `${fixtureId}.json`);
+}
+
+function checkerFixtures(): FixtureEntry[] {
+  return FIXTURES.filter((f) => f.kind !== "journal-tail-divergence");
+}
+
+function capture(): number {
+  mkdirSync(EXPECTATIONS_DIR, { recursive: true });
+  for (const fx of checkerFixtures()) {
+    const run = runChecker(fx.id);
+    const expectation: ExpectationFile = {
+      fixture: fx.id,
+      exitCode: run.exitCode,
+      totalFindings: run.relFindings.length,
+      findings: run.relFindings,
+    };
+    writeFileSync(
+      expectationPath(fx.id),
+      JSON.stringify(expectation, null, 2) + "\n",
+    );
+    console.log(
+      `run_corpus: captured ${fx.id} (${run.relFindings.length} finding(s), exit ${run.exitCode})`,
+    );
+  }
+  console.log(
+    `run_corpus: captured ${checkerFixtures().length} expectation file(s) to ${path.relative(REPO_ROOT, EXPECTATIONS_DIR)}. Review before committing (spec B4).`,
+  );
+  return 0;
+}
+
+function fingerprint(f: {
+  severity: string;
+  rule: string;
+  path: string;
+}): string {
+  return `${f.severity}${SEP}${f.rule}${SEP}${f.path}`;
+}
+
+function multisetEqual(a: string[], b: string[]): boolean {
+  if (a.length !== b.length) return false;
+  const sa = [...a].sort();
+  const sb = [...b].sort();
+  return sa.every((v, i) => v === sb[i]);
+}
+
+function compare(): number {
+  let failures = 0;
+  const seenRules = new Set<string>();
+
+  for (const fx of checkerFixtures()) {
+    const expPath = expectationPath(fx.id);
+    if (!existsSync(expPath)) {
+      console.error(
+        `run_corpus: MISSING expectations for fixture ${fx.id} (${expPath})`,
+      );
+      failures++;
+      continue;
+    }
+    const expected = JSON.parse(
+      readFileSync(expPath, "utf-8"),
+    ) as ExpectationFile;
+    const run = runChecker(fx.id);
+
+    for (const f of run.relFindings) seenRules.add(f.rule);
+
+    const gotFp = run.relFindings.map(fingerprint);
+    const wantFp = expected.findings.map(fingerprint);
+    const fpOk = multisetEqual(gotFp, wantFp);
+    const countOk = run.relFindings.length === expected.totalFindings;
+    const exitOk = run.exitCode === expected.exitCode;
+
+    if (!fpOk || !countOk || !exitOk) {
+      failures++;
+      console.error(`run_corpus: MISMATCH in fixture ${fx.id}`);
+      if (!exitOk) {
+        console.error(
+          `  exit code: expected ${expected.exitCode}, got ${run.exitCode}`,
+        );
+      }
+      if (!countOk) {
+        console.error(
+          `  finding count: expected ${expected.totalFindings}, got ${run.relFindings.length}`,
+        );
+      }
+      if (!fpOk) {
+        console.error(
+          `  expected fingerprints: ${JSON.stringify(wantFp.sort())}`,
+        );
+        console.error(
+          `  actual fingerprints:   ${JSON.stringify(gotFp.sort())}`,
+        );
+      }
+    }
+  }
+
+  const missingRules = DECLARED_RULE_SET.filter((r) => !seenRules.has(r));
+  if (missingRules.length > 0) {
+    failures++;
+    console.error(
+      `run_corpus: the corpus never provoked: ${missingRules.join(", ")} — coverage claim (spec B1) is false`,
+    );
+  }
+  const extraRules = [...seenRules].filter(
+    (r) => !(DECLARED_RULE_SET as readonly string[]).includes(r),
+  );
+  if (extraRules.length > 0) {
+    failures++;
+    console.error(
+      `run_corpus: the checker produced undeclared rule(s) not in DECLARED_RULE_SET: ${extraRules.join(", ")}`,
+    );
+  }
+
+  if (failures === 0) {
+    console.log(
+      `run_corpus: ${checkerFixtures().length} fixture(s) match their recorded expectations; all ${DECLARED_RULE_SET.length} declared rules provoked.`,
+    );
+    return 0;
+  }
+  console.error(`run_corpus: ${failures} problem(s) found.`);
+  return 1;
+}
+
+function main(): number {
+  const args = process.argv.slice(2);
+  if (args.includes("--capture")) {
+    return capture();
+  }
+  return compare();
+}
+
+process.exit(main());

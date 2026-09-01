@@ -11,7 +11,8 @@ Run one orchestration session per the process spec
    `/orchestrator:enroll` and stop. Warn if `ANTHROPIC_API_KEY` is
    set in the environment (billing Risk R7). Run the form checker:
 
-   `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/form_check.py"`
+   `node "${CLAUDE_PLUGIN_ROOT}/scripts/form_check.ts"` (Node
+   >=22.18.0, or >=23.6.0 on the 23.x line)
 
    Never proceed past a failing check. Startup reads are exactly the
    Plan register, the Backlog, and `docs/process/dispatch.md` —
@@ -33,7 +34,7 @@ Run one orchestration session per the process spec
    the orchestrator agent (frugal tier) with a brief containing the
    project root; the approved scope, budget, and gates, verbatim;
    the form-checker path
-   (`${CLAUDE_PLUGIN_ROOT}/scripts/form_check.py`); and the role
+   (`node "${CLAUDE_PLUGIN_ROOT}/scripts/form_check.ts"`); and the role
    agents available to it (planner, implementer, reviewer, auditor,
    semantic-auditor). **Surface fallback** (cloud sessions do not
    currently let a subagent dispatch further subagents): if the

@@ -387,10 +387,943 @@
   `sam build` unless the artifact is deleted first. Found and worked
   around during T009; belongs in the service repo, tracked here until
   a task there picks it up.
-- [ ] **Chunk-1 child: plan-state read** (node P2-N009) —
-  `plan_read` over the real Plan register, SHA-stamped, taking an
-  explicit `ref` and citing plan-model.md rather than re-declaring
-  the lifecycle.
+- [x] **Chunk-1 child: plan-state read** (node P2-N009, `done`)
+  — delivered in the service
+  repo on branch `p2-n009-plan-state-read` (`cd67d75`, five commits):
+  a register parser implementing the grammar of
+  [plan-register.md](process/plan-register.md) into structured nodes
+  (ID, title, stage, hold marker kind and reason, plan/spec links,
+  parent/child edges from list nesting); a `plan_read` MCP tool whose
+  every response carries the ref, the resolved commit SHA and the
+  fetch time as non-optional fields (I5); whole-tree and subtree
+  queries; a GitHub App fetch boundary (App JWT → installation token
+  → ref resolved to a SHA → content pinned to that SHA) behind an
+  injectable interface so the parser and the tool contract test
+  without the credential. `src/` contains no filesystem read and one
+  production fetcher, so no code path in the Lambda bundle can answer
+  a plan-state question from local disk or an unauthenticated URL —
+  the I5 second-source hazard is structurally absent, not merely
+  avoided. Orchestrator re-verified independently: 60/60 tests (the
+  18 pre-existing unaltered), build and lint clean; the parser run
+  against the live register returns 19 nodes and 0 errors, agreeing
+  exactly with `form_check.py`; hold markers, links and hierarchy
+  round-trip; malformed node-like lines are reported with line number
+  and raw text rather than dropped; subtree queries return exactly
+  the subtree and `null` for an unknown ID; no key material anywhere
+  in the tree. **Blocked**: the criterion "a session reads P2 nodes
+  and their stages through it" against the *deployed* service, and
+  the cold/warm latency row, both need owner action O3 (create and
+  install the GitHub App, store its private key) followed by a
+  redeploy. The runbook gained O3 as Step 2 and introduces no owner
+  action outside O1–O6 (I8). **Closed 2026-08-30**: the owner
+  completed O3, merged the work to the service repo's `main`
+  (`4094d34`) and redeployed. Proven live from this cloud session
+  through the harness's own MCP client, not curl: `plan_read` at
+  `ref: claude/project-orchestrator-design-9pylac`, `nodeId: P2-N002`
+  returned that subtree exactly — six nodes, correct stages,
+  P2-N009's own `[blocked: …]` hold marker with kind and reason
+  intact, parent/child edges, document links, line numbers, zero
+  parse errors — stamped with the register's true SHA at that ref and
+  the fetch time. Warm latency 0.82–0.94s over three calls (three
+  GitHub round-trips), against a 20s function timeout and a 30s
+  enlistment budget.
+- [ ] **`plan_read` passes through a stage outside the lifecycle
+  vocabulary** — the parser matches `form_check.py`'s node regex
+  line for line, but `form_check.py` additionally rejects a stage
+  outside its `STAGES` set and the service does not: a register
+  reading `[verifiying]` parses as a node whose stage is
+  `verifiying`, reported to the caller as fact. The Implementer chose
+  pass-through silently; it is a defensible reading of "cite the
+  vocabulary rather than re-declare it" (a copy of the stage list in
+  the service is a second truth that can drift, which is what I2
+  warns against), but it was a design question that should have come
+  back as `needs-judgment` rather than being settled in place.
+  Decide it at P2-N010, where the transition-legality table has to
+  exist anyway and the vocabulary question cannot be deferred again.
+- [ ] **The break-down packet row may be one document short** —
+  `dispatch.md`'s packet table gives the break down stage "the node's
+  specification; profile's leaf-size guidance", but the child sketch
+  a breakdown tests lives in the node's *plan*, and `profiles.md` has
+  no section by that name: the substance is its Breakdown row
+  (C1: required above single-session size) plus `plan-model.md`'s
+  definition of a leaf as a unit executable in a single role session.
+  The T013 brief supplied both, recorded as the Orchestrator's own
+  packet widening. If the next breakdown needs the same additions,
+  the row is a spec defect rather than two one-offs — fix it then,
+  with evidence, rather than now on one instance.
+- [ ] **Write `plan_read`'s latency row into the service runbook**
+  (G7) — both numbers now measured from this session, 2026-08-30:
+  **warm 0.82–1.07s** over four calls, **2.52s on the first call
+  after an idle period**, whose ~1.4s excess over the adjacent warm
+  call matches the identity tool's cold-start delta and is recorded
+  as a cold start on that evidence rather than on proof the
+  container was recycled. Both sit far inside the 20s function
+  timeout and the 30s enlistment budget. The runbook's table still
+  says "not yet measured" in both rows and is a service-repo edit,
+  so it wants a task there rather than a note here.
+- [ ] **`sam validate --lint` and `sam build` for the P2-N009
+  template changes** — no SAM CLI in the dispatch environment, so the
+  new parameters and environment wiring were checked only as YAML and
+  by the equivalent esbuild bundle. P2-N008 had both; this change
+  does not yet.
+- [ ] **Keep the service repo's register fixture in sync** — 
+  `test/fixtures/plan-register.sample.md` is a byte-for-byte copy of
+  this repo's `docs/plan-register.md`, verified identical at
+  acceptance. It will drift silently the next time the register
+  moves; replace it with a fetched copy once the service repo has CI.
+  P1-N009's conformance corpus may absorb this: a shared fixture set
+  that travels with the grammar is the same fixture, kept honest by
+  the same drift check.
+- [ ] **Plugin tooling on the portfolio stack** (node P1-N009,
+  `specified`) — rewrite `plugin/scripts/form_check.py`,
+  `journal_tail.py` and `sync_agents.py` in TypeScript/Node per
+  [RU-011](rulings.md), and give the Plan-register grammar one
+  implementation instead of two. The Python predates RU-008 by a day
+  and violated no ruling; the owner's call is portfolio consistency
+  and reuse (2026-08-29). Planned as an **interior** node
+  ([plan](plans/p1-n009-plugin-tooling-portfolio-stack.md)): the
+  grammar and the lifecycle stage set become one dependency-free
+  canonical file here, copied into the service repo by a generator
+  with a `--check` drift mode (the `sync_agents` pattern) rather
+  than a registry, submodule, or shared-library repo; the scripts
+  run as direct `.ts` under Node's type stripping, so nothing needs
+  a build step or `node_modules` at plugin-install time (verified on
+  Node v22.22.2 — what a `/plugin` install physically ships remains
+  an assumption for the specify stage, and the design is correct
+  either way). Behaviour is the contract: the port is proven
+  finding-for-finding against `form_check.py` as a differential
+  oracle, which stays the invoked checker until one commit moves
+  every invocation site and retires it, so the dispatch loop never
+  lacks a working checker. The accidental cross-check that caught
+  the P2-N009 stage-vocabulary gap is deliberately given up, and
+  replaced by a conformance corpus both consumers run plus the stage
+  vocabulary shared as data. Scoped to this repository — the
+  service-side adoption is the next entry. **Gate crossed
+  2026-08-29**: all ten decisions adopted as defaulted, the owner
+  weighed and rejected combining the two repositories (so
+  [RU-006](rulings.md) stands), and decision 1 became
+  [RU-012](rulings.md). **Specified 2026-08-30**
+  ([spec](specs/p1-n009-plugin-tooling-portfolio-stack.md)): criteria
+  in five groups — behavioural equality with the retired checker over
+  a corpus that includes registers which *fail* (one fixture per
+  finding rule, expectations generated from the Python before it is
+  deleted so the evidence outlives the oracle); the replacement drift
+  guard, proven by breaking it rather than by being present, and
+  carried on the checker's own invocation path because this repo has
+  no CI; the shared unit's fitness to travel, provable without
+  touching the service repo; cutover completeness under the rule
+  *a mention a reader will act on moves, a mention recording the past
+  stays*; and a commit-by-commit walk proving the documented checker
+  command existed and passed at every commit of the node. Specifying
+  found one defect in the sketch: `sync_agents` cannot be ported
+  *after* the cutover, because `CLAUDE.md` names it and the cutover
+  commit retires the Python — so five candidate children become
+  four. **Gate crossed 2026-08-30**: decisions 11–14 adopted as
+  defaulted (the command shape `node plugin/scripts/form_check.ts`;
+  a declared Node floor with a loud non-zero preflight, now
+  [RU-013](rulings.md); the conformance corpus triggered by both a
+  test suite and the checker's own invocation; and the two live
+  P2-N002 criteria renamed in the cutover commit).
+  **Broken down 2026-08-30** into the four children below, in a
+  strict dependency chain with no independent pair, so no parallel
+  dispatch is licensed. The break-down stage settled both boundaries
+  the plan left open: the shared grammar unit moves *forward* into
+  the thin slice, so `journal_tail` is born on it and no transient
+  second transcription is ever written; and `sync_agents` rides with
+  the cutover, because it writes its own name into the six files it
+  generates, so porting it necessarily rewrites `plugin/agents/` and
+  that belongs in the one commit already rewriting every name. The
+  vendoring generator moved the other way, into the corpus child,
+  because the set it carries is the unit *and* the corpus.
+  **Executed 2026-08-30**: children A–D (below) all shipped in
+  dependency order, A→B→C→D, no parallel dispatch, exactly as broken
+  down. The cutover (child D) landed the only commit that changes what
+  anybody runs: `sync_agents` ported, all seven invocation sites
+  moved, `form_check.py`/`journal_tail.py`/`sync_agents.py` deleted,
+  the differential harness (`check_equality.ts`) retired with its
+  evidence preserved in the corpus self-check and `run_corpus.ts`, and
+  RU-014 applied to the one test the Python's deletion would otherwise
+  have broken outright. This node's own `verifying`/`done` transition
+  and final evidence assembly remain the Orchestrator's, not narrated
+  here.
+- [x] **(node P1-N010, P1-N009 child A) The Node toolchain and
+  the shared register grammar, proven end to end by `journal_tail`**
+  — shipped: `package.json` (`"type": "module"`, `engines.node >=22`,
+  dev-only dependencies matching project-orchestrator-service's
+  versions), TypeScript, ESLint flat config (typescript-eslint +
+  `eslint-config-prettier`), Prettier, Vitest, `package-lock.json`
+  committed, `node_modules` git-ignored, all as named `npm` scripts
+  (`typecheck`, `typecheck:consumer`, `lint`, `format`,
+  `format:write`, `test`); every divergence from the service
+  repository's configuration enumerated in a comment in the file
+  that differs (`tsconfig.json`'s `noEmit` +
+  `allowImportingTsExtensions` against `tsconfig.consumer.json`'s
+  absence of the latter, matching the service's build config).
+  `plugin/scripts/lib/plan-register.ts` is the shared grammar and
+  lifecycle-stage-vocabulary unit: one file, zero imports, no I/O — a
+  merge-and-adapt of the service repository's (pre-P1-N009)
+  `src/planRegister/parser.ts` + `types.ts`, plus `STAGES` as data
+  cited to [plan-model](process/plan-model.md); it carries no policy
+  (D5) — parse-level facts only (a node-like line that does not
+  parse, a duplicate ID). It passes both `tsc -p tsconfig.json` and
+  `tsc -p tsconfig.consumer.json` (the consumer-shape check: `strict`,
+  `NodeNext`, `noUncheckedIndexedAccess`, no
+  `allowImportingTsExtensions`) and `eslint .` clean. Its own Vitest
+  suite (`test/plan-register.test.ts`) covers malformed-line and
+  duplicate-ID parse errors and cross-checks the live register
+  against `form_check.py`'s independently-run `parse_register` (24
+  nodes, 0 errors, matching id/stage/hold/parent/line for every
+  node). `plugin/scripts/lib/node-preflight.ts` is the Node-floor
+  preflight (decision 12, RU-013): a pure `checkNodeVersion`
+  comparison, unit-tested against a version-string table
+  (`test/node-preflight.test.ts`, 22.17.x/22.18.0/23.5.x/23.6.0/24.x/
+  a prerelease string, 13 cases), plus `preflightNodeOrExit`, which
+  every tool this node ships calls first. `plugin/scripts/journal_tail.ts`
+  ports `journal_tail.py` onto the shared unit (it carries no grammar
+  of its own): output-identical to the Python for N=1, N=10, N
+  greater than the journal's length, and the no-journal case (same
+  message, exit 1) — diffed byte-for-byte, transcripts in this task's
+  result. Demonstrated running with no `node_modules` present, by
+  absolute path, from an unrelated working directory, with an
+  explicit project-root argument. Nothing is retired and no
+  invocation site moves: `plugin/scripts/journal_tail.py` (and
+  `form_check.py`, `sync_agents.py`) are untouched, and
+  `python3 plugin/scripts/form_check.py` passes clean at every
+  commit of this child. Criteria in the
+  [plan](plans/p1-n009-plugin-tooling-portfolio-stack.md).
+  **Re-verified at acceptance** rather than accepted on report: the
+  four equality cases diffed again byte-for-byte (identical, exit
+  codes matching including 1 on the no-journal case); the
+  bare-checkout run repeated from an unrelated directory under a
+  stronger condition than the criterion asks, since `node_modules`
+  was absent entirely rather than moved aside; the unit re-grepped
+  for `import`/`require` (hits in the doc comment only); `npm ci`
+  from the committed lockfile followed by `typecheck`,
+  `typecheck:consumer`, `lint` and `test` (29/29) all clean; and
+  `form_check.py` re-run at each of the three commits from a
+  worktree — 24 nodes, 0 violations, every time.
+- [ ] **`journal_tail`'s duplicate-ID behaviour changed in the
+  port** — `journal_tail.py`'s ad hoc `node_names()` builds a dict
+  in a loop, so a duplicate node ID silently takes the last
+  occurrence; the TypeScript port routes through the shared unit,
+  which reports a duplicate ID as a parse error and keeps the first.
+  Never observable on the live register, which has no duplicates,
+  and none of criterion 7's four required cases exercises it. It is
+  a genuine tension between decision 6 (preserve the Python's
+  behaviour, record the deviation, fix separately) and criterion D1
+  (`journal_tail` carries no grammar of its own) — the two cannot
+  both hold here, and the Implementer chose D1 and surfaced it. That
+  reading is right, but the conflict was arguably a
+  `needs-judgment`. **Made visible, not decided, at P1-N011**: fixture
+  `journal-tail-duplicate-id` (two node lines sharing one ID, different
+  titles) run through both `journal_tail` implementations records the
+  divergence verbatim — the Python's ad hoc lookup shows the *last*
+  occurrence's title, the TypeScript port (through the shared unit)
+  shows the *first*'s — without picking a side. Still open:
+  **`needs-judgment`** — which behaviour the shared unit's contract
+  should actually have (keep-first-and-report, matching D1's "no
+  grammar of its own"; or keep-last silently, matching the Python's
+  pre-port behaviour; or something else) is the owner's or the
+  Orchestrator's to decide before node P1-N012 ports `form_check`
+  itself, since the same shared-unit duplicate-ID semantics will
+  apply there too.
+- [ ] **A JSON configuration file cannot carry a required
+  comment** — criterion 1 asks that every divergence from the
+  service repository's configuration be enumerated in a comment in
+  the file that differs, but `package.json` is strict JSON with no
+  comment syntax. Documented in the commit message and the Backlog
+  entry instead of inventing a non-standard extension. Worth
+  pre-empting the next time a specify stage writes a
+  comment-in-the-file criterion.
+- [x] **(node P1-N011, P1-N009 child B) The travelling package:
+  conformance corpus, recorded expectations, and the vendoring
+  generator** — shipped: `plugin/scripts/lib/corpus/` holds 19 minimal
+  project-root fixtures (`fixtures/`), a fixture → rule manifest
+  (`manifest.ts`), and 18 committed expectation files (`expectations/`)
+  covering all 11 rule IDs the current form checker's `find()` call
+  sites can emit (`register-parse`, `register-id`, `register-stage`,
+  `register-structure` — both arms — `backlog-ref`, `costlog-form` —
+  malformed row, malformed task ID, duplicate task ID, non-sequential
+  warning — `journal-form` — bad JSON, missing field, unknown event
+  kind — `journal-crosscheck` — both directions — `liveness` — both
+  arms — `rulings` — no register, undefined ruling, inactive ruling,
+  missing Applied entry — `definitions` — no classification, all four
+  markers missing), plus the not-enrolled case and a snapshot of this
+  repository's own live tree, all passing clean. `manifest.ts`'s
+  `DECLARED_RULE_SET` is checked against the corpus's actual output at
+  every run, not just asserted. The misspelled `[verifiying]` fixture
+  (`register-stage-verifiying`) carries the D2 comment naming the
+  P2-N009 finding and records both readings: its expectation file
+  carries the checker's reading (a `register-stage` violation), and
+  `test/corpus-register-stage-verifiying.test.ts` carries the shared
+  unit's reading directly against the same fixture file (parses with
+  no error, stage reported exactly as written). A dedicated fixture,
+  `journal-tail-duplicate-id`, makes the `journal_tail` duplicate-ID
+  divergence from P1-N010's Backlog finding visible without deciding
+  it (see that entry above, now marked still-open `needs-judgment`).
+  `plugin/scripts/run_corpus.ts` is the one-command corpus runner
+  (spec B3/B4): default mode compares a fresh run against the
+  committed expectations and exits non-zero on any divergence
+  (finding-count, exit-code, or fingerprint mismatch, and missing rule
+  coverage); `--capture` mode (re)writes expectations from a live run,
+  which is how these were generated — every one read and reviewed
+  before this commit (criterion 3: 18 files, read in full, cross-
+  checked against the fixture design each was meant to provoke).
+  `plugin/scripts/sync_shared_unit.ts [--check] <destination>` is the
+  vendoring generator: explicit manifest (`plan-register.ts` plus the
+  whole `corpus/` directory — not `node-preflight.ts`, not the harness
+  tools, which stay local), a "generated — do not edit here" banner
+  inserted into `.ts`/`.md` copies and a root `GENERATED.md` marker for
+  `.json`/`.jsonl` files that have no comment syntax to carry one in,
+  `--check` comparing every file byte-for-byte regardless of banner.
+  D4 proven against a scratch destination and recorded in this task's
+  result: vendor (94 files) → `--check` passes → one byte changed in
+  the copy → `--check` exits 1 naming exactly `plan-register.ts` →
+  re-vendor → `--check` passes again; the vendored copy (banner
+  included) still passes the consumer-shape type-check. Criterion 6
+  (no future orphan): audited by grep at every commit — no fixture,
+  the manifest, or an expectation file names `form_check.py`,
+  `journal_tail.py`, `sync_agents.py` or `python3` (all describe the
+  checker and the journal_tail implementations generically instead);
+  the corpus's own `README.md` is the one deliberate exception, since
+  it has to quote those four strings to document the search rule
+  itself — flagged there and here for node P1-N013's permitted-
+  survivors set. Root `python3 plugin/scripts/form_check.py` stayed
+  clean at every commit (fixtures live under `plugin/scripts/lib/`,
+  never under `docs/` or `orchestration/`, so the root checker's fixed
+  read paths never see them). `npm run typecheck`, `typecheck:consumer`
+  and `lint` clean; `npm test` is 34/35 — the one failure
+  (`test/plan-register.test.ts`, "yields the same {id, stage, hold,
+  parent, line} facts...") pre-dates this child (reproduced on the
+  base branch before any of this child's commits) and is untouched
+  here per W-002; see the new Backlog entry below. Also absorbs the
+  "keep the service repo's register fixture in sync" entry above, on
+  the service side, at P2-N010.
+- [x] **`test/plan-register.test.ts`'s live-register cross-check went
+  stale the moment it was accepted** — node P1-N010's
+  "yields the same {id, stage, hold, parent, line} facts
+  form_check.py's parser yields" test hardcoded a snapshot of
+  `docs/plan-register.md` as of T014's commit, including
+  `P1-N010: identified`. T014's own acceptance commit
+  (`099b2c6`) flipped that line to `[done]` moments later — an
+  ordinary, sanctioned register write, not a defect — and the test
+  failed on every commit since. **Resolved at node P1-N012**: see the
+  entry below (test rewritten to assert agreement at test-run time
+  rather than freeze a snapshot).
+- [x] **[W-002 — resolved at P1-N012] `test/plan-register.test.ts`
+  freezes a snapshot of the live register, so it breaks at every
+  acceptance** — the test asserts `P1-N010 … P1-N013` are
+  `identified`. The Orchestrator's own T014 acceptance commit
+  (`099b2c6`) moved P1-N010 to `done` and broke it; the T015
+  acceptance moved P1-N011 and broke it further. Confirmed failing
+  on the base branch before T015's branch existed, so it was not that
+  task's doing, and the Implementer correctly left it alone under
+  W-002. `npm test` was therefore red (34/35) while every other check
+  — `typecheck`, `typecheck:consumer`, `lint`, the corpus runner and
+  `form_check.py` — stayed clean. The test was not wrong in spirit:
+  its purpose (criterion 4, the unit's parse agreeing with the
+  Python's on the live register) was right, and it caught nothing
+  false. It was wrong in construction: any test that freezes register
+  facts is invalidated by the project's most routine operation.
+  **Owner disposition, 2026-08-30**: do not modify the test until
+  P1-N012, which is where the live-register cross-check naturally
+  lands and where the fix costs nothing extra; carry `npm test` at
+  34/35 as a known state, not a regression, until then.
+  **Resolved at node P1-N012**: `test/plan-register.test.ts` now
+  computes both sides fresh at test-run time — `parseRegister` against
+  the live `docs/plan-register.md`, and `form_check.py`'s own
+  `parse_register` via a `python3` subprocess run in the test itself,
+  no recorded transcript — and asserts the two agree, whatever the
+  register currently says. `npm test` is 35/35 as of this node's last
+  commit. The design rule this exposed travels forward: **a repository
+  test must never freeze Plan-register facts, because the register
+  moves at every acceptance.**
+- [ ] **The corpus README must survive the cutover's orphan search**
+  — spec C2's rule is that no textual match for `form_check.py`,
+  `journal_tail.py`, `sync_agents.py` or `python3` may survive
+  outside a permitted set. `plugin/scripts/lib/corpus/README.md`
+  necessarily quotes all four to describe that very rule. The
+  Implementer flagged it rather than letting P1-N013 discover it:
+  add this file to C2's permitted-survivors set when the cutover is
+  specified, so the search rule stays true rather than being amended
+  after it fails.
+- [x] **(node P1-N012, P1-N009 child C) The form checker on the
+  shared unit, proven finding-for-finding against the Python** —
+  shipped: `plugin/scripts/lib/form-check-core.ts` is `runFormCheck`,
+  a pure, line-for-line port of `form_check.py`'s eight functions and
+  25 `find()` call sites onto the shared grammar unit (it imports
+  `parseRegister` and `STAGES`; it declares no node-line regex and no
+  second stage-vocabulary array — the register-parse/register-id
+  findings come from the shared unit's own `RegisterParseResult.errors`,
+  translated into the Python's exact message shape). Cost-log,
+  journal, rulings and definitions parsing are ported with matching
+  Python-`repr()`-style message formatting (a small `pyRepr`/`pyStr`
+  helper) so message prose matches, not merely finding identity.
+  `plugin/scripts/form_check.ts` is the one entry point (spec C6/C7):
+  it preflights the Node floor, runs the corpus self-check (below),
+  then runs `runFormCheck` against the target root and prints/exits
+  exactly as the Python does — including *not* resolving the
+  project-root argument to an absolute path, matching
+  `Path(sys.argv[1])`'s behaviour exactly (a real port bug caught and
+  fixed during this child, not a preserved deviation: an early
+  `path.resolve()` would have silently changed every finding's printed
+  path from what the Python prints for the same invocation). One
+  sentence for spec C7: an `--emit=json` flag would attach in `main()`
+  as a branch before the print loop, replacing it with one
+  `JSON.stringify` and touching nothing else; not built (RU-004).
+  **Criterion 1 (B3, the committed harness)**:
+  `plugin/scripts/check_equality.ts` runs `form_check.py` (subprocess)
+  and `runFormCheck` (in-process) over all 18 checker-rule/not-enrolled/
+  live-tree corpus fixtures **and** this repository's own live
+  register, comparing `(severity, rule, fixture-relative path)`
+  fingerprint multisets, finding counts and exit codes; its recorded
+  output (this task's result) shows all 19 roots agreeing, exit 0.
+  **Criterion 2 (B2, finding-for-finding)**: exact agreement on every
+  root — same fingerprints, same counts, same exit codes, no
+  line/node/task/ruling ever named differently. One surviving message
+  wording difference, justified in this task's result and recorded
+  below: `journal-form`'s "invalid JSON" diagnostic text differs
+  between Python's `json` module and V8's `JSON.parse` (different
+  runtimes' parsers describe the same malformed input differently);
+  the violation's rule, path and line number are identical either way.
+  **Criterion 3 (B5, preserved deviations)**: one deviation found and
+  preserved — `checkBacklogRefs` never implements
+  [auditing.md](process/auditing.md)'s Register↔Backlog clause "where
+  a Workflow is declared, Backlog stage designations match register
+  stages" (`form_check.py` never implemented it either, in any form;
+  this project declares no Workflow, so it has never been exercised).
+  One annotated site (`lib/form-check-core.ts`, the `checkBacklogRefs`
+  doc comment, citing decision 6 and B5), one matching Backlog entry
+  (below) — the same set. The two already-documented v1 approximations
+  (Backlog-ref stage coverage; the journal cross-check's
+  accepted-event/cost-row approximation) carry over unchanged and
+  unannotated, per spec B5's own carve-out. **Criterion 4 (D1, no
+  second grammar)**: a repository-wide search for `P\d+-N\d+`-shaped
+  patterns and for a second `STAGES`-like array returns no hit outside
+  `lib/plan-register.ts` and the corpus fixtures — `INTERIOR_OK` and
+  `NEED_BACKLOG_REF` in `form-check-core.ts` are checker *policy*
+  (which stages permit children; which need a Backlog entry), not a
+  second copy of the *vocabulary*, exactly as `form_check.py` itself
+  kept them beside its own `STAGES` set; the doc comment makes the
+  distinction explicit for a future reader. **Criterion 5 (D3, the
+  self-check)**: `form_check.ts` runs the whole corpus against itself,
+  in-process, before doing anything else, on every invocation; a
+  corrupted expectation run against the clean live register produced a
+  message opening "SELF-CHECK FAILED — this checker disagrees with its
+  own conformance corpus... This is a problem with the checker, not
+  with your project", naming the corrupted fixture, exit 1 — reverted,
+  transcript in this task's result. Measured wall-clock, `time node
+  plugin/scripts/form_check.ts .`: consistently ~0.09–0.11s, well under
+  the one-second budget. **Criterion 6 (D2's executable half)**:
+  temporarily disabling the stage-vocabulary check in
+  `form-check-core.ts` and re-running produced a self-check failure
+  naming exactly `register-stage-verifiying` ("expected 1 finding(s)…
+  got 0 finding(s)") and "the corpus never provoked: register-stage" —
+  reverted, transcript in this task's result. **Criterion 7**:
+  demonstrated running `node plugin/scripts/form_check.ts` by absolute
+  path from `/tmp` (an unrelated working directory) against a scratch
+  checkout with `node_modules` removed entirely, with an explicit
+  project-root argument — exit 0 on the clean register. **Criterion
+  8**: the loop is untouched — `form_check.ts` is not pointed at by any
+  invocation site, `form_check.py` is byte-identical to the base
+  branch, and `python3 plugin/scripts/form_check.py` passed clean at
+  every commit of this child. `npm run typecheck`, `typecheck:consumer`
+  and `lint` clean; `npm test` is 35/35 (see the two entries above —
+  this child also carried the licensed W-002 fix to
+  `test/plan-register.test.ts`).
+- [ ] **[Preserved deviation, P1-N009 decision 6 — fix separately]
+  `form_check` never checks that a Backlog entry's stage designation
+  matches the register's, "where a Workflow is declared"** —
+  [auditing.md](process/auditing.md)'s Register↔Backlog invariant has
+  two clauses: a Backlog entry exists referencing the node (which the
+  checker implements), and, where a Workflow is declared, that entry's
+  own stage designation agrees with the register's (which it does
+  not, in either the Python or the TypeScript port — there is no code
+  path for it in `form_check.py` to preserve behaviourally, only its
+  absence). This project's Classification declares "Workflow: none
+  declared", so the gap has never been exercised here and porting its
+  absence changes nothing observable today. Found and annotated at
+  node P1-N012 (`plugin/scripts/lib/form-check-core.ts`,
+  `checkBacklogRefs`'s doc comment) per decision 6: preserve, record,
+  fix separately — a rewrite that also changes behaviour cannot be
+  verified by comparison against the Python oracle. Worth its own node
+  if this project (or a project it orchestrates) ever declares a
+  Workflow — the transition-legality table that P2-N010 already has to
+  build for the stage-vocabulary question is a natural place to design
+  the check.
+- [ ] **One justified message-wording difference between the Python
+  and TypeScript form checkers: the "invalid JSON" diagnostic text**
+  — `journal-form`'s malformed-JSON finding names the same line, the
+  same file and the same rule in both implementations, but the
+  parenthesized diagnostic differs because it is generated by each
+  runtime's own JSON parser: Python's `json` module says `Expecting
+  value` for `not json at all`; V8's `JSON.parse` (node
+  plugin/scripts/form_check.ts) says `Unexpected token 'o', "not json
+  at all" is not valid JSON` for the identical input. Neither
+  implementation's own text is under this project's control — both
+  are the standard library's own error message — so there is nothing
+  to port or align; recorded here per spec B2's requirement that every
+  surviving wording difference be enumerated and justified, not
+  silently accepted. No other wording difference was found: every
+  other message is reproduced verbatim, including Python-`repr()`
+  string quoting for task IDs, ruling statuses, and unknown event
+  kinds.
+- [ ] **Criterion 4's literal wording cannot distinguish policy from
+  vocabulary** — Child C's criterion 4 says a search for stage-name
+  literals returns hits "only inside the shared unit and inside
+  corpus fixtures", but a correct port necessarily keeps
+  `INTERIOR_OK` and `NEED_BACKLOG_REF` — *which* stages permit
+  children, *which* need a Backlog entry — beside the vocabulary,
+  exactly as `form_check.py` does. Those are checker policy, not a
+  second grammar. The Implementer disclosed the hits and justified
+  them rather than reporting a clean grep, and the Orchestrator
+  confirmed at acceptance that `STAGES` is defined exactly once, in
+  `plugin/scripts/lib/plan-register.ts`. D1 is satisfied in
+  substance; the criterion's text is over-broad. Worth fixing the
+  wording when P1-N009's own `verifying` assembles its evidence, so
+  the verifier is not asked to reconcile a grep that cannot come
+  back clean.
+- [ ] **The Cost log's sequentiality check cannot tell a gap in
+  flight from a gap forever** — `auditing.md` line 28 requires task
+  IDs "unique and sequential", and the checker mechanizes that
+  faithfully, so the two do not disagree: the *specification* is
+  under-specified. Task IDs are issued at dispatch and rows are
+  written at acceptance, so a gap appears whenever a dispatched task
+  does not reach acceptance. Two very different cases produce it.
+  **Transient**: parallel dispatch accepted out of order, which
+  resolves itself — and which the process spec explicitly permits
+  when a plan records mutual independence, so it will become routine
+  the first time that is exercised. **Permanent**: a task that never
+  lands — `needs-judgment` (T017 today), `blocked`, or `stale`. A
+  warning that fires routinely gets ignored, and the permanent case
+  then hides inside the transient noise, which is the failure mode
+  this whole register exists to prevent. **Proposed fix**, cheap
+  because the checker already reads the journal and already
+  cross-references rows to `accepted` events: classify the gap. A
+  missing ID whose journal shows a terminal non-accepted event, or a
+  `dispatched` with no terminal event yet, is expected and silent; a
+  missing ID with **no journal record at all** is the real finding —
+  an ID issued and lost. That is an `auditing.md` change first and a
+  checker change second, in that order (Article 3).
+- [x] **Two further C2 permitted-set candidates, and one declined**
+  — T018 discharged the orphan search and surfaced three questions
+  for P1-N009's `verifying` rather than settling them: (i)
+  `plugin/scripts/lib/corpus/manifest.ts` quotes the four search
+  strings for the same reason the README beside it does; (ii)
+  `test/plan-register.test.ts` names `form_check.py` in the
+  disposition comment [RU-014](rulings.md) itself mandates; and
+  (iii) this file's narrative of the node's completed children sits
+  structurally under `## Upcoming` rather than the literal
+  `## Completed` section C2 names, because an interior node stays
+  under Upcoming until it reaches `done` itself. The Implementer
+  declined to widen the set for (iii) — relocating it would either
+  falsify history or falsely claim node-level completion — and left
+  it for the owner. All three want a one-line amendment to spec C2
+  at `verifying`, not a change to what shipped. **Resolved at
+  P1-N009's `verifying`, 2026-08-31**: (i) and (ii) amended into
+  spec C2's permitted set with the reason stated — history and
+  self-description, not instructions a reader acts on; (iii)
+  resolved rather than amended, the rule's intent being satisfied
+  where that narrative stands.
+- [x] **Methodology amendments for delegated, multi-agent work
+  drafted** (node P1-N015) — four amendments the owner approved in
+  sketch on 2026-08-31, drafted as adjudicable proposals for the owner
+  to hand-carry upstream under [RU-002](rulings.md), following
+  P1-N008's precedent. **A1**: scope the report rule by audience
+  rather than by artifact — W-008's "a chat report that delivers a
+  written artifact" misfires twice here, because "chat" assumes a
+  human reader when most reports go agent to agent, and "delivers a
+  written artifact" excludes the reports that most need the
+  discipline, namely a decision, a finding or a refusal. **A2**:
+  name whose duty marking is when sessions nest — K-011 binds "a
+  session" and does not say which one owns the duty; P1-N014's
+  decision 2 answers it, and upstreaming the answer saves every
+  other project re-deriving it. **A3**: a minimal delegation
+  vocabulary — two terms only (Delegation, with its delegating/
+  delegated-agent roles, and Report audience), narrowed by decision 4
+  to what A1 and A2 actually borrow; the fuller vocabulary (dispatched
+  task, context packet, handoff contract, node-attached gate) stays
+  Article-7-local pending a second project's need. **A4**: state
+  K-010's converse — an `active` document's unmarked content asserts
+  current intent, so a contradiction there is false rather than
+  stale and must be fixed, not marked. The founding plan's corrected
+  v1.3.0 claim (task T019,
+  [commit `c9da132`](https://github.com/majodali/project-orchestrator/commit/c9da132c0afa6f69e5b14cc8468eaf3c5c9d80c2))
+  is the evidencing instance. Split principle the owner confirmed: the
+  methodology owns rules any project could need, this project owns
+  the mechanisms that implement them.
+
+  Executed: five documents under
+  [docs/proposals/](proposals/) — one per amendment plus
+  [the cover note](proposals/delegated-work-amendments-cover-note.md)
+  — each carrying final normative text beside a byte-verified upstream
+  quote (diffed against methodology clone commit `c183427` at
+  drafting time), a resolvable evidencing-instance link, a
+  Release-register entry (title, placeholder PR link with a fill
+  instruction, impact assessment against every Portfolio row via the
+  register's own collective-statement pattern, explicit `none`
+  migration note, and an independence statement covering the other
+  three entries), and an explicit ask under acceptance, amendment, and
+  rejection. A1 and A2 each name the A3 term they borrow and carry a
+  verbatim fallback phrase, tested by substitution, so either stands
+  alone if A3 is rejected; A4 is independent of all three. All five
+  stay `Status: draft`; nothing is carried upstream by this node.
+  Node moves `specified` → `verifying`
+  ([RU-005](rulings.md) — proposal-class nodes gate at `verifying`);
+  self-verification (C1) checked criteria groups A, B, D, F2–F3, and G
+  against the artifacts, with C2 (estimate honesty), E2 (fallback
+  self-sufficiency), and F1 (upstream-general framing) left for the
+  owner's read per the spec's *How verification runs* section.
+  **Gate pending: owner review at `verifying`.**
+  Plan: [p1-n015-methodology-amendments-delegated-work](plans/p1-n015-methodology-amendments-delegated-work.md).
+  Spec: [p1-n015-methodology-amendments-delegated-work](specs/p1-n015-methodology-amendments-delegated-work.md).
+- [ ] **The portfolio register's row for this project is stale** —
+  `docs/registers/portfolio.md` upstream records this project pinned
+  at 1.3.0, and does not list `project-orchestrator-service` at all.
+  Both statements stopped being true on 2026-08-30 and 2026-08-27
+  respectively. Not ours to edit; carry it to the owner with the
+  P1-N015 proposals rather than as a separate errand.
+- [ ] **The rest of the delegated-work vocabulary, when a second
+  project evidences it** — identified 2026-09-01 while planning
+  P1-N015, not executed. Decision 4 of that plan proposes upstream
+  only the terms A1 and A2 use, because
+  [Article 6](https://github.com/majodali/methodology/blob/v1.4.0/docs/constitution.md#article-6--inclusion-every-rule-earns-its-keep)
+  (every rule earns its keep) admits a term only when a live project
+  needed it, and this project is currently the sole instance.
+  Dispatched task, context packet, handoff contract, and the
+  node-attached gate stay Article 7 custom definitions here until a
+  second project needs them. Reasoning:
+  [p1-n015 plan](plans/p1-n015-methodology-amendments-delegated-work.md),
+  decision 4.
+- [ ] **Two deferred prose guidelines, held for recorded instances** —
+  identified 2026-09-01 during the P1-N015 revision (task T023), not
+  executed. The same owner review that folded the ordering requirement
+  into A1's principal-audience duties
+  ([report-rule-scoped-by-audience.md](proposals/report-rule-scoped-by-audience.md))
+  named two further reporting guidelines: no pronoun crossing a
+  paragraph without its noun, and asserting with verbs rather than "X
+  is real." Both are sentence-level prose rules, not report-shape
+  rules, so they belong in the methodology's
+  [P- series](https://github.com/majodali/methodology/blob/v1.4.0/docs/rules/prose.md),
+  never in W-008, which governs a report's parts and their order, not
+  its sentence construction. Deferred rather than drafted: every P-
+  rule's own Motivated-by field cites a recorded review-round and
+  multiple instances, and the case for these two today rests on one
+  conversation. Condition for proposing them: recorded instances from
+  real project reports, not a single exchange.
+- [ ] **Track upstream disposition of the P1-N015 proposals** —
+  identified 2026-09-01 while planning P1-N015, not executed. The
+  node completes at the artifacts under [RU-003](rulings.md), so
+  acceptance, amendment, or rejection of each of the four proposals
+  is recorded here, as P1-N008's disposition is. Fires when the owner
+  reports an adjudication outcome.
+- [ ] **Migrate to the release carrying the accepted amendments, and
+  release P1-N014's hold** — identified 2026-09-01 while planning
+  P1-N015, not executed. When a methodology release ships whatever is
+  accepted, this project bumps its Classification pin, adopts the
+  changed rules into `docs/process/`, and P1-N014's specify stage
+  resumes against the new text
+  ([p1-n014 plan](plans/p1-n014-role-contracts-adopt-v140-rules.md),
+  gate outcome). Nothing may pin unreleased `main`, so this waits on
+  a tag, not on a merge.
+- [ ] **Role contracts adopt the v1.4.0 conduct rules** — node
+  P1-N014, stage `identified`, opened 2026-08-30, planned 2026-08-31.
+  States the report duty, the supersession duties, and the reach of
+  the prose rules once each, in `docs/process/` and the six role
+  contracts in `.claude/agents/`, with `plugin/agents/` regenerated.
+  Planned as a leaf, nine decisions staged with defaults.
+  Plan: [p1-n014-role-contracts-adopt-v140-rules](plans/p1-n014-role-contracts-adopt-v140-rules.md).
+- [ ] **Methodology citations in the process spec point at the
+  superseded pin** — identified 2026-08-31 while planning P1-N014,
+  not executed. Nine links under `docs/process/` and in
+  [open-risks.md](open-risks.md) target the `v1.3.0` tag; the pin has
+  been 1.4.0 since 2026-08-30. Stale rather than false: each claim
+  they support still stands at the current pin. Editorial pass,
+  retargeting the links and giving each identifier its name (P-004 —
+  citations carry names). Reasoning:
+  [p1-n014 plan](plans/p1-n014-role-contracts-adopt-v140-rules.md),
+  contradictions section.
+- [ ] **Editorial pass over the Backlog to the declared row shape** —
+  identified 2026-08-31 while planning P1-N014, not executed. Depends
+  on decision 8 of that plan being adopted, which declares the shape
+  and the lag in this file's header. Existing entries run 100–250
+  words with their reasoning inline, which is what P-006 (registers
+  hold uniform rows) exists to prevent. Scheduled work, not a
+  migration duty (methodology v1.4.0 style guide, Migration).
+- [ ] **Editorial pass over `docs/process/` to the house style** —
+  identified 2026-08-31 while planning P1-N014, not executed.
+  Highest-traffic reference documents first, per the style guide's
+  own ordering: [dispatch.md](process/dispatch.md), then
+  [roles.md](process/roles.md), then
+  [plan-model.md](process/plan-model.md). Separate from P1-N014,
+  which binds only the prose it writes.
+- [ ] **Adopt `mtool`'s style and supersession-marker checks when
+  they ship** — identified 2026-08-31 while planning P1-N014, not
+  executed. The methodology's v1.4.0 release notes queue style lint
+  (warnings, not violations) and marker greppability in
+  methodology-tools. Standing constraint 4 of the
+  [founding plan](plans/orchestrator-v1.md) makes that tooling
+  upstream, so nothing equivalent is built here; the Auditor picks
+  them up like any other `mtool` result kind.
+- [ ] **`docs/process/README.md` is the packet gap, three times
+  running** — T019 widened to it for the subordination clause, T020
+  widened to it for the *Defined terms* section, and the earlier
+  observation named it alongside `auditing.md`. Three instances is
+  no longer a pattern to watch; it is a packet-table row that is
+  wrong. Fix it with the break-down row's missing plan document in
+  one considered change to `dispatch.md`'s table, since both are
+  specification changes reviewed as such.
+- [ ] **The `plan`-stage packet omits two process documents it keeps
+  needing** — T019 widened its packet to `docs/process/README.md`
+  (the subordination clause) and `docs/process/auditing.md` (the
+  semantic Auditor's gate pass and the spec-is-right rule), and
+  judged both structural rather than one-off: a plan-stage packet
+  that omits them will produce the same widening whenever a node
+  touches the process specification itself. That is now the second
+  packet-table observation on this project, after the break-down
+  row's missing plan document. Neither is urgent, and the table is
+  the context-frugality contract, so changing it is a specification
+  change reviewed as such — worth doing once, with both instances as
+  evidence, rather than twice in a hurry.
+- [ ] **Upstream proposal for `mtool`: no source file may read as
+  binary to grep** — owner direction, 2026-08-30, prompted by the
+  NUL-byte finding below and by the owner having hit the same
+  failure before: a checker should assert that every source file in
+  a managed tree is treated as text by grep, because a file that
+  reads as binary drops out of searches silently and any check built
+  on a search quietly loses coverage. This is upstream work, so
+  [RU-002](rulings.md) applies — the artifact is written here and the
+  owner hand-carries it; cross-repo scope is not assumed. The natural
+  vehicle is the checker extension point already proposed at P1-N008
+  ([plan](plans/p1-n008-mtool-checker-extension-point.md) ·
+  [spec](specs/p1-n008-mtool-checker-extension-point.md)), whose
+  contract this would be an early consumer of. Sized as its own node
+  when the owner wants it; not folded into P1-N009.
+- [x] **`run_corpus.ts` contained NUL bytes, and ripgrep silently
+  dropped it from searches — fixed at the P1-N013 cutover** — its
+  `fingerprint()` built keys with literal `\x00` separators, so
+  ripgrep classified the file as binary and omitted it from
+  `files_with_matches` output **without warning**. Confirmed at
+  acceptance of T017: GNU `grep -rl` found 6 TypeScript files
+  containing `form_check`; ripgrep found 5, missing exactly
+  `run_corpus.ts`. Not cosmetic — criterion 4 of the cutover proves
+  "no orphan reference survives" by a repository-wide search, and a
+  file the search cannot see is exactly the orphan it would miss.
+  Fixed by owner direction, folded into the same conversion that made
+  `run_corpus.ts` call the checker in-process rather than shelling out
+  to `python3`: the separator is now `␟` (U+241F, SYMBOL FOR UNIT
+  SEPARATOR) — printable, not a control byte, and not a character any
+  severity/rule/path string can contain. Proved, not just fixed: after
+  the change, `rg -l form_check --type ts` and `grep -rlE form_check
+  --include='*.ts'` return the identical 8-file set (both commands'
+  output recorded in this task's result), and a repository-wide,
+  all-file rerun of the same comparison for `form_check.py`,
+  `journal_tail.py`, `sync_agents.py` and `python3` also returns
+  identical file sets from both tools.
+- [ ] **Additions to spec C2's permitted set, beyond the three known
+  at gate time** — `plugin/scripts/lib/corpus/README.md` (ruled in at
+  P1-N011: quotes all four search strings to describe C2's own rule)
+  plus two T017 found and this node's cutover confirms are needed:
+  the `fixtures/live-tree/` snapshot, a frozen historical copy of this
+  repository's own documents whose sanitisation would be the very
+  defect C2 names; and provenance doc comments in the ported tools
+  recording what they were ported *from* (`form_check.ts`,
+  `journal_tail.ts`, `sync_agents.ts`, `sync_shared_unit.ts`,
+  `run_corpus.ts`, `lib/form-check-core.ts`, `lib/parse-output.ts`,
+  `lib/plan-register.ts`). **Two more, found discharging C2 at the
+  cutover itself:** `plugin/scripts/lib/corpus/manifest.ts` quotes the
+  same four strings for the same reason as the README it sits beside
+  (C2's own rule needs stating in both places that state it, not just
+  the one the plan happened to name); and `test/plan-register.test.ts`
+  names `form_check.py` in the doc comment RU-014 itself requires —
+  recording where the coverage lost by retiring the Python-cross-check
+  test now lives. **A fifth match the Implementer does *not* propose
+  widening for:** `docs/backlog.md`'s completed-child narrative for
+  this node's children A–C sits under the `## Upcoming` heading (this
+  file has exactly two `##` sections; an interior node's own top-level
+  entry stays under Upcoming until the whole node reaches `done`, even
+  once several children are marked `[x]` beneath it) rather than under
+  the literal `## Completed` heading C2 names — a structural fact about
+  this repository's own Backlog convention, not a defect in the text.
+  Left as found: rewriting or relocating shipped-child history to fit
+  the literal wording would either falsify history or falsely claim
+  P1-N009 itself complete, either one worse than the wording gap.
+  Flagged for the owner's judgment at `verifying` rather than resolved
+  here. All of the above: history, not instructions, and none of it
+  read by anyone as a live command to act on — to be amended into the
+  specification at P1-N009's `verifying` rather than left disagreeing
+  with what shipped. **Distinct from all of this, and separately
+  corrected in the cutover commit itself, not left for `verifying`:**
+  the handful of genuinely stale present-tense claims T017 found in
+  these same files (`form_check.ts` and `journal_tail.ts`'s "nothing
+  is retired yet" paragraphs; `plan-register.ts`'s "checker
+  (`form_check.py` today)"; `sync_shared_unit.ts`'s "mirroring
+  `sync_agents.py`" mentions; `corpus/README.md` and `manifest.ts`'s
+  claim that `run_corpus.ts` and `sync_shared_unit.ts` "genuinely
+  invoke the Python") — these were false the moment the cutover
+  landed, so they moved with it rather than waiting for a later gate.
+- [ ] **A `needs-judgment` return leaves its cost unrecorded** — the
+  Cost log takes one row per *accepted* task, and `form_check`
+  enforces that every row has an `accepted` event. T017 consumed
+  ~253k tokens and 19m11s and produced no row, because it correctly
+  returned `needs-judgment` instead of a result. The work was real
+  and mostly reusable, but the project's own cost accounting cannot
+  see it. Either the Cost log's definition widens to one row per
+  dispatched task with an outcome column, or the journal becomes the
+  authority for unaccepted work and the Cost log says so. A spec
+  decision for the next design pass, recorded here with a real
+  instance rather than argued in the abstract. **Now a live signal**:
+  the ported checker raises `costlog-form — task IDs not sequential`
+  on the T017 gap at every run, and will keep doing so until the
+  definition is settled. It is a true finding, not noise, and it is
+  the first thing the port caught on the live tree that the project
+  had not already written down.
+- [ ] **Orchestrator brief defect: the T017 packet said "all five
+  test files" when there are four** — a small enumeration error, but
+  the packet table is the context-frugality contract and an
+  enumeration that miscounts is one a role must reconcile. Recorded
+  in the same series as the earlier brief-assembly gaps.
+- [x] **(node P1-N013, P1-N009 child D) The cutover: `sync_agents`
+  ported, every invocation site moved, the Python retired, in one
+  commit** — shipped: `plugin/scripts/sync_agents.ts` (same argument
+  shape as the Python — `[--check] [project-root]` — same in-sync /
+  out-of-sync / no-`.claude/agents/`-here messages, `--check` never
+  writes); `plugin/scripts/run_corpus.ts` converted from a `python3
+  form_check.py` subprocess to an in-process call to `runFormCheck`,
+  fixing along the way the NUL-byte fingerprint separator that made
+  ripgrep silently drop this file from searches (owner direction — see
+  the dedicated Backlog entry above); `check_equality.ts` deleted, not
+  reduced, per this child's own criterion 6 reasoning below;
+  `plugin/scripts/form_check.py`, `journal_tail.py` and `sync_agents.py`
+  deleted. **Criterion 1 (C3, `sync_agents` still generates)**:
+  regenerating `plugin/agents/` from the now-edited
+  `.claude/agents/auditor.md` (the only role file this cutover
+  touches) produced the same six files with a banner naming
+  `sync_agents.ts`, byte-identical otherwise to what the Python last
+  produced (diffed in a scratch directory before the cutover — see
+  this task's result); `--check` passes at the cutover commit and at
+  `done`; no file under `plugin/agents/` was hand-edited. **Criterion
+  2 (C1, every site moves, verified by repository-wide search rather
+  than by re-reading the table)**: all seven rows discharged —
+  `.claude/agents/auditor.md`; the six regenerated `plugin/agents/*.md`;
+  `plugin/skills/enroll/SKILL.md`; `plugin/skills/orchestrate/SKILL.md`
+  (both mentions); `plugin/skills/journal-tail/SKILL.md`;
+  `plugin/README.md` (the fallback paragraph, and the Components list,
+  which was missing `sync_agents` entirely before this commit —
+  T017's finding, now fixed); `CLAUDE.md` (Build/run/test, which now
+  also states the Node floor per criterion 7/RU-013, and Architecture
+  at a glance). **Criterion 3 (C4, one commit, both halves)**: this
+  commit's `git show --stat` carries the three `.py` deletions,
+  `check_equality.ts`'s deletion, every site edit above, decision 14's
+  two renames, the RU-014 test change, and this Backlog rewrite
+  together; every earlier commit in this node's branch (the
+  `sync_agents` port, the `run_corpus` conversion) left the Python in
+  place and no documented command pointing at an absent file.
+  **Criterion 4 (C2, no orphan reference)**: a repository-wide search
+  for `form_check.py`, `journal_tail.py`, `sync_agents.py` and
+  `python3`, with both `rg` and GNU `grep` (confirmed to return
+  identical file sets — the NUL-byte fix means this is no longer two
+  different answers), returns matches only inside the specified
+  permitted set, five further additions the Implementer found and
+  did not resolve unilaterally (Backlog entry above, for the owner's
+  judgment at `verifying`), and one genuinely stale block deleted
+  outright: `.gitignore`'s Python-bytecode-cache comment, which
+  claimed `test/plan-register.test.ts` still loads `form_check.py` via
+  `importlib` — false after RU-014, and with no `.py` file anywhere in
+  the tree the `__pycache__`/`*.pyc` ignore rules themselves are dead,
+  so the whole block was removed rather than reworded. The genuinely
+  stale present-tense claims T017 named were corrected in this same
+  commit (see the Backlog entry above). **Criterion 5 (decision 14)**:
+  `docs/plans/p2-n002-service-skeleton.md` criterion 9 and
+  `docs/specs/p2-n002-service-skeleton.md` criterion P2 renamed, each
+  with the required one-line note (Backlog entry above). **Criterion
+  6 (the harness retired, evidence preserved)**: `check_equality.ts`
+  deleted outright, not reduced — it is spec B3's differential harness
+  by name, its job (proving the port equal to the Python) is complete
+  once the Python is gone, and spec B4's durable check already has two
+  homes that do not depend on it: `form_check.ts`'s built-in corpus
+  self-check (spec D3, runs on every invocation) and
+  `plugin/scripts/run_corpus.ts` (spec B4, now in-process), both
+  checking this same shared unit's parsing against expectations
+  captured from `form_check.py` and reviewed before it was deleted.
+  `run_corpus.ts` after retirement: `18 fixture(s) match their
+  recorded expectations; all 11 declared rules provoked` — unchanged
+  from before the conversion and the deletion, recorded in this task's
+  result. RU-014's disposition of `test/plan-register.test.ts` is the
+  same shape at the unit-test layer: the cross-check test and its
+  `parseLiveRegisterWithPython()` helper retired, the surviving
+  assertion kept and its `describe` block renamed, and the doc comment
+  records where the lost coverage now lives (spec D3 and B4, as
+  above) — `npm test` 35/35 → 34/34, the disclosed and ruled-on
+  outcome. **Criterion 7 (the new checker clean from here on, RU-013
+  in `CLAUDE.md`)**: `node plugin/scripts/form_check.ts .` clean (24
+  nodes, 0 violations, 0 warnings) at the cutover commit and at `done`;
+  its corpus self-check passes as part of every invocation;
+  `CLAUDE.md`'s Build/run/test line states the Node floor
+  (`>=22.18.0 (>=23.6.0 on the 23.x line)`) next to the command, per
+  RU-013. **Criterion 8 (the Backlog is the truth)**: this entry
+  itself, the three Backlog entries above it closed or corrected in
+  this same commit, and no new finding from this child left
+  unrecorded. `npm run typecheck`, `typecheck:consumer` and `lint`
+  clean; `npm test` 34/34.
+- [ ] **Service-side adoption of the shared register grammar** — the
+  other half of P1-N009's reuse: `src/planRegister/parser.ts` gives
+  way to the vendored canonical file, and the service repo gains the
+  drift check. Belongs to node P2-N010, which has to open the parser
+  anyway to settle the stage-vocabulary question, and which should
+  therefore execute after P1-N009's shared-unit child. Kept out of
+  P1-N009 to avoid an immediate-class scope expansion
+  ([P1-N009 plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
+  decision 3); if the owner overrides that decision the two halves
+  land together and this entry closes with it.
+- [x] **P2-N002's live criteria renamed at the P1-N009 cutover
+  (decision 14, option (a), the default)** — `docs/plans/p2-n002-service-skeleton.md`
+  criterion 9 and `docs/specs/p2-n002-service-skeleton.md` criterion
+  P2 named `python3 plugin/scripts/form_check.py`; both now name `node
+  plugin/scripts/form_check.ts`, each with a one-line note that the
+  command changed at P1-N009 (node P1-N013) and nothing about the
+  criterion's substance did. Still checked at P2-N002's own
+  `verifying`, which falls after this node — only the command they
+  name moved, in this commit, under W-003.
+- [x] **`node` became a runtime assumption where `python3` was —
+  live as of the P1-N013 cutover, not just candidate** — every surface
+  that runs the form checker now needs `node` on `PATH` at a version
+  that strips types (≥22.18 / ≥23.6); `python3` is no longer a
+  fallback, because `plugin/scripts/*.py` no longer exists. Claude
+  Code runs on Node, so the runtime is present wherever a session is.
+  This was recorded here as a candidate Risk-register entry while
+  P1-N009 was still being specified; the Orchestrator has since opened
+  [R13](open-risks.md) and closed [RU-013](rulings.md) (both already
+  in place before this node's execute stage), so the mitigations this
+  entry asked for — a clear, loud failure message and a declared
+  floor — already exist: every tool this node ships calls
+  `preflightNodeOrExit` before doing anything else (`lib/node-preflight.ts`),
+  and `CLAUDE.md`'s Build/run/test line states the floor next to the
+  command, per RU-013.
+- [ ] **Verify what a `/plugin` install physically ships** — whether
+  a plugin directory can carry build artifacts or `node_modules`,
+  and what `${CLAUDE_PLUGIN_ROOT}` points at in practice. Could not
+  be established while planning P1-N009 (no plugin cache in the
+  dispatch environment; per [R9](open-risks.md) the plugin has never
+  been observed loading), so that node's design deliberately does
+  not depend on the answer. Worth settling before any tooling does.
+- [ ] **A machine-readable finding mode for the form checker** — the
+  `--emit=json` entry point the
+  [extension-point proposal](proposals/mtool-custom-type-checker.md)
+  sketches. Not built at P1-N009 (RU-004: sketch, not implementation,
+  while the contract is under discussion); the port only preserves
+  one stable entry-point path so adopting the settled contract is a
+  declaration rather than a restructuring.
+- [ ] **Revisit `billing_check.sh`'s language** — the SessionStart
+  billing hook stays shell at P1-N009 (decision 7: no runtime
+  dependency and no startup cost on a ten-line environment-variable
+  test). Reopen if it grows logic, or if the owner prefers uniformity
+  over the exception.
+- [ ] **A shared-library repository for the portfolio** — when a
+  third consumer of the register grammar (or any other shared unit)
+  appears, the vendor-plus-drift-check mechanism P1-N009 chooses
+  stops paying and a proper home earns its Classification and
+  enrollment. RU-006 is the test to apply then.
 - [ ] **Chunk-1 child: plan-state update with the advisory lease**
   (node P2-N010) — the three-step git-authoritative write model
   (lease → update returning the exact edit → confirm with the SHA);
@@ -494,9 +1427,16 @@
   methodology-tools is outside this project's approved scope
   (dispatch's cross-repo-reach rule) and because upstream acceptance
   is not this project's to verify; the default route is the owner
-  hand-carrying it (P1-N008 plan, decision 2).
+  hand-carrying it (P1-N008 plan, decision 2). The proposal is not
+  reopened by P1-N009 (its evidence link is SHA-pinned and its
+  entry-point sketch is labelled illustrative), but if delivery
+  follows the rewrite, say so in the covering message rather than
+  editing the artifact ([P1-N009
+  plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
+  decision 8).
 - [ ] **Adopt the checker extension point once it lands** — when
-  `mtool` ships the capability: adapt `form_check.py` to the accepted
+  `mtool` ships the capability: adapt the form checker (Python
+  today, TypeScript after P1-N009) to the accepted
   contract, retire the side-by-side transitional arrangement in
   [auditing](process/auditing.md), and update the Auditor's contract
   in [roles.md](process/roles.md) to run the checker through `mtool`

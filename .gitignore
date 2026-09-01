@@ -1,0 +1,21 @@
+# Node toolchain (P1-N009 child A, node P1-N010) — dependencies only;
+# nothing here is built (decision 4: direct-run .ts source, no build
+# step), so there is no dist/ to ignore.
+node_modules/
+coverage/
+*.tsbuildinfo
+
+# Secrets and local configuration — NEVER commit these (S-001/S-002).
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Editor / OS noise
+.DS_Store
+.vscode/
+.idea/
+*.log
+npm-debug.log*

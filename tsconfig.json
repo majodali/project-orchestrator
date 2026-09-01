@@ -1,0 +1,47 @@
+{
+  // This repository's own type-check configuration (P1-N009 child A,
+  // node P1-N010, spec criterion 1/T2). Toolchain conventions are
+  // adopted from project-orchestrator-service (decision 9): strict,
+  // target ES2022, module/moduleResolution NodeNext,
+  // noUncheckedIndexedAccess.
+  //
+  // Divergence from the service repository's tsconfig.json, enumerated
+  // here as spec criterion 1 requires:
+  //   - "noEmit": true and no "outDir" — this repository never builds;
+  //     every tool here runs as direct .ts source under Node's type
+  //     stripping (decision 4), so tsc's job here is type-checking
+  //     only, never producing JS.
+  //   - "allowImportingTsExtensions": true — direct-run Node requires
+  //     a relative import specifier ending in ".ts" (e.g.
+  //     "./lib/plan-register.ts"), which the service's NodeNext build
+  //     cannot use (it requires ".js" specifiers, resolved by the
+  //     build against its own emitted output). The two specifier
+  //     styles are mutually exclusive at runtime; this is why the
+  //     shared grammar unit (plugin/scripts/lib/plan-register.ts) has
+  //     zero imports at all, rather than trying to satisfy both here.
+  //     See tsconfig.consumer.json for the config that proves the unit
+  //     also compiles under the service's stricter (no
+  //     allowImportingTsExtensions) settings.
+  //   - "include" covers plugin/scripts and test, not "src" — this
+  //     repository's TypeScript lives under plugin/scripts (decision
+  //     11: same directory, same base name as the Python it replaces)
+  //     and test, not a src/ tree.
+  //   - No "declaration" / "sourceMap" / "rootDir" — irrelevant to a
+  //     noEmit config.
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "noEmit": true,
+    "allowImportingTsExtensions": true
+  },
+  "include": ["plugin/scripts/**/*.ts", "test/**/*.ts"]
+}

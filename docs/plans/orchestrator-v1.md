@@ -18,10 +18,11 @@ These bind every chunk; the spec and plugin are designed inside them.
 
 1. **Methodology compliance.** This project and every project it
    orchestrates comply with majodali/methodology at their pinned
-   versions (this repo: v1.3.0 since the 2026-08-25 migration). The orchestrator's roles are
-   refinements of the methodology's roles (Human owner · Agent ·
-   Reviewer · Auditor); where refinement exposes a gap, the fix is an
-   amendment proposal upstream, never a silent local divergence.
+   versions (this repo: v1.4.0 since the 2026-08-30 migration). The
+   orchestrator's roles are refinements of the methodology's roles
+   (Human owner · Agent · Reviewer · Auditor); where refinement
+   exposes a gap, the fix is an amendment proposal upstream, never a
+   silent local divergence.
 2. **Subscription billing only.** All agent execution runs on surfaces
    billed to the owner's Claude Max subscription. Verified 2026-08-24,
    those are: Claude Code sessions (interactive and cloud, including
@@ -199,7 +200,7 @@ Open:
 ## References
 
 - [majodali/methodology](https://github.com/majodali/methodology)
-  v1.3.0 — Constitution, vocabulary, rule corpus
+  v1.4.0 — Constitution, vocabulary, rule corpus, style guide
 - [methodology-tools](https://github.com/majodali/methodology-tools)
   — `mtool` (upstream audit tooling)
 - [docs/classification.md](../classification.md) — this repo's
