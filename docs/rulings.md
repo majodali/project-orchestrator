@@ -95,7 +95,7 @@ spec. First entries land at the pending P1-N008 gate.
   cost at two consumers; RU-006 is the near match, and reaching for a
   third repository is what it warns against. Revisit at a third
   consumer. Source: P1-N009 gate (decisions 1 and 2, defaults
-  adopted), 2026-08-29. Applied: —
+  adopted), 2026-08-29. Applied: T024.
 
 - RU-013 [active] stack/process — What does a majodali tool do when
   the runtime it needs is missing or too old? Ruling: preflight and
