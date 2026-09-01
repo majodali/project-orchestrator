@@ -1183,7 +1183,10 @@
   owner's: allow the domain in the environment's network policy, or
   answer the six assumptions himself as an attestation, or accept a
   lower evidence grade — the last being a deviation from the criteria
-  he has just adopted.
+  he has just adopted. **Unblocked the same day**: the owner allowed
+  the domain in the environment's network policy, and
+  `docs.aws.amazon.com` now answers 200 with the guide's prose in the
+  HTML rather than behind a script. The criteria stand as adopted.
 - [ ] **Pull-request checks that cannot deploy** (node P2-N014, child
   B of P2-N012) — the `pull_request` workflow: build, lint, test and
   `sam validate --lint`, each able to fail the check;
@@ -1308,6 +1311,18 @@
   its own node when the owner wants it; it is a change to the plan
   model, not a tweak. Until then, sibling order remains the
   convention and a departure is an owner decision, as this one was.
+- [ ] **The run journal can record a block but not its release** —
+  found 2026-09-01 while unblocking node P2-N013. `EVENTS` in
+  `plugin/scripts/lib/form-check-core.ts` admits `blocked` and twelve
+  siblings, and nothing for the transition back: a node's block is a
+  first-class event, its release is not, so the only record of the
+  release is prose inside whatever event happens to come next. That
+  makes "how long was this blocked, and what freed it" unanswerable
+  from the journal, which is the one question a block log exists to
+  answer. Fix is an `unblocked` kind in `EVENTS` and in
+  [observability.md](process/observability.md)'s vocabulary, with the
+  note carrying what changed. Small, and it belongs with P1-N016's
+  process-spec pass rather than opened as its own node.
 - [ ] **Process spec maintenance: branch lifecycle, PR citation,
   packet table** (node P1-N016) — three queued corrections to
   `docs/process/`, opened as one node on 2026-09-01 because the
