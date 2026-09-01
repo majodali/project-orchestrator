@@ -15,12 +15,12 @@ spec. First entries land at the pending P1-N008 gate.
   reach a repo outside granted scope? Ruling: the owner hand-carries
   it; cross-repo scope is granted only explicitly. Rationale: no
   scope expansion for a delivery a human can make. Source: P1-N008
-  gate (decision 2, default adopted), 2026-08-26. Applied: —
+  gate (decision 2, default adopted), 2026-08-26. Applied: T020.
 - RU-003 [active] completion/process — Does a node targeting an
   external party complete at the artifact or at upstream
   disposition? Ruling: at the artifact. Rationale: external
   acceptance is not ours to verify. Source: P1-N008 gate
-  (decision 3, default adopted), 2026-08-26. Applied: T004.
+  (decision 3, default adopted), 2026-08-26. Applied: T004, T020.
 - RU-004 [active] completion/node — Full reference implementation or
   conformance sketch for the extension-point proposal? Ruling:
   sketch only. Rationale: the contract is still under discussion.
@@ -30,7 +30,7 @@ spec. First entries land at the pending P1-N008 gate.
   owner-gated, and where? Ruling: yes, gate at `verifying`.
   Rationale: the owner sees the artifact before it represents the
   project. Source: P1-N008 gate (decision 5, default adopted),
-  2026-08-26. Applied: —
+  2026-08-26. Applied: T020.
 
 - RU-006 [active] scope/process — When does a new capability get its
   own repository rather than joining an existing one? Ruling: when it

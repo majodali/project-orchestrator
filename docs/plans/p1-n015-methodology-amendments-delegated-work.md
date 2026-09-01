@@ -1,6 +1,6 @@
 # Methodology amendments for delegated, multi-agent work
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -300,3 +300,22 @@ Recorded here so the gate summary can state them, not as node scope:
   — the projects an impact assessment names.
 - [methodology style guide](https://github.com/majodali/methodology/blob/v1.4.0/docs/style.md)
   — the house style binding both this plan and the proposed text.
+
+## Gate outcome, 2026-09-01
+
+All five staged decisions adopted as defaulted; none overridden.
+
+Decision 4 is the one that changed something: it narrows the
+vocabulary amendment from the set the owner approved in sketch to
+the terms A1 and A2 actually borrow, on Article 6's ground that a
+term earns its place when a live project needed it and this project
+is currently the sole instance for the remainder. The owner adopted
+the narrowing knowingly, the Planner having flagged it for override
+rather than presenting it as recorded intent.
+
+Three rulings decided parts of this node silently and are recorded
+as applied at T020: [RU-002](../rulings.md) (the owner hand-carries
+upstream-bound output), [RU-003](../rulings.md) (a node targeting an
+external party completes at the artifact) and
+[RU-005](../rulings.md) (proposal-class nodes gate at `verifying`).
+
