@@ -1099,6 +1099,25 @@
   real `node --input-type=module` subprocess. Nothing stops a future
   test writing the natural-looking, silently-wrong form, so the
   service repo carries a Backlog entry proposing a shared helper.
+- [ ] **`plan_lease_release` fails against real DynamoDB: `token` is
+  a reserved keyword** — surfaced by the chunk 1 gate demonstration
+  itself, on the first call ever made against the production table.
+  `plan_confirm` succeeded — it fetched the pushed commit, checked the
+  register carried the edit, and reported the transition confirmed —
+  and then failed to release the lease:
+  `Invalid ConditionExpression: Attribute name is a reserved keyword;
+  reserved keyword: token`. The cause is one line:
+  `dynamoLeaseBackend.ts` writes `ConditionExpression: "token = :token"`,
+  and DynamoDB reserves `token`, so it needs an
+  `ExpressionAttributeNames` alias. `acquireLease`'s expression uses
+  only `pk` and `expiresAt`, which is why acquire worked and release
+  did not. **Why 124 tests missed it**: every test runs the in-memory
+  lease backend, so no test has ever sent a condition expression to
+  DynamoDB. The class of gap is the same one the ESM bundle defect
+  had — a check that cannot fail in the environment where the code
+  actually runs. The TTL contained it exactly as designed: the lease
+  self-released at expiry and the register was never at risk, because
+  the service holds no write credential.
 - [ ] **Process spec maintenance: branch lifecycle, PR citation,
   packet table** (node P1-N016) — three queued corrections to
   `docs/process/`, opened as one node on 2026-09-01 because the
