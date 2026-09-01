@@ -1184,6 +1184,27 @@
   actually runs. The TTL contained it exactly as designed: the lease
   self-released at expiry and the register was never at risk, because
   the service holds no write credential.
+- [ ] **Q-004 makes the test-environment decision reversible at C2**
+  — today's choice of a preprod alias over a second stack was taken
+  on this service's economics: one consumer, no authoritative state,
+  designed degradation to git-only. The methodology's rules README
+  carries `Q-004 — Functional tests run against a deployed test
+  environment`, tagged `[C2+] [type: web-app, backend-service]`,
+  as the worked example of an applicability header. It does not bind
+  a C1 project and it is illustrative rather than live corpus today
+  — but the service is a `backend-service`, and
+  [RU-007](rulings.md) ties this project's C2 promotion to chunk 5.
+  So the decision has a scheduled review point rather than being
+  permanent, and whoever revisits it should start from Q-004's text
+  rather than re-deriving the argument.
+- [ ] **The `plan`-stage packet carries no rule corpus** — T028
+  needed the methodology's rules to establish what declaring a
+  Workflow actually costs, which is the load-bearing claim of a
+  decision that changes a Classification. The packet gave it the
+  vocabulary and the release register but not the rules. This is the
+  fourth packet-table observation and the second naming a structural
+  gap rather than a one-off; it belongs with the others in node
+  P1-N016's single considered change to `dispatch.md`'s table.
 - [ ] **Process spec maintenance: branch lifecycle, PR citation,
   packet table** (node P1-N016) — three queued corrections to
   `docs/process/`, opened as one node on 2026-09-01 because the
