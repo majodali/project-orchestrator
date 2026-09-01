@@ -1382,7 +1382,7 @@
   appears, the vendor-plus-drift-check mechanism P1-N009 chooses
   stops paying and a proper home earns its Classification and
   enrollment. RU-006 is the test to apply then.
-- [ ] **Chunk-1 child: plan-state update with the advisory lease**
+- [x] **Chunk-1 child: plan-state update with the advisory lease**
   (node P2-N010) — the three-step git-authoritative write model
   (lease → update returning the exact edit → confirm with the SHA);
   the gate demonstrator, with the by-hand-vs-by-service equivalence
