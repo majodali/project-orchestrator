@@ -386,7 +386,10 @@
   `coverage` but not `.aws-sam/`, so `npm run lint` fails after a
   `sam build` unless the artifact is deleted first. Found and worked
   around during T009; belongs in the service repo, tracked here until
-  a task there picks it up.
+  a task there picks it up. **Assigned 2026-09-01** to P2-N012's child
+  B ([spec](specs/p2-n012-deploy-from-ci-on-merge.md)): the
+  pull-request workflow runs lint and `sam validate --lint` in one
+  job, so the workaround stops being optional.
 - [x] **Chunk-1 child: plan-state read** (node P2-N009, `done`)
   — delivered in the service
   repo on branch `p2-n009-plan-state-read` (`cd67d75`, five commits):
@@ -1140,7 +1143,18 @@
   children led by that assumption spike, with six decisions staged —
   among them the exact Workflow declaration text and the boundary
   that keeps a fork or workflow-editing pull request away from the
-  deploy role.
+  deploy role. All six adopted at the gate the same day, and
+  cross-repo scope made permanent by [RU-016](rulings.md). Specified
+  2026-09-01 ([spec](specs/p2-n012-deploy-from-ci-on-merge.md)): the
+  four children stand, and the plan's twelve criteria split into six
+  that belong to one child and eight node-level compositions built so
+  that a verifier holding no AWS credential can still check them —
+  from repository content, workflow run logs, HTTPS calls to the two
+  endpoints, and one owner attestation on the deploy role's trust
+  policy. Four further decisions staged (7–10): how the failed smoke
+  test is induced, attended verification rather than a dispatched
+  Reviewer, whether branch protection blocks `done`, and where the two
+  prerequisite outage fixes execute.
 - [ ] **Continuous monitoring for the service, between deploys**
   (identified at P2-N012's plan stage, 2026-09-01) — the CI smoke
   test catches breakage a deploy causes, and nothing catches
@@ -1205,6 +1219,18 @@
   fourth packet-table observation and the second naming a structural
   gap rather than a one-off; it belongs with the others in node
   P1-N016's single considered change to `dispatch.md`'s table.
+- [ ] **A criterion only the owner can evidence has no recorded form**
+  (identified at P2-N012's specify stage, 2026-09-01) — the node's
+  criterion that the deploy role's trust policy restricts the OIDC
+  subject to `main` is real, load-bearing, and unreadable by any
+  dispatched session, because no session holds AWS credentials. The
+  specification marks it owner-attested and says the attestation is
+  recorded with the gate, which is prose invented for one node. The
+  process spec has owner *actions* (O-numbers) but no owner
+  *attestation*: a criterion whose evidence is the owner's word, with
+  the date it was given. Every deploy-path and account-boundary node
+  will meet this. Sized as a `docs/process/` change when a second node
+  needs it; until then the prose above stands.
 - [ ] **Plan nodes have no way to state a dependency** — owner
   finding at the P2-N012 gate, 2026-09-01. `dispatch.md` makes
   "earlier siblings `done`" the entry condition for `execute`, and
