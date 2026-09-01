@@ -1026,6 +1026,14 @@
   [founding plan](plans/orchestrator-v1.md) makes that tooling
   upstream, so nothing equivalent is built here; the Auditor picks
   them up like any other `mtool` result kind.
+- [ ] **`docs/process/README.md` is the packet gap, three times
+  running** — T019 widened to it for the subordination clause, T020
+  widened to it for the *Defined terms* section, and the earlier
+  observation named it alongside `auditing.md`. Three instances is
+  no longer a pattern to watch; it is a packet-table row that is
+  wrong. Fix it with the break-down row's missing plan document in
+  one considered change to `dispatch.md`'s table, since both are
+  specification changes reviewed as such.
 - [ ] **The `plan`-stage packet omits two process documents it keeps
   needing** — T019 widened its packet to `docs/process/README.md`
   (the subordination clause) and `docs/process/auditing.md` (the

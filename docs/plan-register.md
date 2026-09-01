@@ -19,7 +19,7 @@ honestly; chunks 1–3 completed before this register existed.
     - P1-N012 [done] The form checker on the shared unit, proven finding-for-finding
     - P1-N013 [done] The cutover: sync_agents ported, every invocation site moved, the Python retired
   - P1-N014 [planned] [gated: held pending the methodology-amendment work the owner opened 2026-08-31] Role contracts adopt the v1.4.0 conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md
-  - P1-N015 [identified] Methodology amendments for delegated, multi-agent work
+  - P1-N015 [planned] [gated: owner review of the five plan decisions] Methodology amendments for delegated, multi-agent work — plan: plans/p1-n015-methodology-amendments-delegated-work.md
   - P1-N006 [identified] Pilot on a real project (chunk 5) — superseded in place by P2-N001 chunk 5; kept until the founding plan closes out
   - P1-N007 [identified] Cost reporting v1 and close-out (chunk 6)
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
