@@ -121,10 +121,25 @@ spec. First entries land at the pending P1-N008 gate.
   before the test changes. Source: P1-N013, owner decision on the
   T017 escalation, option (c), 2026-08-30. Applied: —
 
+- RU-015 [active] handoff/process — How does this project deliver a
+  change to a repository it cannot write to? Ruling: final normative
+  text, the current upstream text quoted verbatim beside it, and a
+  provenance line naming the version, the commit and the date the
+  quote was taken, with an instruction to re-verify before the change
+  is carried. Never a patch file. Rationale: a session that cannot
+  apply or test a patch produces one that fails on context it never
+  verified, while a verbatim quote gives the carrier the same
+  mechanical certainty and no fragile artifact. The provenance line is
+  the part that earns its keep — without it a quote that went stale
+  between drafting and delivery is undetectable by the reader.
+  Generalizes past the methodology to any upstream this project
+  proposes into. Source: P1-N015 gate (decision 2, default adopted),
+  2026-09-01. Applied: T022, T023.
+
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events
 (the lists were not maintained on the first run).
 
-Promotion flags: RU-002, RU-003, RU-011, RU-012, RU-013 and RU-014 are process-scope — flagged for
+Promotion flags: RU-002, RU-003, RU-011, RU-012, RU-013, RU-014 and RU-015 are process-scope — flagged for
 the next design pass on this spec (rulings.md promotion rule).
