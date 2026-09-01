@@ -1135,7 +1135,36 @@
   carrying the same auth. The alias/environment constraint is the
   assumption the design rests on and could not be confirmed against
   AWS documentation from this environment, so verifying it is the
-  first thing the work does.
+  first thing the work does. Planned 2026-09-01
+  ([plan](plans/p2-n012-deploy-from-ci-on-merge.md)): interior, four
+  children led by that assumption spike, with six decisions staged —
+  among them the exact Workflow declaration text and the boundary
+  that keeps a fork or workflow-editing pull request away from the
+  deploy role.
+- [ ] **Continuous monitoring for the service, between deploys**
+  (identified at P2-N012's plan stage, 2026-09-01) — the CI smoke
+  test catches breakage a deploy causes, and nothing catches
+  breakage that arrives between deploys, such as an expired
+  credential or a revoked App installation. The motivating failure
+  was that nothing noticed, which a deploy-time check only half
+  fixes. Candidate shape: a scheduled synthetic call to `/health`
+  and `tools/list`, alerting the owner where he will see it. Sized
+  as its own node when wanted.
+- [ ] **Continuous integration for this coordinating repository**
+  (identified at P2-N012's plan stage, 2026-09-01) — `node
+  plugin/scripts/form_check.ts` and `mtool`'s form audit and link
+  check on every pull request here. Today both run only when a role
+  session remembers to run them, and the register is what gates
+  dispatch. Deliberately out of P2-N012's scope, which is the
+  service's deploy path.
+- [ ] **Deployment machinery P2-N012 deliberately left out**
+  (recorded 2026-09-01) — gradual traffic shifting, CodeDeploy
+  deployment preferences, and a second stack or AWS account for
+  preprod. All three were weighed against the parent plan's
+  constraint 3 (degrade to git-only), which makes a service outage
+  expensive attention rather than stopped work, and none earns its
+  cost at this traffic volume. Revisit if the service ever becomes
+  something work stops without.
 - [ ] **`plan_lease_release` fails against real DynamoDB: `token` is
   a reserved keyword** — surfaced by the chunk 1 gate demonstration
   itself, on the first call ever made against the production table.
