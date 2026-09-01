@@ -995,6 +995,22 @@
   second project needs them. Reasoning:
   [p1-n015 plan](plans/p1-n015-methodology-amendments-delegated-work.md),
   decision 4.
+- [ ] **Two deferred prose guidelines, held for recorded instances** —
+  identified 2026-09-01 during the P1-N015 revision (task T023), not
+  executed. The same owner review that folded the ordering requirement
+  into A1's principal-audience duties
+  ([report-rule-scoped-by-audience.md](proposals/report-rule-scoped-by-audience.md))
+  named two further reporting guidelines: no pronoun crossing a
+  paragraph without its noun, and asserting with verbs rather than "X
+  is real." Both are sentence-level prose rules, not report-shape
+  rules, so they belong in the methodology's
+  [P- series](https://github.com/majodali/methodology/blob/v1.4.0/docs/rules/prose.md),
+  never in W-008, which governs a report's parts and their order, not
+  its sentence construction. Deferred rather than drafted: every P-
+  rule's own Motivated-by field cites a recorded review-round and
+  multiple instances, and the case for these two today rests on one
+  conversation. Condition for proposing them: recorded instances from
+  real project reports, not a single exchange.
 - [ ] **Track upstream disposition of the P1-N015 proposals** —
   identified 2026-09-01 while planning P1-N015, not executed. The
   node completes at the artifacts under [RU-003](rulings.md), so
