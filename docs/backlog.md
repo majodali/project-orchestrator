@@ -925,10 +925,10 @@
   self-description, not instructions a reader acts on; (iii)
   resolved rather than amended, the rule's intent being satisfied
   where that narrative stands.
-- [ ] **Methodology amendments for delegated, multi-agent work**
-  (node P1-N015) — four amendments the owner approved in sketch on
-  2026-08-31, to be drafted as adjudicable proposals and
-  hand-carried upstream under [RU-002](rulings.md), following
+- [x] **Methodology amendments for delegated, multi-agent work
+  drafted** (node P1-N015) — four amendments the owner approved in
+  sketch on 2026-08-31, drafted as adjudicable proposals for the owner
+  to hand-carry upstream under [RU-002](rulings.md), following
   P1-N008's precedent. **A1**: scope the report rule by audience
   rather than by artifact — W-008's "a chat report that delivers a
   written artifact" misfires twice here, because "chat" assumes a
@@ -938,28 +938,43 @@
   name whose duty marking is when sessions nest — K-011 binds "a
   session" and does not say which one owns the duty; P1-N014's
   decision 2 answers it, and upstreaming the answer saves every
-  other project re-deriving it. **A3**: give delegated work a
-  vocabulary — the methodology has no term for a dispatched task, a
-  role, a context packet, a handoff contract or a gate attached to a
-  plan node, so every multi-agent project mints custom definitions
-  that will diverge. **A4**: state K-010's converse — an `active`
-  document's unmarked content asserts current intent, so a
-  contradiction there is false rather than stale and must be fixed,
-  not marked. The founding plan's v1.3.0 pin after migration is the
-  evidencing instance. Split principle the owner confirmed: the
+  other project re-deriving it. **A3**: a minimal delegation
+  vocabulary — two terms only (Delegation, with its delegating/
+  delegated-agent roles, and Report audience), narrowed by decision 4
+  to what A1 and A2 actually borrow; the fuller vocabulary (dispatched
+  task, context packet, handoff contract, node-attached gate) stays
+  Article-7-local pending a second project's need. **A4**: state
+  K-010's converse — an `active` document's unmarked content asserts
+  current intent, so a contradiction there is false rather than
+  stale and must be fixed, not marked. The founding plan's corrected
+  v1.3.0 claim (task T019,
+  [commit `c9da132`](https://github.com/majodali/project-orchestrator/commit/c9da132c0afa6f69e5b14cc8468eaf3c5c9d80c2))
+  is the evidencing instance. Split principle the owner confirmed: the
   methodology owns rules any project could need, this project owns
-  the mechanisms that implement them. Stage `specified`, planned and
-  specified 2026-09-01: four proposal documents in `docs/proposals/`,
-  one per amendment, plus a cover note, each carrying final normative
-  text and its Release-register entry; a leaf, five decisions adopted
-  as defaulted at the gate, A3 narrowed to a minimal term set. The
-  criteria turn the release process's section 1 (proposed) into
-  checks: adjudicability part by part, upstream quotes byte-exact
-  against methodology commit `c183427` with a provenance line, A1 and
-  A2 carrying fallback phrases so they survive A3's rejection, and
-  every impact claim beyond a Portfolio-register declaration labelled
-  as the proposer's estimate. No new owner decision surfaced at
-  specify.
+  the mechanisms that implement them.
+
+  Executed: five documents under
+  [docs/proposals/](proposals/) — one per amendment plus
+  [the cover note](proposals/delegated-work-amendments-cover-note.md)
+  — each carrying final normative text beside a byte-verified upstream
+  quote (diffed against methodology clone commit `c183427` at
+  drafting time), a resolvable evidencing-instance link, a
+  Release-register entry (title, placeholder PR link with a fill
+  instruction, impact assessment against every Portfolio row via the
+  register's own collective-statement pattern, explicit `none`
+  migration note, and an independence statement covering the other
+  three entries), and an explicit ask under acceptance, amendment, and
+  rejection. A1 and A2 each name the A3 term they borrow and carry a
+  verbatim fallback phrase, tested by substitution, so either stands
+  alone if A3 is rejected; A4 is independent of all three. All five
+  stay `Status: draft`; nothing is carried upstream by this node.
+  Node moves `specified` → `verifying`
+  ([RU-005](rulings.md) — proposal-class nodes gate at `verifying`);
+  self-verification (C1) checked criteria groups A, B, D, F2–F3, and G
+  against the artifacts, with C2 (estimate honesty), E2 (fallback
+  self-sufficiency), and F1 (upstream-general framing) left for the
+  owner's read per the spec's *How verification runs* section.
+  **Gate pending: owner review at `verifying`.**
   Plan: [p1-n015-methodology-amendments-delegated-work](plans/p1-n015-methodology-amendments-delegated-work.md).
   Spec: [p1-n015-methodology-amendments-delegated-work](specs/p1-n015-methodology-amendments-delegated-work.md).
 - [ ] **The portfolio register's row for this project is stale** —
