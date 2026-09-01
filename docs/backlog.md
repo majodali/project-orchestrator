@@ -948,13 +948,45 @@
   not marked. The founding plan's v1.3.0 pin after migration is the
   evidencing instance. Split principle the owner confirmed: the
   methodology owns rules any project could need, this project owns
-  the mechanisms that implement them.
+  the mechanisms that implement them. Stage `identified`, planned
+  2026-09-01: four proposal documents in `docs/proposals/`, one per
+  amendment, each carrying final normative text and its
+  Release-register entry; planned as a leaf, five decisions staged
+  with defaults, A3 defaulted to a minimal term set.
+  Plan: [p1-n015-methodology-amendments-delegated-work](plans/p1-n015-methodology-amendments-delegated-work.md).
 - [ ] **The portfolio register's row for this project is stale** —
   `docs/registers/portfolio.md` upstream records this project pinned
   at 1.3.0, and does not list `project-orchestrator-service` at all.
   Both statements stopped being true on 2026-08-30 and 2026-08-27
   respectively. Not ours to edit; carry it to the owner with the
   P1-N015 proposals rather than as a separate errand.
+- [ ] **The rest of the delegated-work vocabulary, when a second
+  project evidences it** — identified 2026-09-01 while planning
+  P1-N015, not executed. Decision 4 of that plan proposes upstream
+  only the terms A1 and A2 use, because
+  [Article 6](https://github.com/majodali/methodology/blob/v1.4.0/docs/constitution.md#article-6--inclusion-every-rule-earns-its-keep)
+  (every rule earns its keep) admits a term only when a live project
+  needed it, and this project is currently the sole instance.
+  Dispatched task, context packet, handoff contract, and the
+  node-attached gate stay Article 7 custom definitions here until a
+  second project needs them. Reasoning:
+  [p1-n015 plan](plans/p1-n015-methodology-amendments-delegated-work.md),
+  decision 4.
+- [ ] **Track upstream disposition of the P1-N015 proposals** —
+  identified 2026-09-01 while planning P1-N015, not executed. The
+  node completes at the artifacts under [RU-003](rulings.md), so
+  acceptance, amendment, or rejection of each of the four proposals
+  is recorded here, as P1-N008's disposition is. Fires when the owner
+  reports an adjudication outcome.
+- [ ] **Migrate to the release carrying the accepted amendments, and
+  release P1-N014's hold** — identified 2026-09-01 while planning
+  P1-N015, not executed. When a methodology release ships whatever is
+  accepted, this project bumps its Classification pin, adopts the
+  changed rules into `docs/process/`, and P1-N014's specify stage
+  resumes against the new text
+  ([p1-n014 plan](plans/p1-n014-role-contracts-adopt-v140-rules.md),
+  gate outcome). Nothing may pin unreleased `main`, so this waits on
+  a tag, not on a merge.
 - [ ] **Role contracts adopt the v1.4.0 conduct rules** — node
   P1-N014, stage `identified`, opened 2026-08-30, planned 2026-08-31.
   States the report duty, the supersession duties, and the reach of
