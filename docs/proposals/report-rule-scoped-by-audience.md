@@ -101,7 +101,10 @@ separate restatement from novelty and close with the asks: name the
 parts encoding decisions already made in the conversation, name the
 new parts with a pointer into the deliverable and what to review
 there, and end with an explicit list of decisions and actions
-requested of the reader — or state that there are none. A report
+requested of the reader — or state that there are none. It MUST also
+lead with the outcome or the decision needed, not with the process
+that produced it, and order its sections by what the reader must
+decide, not by the order the writer discovered them. A report
 addressed to a delegating agent (the agent audience) MUST state its
 status, map its deliverable, and close with the asks or state there
 are none, and MAY omit the restatement-versus-novelty split. Any
@@ -111,15 +114,19 @@ their purpose admits.
 
 **Rationale**: A summary that requires reading its document defeats
 its purpose. The report is the reader's index into the deliverable;
-the asks are why the report exists. Scoping by artifact excluded the
-reports that most need the discipline — a decision, a finding, a
-refusal, none of which necessarily attaches a document. Scoping by
-"chat" assumed a human reader when most reports in a delegated loop
-are agent-addressed. The restatement-versus-novelty split exists to
-save a human reader's time against a document they have not read; an
-agent-addressed report's reader is the one who dispatched the work and
-already holds its context, so the split costs that reader nothing it
-needed and this rule no longer asks for it there.
+the asks are why the report exists. Structure and order are separate
+duties: a report can hold every required part and still open with its
+verification process and bury the finding in its last paragraph,
+which is the failure the ordering sentence above closes. Scoping by
+artifact excluded the reports that most need the discipline — a
+decision, a finding, a refusal, none of which necessarily attaches a
+document. Scoping by "chat" assumed a human reader when most reports
+in a delegated loop are agent-addressed. The restatement-versus-novelty
+split exists to save a human reader's time against a document they
+have not read; an agent-addressed report's reader is the one who
+dispatched the work and already holds its context, so the split costs
+that reader nothing it needed and this rule no longer asks for it
+there.
 ```
 
 ### Target 2 — style guide, *Reports and summaries*
@@ -160,8 +167,10 @@ number.
 A report's duties scope by its report audience
 (W-008 — reports map their deliverables):
 
-A report addressed to the human owner (the principal audience) has
-three duties:
+A report addressed to the human owner (the principal audience) leads
+with the outcome or the decision needed, not the process that produced
+it, and orders its sections by what the reader must decide, not by the
+order the writer discovered them. It has three duties:
 
 1. **Restatement**: name the parts of the deliverable that encode
    decisions already made in the conversation, and which decisions.
@@ -222,7 +231,13 @@ acceptance does not depend on the vocabulary amendment's acceptance.
 - **Suggested by**: project-orchestrator, 2026-09-01 — its dispatch
   loop's handoff contract
   ([commit `c8b4f31`](https://github.com/majodali/project-orchestrator/blob/c8b4f311a1f137f35f30fc9d5ebafda91badc088/docs/process/dispatch.md#L108-L141))
-  and every task result its loop has produced since 2026-08-24.
+  and every task result its loop has produced since 2026-08-24; and the
+  owner's review of this proposal set the same day, which found that
+  two of this project's own reporting guidelines — lead with the
+  outcome or decision needed, order sections by what the reader must
+  decide — belong inside this amendment's principal-audience duties
+  rather than in a local contract, since W-008 fixed which parts a
+  report has but was silent on their order.
 - **Impact assessment** (produced from the
   [Portfolio register](https://github.com/majodali/methodology/blob/v1.4.0/docs/registers/portfolio.md),
   census 2026-08-18): all projects, C0 included — *accommodated*: the
