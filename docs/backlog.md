@@ -948,12 +948,20 @@
   not marked. The founding plan's v1.3.0 pin after migration is the
   evidencing instance. Split principle the owner confirmed: the
   methodology owns rules any project could need, this project owns
-  the mechanisms that implement them. Stage `identified`, planned
-  2026-09-01: four proposal documents in `docs/proposals/`, one per
-  amendment, each carrying final normative text and its
-  Release-register entry; planned as a leaf, five decisions staged
-  with defaults, A3 defaulted to a minimal term set.
+  the mechanisms that implement them. Stage `specified`, planned and
+  specified 2026-09-01: four proposal documents in `docs/proposals/`,
+  one per amendment, plus a cover note, each carrying final normative
+  text and its Release-register entry; a leaf, five decisions adopted
+  as defaulted at the gate, A3 narrowed to a minimal term set. The
+  criteria turn the release process's section 1 (proposed) into
+  checks: adjudicability part by part, upstream quotes byte-exact
+  against methodology commit `c183427` with a provenance line, A1 and
+  A2 carrying fallback phrases so they survive A3's rejection, and
+  every impact claim beyond a Portfolio-register declaration labelled
+  as the proposer's estimate. No new owner decision surfaced at
+  specify.
   Plan: [p1-n015-methodology-amendments-delegated-work](plans/p1-n015-methodology-amendments-delegated-work.md).
+  Spec: [p1-n015-methodology-amendments-delegated-work](specs/p1-n015-methodology-amendments-delegated-work.md).
 - [ ] **The portfolio register's row for this project is stale** —
   `docs/registers/portfolio.md` upstream records this project pinned
   at 1.3.0, and does not list `project-orchestrator-service` at all.
