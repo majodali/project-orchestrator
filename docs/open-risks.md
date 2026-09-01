@@ -142,6 +142,22 @@ detects or contains them. This register's numbering is project-local.
   no surface is left calling a script that no longer exists. *Status*:
   open; opened at P1-N009's plan stage, 2026-08-29, from a Planner
   finding.
+- **R14 — Dependency search is an attack surface when agents shop for
+  packages.** A dispatched role solving a niche problem searches a
+  public registry, and a package matching the need precisely is the
+  path of least resistance. Task T027 hit this directly: looking for
+  a DynamoDB reserved-word list, it found one claiming to be
+  complete, published days earlier by a brand-new single-package
+  maintainer — a package whose existence and timing fit an agent's
+  search too well. The role declined it as a supply-chain risk and
+  said so, which is the behaviour to preserve; the risk is that a
+  future role does not. *Mitigation*: role contracts treat a new or
+  low-provenance dependency as a decision above their authority — a
+  `needs-judgment` return, not a quiet install; a hand-built
+  substitute carrying an honest caveat beats an unverifiable
+  dependency, which is what T027 shipped. *Status*: open; recorded
+  2026-09-01 from a real encounter, with the role-contract wording
+  routed to node P1-N014.
 
 Unexpected interplay is by nature not enumerable in advance: the
 pilot (plan chunk 5) treats every failure it hits as a candidate
