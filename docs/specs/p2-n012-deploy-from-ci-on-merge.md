@@ -1,6 +1,6 @@
 # Deploy the service from CI on merge — specification
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -324,6 +324,36 @@ four below.
     without giving either a home — no deploy initialises without the
     first, and smoke check 3 cannot pass without the second — and C is
     already the child changing lease runtime behaviour.
+
+## Gate outcome, 2026-09-01
+
+The owner adopted every default, so decisions 7–11 are settled and
+this document is `active`. Nothing below reopens the criteria or the
+breakdown.
+
+- **7, the failed-smoke-test path** — a temporary false assertion,
+  merged, red, reverted. No knowingly broken version is published.
+- **8, who verifies** — attended: the owner performs O9 and the
+  Orchestrator assembles the evidence. No Reviewer is dispatched for
+  this node.
+- **9, O10** — blocks `done`. The node is not complete while the
+  checks are advisory.
+- **10, the two prerequisite outage fixes** — adopted and already
+  discharged. The Orchestrator checked the service repository at
+  acceptance: `main` is `1d48503`, merging PR #6 (the ESM bundle fix,
+  `fcf5165`) and PR #7 (the reserved word, `3ff7fa8`). The condition
+  child C would have tested is false, so the clause costs nothing and
+  no work moves into C.
+- **11, the Orchestrator's** — the breakdown crosses at this gate.
+  Children A–D entered the register as **P2-N013**, **P2-N014**,
+  **P2-N015** and **P2-N016**, and no separate `break down` task was
+  dispatched. Chunk 1 took the same path; the breakdown above is
+  already at the depth such a task would produce.
+
+The children carry no plan or specification documents of their own.
+Their criteria are the sections above, which is how chunk 1's five
+children were run — the parent's specification is the contract each
+execute task is dispatched against.
 
 ## References
 

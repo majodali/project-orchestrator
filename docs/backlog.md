@@ -1154,7 +1154,55 @@
   policy. Four further decisions staged (7–10): how the failed smoke
   test is induced, attended verification rather than a dispatched
   Reviewer, whether branch protection blocks `done`, and where the two
-  prerequisite outage fixes execute.
+  prerequisite outage fixes execute. **All four adopted at the
+  specification gate, 2026-09-01**, together with the Orchestrator's
+  fifth — that the written breakdown crosses at the same gate, so the
+  four children entered the register as P2-N013 to P2-N016 without a
+  separate `break down` task, as chunk 1's children did. Decision 10
+  is already discharged: the service's `main` is `1d48503` and carries
+  both outage fixes.
+- [ ] **Alias assumptions verified against AWS documentation** (node
+  P2-N013, child A of P2-N012) — the six platform assumptions the
+  design rests on, answered yes or no in a committed finding with the
+  documentation URL and the date read: environment variables are
+  per-version rather than per-alias; the handler can read its invoked
+  qualifier through `hono/aws-lambda`; a Function URL can be bound to
+  an alias, and delivers an event shape that adapter handles; the
+  production integration can be bound to `live`; and a stack update
+  does not reset `live`. First of the four by
+  [decision 2](plans/p2-n012-deploy-from-ci-on-merge.md), because a
+  false assumption here costs one task rather than the node. Criteria
+  in the [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
+- [ ] **Pull-request checks that cannot deploy** (node P2-N014, child
+  B of P2-N012) — the `pull_request` workflow: build, lint, test and
+  `sam validate --lint`, each able to fail the check;
+  `permissions: contents: read` and no `id-token: write`; no
+  `pull_request_target`; third-party actions pinned to commit SHAs.
+  Independent of the other three and shippable alone. Closes the
+  `.aws-sam/` lint-hygiene entry above, since the workflow runs a
+  `sam build` every time. Criteria in the
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
+- [ ] **Alias-aware lease-table selection, failing closed** (node
+  P2-N015, child C of P2-N012) — the runtime change and the template
+  resources it needs: the qualifier read from the invoked ARN, `live`
+  and `preprod` mapping to their own tables, an unrecognised
+  qualifier refused with the qualifier named, the rule scoped to
+  Lambda so the dev server and the suite are untouched, and the
+  preprod table, alias, Function URL, IAM grants and `live` binding in
+  the template. `service_identity` gains the qualifier and the
+  resolved table, which is what makes the choice checkable in one
+  authenticated call. Criteria in the
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
+- [ ] **Deploy, smoke and promote on merge to main** (node P2-N016,
+  child D of P2-N012) — the `push` workflow end to end: OIDC, the
+  deploy through `scripts/deploy.sh`, the three-check smoke test
+  against the preprod Function URL with its token read from Secrets
+  Manager, promotion by repointing `live`, the runbook's rollback and
+  smoke-failure procedures, and the Workflow declaration in the
+  service repository's Classification. The child the owner sees
+  working, and the only one blocking on owner actions O7 to O10.
+  Criteria in the
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
 - [ ] **Continuous monitoring for the service, between deploys**
   (identified at P2-N012's plan stage, 2026-09-01) — the CI smoke
   test catches breakage a deploy causes, and nothing catches

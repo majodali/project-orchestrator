@@ -30,7 +30,11 @@ honestly; chunks 1–3 completed before this register existed.
     - P2-N009 [done] Plan-state read
     - P2-N010 [done] Plan-state update, git-authoritative, with the advisory lease
     - P2-N011 [identified] Degrade to git-only, and enlistment documentation
-  - P2-N012 [specified] [gated: owner review of four decisions and of the breakdown] Deploy the service from CI on merge — plan: plans/p2-n012-deploy-from-ci-on-merge.md · spec: specs/p2-n012-deploy-from-ci-on-merge.md
+  - P2-N012 [broken-down] Deploy the service from CI on merge — plan: plans/p2-n012-deploy-from-ci-on-merge.md · spec: specs/p2-n012-deploy-from-ci-on-merge.md
+    - P2-N013 [identified] Alias assumptions verified against AWS documentation
+    - P2-N014 [identified] Pull-request checks that cannot deploy
+    - P2-N015 [identified] Alias-aware lease-table selection, failing closed
+    - P2-N016 [identified] Deploy, smoke and promote on merge to main
   - P2-N003 [identified] Owner questions and the plan view (chunk 2)
   - P2-N004 [identified] Topics and coordination (chunk 3)
   - P2-N005 [identified] The task-pull loop (chunk 4)
