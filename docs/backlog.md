@@ -1116,7 +1116,26 @@
   Workflow declaration format requires three parts — ordered stages,
   a designated live stage, and a Backlog default rule. Declaring one
   is what makes `deployed` derivable, and the service repository's
-  own migration entry predicted this moment.
+  own migration entry predicted this moment. **Shape settled with the
+  owner, 2026-09-01**: rather than a second stack, a **preprod Lambda
+  alias** exposed by a Function URL — one resource, and it avoids the
+  stage-prefix defect class that caused the first outage. Because
+  Lambda environment variables belong to the function version rather
+  than the alias, the handler reads its own qualifier from the
+  invoked ARN and picks the lease table, failing closed on an
+  unrecognised one; the preprod table is permanent, cleaned by TTL.
+  The smoke test runs against the preprod URL — `/health` 200,
+  `tools/list` carrying all six tools, and a full lease
+  acquire-and-release cycle, which is the check that would have
+  caught the reserved-word defect. Promotion is repointing the `live`
+  alias at the tested version, so rollback is repointing back and a
+  failed smoke test simply leaves production untouched. No new
+  secrets: preprod shares the bearer token and the GitHub App, and
+  the additions are one table, one IAM permission and one public URL
+  carrying the same auth. The alias/environment constraint is the
+  assumption the design rests on and could not be confirmed against
+  AWS documentation from this environment, so verifying it is the
+  first thing the work does.
 - [ ] **`plan_lease_release` fails against real DynamoDB: `token` is
   a reserved keyword** — surfaced by the chunk 1 gate demonstration
   itself, on the first call ever made against the production table.
