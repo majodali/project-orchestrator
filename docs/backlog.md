@@ -381,15 +381,21 @@
   criteria are live demonstrations on two surfaces, one of which only
   the owner's machine can perform, so a subagent could not have
   judged them.
-- [ ] **Service repo lint hygiene: ignore `.aws-sam/`** — the service
-  repo's `eslint.config.js` ignores `dist`, `node_modules` and
-  `coverage` but not `.aws-sam/`, so `npm run lint` fails after a
-  `sam build` unless the artifact is deleted first. Found and worked
-  around during T009; belongs in the service repo, tracked here until
-  a task there picks it up. **Assigned 2026-09-01** to P2-N012's child
-  B ([spec](specs/p2-n012-deploy-from-ci-on-merge.md)): the
-  pull-request workflow runs lint and `sam validate --lint` in one
-  job, so the workaround stops being optional.
+- [x] **Service repo lint hygiene: ignore `.aws-sam/`** (`done`) — the
+  service repo's `eslint.config.js` ignored `dist`, `node_modules` and
+  `coverage` but not `.aws-sam/`, so `npm run lint` failed after a
+  `sam build` unless the artifact was deleted first. Found and worked
+  around during T009; assigned 2026-09-01 to P2-N012's child B. **The
+  assignment was made against a stale reading of the service
+  repository, and this entry with it** (K-011, marked rather than
+  quietly rewritten): the P2-N010 outage rework had already added
+  `.aws-sam/**` and `dist-lambda/**` to `eslint.config.js` and to
+  `.gitignore` at T025, before this node existed. T031 checked the
+  file rather than trusting the brief that repeated this entry's
+  claim, and said so. What it actually closed was the remaining half:
+  `.prettierignore`, which listed neither. The lesson is the entry's,
+  not the role's — a Backlog item describing another repository's
+  state goes stale silently, and nothing here re-reads it.
 - [x] **Chunk-1 child: plan-state read** (node P2-N009, `done`)
   — delivered in the service
   repo on branch `p2-n009-plan-state-read` (`cd67d75`, five commits):
@@ -1200,8 +1206,8 @@
   rediscover — a plain `AWS::Lambda::Alias` whose `FunctionVersion`
   comes from a template parameter, with promotion done outside
   CloudFormation as an `aws lambda update-alias` call.
-- [ ] **Pull-request checks that cannot deploy** (node P2-N014, child
-  B of P2-N012) — the `pull_request` workflow: build, lint, test and
+- [x] **Pull-request checks that cannot deploy** (node P2-N014, child
+  B of P2-N012, `done`) — the `pull_request` workflow: build, lint, test and
   `sam validate --lint`, each able to fail the check;
   `permissions: contents: read` and no `id-token: write`; no
   `pull_request_target`; third-party actions pinned to commit SHAs.
@@ -1209,6 +1215,19 @@
   `.aws-sam/` lint-hygiene entry above, since the workflow runs a
   `sam build` every time. Criteria in the
   [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
+  **Delivered 2026-09-01** (T031): branch `p2-n014-pr-checks`
+  (`a5f75f3`), four separately named jobs — `Build`, `Lint`, `Test`,
+  `SAM validate --lint` — on `pull_request` only, `contents: read` at
+  the workflow level with no job override and no `id-token` anywhere,
+  every action pinned to a full commit SHA with its version in a
+  trailing comment, and the check names written into `docs/runbook.md`
+  so O10 is a selection rather than a guess. Locally: build, lint,
+  test (131 passing), `format`, `sam validate --lint` and `sam build`
+  all clean, and lint re-run *after* `sam build` to prove the
+  artifact-ignore holds. What the first run must still confirm: that
+  the workflow executes at all, and that the four check names appear
+  as predicted — a branch with no pull request runs nothing, so
+  neither is knowable yet.
 - [ ] **Alias-aware lease-table selection, failing closed** (node
   P2-N015, child C of P2-N012) — the runtime change and the template
   resources it needs: the qualifier read from the invoked ARN, `live`
@@ -1343,6 +1362,52 @@
   correctly. Two omissions of the same shape suggest the vocabulary
   was drawn from the dispatch loop's happy path; the pass should ask
   what else a node does that the journal cannot say.
+- [ ] **This session's environment carries AWS credentials, and the
+  P2-N012 specification says it does not** — marked 2026-09-01
+  (K-011) at T031's acceptance, in the
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md) itself as
+  well as here. `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are
+  set in the orchestration session's environment and an `~/.aws/config`
+  exists. What they reach is unknown: reading the files is blocked,
+  and calling AWS to find out — `sts get-caller-identity` included —
+  is an unauthorized action against the owner's account and was not
+  performed. Two questions, both the owner's. Is the node buying
+  evidence indirectly (G3's two-URL trick, I2's owner attestation)
+  that a session could read directly? And is a dispatched role holding
+  deploy-capable credentials a surface this S1 design should close —
+  every role so far has been briefed as though no such credential
+  exists, so none has used them, but that is a property of the briefs
+  and not of the environment. Until answered, roles continue to be
+  dispatched on the no-credentials premise and the criteria stand as
+  written.
+- [ ] **A Backlog entry describing another repository goes stale
+  silently** — found 2026-09-01 when T031 checked `eslint.config.js`
+  and found the gap this Backlog still claimed was open, closed six
+  hours earlier by an unrelated task in that repository. Nothing
+  re-reads a cross-repository claim, and a dispatch brief that repeats
+  one carries the staleness into a role's packet, where it costs the
+  role time to disbelieve. Candidate fix: entries that assert another
+  repository's state name the file and the commit they were true at,
+  so a reader can check cheaply, and the form checker flags a
+  cross-repo assertion with no such anchor. Related to the Planner's
+  repo-access declaration under [RU-016](rulings.md) — both are about
+  the coordinating repository knowing what it does and does not know
+  about a repository it does not hold.
+- [ ] **`.prettierignore` still lacks `dist-lambda/`** — found by T031
+  while closing the `.aws-sam/` half of the same gap; out of that
+  child's named scope, so flagged rather than fixed. Redundant today,
+  since Prettier follows `.gitignore` by default and that file lists
+  it, which is exactly why it will be missed if `.gitignore` ever
+  stops covering it.
+- [ ] **No workflow linter is available to sessions authoring
+  workflows** — T031 wrote this project's first GitHub Actions
+  workflow and could validate it only as YAML plus a manual read
+  against documented Actions syntax; no `actionlint` exists on the
+  machine. Child D writes a second, more dangerous workflow — the one
+  holding the deploy credentials — so the gap is about to matter more.
+  Candidate fix: install `actionlint` into the session scratchpad the
+  way the SAM CLI already is, and name it in the execute-stage packet
+  for workflow-authoring tasks.
 - [ ] **Process spec maintenance: branch lifecycle, PR citation,
   packet table** (node P1-N016) — three queued corrections to
   `docs/process/`, opened as one node on 2026-09-01 because the

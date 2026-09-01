@@ -191,6 +191,21 @@ owner's attestation. I2's trust-policy clause is the only criterion
 in the fourth category, which is why it is marked. Decision 8 proposes
 who performs the assembly.
 
+> **Contradiction, marked 2026-09-01 (K-011), not resolved.** The
+> asymmetry above may be false. This orchestration session's
+> environment carries `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`,
+> and an `~/.aws/config` exists. What those credentials reach is
+> unknown here: reading them is blocked, and calling AWS to find out —
+> even `sts get-caller-identity` — is an unauthorized action against
+> the owner's account, so it was not done. Every criterion above was
+> written to be answerable without them and each remains valid as
+> written; the question is whether the node is buying evidence
+> indirectly that it could read directly, and whether a dispatched
+> role holding deploy-capable credentials is a security surface this
+> S1 design did not account for. Raised to the owner at T031's
+> acceptance. Until he answers, roles are dispatched as though the
+> asymmetry holds, and no task uses the credentials.
+
 ## Not verified here
 
 Named so their absence is not read as oversight. Gradual traffic
