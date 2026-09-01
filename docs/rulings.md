@@ -67,7 +67,9 @@ spec. First entries land at the pending P1-N008 gate.
   owner directed a PR when the design branch first needed to reach
   `main`; one handoff shape across coordinating and work repos beats
   two. Extends RU-009 rather than competing with it. Source: owner
-  request at the enlistment merge, 2026-08-28. Applied: —
+  request at the enlistment merge, 2026-08-28. Applied: the
+  2026-08-28 enlistment merge (PR #2) and the 2026-09-01 branch
+  tidy-up (PR #4).
 
 - RU-011 [active] stack/process — What language do majodali
   repo-local tooling and scripts use, as distinct from deployed
