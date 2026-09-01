@@ -271,6 +271,16 @@ reachable path (**I3**); (iii) the mechanism child A's finding
 prescribes for pinning `live` across stack updates is implemented here
 and exercised by a second deploy in child D (**I4**).
 
+*Clarified at T032's acceptance, 2026-09-01*: "the two IAM grants"
+means one in-stack grant and one owner action, not two template
+resources. The function's access to the preprod table is child C's and
+is in `template.yaml`; `secretsmanager:GetSecretValue` sits on the
+deploy role, which the owner provisioned and this stack does not
+define, so it is **O7**'s and was already in the owner-action list.
+The role declined to write an `AWS::IAM::Policy` against an
+account-specific role and flagged its reading instead of acting on it,
+which was right.
+
 **Child D — Deploy, smoke, promote, on merge to `main`.**
 Deliverable: the `push` workflow, the smoke script, the runbook
 sections, and the Workflow declaration. Criteria: OIDC assumption of

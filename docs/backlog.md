@@ -1228,8 +1228,8 @@
   the workflow executes at all, and that the four check names appear
   as predicted — a branch with no pull request runs nothing, so
   neither is knowable yet.
-- [ ] **Alias-aware lease-table selection, failing closed** (node
-  P2-N015, child C of P2-N012) — the runtime change and the template
+- [x] **Alias-aware lease-table selection, failing closed** (node
+  P2-N015, child C of P2-N012, `done`) — the runtime change and the template
   resources it needs: the qualifier read from the invoked ARN, `live`
   and `preprod` mapping to their own tables, an unrecognised
   qualifier refused with the qualifier named, the rule scoped to
@@ -1239,6 +1239,27 @@
   resolved table, which is what makes the choice checkable in one
   authenticated call. Criteria in the
   [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
+  **Delivered 2026-09-01** (T032): branch
+  `p2-n015-alias-aware-lease-table` (`62e144a`). A call arriving
+  through `live` resolves the production table, through `preprod` the
+  preprod one, and any other qualifier — `$LATEST` and an unqualified
+  invocation included — is refused by name before a DynamoDB client is
+  constructed. The rule fires only under a real Lambda invocation, so
+  the dev server and the whole existing corpus still resolve
+  `LEASE_TABLE_NAME` unchanged. `template.yaml` gains the preprod
+  table, both aliases as plain `AWS::Lambda::Alias` resources driven by
+  parameters, preprod's Function URL, and explicit
+  `AWS::ApiGatewayV2::*` resources binding production to `live` —
+  SAM's `Events:` sugar cannot target an alias, which is why the sugar
+  is gone. `scripts/deploy.sh` reads `live`'s current
+  `FunctionVersion` back before every deploy and passes it through, so
+  an ordinary deploy declares no change to it. 167 tests pass, 131 of
+  them pre-existing with **zero deletions across every test file**
+  (W-002), verified from a clean clone by the Orchestrator rather than
+  from the role's report. Unproven until child D deploys: the alias
+  binding holding in a real account, the Function URL's real event
+  shape, and I4 itself — that a second, template-changing deploy
+  leaves `live` where it was.
 - [ ] **Deploy, smoke and promote on merge to main** (node P2-N016,
   child D of P2-N012) — the `push` workflow end to end: OIDC, the
   deploy through `scripts/deploy.sh`, the three-check smoke test
