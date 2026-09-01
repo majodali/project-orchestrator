@@ -1205,6 +1205,24 @@
   fourth packet-table observation and the second naming a structural
   gap rather than a one-off; it belongs with the others in node
   P1-N016's single considered change to `dispatch.md`'s table.
+- [ ] **Plan nodes have no way to state a dependency** — owner
+  finding at the P2-N012 gate, 2026-09-01. `dispatch.md` makes
+  "earlier siblings `done`" the entry condition for `execute`, and
+  sibling order in the Plan register *is* dependency order by
+  convention. The owner's judgment: conservative, and not correct.
+  P2-N012 has no dependency on P2-N011 whatever, yet the default
+  would have held it behind an unrelated node, and the only way past
+  was an owner decision — which is precisely the attention the
+  decision economics exist to protect. What is missing is a way for
+  the **Planner to state a node's actual dependencies**, so the
+  Orchestrator can compute what is actionable instead of inferring it
+  from list position. That touches the register grammar (a dependency
+  field or edge), `plan-model.md` (what a dependency means for stage
+  entry), `dispatch.md`'s selection rule, and the form checker (a
+  dependency on an unknown node, or a cycle, is a finding). Sized as
+  its own node when the owner wants it; it is a change to the plan
+  model, not a tweak. Until then, sibling order remains the
+  convention and a departure is an owner decision, as this one was.
 - [ ] **Process spec maintenance: branch lifecycle, PR citation,
   packet table** (node P1-N016) — three queued corrections to
   `docs/process/`, opened as one node on 2026-09-01 because the

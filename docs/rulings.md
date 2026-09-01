@@ -138,10 +138,28 @@ spec. First entries land at the pending P1-N008 gate.
   proposes into. Source: P1-N015 gate (decision 2, default adopted),
   2026-09-01. Applied: T022, T023.
 
+- RU-016 [active] scope/process — Who decides which repositories a
+  node's work may write to? Ruling: the Planner declares the repository
+  access a node needs, in the node's plan; the Orchestrator grants it
+  and records the grant; the owner is asked only when a repository is
+  new to the project. This project's approved scope permanently
+  includes
+  [majodali/project-orchestrator-service](https://github.com/majodali/project-orchestrator-service).
+  Rationale: the owner's attention is the scarcest resource in the
+  loop, and re-granting a repository the project writes to constantly
+  is a question with a known answer. The declaration keeps the reach
+  visible rather than assumed — a node that writes a repository its
+  plan never named is still a scope violation, which is the property
+  the original owner-names-it rule was protecting. Supersedes
+  `dispatch.md`'s "cross-repo reach is scope" only in *who* grants,
+  not in *whether* it must be declared. Source: owner decision at the
+  P2-N012 gate, 2026-09-01. Applied: —
+
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events
 (the lists were not maintained on the first run).
 
-Promotion flags: RU-002, RU-003, RU-011, RU-012, RU-013, RU-014 and RU-015 are process-scope — flagged for
-the next design pass on this spec (rulings.md promotion rule).
+Promotion flags: RU-002, RU-003, RU-011, RU-012, RU-013, RU-014,
+RU-015 and RU-016 are process-scope — flagged for the next design pass
+on this spec (rulings.md promotion rule).
