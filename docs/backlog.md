@@ -1065,6 +1065,33 @@
   [founding plan](plans/orchestrator-v1.md) makes that tooling
   upstream, so nothing equivalent is built here; the Auditor picks
   them up like any other `mtool` result kind.
+- [ ] **The Lambda bundle cannot load under ESM once the AWS SDK is
+  in it** — the deploy of node P2-N010's write path took the whole
+  service down: `/health`, which needs no auth and no GitHub,
+  returned API Gateway's own `{"message":"Internal Server Error"}`,
+  which is the signature of a function that never initialises rather
+  than an application error. Reproduced locally and root-caused:
+  `bundle:lambda` emits `--format=esm`, and `@aws-sdk/client-dynamodb`
+  reaches `@smithy/node-http-handler`, which is CommonJS and
+  `require()`s Node builtins. esbuild rewrites those to a shim that
+  reads `typeof require !== "undefined" ? require : throw`, so the
+  bundle throws `Dynamic require of "node:https" is not supported` the
+  moment it is imported from an ESM context — which is exactly how
+  Lambda loads an `.mjs` handler. The service survived until now only
+  because nothing had pulled the AWS SDK in. Recommended fix: an
+  esbuild banner defining `require` from `node:module`'s
+  `createRequire`, which keeps the ESM output and is the standard
+  remedy; bundling as CommonJS is the alternative.
+- [ ] **The bundle's import check was a false negative, and needs to
+  run under ESM** — every task that has validated this bundle ran
+  `node -e "import(...)"`, which executes in **CommonJS** mode, where
+  esbuild's shim finds a real `require` and the bundle loads happily.
+  The same import from an `.mjs` file fails. So the check that was
+  supposed to catch exactly this class of defect could never have
+  caught it, and reported success on a bundle that cannot run in
+  production. The replacement is a test that imports the built bundle
+  from an ESM context and asserts a callable handler — cheap, and it
+  would have failed before the deploy rather than after.
 - [ ] **Process spec maintenance: branch lifecycle, PR citation,
   packet table** (node P1-N016) — three queued corrections to
   `docs/process/`, opened as one node on 2026-09-01 because the
