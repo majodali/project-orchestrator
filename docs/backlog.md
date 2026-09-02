@@ -1270,6 +1270,23 @@
   working, and the only one blocking on owner actions O7 to O10.
   Criteria in the
   [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
+  **Prerequisites cleared 2026-09-01** (T033), branch
+  `p2-n016-deploy-prerequisites` (`db8b66a`): both owner actions the
+  owner found broken are now documented rather than guessed at.
+  `docs/deploy-role-permissions.md` carries an eleven-statement IAM
+  policy for the deploy role, derived from AWS's SAM permissions
+  documentation and from `template.yaml` resource by resource, with
+  only two actions left unscoped and each carrying the citation that
+  forces it. O7's plan text was too narrow in a second way the owner
+  had not raised: the template resolves *two* Secrets Manager
+  references, not one. The `GITHUB_` problem needs no code change —
+  the prefix ban governs configuration variables, while the rule on
+  workflow-set environment variables only forbids overriding GitHub's
+  enumerated defaults, and none of the three App names is on that
+  list. The workflow maps five repository variables into the script's
+  existing contract, so `scripts/deploy.sh` and criterion I1 are
+  untouched. What remains for this node is the `push` workflow
+  itself.
 - [ ] **Continuous monitoring for the service, between deploys**
   (identified at P2-N012's plan stage, 2026-09-01) — the CI smoke
   test catches breakage a deploy causes, and nothing catches
