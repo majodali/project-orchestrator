@@ -1270,6 +1270,29 @@
   working, and the only one blocking on owner actions O7 to O10.
   Criteria in the
   [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
+  **Workflows delivered 2026-09-02** (T034), branch
+  `p2-n016-deploy-workflow` (`74d67c1`): `deploy.yml` on `push` to
+  `main` with `id-token: write` and a non-cancelling `deploy-main`
+  concurrency group, invoking `scripts/deploy.sh` unmodified, then
+  publishing a version, pointing `preprod` at it, running
+  `scripts/smoke-test.sh`'s three checks against the preprod Function
+  URL, and promoting `live` by `aws lambda update-alias` only if the
+  smoke test passed — logging the version before and after. Steps run
+  in one job, so a non-zero smoke exit stops the run before promotion
+  and `live` is untouched. `oidc-preflight.yml` on `workflow_dispatch`
+  answers the owner's question before a merge can: it assumes the role
+  and, on failure, decodes the token's own claims and prints them
+  beside the expected subject, because AWS's denial names no failing
+  condition. The token never reaches the log — captured into a shell
+  variable rather than a file, passed to Node by environment rather
+  than argv, masked immediately, and no shell tracing anywhere near
+  it. The trust-policy section of `docs/deploy-role-permissions.md` is
+  corrected and dated: this repository was created 2026-08-26, so
+  immutable subject claims are mandatory, and the earlier reasoning
+  that it predated the cutoff was wrong. Nothing about the pipeline's
+  real behaviour is proved — no session holds AWS credentials — so
+  the first CI deploy is both this child's verification and the node's
+  gate demonstration.
   **Prerequisites cleared 2026-09-01** (T033), branch
   `p2-n016-deploy-prerequisites` (`db8b66a`): both owner actions the
   owner found broken are now documented rather than guessed at.
