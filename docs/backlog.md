@@ -1418,6 +1418,22 @@
   holds. Worth keeping as a record of the shape: an environment
   variable that looks like a credential is not evidence of access, and
   the cost of finding out was one authorized call.
+- [ ] **A journalled dispatch is not evidence that a task was
+  dispatched** — found 2026-09-02, by the Orchestrator making the
+  mistake. T034's `dispatched` event was written to the journal and
+  committed, and the owner was told the task was running, before the
+  role was actually launched; the launch had simply been skipped. The
+  form checker cannot catch this — a `dispatched` event with no
+  terminal event is indistinguishable from a task legitimately still
+  in flight, which is why the `liveness` rule reads it as healthy.
+  What is missing is a second signal: an agent identifier, or a
+  `result-received` event that only a real return can produce,
+  recorded against the dispatch so that a journalled-but-never-run
+  task is detectable rather than merely regrettable. Cheap version:
+  the journal's `dispatched` event carries the dispatched agent's ID,
+  and the checker warns on a dispatch older than a session with
+  neither a terminal event nor an ID. Belongs with P1-N016's
+  process-spec pass.
 - [ ] **A Backlog entry describing another repository goes stale
   silently** — found 2026-09-01 when T031 checked `eslint.config.js`
   and found the gap this Backlog still claimed was open, closed six
