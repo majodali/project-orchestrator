@@ -293,7 +293,52 @@
   P- prose rules and W-008 report contract now bind this project's
   sessions; role contracts may inherit W-008 verbatim (queued).
 
+- [x] **Upstream disposition of the P1-N015 proposals: all four
+  accepted** — recorded 2026-09-02. The methodology accepted every
+  proposal at interim adjudications 2026-09-01 and shipped them in
+  v1.5.0: the delegated-work vocabulary (methodology PR #34), the
+  report rule scoped by audience (#35), contradiction marking in
+  nested sessions (#36), and K-010's converse for active documents
+  (#37). Three were amended in adjudication (methodology PR #39):
+  W-008's parts take a fixed order — asks, then what is already
+  covered, then what changed — with empty parts stated rather than
+  dropped; K-010's converse carries a read-only carve-out routing a
+  finder who cannot edit to K-011; and K-011 states that the finder
+  owns the marking duty at any nesting depth. A fifth methodology
+  amendment this project did not propose, the W-008 bootstrap cache
+  (#40), reaches it as the release's one migration action.
+
+- [x] **Migrated to methodology 1.5.0; P1-N014's hold is released**
+  — 2026-09-02, the owner having tagged v1.5.0. The Classification
+  pin and the `CLAUDE.md` Binding block read 1.5.0, and `CLAUDE.md`
+  carries W-008's prescribed reporting block verbatim, this release's
+  one migration action. Adopting the changed rules into
+  `docs/process/` is P1-N014's own content, not a pin-bump duty, so
+  it stays with that node: its specify stage now resumes against the
+  released text, which differs from what this project proposed in the
+  three ways the disposition entry above records
+  ([p1-n014 plan](plans/p1-n014-role-contracts-adopt-v140-rules.md),
+  gate outcome).
+
 ## Upcoming
+
+- [ ] **Six dangling links inside verbatim upstream quotations** —
+  found 2026-09-02 by the form audit at the 1.5.0 migration; not
+  pre-existing to that PR, which changed no proposal document.
+  `docs/proposals/` quotes upstream rule text byte-exactly inside
+  blockquotes, and those quotations carry the methodology's own
+  repo-relative links (`../style.md`,
+  `working-agreement.md#w-003-…`), which cannot resolve here. Article
+  10 counts each as a violation. Rewriting them would break the
+  byte-exactness the documents assert, so the fix is not local: it is
+  either a tool change (the link checker skips links inside a
+  verbatim-quotation region, as it already skips inline code spans)
+  or a house convention for quoting foreign text. Raised upstream in
+  methodology-tools' backlog; owner decision pending. Tracked here so
+  the finding is owned rather than standing unattributed
+  (methodology W-005 — root causes, or tracked risks, never unowned
+  known issues).
+
 
 - [ ] **Service chunk 1 — skeleton and plan state** (node P2-N002) —
   repository bootstrap and Classification for
@@ -1011,21 +1056,6 @@
   multiple instances, and the case for these two today rests on one
   conversation. Condition for proposing them: recorded instances from
   real project reports, not a single exchange.
-- [ ] **Track upstream disposition of the P1-N015 proposals** —
-  identified 2026-09-01 while planning P1-N015, not executed. The
-  node completes at the artifacts under [RU-003](rulings.md), so
-  acceptance, amendment, or rejection of each of the four proposals
-  is recorded here, as P1-N008's disposition is. Fires when the owner
-  reports an adjudication outcome.
-- [ ] **Migrate to the release carrying the accepted amendments, and
-  release P1-N014's hold** — identified 2026-09-01 while planning
-  P1-N015, not executed. When a methodology release ships whatever is
-  accepted, this project bumps its Classification pin, adopts the
-  changed rules into `docs/process/`, and P1-N014's specify stage
-  resumes against the new text
-  ([p1-n014 plan](plans/p1-n014-role-contracts-adopt-v140-rules.md),
-  gate outcome). Nothing may pin unreleased `main`, so this waits on
-  a tag, not on a merge.
 - [ ] **Role contracts adopt the v1.4.0 conduct rules** — node
   P1-N014, stage `identified`, opened 2026-08-30, planned 2026-08-31.
   States the report duty, the supersession duties, and the reach of
