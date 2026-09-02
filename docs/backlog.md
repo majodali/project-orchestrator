@@ -1383,24 +1383,24 @@
   correctly. Two omissions of the same shape suggest the vocabulary
   was drawn from the dispatch loop's happy path; the pass should ask
   what else a node does that the journal cannot say.
-- [ ] **This session's environment carries AWS credentials, and the
-  P2-N012 specification says it does not** — marked 2026-09-01
-  (K-011) at T031's acceptance, in the
-  [specification](specs/p2-n012-deploy-from-ci-on-merge.md) itself as
-  well as here. `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are
-  set in the orchestration session's environment and an `~/.aws/config`
-  exists. What they reach is unknown: reading the files is blocked,
-  and calling AWS to find out — `sts get-caller-identity` included —
-  is an unauthorized action against the owner's account and was not
-  performed. Two questions, both the owner's. Is the node buying
-  evidence indirectly (G3's two-URL trick, I2's owner attestation)
-  that a session could read directly? And is a dispatched role holding
-  deploy-capable credentials a surface this S1 design should close —
-  every role so far has been briefed as though no such credential
-  exists, so none has used them, but that is a property of the briefs
-  and not of the environment. Until answered, roles continue to be
-  dispatched on the no-credentials premise and the criteria stand as
-  written.
+- [x] **The session's AWS environment variables are placeholders, not
+  credentials** (`done`) — raised 2026-09-01 at T031's acceptance,
+  answered the same day. `AWS_ACCESS_KEY_ID` and
+  `AWS_SECRET_ACCESS_KEY` are set in the orchestration session's
+  environment, which contradicted the P2-N012
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md)'s
+  organizing premise that no dispatched session holds AWS access. It
+  was marked rather than assumed away, and the owner — who had not put
+  them there — gave explicit permission for one diagnostic call. AWS
+  answered `sts get-caller-identity` with `InvalidClientTokenId`: the
+  token is not a credential for any account. Both values are 14
+  characters and begin `prox`, no session token is present, and
+  `AWS_CA_BUNDLE` points at the agent proxy's CA bundle — placeholders
+  set by the environment's proxy tooling so an AWS SDK fails fast
+  instead of hanging on instance-metadata discovery. The premise
+  holds. Worth keeping as a record of the shape: an environment
+  variable that looks like a credential is not evidence of access, and
+  the cost of finding out was one authorized call.
 - [ ] **A Backlog entry describing another repository goes stale
   silently** — found 2026-09-01 when T031 checked `eslint.config.js`
   and found the gap this Backlog still claimed was open, closed six
