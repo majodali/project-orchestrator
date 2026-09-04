@@ -178,6 +178,27 @@ detects or contains them. This register's numbering is project-local.
   one channel further out. *Status*: open; recorded 2026-09-01 from a
   real encounter, with the role-contract wording routed to node
   P1-N014.
+- **R16 — A cloud provider's error names the wrong layer, and a
+  diagnostic that models one failure mode makes it worse.** Proving
+  OIDC took three runs on 2026-09-04, against two independent defects
+  and one misleading tool. AWS returned `InvalidIdentityToken`, "the
+  web identity token could not be validated", for what was in fact a
+  typo in the IAM identity provider's audience list —
+  `sts.amazon.com` for `sts.amazonaws.com`. Because AWS matches the
+  token's `aud` against that list *before* evaluating the role's trust
+  conditions, no condition was ever reached, and the error could not
+  name one. Underneath it sat a second, unrelated defect: the trust
+  policy's `sub` named the coordinating repository rather than the
+  service one. The preflight's own verdict line asserted "the mismatch
+  is in the trust policy, not the token" for every failure in which
+  the subject matched — true for the second defect, false for the
+  first, and stated with equal confidence either way. *Mitigation*: a
+  diagnostic reports what it observed and classifies the provider's
+  error text, and never asserts a cause it did not test; where it
+  cannot distinguish, it says so and names the checks that would. The
+  same discipline the role contracts already apply to a
+  `needs-judgment` return. *Status*: open; recorded 2026-09-04 from a
+  real encounter, with the preflight's own wording still to fix.
 
 Unexpected interplay is by nature not enumerable in advance: the
 pilot (plan chunk 5) treats every failure it hits as a candidate
