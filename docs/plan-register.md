@@ -29,7 +29,7 @@ honestly; chunks 1–3 completed before this register existed.
     - P2-N008 [done] Reachability slice: a deployed MCP server a session can call
     - P2-N009 [done] Plan-state read
     - P2-N010 [done] Plan-state update, git-authoritative, with the advisory lease
-    - P2-N011 [executing] Degrade to git-only, and enlistment documentation
+    - P2-N011 [executing] [gated: owner decides how the live R12 exercise is performed, and rules on the I9 placement contradiction T038 exposed] Degrade to git-only, and enlistment documentation
   - P2-N012 [done] Deploy the service from CI on merge — plan: plans/p2-n012-deploy-from-ci-on-merge.md · spec: specs/p2-n012-deploy-from-ci-on-merge.md
     - P2-N013 [done] Alias assumptions verified against AWS documentation
     - P2-N014 [done] Pull-request checks that cannot deploy
