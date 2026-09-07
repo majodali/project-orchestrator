@@ -1818,8 +1818,22 @@
   the gate demonstrator, with the by-hand-vs-by-service equivalence
   check.
 - [ ] **Chunk-1 child: degrade to git-only, and enlistment
-  documentation** (node P2-N011) — the R12 exercise (dead endpoint
-  *and* unset credential) plus the enlistment runbook.
+  documentation** (node P2-N011) — documentation half delivered
+  (T038, 2026-09-07): [docs/process/enlistment.md](process/enlistment.md)
+  takes the coordinating repository from not-enlisted to enlisted
+  (the checked-in `.mcp.json`, `.claude/settings.json`'s
+  `enableAllProjectMcpServers`, the `MCP_AUTH_TOKEN` variable, and
+  `service_identity` as the cheapest confirmation), states the R12
+  fallback rule explicitly (also cross-referenced from
+  [docs/process/dispatch.md](process/dispatch.md#the-orchestration-service-optional-accelerator)),
+  and writes the two-case exercise procedure — endpoint unreachable,
+  and the unset-credential case the specification's breakdown added
+  for Child E. **Still open**: the exercise itself, which needs a
+  genuine Claude Code session start (no subagent session can produce
+  that evidence) and is recorded against
+  [R12](open-risks.md#r12) once run — the Orchestrator's or the
+  owner's to perform, per this task's `needs-judgment`-free
+  boundary.
 - [ ] **Fallback task-claim protocol** — when the service is
   unreachable after retries, a session picks its next task from the
   repo directly; how does it claim one so two sessions do not collide?
@@ -1849,15 +1863,21 @@
 - [ ] **Service chunk 5 — migration and pilot** (node P2-N006) — move
   this repo's orchestration onto the service, then run the deferred
   portfolio pilot through it; C2 promotion of this repo begins here.
-- [ ] **Service enlistment section in the process spec** — the
-  additive v1-spec update the service implies: how a managed
-  repository enlists (`.mcp.json`, per-server timeout, the token
-  environment variable), and the standing rule that a session whose
-  service is unreachable proceeds on the v1 process without retrying
-  or waiting. Chunk 1 documents enlistment in the service repository;
-  folding it into [docs/process/](process/README.md) rides the chunk-5
-  migration unless an earlier chunk needs it
-  ([P2-N002 plan](plans/p2-n002-service-skeleton.md)).
+- [x] **Service enlistment section in the process spec** — delivered
+  early, at chunk 1 itself (node P2-N011, T038, 2026-09-07), because
+  Child E's own criteria needed it rather than waiting for the
+  chunk-5 migration this item originally deferred to: how a managed
+  repository enlists (`.mcp.json`, `enableAllProjectMcpServers`,
+  `MCP_AUTH_TOKEN`, confirming with `service_identity`) is
+  [docs/process/enlistment.md](process/enlistment.md), and the
+  standing rule that a session whose service is unreachable proceeds
+  on the v1 process without retrying or waiting is stated there and
+  cross-referenced from
+  [docs/process/dispatch.md](process/dispatch.md#the-orchestration-service-optional-accelerator).
+  The service repository's own `docs/mcp-enlistment.md` (written
+  before the coordinating repository's `.mcp.json` was actually
+  committed) still covers producing the file's values from a fresh
+  deploy and is cited from the new document rather than duplicated.
 - [ ] **OAuth authentication for the service** — replace the chunk-1
   bearer token supplied by environment expansion if that proves
   awkward on any surface, or when the service is enlisted by

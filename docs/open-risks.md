@@ -124,7 +124,19 @@ detects or contains them. This register's numbering is project-local.
   *Mitigation*: degrade-to-git-only is a standing constraint
   (constraint 3) — sessions fall back to the v1 process, which is
   fully functional without the service; the fallback is exercised, not
-  assumed. *Status*: open; fallback exercise due in chunk 1.
+  assumed. The documented rule (a session does not retry and does not
+  wait) is [process/enlistment.md](process/enlistment.md#the-fallback-rule)
+  and [process/dispatch.md](process/dispatch.md#the-orchestration-service-optional-accelerator);
+  the two-case exercise procedure — endpoint unreachable, and
+  `MCP_AUTH_TOKEN` unset — is
+  [process/enlistment.md](process/enlistment.md#verifying-the-fallback-the-r12-exercise)
+  (node P2-N011, documentation half, 2026-09-07). *Outcome: **pending**
+  — placeholder only.* The exercise requires a genuine Claude Code
+  session start against a broken enlistment, which no subagent session
+  can produce evidence about; running it and recording the result here
+  (both cases, dated) is what closes this entry, not this note.
+  *Status*: open; fallback exercise due in chunk 1, procedure written,
+  not yet run.
 - **R13 — The tooling's runtime assumption moves from `python3` to
   `node`.** The form checker is the loop's own guard: the Orchestrator
   runs it before every dispatch selection and at every acceptance. The
