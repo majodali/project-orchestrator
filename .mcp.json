@@ -4,7 +4,7 @@
       "type": "http",
       "url": "https://025si0pve6.execute-api.us-west-2.amazonaws.com/mcp",
       "headers": {
-        "Authorization": "Bearer ${MCP_AUTH_TOKEN}"
+        "Authorization": "Bearer ${MCP_AUTH_TOKEN_DELIBERATELY_ABSENT}"
       },
       "timeout": 30000
     }
