@@ -139,26 +139,36 @@ and register state the chunk must leave behind.
   **O1–O5**; an action discovered outside that list is a runbook
   defect, fixed before the gate rather than narrated at it.
 - **I9 — The v1 process is unchanged in substance.** `docs/process/`
-  gains no rule this chunk depends on. Enlistment documentation lives
-  in the service repository; folding it into the process spec is the
-  Backlog item that already tracks it.
+  gains no rule that makes the service a *dependency*. It may gain
+  the rule that makes it optional — the fallback rule — and the
+  session-facing enlistment procedure, both of which exist to keep
+  the v1 process sufficient rather than to extend it. Owner-facing
+  deployment and operation documentation stays in the service
+  repository.
 
-  > **Contradiction, marked 2026-09-07 (K-011), owner decision
-  > pending.** Task T038 put the session-facing enlistment procedure
-  > at `docs/process/enlistment.md` and added the fallback rule to
-  > `docs/process/dispatch.md`, which contradicts both sentences
-  > above. The fault is the dispatching brief's: it delegated the
-  > placement to the role without checking this criterion, and the
-  > role argued its choice and flagged the collision rather than
-  > proceeding quietly. Two readings, and the owner's to settle. Read
-  > strictly, I9 stands and the documents move to the service
-  > repository — but then the rule that a dispatched role must obey
-  > does not live where dispatched roles read, which costs more than
-  > the criterion protects. Read as written-before-we-knew, I9's
-  > second sentence is now false for the session-facing half, and the
-  > criterion should be amended rather than satisfied by relocating
-  > the work. Nothing is moved either way until the owner rules;
-  > chunk 1's gate carries this decision.
+  > **Amended 2026-09-07 by owner decision, after a K-011 marking.**
+  > The criterion read: "`docs/process/` gains no rule this chunk
+  > depends on. Enlistment documentation lives in the service
+  > repository; folding it into the process spec is the Backlog item
+  > that already tracks it." Task T038 contradicted both sentences by
+  > placing `docs/process/enlistment.md` and putting the fallback
+  > rule in `dispatch.md`. The contradiction was marked and routed
+  > rather than resolved in place.
+  >
+  > What the original text missed: a rule saying a session **does
+  > not wait** on the service is not a dependency on the service. It
+  > is the opposite — it is what makes the service optional, which is
+  > constraint 3 of the parent plan. And a rule that dispatched roles
+  > must obey has to live where dispatched roles read, which is
+  > `docs/process/`. Satisfying the original wording would have put
+  > that rule where nobody meets it.
+  >
+  > The distinction the amended text draws is between documentation
+  > *for a session* and documentation *for the owner*. The first is
+  > process and lives here; the second is operations and stays in the
+  > service repository, where `docs/runbook.md` and
+  > `docs/mcp-enlistment.md` remain. The Backlog item that deferred
+  > this fold to chunk 5 is closed early and says so.
 
 ### P. Process and register state
 
