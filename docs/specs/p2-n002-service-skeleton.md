@@ -143,6 +143,23 @@ and register state the chunk must leave behind.
   in the service repository; folding it into the process spec is the
   Backlog item that already tracks it.
 
+  > **Contradiction, marked 2026-09-07 (K-011), owner decision
+  > pending.** Task T038 put the session-facing enlistment procedure
+  > at `docs/process/enlistment.md` and added the fallback rule to
+  > `docs/process/dispatch.md`, which contradicts both sentences
+  > above. The fault is the dispatching brief's: it delegated the
+  > placement to the role without checking this criterion, and the
+  > role argued its choice and flagged the collision rather than
+  > proceeding quietly. Two readings, and the owner's to settle. Read
+  > strictly, I9 stands and the documents move to the service
+  > repository — but then the rule that a dispatched role must obey
+  > does not live where dispatched roles read, which costs more than
+  > the criterion protects. Read as written-before-we-knew, I9's
+  > second sentence is now false for the session-facing half, and the
+  > criterion should be amended rather than satisfied by relocating
+  > the work. Nothing is moved either way until the owner rules;
+  > chunk 1's gate carries this decision.
+
 ### P. Process and register state
 
 - **P1 — The service repository is enrolled.** Classification, Binding
