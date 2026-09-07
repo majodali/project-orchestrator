@@ -2,7 +2,7 @@
   "mcpServers": {
     "project-orchestrator": {
       "type": "http",
-      "url": "https://025si0pve6.execute-api.us-west-2.amazonaws.com/mcp",
+      "url": "https://192.0.2.1/mcp",
       "headers": {
         "Authorization": "Bearer ${MCP_AUTH_TOKEN}"
       },
