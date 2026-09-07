@@ -379,6 +379,63 @@ Their criteria are the sections above, which is how chunk 1's five
 children were run — the parent's specification is the contract each
 execute task is dispatched against.
 
+## Gate evidence, 2026-09-07
+
+Attended verification per decision 8: the owner performed O9, the
+Orchestrator assembled this. Every line was read back from the Actions
+API, the two endpoints, or the repositories — none of it from a role's
+report. One criterion, **I2**'s trust-policy clause, is owner-attested
+and marked as such rather than assumed.
+
+### G — the demonstration
+
+| # | Verdict | Evidence |
+|---|---|---|
+| G1 | met | PR checks ran on every node PR; `checks.yml` declares `permissions: contents: read`, contains no `id-token` (zero occurrences) and no `pull_request_target` anywhere in `.github/` |
+| G2 | met | Run `34066948302`: the deploy succeeded and `preprod` moved while `service_identity` on production still reported `dc38cdd`, the previous promotion |
+| G3 | met | The same write lease acquired through **both** endpoints within 1.2s of each other, both succeeding, both released `true`. The lease is single-holder, so two simultaneous grants are only possible against two tables — two tables, one observation, no AWS credential |
+| G4 | met | Run `34045920168`: "live currently points at version 1." then "live now points at version 2 (promoted from 1)", the promote step being an alias repoint and nothing else |
+| G5 | met | Run `34066948302`: red at step 13 (smoke check 1 of 3, so no lease reached the preprod table), step 14 promote **skipped** rather than run-and-unchanged, production still on `dc38cdd` while `main` was `2f655ea` |
+| G6 | met | `docs/runbook.md` records the preprod Function URL, 1m40s over 14 steps for run `34045920168`, and the promote log as I4's standing evidence |
+
+### I — the invariants
+
+| # | Verdict | Evidence |
+|---|---|---|
+| I1 | met | `deploy.yml` runs `./scripts/deploy.sh` and nothing else invokes `sam deploy`; the only other matches in the repository are documentation and that script's own tests |
+| I2 | **owner-attested** | The YAML half is checked: `contents: read`, no `id-token` in the check workflow, deploy only on `push` to `main`, no `pull_request_target`. The trust-policy half is the owner's — no dispatched session can read an IAM role |
+| I3 | met | Two externally reachable paths in `template.yaml`: the HTTP API integration bound to `!Ref LiveAlias`, and one `AWS::Lambda::Url` with `Qualifier: preprod`. No third, none unqualified |
+| I4 | met | Run `34045920168`'s promote step read `live` at version 1 *after* the deploy step had completed. A template-changing deploy left production where it was |
+| I5 | met | Child A's finding names, per assumption, the criterion that exercises it; G2/G3/G4/I3/I4 have all now been exercised live |
+| I6 | met | No `secrets.` reference appears anywhere in `.github/` — the smoke test reads its token from Secrets Manager at run time. Every `uses:` line is pinned to a full 40-character SHA; no npm dependency was added |
+| I7 | met | 171 tests pass. Across the whole node, `1d48503` → `main`, the `test/` diff is **753 lines added, 0 deleted**. No previously defined test was rewritten |
+| I8 | met | `docs/runbook.md` covers rollback, smoke-test failure, running the smoke test by hand against either URL, running the preflight, and the one-time `live` bootstrap. The human actions the pipeline needs are O7–O10 plus `AWS_DEPLOY_ROLE_ARN`, which was discovered during execution and is recorded rather than narrated |
+
+### P — process and register state
+
+| # | Verdict | Evidence |
+|---|---|---|
+| P1 | met | The service Classification carries decision 1's text verbatim; its stage names are the alias names actually deployed, so `deployed` is derivable |
+| P2 | met | Both Backlogs moved in the same commits as the work throughout |
+| P3 | met | `form_check.ts`: 32 nodes, 0 violations, 1 standing warning. All four children `done` against their own criteria |
+| P4 | met | Ten Cost log rows and thirty-six journal events across the node's five task IDs |
+| P5 | met | R12 stands; R14, R15 and R16 were opened from real encounters during this node |
+| P6 | met | Decisions 1–6 adopted at the plan gate, 7–11 at the specification gate, with clarifications to the child C IAM reading and the trust-policy format both marked and dated |
+
+### What this node cost, and what it caught
+
+Four `push` runs to reach green. Four distinct defects, each invisible
+to a passing test suite and visible in one real run: an IAM audience
+typo reading `sts.amazon.com`; a missing `CreateChangeSet` grant on the
+SAM transform; a Function URL missing the `lambda:InvokeFunction`
+grant AWS has required since October 2025; and `live` bootstrapped to
+the mutable `$LATEST`, which made every deploy a production deploy.
+
+The fourth is the one that justifies the node. It was found because a
+smoke test failed and production changed anyway — the exact outage
+class the node exists to prevent, discovered by the machinery built to
+prevent it, one merge before it would have mattered.
+
 ## References
 
 - [p2-n012-deploy-from-ci-on-merge](../plans/p2-n012-deploy-from-ci-on-merge.md) —

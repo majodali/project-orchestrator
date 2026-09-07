@@ -1260,8 +1260,8 @@
   binding holding in a real account, the Function URL's real event
   shape, and I4 itself — that a second, template-changing deploy
   leaves `live` where it was.
-- [ ] **Deploy, smoke and promote on merge to main** (node P2-N016,
-  child D of P2-N012) — the `push` workflow end to end: OIDC, the
+- [x] **Deploy, smoke and promote on merge to main** (node P2-N016,
+  child D of P2-N012, `done`) — the `push` workflow end to end: OIDC, the
   deploy through `scripts/deploy.sh`, the three-check smoke test
   against the preprod Function URL with its token read from Secrets
   Manager, promotion by repointing `live`, the runbook's rollback and
