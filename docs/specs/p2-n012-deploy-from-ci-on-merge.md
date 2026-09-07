@@ -1,6 +1,6 @@
 # Deploy the service from CI on merge — specification
 
-Status: active
+Status: closed → Backlog entry
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -384,8 +384,11 @@ execute task is dispatched against.
 Attended verification per decision 8: the owner performed O9, the
 Orchestrator assembled this. Every line was read back from the Actions
 API, the two endpoints, or the repositories — none of it from a role's
-report. One criterion, **I2**'s trust-policy clause, is owner-attested
-and marked as such rather than assumed.
+report. The one exception is **I2**'s trust-policy clause, attested by
+the owner on 2026-09-07 and recorded as an attestation rather than a
+check, because no dispatched session can read an IAM role.
+
+**All twenty criteria are met. The node is complete.**
 
 ### G — the demonstration
 
@@ -403,7 +406,7 @@ and marked as such rather than assumed.
 | # | Verdict | Evidence |
 |---|---|---|
 | I1 | met | `deploy.yml` runs `./scripts/deploy.sh` and nothing else invokes `sam deploy`; the only other matches in the repository are documentation and that script's own tests |
-| I2 | **owner-attested** | The YAML half is checked: `contents: read`, no `id-token` in the check workflow, deploy only on `push` to `main`, no `pull_request_target`. The trust-policy half is the owner's — no dispatched session can read an IAM role |
+| I2 | met | The YAML half is checked: `contents: read`, no `id-token` in the check workflow, deploy only on `push` to `main`, no `pull_request_target`. The trust-policy half is **attested by the owner, 2026-09-07**: the deploy role's trust policy restricts the OIDC subject to this repository's `main` ref. Recorded as an attestation, not a check — no dispatched session can read an IAM role |
 | I3 | met | Two externally reachable paths in `template.yaml`: the HTTP API integration bound to `!Ref LiveAlias`, and one `AWS::Lambda::Url` with `Qualifier: preprod`. No third, none unqualified |
 | I4 | met | Run `34045920168`'s promote step read `live` at version 1 *after* the deploy step had completed. A template-changing deploy left production where it was |
 | I5 | met | Child A's finding names, per assumption, the criterion that exercises it; G2/G3/G4/I3/I4 have all now been exercised live |

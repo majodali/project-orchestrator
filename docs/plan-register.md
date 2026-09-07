@@ -30,7 +30,7 @@ honestly; chunks 1–3 completed before this register existed.
     - P2-N009 [done] Plan-state read
     - P2-N010 [done] Plan-state update, git-authoritative, with the advisory lease
     - P2-N011 [identified] Degrade to git-only, and enlistment documentation
-  - P2-N012 [verifying] [gated: owner attestation on I2's trust-policy clause, the one criterion no session can check] Deploy the service from CI on merge — plan: plans/p2-n012-deploy-from-ci-on-merge.md · spec: specs/p2-n012-deploy-from-ci-on-merge.md
+  - P2-N012 [done] Deploy the service from CI on merge — plan: plans/p2-n012-deploy-from-ci-on-merge.md · spec: specs/p2-n012-deploy-from-ci-on-merge.md
     - P2-N013 [done] Alias assumptions verified against AWS documentation
     - P2-N014 [done] Pull-request checks that cannot deploy
     - P2-N015 [done] Alias-aware lease-table selection, failing closed

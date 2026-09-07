@@ -1108,7 +1108,7 @@
   real `node --input-type=module` subprocess. Nothing stops a future
   test writing the natural-looking, silently-wrong form, so the
   service repo carries a Backlog entry proposing a shared helper.
-- [ ] **Deploy the service from CI on merge** (node P2-N012) —
+- [x] **Deploy the service from CI on merge** (node P2-N012, `done`) —
   owner direction, 2026-09-01, after a deploy took the service down
   and nothing noticed until a session curled the endpoint. Checks on
   every pull request (build, lint, test, `sam validate --lint`),
@@ -1160,7 +1160,21 @@
   policy. Four further decisions staged (7–10): how the failed smoke
   test is induced, attended verification rather than a dispatched
   Reviewer, whether branch protection blocks `done`, and where the two
-  prerequisite outage fixes execute. **All four adopted at the
+  prerequisite outage fixes execute. **Done 2026-09-07**: all twenty
+  criteria met, the assembly in the
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md)'s Gate
+  evidence section, with I2's trust-policy clause attested by the
+  owner because no session can read an IAM role. Four `push` runs to
+  reach green, and four distinct defects on the way — an IAM audience
+  reading `sts.amazon.com`, a missing `CreateChangeSet` grant on the
+  SAM transform, a Function URL missing the `lambda:InvokeFunction`
+  grant AWS has required since October 2025, and `live` bootstrapped
+  to the mutable `$LATEST` so that every deploy was a production
+  deploy. Each was invisible to a passing test suite and visible in
+  one real run; the last was found because a smoke test failed and
+  production changed anyway, which is the outage class this node
+  exists to prevent, caught by the machinery built to prevent it.
+  **All four adopted at the
   specification gate, 2026-09-01**, together with the Orchestrator's
   fifth — that the written breakdown crosses at the same gate, so the
   four children entered the register as P2-N013 to P2-N016 without a
