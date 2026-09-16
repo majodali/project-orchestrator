@@ -260,6 +260,64 @@ criteria**, to be carried into the breakdown:
 None of these changes a child's outcome or moves work between
 children. IDs remain the Orchestrator's to issue.
 
+## Gate evidence, 2026-09-16
+
+Attended verification: the owner performed the live demonstrations,
+the Orchestrator assembled this. Every line is a pointer to a run, a
+call, or a repository fact. Two criteria were **performed during this
+assembly** rather than found already evidenced, and are marked so.
+
+### G — the demonstration
+
+| # | Verdict | Evidence |
+|---|---|---|
+| G1 | met | The T026 demonstration ran through the deployed service from the checked-in `.mcp.json`. The owner's `/mcp` on his own machine reports `project-orchestrator · connected · 6 tools` from the same file |
+| G2 | met | `plan_read` at the design branch returned the tree and the SHA it was computed from (`60578dd`) |
+| G3 | met | T026: lease acquired 16:15:11Z, `plan_update` returned the exact edit, the session applied and pushed it, `plan_confirm` succeeded at the resulting SHA |
+| G4 | met | The register change is an ordinary commit. The service holds no repository write credential and produced no commit of its own |
+| G5 | met | `plan_read` after the push reported the new SHA and the new stage, first attempt |
+| G6 | met | The transition was `P2-N010` verifying → done — a move the process owed at that moment, against a node that exists for its own reasons |
+| G7 | met | `docs/runbook.md` Step 8 in the service repository records the configured timeout and the measured cold and warm latencies |
+
+### I — the invariants
+
+| # | Verdict | Evidence |
+|---|---|---|
+| I1 | **met — performed 2026-09-16** | The criterion's own operational test had never been run as such. Run at this gate: the hand edit for `P1-N016` identified → planned was computed independently and written down *first*, then `plan_update` was asked for its edit on a scratch branch. `diff` of the two: **empty**. The service's `oldLine` also matched the file's actual line 23 exactly. Lease released, scratch branch discarded, nothing applied |
+| I2 | met | `src/planRegister/transitions.ts` cites `plan-model.md` as the authority. T026 saw an illegal transition refused *naming that document* rather than asserting a rule of its own |
+| I3 | **met — recorded 2026-09-16** | The exercise ran at T026; **R10 had never been updated with it**, which this assembly caught. Both refusals are now recorded there: an illegal transition refused naming `plan-model.md`, and a stale baseline refused naming both SHAs. Git won in both |
+| I4 | met | R12, closed 2026-09-07. Both failure modes on both surfaces: tools absent rather than broken, startup fast, no wait. The transition-by-v1-process half is evidenced by practice, not by a staged run — stated plainly in R12 rather than claimed |
+| I5 | met | `plan_update` requires both `ref` and baseline `sha` and refuses a stale one; demonstrated again during I1's check above. No tool answers what the state *is* from the service's own store |
+| I6 | met | The same checked-in `.mcp.json` yields a working enlistment in cloud sessions and on the owner's local machine, confirmed by his `/mcp` and a live `service_identity` |
+| I7 | met | Checked over **full history**, both repositories, at this gate: the bearer token appears in no commit; no AWS key pattern. Two PEM-header matches in the service repository were inspected and are not credentials — a test fixture whose key body is the literal word `fake`, and a runbook line telling the owner what `get-secret-value` should print. A marker search alone would have called these a violation |
+| I8 | met | `docs/runbook.md` takes a reader from an empty AWS account to a working endpoint. Chunk 1's human actions are O1–O5. (Chunk 2 discovered further owner actions; they belong to that node and are recorded there, not here) |
+| I9 | met, as amended | Amended at this gate by owner decision after a K-011 marking — see the criterion above. Session-facing documentation is process; owner-facing operations stays in the service repository |
+
+### P — process and register state
+
+| # | Verdict | Evidence |
+|---|---|---|
+| P1 | met | The service repository carries Classification, Binding block, README and Backlog, and is pinned to methodology 1.5.0 |
+| P2 | met | `form_check.ts`: 32 nodes, 0 violations, 1 standing warning. All five children `done`; register and Backlog agree |
+| P3 | met | Both repositories' Backlogs moved in the same commits as the work throughout |
+| P4 | met | Eleven Cost log rows across the chunk's tasks, and the gate demonstration is in the run journal |
+| P5 | met | Decisions 1–9 and 10–12 all adopted or overridden at their gates |
+
+### What this chunk proved, and what it cost
+
+A session enlists from a file in the repository, reads plan state at a
+named ref, and moves a node through a three-step write model where the
+service computes the edit and never touches git. The same session,
+with the service unreachable, starts just as fast and does the work by
+hand. Both halves are demonstrated.
+
+Two criteria in this table were satisfied *by this assembly* rather
+than found satisfied. I1's operational check had never been run, and
+I3's exercise had run but was never recorded against R10. Both were
+one command away, and neither would have been noticed by reading the
+children's reports — which is the argument for assembling a gate from
+the criteria rather than from the tasks.
+
 ## Decisions for the gate
 
 Numbering continues the plan's sequence, so one go-ahead adopts one

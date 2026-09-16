@@ -1555,6 +1555,20 @@
   is worse than an eyeball comparison against a baseline the runner
   already knows. Belongs with P2-N011 rather than a later node, since
   the exercise it blocks is that node's remaining half.
+- [ ] **The Orchestrator cannot delete a remote branch** — found
+  2026-09-16 cleaning up the gate's scratch branches. `git push
+  --delete` returns `HTTP 403` and the agent proxy records no relay
+  failure, so the refusal is GitHub's, not the network's. W-006 makes
+  branches single-use and deleted after merge, and both repositories
+  auto-delete *merged* head branches — but a scratch branch that is
+  never merged has no automatic path, and the role that created it
+  cannot remove it. Three are stranded now: `i1-equivalence-check`,
+  `r12-exercise-dead-endpoint`, `r12-exercise-unset-credential`, each
+  saying in its own commit message that it should be deleted. Likely
+  cause to check first: a branch ruleset's **Restrict deletions**
+  rule, which is enabled by default and may target more than `main`.
+  The process needs to say who deletes an unmerged branch, since the
+  answer is evidently not the session that made it.
 - [ ] **A Backlog entry describing another repository goes stale
   silently** — found 2026-09-01 when T031 checked `eslint.config.js`
   and found the gap this Backlog still claimed was open, closed six

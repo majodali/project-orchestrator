@@ -106,8 +106,22 @@ detects or contains them. This register's numbering is project-local.
   constraint ([orchestration-service](plans/orchestration-service.md),
   constraint 1); the service reconciles from git on read and commits
   answers back; `form_check.py` keeps checking git and nothing else,
-  so a divergence is a finding rather than a silent truth. *Status*:
-  open; binds the service's design from chunk 1.
+  so a divergence is a finding rather than a silent truth.
+  **Divergence exercised, 2026-09-07** (criterion I3, recorded here at
+  the chunk 1 gate — the exercise ran at T026 and this entry had not
+  been updated with it, which the gate assembly caught). Two refusals,
+  both performed against the deployed service rather than reasoned
+  about: an **illegal transition** (`P1-N016` identified → verifying)
+  was refused naming `plan-model.md` as the authority rather than
+  inventing a rule; and a **stale baseline** — `plan_update` at a SHA
+  the register had moved past — was refused naming both SHAs rather
+  than computing the edit against outdated content. Git won in both
+  cases. The design property behind them: the service never answers
+  what the state *is* from its own store, so there is no projection to
+  diverge. Its lease table holds a lease and nothing else.
+  *Status*: open as a standing design constraint; the chunk 1
+  exercise is recorded above and the constraint binds every later
+  chunk.
 - **R11 — MCP surface constraints.** The transport imposes limits that
   a naive design would trip: a 5-second default tool-call timeout
   (configurable per server), auto-backgrounding of calls past two
