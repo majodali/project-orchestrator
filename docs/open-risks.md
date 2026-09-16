@@ -181,8 +181,28 @@ detects or contains them. This register's numbering is project-local.
   than leaving a broken one, so this case exercises the rule's
   consequence and not the rule. A degraded-but-present service is the
   case that would test it, and nothing has.
-  *Status*: open; partially exercised 2026-09-07, timeout path and
-  the dead-endpoint session's full report outstanding.
+  **The dead-endpoint case's full report, 2026-09-07.** The notice
+  read `project-orchestrator (502): "Error POSTing to endpoint:
+  upstream dial failed"`. Tools absent entirely, ordinary tools normal
+  throughout, no call, no retry, no wait. The 502 is the environment's
+  egress proxy answering for the unroutable address, which settles by
+  quotation what was previously inference: **this run could not have
+  tested the timeout path**, because nothing ever dialled 192.0.2.1
+  long enough to time out.
+  **Two findings hold across both cases, which makes them properties
+  rather than anecdotes.** The failure notice *arrives after the first
+  tool call, not at startup* — both sessions said so independently,
+  and one added that it could not tell whether the connection attempt
+  itself was deferred or only the notice. And **a session cannot
+  measure its own startup**: both reported, unprompted, that they have
+  no clock reading from before their first turn. The exercise
+  procedure asks for timing against a normal baseline, which no
+  session can supply about itself. That measurement has to be taken
+  from outside the session — a timed non-interactive run — and the
+  procedure does not say so.
+  *Status*: open; both cases exercised 2026-09-07 with full reports
+  recovered, timeout path still untested and measurable only from
+  outside a session.
 - **R13 — The tooling's runtime assumption moves from `python3` to
   `node`.** The form checker is the loop's own guard: the Orchestrator
   runs it before every dispatch selection and at every acceptance. The

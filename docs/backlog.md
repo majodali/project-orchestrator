@@ -1537,7 +1537,11 @@
   rather than a wish. Fix: every step that a person performs names the
   exact command, and the exercise gives a measurement method — a timed
   non-interactive run against a working enlistment for the baseline,
-  the same against the broken one for the comparison. Belongs with
+  the same against the broken one for the comparison. Both R12
+  sessions reported, unprompted, that they have no clock reading from
+  before their first turn, so the procedure currently asks a session
+  for a number no session can produce — the measurement is
+  necessarily external, and the document must say so. Belongs with
   P2-N011 rather than a later node, since the exercise it blocks is
   that node's remaining half.
 - [ ] **A Backlog entry describing another repository goes stale
