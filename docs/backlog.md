@@ -1871,8 +1871,17 @@
   (lease → update returning the exact edit → confirm with the SHA);
   the gate demonstrator, with the by-hand-vs-by-service equivalence
   check.
-- [ ] **Chunk-1 child: degrade to git-only, and enlistment
-  documentation** (node P2-N011) — documentation half delivered
+- [x] **Chunk-1 child: degrade to git-only, and enlistment
+  documentation** (node P2-N011, `done` 2026-09-07) — the R12
+  exercise ran on both surfaces and both failure modes, and R12 is
+  closed; see the Risk register for the evidence and for the two
+  things it left open (between-deploy breakage, and the
+  degraded-but-present service the no-retry rule has never faced).
+  The exercise also sharpened the rule: three client reconnects read
+  as a violation of "does not retry" until you see that the rule
+  governs the session and not the transport, which
+  [enlistment.md](process/enlistment.md) now says. Documentation half
+  delivered
   (T038, 2026-09-07): [docs/process/enlistment.md](process/enlistment.md)
   takes the coordinating repository from not-enlisted to enlisted
   (the checked-in `.mcp.json`, `.claude/settings.json`'s
