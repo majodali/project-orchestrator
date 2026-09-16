@@ -210,9 +210,35 @@ detects or contains them. This register's numbering is project-local.
   also discharges chunk 1's **I6** on the second surface: the same
   checked-in `.mcp.json` yields a working enlistment locally and in a
   cloud session.
-  *Status*: open; both cases exercised 2026-09-07 with full reports
-  recovered, timeout path still untested and measurable only from
-  outside a session.
+  **The timeout path, settled on the owner's local surface,
+  2026-09-07.** Both cases start **fast** — no stall, no wait. The
+  dead-endpoint case showed `/mcp` reconnecting three times before
+  settling on failed; the absent-credential case showed failed
+  immediately, with no connection events at all. Startup was
+  unaffected in both.
+  One distinction the raw observation invites a reader to get wrong,
+  and the rule should say so: **the MCP client retries; the session
+  does not wait.** Three reconnect attempts are not a violation of
+  "does not retry and does not wait" — that rule governs the
+  session's behaviour, not the transport's. The transport retrying in
+  the background while the prompt is already usable is the rule
+  working, not failing. A 401 gives a definitive answer, so there is
+  nothing to retry, which is why the credential case showed none.
+  **What I4 now rests on, and what it does not.** Evidenced: a
+  session starts cleanly under both failure modes, on both surfaces,
+  with the server's tools absent rather than broken, and does not
+  wait. Not separately staged: "completes the same class of stage
+  transition by the v1 process". That half is evidenced by ordinary
+  practice rather than by a controlled run — every register change in
+  this project has been a hand edit, commit and push, with the single
+  deliberate exception of the chunk-1 gate demonstration, which used
+  the service on purpose to prove it could. The v1 process is not a
+  fallback this project rehearses; it is the one it uses.
+  *Status*: **closed 2026-09-07** — both cases exercised on both
+  surfaces, reports recovered, timeout path settled. R12's remaining
+  exposure is between-deploy breakage, which the monitoring Backlog
+  entry carries, and the degraded-but-present case, which the
+  Backlog entry on the untested no-retry path carries.
 - **R13 — The tooling's runtime assumption moves from `python3` to
   `node`.** The form checker is the loop's own guard: the Orchestrator
   runs it before every dispatch selection and at every acceptance. The

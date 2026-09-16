@@ -107,6 +107,19 @@ answers, never a dependency it waits on. This is the standing
 mitigation this project records against
 [R12](../open-risks.md) in the Risk register.
 
+**The rule governs the session, not the transport.** The MCP client
+may reconnect on its own — the R12 exercise saw three attempts on the
+unreachable endpoint before it settled on failed — while the session
+is already up and working. That is the rule holding, not breaking.
+What the rule forbids is the *session* waiting on the outcome,
+re-attempting a failed call, or treating the connection as a question
+still open. Once the server is reported failed, it is failed for the
+session's lifetime, and a session that finds itself reasoning about
+whether access might return has already broken the rule. Expect the
+surface itself to suggest otherwise — see
+[R17](../open-risks.md); the notice a session receives may frame the
+failure as a connection problem rather than a settled absence.
+
 ## Verifying the fallback (the R12 exercise)
 
 The procedure below is what a genuine Claude Code session start
