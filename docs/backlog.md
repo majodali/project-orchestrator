@@ -1501,6 +1501,30 @@
   and the checker warns on a dispatch older than a session with
   neither a terminal event nor an ID. Belongs with P1-N016's
   process-spec pass.
+- [ ] **A session cannot tell a missing service from an unreachable
+  one** — found 2026-09-07 in the R12 credential case. The observable
+  state a session works in is identical whether the service is
+  absent, unreachable, or refusing its credential: no tools, no
+  capability, proceed on files. The distinction exists only in a
+  harness notice that arrives *after* the first tool call, so a
+  session that answers from repository content without calling a tool
+  never sees it. This matters for the degrade-to-git-only design:
+  a session that cannot distinguish the cases cannot report which one
+  it hit, and the run journal therefore cannot either. Candidate fix:
+  the enlistment procedure gives a session one cheap, deliberate way
+  to ask — read `.mcp.json`, and if a server is declared there but
+  absent from the tool list, say so in the journal with the
+  distinction named. Related to R17.
+- [ ] **The no-retry rule has never been tested against a service
+  that answers badly** — found 2026-09-07. Both R12 cases remove the
+  capability outright, so, in the exercising session's own words,
+  "not-retrying took no discipline here, because there was nothing to
+  retry with". The rule's hard case is a service that connects,
+  offers its tools, and then fails, times out, or answers wrongly —
+  where a tool exists to call again and retrying is the tempting
+  move. Nothing exercises that. Candidate: a third R12 case using a
+  reachable endpoint that accepts the connection and errors on every
+  call. Sized with P2-N011's remaining half or as its own node.
 - [ ] **`enlistment.md` tells a session what to do and leaves a person
   guessing** — found 2026-09-07 when the owner ran the procedure in a
   local terminal and had to ask how to do two of its steps. "Confirming

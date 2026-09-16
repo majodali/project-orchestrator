@@ -157,8 +157,32 @@ detects or contains them. This register's numbering is project-local.
   finding. Closing this entry needs a run on a surface whose proxy
   does not short-circuit the address, and whose report can be read in
   full — the owner's local session is both.
+  **The credential case's full report, 2026-09-07**, since the owner
+  recovered it: the notice read
+  `project-orchestrator (AUTH_HEADER_REJECTED): "Server rejected the
+  configured Authorization header (HTTP 401)…"`; the server's tools
+  were **absent entirely**, a clean contrast against two servers that
+  did connect; ordinary tools worked throughout; the session never
+  called, retried or waited on the server. Three observations from it
+  that the summary lost, each worth more than the pass itself.
+  *The notice arrived after the first tool call, not at startup* — a
+  session that answered from repository content without calling a tool
+  would never have seen it.
+  *The failure is distinguishable only from the harness's error
+  string, not from the experience of working.* In the session's words,
+  the observable state is "byte-for-byte identical to what an
+  unreachable endpoint, a DNS failure, or a server absent from
+  `.mcp.json` entirely would have produced". A session cannot tell
+  "this project has no service" from "this project has a service I
+  cannot reach" except by reading `.mcp.json`.
+  *The no-retry rule was not really under test.* "Not-retrying took no
+  discipline here, because there was nothing to retry with. No tool
+  existed to call." The failure mode removes the capability rather
+  than leaving a broken one, so this case exercises the rule's
+  consequence and not the rule. A degraded-but-present service is the
+  case that would test it, and nothing has.
   *Status*: open; partially exercised 2026-09-07, timeout path and
-  full session reports outstanding.
+  the dead-endpoint session's full report outstanding.
 - **R13 — The tooling's runtime assumption moves from `python3` to
   `node`.** The form checker is the loop's own guard: the Orchestrator
   runs it before every dispatch selection and at every acceptance. The
@@ -233,6 +257,27 @@ detects or contains them. This register's numbering is project-local.
   same discipline the role contracts already apply to a
   `needs-judgment` return. *Status*: open; recorded 2026-09-04 from a
   real encounter, with the preflight's own wording still to fix.
+- **R17 — The harness's own guidance pushes against the fallback
+  rule.** The R12 exercise's credential case, 2026-09-07, surfaced
+  this from inside a real session. When the enlisted server failed to
+  connect, the notice the session received did not merely report the
+  failure: it told the session to treat the condition as a connection
+  failure rather than a missing capability, and not to conclude that
+  access does not exist. The session's own words: *"mild pressure in
+  the opposite direction from your project's stated no-retry rule. I
+  did not act on it."* This project's rule is that a session does not
+  retry and does not wait; the surface a session runs on says
+  something close to the opposite, and says it at the moment the rule
+  applies. That one session held is not evidence the next will. The
+  rule cannot be stated once in a document a session may not have
+  read — the exercise found `enlistment.md` absent from the branch
+  under test, and the session proceeded on the rule as described to
+  it rather than as verified. *Mitigation*: the fallback rule belongs
+  where a dispatched role meets it without looking — the role
+  contracts themselves, node P1-N014's scope — and stated in terms
+  that survive contrary pressure: a failure to connect is a settled
+  fact for the session's lifetime, not a condition to re-examine.
+  *Status*: open; recorded 2026-09-07 from a real encounter.
 
 Unexpected interplay is by nature not enumerable in advance: the
 pilot (plan chunk 5) treats every failure it hits as a candidate
