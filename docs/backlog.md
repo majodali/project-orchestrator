@@ -1541,9 +1541,20 @@
   sessions reported, unprompted, that they have no clock reading from
   before their first turn, so the procedure currently asks a session
   for a number no session can produce — the measurement is
-  necessarily external, and the document must say so. Belongs with
-  P2-N011 rather than a later node, since the exercise it blocks is
-  that node's remaining half.
+  necessarily external, and the document must say so.
+  **Third failure, 2026-09-07**: the Orchestrator supplied a
+  Unix-shaped timing command (`time claude -p "…"`) to an owner
+  working on Windows, without checking the platform — visible in his
+  own `/mcp` output as `C:\Users\majod\Projects\…` — and it hung
+  on the *working* branch, costing five minutes and producing no
+  evidence about anything. The document assumes a POSIX shell nowhere
+  it says so. Fix, beyond the two above: the procedure's observable
+  is **what a person can see** — does the prompt appear at normal
+  speed, and what does `/mcp` report — rather than a timing command
+  at all. A stopwatch measurement that needs a portable shell command
+  is worse than an eyeball comparison against a baseline the runner
+  already knows. Belongs with P2-N011 rather than a later node, since
+  the exercise it blocks is that node's remaining half.
 - [ ] **A Backlog entry describing another repository goes stale
   silently** — found 2026-09-01 when T031 checked `eslint.config.js`
   and found the gap this Backlog still claimed was open, closed six
