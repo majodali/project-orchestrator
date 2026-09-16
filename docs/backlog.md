@@ -1573,6 +1573,26 @@
   other document is stranded — but a hand sweep is exactly what a
   checker is for. Belongs with P1-N016's process-spec pass, alongside
   the three journal-vocabulary gaps and the dispatch-verification gap.
+- [ ] **Project comprehension and continuous implementation** —
+  owner direction, 2026-09-16, driven by the two-way relationship with
+  **Allegro**: this project will eventually be re-implemented there,
+  and Allegro's development benefits from this project's breakdown and
+  orchestration first. Two capabilities, which are one idea from two
+  ends — a hierarchical model of a project's features and components
+  carrying status, dependencies, risks and specifications; and
+  implementation that continues rather than stopping after each small
+  pre-planned chunk, interrupted when a specification stops being met
+  or a risk emerges. The second is only computable because the first
+  holds the specifications and the risks. Sketched as a proposed third
+  top-level node in
+  [comprehension-and-continuous-implementation](plans/comprehension-and-continuous-implementation.md),
+  `draft`, with three chunks and four open questions that need the
+  Allegro repository read before the shape can be settled. **The
+  session could not read it** — no `add_repo` tool was available, so
+  `majodali/allegro` could not be brought into scope, and the sketch
+  says so where it matters. Also flags that P1-N006's pilot and
+  P2-N003's plan view may be subsumed or need re-specifying rather
+  than proceeding as planned.
 - [ ] **The Orchestrator cannot delete a remote branch** — found
   2026-09-16 cleaning up the gate's scratch branches. `git push
   --delete` returns `HTTP 403` and the agent proxy records no relay
