@@ -130,13 +130,35 @@ detects or contains them. This register's numbering is project-local.
   the two-case exercise procedure — endpoint unreachable, and
   `MCP_AUTH_TOKEN` unset — is
   [process/enlistment.md](process/enlistment.md#verifying-the-fallback-the-r12-exercise)
-  (node P2-N011, documentation half, 2026-09-07). *Outcome: **pending**
-  — placeholder only.* The exercise requires a genuine Claude Code
-  session start against a broken enlistment, which no subagent session
-  can produce evidence about; running it and recording the result here
-  (both cases, dated) is what closes this entry, not this note.
-  *Status*: open; fallback exercise due in chunk 1, procedure written,
-  not yet run.
+  (node P2-N011, documentation half, 2026-09-07). *Outcome: **partial,
+  2026-09-07** — both cases run as cloud sessions on scratch branches,
+  and both fall short of closing this entry.* What was established:
+  two genuine Claude Code sessions started against broken enlistments
+  and completed a real read-only task, one in 54 seconds and one in 65
+  seconds end to end. Neither hung. With the endpoint unroutable the
+  server's tools were **absent entirely** rather than listed and
+  broken; with the credential absent the endpoint answered **401** and
+  the session carried on. That is the observable core of the rule: a
+  session starts, works, and does not stop.
+  What was **not** established, and why the entry stays open. First,
+  the run never tested *waiting*: the procedure asks for the
+  non-routable form precisely because an instant refusal does not test
+  "does not wait", and the environment's egress proxy turned the
+  unroutable address into a fast **502** rather than letting it run to
+  the configured 30-second timeout. The timeout path is still
+  untested. Second, the sessions' own reports could not be retrieved —
+  a cloud session cannot be messaged from the orchestrating session
+  and no transcript tool was available — so the detailed observations
+  the procedure asks for (startup timing against a normal baseline,
+  the exact notice text, whether the session considered a workaround)
+  exist only as one-line summaries. Third, both scratch branches were
+  cut from `main`, whose Plan register predates these nodes, so the
+  task half was unanswerable as written; that is a setup defect, not a
+  finding. Closing this entry needs a run on a surface whose proxy
+  does not short-circuit the address, and whose report can be read in
+  full — the owner's local session is both.
+  *Status*: open; partially exercised 2026-09-07, timeout path and
+  full session reports outstanding.
 - **R13 — The tooling's runtime assumption moves from `python3` to
   `node`.** The form checker is the loop's own guard: the Orchestrator
   runs it before every dispatch selection and at every acceptance. The
