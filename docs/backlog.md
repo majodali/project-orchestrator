@@ -1589,10 +1589,28 @@
   `draft`, with three chunks and four open questions that need the
   Allegro repository read before the shape can be settled. **The
   session could not read it** — no `add_repo` tool was available, so
-  `majodali/allegro` could not be brought into scope, and the sketch
-  says so where it matters. Also flags that P1-N006's pilot and
-  P2-N003's plan view may be subsumed or need re-specifying rather
-  than proceeding as planned.
+  `majodali/allegro` could not be brought into scope. **Revised
+  2026-09-16 after cloning and reading Allegro**, and the reading
+  changed the plan rather than confirming it. Continuous
+  implementation is not this project's to design: it is
+  **methodology W-001, two delivery modes, human-gated, released in
+  v1.5.0 with Allegro as the evidencing instance**, and Allegro runs
+  it today as pre-ratified chunk sequences on three of four lanes. It
+  stops on four conditions, one of which is a chunk whose summary
+  carries **asks** — which this project can enforce mechanically,
+  because W-008's report shape makes asks a named section. So the
+  chunk is to *run* the mode, not to invent it; this project
+  currently implements only W-001's other mode. Allegro also already
+  holds most of a comprehension model across five documents in
+  different vocabularies with nothing joining them, and carries
+  dependencies in two incompatible forms — declared, in its layer
+  spine, and observed, from co-change measurement over forty commits,
+  which is what actually decides what may run concurrently. The plan
+  now has four chunks: the model, W-001's sequence mode,
+  **reversibility** (the owner's second mitigation, promoted to a
+  chunk because the economics rest on it and nothing provides it),
+  and dependencies. P1-N006's pilot and P2-N003's plan view are
+  confirmed subject to change.
 - [ ] **The Orchestrator cannot delete a remote branch** — found
   2026-09-16 cleaning up the gate's scratch branches. `git push
   --delete` returns `HTTP 403` and the agent proxy records no relay
