@@ -200,6 +200,16 @@ detects or contains them. This register's numbering is project-local.
   session can supply about itself. That measurement has to be taken
   from outside the session — a timed non-interactive run — and the
   procedure does not say so.
+  **The working enlistment confirmed on the owner's local surface,
+  2026-09-07**, which is the control this exercise needs and had been
+  missing: `/mcp` reports `project-orchestrator · connected · 6
+  tools` from the checked-in project `.mcp.json`, and
+  `service_identity` answers with `invokedQualifier: "live"` and the
+  production lease table. Both broken cases are therefore measured
+  against a surface known to work, not against an untested one. This
+  also discharges chunk 1's **I6** on the second surface: the same
+  checked-in `.mcp.json` yields a working enlistment locally and in a
+  cloud session.
   *Status*: open; both cases exercised 2026-09-07 with full reports
   recovered, timeout path still untested and measurable only from
   outside a session.
