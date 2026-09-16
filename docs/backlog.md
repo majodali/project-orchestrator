@@ -1501,6 +1501,21 @@
   and the checker warns on a dispatch older than a session with
   neither a terminal event nor an ID. Belongs with P1-N016's
   process-spec pass.
+- [ ] **`enlistment.md` tells a session what to do and leaves a person
+  guessing** — found 2026-09-07 when the owner ran the procedure in a
+  local terminal and had to ask how to do two of its steps. "Confirming
+  enlistment worked" says *list tools* and *call `service_identity`*,
+  which is a session's vocabulary, not a person's: it names no command
+  a human types. The R12 exercise has the same gap — it asks for
+  startup timing against a normal baseline without saying how to
+  measure either. The document's own criterion is steps precise enough
+  that the runner invents nothing, so this is a defect against it
+  rather than a wish. Fix: every step that a person performs names the
+  exact command, and the exercise gives a measurement method — a timed
+  non-interactive run against a working enlistment for the baseline,
+  the same against the broken one for the comparison. Belongs with
+  P2-N011 rather than a later node, since the exercise it blocks is
+  that node's remaining half.
 - [ ] **A Backlog entry describing another repository goes stale
   silently** — found 2026-09-01 when T031 checked `eslint.config.js`
   and found the gap this Backlog still claimed was open, closed six
