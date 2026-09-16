@@ -340,7 +340,7 @@
   known issues).
 
 
-- [ ] **Service chunk 1 — skeleton and plan state** (node P2-N002) —
+- [x] **Service chunk 1 — skeleton and plan state** (node P2-N002, `done` 2026-09-16) —
   repository bootstrap and Classification for
   project-orchestrator-service, a deployed MCP service exposing
   plan-state read/update, `.mcp.json` enlistment proven from a web
@@ -1555,6 +1555,24 @@
   is worse than an eyeball comparison against a baseline the runner
   already knows. Belongs with P2-N011 rather than a later node, since
   the exercise it blocks is that node's remaining half.
+- [ ] **The form checker does not check a plan or specification's
+  Status against its node's stage** — found 2026-09-16 while closing
+  chunk 1. `docs/specs/p2-n002-service-skeleton.md` sat at
+  `Status: draft` from its writing until its node reached `done`,
+  though its own K-007 contract required `active` once the owner
+  accepted it and the breakdown at the node's gate — which he did on
+  2026-08-27. Five children were verified against criteria read out
+  of a document describing itself as a draft, and criterion I9 was
+  amended in it. Nothing downstream is wrong; the content was the
+  accepted content throughout. But no check noticed for three weeks,
+  and the one that should have is the one this project owns. The
+  relation is mechanical and therefore checkable: a node at `done`
+  whose plan or specification is not `closed`, or a node past
+  `planned` whose plan is still `draft`, is a finding. Swept the rest
+  of `docs/plans/` and `docs/specs/` by hand at the same time — no
+  other document is stranded — but a hand sweep is exactly what a
+  checker is for. Belongs with P1-N016's process-spec pass, alongside
+  the three journal-vocabulary gaps and the dispatch-verification gap.
 - [ ] **The Orchestrator cannot delete a remote branch** — found
   2026-09-16 cleaning up the gate's scratch branches. `git push
   --delete` returns `HTTP 403` and the agent proxy records no relay

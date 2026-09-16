@@ -1,6 +1,18 @@
 # Service skeleton and plan state — specification
 
-Status: draft
+Status: closed → Backlog entry
+
+<!-- Status correction, 2026-09-16 (K-011): this document sat at
+     `draft` from its writing until the node reached `done`, and the
+     contract below required it to go `active` when the owner accepted
+     it and the breakdown at this node's gate. He did, on 2026-08-27,
+     and the Status line was never moved. So every criterion the five
+     children were verified against, and the amendment to I9, were
+     read out of a document that described itself as a draft. Nothing
+     downstream is wrong — the content was the accepted content
+     throughout — but the missed transition is recorded rather than
+     quietly repaired, and the gap is what the form checker should
+     have caught. A Backlog entry carries that. -->
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
