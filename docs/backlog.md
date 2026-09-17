@@ -322,6 +322,133 @@
 
 ## Upcoming
 
+- [ ] **P3-N002 and P1-N016 both reach `dispatch.md`'s selection
+  rule** — found 2026-09-17 planning P3-N002. That node's child D must
+  amend `dispatch.md` ("entering `execute` requires earlier siblings
+  `done`"), `plan-model.md` ("Siblings are dependency-ordered"),
+  `docs/process/plan-register.md` and the Plan register instance's
+  header line, because the owner's retirement of sibling ordering
+  ([RU-018](rulings.md)) forces it — not because a maintenance pass
+  chose it. P1-N016 holds the accumulated editorial backlog against the
+  same documents. The two must not both rewrite the selection rule:
+  **P3-N002's amendment is the one that lands, and P1-N016 rebases its
+  pass on the amended text.** Recorded so the collision is scheduled
+  rather than discovered. Verified 2026-09-17 that sibling-order
+  semantics exist only in prose — neither `lib/plan-register.ts` nor
+  `lib/form-check-core.ts` encodes them — so this is an editorial
+  amendment, not a code change.
+
+- [ ] **Two nodes edit the same six role contracts, and neither knows
+  it** — found 2026-09-17 planning P3-N005. P1-N014 (`planned`) adds
+  the v1.5.0 conduct duties and R17's fallback wording to
+  `.claude/agents/`; P3-N005's child B adds W-001's stop conditions to
+  the same six files. The additions do not overlap in content, so
+  neither blocks the other, and imposing an order would be the defect
+  [RU-018](rulings.md) exists to prevent. The hazard is descriptive,
+  not structural: each plan describes the contracts as they stood when
+  it was written, and a document describing another document's state
+  goes stale silently — this project has recorded that failure twice
+  already. P3-N005's decision 8 requires child B to read the contracts
+  as they then stand. Recorded so whichever node runs second knows the
+  other exists.
+
+- [ ] **Retiring the Ruling register's `Applied:` field** — the option
+  P3-N002's decision 5 declines by default, kept live here. A ruling is
+  an abstract resource and the consuming node's `uses` edge is the
+  node-level fact G5 reads, so the hand-written `Applied:` list is
+  close to a second encoding of it (criterion I1). It is retained
+  because it is *task*-keyed evidence of precedent application,
+  cross-checked against journal `precedent-applied` events by
+  `plugin/scripts/lib/form-check-core.ts` — the check that failed on
+  2026-09-17 until five rulings' lists were updated by hand, which is
+  the encoding's cost demonstrated. Retiring it would rewrite that
+  check **and** its conformance-corpus expectation, part of the package
+  vendored to the service repository ([RU-012](rulings.md)), making a
+  single-repository node cross-repository and non-monotonic.
+  [RU-014](rulings.md) is the near match arguing for retirement. Needs
+  a W-002 discussion with the owner before any test changes; if the
+  owner takes decision 5's alternative at the P3-N002 gate, this closes
+  into that node.
+
+- [ ] **The comprehension model cannot say "built but broken"** — known
+  limit of P3-N002's design, recorded 2026-09-17 rather than discovered
+  later. A resource's `state` is *derived* from the register stages of
+  the nodes that create or modify it, which is exactly what keeps the
+  model from being a second source of progress truth under K-003. The
+  cost: a part whose nodes are all `done` reads `built` even when it
+  does not work. The Backlog carries whether it works and the Risk
+  register carries what threatens it, and the model points at both —
+  but nothing computes the difference. Revisit if the gap bites; it is
+  deliberately not being closed by adding a hand-written state field.
+
+- [ ] **Service support for the comprehension model** — out of scope
+  for P3-N002 by the parent specification, whose I9 requires the model
+  to work *without* the service, not with it. The instance
+  `docs/project-model.md` is git-authoritative and needs no service;
+  reading or writing it through the orchestration service — a
+  `model_read` alongside `plan_read`, and the resource-edge view a
+  hosted plan view would want — belongs with P2-N003 or a later service
+  chunk. Filed 2026-09-17 so the omission reads as a boundary rather
+  than an oversight.
+
+- [ ] **The *Project model* type is process-scope and a convergence
+  candidate** — noted 2026-09-17 planning P3-N002. The type is adopted
+  by citation like the four before it, and the methodology's Article 7
+  treats convergent custom definitions across projects as
+  standardization candidates. The second project to instantiate it
+  (Allegro is the driver, under its own node per
+  [RU-017](rulings.md)) makes it convergent. No action until then;
+  filed so the upstream path is not rediscovered.
+
+- [ ] **The omission check should read the comprehension model's parts
+  once P3-N002 lands** — identified 2026-09-17 planning P3-N003. G7's
+  class-to-instance check needs an enumeration of "parts of this
+  project", and P3-N003 is independent of P3-N002
+  ([RU-018](rulings.md)), so it builds one by hand from the Backlog's
+  Completed section, the Plan register's `done` nodes and a stated list
+  of standing artifact classes. When the model exists, that enumeration
+  is exactly what it holds, and the check should read it rather than
+  maintain a second hand-written list — otherwise the catalogue
+  acquires a fifth hand-written encoding of something a register
+  already knows, which is the defect criterion I1 exists to close.
+  Forward compatibility, not a dependency.
+
+- [ ] **Mechanizing the deterministic half of the class-to-instance
+  check** — identified 2026-09-17 planning P3-N003, decision 4. The
+  check stays a documented hand-run procedure in the node, because
+  applicability is a judgment and mechanizing a judgment produces a
+  tool that asserts a cause it did not test — which is
+  [R16](open-risks.md), itself a catalogue candidate. But one half is
+  deterministic and cheap: that every `CR-nnn` cited from a Risk
+  register entry resolves to an existing catalogue entry, and that no
+  catalogue entry lacks an applicability header. That is form-checker
+  work in `form_check.ts`'s existing idiom, additive to its rules, and
+  it is what would stop the citations rotting after the node closes.
+
+- [ ] **A catalogue class this project has not encountered has nowhere
+  to live** — identified 2026-09-17 planning P3-N003, decision 8. Every
+  entry must rest on a real encounter here, because that evidence is
+  the catalogue's whole argument upstream — so a class a maintainer
+  knows from another project cannot be admitted by this project at all.
+  The proposal will carry a closing *What this catalogue does not yet
+  cover* section naming such candidates, but nothing says how a second
+  project evidences one into an entry, or who arbitrates when two
+  projects' encounters describe the same class differently. That is
+  Article 8 process design and belongs upstream with the catalogue's
+  own governance. Raise it with the maintainer when the proposal is
+  carried ([RU-002](rulings.md)).
+
+- [ ] **Criterion I8's corpus figure is ambiguous** — found 2026-09-17
+  planning P3-N005. I8 says the Cost log and journal hold "thirty-eight"
+  past task results; the Cost log carries 38 rows, and the journal
+  additionally carries T017, which returned `needs-judgment` and got no
+  row (the gap the unrecordable-needs-judgment-cost entry already
+  owns). So the history is 38 rows or 39 task results depending on the
+  reading, and a verifier checking I8 could land on either.
+  `p3-n005-sequence-mode.md` states which figure it used and why. No
+  change to I8 is proposed; this exists so the verifier is not left
+  guessing.
+
 - [ ] **Parallel dispatch collides with the single-Backlog write, and
   nothing says so** — found 2026-09-17 dispatching three plan tasks
   concurrently after [RU-018](rulings.md). Every role is told to write
@@ -360,7 +487,28 @@
   reconciled, and the explicit hierarchy is kept (owner direction
   2026-09-17, [RU-018](rulings.md)). Criteria: I1–I3, I2a, G1–G5 of
   [the specification](specs/p3-n001-comprehension-and-continuous-implementation.md).
-  Next stage: plan.
+  **Planned 2026-09-17** ([plan](plans/p3-n002-comprehension-model.md)):
+  interior, four children in a genuine chain — the thin slice over five
+  real parts, the type and its arguments, the instance, then retirement
+  and checks. The open question is **answered, not staged**: the model
+  is a **new document type keyed to the hierarchy that already exists**
+  — type spec `docs/process/project-model.md`, instance
+  `docs/project-model.md`, declared by citation alongside the four
+  types already there, with the Plan register's line, grammar, nesting
+  and single writer unchanged. It adds one entity (the abstract
+  resource, flat and ungranular by design) and one edge kind, node →
+  resource, labelled creates/modifies/uses; node-to-node dependency is
+  derived. **No K-003 amendment** (I4's second disjunction): the model
+  carries no progress field, resource state is derived from register
+  stages, and a form-check rule reports divergence — a view that owns
+  no data cannot be a second source of truth. The Orchestrator is the
+  model's single writer. Navigation bound kept at three steps with the
+  latitude spent defining the unit: a step is opening a document or
+  following one link, from eight enumerated starting points, so the
+  worst case is three by construction. Repository reach: this
+  repository only ([RU-016](rulings.md)); no planned non-monotonicity,
+  new checks inert where no instance is declared. Eight decisions
+  staged. Next stage: specify.
 
 - [ ] **The common risk catalogue** (node P3-N003, chunk 2 of P3-N001,
   `identified` 2026-09-17) — a populated register of risks every
@@ -374,7 +522,20 @@
   project previously admitted nothing covered. Carries the
   class-to-instance citation and the omission check of G7.
   **Independent of P3-N002** ([RU-018](rulings.md)): dispatchable
-  alongside it. Criteria: G7, P4. Next stage: plan.
+  alongside it. Criteria: G7, P4. **Planned 2026-09-17**
+  ([plan](plans/p3-n003-common-risk-catalogue.md)): interior, three
+  children — one class carried end to end as the thin slice
+  (execution-environment coverage), the five-seam sweep with the
+  omission list, and the Article 8 proposal. Entries live at
+  `docs/proposals/common-risk-catalogue.md` in [RU-015](rulings.md)'s
+  delivery form, IDs CR-001…, **one copy only** — a local duplicate
+  would instantiate the catalogue's own "a copy goes stale silently"
+  class on the day it was written. G7's trap is answered with a
+  **negative control**: the check is proven by breaking it, on
+  P1-N009's drift-guard precedent. Independence from P3-N002 checked
+  in three places and recorded; none found. Repository reach: this
+  repository only ([RU-016](rulings.md)). Nine decisions staged. Next
+  stage: specify.
 
 - [ ] **Reversibility, and the measurement that says whether it pays**
   (node P3-N004, chunk 3 of P3-N001, `identified` 2026-09-17) — work
@@ -402,8 +563,31 @@
   proposal, **or** a recorded argument that W-001 as released needs no
   change — a well-argued "no mechanism, and here is the clarification
   that would have been one" is a complete deliverable. **Independent
-  of P3-N002** ([RU-018](rulings.md)). Criteria: G6, I8, P4. Next
-  stage: plan.
+  of P3-N002** ([RU-018](rulings.md)). Criteria: G6, I8, P4.
+  **Planned 2026-09-17** ([plan](plans/p3-n005-sequence-mode.md)):
+  interior, four children in a strict chain — predicates evidenced,
+  then the loop section and the six role contracts, then the live
+  ratified-sequence run, then the determination. The load-bearing
+  find: **"a chunk needing a maintainer decision" becomes a lookup,
+  not a judgment** — a task result with status `needs-judgment`, or an
+  unadopted entry in a node's *Decisions for the gate* section, both of
+  which this project already forces into recorded form. Two findings
+  recorded rather than absorbed: *landing summary* has no local
+  referent (W-001 says landing summary, this project says task result;
+  the plan defines the mapping, without which the asks condition has
+  no artifact), and **the owner's Asks clarification removes a stop**
+  unless the maintainer-decision condition catches it — so those two
+  conditions are specified and scored **together, never separately**.
+  I8's two independent readings are two dispatched sessions on
+  different tiers, the second from a branch cut before the first's
+  commit, because blindness is a property of the checkout rather than
+  of an instruction. The corpus is asymmetric and the plan says so:
+  conditions 1–3 score over all task results, condition 4 only over
+  results written under W-008. G6's stopping ask must be **genuine** —
+  a manufactured one demonstrates the predicate and nothing about the
+  mode. Repository reach: this repository only; the orchestration
+  service is needed for nothing. Eight decisions staged. Next stage:
+  specify.
 
 - [ ] **The Ruling register's type taxonomy has no type for
   dispatch-sequencing decisions** — found 2026-09-17 capturing
@@ -497,7 +681,17 @@
   it be discovered. Both are small: a root-node clause, and a note
   that a node whose subject is the registers takes them in its packet.
   Third and fourth packet-table observations bound for P1-N016's
-  single considered change.
+  single considered change. **Two more from the 2026-09-17 parallel
+  round.** T042: a `plan`-stage task whose node changes the process
+  spec again needed the Risk register, the run journal and the agent
+  contracts — the third task to need the same additions, and the
+  Orchestrator pre-declared them, which is the point: the row still
+  does not name them. T040: a `plan`-stage task whose design constrains
+  the form checker and the travelling package had to read
+  `plugin/scripts/lib/` to check its own central claim, and the row has
+  no line for the code a node's design constrains. Filed here rather
+  than as separate entries, since P1-N016 makes one considered change
+  to this table.
 
 - [ ] **"Asks" in a report means only what the reader can act on now**
   — owner clarification 2026-09-17, refining W-008's three-part report
@@ -513,7 +707,15 @@
   is for. W-008 is upstream and the block in `CLAUDE.md` is a cache
   that must not be amended locally, so this is bound for the
   methodology via Article 8; the clarification is small enough to ride
-  with the next amendment rather than travel alone. Owned here so it
+  with the next amendment rather than travel alone. **A carrier is now
+  proposed**: P3-N005's upstream half (decision 5 of
+  [p3-n005-sequence-mode](plans/p3-n005-sequence-mode.md)) would take
+  this clarification upstream alongside the W-001 interruption-criteria
+  clarification, in [RU-015](rulings.md)'s form with a cover note on
+  P1-N015's precedent. Same subject. Owner decision at the P3-N005
+  gate. Note that T042 found the clarification is not cosmetic: it
+  **removes a sequence stop** unless W-001's maintainer-decision
+  condition catches it. Owned here so it
   is not an unowned known issue (W-005).
 
 - [ ] **Six dangling links inside verbatim upstream quotations** —

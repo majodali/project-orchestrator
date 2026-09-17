@@ -40,7 +40,7 @@ honestly; chunks 1–3 completed before this register existed.
   - P2-N005 [identified] The task-pull loop (chunk 4)
   - P2-N006 [identified] Migration and pilot (chunk 5)
 - P3-N001 [broken-down] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
-  - P3-N002 [identified] The comprehension model (chunk 1)
-  - P3-N003 [identified] The common risk catalogue (chunk 2) — independent of P3-N002 (RU-018)
+  - P3-N002 [planned] The comprehension model (chunk 1) — plan: plans/p3-n002-comprehension-model.md
+  - P3-N003 [planned] The common risk catalogue (chunk 2) — independent of P3-N002 (RU-018) — plan: plans/p3-n003-common-risk-catalogue.md
   - P3-N004 [identified] Reversibility, and the measurement that says whether it pays (chunk 3) — depends on P3-N002
-  - P3-N005 [identified] Sequence mode: run W-001's pre-ratified mode, and determine whether it needs specialising (chunk 4) — independent of P3-N002 (RU-018)
+  - P3-N005 [planned] Sequence mode: run W-001's pre-ratified mode, and determine whether it needs specialising (chunk 4) — independent of P3-N002 (RU-018) — plan: plans/p3-n005-sequence-mode.md
