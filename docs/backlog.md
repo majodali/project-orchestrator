@@ -322,6 +322,26 @@
 
 ## Upcoming
 
+- [ ] **Parallel dispatch collides with the single-Backlog write, and
+  nothing says so** — found 2026-09-17 dispatching three plan tasks
+  concurrently after [RU-018](rulings.md). Every role is told to write
+  its own Backlog additions in the same commit as its work (W-003,
+  founding ruling 1). Two roles running at once both read
+  `docs/backlog.md`, both append, and the second write silently drops
+  the first — a lost-update race on the file the methodology calls the
+  single source of progress truth, with no error and no check that
+  would notice. `dispatch.md` permits parallel dispatch and says
+  nothing about it; the form checker cannot see it. Worked around for
+  this round by having the parallel roles return their Backlog
+  entries in the task result and the Orchestrator write them at
+  acceptance, which is a deviation from the write-it-yourself rule
+  recorded here rather than absorbed. The real fix is a stated rule —
+  either the Orchestrator owns the Backlog whenever dispatch is
+  parallel, or roles write to per-task fragments the Orchestrator
+  merges. Bound for P1-N016, and it is also live input for P3-N005,
+  which makes this project's loop run sequences, and for P3-N002,
+  whose model has the same single-writer question.
+
 - [ ] **The comprehension model** (node P3-N002, chunk 1 of P3-N001,
   `identified` 2026-09-17) — the model itself, defined as an extension
   of the planning and execution model, plus one instance over this
