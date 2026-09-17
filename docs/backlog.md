@@ -322,6 +322,47 @@
 
 ## Upcoming
 
+- [ ] **Project comprehension and continuous implementation** (node
+  P3-N001, `planned` 2026-09-17) — the third top-level node, planned
+  in
+  [comprehension-and-continuous-implementation](plans/comprehension-and-continuous-implementation.md).
+  Defines one abstract comprehension model that applies to any managed
+  project, as an extension of the planning and execution model this
+  project already has, with each project's instance living in that
+  project. Dependencies are part of it: recorded, never inferred, each
+  naming an abstract resource one node creates or modifies and another
+  uses. Four chunks in dependency order — the comprehension model
+  itself, a common risk catalogue maintained at the methodology level
+  (populated before it is proposed upstream), reversibility of work
+  inside an active workstream, and a determination on whether W-001's
+  sequence mode needs specialising for orchestrated multi-agent work.
+  Driven by Allegro, which already runs both capabilities informally
+  and needs speed rather than a formally complete model; lanes are
+  neither a capability nor an outcome and nothing here builds them.
+  The plan's register review finds two likely Article 8 amendments:
+  K-003 extended so a structured view over progress is not a second
+  source of truth, and a type declaration for a model instance. One
+  open question stands — which register the model extends, or whether
+  it is a new one — and it is chunk 1's first design decision. Next
+  stage: specify.
+
+- [ ] **"Asks" in a report means only what the reader can act on now**
+  — owner clarification 2026-09-17, refining W-008's three-part report
+  shape. An Asks section carries only direct asks of the reader that
+  they can act on immediately. It may include an open question they
+  can answer on the spot; it must not include an open question waiting
+  on some other activity, and it must not include an item the report
+  itself says the reader need not answer yet. New, resolved or changed
+  open questions belong in *What changed*. The trigger was a report of
+  mine that listed the comprehension plan's remaining open question as
+  an ask while stating in the same breath that no answer was wanted —
+  which makes the section unreadable as a to-do list, the one thing it
+  is for. W-008 is upstream and the block in `CLAUDE.md` is a cache
+  that must not be amended locally, so this is bound for the
+  methodology via Article 8; the clarification is small enough to ride
+  with the next amendment rather than travel alone. Owned here so it
+  is not an unowned known issue (W-005).
+
 - [ ] **Six dangling links inside verbatim upstream quotations** —
   found 2026-09-02 by the form audit at the 1.5.0 migration; not
   pre-existing to that PR, which changed no proposal document.

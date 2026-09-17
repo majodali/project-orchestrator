@@ -39,3 +39,4 @@ honestly; chunks 1–3 completed before this register existed.
   - P2-N004 [identified] Topics and coordination (chunk 3)
   - P2-N005 [identified] The task-pull loop (chunk 4)
   - P2-N006 [identified] Migration and pilot (chunk 5)
+- P3-N001 [planned] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md

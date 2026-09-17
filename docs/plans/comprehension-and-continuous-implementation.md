@@ -1,17 +1,20 @@
 # Project comprehension and continuous implementation
 
-Status: draft
+Status: active
 
-<!-- K-007 contract: Status transitions draft → active → (superseded by
-     X, because Y | closed → Backlog entry). Anything unmarked here is a
-     live claim of current intent. This is a **sketch**: it is the
-     plan document for a proposed third top-level node, written before
-     its driving project could be read. It goes `active` only after the
-     open questions in the last section are answered. -->
+<!-- K-007 contract: Status transitions active → (superseded by X,
+     because Y | closed → Backlog entry). Anything unmarked here is a
+     live claim of current intent. Went `active` 2026-09-17 at the
+     owner's go-ahead, when P3-N001 was entered in the Plan register.
+     The one remaining open question is chunk 1's first design
+     decision, not a plan-level blocker. -->
 
-A proposed third top-level node, alongside
+The plan for **P3-N001**, the third top-level node, alongside
 [Orchestrator v1](orchestrator-v1.md) (P1-N001) and the
-[Orchestration service](orchestration-service.md) (P2-N001).
+[Orchestration service](orchestration-service.md) (P2-N001). The node
+stands at `planned`: this document records the outcome, the approach,
+and the interior decision — four chunks, to be entered as children at
+the break-down stage.
 
 ## Why now, and what is driving it
 
