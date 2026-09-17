@@ -343,8 +343,60 @@
   K-003 extended so a structured view over progress is not a second
   source of truth, and a type declaration for a model instance. One
   open question stands — which register the model extends, or whether
-  it is a new one — and it is chunk 1's first design decision. Next
-  stage: specify.
+  it is a new one — and it is chunk 1's first design decision.
+  **Specified 2026-09-17** in
+  [p3-n001-comprehension-and-continuous-implementation](specs/p3-n001-comprehension-and-continuous-implementation.md):
+  the four chunks stand as the node's children with chunks 2 and 4
+  marked independent of chunk 1; seven gate criteria, eleven
+  integration invariants and six process criteria, all answerable
+  from this repository; the register review's two "likely" amendments
+  turned into criteria that a proposal **or** a recorded argument for
+  none can satisfy; eight decisions staged with defaults. Next stage:
+  break down — proposed to cross at the specification gate.
+
+- [ ] **The Backlog carries two open entries for P3-N001, one of them
+  stale** — found 2026-09-17 at the specify stage. The node entry
+  above is authoritative; further down the Upcoming section the
+  pre-node sketch entry ("Project comprehension and continuous
+  implementation — owner direction, 2026-09-16") still stands open,
+  and it describes the plan as `draft` with three chunks, then four
+  chunks in an order the active plan no longer uses (dependencies as
+  a separate chunk, which the plan has since folded into chunk 1, and
+  no risk catalogue). Two open entries for one unit of work make the
+  single source of progress truth disagree with itself, which is
+  exactly K-003's failure mode. The fix is an editorial reconciliation
+  — fold whatever the sketch entry records that the node entry does
+  not, and close it — and it belongs with the editorial pass over the
+  Backlog already queued below rather than opened as its own node.
+  Left for the owner to sequence rather than done here, because
+  rewriting another entry's history is not this task's work.
+
+- [ ] **A plan document has no declared place for RU-016's
+  repository-reach declaration** — found 2026-09-17 specifying
+  P3-N001. RU-016 puts the declaration "in the node's plan", and
+  P2-N012's plan carried a *Dependencies* section that did it. The
+  comprehension plan carries none, though its whole driver is another
+  repository, so the specification had to make the declaration
+  instead. Nothing catches the omission: the form checker does not
+  read plan documents, and no process document says a plan has such a
+  section. Either `dispatch.md` or `plan-model.md` names the section a
+  plan carries when a node reaches beyond its own repository, or the
+  checker looks for it. Belongs with node P1-N016's process-spec pass.
+
+- [ ] **The `specify`-stage packet row has no clause for a top-level
+  node, and no registers** — found 2026-09-17 on T039. The row reads
+  "the node's plan and the parent's specification, whole documents",
+  and P3-N001 has no parent, so the second item is empty by
+  construction rather than by defect; the table does not say so, which
+  leaves the role deciding whether its packet is short. Separately,
+  the task needed this repository's own registers — the Plan register,
+  Risk register, Cost log, run journal and the four register type
+  specs — because the node's plan is a review *of* them, and the
+  Orchestrator declared that widening at dispatch rather than letting
+  it be discovered. Both are small: a root-node clause, and a note
+  that a node whose subject is the registers takes them in its packet.
+  Third and fourth packet-table observations bound for P1-N016's
+  single considered change.
 
 - [ ] **"Asks" in a report means only what the reader can act on now**
   — owner clarification 2026-09-17, refining W-008's three-part report
