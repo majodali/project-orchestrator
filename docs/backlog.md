@@ -1666,44 +1666,23 @@
   other document is stranded — but a hand sweep is exactly what a
   checker is for. Belongs with P1-N016's process-spec pass, alongside
   the three journal-vocabulary gaps and the dispatch-verification gap.
-- [ ] **Project comprehension and continuous implementation** —
-  owner direction, 2026-09-16, driven by the two-way relationship with
-  **Allegro**: this project will eventually be re-implemented there,
-  and Allegro's development benefits from this project's breakdown and
-  orchestration first. Two capabilities, which are one idea from two
-  ends — a hierarchical model of a project's features and components
-  carrying status, dependencies, risks and specifications; and
-  implementation that continues rather than stopping after each small
-  pre-planned chunk, interrupted when a specification stops being met
-  or a risk emerges. The second is only computable because the first
-  holds the specifications and the risks. Sketched as a proposed third
-  top-level node in
-  [comprehension-and-continuous-implementation](plans/comprehension-and-continuous-implementation.md),
-  `draft`, with three chunks and four open questions that need the
-  Allegro repository read before the shape can be settled. **The
-  session could not read it** — no `add_repo` tool was available, so
-  `majodali/allegro` could not be brought into scope. **Revised
-  2026-09-16 after cloning and reading Allegro**, and the reading
-  changed the plan rather than confirming it. Continuous
-  implementation is not this project's to design: it is
-  **methodology W-001, two delivery modes, human-gated, released in
-  v1.5.0 with Allegro as the evidencing instance**, and Allegro runs
-  it today as pre-ratified chunk sequences on three of four lanes. It
-  stops on four conditions, one of which is a chunk whose summary
-  carries **asks** — which this project can enforce mechanically,
-  because W-008's report shape makes asks a named section. So the
-  chunk is to *run* the mode, not to invent it; this project
-  currently implements only W-001's other mode. Allegro also already
-  holds most of a comprehension model across five documents in
-  different vocabularies with nothing joining them, and carries
-  dependencies in two incompatible forms — declared, in its layer
-  spine, and observed, from co-change measurement over forty commits,
-  which is what actually decides what may run concurrently. The plan
-  now has four chunks: the model, W-001's sequence mode,
-  **reversibility** (the owner's second mitigation, promoted to a
-  chunk because the economics rest on it and nothing provides it),
-  and dependencies. P1-N006's pilot and P2-N003's plan view are
-  confirmed subject to change.
+- [x] **Project comprehension and continuous implementation sketched
+  and planned** — owner direction 2026-09-16, driven by the two-way
+  relationship with **Allegro**. Recorded here while it was a sketch
+  with no node. Superseded by the **P3-N001** entry above, which is
+  authoritative for this work's shape and progress; this entry is kept
+  for the history it holds and makes no current claim. What happened:
+  the first draft was written without reading Allegro because no
+  `add_repo` tool was available; the repository was then cloned and
+  read on 2026-09-16, and the reading changed the plan rather than
+  confirming it. Continuous implementation turned out not to be this
+  project's to design — it is **methodology W-001, two delivery modes,
+  human-gated, released in v1.5.0 with Allegro as the evidencing
+  instance** — so the work is to *run* the mode, not invent it. The
+  chunk list, the plan's status and the treatment of dependencies all
+  changed after this entry was written; read the P3-N001 entry for
+  them, not this one.
+
 - [ ] **The Orchestrator cannot delete a remote branch** — found
   2026-09-16 cleaning up the gate's scratch branches. `git push
   --delete` returns `HTTP 403` and the agent proxy records no relay

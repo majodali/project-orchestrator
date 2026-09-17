@@ -15,12 +15,14 @@ spec. First entries land at the pending P1-N008 gate.
   reach a repo outside granted scope? Ruling: the owner hand-carries
   it; cross-repo scope is granted only explicitly. Rationale: no
   scope expansion for a delivery a human can make. Source: P1-N008
-  gate (decision 2, default adopted), 2026-08-26. Applied: T020.
+  gate (decision 2, default adopted), 2026-08-26. Applied: T020,
+  T039.
 - RU-003 [active] completion/process — Does a node targeting an
   external party complete at the artifact or at upstream
   disposition? Ruling: at the artifact. Rationale: external
   acceptance is not ours to verify. Source: P1-N008 gate
-  (decision 3, default adopted), 2026-08-26. Applied: T004, T020.
+  (decision 3, default adopted), 2026-08-26. Applied: T004, T020,
+  T039.
 - RU-004 [active] completion/node — Full reference implementation or
   conformance sketch for the extension-point proposal? Ruling:
   sketch only. Rationale: the contract is still under discussion.
@@ -30,7 +32,7 @@ spec. First entries land at the pending P1-N008 gate.
   owner-gated, and where? Ruling: yes, gate at `verifying`.
   Rationale: the owner sees the artifact before it represents the
   project. Source: P1-N008 gate (decision 5, default adopted),
-  2026-08-26. Applied: T020.
+  2026-08-26. Applied: T020, T039.
 
 - RU-006 [active] scope/process — When does a new capability get its
   own repository rather than joining an existing one? Ruling: when it
@@ -136,7 +138,7 @@ spec. First entries land at the pending P1-N008 gate.
   between drafting and delivery is undetectable by the reader.
   Generalizes past the methodology to any upstream this project
   proposes into. Source: P1-N015 gate (decision 2, default adopted),
-  2026-09-01. Applied: T022, T023.
+  2026-09-01. Applied: T022, T023, T039.
 
 - RU-016 [active] scope/process — Who decides which repositories a
   node's work may write to? Ruling: the Planner declares the repository
@@ -153,7 +155,7 @@ spec. First entries land at the pending P1-N008 gate.
   the original owner-names-it rule was protecting. Supersedes
   `dispatch.md`'s "cross-repo reach is scope" only in *who* grants,
   not in *whether* it must be declared. Source: owner decision at the
-  P2-N012 gate, 2026-09-01. Applied: —
+  P2-N012 gate, 2026-09-01. Applied: T039.
 
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
