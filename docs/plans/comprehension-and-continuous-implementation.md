@@ -54,6 +54,15 @@ change removes that coupling. So Allegro's working dependency model is
 strict one-way dependencies) is a different thing that does not predict
 it.
 
+**Lanes are not a target.** Owner, 2026-09-17: a lane is neither a
+capability nor an outcome — it may *emerge* from patterns in the
+recorded dependencies. So nothing in this plan builds lanes, models
+lanes, or treats "Allegro runs four lanes" as a requirement. Lane D is
+evidence of a dependency cluster, not a structure to reproduce. What
+the model owes Allegro is the recorded dependencies; how many parallel
+workstreams fall out of them is a consequence a maintainer reads off,
+and may change every time the dependencies do.
+
 *Continuous implementation.* Lanes A, B and C run **pre-ratified chunk
 sequences**: the maintainer approves the chunk list once at the start of
 an arc and the lane lands them in order without stopping between each.
@@ -155,6 +164,143 @@ records the declaration. Building detection into it would make it an
 inference engine with opinions about granularity, which is exactly
 what the owner ruled out.
 
+## How the model meets the registers that already exist
+
+Owner-directed 2026-09-17: review all potential relationships with all
+existing registers, because the model extends what is there rather
+than sitting beside it. This section is that review. It is analysis
+for chunk 1 to decide from, not decisions already taken.
+
+The finding that runs through it: **this project already records
+dependencies in four places, each by hand, each in a different
+notation, none of them queryable.** The model is not new machinery.
+It is one notation for something already being written down badly.
+
+### Plan register — the thing being extended
+
+Sibling order in the [Plan register](../plan-register.md) *is* dependency order. That is an
+existing dependency mechanism: implicit, scoped to one parent, able to
+express only a total order and never an edge to a node elsewhere in
+the tree. The model generalises it to named edges.
+
+That creates the first real design decision, and it is a conflict, not
+a gap. Once edges are explicit, sibling order is either redundant or
+contradictory — two encodings of the same fact, one of which can be
+edited without the other. Chunk 1 decides whether explicit edges
+replace ordering, constrain it, or are checked against it.
+
+The register's single-writer constraint (the Orchestrator) carries to
+anything living in it. If dependencies are recorded during a node's
+own preparation, a role that is not the Orchestrator has identified
+something only the Orchestrator may write. Either the record goes
+through the Orchestrator, or the writer rule is narrowed to the
+register's existing fields.
+
+### Backlog — the amendment this most likely forces
+
+[Backlog](../backlog.md). Owner, 2026-09-17: **the project model and the Backlog are two views
+of the same information**, the model adding hierarchical relationships
+and explicit dependencies.
+
+K-003 makes the Backlog the single source of progress truth. This
+project already tolerates a partial overlap — the register carries
+lifecycle stages, the Backlog carries progress — because stages
+describe a node's position in a workflow and not whether the product
+works. A comprehension model that carries implementation state makes
+that overlap total. Then either the model is a second source of
+progress truth, which K-003 forbids, or K-003 is extended to describe
+a Backlog-and-model pair and the defined relation between them.
+
+So the amendment is not optional and not incidental; it is the
+load-bearing one. Its shape is chunk 1's output: K-003 extended to
+admit a structured view over the same truth, with the Backlog
+remaining authoritative for progress and the model authoritative for
+structure — or a single register that subsumes both.
+
+### Ruling register — dependency subjects, and the basis of rework
+
+[Ruling register](../rulings.md). Owner, 2026-09-17: **decision register entries will be referenced as
+subjects of dependencies, and this will likely form the basis for
+estimating and performing rework.**
+
+A ruling is an abstract resource in exactly the sense already settled:
+one node creates it, others use it. RU entries already carry a
+half-built version of the edge — an `Applied:` field naming the tasks
+that consumed the ruling, written by hand, backwards, and only
+sometimes.
+
+This is what makes chunk 3 computable rather than aspirational. Reversal
+cost is estimable only if what depended on the reversed thing is
+recorded. When a ruling is superseded, the edges name which nodes
+consumed it; the blast radius is read off rather than guessed, and
+"easy to reverse and redo" acquires a number. Chunk 3's economics
+depend on chunk 1 having recorded this, which is why chunk 1 comes
+first.
+
+### Risk register — instances of catalogue classes
+
+Risks in the [risk register](../open-risks.md) attach to the project today, not to what they threaten. With a
+model, a risk attaches to a component, a feature, or a dependency edge
+— the tracked gap this plan names in "what this project does not
+have".
+
+The relationship to chunk 2 is class and instance. A catalogue entry
+is a class of risk every project must mitigate; a project's register
+entry is an instance, citing the class it came from. That citation is
+what turns "we did not think of that" into a checkable condition:
+a component with no entry citing a catalogue class that applies to it
+is a visible omission rather than an invisible one.
+
+### Cost log — the measuring instrument, one field short
+
+The [Cost log](../cost-log.md) keeps one row per accepted task, keyed by node and stage. It is already the
+instrument chunk 3 needs: rework cost against the reviews it displaced.
+
+It is one field short. Rows say a task *was* rework in prose — "outage
+rework", "rework after the backward transition" — and nothing says
+what it was rework *of*. If dependency edges name the decision or
+artifact that changed, a rework row can cite that edge, and the
+comparison computes instead of being read. Small change, and the whole
+of chunk 3's evidence rests on it.
+
+### Run journal — events the model generates
+
+The run journal (`orchestration/journal.jsonl`,
+[type spec](../process/observability.md)) is an append-only event stream, already known to be short of vocabulary: no
+`unblocked` kind, no risk-opened, no contradiction-closed, all
+standing Backlog entries. The model adds more — a dependency recorded
+during node preparation, an edge invalidated by a superseded ruling, a
+component's state changing. These must be visible without diffing
+documents, which is the journal's whole purpose. The vocabulary gap is
+already open; the model widens it rather than creating it.
+
+### Specifications — not a register, but the same problem
+
+A specification closes when its node closes, so the system's
+description disappears into completed work. If components carry
+specifications, the specify stage produces a component-scoped document
+that persists and the node's spec becomes a delta against it. Stated
+elsewhere in this plan as a document-lifecycle question; the register
+review makes it a relationship question, which is the more tractable
+form.
+
+### Classification — where a new type is declared
+
+Each project declares its types in its
+[Classification](../classification.md). This project declares its document types by citation. A comprehension
+model instance is a type and must be declarable there. If the model
+turns out to be a new register rather than an extension, this is the
+smallest amendment it needs — and possibly the only one besides
+K-003's.
+
+### What this review concludes
+
+Two amendments look likely, both Article 8: **K-003 extended** so a
+structured view is not a second source of progress truth, and the
+**type declaration** for a model instance. Everything else is
+extension within existing rules — new fields, new journal event kinds,
+one new Cost log column.
+
 ## Proposed shape
 
 Four chunks. Dependency order, not priority order.
@@ -169,12 +315,12 @@ register. The dependency recording mechanism is part of this chunk,
 not separate from it — the owner's point is that dependencies are only
 useful when visible *as part of* comprehension.
 
-Design questions, all open:
+Design questions. The register review above is chunk 1's input, and
+its two conflicts are chunk 1's first decisions: **explicit edges
+against the Plan register's sibling ordering**, and **the K-003
+extension that keeps a structured view from becoming a second source
+of progress truth**. Beyond those:
 
-- How far does the existing register grammar stretch before it should
-  become a second register? K-003 makes the Backlog the single source
-  of progress truth; a comprehension model must not become a second
-  one.
 - What happens to a specification when its node closes? Today it
   disappears into completed work. If specifications migrate to
   components, a node's specify stage produces something different.
@@ -216,6 +362,14 @@ The catalogue is not this project's risk register renamed. The test
 for entry is whether a risk recurs *across* projects and must be
 mitigated by each, rather than tracked by one.
 
+**Populate before proposing.** Owner, 2026-09-17, settling open
+question 3: the catalogue is drafted with its entries in place and
+then taken upstream. An empty register would get the shape agreed
+cheaply, but this project's evidence is unusually good and a populated
+catalogue argues from it. So chunk 2's deliverable is a filled
+catalogue, and the Article 8 proposal follows it rather than
+preceding it.
+
 ### Chunk 3 — Reversibility
 
 The owner's second mitigation, and the one nothing currently provides:
@@ -232,10 +386,10 @@ which is the owner's own framing and needs the data to work.
 
 ### Chunk 4 — Sequence mode: specialise it, or leave it alone
 
-W-001 exists and Allegro runs it. This chunk may require **no work at
-all**. Its content is a determination: does the sequence mode need to
-be made more specific for orchestrated, multi-agent projects, and if
-so, is that an amendment?
+W-001 exists and Allegro runs it. This chunk's content is a
+determination: does the sequence mode need to be made more specific
+for orchestrated, multi-agent projects, and if so, is that an
+amendment?
 
 The candidate specialisation is the one this project is placed to
 make. W-001 stops a sequence when a chunk's summary carries **asks**,
@@ -244,6 +398,16 @@ asks is a named section. A sequence that must stop on asks can read
 that section rather than judge prose. Whether that is worth stating
 upstream, or is simply how a compliant implementation behaves, is the
 question this chunk answers.
+
+**The analysis decides whether an amendment follows, and one is
+likely.** Owner, 2026-09-17: likely even if only to clarify the
+interruption criteria. That is the weaker and more probable outcome —
+not a new mode, but W-001's four stop conditions made precise enough
+that an agent applies them the same way twice. "A chunk needing a
+maintainer decision" is a judgment when a human reads it and an
+ambiguity when an agent does. So this chunk is not expected to produce
+no work; it is expected to produce a clarification rather than a
+mechanism.
 
 ## The risk this introduces, and what answers it
 
@@ -288,24 +452,26 @@ Both confirmed by the owner as subject to change, 2026-09-16.
 
 ## Open questions
 
-The four that needed Allegro read are answered. The three from the
-last round are settled by the owner: the model is abstract, defined
-here and instantiated per project; dependencies belong to
-comprehension and are recorded rather than inferred; an amendment is
-likely, since this extends or adds registers. What remains:
+One remains. Everything else is settled.
 
 1. **Which register does the model extend, or is it a new one?** The
    steer is that it extends the planning and execution model. Whether
    that means new fields on existing entries, a new register class, or
    both, is chunk 1's first design decision — and it determines
-   whether the amendment is small or large.
-2. **What is the minimum that makes it useful to Allegro?** Allegro
-   needs speed, not completeness. A model that captures enough to run
-   more lanes safely is worth more than a complete one later.
+   whether the amendment is small or large. The register review above
+   narrows it without closing it: the Backlog relationship forces a
+   K-003 amendment either way, and the Plan register's sibling
+   ordering must be reconciled with explicit edges either way.
+
+Settled by the owner, 2026-09-17:
+
+2. **What is the minimum that makes it useful to Allegro?** Speed, not
+   a formally complete model. Allegro needs enough recorded dependency
+   to run more work concurrently and safely; formal completeness is
+   not the bar and lanes are not the target (see "Lanes are not a
+   target" above).
 3. **Does the risk catalogue go upstream before or after it is
-   populated?** An empty register is cheap and gets the shape agreed;
-   a populated one argues from evidence. This project's evidence is
-   unusually good, which argues for the second.
+   populated?** After. Populate, then propose — chunk 2.
 
 ## References
 
@@ -315,6 +481,14 @@ likely, since this extends or adds registers. What remains:
   degrade to git-only, which any new model must honour
 - [Backlog](../backlog.md) — the dependency mechanism, the risk
   attachment gap, P1-N006's pilot
+- The registers reviewed above: [Plan register](../plan-register.md),
+  [Backlog](../backlog.md), [Ruling register](../rulings.md),
+  [risk register](../open-risks.md), [Cost log](../cost-log.md),
+  run journal ([type spec](../process/observability.md)),
+  [Classification](../classification.md)
+- methodology **K-003** (the Backlog is the single source of progress
+  truth) — the rule the model's relationship to the Backlog most
+  likely amends
 - methodology **W-001** (two delivery modes, human-gated), released in
   v1.5.0 with Allegro as its evidencing instance
 - Allegro: `docs/backlog.md` §"Parallel lanes", `docs/design/layers.md`,
