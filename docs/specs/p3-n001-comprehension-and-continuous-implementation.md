@@ -1,15 +1,13 @@
 # Project comprehension and continuous implementation — specification
 
-Status: draft
+Status: active
 
-<!-- K-007 contract: Status transitions draft → active → (superseded by
-     X, because Y | closed → Backlog entry). Anything unmarked here is a
-     live claim of current intent. This is the specification document for
-     node P3-N001; it goes `active` when the owner accepts it and the
-     breakdown at this node's gate, and `closed → Backlog entry` when the
-     node reaches `done`. The transition to `active` is due at the gate
-     itself — P2-N002's specification missed it for three weeks and the
-     miss is recorded there. -->
+<!-- K-007 contract: Status transitions active → (superseded by X,
+     because Y | closed → Backlog entry). Anything unmarked here is a
+     live claim of current intent. Went `active` 2026-09-17 at the gate
+     that accepted it, together with the breakdown — the transition
+     P2-N002's specification missed for three weeks. Goes
+     `closed → Backlog entry` when node P3-N001 reaches `done`. -->
 
 Node **P3-N001**, the third top-level node, specifying the outcome
 fixed by its
@@ -157,16 +155,33 @@ consequence for Allegro.
   the four is either **read from the model's notation** or **retained
   with a stated reason**. An encoding left in place with neither is a
   defect of this criterion.
-- **I2 — Sibling order and explicit edges cannot silently disagree.**
-  Chunk 1 decides whether explicit edges replace sibling ordering,
-  constrain it, or are checked against it. Whichever it decides, a
-  register state that contradicts a recorded edge is **reported**, not
-  absorbed: the contradiction is induced on a scratch branch and the
-  report observed. And `dispatch.md`'s "earlier siblings `done`"
-  selection rule reads the same source the register does — one rule,
-  one source, so a node is never held behind an unrelated sibling by
-  an inference no document makes. That last clause is the owner's
-  P2-N012 finding, which the Backlog already carries.
+- **I2 — Sibling order is retired as a dependency signal, and nothing
+  silently disagrees.** *Amended at the gate, 2026-09-17.* The owner
+  settled the choice this criterion used to leave open: sibling
+  ordering was a temporary stand-in for dependency information the
+  register could not hold, and once edges are recorded it is
+  **retired** — not reconciled with them, not checked against them.
+  So: no rule, document or tool reads sibling position as a dependency
+  once the model carries edges, and a search for the ones that do
+  today comes back empty or names each survivor with its reason.
+  `dispatch.md`'s "earlier siblings `done`" selection rule reads
+  recorded edges instead ([RU-018](../rulings.md)), so a node is never
+  held behind an unrelated sibling by an inference no document makes —
+  the owner's P2-N012 finding, which the Backlog already carries. A
+  register state that contradicts a recorded edge is still
+  **reported**, not absorbed: the contradiction is induced on a
+  scratch branch and the report observed.
+- **I2a — The hierarchy survives as the primary form.** *Added at the
+  gate, 2026-09-17.* Parent-child relationships are formally
+  dependency relationships too, and the instance can be viewed or
+  analysed as a flat graph where that is useful. But explicit
+  parent-child structure, and everything it implies, is **kept**: the
+  model is a hierarchy that can be read as a graph, not a graph that
+  renders a tree for display. Evidence: the Plan register after the
+  node still reads as the nested document it is today, and any graph
+  view is derived from it rather than the other way round. The owner's
+  reason is the criterion — the hierarchy is far easier to
+  comprehend, which is this model's whole point.
 - **I3 — The register's single writer survives.** The model's writer
   rule is stated and consistent with the Plan register's: either
   records made during a node's own preparation route through the
@@ -487,7 +502,11 @@ default, it does not decide one.
    Rationale: "easy to navigate" is unverifiable without a number, and
    a number chosen after the demonstration is not a criterion. The
    figure is the owner's to set; fixing it early is the part that
-   matters.
+   matters. *Adopted at the gate with latitude: the owner called three
+   a reasonable position and reserved the right to modify it slightly.
+   Chunk 1 may propose a different figure with its reasoning; it may
+   not leave the figure unset, and it may not set it after the
+   demonstration.*
 6. **Whether an unfavourable reversibility measurement blocks the
    node.** Default: **no** — if the comparison says rework does not
    pay here, the node records the number, the method and the
@@ -507,6 +526,39 @@ default, it does not decide one.
    dispatched. Rationale: the plan's chunk descriptions plus this
    document's additions are already at the depth such a task would
    produce, and both earlier interior nodes crossed the same way.
+
+## Gate record, 2026-09-17
+
+The owner accepted this specification and the breakdown, adopting all
+eight defaults with no override. Four rulings were captured from it:
+[RU-017](../rulings.md) (a sibling project's adoption is a separate
+node), [RU-018](../rulings.md) (a child is not queued behind a sibling
+it does not depend on), [RU-019](../rulings.md) (a measurement
+criterion may be satisfied by an unfavourable result) and
+[RU-020](../rulings.md) (an interior node whose specification reaches
+breakdown depth needs no separate `break down` task). Decisions 3, 4,
+5 and 7 were judged node-scope and not recorded as rulings.
+
+Two owner directions came with the go-ahead, and both changed this
+document:
+
+1. **The navigability bound is adopted with latitude** — three steps
+   is a reasonable position and may be modified slightly. Decision 5
+   carries the latitude and its limits.
+2. **Sibling order as a dependency signal is retired, and the
+   hierarchy is kept.** This settles half of what the plan's register
+   review called a conflict and this specification's **I2** left to
+   chunk 1: chunk 1 no longer chooses between replacing, constraining
+   and checking against sibling ordering — it replaces. The other half
+   of the direction is new and became **I2a**: parent-child
+   relationships are formally dependencies too and the instance may be
+   analysed as a flat graph, but the explicit hierarchy stays, because
+   it is far easier to comprehend. The full direction is recorded in
+   the plan's register review, under *Plan register*.
+
+The plan's one open question — which register the model extends, or
+whether it is a new one — is **still open** and still chunk 1's. The
+gate narrowed it; it did not close it.
 
 ## References
 

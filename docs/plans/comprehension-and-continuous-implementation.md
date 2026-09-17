@@ -12,9 +12,10 @@ Status: active
 The plan for **P3-N001**, the third top-level node, alongside
 [Orchestrator v1](orchestrator-v1.md) (P1-N001) and the
 [Orchestration service](orchestration-service.md) (P2-N001). The node
-stands at `planned`: this document records the outcome, the approach,
-and the interior decision — four chunks, to be entered as children at
-the break-down stage.
+stands at `broken-down` since the specification gate of 2026-09-17,
+where the four chunks this document proposes were entered as its
+children. Its specification is
+[p3-n001-comprehension-and-continuous-implementation](../specs/p3-n001-comprehension-and-continuous-implementation.md).
 
 ## Why now, and what is driving it
 
@@ -189,8 +190,9 @@ the tree. The model generalises it to named edges.
 That creates the first real design decision, and it is a conflict, not
 a gap. Once edges are explicit, sibling order is either redundant or
 contradictory — two encodings of the same fact, one of which can be
-edited without the other. Chunk 1 decides whether explicit edges
-replace ordering, constrain it, or are checked against it.
+edited without the other. **The owner settled it at the gate: sibling
+order as a dependency signal is retired, not reconciled** — see
+directly below.
 
 The register's single-writer constraint (the Orchestrator) carries to
 anything living in it. If dependencies are recorded during a node's
@@ -198,6 +200,29 @@ own preparation, a role that is not the Orchestrator has identified
 something only the Orchestrator may write. Either the record goes
 through the Orchestrator, or the writer rule is narrowed to the
 register's existing fields.
+
+**Settled by the owner at the P3-N001 gate, 2026-09-17.** Two parts,
+and they pull in opposite directions on purpose.
+
+*Sibling order as dependency goes away.* It was a temporary stand-in
+for dependency information the register could not hold, never a
+design. Once edges are recorded, it is not reconciled with them, not
+checked against them — it is retired. That closes the first half of
+what this section called a conflict: chunk 1 does not choose between
+replace, constrain and check-against. It replaces.
+
+*Parent-child relationships stay explicit, and may stay forever.*
+They are formally dependency relationships too, and the hierarchy can
+be viewed or analysed as a flat graph where that is useful. But the
+explicit parent-child structure, and everything it implies, is kept —
+because it is **far easier to comprehend**, which is this model's
+whole point. So the model is not a flat graph that renders a tree for
+display. It is a hierarchy that can be read as a graph for analysis,
+and the hierarchy is the primary form.
+
+The general shape: a relationship whose meaning a person can see at a
+glance is worth keeping even when a more uniform representation could
+subsume it.
 
 ### Backlog — the amendment this most likely forces
 

@@ -157,11 +157,60 @@ spec. First entries land at the pending P1-N008 gate.
   not in *whether* it must be declared. Source: owner decision at the
   P2-N012 gate, 2026-09-01. Applied: T039.
 
+- RU-017 [active] scope/project — When a node's whole driver is
+  another portfolio project, is that project's adoption part of the
+  node? Ruling: no. The node is verified against this repository's own
+  instance; adoption by the other project is a separate node with its
+  own repository grant, requested when it is wanted. Rationale: every
+  criterion must be answerable by a verifier inside the project doing
+  the work, and a node that completes only on another project's
+  adoption cannot be verified by anyone who works on it. Generalizes
+  RU-003 one step out, from an upstream repository to a sibling
+  project. Source: P3-N001 gate (decision 1, default adopted),
+  2026-09-17. Applied: —
+
+- RU-018 [active] scope/process — Is a child queued behind an earlier
+  sibling it does not depend on? Ruling: no. A child that needs
+  nothing an earlier sibling produces is marked independent in the
+  register and may be dispatched alongside it; only a real dependency
+  holds a node. This narrows `dispatch.md`'s earlier-siblings-`done`
+  default, which stands wherever independence is not recorded.
+  Rationale: sibling order was only ever a stand-in for dependency
+  information the register could not hold (see the owner's direction
+  of 2026-09-17, recorded in P3-N001's plan), and holding unrelated
+  work behind it is the defect the comprehension model exists to fix.
+  *Type note:* the taxonomy in
+  [rulings.md](process/rulings.md) has no type for dispatch-sequencing
+  decisions; `scope` is the nearest fit and the gap is filed in the
+  Backlog against P1-N016 rather than papered over. Source: P3-N001
+  gate (decision 2, default adopted), 2026-09-17. Applied: —
+
+- RU-019 [active] verification/project — May a criterion that measures
+  something be satisfied by an unfavourable result? Ruling: yes, and
+  it must be. A measurement criterion is met by the number, the
+  method and the conclusion being recorded, whichever way the number
+  falls; the response to an unfavourable one is a plan change, not a
+  failed node. Rationale: a criterion satisfiable only by a favourable
+  figure measures nothing. Source: P3-N001 gate (decision 6, default
+  adopted), 2026-09-17. Applied: —
+
+- RU-020 [active] completion/process — Does an interior node need a
+  separate `break down` task after its specification? Ruling: no, when
+  the specification already carries the children at the depth such a
+  task would produce: the children are entered `identified` with their
+  Backlog entries at the specification gate and the parent moves
+  `specified` → `broken-down` in the same act. Rationale: three
+  interior nodes have now crossed this way — P2-N002, P2-N012 and
+  P3-N001 — and dispatching a task to restate a breakdown the owner
+  has just approved spends tokens to produce nothing. A specification
+  that does *not* reach that depth still gets the task. Source:
+  P3-N001 gate (decision 8, default adopted), 2026-09-17. Applied: —
+
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events
 (the lists were not maintained on the first run).
 
 Promotion flags: RU-002, RU-003, RU-011, RU-012, RU-013, RU-014,
-RU-015 and RU-016 are process-scope — flagged for the next design pass
-on this spec (rulings.md promotion rule).
+RU-015, RU-016, RU-018 and RU-020 are process-scope — flagged for the
+next design pass on this spec (rulings.md promotion rule).

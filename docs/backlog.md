@@ -322,6 +322,81 @@
 
 ## Upcoming
 
+- [ ] **The comprehension model** (node P3-N002, chunk 1 of P3-N001,
+  `identified` 2026-09-17) — the model itself, defined as an extension
+  of the planning and execution model, plus one instance over this
+  repository and whatever amendment or type declaration its own design
+  decisions force. Carries P3-N001's open question: which register it
+  extends, or whether it is a new one. Leads with a thin end-to-end
+  slice — a handful of real parts of this project carried through
+  state, specification, risks and edges before the notation is
+  generalized (decision 4). Writes the navigation bound into its
+  criteria before it executes (decision 5, three steps, the owner
+  reserving slight modification). Accepts dependency records made at
+  both moments — during a breakdown and during a single node's
+  preparation. States the disposition of each of the four hand-written
+  encodings the plan's register review found, and states the writer
+  rule. Sibling order as a dependency signal is retired rather than
+  reconciled, and the explicit hierarchy is kept (owner direction
+  2026-09-17, [RU-018](rulings.md)). Criteria: I1–I3, I2a, G1–G5 of
+  [the specification](specs/p3-n001-comprehension-and-continuous-implementation.md).
+  Next stage: plan.
+
+- [ ] **The common risk catalogue** (node P3-N003, chunk 2 of P3-N001,
+  `identified` 2026-09-17) — a populated register of risks every
+  project must mitigate directly, drafted here and then proposed
+  upstream at the methodology level; populate first, propose second.
+  Every entry carries the real encounter it came from, with a date and
+  an artifact. The entry test is stated and applied — a risk recurs
+  *across* projects and must be mitigated by each, rather than being
+  tracked by one — and at least one candidate is rejected by it in
+  writing. Execution-environment coverage is present, the class this
+  project previously admitted nothing covered. Carries the
+  class-to-instance citation and the omission check of G7.
+  **Independent of P3-N002** ([RU-018](rulings.md)): dispatchable
+  alongside it. Criteria: G7, P4. Next stage: plan.
+
+- [ ] **Reversibility, and the measurement that says whether it pays**
+  (node P3-N004, chunk 3 of P3-N001, `identified` 2026-09-17) — work
+  inside an active workstream made cheap to reverse and redo, and the
+  measurement that says whether the trade is paying. Adds the Cost log
+  field saying what a rework row is rework *of*, in the type spec and
+  the instance together; computes one real comparison over this
+  project's own history and records the method; states what "reverse"
+  means operationally for this project's artifact classes. **An
+  unfavourable result satisfies the criterion** ([RU-019](rulings.md)).
+  **Depends on P3-N002**: the economics are computable only once what
+  depended on a reversed thing is recorded. Criteria: I7, G5. Next
+  stage: plan, after P3-N002.
+
+- [ ] **Sequence mode: run it, and determine whether it needs
+  specialising** (node P3-N005, chunk 4 of P3-N001, `identified`
+  2026-09-17) — two halves. The local half is required: the change
+  that lets this project's own dispatch loop run W-001's pre-ratified
+  sequence mode, with the four stop conditions written where a
+  dispatched role meets them without looking and scored against this
+  project's own past task results so two readings agree. The asks-driven
+  stop reads W-008's named section rather than judging prose, and
+  applies the owner's 2026-09-17 clarification of what an *Asks*
+  section may contain. The upstream half is optional: an Article 8
+  proposal, **or** a recorded argument that W-001 as released needs no
+  change — a well-argued "no mechanism, and here is the clarification
+  that would have been one" is a complete deliverable. **Independent
+  of P3-N002** ([RU-018](rulings.md)). Criteria: G6, I8, P4. Next
+  stage: plan.
+
+- [ ] **The Ruling register's type taxonomy has no type for
+  dispatch-sequencing decisions** — found 2026-09-17 capturing
+  [RU-018](rulings.md) at the P3-N001 gate. The taxonomy in
+  [rulings.md](process/rulings.md) is `handoff` · `tier` ·
+  `completion` · `scope` · `verification` · `comms`, and a ruling
+  about whether a node may be dispatched alongside a sibling fits none
+  of them; `scope` was used as the nearest fit with the mismatch
+  stated in the entry rather than papered over. Extending the taxonomy
+  is a spec change by the type spec's own terms, so this is bound for
+  P1-N016's single considered change to the process spec rather than
+  fixed in place.
+
 - [ ] **Project comprehension and continuous implementation** (node
   P3-N001, `planned` 2026-09-17) — the third top-level node, planned
   in
@@ -351,8 +426,14 @@
   integration invariants and six process criteria, all answerable
   from this repository; the register review's two "likely" amendments
   turned into criteria that a proposal **or** a recorded argument for
-  none can satisfy; eight decisions staged with defaults. Next stage:
-  break down — proposed to cross at the specification gate.
+  none can satisfy; eight decisions staged with defaults. **Gate crossed 2026-09-17**:
+  all eight defaults adopted with no override, specification `active`,
+  the four children entered as P3-N002..P3-N005 and the node
+  `broken-down`. Four rulings captured (RU-017..RU-020). Two owner
+  directions came with the go-ahead: the navigability bound is adopted
+  with latitude, and sibling order as a dependency signal is retired
+  while the explicit hierarchy is kept — which settles half of
+  criterion I2 and adds I2a. Next stage: the children's plans.
 
 - [ ] **The Backlog carries two open entries for P3-N001, one of them
   stale** — found 2026-09-17 at the specify stage. The node entry
