@@ -322,6 +322,12 @@
 
 ## Upcoming
 
+- [ ] **Adjudicate the communication-pipeline roles proposal** —
+  [proposals/communication-pipeline-roles.md](proposals/communication-pipeline-roles.md)
+  (received 2026-10-26): a paraphraser role (standard tier), a
+  stranger reviewer role for prose (frugal tier), an IR line in the
+  task result, and a mechanical routing rule driven by the IR. Owner
+  decision; the pipeline's exit depends on it.
 - [ ] **Six dangling links inside verbatim upstream quotations** —
   found 2026-09-02 by the form audit at the 1.5.0 migration; not
   pre-existing to that PR, which changed no proposal document.
