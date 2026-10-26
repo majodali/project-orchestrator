@@ -319,15 +319,18 @@
   three ways the disposition entry above records
   ([p1-n014 plan](plans/p1-n014-role-contracts-adopt-v140-rules.md),
   gate outcome).
+- [x] **Communication-pipeline roles proposal accepted** — owner,
+  2026-10-26:
+  [proposals/communication-pipeline-roles.md](proposals/communication-pipeline-roles.md)
+  implemented in [roles.md](process/roles.md) (Paraphraser, standard
+  tier; Reviewer (stranger), frugal tier) and
+  [dispatch.md](process/dispatch.md) (the IR in the task result; the
+  prose routing table). The review step runs rounds until readable,
+  limit ten, per the methodology specification's rule of the same
+  day; a text over two rounds goes to the pipeline for meta-review.
 
 ## Upcoming
 
-- [ ] **Adjudicate the communication-pipeline roles proposal** —
-  [proposals/communication-pipeline-roles.md](proposals/communication-pipeline-roles.md)
-  (received 2026-10-26): a paraphraser role (standard tier), a
-  stranger reviewer role for prose (frugal tier), an IR line in the
-  task result, and a mechanical routing rule driven by the IR. Owner
-  decision; the pipeline's exit depends on it.
 - [ ] **Six dangling links inside verbatim upstream quotations** —
   found 2026-09-02 by the form audit at the 1.5.0 migration; not
   pre-existing to that PR, which changed no proposal document.

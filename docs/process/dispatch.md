@@ -65,6 +65,25 @@ If the Orchestrator cannot classify a decision as low-judgment, it is
 not one. A dispatched role that meets a decision above its own
 authority returns `needs-judgment` rather than deciding.
 
+**Prose routing.** When a task result carries an intermediate
+representation (IR), the Orchestrator routes its rendering and review
+mechanically from the IR alone, in the order given; the first
+condition that holds decides (accepted from the
+[communication-pipeline proposal](../proposals/communication-pipeline-roles.md),
+2026-10-26; the thresholds are the methodology specification's
+rendering conditions and are tuned there).
+
+| Condition | Dispatch |
+|---|---|
+| the IR's header carries `Normative: yes` | the author renders; Reviewer (stranger) rounds until readable |
+| the owner flagged the output for review | Paraphraser, then Reviewer (stranger) rounds until readable |
+| the result is a document for a fresh session or an external reader (RD-4, RD-5) | Paraphraser, then Reviewer (stranger) rounds until readable |
+| the IR has a proposed term | Paraphraser; the gate summary carries the ratification ask |
+| the result is for the owner returning (RD-2) | Paraphraser |
+| the result is for the owner in conversation (RD-1) and has more than six claims, a dependent ask, or a claim over thirty words | Paraphraser |
+| the result is for the Orchestrator (RD-3) and has more than twelve claims or a dependent ask | Paraphraser |
+| otherwise | neither; the IR is delivered as it stands |
+
 ## Owner-decision economics
 
 Owner ruling at trial 2 (2026-08-25): the owner's attention is the
@@ -125,6 +144,13 @@ task returns a fixed shape.
 
 - Status: `done` · `blocked: <reason>` · `needs-judgment:
   <the decision, the options seen, the role's recommendation>`.
+- An intermediate representation (IR) beside the prose, or instead
+  of it, when the result introduces a term, records a decision, or
+  states a register fact. The IR is the map the Orchestrator reads at
+  acceptance: its asks are the asks; its proposed terms are the terms
+  the gate summary lists under *Terms introduced* (W-008, reports map
+  their deliverables); its claims with status proposed are what
+  changed.
 - The work: commits on a single-use branch named for the node's
   outcome (W-006), documentation moved in the same commits (W-003).
   Where the execution surface mandates a session-assigned branch

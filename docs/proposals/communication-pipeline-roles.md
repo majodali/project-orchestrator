@@ -1,6 +1,6 @@
 # Two roles and a routing rule from the communication pipeline
 
-Status: draft
+Status: accepted (owner, 2026-10-26; implemented in roles.md and dispatch.md the same day, with the review step amended to rounds until readable per the methodology specification)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into this repository as a pull request, text unchanged) →
