@@ -188,9 +188,11 @@ readable, with a limit of ten; the Orchestrator counts the rounds.
   (communication-pipeline branch point v1.5, 2026-10-27). The
   Orchestrator acts on the report mechanically: a verdict of not
   readable returns the task to its author with the table and
-  schedules the next round; a text with three or more rounds in one
-  count is reported to the communication-pipeline project for
-  meta-review.
+  schedules the next round; a text whose count reaches the limit, or
+  whose review record shows a meta-review signal (the methodology
+  specification's Meta-review section; communication-pipeline branch
+  point v1.6, 2026-10-27), is reported to the communication-pipeline
+  project for meta-review.
 
 ### Liaison
 
