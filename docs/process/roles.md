@@ -137,7 +137,9 @@ role (accepted from the
   into prose for one catalog reader (the methodology style guide's
   Readers table, RD-1 to RD-5), one claim per sentence, adding no
   claim and dropping none, and appends a render map naming where
-  each claim landed.
+  each claim landed. A reason the IR holds as a claim of its own,
+  related to its rule, renders joined to the rule by connective
+  prose (communication-pipeline branch point v1.4, 2026-10-27).
 - **Never**: reasons about the subject, reads the session that
   produced the IR, or reads any document the IR does not link.
 - **Produces**: the prose and its render map. A claim it cannot
@@ -155,23 +157,36 @@ communication-pipeline proposal, 2026-10-26). The methodology's
 specification runs stranger reviews in rounds until a round returns
 readable, with a limit of ten; the Orchestrator counts the rounds.
 
-- **Decides**: the findings against a fixed list (an undefined or
-  borrowed term; an unresolved referent; a sentence carrying two
-  separately decidable claims; a bare identifier; rhetoric; emphasis
-  bold; report parts missing or out of order; for an IR, a claim
-  whose evidence does not show what it says) and the answer to the
-  reader's readability test.
+- **Decides**: a restatement of the text (at most 200 words: its
+  problem, terms and decisions), written from the prose before the IR
+  is read; the disagreements between that restatement and the IR;
+  the findings against a fixed list (an undefined or borrowed term;
+  an unresolved referent; a sentence carrying two separately
+  decidable claims; an identifier with neither name nor link at first
+  use; rhetoric; a duty with no actor or trigger; two passages that
+  cannot both be followed; words that can go without losing a claim;
+  for an IR, a claim whose evidence does not show what it says); and
+  the verdict: readable when the restatement matches the IR and the
+  instance finds no contradiction and no undefined term, whatever
+  the finding count (communication-pipeline branch point v1.4,
+  2026-10-27).
 - **Never**: contributes content, rewrites the text, or reads beyond
   what the text links. It has no access to the producing session, by
   construction: a fresh context is the role's defining input, and
-  each round gets a fresh instance.
-- **Produces**: a findings table with quoted text, rule and severity;
-  a readability verdict; counts (words, findings, findings per
-  thousand words, undefined terms, unresolved referents). The
-  Orchestrator acts on it mechanically: a verdict of not readable
-  returns the task to its author with the table and schedules the
-  next round; a text that needs more than two rounds is reported to
-  the communication-pipeline project for meta-review.
+  each round gets a fresh instance. The brief carries the earlier
+  rounds' declined findings with their reasons, and nothing else of
+  the earlier rounds.
+- **Produces**: the restatement; a findings table with quoted text,
+  rule, locus (prose, IR or both) and fix kind (cut, rephrase or add);
+  the verdict with its three readings; counts. After the author's
+  fixes, the same instance receives its findings table and the fixed
+  passages and answers, per finding, whether the fix holds; a fix
+  that does not hold is fixed again before the next round. The
+  Orchestrator acts on the report mechanically: a verdict of not
+  readable returns the task to its author with the table and
+  schedules the next round; a text with three or more rounds in one
+  count is reported to the communication-pipeline project for
+  meta-review.
 
 ### Liaison
 
