@@ -174,14 +174,18 @@ readable, with a limit of ten; the Orchestrator counts the rounds.
   what the text links. It has no access to the producing session, by
   construction: a fresh context is the role's defining input, and
   each round gets a fresh instance. The brief carries the earlier
-  rounds' declined findings with their reasons, and nothing else of
-  the earlier rounds.
+  rounds' declined findings with their reasons, a finding declined
+  in part with its declined part, and nothing else of the earlier
+  rounds.
 - **Produces**: the restatement; a findings table with quoted text,
   rule, locus (prose, IR or both) and fix kind (cut, rephrase or add);
   the verdict with its three readings; counts. After the author's
   fixes, the same instance receives its findings table and the fixed
   passages and answers, per finding, whether the fix holds; a fix
-  that does not hold is fixed again before the next round. The
+  that does not hold is fixed again before the next round. At the
+  readable round the same confirmation precedes delivery, and the
+  review record marks each finding confirmed or unfixed
+  (communication-pipeline branch point v1.5, 2026-10-27). The
   Orchestrator acts on the report mechanically: a verdict of not
   readable returns the task to its author with the table and
   schedules the next round; a text with three or more rounds in one
