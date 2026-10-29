@@ -7,6 +7,12 @@ Status: active
      live claim of current intent. Chunk boundaries are set by the human
      owner (W-001); the boundaries below are proposed for that review. -->
 
+Reader: RD-4 in the methodology's
+[reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers) (a fresh agent
+session), and the owner reviewing the founding plan. It assumes the
+methodology at this project's pinned version, 1.6.0
+([Classification](../classification.md)).
+
 Outcome under development: a runtime-agnostic orchestration process
 specification and the Claude Code plugin implementing it, exercised on
 one real portfolio project, so that role-based agent sessions carry out
@@ -18,7 +24,7 @@ These bind every chunk; the spec and plugin are designed inside them.
 
 1. **Methodology compliance.** This project and every project it
    orchestrates comply with majodali/methodology at their pinned
-   versions (this repo: v1.4.0 since the 2026-08-30 migration). The
+   versions (this repo: v1.6.0 since the 2026-10-28 migration). The
    orchestrator's roles are refinements of the methodology's roles
    (Human owner · Agent · Reviewer · Auditor); where refinement
    exposes a gap, the fix is an amendment proposal upstream, never a
@@ -142,10 +148,14 @@ Gate: owner observes a self-hosted orchestration demo.
 
 ### Chunk 5 — Pilot on a real project
 
-**Superseded 2026-08-26** by
-[orchestration-service](orchestration-service.md) chunk 5, because the
-pilot now runs through the service rather than bare Claude Code
-surfaces. Retained here until this plan closes out.
+> Superseded by
+> [P2-N001 decision 2 (chunk boundaries)](orchestration-service.md#decisions-for-the-gate)
+> on 2026-08-26: the pilot now runs through the service, as chunk 5
+> (migration and pilot) of the
+> [orchestration-service](orchestration-service.md) plan, rather than
+> on bare Claude Code surfaces. This section describes the
+> pre-decision pilot; read that chunk for the pilot's current shape.
+> The text is retained until this plan closes out.
 
 Run the orchestrator end to end on one portfolio project chosen by the
 owner (an implicit-C0 or C1 project first). Record costs and lessons;
@@ -154,11 +164,14 @@ Gate: owner reviews pilot results and the lessons record.
 
 ### Chunk 6 — Cost reporting v1 and close-out
 
-**Runtime assumptions superseded 2026-08-26** by
-[orchestration-service](orchestration-service.md): reporting will read
-service-held state alongside the cost logs and journals, and the v2
-themes below are carried into that plan. The reporting and
-retrospective outcomes stand.
+> Superseded by
+> [P2-N001 decision 4 (v1 plan disposition)](orchestration-service.md#decisions-for-the-gate)
+> on 2026-08-26, for this chunk's runtime assumptions only: reporting
+> will read service-held state alongside the cost logs and journals,
+> and the v2 themes below are carried into the
+> [orchestration-service](orchestration-service.md) plan. Read the
+> runtime assumptions below as the pre-decision state; the reporting
+> and retrospective outcomes stand.
 
 Aggregate reporting over the cost logs and run journals (per node,
 role, tier — including the failed and repeated work the journals
@@ -200,7 +213,7 @@ Open:
 ## References
 
 - [majodali/methodology](https://github.com/majodali/methodology)
-  v1.4.0 — Constitution, vocabulary, rule corpus, style guide
+  v1.6.0 — Constitution, vocabulary, rule corpus, style guide
 - [methodology-tools](https://github.com/majodali/methodology-tools)
   — `mtool` (upstream audit tooling)
 - [docs/classification.md](../classification.md) — this repo's

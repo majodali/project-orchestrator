@@ -1,10 +1,30 @@
 # Backlog
 
+Reader: RD-4 in the methodology's
+[reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers) (a fresh agent
+session), and the owner returning after a gap (RD-2). It assumes the
+methodology at this project's pinned version, 1.6.0
+([Classification](classification.md)), and the
+[process specification](process/README.md).
+
 <!-- The single source of progress truth (methodology K-003): one
      dependency-ordered register of completed and upcoming work. Rewrite
      checked entries to describe what actually shipped — the completed
      section doubles as the implementation map. Update in the same commit
      as the work (W-003). -->
+
+Row shape, under
+[P-006 (registers hold uniform rows)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md#p-006--registers-hold-uniform-rows):
+each entry is one row of four fields, in this order: what, when,
+status, pointer. It is written
+`- [ ] **<what>** — When: <date, source>. Status: <state>. Pointer: <link>.`
+Reasoning lives in the linked document, never in the entry.
+
+The lag: entries added or rewritten from this declaration on
+(2026-10-29, node P1-N014) follow the row shape. Earlier entries keep
+their longer form until a scheduled editorial pass reshapes them (the
+entry "Editorial pass over the Backlog to the declared row shape",
+below). Correcting one fact in an earlier entry does not rewrite it.
 
 ## Completed
 
@@ -347,12 +367,13 @@
   roles.md's pipeline clauses run ahead of the pin and retarget at the
   next pin bump; a dispatched role whose working directory is another
   repository receives that repository's CLAUDE.md, for P1-N016's packet
-  pass; orchestrator-v1.md still claims a v1.4.0 pin, corrected in this
+  pass; orchestrator-v1.md claimed a v1.4.0 pin, corrected in this
   node's execute. The register's P1-N014 line reads specified, where
   the older entry below said identified. Gate crossed 2026-10-29:
   defaults adopted, decision 12 option (a), *conduct duty* ratified,
   RU-022 captured from decision 11, node renamed "Role contracts adopt
-  the methodology's conduct rules". Next: execute.
+  the methodology's conduct rules". Executed 2026-10-29 (T047); the
+  node's row is the entry of that name, below.
 - [x] **Migrated to methodology 1.6.0** (2026-10-28, PR #11) — the pin
   and the amended W-008 bootstrap block with its fourth part, Terms
   introduced; no other migration note. Recorded late, at T046's
@@ -526,19 +547,12 @@
   `lib/form-check-core.ts` encodes them — so this is an editorial
   amendment, not a code change.
 
-- [ ] **Two nodes edit the same six role contracts, and neither knows
-  it** — found 2026-09-17 planning P3-N005. P1-N014 (`planned`) adds
-  the v1.5.0 conduct duties and R17's fallback wording to
-  `.claude/agents/`; P3-N005's child B adds W-001's stop conditions to
-  the same six files. The additions do not overlap in content, so
-  neither blocks the other, and imposing an order would be the defect
-  [RU-018](rulings.md) exists to prevent. The hazard is descriptive,
-  not structural: each plan describes the contracts as they stood when
-  it was written, and a document describing another document's state
-  goes stale silently — this project has recorded that failure twice
-  already. P3-N005's decision 8 requires child B to read the contracts
-  as they then stand. Recorded so whichever node runs second knows the
-  other exists.
+- [ ] **Two nodes edit the same six role contracts** — When: found
+  2026-09-17 planning P3-N005, ordered by the owner 2026-10-29.
+  Status: P1-N014's contract edits landed first, 2026-10-29 (T047).
+  P3-N014, P3-N005's child B, edits the same files next and reads them
+  as they then stand (P3-N005 decision 8). Pointer:
+  [P1-N014 specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the binding section.
 
 - [ ] **Retiring the Ruling register's `Applied:` field** — the option
   P3-N002's decision 5 declines by default, kept live here. A ruling is
@@ -1655,13 +1669,11 @@
   multiple instances, and the case for these two today rests on one
   conversation. Condition for proposing them: recorded instances from
   real project reports, not a single exchange.
-- [ ] **Role contracts adopt the v1.4.0 conduct rules** — node
-  P1-N014, stage `identified`, opened 2026-08-30, planned 2026-08-31.
-  States the report duty, the supersession duties, and the reach of
-  the prose rules once each, in `docs/process/` and the six role
-  contracts in `.claude/agents/`, with `plugin/agents/` regenerated.
-  Planned as a leaf, nine decisions staged with defaults.
-  Plan: [p1-n014-role-contracts-adopt-v140-rules](plans/p1-n014-role-contracts-adopt-v140-rules.md).
+- [ ] **Role contracts adopt the methodology's conduct rules** (node
+  P1-N014) — When: executed 2026-10-29 (T047). Status: work committed,
+  verifying next. The seventeen duties are stated once in
+  `docs/process/` and carried by the six role contracts, with
+  `plugin/agents/` regenerated. Pointer: [specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the duty inventory.
 - [ ] **Methodology citations in the process spec point at the
   superseded pin** — identified 2026-08-31 while planning P1-N014,
   not executed. Nine links under `docs/process/` and in

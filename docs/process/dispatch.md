@@ -4,6 +4,13 @@ Part of the [orchestration process specification](README.md).
 Defines how work moves: what the Orchestrator may decide, how tasks
 are handed to roles, what comes back, and what may start any of it.
 
+Reader: RD-4 in the methodology's
+[reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers) (a fresh agent
+session): any role that dispatches, serves or verifies a task. It
+assumes the methodology at this project's pinned version, 1.6.0
+([Classification](../classification.md)), and the
+[process specification's](README.md) defined terms.
+
 ## The loop
 
 **The Orchestrator's own working set is minimal** (trial-3 finding:
@@ -33,7 +40,12 @@ project's [profile](profiles.md), the Orchestrator repeatedly:
    change in the register (and synced Backlog designation) and the
    [cost-log entry](cost-log.md), then loops. The form checks also
    run before step 1's selection — a failing register blocks dispatch
-   until repaired.
+   until repaired. The handoff check covers every field of the
+   [result core](#def-result-core). A result missing a core field is
+   not accepted. Each located finding the result reports becomes a
+   Backlog addition in the acceptance commit, unless the next task in
+   scope acts on that file. That task's brief then carries the finding
+   instead.
 4. **Stops** at a gate, on an empty actionable set, on a blocked
    task, or on exhausting approved scope — and summarizes to the
    owner (W-001: deliver, summarize, stop).
@@ -63,7 +75,10 @@ a session does not retry and does not wait. It proceeds on this loop
 exactly as written above, editing the register and committing
 directly: the service is never a dependency, only an accelerator when
 it answers. This is the standing mitigation this project records for
-[R12](../open-risks.md) in the Risk register.
+[R12](../open-risks.md) in the Risk register. A failure to connect
+is a settled fact for the rest of the session. The session does not
+re-examine it, whatever its surface's notices suggest
+([R17 (the harness's guidance pushes against the fallback rule)](../open-risks.md)).
 
 ## Judgment routing
 
@@ -118,6 +133,17 @@ batches, against stated defaults.
 - **Defaults are mandatory.** Every decision routed toward the owner
   MUST carry a recommended default and its one-line rationale. A
   decision without a default is not ready to route.
+- **Affected locations travel with the decision.** Every staged
+  decision carries a third field after its default and rationale: the
+  locations its adoption would leave contradicted, each with drafted
+  text
+  ([K-010 (superseded content is never silently readable)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-010--superseded-content-is-never-silently-readable)).
+  The drafted text is a correction where the document is `active`, and
+  a supersession marker otherwise. A decision with no such location
+  states "Affected locations: none". The Planner enumerates the
+  locations and drafts the text. At gate crossing the Orchestrator
+  places the adopted option's drafted text verbatim, in the commit
+  that captures the ruling.
 - **Decisions batch at the gate.** The gate summary lists them
   numbered, defaults stated; the owner's go-ahead adopts every
   default not explicitly overridden by number. One decision per
@@ -159,30 +185,75 @@ task returns a fixed shape.
    (W-003) and the explicit note that decisions above the role's
    authority return `needs-judgment`.
 
-**Task result** (returned by the role):
+**Task result** (returned by the role). Every task result is a report
+to a [delegating agent](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-delegation),
+the Orchestrator, under
+[W-008 (reports map their deliverables)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-008--reports-map-their-deliverables).
+That rule sets what the report owes. This contract fixes the order of
+its parts and adds the fields the rule does not cover.
 
-- Status: `done` · `blocked: <reason>` · `needs-judgment:
-  <the decision, the options seen, the role's recommendation>`.
-- An intermediate representation (IR) beside the prose, or instead
-  of it, when the result introduces a term, records a decision, or
-  states a register fact. The IR is the map the Orchestrator reads at
-  acceptance: its asks are the asks; its proposed terms are the terms
-  the gate summary lists under *Terms introduced* (W-008, reports map
-  their deliverables); its claims with status proposed are what
-  changed.
-- The work: commits on a single-use branch named for the node's
-  outcome (W-006), documentation moved in the same commits (W-003).
-  Where the execution surface mandates a session-assigned branch
-  name (cloud sessions do), the mandated branch satisfies this
-  clause; the task result notes it, and the branch remains
-  single-use in substance — one deliverable, deleted after merge.
+<a id="def-result-core"></a>The **result core** comes first, in this
+order:
+
+1. Status: `done` · `blocked: <reason>` · `needs-judgment:
+   <the decision, the options seen, the role's recommendation>`.
+2. The deliverable map that
+   [W-008 (reports map their deliverables)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-008--reports-map-their-deliverables)
+   requires: what the task delivered, and where. For work, that is
+   commits on a single-use branch named for the node's outcome
+   ([W-006 (names follow outcomes; branches are single-use)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-006--names-follow-outcomes-branches-are-single-use)),
+   with documentation moved in the same commits
+   ([W-003 (documentation moves in the same commit as the work)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-003--documentation-moves-in-the-same-commit-as-the-work)).
+   Where the execution surface mandates a session-assigned branch
+   name (cloud sessions do), the mandated branch satisfies this
+   clause. The task result notes it, and the branch stays single-use
+   in substance: one deliverable, deleted after merge.
+3. The asks part that
+   [W-008 (reports map their deliverables)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-008--reports-map-their-deliverables)
+   requires, stated when empty. It lists what the role requests of the
+   Orchestrator. Where the deliverable adds a Decisions-for-the-gate
+   section, the asks part points at that section rather than copying
+   its entries.
+4. Terms introduced, as
+   [W-008 (reports map their deliverables)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-008--reports-map-their-deliverables)
+   requires, when the result has any.
+5. Located findings: each contradiction with a recorded decision that
+   the role found and did not correct. Each is given as
+   [K-011 (found contradictions are marked, not routed around)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-011--found-contradictions-are-marked-not-routed-around)
+   defines a located finding: the file, the location, and the decision
+   contradicted. The field states "none" when there are none.
+6. Packet widenings: every read beyond the enumerated packet, with its
+   reason ([Context packets](#context-packets)). The field states
+   "none" when there are none.
+7. Session usage for the [cost log](cost-log.md): model, and token
+   counts as reported by the harness.
+
+A role's own fields sit between items 4 and 5, named in its contract
+([roles.md](roles.md)). They are attributable to the role, never to
+drift. This contract fixes three of them for any role that produces
+them:
+
 - Proposed register changes (new children from a breakdown, a stage
   transition, a backward transition with its reason) — proposed, not
   written; the Orchestrator is the register's single writer.
 - Backlog additions for everything identified and not executed
   (owner ruling 1: at any time, from any unit of work).
-- Session usage for the [cost log](cost-log.md): model, and token
-  counts as reported by the harness.
+- An intermediate representation (IR) beside the prose, or instead
+  of it, when the result introduces a term, records a decision, or
+  states a register fact. The IR is the map the Orchestrator reads at
+  acceptance: its asks are the asks; its proposed terms are the terms
+  the gate summary lists on its *Terms* line ([Gates](#gates-v1)); its
+  claims with status proposed are what changed. A document this
+  project drafts for the methodology corpus is written IR first,
+  whatever else the result carries. Its IR travels with it under the
+  provenance line of RU-015 (upstream delivery form), per
+  [RU-022 (corpus-bound documents are written IR first)](../rulings.md),
+  which carries
+  [W-009 (the methodology corpus writes its deliverables IR first)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-009--the-methodology-corpus-writes-its-deliverables-ir-first)
+  to this project. A role whose text comes back with a Reviewer
+  (stranger) findings table acts on each finding. It fixes the
+  finding, or declines it with a reason that the next round's brief
+  carries ([roles.md](roles.md), Reviewer (stranger)).
 
 ## Failure containment
 
@@ -257,21 +328,38 @@ where the summary was given and reflected in the plan document.
 Risk-triggered gating and parallel review are explicitly out of v1
 (founding plan, standing constraint 6).
 
+At a crossing, the Orchestrator places each adopted decision's drafted
+text at its affected locations, verbatim, in the commit that captures
+the ruling (owner-decision economics, above).
+
 **A scope grant states**: the approved nodes and stages; where the
 gates are; any budget (task count or token total); any standing
 pre-authorizations; any additional repositories.
 
-**The gate summary follows this template** (target: under ~20
-lines; the Liaison relays it verbatim in substance):
+**The gate summary follows this template.** A gate summary is a
+report to the owner, the principal audience of
+[W-008 (reports map their deliverables)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-008--reports-map-their-deliverables).
+It opens with an outcome line. The rule's four parts follow in the
+rule's order, each stated when empty in the rule's own words. The
+numbered decisions are the asks, term ratifications included. The
+open, precedents, costs and blockers lines close it
+([specification of P1-N014 (role contracts adopt the methodology's conduct rules)](../specs/p1-n014-role-contracts-adopt-conduct-rules.md),
+decision 12: the gate summary template). The target is under about 24
+lines. The Liaison relays it verbatim in substance.
 
 ```
-GATE <node or gate name> — <scope recap, one line>
-Delta:     <node> <from> → <to> [hold]      (one line per node moved)
+GATE <node or gate name> — <the outcome or the decision needed, one line>
+Asks       (go adopts all defaults; override by number):
+  1. <decision> — default: <choice> (<one-line rationale>)
+  2. Ratify or strike <term> — default: <ratify | strike> (<rationale>)
+Covered:   <what the gated documents encode that the owner already
+            settled, or the stated-empty part>
+Changed:   <node> <from> → <to> [hold]      (one line per node moved)
+  Detail: <path(s) to the plan/spec Decisions-for-the-gate sections>
+Terms:     <each term introduced, with its meaning in one sentence, or
+            the stated-empty part>
 Open:      <every non-terminal node in scope: actionable | in-flight
             | blocked (reason) | gated>     (the no-silent-drops list)
-Decisions  (go adopts all defaults; override by number):
-  1. <decision> — default: <choice> (<one-line rationale>)
-  Detail: <path(s) to the plan/spec Decisions-for-the-gate sections>
 Precedents: <rulings applied this run, e.g. RU-003 → T012; omit if none>
 Costs:     <tasks, total tokens, models, wall-clock per task from
             the journal>
