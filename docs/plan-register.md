@@ -21,7 +21,7 @@ honestly; chunks 1–3 completed before this register existed.
   - P1-N014 [done] Role contracts adopt the methodology's conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md · spec: specs/p1-n014-role-contracts-adopt-conduct-rules.md
   - P1-N015 [done] Methodology amendments for delegated, multi-agent work — plan: plans/p1-n015-methodology-amendments-delegated-work.md · spec: specs/p1-n015-methodology-amendments-delegated-work.md
   - P1-N016 [identified] Process spec maintenance: branch lifecycle, PR citation, packet table
-  - P1-N006 [identified] Pilot on a real project (chunk 5) — superseded in place by P2-N001 chunk 5; kept until the founding plan closes out
+  - P1-N006 [identified] Pilot on a real project (chunk 5) — superseded in place by P2-N006; kept until the founding plan closes out
   - P1-N007 [identified] Cost reporting v1 and close-out (chunk 6)
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
   - P2-N002 [done] Service skeleton and plan state (chunk 1) — plan: plans/p2-n002-service-skeleton.md · spec: specs/p2-n002-service-skeleton.md
@@ -35,9 +35,9 @@ honestly; chunks 1–3 completed before this register existed.
     - P2-N014 [done] Pull-request checks that cannot deploy
     - P2-N015 [done] Alias-aware lease-table selection, failing closed
     - P2-N016 [done] Deploy, smoke and promote on merge to main
-  - P2-N003 [identified] Owner questions and the plan view (chunk 2)
-  - P2-N004 [identified] Topics and coordination (chunk 3)
-  - P2-N005 [identified] The task-pull loop (chunk 4)
+  - P2-N003 [identified] Owner questions and the plan view (chunk 2) — to split at planning into the web view's first version, specified against P3-N006, and the owner question queue, after P2-N006 (owner, 2026-10-29)
+  - P2-N004 [identified] Topics and coordination (chunk 3) — after P2-N006, built only on a shown need (owner, 2026-10-29)
+  - P2-N005 [identified] The task-pull loop (chunk 4) — independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29): the next service chunk
   - P2-N006 [identified] Migration and pilot (chunk 5)
 - P3-N001 [broken-down] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
   - P3-N002 [broken-down] The comprehension model (chunk 1) — plan: plans/p3-n002-comprehension-model.md · spec: specs/p3-n002-comprehension-model.md

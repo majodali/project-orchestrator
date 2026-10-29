@@ -246,7 +246,7 @@ notation. Decision 2 says when they reach the instance.
 - **Nodes.** None among the siblings: P3-N006 is first in the chain.
   P3-N003 and P3-N005 are independent of P3-N002
   ([RU-018](../rulings.md)), and nothing here changes that.
-- **Overlap, not dependency: P1-N014.** P1-N014 is `executing` and
+- **Overlap, not dependency: P1-N014.** P1-N014 (done on 2026-10-29, after this plan was written) also edits the Backlog header; it was `executing` at planning time and
   declares the Backlog's row shape in the Backlog header. P3-N006
   adds a line to the same header. The edits do not overlap. P3-N006
   reads the header as it then stands, and writes its Backlog entry in
