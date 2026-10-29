@@ -61,7 +61,7 @@ Each node below carries five fields, always in this order.
 
 - Stage: the current stage, with the date it was reached where a record states one.
 - Outcome: for a done node, what shipped. For an open node, what done looks like.
-- Depends on: the other nodes whose completion this node's work waits on. A parent's own children are never listed here, because a parent finishes when its children do.
+- Depends on: the nodes, outside this node's own subtree, whose completion this node's work waits on. A parent's own children are never listed here, because a parent finishes when its children do.
 - Needed by: the nodes that wait on this one.
 - Documents: links to the node's plan and specification, where they exist.
 
@@ -152,7 +152,7 @@ The children of P1-N009, in their chain order:
   - Documents: the parent's plan and specification.
 - P1-N013 The cutover: sync_agents ported, every invocation site moved, the Python retired
   - Stage: done, 2026-08-30.
-  - Outcome: Shipped `sync_agents`, the script that copies the role contracts into the plugin, in TypeScript, and removed the Python scripts in the same commit.
+  - Outcome: Shipped `sync_agents`, the script that copies the role contracts into the plugin, in TypeScript, and removed the Python scripts in one commit.
   - Depends on: P1-N012.
   - Needed by: nothing.
   - Documents: the parent's plan and specification.
