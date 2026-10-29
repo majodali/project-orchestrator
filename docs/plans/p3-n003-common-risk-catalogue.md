@@ -1,6 +1,6 @@
 # The common risk catalogue
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -15,6 +15,8 @@ gives this node criteria **G7** and **P4** and four additions its
 breakdown names. **Independent of P3-N002**
 ([RU-018](../rulings.md)): nothing below needs the comprehension model
 to exist, and the *Independence* section states what was checked.
+This node's own specification is
+[p3-n003-common-risk-catalogue](../specs/p3-n003-common-risk-catalogue.md).
 
 Outcome under development: a **populated register of risk classes that
 every managed project must mitigate directly**, drafted in this

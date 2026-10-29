@@ -331,6 +331,21 @@
 
 ## Upcoming
 
+- [ ] **P3-N003 specified, 2026-10-29 (T044)** — the common risk
+  catalogue's specification stands at
+  [specs/p3-n003-common-risk-catalogue.md](specs/p3-n003-common-risk-catalogue.md):
+  the entry test ET-1 to ET-4, the entry shape with a reaches line,
+  the class-to-instance check and its negative control, criteria G1 to
+  G6, I1 to I10 and P1 to P6, three children in a chain, decisions 10
+  to 16 staged with defaults, and ten terms for ratification. Next: the
+  owner's specification gate, where the children are entered (RU-020).
+  Carried from the task: the Risk register shares the Backlog's
+  lost-update hazard under parallel dispatch (child B's citations);
+  the parent plan's "four instances" of the execution-environment class
+  are two independent encounters (decision 10); adopting W-009
+  project-wide by declaration stays an option decision 15 declines by
+  default.
+
 - [ ] **Hierarchical resources, for complex resource validations** —
   owner note at the P3-N002 gate, 2026-10-29: the comprehension model's
   resources are flat by that plan's decision 2, and a hierarchy may
