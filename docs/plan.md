@@ -158,7 +158,7 @@ The children of P1-N009, in their chain order:
   - Documents: the parent's plan and specification.
 - P1-N013 The cutover: sync_agents ported, every invocation site moved, the Python retired
   - Stage: done, 2026-08-30.
-  - Outcome: Shipped `sync_agents`, the script that copies the role contracts into the plugin, in TypeScript. The same commit removed the Python scripts.
+  - Outcome: Shipped `sync_agents`, the script that copies the role contracts into the plugin, in TypeScript. That commit also removed the Python scripts.
   - Depends on: P1-N012.
   - Needed by: nothing.
   - Documents: the parent's plan and specification.
@@ -190,7 +190,7 @@ The children of P1-N009, in their chain order:
 ### P1-N006 Pilot on a real project (chunk 5)
 
 - Stage: identified at enrollment, 2026-08-25. No plan yet.
-- Outcome: The pilot this node was created for now runs inside P2-N006 (migration and pilot), through the service. No work remains in P1-N006 itself. The node is not done. It stays identified until P2-N006 is done. P1-N007 then retires it with the founding plan. It has no executing stage of its own, so the sibling-order default does not reach it.
+- Outcome: The pilot this node was created for now runs inside P2-N006 (migration and pilot), through the service. No work remains in P1-N006 itself. The node is not done. It stays identified until P2-N006 is done. P1-N007 then retires it with the founding plan. P1-N006 has no executing stage of its own, so the sibling-order default does not reach it.
 - Depends on: P2-N006.
 - Needed by: P1-N007.
 - Documents: [plan, chunk 5](plans/orchestrator-v1.md#chunk-5--pilot-on-a-real-project).
