@@ -206,6 +206,19 @@ spec. First entries land at the pending P1-N008 gate.
   that does *not* reach that depth still gets the task. Source:
   P3-N001 gate (decision 8, default adopted), 2026-09-17. Applied: —
 
+- RU-021 [active] knowledge/project — Which document is the source of
+  progress truth in an orchestrated project? Ruling: the
+  planning/execution model, once the project has one; the Backlog's
+  remaining jobs, the implementation map and the list of what is next,
+  are renderings of it. K-003 is amended to say so, project by project
+  as each adopts the orchestrator, and this repository is the
+  evidencing instance. Rationale: the owner's vision decision of
+  2026-10-28 (methodology docs/vision.md, decisions C8, C19, C20);
+  two documents claiming progress truth is the divergence the
+  comprehension model exists to remove. Overrides P3-N002's gate
+  decision 3 default. Source: owner decision at the P3-N002 gate,
+  2026-10-29. Applied: —
+
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events

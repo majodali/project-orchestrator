@@ -601,6 +601,23 @@ independence from P3-N002, and **RU-012** for the
    *Alternative the owner may prefer:* schedule P1-N014's execute
    before child B, so the contracts are touched once.
 
+
+## Gate record, 2026-10-29
+
+The owner accepted this plan on 2026-10-29, adopting defaults 1 to 7
+and taking **decision 8's alternative**: P1-N014's execute is scheduled
+before this node's child B, so the six role contracts are touched once.
+P1-N014's hold was released on 2026-09-07 and its specification is
+dispatched in the same wave as this node's, as T046. Two notes carried
+to the specification: on decision 5, child D checks what remains of
+the W-008 asks clarification after the methodology's amendments of
+October 2026, which carried part of it; and child A states the
+relationship between W-001's four stop conditions and the four
+meta-review signals the methodology's specification now defines, since
+the owner's vision of 2026-10-28 makes a stream, an approved scope with
+stop signals, the delivery shape for autonomous work. Specification
+dispatched as T045 to the Planner.
+
 ## References
 
 - [comprehension-and-continuous-implementation](comprehension-and-continuous-implementation.md)

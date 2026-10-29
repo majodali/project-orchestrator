@@ -331,6 +331,13 @@
 
 ## Upcoming
 
+- [ ] **Hierarchical resources, for complex resource validations** —
+  owner note at the P3-N002 gate, 2026-10-29: the comprehension model's
+  resources are flat by that plan's decision 2, and a hierarchy may
+  become necessary later to support complex validations over
+  resources. Nothing to do now; a future discussion, recorded so the
+  flat decision is read as deliberate rather than final.
+
 - [ ] **P3-N002 and P1-N016 both reach `dispatch.md`'s selection
   rule** — found 2026-09-17 planning P3-N002. That node's child D must
   amend `dispatch.md` ("entering `execute` requires earlier siblings

@@ -583,6 +583,29 @@ rationale, not applied.
    with it; manufacturing independence on the node whose subject is
    recorded dependency would be an argument against the node.
 
+
+## Gate record, 2026-10-29
+
+The owner accepted this plan on 2026-10-29, adopting defaults 1, 2 and
+4 to 8 and **overriding decision 3**: K-003 is amended. The owner's
+vision decision of 2026-10-28 makes the planning/execution model the
+primary source of progress and status truth, with the Backlog's
+remaining jobs becoming renderings of it, per project as each adopts
+the orchestrator. This node is the first place that decision is built,
+so child B drafts the K-003 amendment with this repository as the
+evidencing instance, in the form RU-015 requires, and the model may
+carry what the amendment makes it authoritative for. Captured as
+[RU-021](../rulings.md).
+
+One owner note for a future discussion, nothing to do now: resources
+are flat by decision 2, and hierarchical resources may become necessary
+later to support complex resource validations. Recorded in the Backlog.
+
+Specification dispatched as T043 to the Planner. The gate was crossed
+after a five-week pause; the owner reviewed the three sibling plans
+from a plain-language briefing rather than from the September gate
+summaries.
+
 ## References
 
 - [comprehension-and-continuous-implementation](comprehension-and-continuous-implementation.md)
