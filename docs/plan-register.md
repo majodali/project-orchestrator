@@ -18,7 +18,7 @@ honestly; chunks 1–3 completed before this register existed.
     - P1-N011 [done] The travelling package: conformance corpus, recorded expectations, vendoring generator
     - P1-N012 [done] The form checker on the shared unit, proven finding-for-finding
     - P1-N013 [done] The cutover: sync_agents ported, every invocation site moved, the Python retired
-  - P1-N014 [specified] Role contracts adopt the methodology's conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md · spec: specs/p1-n014-role-contracts-adopt-conduct-rules.md
+  - P1-N014 [executing] Role contracts adopt the methodology's conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md · spec: specs/p1-n014-role-contracts-adopt-conduct-rules.md
   - P1-N015 [done] Methodology amendments for delegated, multi-agent work — plan: plans/p1-n015-methodology-amendments-delegated-work.md · spec: specs/p1-n015-methodology-amendments-delegated-work.md
   - P1-N016 [identified] Process spec maintenance: branch lifecycle, PR citation, packet table
   - P1-N006 [identified] Pilot on a real project (chunk 5) — superseded in place by P2-N001 chunk 5; kept until the founding plan closes out
