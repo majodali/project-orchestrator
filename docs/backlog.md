@@ -414,8 +414,27 @@
 - [ ] **P3-N006 identified, 2026-10-29** — the comprehension model's
   thin end-to-end slice: five real parts of this repository through
   the model and both renderings
-  ([spec, child A](specs/p3-n002-comprehension-model.md)). Next:
-  planning.
+  ([spec, child A](specs/p3-n002-comprehension-model.md)). Planned
+  2026-10-29 (T048): [plans/p3-n006-thin-end-to-end-slice.md](plans/p3-n006-thin-end-to-end-slice.md),
+  a leaf; five resources (form-checker, plan-register-grammar,
+  run-journal, RU-016, project-orchestrator-repo), fifty recorded
+  paths, the slice record in `docs/project-model-slice-record.md`;
+  decisions 1 to 3 staged (no separate specify task; only edges derived
+  from earlier records enter the instance; a facet with nothing to
+  state reads `none` with a link). Carried from the task: the parent's
+  derivation rule yields use-before-later-modification cycles for this
+  node too (criterion B1); P1-N014 also edits the Backlog header.
+  Next: the owner's plan gate.
+- [ ] **Whether a child carried at criteria depth by its parent's
+  specification needs its own plan or specify task** — found
+  2026-10-29 planning P3-N006: earlier children went straight to
+  execute, P3-N006 got a plan task, and RU-020 covers only the break
+  down task. For P1-N016, or a ruling captured from P3-N006's
+  decision 1.
+- [ ] **Risk register and Ruling register entries have no anchors** —
+  found 2026-10-29 planning P3-N006: links to a risk or a ruling land
+  at the top of the document; the web view (P2-N003) will want
+  per-entry links.
 - [ ] **P3-N007 identified, 2026-10-29** — the Project model type
   declared, the arguments written, the K-003 amendment drafted on
   P3-N006's slice, IR first, owner-gated at `verifying` (spec child
@@ -667,17 +686,22 @@
   and single writer unchanged. It adds one entity (the abstract
   resource, flat and ungranular by design) and one edge kind, node →
   resource, labelled creates/modifies/uses; node-to-node dependency is
-  derived. **No K-003 amendment** (I4's second disjunction): the model
-  carries no progress field, resource state is derived from register
-  stages, and a form-check rule reports divergence — a view that owns
-  no data cannot be a second source of truth. The Orchestrator is the
+  derived. **K-003 amended, the model primary** (the owner overrode
+  decision 3 at the gate of 2026-10-29, [RU-021](rulings.md); this
+  supersedes the plan's earlier default of no amendment, corrected here
+  2026-10-29 on P3-N006's finding): the model carries no progress
+  field, resource state is derived from register stages, a form-check
+  rule reports divergence, and the Backlog's remaining jobs become
+  renderings of the model when the amendment is released. The Orchestrator is the
   model's single writer. Navigation bound kept at three steps with the
   latitude spent defining the unit: a step is opening a document or
   following one link, from eight enumerated starting points, so the
   worst case is three by construction. Repository reach: this
   repository only ([RU-016](rulings.md)); no planned non-monotonicity,
   new checks inert where no instance is declared. Eight decisions
-  staged. Next stage: specify.
+  decided 2026-10-29, decision 3 overridden. Specified 2026-10-29
+  (T043) and broken down at the gate of the same day into P3-N006 to
+  P3-N009; see the entry *P3-N002 specified, 2026-10-29 (T043)*.
 
 - [ ] **The common risk catalogue** (node P3-N003, chunk 2 of P3-N001,
   `identified` 2026-09-17) — a populated register of risks every
