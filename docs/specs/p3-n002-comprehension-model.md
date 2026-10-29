@@ -1,6 +1,6 @@
 # The comprehension model: specification
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -912,6 +912,21 @@ in plan decision 5.
     evidence; no dispatched Reviewer. Rationale: the C1 profile, G2 and
     G3 rest on the owner's own finding, and P3-N001 decision 7 took the
     same shape.
+
+
+## Gate record, 2026-10-29
+
+The owner accepted this specification and the breakdown on
+2026-10-29, adopting defaults 9 to 15 and, for decision 13, option
+(a): no deviation. The Backlog stays the referent under K-003 as
+released, and this repository switches its Backlog to a rendering of
+the planning/execution model when the amendment is released and
+pinned (a Backlog entry carries the switch). The owner ratified the
+one term this document introduced, *structural conditions (i) to
+(iii) of the navigation bound*. Under RU-020 the four children were
+entered `identified` as P3-N006 to P3-N009 and the node moved
+`specified` → `broken-down` in the same act. Decisions 9 to 15 were
+judged node-scope; no ruling was captured.
 
 ## References
 

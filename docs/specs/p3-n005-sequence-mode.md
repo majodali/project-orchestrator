@@ -1,6 +1,6 @@
 # Sequence mode: run it, and determine whether it needs specialising (specification)
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -608,6 +608,19 @@ decide one.
     self-verification with a Reviewer at owner request; G2 rests on
     the owner applying the text himself; the parent gate took the same
     shape.
+
+
+## Gate record, 2026-10-29
+
+The owner accepted this specification and the breakdown on
+2026-10-29, adopting defaults 9 to 16 with no override, decision 10's
+restatement of adopted default 3's premise included, and ratified the
+six terms this document introduced: stop predicate; fails closed;
+addressee of an ask; member of a sequence; relation table; residue
+table. Under RU-020 the four children were entered `identified` as
+P3-N013 to P3-N016 and the node moved `specified` → `broken-down` in
+the same act; P3-N014 also depends on P1-N014's execute. Decisions 9
+to 16 were judged node-scope; no ruling was captured.
 
 ## References
 

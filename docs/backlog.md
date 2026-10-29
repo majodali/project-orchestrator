@@ -349,7 +349,10 @@
   repository receives that repository's CLAUDE.md, for P1-N016's packet
   pass; orchestrator-v1.md still claims a v1.4.0 pin, corrected in this
   node's execute. The register's P1-N014 line reads specified, where
-  the older entry below said identified.
+  the older entry below said identified. Gate crossed 2026-10-29:
+  defaults adopted, decision 12 option (a), *conduct duty* ratified,
+  RU-022 captured from decision 11, node renamed "Role contracts adopt
+  the methodology's conduct rules". Next: execute.
 - [x] **Migrated to methodology 1.6.0** (2026-10-28, PR #11) — the pin
   and the amended W-008 bootstrap block with its fourth part, Terms
   introduced; no other migration note. Recorded late, at T046's
@@ -368,8 +371,10 @@
   switching to a rendering when the amendment is released and pinned).
   Two plan defects found and assigned: the derivation rule yields cycles
   on real edges (child B resolves it, criterion B1); the journal event
-  kind moves from child D to child B. Next: the owner's specification
-  gate.
+  kind moves from child D to child B. Gate crossed 2026-10-29:
+  defaults adopted, decision 13 option (a) no deviation, the one term
+  ratified; children P3-N006 to P3-N009 entered (RU-020). Next:
+  P3-N006's planning.
 
 - [ ] **P3-N005 specified, 2026-10-29 (T045)** — sequence mode's
   specification stands at
@@ -378,8 +383,9 @@
   failing closed; criteria G1 to G3, I5 to I13 and P1 to P7; four
   children in a chain, child B depending on P1-N014's execute;
   decisions 9 to 16 staged with defaults, decision 10 restaging the
-  corpus default; six terms for ratification. Next: the owner's
-  specification gate. Carried from the task: no committed artifact
+  corpus default; six terms ratified at the gate of 2026-10-29, all
+  defaults adopted; children P3-N013 to P3-N016 entered (RU-020).
+  Next: P3-N013's planning. Carried from the task: no committed artifact
   holds a past task result's Asks part, so condition 4 has almost no
   historical corpus (decision 12 fixes this inside sequences; the
   general rule is P1-N016's); W-008 at v1.6.0 makes a term
@@ -395,14 +401,62 @@
   the entry test ET-1 to ET-4, the entry shape with a reaches line,
   the class-to-instance check and its negative control, criteria G1 to
   G6, I1 to I10 and P1 to P6, three children in a chain, decisions 10
-  to 16 staged with defaults, and ten terms for ratification. Next: the
-  owner's specification gate, where the children are entered (RU-020).
+  to 16 staged with defaults, and ten terms ratified at the gate of
+  2026-10-29, all defaults adopted; children P3-N010 to P3-N012
+  entered (RU-020). Next: P3-N010's planning.
   Carried from the task: the Risk register shares the Backlog's
   lost-update hazard under parallel dispatch (child B's citations);
   the parent plan's "four instances" of the execution-environment class
   are two independent encounters (decision 10); adopting W-009
   project-wide by declaration stays an option decision 15 declines by
   default.
+
+- [ ] **P3-N006 identified, 2026-10-29** — the comprehension model's
+  thin end-to-end slice: five real parts of this repository through
+  the model and both renderings
+  ([spec, child A](specs/p3-n002-comprehension-model.md)). Next:
+  planning.
+- [ ] **P3-N007 identified, 2026-10-29** — the Project model type
+  declared, the arguments written, the K-003 amendment drafted on
+  P3-N006's slice, IR first, owner-gated at `verifying` (spec child
+  B; decisions 10 to 12). Depends on P3-N006.
+- [ ] **P3-N008 identified, 2026-10-29** — the instance over this
+  repository, with G6's renderings compared against the Backlog (spec
+  child C). Depends on P3-N007.
+- [ ] **P3-N009 identified, 2026-10-29** — sibling ordering retired
+  from `dispatch.md`, `plan-model.md` and the register's header, and
+  the checks that replace it (spec child D). Depends on P3-N008.
+- [ ] **Switch this repository's Backlog to a rendering of the
+  planning/execution model** — when the K-003 amendment P3-N007
+  drafts is released and pinned (P3-N002 decision 13, option (a), owner
+  2026-10-29). Paired with a rendering tool for the Backlog's two
+  remaining jobs, the implementation map and the list of what is next.
+- [ ] **P3-N010 identified, 2026-10-29** — one risk class carried end
+  to end: the execution-environment entry under the entry test ET-1 to
+  ET-4, with at least two independent encounters
+  ([spec, child A](specs/p3-n003-common-risk-catalogue.md)). Next:
+  planning.
+- [ ] **P3-N011 identified, 2026-10-29** — the sweep, the rest of the
+  catalogue and the omission list in the check document (spec child
+  B). Depends on P3-N010.
+- [ ] **P3-N012 identified, 2026-10-29** — the Article 8 proposal for
+  `docs/registers/common-risk-catalogue.md` upstream, written IR first
+  and reviewed, delivered under RU-015 and RU-022 (spec child C).
+  Depends on P3-N011.
+- [ ] **P3-N013 identified, 2026-10-29** — W-001's four stop
+  conditions made decidable, evidenced, and related to the meta-review
+  signals in the relation table
+  ([spec, child A](specs/p3-n005-sequence-mode.md)). Next: planning.
+- [ ] **P3-N014 identified, 2026-10-29** — the loop runs sequence mode
+  and the roles meet the conditions without looking: asks name their
+  addressee, result-received events carry the Asks part (spec child B;
+  decisions 11 and 12). Depends on P3-N013 and on P1-N014's execute.
+- [ ] **P3-N015 identified, 2026-10-29** — the demonstration: a
+  ratified sequence lands two chunks and stops on asks (spec child C;
+  decisions 13 and 15). Depends on P3-N014.
+- [ ] **P3-N016 identified, 2026-10-29** — the determination on W-001
+  with the residue table, and the artifact or the argument (spec child
+  D). Depends on P3-N015.
 
 - [ ] **Hierarchical resources, for complex resource validations** —
   owner note at the P3-N002 gate, 2026-10-29: the comprehension model's

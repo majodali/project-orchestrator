@@ -1,4 +1,4 @@
-# Role contracts adopt the v1.5.0 conduct rules
+# Role contracts adopt the methodology's conduct rules
 
 Status: active
 
@@ -242,11 +242,13 @@ The proposal binds by artifact class rather than by blanket:
   shape by construction.
 - Code and code comments are exempt.
 
-The gate summary template does not change. It already ends in numbered
-decisions with defaults, which are the asks, and its Detail line
-already points into the documents, which is the novelty pointer. Its
-compactness is an owner ruling, and the report rule's "no empty
-ceremony" clause protects it.
+The gate summary template changes to carry W-008's four parts in
+order, each stated when empty (P1-N014 specification, decision 12,
+adopted by the owner on 2026-10-29). The numbered decisions are the
+asks. One line each carries what is already covered, what changed and
+terms introduced. This corrects the earlier reading here that the
+template does not change, which predated v1.5.0 fixing the parts and
+their order.
 
 ### The Backlog declares its row shape and its lag
 

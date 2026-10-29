@@ -1,6 +1,6 @@
 # Role contracts adopt the methodology's conduct rules: specification
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -582,6 +582,22 @@ contradicts.
 
 The Backlog holds no entry for the migration to 1.6.0 of 2026-10-28.
 Each earlier migration has one.
+
+
+## Gate record, 2026-10-29
+
+The owner accepted this specification on 2026-10-29, adopting defaults
+10, 11 and 13 to 16 and, for decision 12, option (a): the gate summary
+template changes to carry W-008's four parts in order, each stated
+when empty, with the numbered decisions as the asks. The owner
+ratified the one term this document introduced, *conduct duty*.
+Decision 11 was captured as [RU-022](../rulings.md): for a document
+bound for the methodology corpus, RU-015's delivery form also carries
+the IR under the same provenance line. Decision 16 took effect at the
+crossing: the register line and the plan's heading now read "Role
+contracts adopt the methodology's conduct rules"; the plan's filename
+is kept. Decision 12's correction was placed in the plan. The node is
+a leaf; its execute is dispatched next.
 
 ## References
 

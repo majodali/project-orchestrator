@@ -1,6 +1,6 @@
 # The common risk catalogue: specification
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -687,6 +687,19 @@ a project has one) changes nothing here until P3-N002 lands.
     hypothetical. A criterion
     satisfiable only by a readable verdict could leave the node unable
     to finish (RU-019's reasoning, as a near match).
+
+
+## Gate record, 2026-10-29
+
+The owner accepted this specification and the breakdown on
+2026-10-29, adopting defaults 10 to 16 with no override, and ratified
+the ten terms this document introduced: entry test conditions ET-1 to
+ET-4; admit, merge, reject and defer; reaches line; independent
+encounter; parts enumeration; covering entry; genuine omission; run
+record; sweep record; check document. Under RU-020 the three children
+were entered `identified` as P3-N010 to P3-N012 and the node moved
+`specified` → `broken-down` in the same act. Decisions 10 to 16 were
+judged node-scope; no ruling was captured.
 
 ## References
 

@@ -18,7 +18,7 @@ honestly; chunks 1–3 completed before this register existed.
     - P1-N011 [done] The travelling package: conformance corpus, recorded expectations, vendoring generator
     - P1-N012 [done] The form checker on the shared unit, proven finding-for-finding
     - P1-N013 [done] The cutover: sync_agents ported, every invocation site moved, the Python retired
-  - P1-N014 [specified] [gated: owner review of the specification] Role contracts adopt the v1.5.0 conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md · spec: specs/p1-n014-role-contracts-adopt-conduct-rules.md
+  - P1-N014 [specified] Role contracts adopt the methodology's conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md · spec: specs/p1-n014-role-contracts-adopt-conduct-rules.md
   - P1-N015 [done] Methodology amendments for delegated, multi-agent work — plan: plans/p1-n015-methodology-amendments-delegated-work.md · spec: specs/p1-n015-methodology-amendments-delegated-work.md
   - P1-N016 [identified] Process spec maintenance: branch lifecycle, PR citation, packet table
   - P1-N006 [identified] Pilot on a real project (chunk 5) — superseded in place by P2-N001 chunk 5; kept until the founding plan closes out
@@ -40,7 +40,18 @@ honestly; chunks 1–3 completed before this register existed.
   - P2-N005 [identified] The task-pull loop (chunk 4)
   - P2-N006 [identified] Migration and pilot (chunk 5)
 - P3-N001 [broken-down] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
-  - P3-N002 [specified] [gated: owner review of the specification] The comprehension model (chunk 1) — plan: plans/p3-n002-comprehension-model.md · spec: specs/p3-n002-comprehension-model.md
-  - P3-N003 [specified] [gated: owner review of the specification] The common risk catalogue (chunk 2) — independent of P3-N002 (RU-018) — plan: plans/p3-n003-common-risk-catalogue.md · spec: specs/p3-n003-common-risk-catalogue.md
+  - P3-N002 [broken-down] The comprehension model (chunk 1) — plan: plans/p3-n002-comprehension-model.md · spec: specs/p3-n002-comprehension-model.md
+    - P3-N006 [identified] The thin end-to-end slice: five real parts all the way through, and both renderings
+    - P3-N007 [identified] The type declared, the arguments written, the K-003 amendment drafted — depends on P3-N006
+    - P3-N008 [identified] The instance, over this repository — depends on P3-N007
+    - P3-N009 [identified] Sibling ordering retired, and the checks that replace it — depends on P3-N008
+  - P3-N003 [broken-down] The common risk catalogue (chunk 2) — independent of P3-N002 (RU-018) — plan: plans/p3-n003-common-risk-catalogue.md · spec: specs/p3-n003-common-risk-catalogue.md
+    - P3-N010 [identified] One class, carried end to end
+    - P3-N011 [identified] The sweep, the rest of the catalogue, and the omission list — depends on P3-N010
+    - P3-N012 [identified] The Article 8 proposal, written IR first and reviewed — depends on P3-N011
   - P3-N004 [identified] Reversibility, and the measurement that says whether it pays (chunk 3) — depends on P3-N002
-  - P3-N005 [specified] [gated: owner review of the specification] Sequence mode: run W-001's pre-ratified mode, and determine whether it needs specialising (chunk 4) — independent of P3-N002 (RU-018) — plan: plans/p3-n005-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
+  - P3-N005 [broken-down] Sequence mode: run W-001's pre-ratified mode, and determine whether it needs specialising (chunk 4) — independent of P3-N002 (RU-018) — plan: plans/p3-n005-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
+    - P3-N013 [identified] The four stop conditions, decidable, evidenced, and related to the meta-review signals
+    - P3-N014 [identified] The loop runs sequence mode, and the roles meet the conditions without looking — depends on P3-N013 and on P1-N014's execute
+    - P3-N015 [identified] The demonstration: a ratified sequence lands two chunks and stops on asks — depends on P3-N014
+    - P3-N016 [identified] The determination on W-001, and the artifact or the argument — depends on P3-N015
