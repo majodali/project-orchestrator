@@ -1,6 +1,6 @@
 # Sequence mode: run it, and determine whether it needs specialising
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -13,6 +13,8 @@ Status: draft
 Node **P3-N005**, chunk 4 of **P3-N001**
 ([plan](comprehension-and-continuous-implementation.md) ·
 [specification](../specs/p3-n001-comprehension-and-continuous-implementation.md)).
+This node's specification is
+[p3-n005-sequence-mode](../specs/p3-n005-sequence-mode.md).
 Marked **independent of P3-N002** in the Plan register
 ([RU-018](../rulings.md)); this plan assumes nothing the comprehension
 model produces, and it names no dependency on it.

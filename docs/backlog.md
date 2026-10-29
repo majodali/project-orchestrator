@@ -331,6 +331,24 @@
 
 ## Upcoming
 
+- [ ] **P3-N005 specified, 2026-10-29 (T045)** — sequence mode's
+  specification stands at
+  [specs/p3-n005-sequence-mode.md](specs/p3-n005-sequence-mode.md):
+  the four stop predicates as decidability criteria I1 to I4, each
+  failing closed; criteria G1 to G3, I5 to I13 and P1 to P7; four
+  children in a chain, child B depending on P1-N014's execute;
+  decisions 9 to 16 staged with defaults, decision 10 restaging the
+  corpus default; six terms for ratification. Next: the owner's
+  specification gate. Carried from the task: no committed artifact
+  holds a past task result's Asks part, so condition 4 has almost no
+  historical corpus (decision 12 fixes this inside sequences; the
+  general rule is P1-N016's); W-008 at v1.6.0 makes a term
+  ratification an ask, so a chunk that introduces a term stops a
+  sequence; a task result's asks address the Orchestrator while W-001
+  stops on the human's (decision 11); stop signals inside a stream have
+  no home in this project yet (child A's relation table names
+  candidates, decision 14 keeps them out of this node).
+
 - [ ] **P3-N003 specified, 2026-10-29 (T044)** — the common risk
   catalogue's specification stands at
   [specs/p3-n003-common-risk-catalogue.md](specs/p3-n003-common-risk-catalogue.md):

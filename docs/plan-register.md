@@ -43,4 +43,4 @@ honestly; chunks 1–3 completed before this register existed.
   - P3-N002 [planned] The comprehension model (chunk 1) — plan: plans/p3-n002-comprehension-model.md
   - P3-N003 [specified] [gated: owner review of the specification] The common risk catalogue (chunk 2) — independent of P3-N002 (RU-018) — plan: plans/p3-n003-common-risk-catalogue.md · spec: specs/p3-n003-common-risk-catalogue.md
   - P3-N004 [identified] Reversibility, and the measurement that says whether it pays (chunk 3) — depends on P3-N002
-  - P3-N005 [planned] Sequence mode: run W-001's pre-ratified mode, and determine whether it needs specialising (chunk 4) — independent of P3-N002 (RU-018) — plan: plans/p3-n005-sequence-mode.md
+  - P3-N005 [specified] [gated: owner review of the specification] Sequence mode: run W-001's pre-ratified mode, and determine whether it needs specialising (chunk 4) — independent of P3-N002 (RU-018) — plan: plans/p3-n005-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
