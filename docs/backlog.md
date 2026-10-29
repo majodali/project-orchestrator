@@ -1093,8 +1093,8 @@
   P1-N009's conformance corpus may absorb this: a shared fixture set
   that travels with the grammar is the same fixture, kept honest by
   the same drift check.
-- [ ] **Plugin tooling on the portfolio stack** (node P1-N009,
-  `specified`) — rewrite `plugin/scripts/form_check.py`,
+- [x] **Plugin tooling on the portfolio stack** (node P1-N009,
+  `done` 2026-08-31) — rewrite `plugin/scripts/form_check.py`,
   `journal_tail.py` and `sync_agents.py` in TypeScript/Node per
   [RU-011](rulings.md), and give the Plan-register grammar one
   implementation instead of two. The Python predates RU-008 by a day
@@ -1162,9 +1162,10 @@
   the differential harness (`check_equality.ts`) retired with its
   evidence preserved in the corpus self-check and `run_corpus.ts`, and
   RU-014 applied to the one test the Python's deletion would otherwise
-  have broken outright. This node's own `verifying`/`done` transition
-  and final evidence assembly remain the Orchestrator's, not narrated
-  here.
+  have broken outright. **Done 2026-08-31**: the Orchestrator moved
+  the node through `verifying` to `done` in the Plan register. Entry
+  checked on 2026-10-29 (task T051), after it had stayed open at
+  `specified`.
 - [x] **(node P1-N010, P1-N009 child A) The Node toolchain and
   the shared register grammar, proven end to end by `journal_tail`**
   — shipped: `package.json` (`"type": "module"`, `engines.node >=22`,
@@ -2422,16 +2423,18 @@
   this same commit, and no new finding from this child left
   unrecorded. `npm run typecheck`, `typecheck:consumer` and `lint`
   clean; `npm test` 34/34.
-- [ ] **Service-side adoption of the shared register grammar** — the
-  other half of P1-N009's reuse: `src/planRegister/parser.ts` gives
-  way to the vendored canonical file, and the service repo gains the
-  drift check. Belongs to node P2-N010, which has to open the parser
-  anyway to settle the stage-vocabulary question, and which should
-  therefore execute after P1-N009's shared-unit child. Kept out of
-  P1-N009 to avoid an immediate-class scope expansion
+- [x] **Service-side adoption of the shared register grammar** — the
+  other half of P1-N009's reuse, delivered by node P2-N010 (`done`
+  2026-09-01). The service repository vendors the canonical grammar
+  unit and its conformance corpus into `src/planRegister/vendored/`
+  through `sync_shared_unit.ts`, whose `--check` mode is the drift
+  check (the service's README, "The vendored register grammar unit,
+  and its drift check"). Running that check automatically stays open
+  in the service repository's Backlog. Kept out of P1-N009 to avoid
+  an immediate-class scope expansion
   ([P1-N009 plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
-  decision 3); if the owner overrides that decision the two halves
-  land together and this entry closes with it.
+  decision 3). Checked on 2026-10-29 (task T051), after it had stayed
+  open.
 - [x] **P2-N002's live criteria renamed at the P1-N009 cutover
   (decision 14, option (a), the default)** — `docs/plans/p2-n002-service-skeleton.md`
   criterion 9 and `docs/specs/p2-n002-service-skeleton.md` criterion
@@ -2539,7 +2542,10 @@
   server-side spawning.
 - [ ] **Service chunk 5 — migration and pilot** (node P2-N006) — move
   this repo's orchestration onto the service, then run the deferred
-  portfolio pilot through it; C2 promotion of this repo begins here.
+  portfolio pilot through it on methodology-tools, which the owner
+  named the first adopter on 2026-10-29
+  ([plan, chunk 5](plans/orchestration-service.md#chunk-5--migration-and-pilot));
+  C2 promotion of this repo begins here.
 - [x] **Service enlistment section in the process spec** — delivered
   early, at chunk 1 itself (node P2-N011, T038, 2026-09-07), because
   Child E's own criteria needed it rather than waiting for the
@@ -2582,10 +2588,16 @@
   measurements against today's single register (P2-N002 spec, G7); a
   larger register or multi-project state can push a tool past it.
   Re-measure at the chunk-5 migration.
-- [ ] **CI for project-orchestrator-service** — run the service
-  repository's tests and form checks on push; chunk 1 verifies by
-  local command, which is enough for one contributor and not enough
-  for long.
+- [x] **CI for project-orchestrator-service** — delivered by node
+  P2-N012, deploy the service from CI on merge (`done`; see its entry
+  above, "Deploy the service from CI on merge"). Every pull request
+  in the service repository runs build, lint, test and `sam validate
+  --lint` (`.github/workflows/checks.yml`, node P2-N014). Every push
+  to `main` deploys, smoke-tests and promotes
+  (`.github/workflows/deploy.yml`, node P2-N016). The form checks this
+  item also named did not ship: the service's CI runs no methodology
+  form check. Closed 2026-10-29 (task T051), after the service review
+  found it still open.
 - [ ] **Declare the multi-repo relationship** — record the
   coordinating-repo relationship between this repo and
   project-orchestrator-service in both Classifications once the

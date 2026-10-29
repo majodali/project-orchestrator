@@ -152,8 +152,12 @@ owner intervention beyond the gate.
 
 Move this repository's own orchestration onto the service, then run
 the deferred [pilot](orchestrator-v1.md) on an owner-chosen portfolio
-project through it. Costs and lessons recorded; v1 process spec
-updated where practice demands.
+project through it: methodology-tools, which the owner named the
+first adopter, and so the pilot, on 2026-10-29
+([vision](https://github.com/majodali/methodology/blob/main/docs/vision.md#decisions-taken-on-2026-10-29),
+claims C84 and C99 to C101 of its IR). Moving this repository onto
+the service is its adoption by construction, not the pilot. Costs and
+lessons recorded; v1 process spec updated where practice demands.
 Gate: owner reviews pilot results.
 
 ## Decisions for the gate
