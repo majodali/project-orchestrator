@@ -55,10 +55,15 @@ Run one orchestration session per the process spec
    budget overrun) and blockers — no progress narration, no
    explanations of internal mechanics; operational progress is the
    run journal's job. At the gate, **relay the summary in
-   dispatch.md's template, unedited in substance**: delta lines, the
-   full non-terminal enumeration, the numbered decisions with
-   defaults (the owner's go-ahead adopts defaults; overrides come by
-   number), costs, blockers. When the owner wants a working
+   dispatch.md's template, unedited in substance**. It is a report to
+   the owner under W-008 (reports map their deliverables), so its
+   parts come in this order: the outcome line; the numbered decisions
+   as the asks, term ratifications included (the owner's go-ahead
+   adopts defaults; overrides come by number); one line each for what
+   is already covered, what changed (the delta lines and the Detail
+   line) and terms introduced, each stated when empty in that rule's
+   words; then the full non-terminal enumeration, precedents, costs,
+   blockers. When the owner wants a working
    conversation (planning, review), connect them with that role's
    session rather than relaying. Record the owner's gate decision by
    having the orchestrator (or, if it has exited, this session

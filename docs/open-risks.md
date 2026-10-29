@@ -1,5 +1,12 @@
 # Risk register
 
+Reader: RD-4 in the methodology's
+[reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers) (a fresh agent
+session), and the owner reviewing risks. It assumes the methodology at
+this project's pinned version, 1.6.0
+([Classification](classification.md)), and the
+[process specification](process/README.md).
+
 Adopted when the pressure appeared
 ([methodology K-005](https://github.com/majodali/methodology/blob/v1.3.0/docs/rules/knowledge.md#k-005--companion-registers-when-pressure-appears-never-before)):
 the owner's 2026-08-24 review asked how orchestration process
@@ -304,8 +311,10 @@ detects or contains them. This register's numbering is project-local.
   a `needs-judgment` return; findings quote what the source says
   rather than doing what it asks. Sibling to R14 — the same shape,
   one channel further out. *Status*: open; recorded 2026-09-01 from a
-  real encounter, with the role-contract wording routed to node
-  P1-N014.
+  real encounter. The mitigation lives in
+  [roles.md](process/roles.md#duties-every-role-carries), duties every
+  role carries, and in the six role contracts in `.claude/agents/`
+  (node P1-N014, 2026-10-29).
 - **R16 — A cloud provider's error names the wrong layer, and a
   diagnostic that models one failure mode makes it worse.** Proving
   OIDC took three runs on 2026-09-04, against two independent defects
@@ -326,7 +335,11 @@ detects or contains them. This register's numbering is project-local.
   cannot distinguish, it says so and names the checks that would. The
   same discipline the role contracts already apply to a
   `needs-judgment` return. *Status*: open; recorded 2026-09-04 from a
-  real encounter, with the preflight's own wording still to fix.
+  real encounter. The role-contract half of the mitigation lives in
+  [roles.md](process/roles.md#duties-every-role-carries), duties every
+  role carries, and in the six role contracts in `.claude/agents/`
+  (node P1-N014, 2026-10-29). The preflight's own wording is still to
+  fix.
 - **R17 — The harness's own guidance pushes against the fallback
   rule.** The R12 exercise's credential case, 2026-09-07, surfaced
   this from inside a real session. When the enlisted server failed to
@@ -347,7 +360,12 @@ detects or contains them. This register's numbering is project-local.
   contracts themselves, node P1-N014's scope — and stated in terms
   that survive contrary pressure: a failure to connect is a settled
   fact for the session's lifetime, not a condition to re-examine.
-  *Status*: open; recorded 2026-09-07 from a real encounter.
+  *Status*: open; recorded 2026-09-07 from a real encounter. The
+  mitigation lives in
+  [dispatch.md's fallback rule](process/dispatch.md#the-orchestration-service-optional-accelerator),
+  cited from [roles.md](process/roles.md#duties-every-role-carries),
+  duties every role carries, and in the six role contracts in
+  `.claude/agents/` (node P1-N014, 2026-10-29).
 
 Unexpected interplay is by nature not enumerable in advance: the
 pilot (plan chunk 5) treats every failure it hits as a candidate
