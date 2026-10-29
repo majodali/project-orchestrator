@@ -434,8 +434,16 @@
 - [ ] **P3-N010 identified, 2026-10-29** — one risk class carried end
   to end: the execution-environment entry under the entry test ET-1 to
   ET-4, with at least two independent encounters
-  ([spec, child A](specs/p3-n003-common-risk-catalogue.md)). Next:
-  planning.
+  ([spec, child A](specs/p3-n003-common-risk-catalogue.md)). Planned
+  2026-10-29 (T049): [plans/p3-n010-one-class-end-to-end.md](plans/p3-n010-one-class-end-to-end.md),
+  a leaf; decisions 1 to 5 staged (no separate specify task; step 1 of
+  the check reads the Classification of the repository holding each
+  part; the parts enumeration reads every checked Backlog entry; CR-001
+  cited from the Risk register entries that instantiate it; no IR at
+  this child). Carried from the task: the check could come back empty
+  under this repository's component/library Classification; 20 of 47
+  checked Backlog entries sit under Completed. Next: the owner's plan
+  gate.
 - [ ] **P3-N011 identified, 2026-10-29** — the sweep, the rest of the
   catalogue and the omission list in the check document (spec child
   B). Depends on P3-N010.
@@ -446,7 +454,25 @@
 - [ ] **P3-N013 identified, 2026-10-29** — W-001's four stop
   conditions made decidable, evidenced, and related to the meta-review
   signals in the relation table
-  ([spec, child A](specs/p3-n005-sequence-mode.md)). Next: planning.
+  ([spec, child A](specs/p3-n005-sequence-mode.md)). Planned
+  2026-10-29 (T050): [plans/p3-n013-stop-conditions-decidable.md](plans/p3-n013-stop-conditions-decidable.md),
+  a leaf run as a fixed sequence of tasks E1 to E4 with blindness
+  built into the commit graph; decisions 1 to 7 staged (decision 6
+  closes a gap: no predicate reads a `blocked` status); two terms for
+  ratification, predicate commit and stand-in grant. Carried from the
+  task: no committed source holds the pinned v1.6.0 signal text, so the
+  packet or the tag URL must carry it; no past task has a ratification
+  record. Next: the owner's plan gate.
+- [ ] **A leaf whose evidence needs independent sessions** — found
+  2026-10-29 planning P3-N013: `plan-model.md`'s leaf definition
+  assumes one session, while P3-N013's two blind readings need
+  separate sessions. For P1-N016.
+- [ ] **No committed source of a pinned methodology text for a role
+  without git** — found 2026-10-29 planning P3-N013: the packet table
+  names no route to text at a pinned tag. For P1-N016.
+- [ ] **W-001's stop conditions do not name a `blocked` chunk** —
+  found 2026-10-29 planning P3-N013; evidence for P3-N016's
+  determination.
 - [ ] **P3-N014 identified, 2026-10-29** — the loop runs sequence mode
   and the roles meet the conditions without looking: asks name their
   addressee, result-received events carry the Asks part (spec child B;
