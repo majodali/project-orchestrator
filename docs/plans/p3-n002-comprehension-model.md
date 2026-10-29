@@ -1,6 +1,6 @@
 # The comprehension model
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -14,7 +14,8 @@ Node P3-N002, chunk 1 of P3-N001
 The parent's specification assigns this node criteria **I1**, **I2**,
 **I2a**, **I3**, **I9** and **I10**, and the gate criteria **G1–G5**;
 its *Chunk 1* paragraph carries five additions this plan must and does
-carry.
+carry. This node's own specification is
+[p3-n002-comprehension-model](../specs/p3-n002-comprehension-model.md).
 
 This plan answers the parent's one open question. It is the node's
 first design decision by the parent's own words, and leaving it open
@@ -281,7 +282,9 @@ neither.
    declaration — the Dependencies section is that place, and a
    repository is a resource like any other.
 
-### K-003 — no amendment, and the argument (I4)
+### K-003 — amended at the gate of 2026-10-29 (I4)
+
+The argument below was the plan's default. The owner overrode it at the gate ([RU-021](../rulings.md)): K-003 is amended so the planning/execution model is the source of progress truth, and child B drafts the amendment. The argument stays as the record of the alternative.
 
 The model carries **no progress field of its own**. A resource's state
 is derived from the register stages of the nodes that create or modify
@@ -534,7 +537,7 @@ rationale, not applied.
    names; giving it a hierarchy would be the parallel structure the
    owner ruled out, and deciding its granularity is explicitly not the
    model's job.
-3. **Whether K-003 is amended (I4).** Default: **no amendment.** The
+3. **Whether K-003 is amended (I4).** Default, overridden at the gate by [RU-021](../rulings.md): the amendment is drafted by child B. The default as proposed: **no amendment.** The
    model carries no progress field; resource state is derived from
    register stages, progress truth stays in the Backlog, and a
    form-check rule reports divergence and is demonstrated firing.

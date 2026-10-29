@@ -331,6 +331,22 @@
 
 ## Upcoming
 
+- [ ] **P3-N002 specified, 2026-10-29 (T043)** — the comprehension
+  model's specification stands at
+  [specs/p3-n002-comprehension-model.md](specs/p3-n002-comprehension-model.md):
+  the navigation bound of three steps fixed with its definitions, the
+  Project model as one component of the vision's planning/execution
+  model (the other, where each node's verification evidence lands, out
+  of this node's scope and carried here), criteria G1 to G6, I1 to I10
+  and P1 to P6, four children in a chain, decisions 9 to 15 staged with
+  defaults, decision 13 marked needs-judgment (act on the amended K-003
+  before its release: the Planner recommends no deviation, the Backlog
+  switching to a rendering when the amendment is released and pinned).
+  Two plan defects found and assigned: the derivation rule yields cycles
+  on real edges (child B resolves it, criterion B1); the journal event
+  kind moves from child D to child B. Next: the owner's specification
+  gate.
+
 - [ ] **P3-N005 specified, 2026-10-29 (T045)** — sequence mode's
   specification stands at
   [specs/p3-n005-sequence-mode.md](specs/p3-n005-sequence-mode.md):

@@ -155,7 +155,7 @@ spec. First entries land at the pending P1-N008 gate.
   the original owner-names-it rule was protecting. Supersedes
   `dispatch.md`'s "cross-repo reach is scope" only in *who* grants,
   not in *whether* it must be declared. Source: owner decision at the
-  P2-N012 gate, 2026-09-01. Applied: T039.
+  P2-N012 gate, 2026-09-01. Applied: T039, T043.
 
 - RU-017 [active] scope/project — When a node's whole driver is
   another portfolio project, is that project's adoption part of the
@@ -217,7 +217,7 @@ spec. First entries land at the pending P1-N008 gate.
   two documents claiming progress truth is the divergence the
   comprehension model exists to remove. Overrides P3-N002's gate
   decision 3 default. Source: owner decision at the P3-N002 gate,
-  2026-10-29. Applied: —
+  2026-10-29. Applied: T043.
 
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
