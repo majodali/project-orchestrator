@@ -123,6 +123,91 @@ vocabulary). Tier: **advanced**. Serves stage `verify`.
 - **Produces**: a verification verdict and review record the
   Orchestrator can act on mechanically.
 
+### Paraphraser
+
+Refines *Agent (session)*. Tier: **standard**. Serves the rendering
+step of any task whose result is read by the owner or by another
+role (accepted from the
+[communication-pipeline proposal](../proposals/communication-pipeline-roles.md),
+2026-10-26).
+
+- **Decides**: nothing about the subject. It renders one
+  intermediate representation (IR, the methodology's
+  [specification](https://github.com/majodali/methodology/blob/main/docs/intermediate-representation.md))
+  into prose for one catalog reader (the methodology style guide's
+  Readers table, RD-1 to RD-5), one claim per sentence, adding no
+  claim and dropping none, and appends a render map naming where
+  each claim landed. A reason the IR holds as a claim of its own,
+  related to its rule, renders joined to the rule by connective prose, and the author's
+  later fixes keep that join (communication-pipeline branch point
+  v1.4, 2026-10-27; v1.7, 2026-10-29).
+- **Never**: reasons about the subject, reads the session that
+  produced the IR, or reads any document the IR does not link.
+- **Produces**: the prose and its render map. A claim it cannot
+  render without adding content is rendered literally with a marker
+  the Reviewer sees.
+- **Inputs** (the whole context packet): the IR; the reader's catalog
+  entry; the style-guide rows for that reader.
+
+### Reviewer (stranger)
+
+Refines *Reviewer* for prose, beside the code-verification Reviewer
+above. Tier: **frugal**. Serves the review step the routing rule in
+[dispatch.md](dispatch.md) selects (accepted from the
+communication-pipeline proposal, 2026-10-26). The methodology's
+specification runs stranger reviews in rounds until a round returns
+readable, with a limit of ten; the Orchestrator counts the rounds.
+
+- **Decides**: a restatement of the text (at most 200 words: its
+  problem, terms and decisions), written from the prose before the IR
+  is read; the disagreements between that restatement and the IR;
+  the findings against a fixed list (an undefined or borrowed term;
+  an unresolved referent; a sentence carrying two separately
+  decidable claims; an identifier with neither name nor link at first
+  use; rhetoric; a duty with no actor or trigger; two passages that
+  cannot both be followed; words that can go without losing a claim;
+  for an IR, a claim whose evidence does not show what it says); and
+  the verdict: readable when the restatement matches the IR and the
+  instance finds no contradiction and no undefined term, whatever
+  the finding count; a contradiction or undefined-term finding the
+  instance withdraws at confirmation, on a reason quoting the prose,
+  does not count, and a restatement mismatch is never withdrawn
+  (communication-pipeline branch point v1.4, 2026-10-27; v1.7,
+  2026-10-29). Three calibrations bind the list: a duty with its actor
+  and trigger is one claim; a sentence stating a target, or naming
+  roadmap work assigned to no one, is not a duty; words naming a
+  referent the referent rule requires are not excess (branch point
+  v1.7).
+- **Never**: contributes content, rewrites the text, or reads beyond
+  what the text links. It has no access to the producing session, by
+  construction: a fresh context is the role's defining input, and
+  each round gets a fresh instance. The brief carries the earlier rounds' declined findings with their
+  reasons, a finding declined in part with its declined part, and
+  nothing else of the earlier rounds. For a restatement mismatch it
+  attributes to its own restatement, it quotes the prose sentence it
+  relied on (branch point v1.7).
+- **Produces**: the restatement; a findings table with quoted text,
+  rule, locus (prose, IR or both) and fix kind (cut, rephrase or add);
+  the verdict with its three readings; counts. After the author's fixes, the same instance receives its findings
+  table and the fixed passages and answers, per finding, whether the
+  fix holds; a fix that does not hold, or holds in part, is fixed
+  again before the next round, and the record carries the answer on
+  one fixed confirmation line. A fix for a mismatch that recurred on
+  one passage is a structural fix, which the next round's restatement
+  confirms rather than the same instance. At the readable round, and
+  at the limit, the same confirmation precedes delivery, and the
+  review record marks each finding confirmed or unfixed; the record
+  names each round's stranger model and the claim each restatement
+  mismatch concerns (communication-pipeline branch point v1.5,
+  2026-10-27; v1.7, 2026-10-29). The
+  Orchestrator acts on the report mechanically: a verdict of not
+  readable returns the task to its author with the table and
+  schedules the next round; a text whose count reaches the limit, or
+  whose review record shows a meta-review signal (the methodology
+  specification's Meta-review section; communication-pipeline branch
+  point v1.6, 2026-10-27), is reported to the communication-pipeline
+  project for meta-review.
+
 ### Liaison
 
 Refines *Agent (session)*. Tier: **standard** recommended. The

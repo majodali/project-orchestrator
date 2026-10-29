@@ -319,6 +319,15 @@
   three ways the disposition entry above records
   ([p1-n014 plan](plans/p1-n014-role-contracts-adopt-v140-rules.md),
   gate outcome).
+- [x] **Communication-pipeline roles proposal accepted** — owner,
+  2026-10-26:
+  [proposals/communication-pipeline-roles.md](proposals/communication-pipeline-roles.md)
+  implemented in [roles.md](process/roles.md) (Paraphraser, standard
+  tier; Reviewer (stranger), frugal tier) and
+  [dispatch.md](process/dispatch.md) (the IR in the task result; the
+  prose routing table). The review step runs rounds until readable,
+  limit ten, per the methodology specification's rule of the same
+  day; a text over two rounds goes to the pipeline for meta-review.
 
 ## Upcoming
 
