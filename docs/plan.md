@@ -18,7 +18,8 @@ The rendering reads the register as it stood on 2026-10-29, after [pull request 
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
-Today the [Backlog](backlog.md) holds the implementation map and the list of what is next, as K-003 (the Backlog is the single source of progress truth) requires at 1.6.0.
+Today the [Backlog](backlog.md) holds the implementation map and the list of what is next.
+K-003 (the Backlog is the single source of progress truth) requires that at 1.6.0.
 On 2026-10-29 the owner decided that the [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes over those two Backlog jobs.
 The decision is RU-021 (the planning/execution model is the source of progress truth), in the [Ruling register](rulings.md).
 The takeover waits until the methodology releases the amendment to K-003 (the Backlog is the single source of progress truth) that P3-N007 drafts.
@@ -35,7 +36,7 @@ The repository majodali/project-orchestrator builds orchestration for the majoda
 Each line is a top-level [node](process/README.md#def-node) of the [Plan register](plan-register.md).
 
 - P1-N001 (Orchestrator v1) delivers a process [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification) and a Claude Code plugin. The plugin runs role-based agent sessions through the methodology at low cost.
-- P2-N001 (Orchestration service) delivers a service that agent sessions call over MCP. The service shares plan state, coordination and owner questions between sessions. Git stays the place where the state is stored.
+- P2-N001 (Orchestration service) delivers a service that agent sessions call over MCP (the Model Context Protocol, the tool interface Claude sessions use). The service shares plan state, coordination and owner questions between sessions. Git stays the place where the state is stored.
 - P3-N001 (Project comprehension and continuous implementation) delivers a model that says what each part of a project is and what depends on it. The line adds three safeguards for longer runs of work without owner review.
 
 The methodology's [vision](https://github.com/majodali/methodology/blob/main/docs/vision.md) states the portfolio direction the three lines serve.
@@ -60,24 +61,24 @@ Each node below carries five fields, always in this order.
 
 - Stage: the current stage, with the date it was reached where a record states one.
 - Outcome: for a done node, what shipped. For an open node, what done looks like.
-- Depends on: the nodes that must finish before this node's next stage can start.
+- Depends on: the other nodes whose completion this node's work waits on. A parent's own children are never listed here, because a parent finishes when its children do.
 - Needed by: the nodes that wait on this one.
 - Documents: links to the node's plan and specification, where they exist.
 
 The dependencies come from the register's notes and from the child order in each parent's specification.
 RU-018 (a child is not queued behind a sibling it does not depend on) lets a node marked independent run beside its siblings.
-Elsewhere, the default in [dispatch.md](process/dispatch.md) still applies today.
+For a node not marked independent, the default in [dispatch.md](process/dispatch.md) still applies today.
 Under that default, a node starts executing only after the siblings listed before it are done.
 P3-N009 (sibling ordering retired) removes the default.
 A gated node carries a `[gated: ...]` [hold marker](process/plan-register.md#location-and-shape).
-The gated node moves only when the [human owner](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner) rules at that gate.
+The gated node moves only when the [human owner](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner) rules at the node's gate.
 A parent node finishes only after all its children are done.
 
 ## P1-N001 Orchestrator v1, the process specification and the plugin
 
 - Stage: broken-down since enrollment, 2026-08-25.
 - Outcome: A process [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification) and a Claude Code plugin that runs it at low cost, tried on one real portfolio project.
-- Depends on: its open children P1-N016, P1-N006 and P1-N007.
+- Depends on: nothing beyond its children.
 - Needed by: nothing.
 - Documents: the [founding plan](plans/orchestrator-v1.md).
 
@@ -133,7 +134,7 @@ The children of P1-N009, in their chain order:
 
 - P1-N010 Node toolchain and the shared register grammar, proven by journal_tail
   - Stage: done, 2026-08-30.
-  - Outcome: Shipped the Node toolchain and the shared register parser, first used by `journal_tail`.
+  - Outcome: Shipped the Node toolchain and the shared register parser, first used by `journal_tail`, the plugin's script that prints the latest run journal events.
   - Depends on: nothing.
   - Needed by: P1-N011.
   - Documents: the parent's plan and specification.
@@ -151,7 +152,7 @@ The children of P1-N009, in their chain order:
   - Documents: the parent's plan and specification.
 - P1-N013 The cutover: sync_agents ported, every invocation site moved, the Python retired
   - Stage: done, 2026-08-30.
-  - Outcome: Shipped `sync_agents` in TypeScript and removed the Python scripts, in one commit.
+  - Outcome: Shipped `sync_agents`, the script that copies the role contracts into the plugin, in TypeScript, and removed the Python scripts in the same commit.
   - Depends on: P1-N012.
   - Needed by: nothing.
   - Documents: the parent's plan and specification.
@@ -183,7 +184,7 @@ The children of P1-N009, in their chain order:
 ### P1-N006 Pilot on a real project (chunk 5)
 
 - Stage: identified at enrollment, 2026-08-25. No plan yet.
-- Outcome: P2-N006 (migration and pilot) took over this pilot, which now runs through the service. No work remains in P1-N006. P1-N006 closes when P2-N006 is done and the founding plan closes.
+- Outcome: The pilot this node was created for now runs inside P2-N006 (migration and pilot), through the service. No work remains in P1-N006 itself. The node is not done: it stays identified until P2-N006 is done, and P1-N007 then retires it with the founding plan.
 - Depends on: P2-N006.
 - Needed by: P1-N007.
 - Documents: [plan, chunk 5](plans/orchestrator-v1.md#chunk-5--pilot-on-a-real-project).
@@ -192,7 +193,7 @@ The children of P1-N009, in their chain order:
 
 - Stage: identified at enrollment, 2026-08-25. No plan yet.
 - Outcome: Reports of cost per node, role and tier, drawn from the Cost log, the run journal and the service. A review against the founding plan's two goals, then the founding plan closed.
-- Depends on: P1-N006, by the dispatch.md default.
+- Depends on: P1-N006, by the dispatch.md default, for its executing stage. Its planning can start at any time.
 - Needed by: P1-N001.
 - Documents: [plan, chunk 6](plans/orchestrator-v1.md#chunk-6--cost-reporting-v1-and-close-out).
 
@@ -200,7 +201,7 @@ The children of P1-N009, in their chain order:
 
 - Stage: broken-down, 2026-08-26.
 - Outcome: A service that agent sessions call over MCP, holding shared [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan) state, coordination and owner questions, with git as the store.
-- Depends on: its open children P2-N003, P2-N004, P2-N005 and P2-N006.
+- Depends on: nothing beyond its children.
 - Needed by: nothing.
 - Documents: [plan](plans/orchestration-service.md).
 
@@ -284,7 +285,7 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 - Stage: identified, 2026-08-26. No plan yet.
 - Outcome: The service plan gives this chunk an owner question queue and a first view of the plan. P2-N003 stays one node until its planning splits it into two children. One child is the first version of the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view), read-only and drilling down to node and task. The second child is the owner question queue.
-- Depends on: one wait per future child. The web view child waits on P3-N006 (the thin end-to-end slice). The queue child waits on P2-N006 (migration and pilot).
+- Depends on: nothing for its own planning, which performs the split. After the split, the web view child waits on P3-N006 (the thin end-to-end slice), and the queue child waits on P2-N006 (migration and pilot).
 - Needed by: P2-N006, which needs the web view child only.
 - Documents: [service plan, chunk 2](plans/orchestration-service.md#chunk-2--owner-questions-and-the-plan-view).
 
@@ -292,7 +293,7 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 - Stage: identified, 2026-08-26. No plan yet.
 - Outcome: Topics, which are shared threads where sessions post status and coordinate, including who is blocked on what. The owner starts P2-N004 only if the pilot shows that sessions need topics.
-- Depends on: P2-N006 (migration and pilot).
+- Depends on: P2-N006 (migration and pilot), for its executing stage. Its planning starts when the owner sees the need.
 - Needed by: nothing.
 - Documents: [service plan, chunk 3](plans/orchestration-service.md#chunk-3--topics-and-coordination).
 
@@ -316,22 +317,21 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 - Stage: broken-down, 2026-09-17.
 - Outcome: One model of a project's parts, defined in majodali/project-orchestrator and usable by every orchestrated project. The line's aim is that dependencies are written down, never guessed from list order. Three safeguards make longer unreviewed runs safe: a shared risk catalogue, cheap undoing of work, and a decision on sequence mode.
-- Depends on: its open children P3-N002, P3-N003, P3-N004 and P3-N005.
+- Depends on: nothing beyond its children.
 - Needed by: nothing.
 - Documents: [plan](plans/comprehension-and-continuous-implementation.md), [specification](specs/p3-n001-comprehension-and-continuous-implementation.md).
 
 ### P3-N002 The comprehension model (chunk 1)
 
 - Stage: broken-down, 2026-10-29.
-- Outcome: A new [custom document type](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-custom-document-type), the Project model, and one instance of it over majodali/project-orchestrator. For any part a reader names, the instance says what the part is, its state, its [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification), its risks and its dependencies. A reader reaches each answer in at most three steps, using git and a text editor. The model's two renderings reproduce the Backlog's implementation map and its list of what is next.
-- Depends on: nothing.
+- Outcome: A new [custom document type](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-custom-document-type), the Project model, and one instance of it over majodali/project-orchestrator. For any part a reader names, the instance says what the part is, its state, its [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification), its risks and its dependencies. A reader reaches each answer in at most three steps, using git and a text editor. The model's two renderings, the implementation map and the list of what is next produced from the model alone, reproduce the Backlog's two lists.
+- Depends on: nothing beyond its children.
 - Needed by: P3-N004.
 - Documents: [plan](plans/p3-n002-comprehension-model.md), [specification](specs/p3-n002-comprehension-model.md).
 
 Four terms recur below.
 A facet is one labelled line of a part's [entry](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-entry), such as `state` or `risks`.
 An edge is a line saying that a node creates, modifies or uses a part.
-The two renderings are the implementation map and the list of what is next, produced from the model alone.
 The sketch notation is the draft entry format in the [P3-N002 plan](plans/p3-n002-comprehension-model.md#where-the-entries-live-and-what-one-looks-like).
 
 The children of P3-N002, a strict chain in their [specification](specs/p3-n002-comprehension-model.md#the-breakdown)'s order:
@@ -344,7 +344,7 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
   - Documents: [plan](plans/p3-n006-thin-end-to-end-slice.md).
 - P3-N007 The type declared, the arguments written, the K-003 (the Backlog is the single source of progress truth) amendment drafted
   - Stage: identified, 2026-10-29. No plan yet.
-  - Outcome: The Project model is defined in `docs/process/` and declared in the [Classification](classification.md). The design arguments are written down, such as who may write the model and where a node's edges are first recorded. P3-N007 drafts the amendment to K-003 (the Backlog is the single source of progress truth), as an IR first. Under the amendment, a project that declares a [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes that model as its progress record. The rule changes only when the methodology releases the amendment, after the owner carries it upstream. Finishing P3-N007 does not change the rule.
+  - Outcome: The Project model is defined in `docs/process/` and declared in the [Classification](classification.md). The design arguments are written down, such as who may write the model and where a node's edges are first recorded. P3-N007 drafts the amendment to K-003 (the Backlog is the single source of progress truth), as an IR first. Under the amendment, a project that declares a [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes that model as its progress record. The rule changes only when the methodology releases the amendment, after the owner carries it upstream.
   - Depends on: P3-N006.
   - Needed by: P3-N008.
   - Documents: the parent's [specification, child B](specs/p3-n002-comprehension-model.md#child-b-the-type-declared-the-arguments-written-the-k-003-amendment-drafted).
@@ -365,7 +365,7 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
 
 - Stage: broken-down, 2026-10-29.
 - Outcome: A catalogue of risk classes every orchestrated project must guard against, drafted and reviewed in majodali/project-orchestrator. Each [entry](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-entry) names the real incident it came from, with a date. A check applies the catalogue to majodali/project-orchestrator and lists the parts that no risk entry covers. The owner carries the catalogue upstream, under RU-002. The node carries nothing upstream.
-- Depends on: nothing. The [Plan register](plan-register.md) marks P3-N003 independent of P3-N002.
+- Depends on: nothing beyond its children. The [Plan register](plan-register.md) marks P3-N003 independent of P3-N002.
 - Needed by: nothing.
 - Documents: [plan](plans/p3-n003-common-risk-catalogue.md), [specification](specs/p3-n003-common-risk-catalogue.md).
 
@@ -379,7 +379,7 @@ The children of P3-N003, a strict chain in their [specification](specs/p3-n003-c
   - Documents: [plan](plans/p3-n010-one-class-end-to-end.md).
 - P3-N011 The sweep, the rest of the catalogue, and the omission list
   - Stage: identified, 2026-10-29. No plan yet.
-  - Outcome: The sweep reads the five sources criterion B1 names: the Risk register, the Backlog's Completed section, its Upcoming section, the Cost log's notes, and the Ruling register. Every candidate class is admitted, merged, rejected or deferred, on the record. Risk entries cite their classes, and the list of uncovered parts is ready for the owner.
+  - Outcome: The sweep reads the five sources that the parent specification's [criterion B1](specs/p3-n003-common-risk-catalogue.md#verification-criteria) names: the Risk register, the Backlog's Completed section, its Upcoming section, the Cost log's notes, and the Ruling register. Every candidate class is admitted, merged, rejected or deferred, on the record. Risk entries cite their classes, and the list of uncovered parts is ready for the owner.
   - Depends on: P3-N010.
   - Needed by: P3-N012.
   - Documents: the parent's [specification, child B](specs/p3-n003-common-risk-catalogue.md#child-b-the-sweep-the-rest-of-the-catalogue-and-the-omission-list).
@@ -401,8 +401,8 @@ The children of P3-N003, a strict chain in their [specification](specs/p3-n003-c
 ### P3-N005 Sequence mode (chunk 4)
 
 - Stage: broken-down, 2026-10-29.
-- Outcome: The dispatch loop gains the sequence mode of the methodology's W-001 (two delivery modes, human-gated). In that mode the owner approves a run of several chunks at once, so no gate falls between them. The run stops on a failed check, a scope change, a chunk needing the owner, or a result carrying asks. Asks are the decisions a report requests of its reader. Each stop condition becomes a rule that reads one named field and returns stop or continue. A recorded decision says whether W-001 (two delivery modes, human-gated) needs a methodology change.
-- Depends on: nothing. The register marks P3-N005 independent of P3-N002.
+- Outcome: The dispatch loop gains the sequence mode of the methodology's W-001 (two delivery modes, human-gated). In that mode the owner approves a run of several chunks at once, so no gate falls between them. Asks are the decisions a report requests of its reader. The run stops on a failed check, a scope change, a chunk needing the owner, or a result carrying asks. Each stop condition becomes a rule that reads one named field and returns stop or continue. A recorded decision says whether W-001 (two delivery modes, human-gated) needs a methodology change.
+- Depends on: nothing beyond its children. The register marks P3-N005 independent of P3-N002.
 - Needed by: nothing.
 - Documents: [plan](plans/p3-n005-sequence-mode.md), [specification](specs/p3-n005-sequence-mode.md).
 
@@ -435,25 +435,27 @@ The children of P3-N005, a strict chain in their [specification](specs/p3-n005-s
 
 ## How the lines depend on each other
 
-Five dependencies cross between the lines of the [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan).
+Four waits cross between the lines of the [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan).
 
 - P3-N014 (the loop runs sequence mode) waits on the executing stage of P1-N014 (role contracts adopt the conduct rules), which is done.
 - P2-N006 (migration and pilot) waits on P1-N014, which is done.
-- The [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view)'s first version, a future child of P2-N003 (owner questions and the plan view), waits on P3-N006 (the thin end-to-end slice). P2-N006 waits on that web view child.
-- P2-N006 has taken over P1-N006 (pilot on a real project).
+- The [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view)'s first version, a future child of P2-N003 (owner questions and the plan view), waits on P3-N006 (the thin end-to-end slice).
 - The executing stage of P1-N016 (process spec maintenance) waits on P3-N009 (sibling ordering retired).
 
-Four dependencies sit inside single lines.
+One node changed hands between lines: P2-N006 took over the pilot of P1-N006 (pilot on a real project).
 
-- P2-N006 waits on P2-N005 (the task-pull loop).
-- P2-N004 (topics and coordination) and the queue child of P2-N003 wait on P2-N006.
-- P1-N007 (cost reporting and close-out) waits on P1-N006.
-- P3-N004 (reversibility) waits on P3-N002 (the comprehension model).
+Inside each line the open nodes form chains, listed here from first to last.
+
+- Line P2: P2-N005 (the task-pull loop) and the web view child of P2-N003 come before P2-N006. P2-N004 (topics and coordination) and the queue child of P2-N003 come after P2-N006.
+- Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out).
+- Line P3, the comprehension model: P3-N006, then P3-N007, then P3-N008, then P3-N009. P3-N004 (reversibility) waits on the whole of P3-N002.
+- Line P3, the risk catalogue: P3-N010, then P3-N011, then P3-N012.
+- Line P3, sequence mode: P3-N013, then P3-N014, then P3-N015, then P3-N016.
 
 The diagram shows every node that is not done.
 An arrow runs from a node to the node that waits on it.
 A box around nodes is their parent.
-The queue child of P2-N003 waits on P2-N006 and is not drawn.
+P2-N003's two future children are drawn as separate nodes inside its box, because each has its own wait.
 
 ```mermaid
 graph LR
@@ -463,7 +465,10 @@ graph LR
     P1N007["P1-N007 cost reporting and close-out"]
   end
   subgraph P2N001["P2-N001 orchestration service"]
-    P2N003["P2-N003 owner questions and plan view"]
+    subgraph P2N003["P2-N003 owner questions and plan view"]
+      P2N003V["web view, first version (future child)"]
+      P2N003Q["owner question queue (future child)"]
+    end
     P2N004["P2-N004 topics and coordination"]
     P2N005["P2-N005 task-pull loop"]
     P2N006["P2-N006 migration and pilot"]
@@ -492,8 +497,9 @@ graph LR
   P3N010 --> P3N011 --> P3N012
   P3N013 --> P3N014 --> P3N015 --> P3N016
   P3N002 --> P3N004
-  P3N006 -->|web view| P2N003
-  P2N003 -->|web view| P2N006
+  P3N006 --> P2N003V
+  P2N003V --> P2N006
+  P2N006 --> P2N003Q
   P2N005 --> P2N006
   P2N006 --> P2N004
   P2N006 --> P1N006
