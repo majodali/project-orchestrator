@@ -221,8 +221,8 @@ spec. First entries land at the pending P1-N008 gate.
   2026-10-29. Applied: T043.
 
 - RU-022 [active] handoff/process — How does a document this project
-  drafts for the methodology corpus carry W-009 (the corpus writes its
-  deliverables IR first)? Ruling: the drafting role writes the IR
+  drafts for the methodology corpus carry W-009 (the methodology corpus
+  writes its deliverables IR first)? Ruling: the drafting role writes the IR
   first; the prose is rendered and reviewed under dispatch.md's prose
   routing; and RU-015's delivery form also carries the IR, under the
   same provenance line. Rationale: W-009 has the reasoning role render

@@ -1669,11 +1669,39 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   multiple instances, and the case for these two today rests on one
   conversation. Condition for proposing them: recorded instances from
   real project reports, not a single exchange.
-- [ ] **Role contracts adopt the methodology's conduct rules** (node
-  P1-N014) — When: executed 2026-10-29 (T047). Status: work committed,
-  verifying next. The seventeen duties are stated once in
+- [x] **Role contracts adopt the methodology's conduct rules** (node
+  P1-N014) — When: done 2026-10-29 (T047 executed, T052 verified, pass
+  with findings). Status: done; the seventeen duties are stated once in
   `docs/process/` and carried by the six role contracts, with
-  `plugin/agents/` regenerated. Pointer: [specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the duty inventory.
+  `plugin/agents/` regenerated; R14's wording re-routed to P3-N014.
+  Pointer: [specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the duty inventory.
+- [ ] **R14's contract wording** — When: 2026-10-29, T052 verdict on
+  P1-N014. Status: open; a new or low-provenance dependency is a
+  `needs-judgment` return, to land in the six contracts with node
+  P3-N014. Pointer: [open-risks.md](open-risks.md), R14.
+- [ ] **Bare methodology identifiers in the six contracts** — When:
+  2026-10-29, T052 finding 6. Status: open; W-002, W-003, W-006 and
+  R1 to R5 appear without names in lines P1-N014 did not edit, to be
+  named with P3-N014. Pointer: `.claude/agents/`.
+- [ ] **A prose-reach class for `plugin/skills/`** — When: 2026-10-29,
+  T052 finding 5. Status: open; the README's prose-reach section names
+  no class for the skill files. Pointer: [process/README.md](process/README.md).
+- [ ] **Check the gate summary template at its first live use** —
+  When: 2026-10-29, T052 finding 3. Status: open; the labels Covered,
+  Changed and Terms shorten W-008's part names and the Changed line has
+  no slot for "what to review there". Pointer: [dispatch.md](process/dispatch.md), Gates.
+- [ ] **Contracts for the Paraphraser and the Reviewer (stranger)** —
+  When: 2026-10-29, P1-N014 decision 10. Status: open; the two roles'
+  duties sit in roles.md, with no `.claude/agents/` contract until the
+  pipeline clauses settle. Pointer: [roles.md](process/roles.md).
+- [ ] **An override toward an option with no drafted affected-location
+  text** — When: 2026-10-29, T047 finding. Status: open; dispatch.md
+  does not route the case where placing the text needs judgment.
+  Pointer: [dispatch.md](process/dispatch.md), owner-decision economics.
+- [ ] **A project vocabulary for ratified terms** — When: 2026-10-29,
+  T047 and T052 findings. Status: open; the twenty-one terms ratified
+  on 2026-10-29 and "result core" have spec anchors as definition
+  sites and no vocabulary rows. Pointer: [process/README.md](process/README.md).
 - [ ] **Methodology citations in the process spec point at the
   superseded pin** — identified 2026-08-31 while planning P1-N014,
   not executed. Nine links under `docs/process/` and in

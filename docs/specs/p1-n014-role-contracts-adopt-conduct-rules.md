@@ -1,6 +1,6 @@
 # Role contracts adopt the methodology's conduct rules: specification
 
-Status: active
+Status: closed → Backlog entry (node P1-N014 done 2026-10-29, task T047 executed, T052 verified; see the Backlog entry "Role contracts adopt the methodology's conduct rules")
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a

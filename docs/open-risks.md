@@ -291,8 +291,12 @@ detects or contains them. This register's numbering is project-local.
   `needs-judgment` return, not a quiet install; a hand-built
   substitute carrying an honest caveat beats an unverifiable
   dependency, which is what T027 shipped. *Status*: open; recorded
-  2026-09-01 from a real encounter, with the role-contract wording
-  routed to node P1-N014.
+  2026-09-01 from a real encounter. The role-contract wording was
+  routed to node P1-N014 until 2026-10-29, when that node's gated duty
+  inventory carried no R14 row (its criterion C1 bars unlisted
+  duties); re-routed the same day to the Backlog entry "R14's
+  contract wording" for node P3-N014, which edits the six contracts
+  next (T052 verdict, Orchestrator disposition).
 - **R15 — Reference documentation is an instruction channel into a
   dispatched role.** A role sent to read documentation fetches pages
   chosen by the task, and prose on those pages reaches the model as
