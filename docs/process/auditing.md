@@ -8,6 +8,13 @@ split
 and delivering findings through its audit process. Owner-approved
 direction, 2026-08-24.
 
+Reader: RD-4 in the methodology's
+[reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers) (a fresh agent
+session): an Auditor, or the Orchestrator running the form checks. It
+assumes the methodology at this project's pinned version, 1.6.0
+([Classification](../classification.md)), and the
+[process specification's](README.md) defined terms.
+
 ## Form checks — a tool, never an agent
 
 Deterministic invariants are checked by machine: agents are the
@@ -81,3 +88,13 @@ at gates, and on the owner's request. They are the orchestration
 analogue of the methodology's semantic audits and follow the same
 discipline: human adjudication where the methodology requires it,
 findings recorded, never silently absorbed.
+
+At a gate, the semantic pass also asks whether a supersession marker
+under the gated [node](README.md#def-node) still stands, and whether
+it names its scheduled resolution. For
+[K-010 (superseded content is never silently readable)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-010--superseded-content-is-never-silently-readable),
+this project's review round is the next gate on the node the marker
+sits under ([plan for P1-N014 (role contracts adopt the methodology's conduct rules)](../plans/p1-n014-role-contracts-adopt-v140-rules.md),
+decision 6: the standing-marker bound is the next gate). A marker that
+names its scheduled resolution answers the question in advance. A standing
+marker that names none is a finding.

@@ -470,8 +470,19 @@ who did not know the class existed. Naming the class is the fix.
 
 ## What this does to the existing plan
 
-- **P1-N006 (pilot on a real project)** — Allegro is the pilot, and
-  this work is how it happens. The node is subject to change.
+- **P1-N006 (pilot on a real project)** — methodology-tools is the
+  pilot. The owner named methodology-tools the first adopter on
+  2026-10-29, and the first adopter's plan is the pilot
+  ([vision](https://github.com/majodali/methodology/blob/main/docs/vision.md#decisions-taken-on-2026-10-29),
+  claims C84 and C99 to C101 of its IR). This repository adopts the
+  service by construction at service chunk 5, and that adoption is
+  not the pilot. The node is subject to change.
+
+  > Corrected 2026-10-29 (task T051, K-010): this item read "Allegro
+  > is the pilot, and this work is how it happens". The owner's naming
+  > of methodology-tools made the first half false. The second half
+  > was said of Allegro. No record says whether this work is how the
+  > methodology-tools pilot happens, so this item no longer claims it.
 - **P2-N003 (owner questions and the plan view)** — the natural
   surface for a comprehension model; likely needs re-specifying
   against chunk 1 rather than proceeding as planned.

@@ -16,15 +16,22 @@ is real, propose an amendment upstream
 Every orchestrated action on a managed project complies with that
 project's own compliance target.
 
+Reader: RD-4 in the methodology's
+[reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers) (a fresh agent
+session): any session learning or applying the process. It assumes
+the methodology at this project's pinned version, 1.6.0
+([Classification](../classification.md)); the terms the process adds
+are defined below.
+
 ## Defined terms
 
 - **Managed project** — a portfolio project enrolled for
   orchestration: its Classification's Custom definitions section
   defines the *Plan register* and *Cost log* types (citing this
   spec), and a Plan register exists. Enrollment is an owner decision.
-- **Node** — one unit of work at any level of a managed project's
+- <a id="def-node"></a>**Node** — one unit of work at any level of a managed project's
   plan hierarchy ([plan-model.md](plan-model.md)).
-- **Task** — one dispatched role invocation: a (node, stage, role,
+- <a id="def-task"></a>**Task** — one dispatched role invocation: a (node, stage, role,
   context packet) tuple ([dispatch.md](dispatch.md)).
 - **Approved scope** — the set of nodes and stages the human owner
   has authorized for dispatch at a gate; the boundary of autonomous
@@ -64,9 +71,35 @@ registered in the project's [Risk register](../open-risks.md).
 ## Roles
 
 The role set — Orchestrator · Planner · Implementer · Reviewer ·
-Auditor · Liaison, refinements of the methodology's
+Auditor · Liaison · Paraphraser · Reviewer (stranger), refinements of
+the methodology's
 Agent/Reviewer/Auditor with the Human owner unchanged — is defined
 in [roles.md](roles.md),
 together with each role's authority bounds and the model-tier
 mapping. How roles are prompted and provisioned is plugin material
 (plan chunk 4).
+
+## How far the prose rules reach
+
+The methodology's [prose rules](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md),
+the P- series, bind this project's artifacts by class
+([plan for P1-N014 (role contracts adopt the methodology's conduct rules)](../plans/p1-n014-role-contracts-adopt-v140-rules.md),
+decision 7: how far the prose rules reach). Each class below names
+what binds it.
+
+- Documents under `docs/` are fully bound, in new and edited prose.
+  A document gains its reader statement under
+  [P-007 (documents state their reader)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md#p-007--documents-state-their-reader)
+  at its next edit. A term with a project-specific meaning links its
+  definition site at first use under
+  [P-008 (terms are defined once and linked at first use)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md#p-008--terms-are-defined-once-and-linked-at-first-use).
+- [Task](#def-task) briefs, task results and gate summaries are bound
+  absolutely by [P-004 (citations carry names)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md#p-004--citations-carry-names):
+  every identifier they cite carries its name. The other P- rules bind
+  them as they fit.
+- Commit messages are bound by
+  [P-004 (citations carry names)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md#p-004--citations-carry-names)
+  only.
+- Role contracts in `.claude/agents/` and their mirrors in
+  `plugin/agents/` are bound as briefs are.
+- The run journal and code, code comments included, are exempt.

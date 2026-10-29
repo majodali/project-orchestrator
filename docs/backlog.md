@@ -1,10 +1,30 @@
 # Backlog
 
+Reader: RD-4 in the methodology's
+[reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers) (a fresh agent
+session), and the owner returning after a gap (RD-2). It assumes the
+methodology at this project's pinned version, 1.6.0
+([Classification](classification.md)), and the
+[process specification](process/README.md).
+
 <!-- The single source of progress truth (methodology K-003): one
      dependency-ordered register of completed and upcoming work. Rewrite
      checked entries to describe what actually shipped — the completed
      section doubles as the implementation map. Update in the same commit
      as the work (W-003). -->
+
+Row shape, under
+[P-006 (registers hold uniform rows)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md#p-006--registers-hold-uniform-rows):
+each entry is one row of four fields, in this order: what, when,
+status, pointer. It is written
+`- [ ] **<what>** — When: <date, source>. Status: <state>. Pointer: <link>.`
+Reasoning lives in the linked document, never in the entry.
+
+The lag: entries added or rewritten from this declaration on
+(2026-10-29, node P1-N014) follow the row shape. Earlier entries keep
+their longer form until a scheduled editorial pass reshapes them (the
+entry "Editorial pass over the Backlog to the declared row shape",
+below). Correcting one fact in an earlier entry does not rewrite it.
 
 ## Completed
 
@@ -331,6 +351,186 @@
 
 ## Upcoming
 
+- [ ] **P1-N014 specified, 2026-10-29 (T046)** — the role contracts'
+  specification stands at
+  [specs/p1-n014-role-contracts-adopt-conduct-rules.md](specs/p1-n014-role-contracts-adopt-conduct-rules.md),
+  against the 1.6.0 pin: a seventeen-row inventory of conduct duties
+  from W-008, K-010, K-011, P-004, P-007, P-008, W-009, the paraphraser
+  and stranger clauses and risks R15 to R17, each with its owning
+  document and the contracts that carry it; criteria a verifier checks
+  row by row; a leaf, one commit; decisions 10 to 16 staged, decision
+  12 needs-judgment (the gate summary template takes W-008's four parts;
+  the Planner recommends adopting). The node adds no W-001 stop
+  condition; P3-N005's child B does, after this node's execute (owner,
+  2026-10-29). Carried from the task: no contracts yet for the
+  Paraphraser or the Reviewer (stranger) (decision 10 holds that);
+  roles.md's pipeline clauses run ahead of the pin and retarget at the
+  next pin bump; a dispatched role whose working directory is another
+  repository receives that repository's CLAUDE.md, for P1-N016's packet
+  pass; orchestrator-v1.md claimed a v1.4.0 pin, corrected in this
+  node's execute. The register's P1-N014 line reads specified, where
+  the older entry below said identified. Gate crossed 2026-10-29:
+  defaults adopted, decision 12 option (a), *conduct duty* ratified,
+  RU-022 captured from decision 11, node renamed "Role contracts adopt
+  the methodology's conduct rules". Executed 2026-10-29 (T047); the
+  node's row is the entry of that name, below.
+- [x] **Migrated to methodology 1.6.0** (2026-10-28, PR #11) — the pin
+  and the amended W-008 bootstrap block with its fourth part, Terms
+  introduced; no other migration note. Recorded late, at T046's
+  finding that the migration had no Backlog entry.
+
+- [ ] **P3-N002 specified, 2026-10-29 (T043)** — the comprehension
+  model's specification stands at
+  [specs/p3-n002-comprehension-model.md](specs/p3-n002-comprehension-model.md):
+  the navigation bound of three steps fixed with its definitions, the
+  Project model as one component of the vision's planning/execution
+  model (the other, where each node's verification evidence lands, out
+  of this node's scope and carried here), criteria G1 to G6, I1 to I10
+  and P1 to P6, four children in a chain, decisions 9 to 15 staged with
+  defaults, decision 13 marked needs-judgment (act on the amended K-003
+  before its release: the Planner recommends no deviation, the Backlog
+  switching to a rendering when the amendment is released and pinned).
+  Two plan defects found and assigned: the derivation rule yields cycles
+  on real edges (child B resolves it, criterion B1); the journal event
+  kind moves from child D to child B. Gate crossed 2026-10-29:
+  defaults adopted, decision 13 option (a) no deviation, the one term
+  ratified; children P3-N006 to P3-N009 entered (RU-020). Next:
+  P3-N006's planning.
+
+- [ ] **P3-N005 specified, 2026-10-29 (T045)** — sequence mode's
+  specification stands at
+  [specs/p3-n005-sequence-mode.md](specs/p3-n005-sequence-mode.md):
+  the four stop predicates as decidability criteria I1 to I4, each
+  failing closed; criteria G1 to G3, I5 to I13 and P1 to P7; four
+  children in a chain, child B depending on P1-N014's execute;
+  decisions 9 to 16 staged with defaults, decision 10 restaging the
+  corpus default; six terms ratified at the gate of 2026-10-29, all
+  defaults adopted; children P3-N013 to P3-N016 entered (RU-020).
+  Next: P3-N013's planning. Carried from the task: no committed artifact
+  holds a past task result's Asks part, so condition 4 has almost no
+  historical corpus (decision 12 fixes this inside sequences; the
+  general rule is P1-N016's); W-008 at v1.6.0 makes a term
+  ratification an ask, so a chunk that introduces a term stops a
+  sequence; a task result's asks address the Orchestrator while W-001
+  stops on the human's (decision 11); stop signals inside a stream have
+  no home in this project yet (child A's relation table names
+  candidates, decision 14 keeps them out of this node).
+
+- [ ] **P3-N003 specified, 2026-10-29 (T044)** — the common risk
+  catalogue's specification stands at
+  [specs/p3-n003-common-risk-catalogue.md](specs/p3-n003-common-risk-catalogue.md):
+  the entry test ET-1 to ET-4, the entry shape with a reaches line,
+  the class-to-instance check and its negative control, criteria G1 to
+  G6, I1 to I10 and P1 to P6, three children in a chain, decisions 10
+  to 16 staged with defaults, and ten terms ratified at the gate of
+  2026-10-29, all defaults adopted; children P3-N010 to P3-N012
+  entered (RU-020). Next: P3-N010's planning.
+  Carried from the task: the Risk register shares the Backlog's
+  lost-update hazard under parallel dispatch (child B's citations);
+  the parent plan's "four instances" of the execution-environment class
+  are two independent encounters (decision 10); adopting W-009
+  project-wide by declaration stays an option decision 15 declines by
+  default.
+
+- [ ] **P3-N006 identified, 2026-10-29** — the comprehension model's
+  thin end-to-end slice: five real parts of this repository through
+  the model and both renderings
+  ([spec, child A](specs/p3-n002-comprehension-model.md)). Planned
+  2026-10-29 (T048): [plans/p3-n006-thin-end-to-end-slice.md](plans/p3-n006-thin-end-to-end-slice.md),
+  a leaf; five resources (form-checker, plan-register-grammar,
+  run-journal, RU-016, project-orchestrator-repo), fifty recorded
+  paths, the slice record in `docs/project-model-slice-record.md`;
+  decisions 1 to 3 staged (no separate specify task; only edges derived
+  from earlier records enter the instance; a facet with nothing to
+  state reads `none` with a link). Carried from the task: the parent's
+  derivation rule yields use-before-later-modification cycles for this
+  node too (criterion B1); P1-N014 also edits the Backlog header.
+  Next: the owner's plan gate.
+- [ ] **Whether a child carried at criteria depth by its parent's
+  specification needs its own plan or specify task** — found
+  2026-10-29 planning P3-N006: earlier children went straight to
+  execute, P3-N006 got a plan task, and RU-020 covers only the break
+  down task. For P1-N016, or a ruling captured from P3-N006's
+  decision 1.
+- [ ] **Risk register and Ruling register entries have no anchors** —
+  found 2026-10-29 planning P3-N006: links to a risk or a ruling land
+  at the top of the document; the web view (P2-N003) will want
+  per-entry links.
+- [ ] **P3-N007 identified, 2026-10-29** — the Project model type
+  declared, the arguments written, the K-003 amendment drafted on
+  P3-N006's slice, IR first, owner-gated at `verifying` (spec child
+  B; decisions 10 to 12). Depends on P3-N006.
+- [ ] **P3-N008 identified, 2026-10-29** — the instance over this
+  repository, with G6's renderings compared against the Backlog (spec
+  child C). Depends on P3-N007.
+- [ ] **P3-N009 identified, 2026-10-29** — sibling ordering retired
+  from `dispatch.md`, `plan-model.md` and the register's header, and
+  the checks that replace it (spec child D). Depends on P3-N008.
+- [ ] **Switch this repository's Backlog to a rendering of the
+  planning/execution model** — when the K-003 amendment P3-N007
+  drafts is released and pinned (P3-N002 decision 13, option (a), owner
+  2026-10-29). Paired with a rendering tool for the Backlog's two
+  remaining jobs, the implementation map and the list of what is next.
+- [ ] **P3-N010 identified, 2026-10-29** — one risk class carried end
+  to end: the execution-environment entry under the entry test ET-1 to
+  ET-4, with at least two independent encounters
+  ([spec, child A](specs/p3-n003-common-risk-catalogue.md)). Planned
+  2026-10-29 (T049): [plans/p3-n010-one-class-end-to-end.md](plans/p3-n010-one-class-end-to-end.md),
+  a leaf; decisions 1 to 5 staged (no separate specify task; step 1 of
+  the check reads the Classification of the repository holding each
+  part; the parts enumeration reads every checked Backlog entry; CR-001
+  cited from the Risk register entries that instantiate it; no IR at
+  this child). Carried from the task: the check could come back empty
+  under this repository's component/library Classification; 20 of 47
+  checked Backlog entries sit under Completed. Next: the owner's plan
+  gate.
+- [ ] **P3-N011 identified, 2026-10-29** — the sweep, the rest of the
+  catalogue and the omission list in the check document (spec child
+  B). Depends on P3-N010.
+- [ ] **P3-N012 identified, 2026-10-29** — the Article 8 proposal for
+  `docs/registers/common-risk-catalogue.md` upstream, written IR first
+  and reviewed, delivered under RU-015 and RU-022 (spec child C).
+  Depends on P3-N011.
+- [ ] **P3-N013 identified, 2026-10-29** — W-001's four stop
+  conditions made decidable, evidenced, and related to the meta-review
+  signals in the relation table
+  ([spec, child A](specs/p3-n005-sequence-mode.md)). Planned
+  2026-10-29 (T050): [plans/p3-n013-stop-conditions-decidable.md](plans/p3-n013-stop-conditions-decidable.md),
+  a leaf run as a fixed sequence of tasks E1 to E4 with blindness
+  built into the commit graph; decisions 1 to 7 staged (decision 6
+  closes a gap: no predicate reads a `blocked` status); two terms for
+  ratification, predicate commit and stand-in grant. Carried from the
+  task: no committed source holds the pinned v1.6.0 signal text, so the
+  packet or the tag URL must carry it; no past task has a ratification
+  record. Next: the owner's plan gate.
+- [ ] **A leaf whose evidence needs independent sessions** — found
+  2026-10-29 planning P3-N013: `plan-model.md`'s leaf definition
+  assumes one session, while P3-N013's two blind readings need
+  separate sessions. For P1-N016.
+- [ ] **No committed source of a pinned methodology text for a role
+  without git** — found 2026-10-29 planning P3-N013: the packet table
+  names no route to text at a pinned tag. For P1-N016.
+- [ ] **W-001's stop conditions do not name a `blocked` chunk** —
+  found 2026-10-29 planning P3-N013; evidence for P3-N016's
+  determination.
+- [ ] **P3-N014 identified, 2026-10-29** — the loop runs sequence mode
+  and the roles meet the conditions without looking: asks name their
+  addressee, result-received events carry the Asks part (spec child B;
+  decisions 11 and 12). Depends on P3-N013 and on P1-N014's execute.
+- [ ] **P3-N015 identified, 2026-10-29** — the demonstration: a
+  ratified sequence lands two chunks and stops on asks (spec child C;
+  decisions 13 and 15). Depends on P3-N014.
+- [ ] **P3-N016 identified, 2026-10-29** — the determination on W-001
+  with the residue table, and the artifact or the argument (spec child
+  D). Depends on P3-N015.
+
+- [ ] **Hierarchical resources, for complex resource validations** —
+  owner note at the P3-N002 gate, 2026-10-29: the comprehension model's
+  resources are flat by that plan's decision 2, and a hierarchy may
+  become necessary later to support complex validations over
+  resources. Nothing to do now; a future discussion, recorded so the
+  flat decision is read as deliberate rather than final.
+
 - [ ] **P3-N002 and P1-N016 both reach `dispatch.md`'s selection
   rule** — found 2026-09-17 planning P3-N002. That node's child D must
   amend `dispatch.md` ("entering `execute` requires earlier siblings
@@ -347,19 +547,12 @@
   `lib/form-check-core.ts` encodes them — so this is an editorial
   amendment, not a code change.
 
-- [ ] **Two nodes edit the same six role contracts, and neither knows
-  it** — found 2026-09-17 planning P3-N005. P1-N014 (`planned`) adds
-  the v1.5.0 conduct duties and R17's fallback wording to
-  `.claude/agents/`; P3-N005's child B adds W-001's stop conditions to
-  the same six files. The additions do not overlap in content, so
-  neither blocks the other, and imposing an order would be the defect
-  [RU-018](rulings.md) exists to prevent. The hazard is descriptive,
-  not structural: each plan describes the contracts as they stood when
-  it was written, and a document describing another document's state
-  goes stale silently — this project has recorded that failure twice
-  already. P3-N005's decision 8 requires child B to read the contracts
-  as they then stand. Recorded so whichever node runs second knows the
-  other exists.
+- [ ] **Two nodes edit the same six role contracts** — When: found
+  2026-09-17 planning P3-N005, ordered by the owner 2026-10-29.
+  Status: P1-N014's contract edits landed first, 2026-10-29 (T047).
+  P3-N014, P3-N005's child B, edits the same files next and reads them
+  as they then stand (P3-N005 decision 8). Pointer:
+  [P1-N014 specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the binding section.
 
 - [ ] **Retiring the Ruling register's `Applied:` field** — the option
   P3-N002's decision 5 declines by default, kept live here. A ruling is
@@ -507,17 +700,22 @@
   and single writer unchanged. It adds one entity (the abstract
   resource, flat and ungranular by design) and one edge kind, node →
   resource, labelled creates/modifies/uses; node-to-node dependency is
-  derived. **No K-003 amendment** (I4's second disjunction): the model
-  carries no progress field, resource state is derived from register
-  stages, and a form-check rule reports divergence — a view that owns
-  no data cannot be a second source of truth. The Orchestrator is the
+  derived. **K-003 amended, the model primary** (the owner overrode
+  decision 3 at the gate of 2026-10-29, [RU-021](rulings.md); this
+  supersedes the plan's earlier default of no amendment, corrected here
+  2026-10-29 on P3-N006's finding): the model carries no progress
+  field, resource state is derived from register stages, a form-check
+  rule reports divergence, and the Backlog's remaining jobs become
+  renderings of the model when the amendment is released. The Orchestrator is the
   model's single writer. Navigation bound kept at three steps with the
   latitude spent defining the unit: a step is opening a document or
   following one link, from eight enumerated starting points, so the
   worst case is three by construction. Repository reach: this
   repository only ([RU-016](rulings.md)); no planned non-monotonicity,
   new checks inert where no instance is declared. Eight decisions
-  staged. Next stage: specify.
+  decided 2026-10-29, decision 3 overridden. Specified 2026-10-29
+  (T043) and broken down at the gate of the same day into P3-N006 to
+  P3-N009; see the entry *P3-N002 specified, 2026-10-29 (T043)*.
 
 - [ ] **The common risk catalogue** (node P3-N003, chunk 2 of P3-N001,
   `identified` 2026-09-17) — a populated register of risks every
@@ -933,8 +1131,8 @@
   P1-N009's conformance corpus may absorb this: a shared fixture set
   that travels with the grammar is the same fixture, kept honest by
   the same drift check.
-- [ ] **Plugin tooling on the portfolio stack** (node P1-N009,
-  `specified`) — rewrite `plugin/scripts/form_check.py`,
+- [x] **Plugin tooling on the portfolio stack** (node P1-N009,
+  `done` 2026-08-31) — rewrite `plugin/scripts/form_check.py`,
   `journal_tail.py` and `sync_agents.py` in TypeScript/Node per
   [RU-011](rulings.md), and give the Plan-register grammar one
   implementation instead of two. The Python predates RU-008 by a day
@@ -1002,9 +1200,10 @@
   the differential harness (`check_equality.ts`) retired with its
   evidence preserved in the corpus self-check and `run_corpus.ts`, and
   RU-014 applied to the one test the Python's deletion would otherwise
-  have broken outright. This node's own `verifying`/`done` transition
-  and final evidence assembly remain the Orchestrator's, not narrated
-  here.
+  have broken outright. **Done 2026-08-31**: the Orchestrator moved
+  the node through `verifying` to `done` in the Plan register. Entry
+  checked on 2026-10-29 (task T051), after it had stayed open at
+  `specified`.
 - [x] **(node P1-N010, P1-N009 child A) The Node toolchain and
   the shared register grammar, proven end to end by `journal_tail`**
   — shipped: `package.json` (`"type": "module"`, `engines.node >=22`,
@@ -1470,13 +1669,39 @@
   multiple instances, and the case for these two today rests on one
   conversation. Condition for proposing them: recorded instances from
   real project reports, not a single exchange.
-- [ ] **Role contracts adopt the v1.4.0 conduct rules** — node
-  P1-N014, stage `identified`, opened 2026-08-30, planned 2026-08-31.
-  States the report duty, the supersession duties, and the reach of
-  the prose rules once each, in `docs/process/` and the six role
-  contracts in `.claude/agents/`, with `plugin/agents/` regenerated.
-  Planned as a leaf, nine decisions staged with defaults.
-  Plan: [p1-n014-role-contracts-adopt-v140-rules](plans/p1-n014-role-contracts-adopt-v140-rules.md).
+- [x] **Role contracts adopt the methodology's conduct rules** (node
+  P1-N014) — When: done 2026-10-29 (T047 executed, T052 verified, pass
+  with findings). Status: done; the seventeen duties are stated once in
+  `docs/process/` and carried by the six role contracts, with
+  `plugin/agents/` regenerated; R14's wording re-routed to P3-N014.
+  Pointer: [specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the duty inventory.
+- [ ] **R14's contract wording** — When: 2026-10-29, T052 verdict on
+  P1-N014. Status: open; a new or low-provenance dependency is a
+  `needs-judgment` return, to land in the six contracts with node
+  P3-N014. Pointer: [open-risks.md](open-risks.md), R14.
+- [ ] **Bare methodology identifiers in the six contracts** — When:
+  2026-10-29, T052 finding 6. Status: open; W-002, W-003, W-006 and
+  R1 to R5 appear without names in lines P1-N014 did not edit, to be
+  named with P3-N014. Pointer: `.claude/agents/`.
+- [ ] **A prose-reach class for `plugin/skills/`** — When: 2026-10-29,
+  T052 finding 5. Status: open; the README's prose-reach section names
+  no class for the skill files. Pointer: [process/README.md](process/README.md).
+- [ ] **Check the gate summary template at its first live use** —
+  When: 2026-10-29, T052 finding 3. Status: open; the labels Covered,
+  Changed and Terms shorten W-008's part names and the Changed line has
+  no slot for "what to review there". Pointer: [dispatch.md](process/dispatch.md), Gates.
+- [ ] **Contracts for the Paraphraser and the Reviewer (stranger)** —
+  When: 2026-10-29, P1-N014 decision 10. Status: open; the two roles'
+  duties sit in roles.md, with no `.claude/agents/` contract until the
+  pipeline clauses settle. Pointer: [roles.md](process/roles.md).
+- [ ] **An override toward an option with no drafted affected-location
+  text** — When: 2026-10-29, T047 finding. Status: open; dispatch.md
+  does not route the case where placing the text needs judgment.
+  Pointer: [dispatch.md](process/dispatch.md), owner-decision economics.
+- [ ] **A project vocabulary for ratified terms** — When: 2026-10-29,
+  T047 and T052 findings. Status: open; the twenty-one terms ratified
+  on 2026-10-29 and "result core" have spec anchors as definition
+  sites and no vocabulary rows. Pointer: [process/README.md](process/README.md).
 - [ ] **Methodology citations in the process spec point at the
   superseded pin** — identified 2026-08-31 while planning P1-N014,
   not executed. Nine links under `docs/process/` and in
@@ -2262,16 +2487,18 @@
   this same commit, and no new finding from this child left
   unrecorded. `npm run typecheck`, `typecheck:consumer` and `lint`
   clean; `npm test` 34/34.
-- [ ] **Service-side adoption of the shared register grammar** — the
-  other half of P1-N009's reuse: `src/planRegister/parser.ts` gives
-  way to the vendored canonical file, and the service repo gains the
-  drift check. Belongs to node P2-N010, which has to open the parser
-  anyway to settle the stage-vocabulary question, and which should
-  therefore execute after P1-N009's shared-unit child. Kept out of
-  P1-N009 to avoid an immediate-class scope expansion
+- [x] **Service-side adoption of the shared register grammar** — the
+  other half of P1-N009's reuse, delivered by node P2-N010 (`done`
+  2026-09-01). The service repository vendors the canonical grammar
+  unit and its conformance corpus into `src/planRegister/vendored/`
+  through `sync_shared_unit.ts`, whose `--check` mode is the drift
+  check (the service's README, "The vendored register grammar unit,
+  and its drift check"). Running that check automatically stays open
+  in the service repository's Backlog. Kept out of P1-N009 to avoid
+  an immediate-class scope expansion
   ([P1-N009 plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
-  decision 3); if the owner overrides that decision the two halves
-  land together and this entry closes with it.
+  decision 3). Checked on 2026-10-29 (task T051), after it had stayed
+  open.
 - [x] **P2-N002's live criteria renamed at the P1-N009 cutover
   (decision 14, option (a), the default)** — `docs/plans/p2-n002-service-skeleton.md`
   criterion 9 and `docs/specs/p2-n002-service-skeleton.md` criterion
@@ -2379,7 +2606,10 @@
   server-side spawning.
 - [ ] **Service chunk 5 — migration and pilot** (node P2-N006) — move
   this repo's orchestration onto the service, then run the deferred
-  portfolio pilot through it; C2 promotion of this repo begins here.
+  portfolio pilot through it on methodology-tools, which the owner
+  named the first adopter on 2026-10-29
+  ([plan, chunk 5](plans/orchestration-service.md#chunk-5--migration-and-pilot));
+  C2 promotion of this repo begins here.
 - [x] **Service enlistment section in the process spec** — delivered
   early, at chunk 1 itself (node P2-N011, T038, 2026-09-07), because
   Child E's own criteria needed it rather than waiting for the
@@ -2422,10 +2652,16 @@
   measurements against today's single register (P2-N002 spec, G7); a
   larger register or multi-project state can push a tool past it.
   Re-measure at the chunk-5 migration.
-- [ ] **CI for project-orchestrator-service** — run the service
-  repository's tests and form checks on push; chunk 1 verifies by
-  local command, which is enough for one contributor and not enough
-  for long.
+- [x] **CI for project-orchestrator-service** — delivered by node
+  P2-N012, deploy the service from CI on merge (`done`; see its entry
+  above, "Deploy the service from CI on merge"). Every pull request
+  in the service repository runs build, lint, test and `sam validate
+  --lint` (`.github/workflows/checks.yml`, node P2-N014). Every push
+  to `main` deploys, smoke-tests and promotes
+  (`.github/workflows/deploy.yml`, node P2-N016). The form checks this
+  item also named did not ship: the service's CI runs no methodology
+  form check. Closed 2026-10-29 (task T051), after the service review
+  found it still open.
 - [ ] **Declare the multi-repo relationship** — record the
   coordinating-repo relationship between this repo and
   project-orchestrator-service in both Classifications once the

@@ -1,15 +1,21 @@
-# Role contracts adopt the v1.5.0 conduct rules
+# Role contracts adopt the methodology's conduct rules
 
-Status: active
+Status: closed → Backlog entry (node P1-N014 done 2026-10-29, task T047 executed, T052 verified; see the Backlog entry "Role contracts adopt the methodology's conduct rules")
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
      live claim of current intent. This is the plan document for node
      P1-N014; it goes `active` when the owner approves it at the gate,
-     and `closed → Backlog entry` when the node reaches `done`. -->
+     and `closed → Backlog entry` when the node reaches `done`.
+     The methodology is now pinned at 1.6.0 (migrated 2026-10-28). The
+     sections above the gate outcome were written against v1.4.0; the
+     specification records each place where the text at 1.6.0 changes
+     them. -->
 
 Node P1-N014, child of P1-N001
-([orchestrator-v1](orchestrator-v1.md)). A Backlog-discovered node, in
+([orchestrator-v1](orchestrator-v1.md)). Specification:
+[p1-n014-role-contracts-adopt-conduct-rules](../specs/p1-n014-role-contracts-adopt-conduct-rules.md).
+A Backlog-discovered node, in
 the same position as [P1-N008](p1-n008-mtool-checker-extension-point.md)
 and [P1-N009](p1-n009-plugin-tooling-portfolio-stack.md). It is placed
 before chunks 5 and 6 because both of those write a great deal of prose
@@ -236,11 +242,13 @@ The proposal binds by artifact class rather than by blanket:
   shape by construction.
 - Code and code comments are exempt.
 
-The gate summary template does not change. It already ends in numbered
-decisions with defaults, which are the asks, and its Detail line
-already points into the documents, which is the novelty pointer. Its
-compactness is an owner ruling, and the report rule's "no empty
-ceremony" clause protects it.
+The gate summary template changes to carry W-008's four parts in
+order, each stated when empty (P1-N014 specification, decision 12,
+adopted by the owner on 2026-10-29). The numbered decisions are the
+asks. One line each carries what is already covered, what changed and
+terms introduced. This corrects the earlier reading here that the
+template does not change, which predated v1.5.0 fixing the parts and
+their order.
 
 ### The Backlog declares its row shape and its lag
 

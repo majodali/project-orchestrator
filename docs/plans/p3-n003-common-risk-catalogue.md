@@ -1,6 +1,6 @@
 # The common risk catalogue
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -15,6 +15,8 @@ gives this node criteria **G7** and **P4** and four additions its
 breakdown names. **Independent of P3-N002**
 ([RU-018](../rulings.md)): nothing below needs the comprehension model
 to exist, and the *Independence* section states what was checked.
+This node's own specification is
+[p3-n003-common-risk-catalogue](../specs/p3-n003-common-risk-catalogue.md).
 
 Outcome under development: a **populated register of risk classes that
 every managed project must mitigate directly**, drafted in this
@@ -486,6 +488,17 @@ and left.
   argued. Answered by the applicability header (decision 2), the argued
   per-item list (decision 3), complete citations (decision 9), and the
   negative control.
+
+
+## Gate record, 2026-10-29
+
+The owner accepted this plan on 2026-10-29, adopting all nine
+defaults. One note carried to child C's specification: since
+2026-10-27 the methodology's W-009 asks that a methodology-corpus
+deliverable be written IR first and, as a document for a fresh reader,
+reviewed in stranger rounds under the communication pipeline's branch
+point; the Article 8 proposal is such a deliverable and child C absorbs
+that when specified. Specification dispatched as T044 to the Planner.
 
 ## References
 
