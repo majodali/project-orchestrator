@@ -18,18 +18,29 @@ honestly; chunks 1–3 completed before this register existed.
     - P1-N011 [done] The travelling package: conformance corpus, recorded expectations, vendoring generator
     - P1-N012 [done] The form checker on the shared unit, proven finding-for-finding
     - P1-N013 [done] The cutover: sync_agents ported, every invocation site moved, the Python retired
-  - P1-N014 [planned] [blocked: cites W-008 and K-011, which amendments A1 and A2 change — waits on upstream adoption, not on this project] Role contracts adopt the v1.4.0 conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md
+  - P1-N014 [planned] Role contracts adopt the v1.5.0 conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md
   - P1-N015 [done] Methodology amendments for delegated, multi-agent work — plan: plans/p1-n015-methodology-amendments-delegated-work.md · spec: specs/p1-n015-methodology-amendments-delegated-work.md
+  - P1-N016 [identified] Process spec maintenance: branch lifecycle, PR citation, packet table
   - P1-N006 [identified] Pilot on a real project (chunk 5) — superseded in place by P2-N001 chunk 5; kept until the founding plan closes out
   - P1-N007 [identified] Cost reporting v1 and close-out (chunk 6)
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
-  - P2-N002 [broken-down] Service skeleton and plan state (chunk 1) — plan: plans/p2-n002-service-skeleton.md · spec: specs/p2-n002-service-skeleton.md
+  - P2-N002 [done] Service skeleton and plan state (chunk 1) — plan: plans/p2-n002-service-skeleton.md · spec: specs/p2-n002-service-skeleton.md
     - P2-N007 [done] Service repository bootstrap
     - P2-N008 [done] Reachability slice: a deployed MCP server a session can call
     - P2-N009 [done] Plan-state read
-    - P2-N010 [identified] Plan-state update, git-authoritative, with the advisory lease
-    - P2-N011 [identified] Degrade to git-only, and enlistment documentation
+    - P2-N010 [done] Plan-state update, git-authoritative, with the advisory lease
+    - P2-N011 [done] Degrade to git-only, and enlistment documentation
+  - P2-N012 [done] Deploy the service from CI on merge — plan: plans/p2-n012-deploy-from-ci-on-merge.md · spec: specs/p2-n012-deploy-from-ci-on-merge.md
+    - P2-N013 [done] Alias assumptions verified against AWS documentation
+    - P2-N014 [done] Pull-request checks that cannot deploy
+    - P2-N015 [done] Alias-aware lease-table selection, failing closed
+    - P2-N016 [done] Deploy, smoke and promote on merge to main
   - P2-N003 [identified] Owner questions and the plan view (chunk 2)
   - P2-N004 [identified] Topics and coordination (chunk 3)
   - P2-N005 [identified] The task-pull loop (chunk 4)
   - P2-N006 [identified] Migration and pilot (chunk 5)
+- P3-N001 [broken-down] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
+  - P3-N002 [planned] The comprehension model (chunk 1) — plan: plans/p3-n002-comprehension-model.md
+  - P3-N003 [planned] The common risk catalogue (chunk 2) — independent of P3-N002 (RU-018) — plan: plans/p3-n003-common-risk-catalogue.md
+  - P3-N004 [identified] Reversibility, and the measurement that says whether it pays (chunk 3) — depends on P3-N002
+  - P3-N005 [planned] Sequence mode: run W-001's pre-ratified mode, and determine whether it needs specialising (chunk 4) — independent of P3-N002 (RU-018) — plan: plans/p3-n005-sequence-mode.md

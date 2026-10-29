@@ -54,6 +54,9 @@ Reading order for a session learning the process:
 9. [rulings.md](rulings.md) — the Ruling register: gate decisions
    captured as precedents, applied to staged questions, promoted
    into this spec when patterns recur.
+10. [enlistment.md](enlistment.md) — enlisting a repository against a
+    deployed orchestration service instance (optional; the process
+    above is unchanged where none is enlisted or it is unreachable).
 
 Known failure modes of the process and their containment are
 registered in the project's [Risk register](../open-risks.md).

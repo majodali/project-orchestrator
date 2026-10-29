@@ -1,6 +1,6 @@
 # Service skeleton and plan state
 
-Status: active
+Status: closed → Backlog entry
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Flips `active` when the

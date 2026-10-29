@@ -331,6 +331,402 @@
 
 ## Upcoming
 
+- [ ] **P3-N002 and P1-N016 both reach `dispatch.md`'s selection
+  rule** — found 2026-09-17 planning P3-N002. That node's child D must
+  amend `dispatch.md` ("entering `execute` requires earlier siblings
+  `done`"), `plan-model.md` ("Siblings are dependency-ordered"),
+  `docs/process/plan-register.md` and the Plan register instance's
+  header line, because the owner's retirement of sibling ordering
+  ([RU-018](rulings.md)) forces it — not because a maintenance pass
+  chose it. P1-N016 holds the accumulated editorial backlog against the
+  same documents. The two must not both rewrite the selection rule:
+  **P3-N002's amendment is the one that lands, and P1-N016 rebases its
+  pass on the amended text.** Recorded so the collision is scheduled
+  rather than discovered. Verified 2026-09-17 that sibling-order
+  semantics exist only in prose — neither `lib/plan-register.ts` nor
+  `lib/form-check-core.ts` encodes them — so this is an editorial
+  amendment, not a code change.
+
+- [ ] **Two nodes edit the same six role contracts, and neither knows
+  it** — found 2026-09-17 planning P3-N005. P1-N014 (`planned`) adds
+  the v1.5.0 conduct duties and R17's fallback wording to
+  `.claude/agents/`; P3-N005's child B adds W-001's stop conditions to
+  the same six files. The additions do not overlap in content, so
+  neither blocks the other, and imposing an order would be the defect
+  [RU-018](rulings.md) exists to prevent. The hazard is descriptive,
+  not structural: each plan describes the contracts as they stood when
+  it was written, and a document describing another document's state
+  goes stale silently — this project has recorded that failure twice
+  already. P3-N005's decision 8 requires child B to read the contracts
+  as they then stand. Recorded so whichever node runs second knows the
+  other exists.
+
+- [ ] **Retiring the Ruling register's `Applied:` field** — the option
+  P3-N002's decision 5 declines by default, kept live here. A ruling is
+  an abstract resource and the consuming node's `uses` edge is the
+  node-level fact G5 reads, so the hand-written `Applied:` list is
+  close to a second encoding of it (criterion I1). It is retained
+  because it is *task*-keyed evidence of precedent application,
+  cross-checked against journal `precedent-applied` events by
+  `plugin/scripts/lib/form-check-core.ts` — the check that failed on
+  2026-09-17 until five rulings' lists were updated by hand, which is
+  the encoding's cost demonstrated. Retiring it would rewrite that
+  check **and** its conformance-corpus expectation, part of the package
+  vendored to the service repository ([RU-012](rulings.md)), making a
+  single-repository node cross-repository and non-monotonic.
+  [RU-014](rulings.md) is the near match arguing for retirement. Needs
+  a W-002 discussion with the owner before any test changes; if the
+  owner takes decision 5's alternative at the P3-N002 gate, this closes
+  into that node.
+
+- [ ] **The comprehension model cannot say "built but broken"** — known
+  limit of P3-N002's design, recorded 2026-09-17 rather than discovered
+  later. A resource's `state` is *derived* from the register stages of
+  the nodes that create or modify it, which is exactly what keeps the
+  model from being a second source of progress truth under K-003. The
+  cost: a part whose nodes are all `done` reads `built` even when it
+  does not work. The Backlog carries whether it works and the Risk
+  register carries what threatens it, and the model points at both —
+  but nothing computes the difference. Revisit if the gap bites; it is
+  deliberately not being closed by adding a hand-written state field.
+
+- [ ] **Service support for the comprehension model** — out of scope
+  for P3-N002 by the parent specification, whose I9 requires the model
+  to work *without* the service, not with it. The instance
+  `docs/project-model.md` is git-authoritative and needs no service;
+  reading or writing it through the orchestration service — a
+  `model_read` alongside `plan_read`, and the resource-edge view a
+  hosted plan view would want — belongs with P2-N003 or a later service
+  chunk. Filed 2026-09-17 so the omission reads as a boundary rather
+  than an oversight.
+
+- [ ] **The *Project model* type is process-scope and a convergence
+  candidate** — noted 2026-09-17 planning P3-N002. The type is adopted
+  by citation like the four before it, and the methodology's Article 7
+  treats convergent custom definitions across projects as
+  standardization candidates. The second project to instantiate it
+  (Allegro is the driver, under its own node per
+  [RU-017](rulings.md)) makes it convergent. No action until then;
+  filed so the upstream path is not rediscovered.
+
+- [ ] **The omission check should read the comprehension model's parts
+  once P3-N002 lands** — identified 2026-09-17 planning P3-N003. G7's
+  class-to-instance check needs an enumeration of "parts of this
+  project", and P3-N003 is independent of P3-N002
+  ([RU-018](rulings.md)), so it builds one by hand from the Backlog's
+  Completed section, the Plan register's `done` nodes and a stated list
+  of standing artifact classes. When the model exists, that enumeration
+  is exactly what it holds, and the check should read it rather than
+  maintain a second hand-written list — otherwise the catalogue
+  acquires a fifth hand-written encoding of something a register
+  already knows, which is the defect criterion I1 exists to close.
+  Forward compatibility, not a dependency.
+
+- [ ] **Mechanizing the deterministic half of the class-to-instance
+  check** — identified 2026-09-17 planning P3-N003, decision 4. The
+  check stays a documented hand-run procedure in the node, because
+  applicability is a judgment and mechanizing a judgment produces a
+  tool that asserts a cause it did not test — which is
+  [R16](open-risks.md), itself a catalogue candidate. But one half is
+  deterministic and cheap: that every `CR-nnn` cited from a Risk
+  register entry resolves to an existing catalogue entry, and that no
+  catalogue entry lacks an applicability header. That is form-checker
+  work in `form_check.ts`'s existing idiom, additive to its rules, and
+  it is what would stop the citations rotting after the node closes.
+
+- [ ] **A catalogue class this project has not encountered has nowhere
+  to live** — identified 2026-09-17 planning P3-N003, decision 8. Every
+  entry must rest on a real encounter here, because that evidence is
+  the catalogue's whole argument upstream — so a class a maintainer
+  knows from another project cannot be admitted by this project at all.
+  The proposal will carry a closing *What this catalogue does not yet
+  cover* section naming such candidates, but nothing says how a second
+  project evidences one into an entry, or who arbitrates when two
+  projects' encounters describe the same class differently. That is
+  Article 8 process design and belongs upstream with the catalogue's
+  own governance. Raise it with the maintainer when the proposal is
+  carried ([RU-002](rulings.md)).
+
+- [ ] **Criterion I8's corpus figure is ambiguous** — found 2026-09-17
+  planning P3-N005. I8 says the Cost log and journal hold "thirty-eight"
+  past task results; the Cost log carries 38 rows, and the journal
+  additionally carries T017, which returned `needs-judgment` and got no
+  row (the gap the unrecordable-needs-judgment-cost entry already
+  owns). So the history is 38 rows or 39 task results depending on the
+  reading, and a verifier checking I8 could land on either.
+  `p3-n005-sequence-mode.md` states which figure it used and why. No
+  change to I8 is proposed; this exists so the verifier is not left
+  guessing.
+
+- [ ] **Parallel dispatch collides with the single-Backlog write, and
+  nothing says so** — found 2026-09-17 dispatching three plan tasks
+  concurrently after [RU-018](rulings.md). Every role is told to write
+  its own Backlog additions in the same commit as its work (W-003,
+  founding ruling 1). Two roles running at once both read
+  `docs/backlog.md`, both append, and the second write silently drops
+  the first — a lost-update race on the file the methodology calls the
+  single source of progress truth, with no error and no check that
+  would notice. `dispatch.md` permits parallel dispatch and says
+  nothing about it; the form checker cannot see it. Worked around for
+  this round by having the parallel roles return their Backlog
+  entries in the task result and the Orchestrator write them at
+  acceptance, which is a deviation from the write-it-yourself rule
+  recorded here rather than absorbed. The real fix is a stated rule —
+  either the Orchestrator owns the Backlog whenever dispatch is
+  parallel, or roles write to per-task fragments the Orchestrator
+  merges. Bound for P1-N016, and it is also live input for P3-N005,
+  which makes this project's loop run sequences, and for P3-N002,
+  whose model has the same single-writer question.
+
+- [ ] **The comprehension model** (node P3-N002, chunk 1 of P3-N001,
+  `identified` 2026-09-17) — the model itself, defined as an extension
+  of the planning and execution model, plus one instance over this
+  repository and whatever amendment or type declaration its own design
+  decisions force. Carries P3-N001's open question: which register it
+  extends, or whether it is a new one. Leads with a thin end-to-end
+  slice — a handful of real parts of this project carried through
+  state, specification, risks and edges before the notation is
+  generalized (decision 4). Writes the navigation bound into its
+  criteria before it executes (decision 5, three steps, the owner
+  reserving slight modification). Accepts dependency records made at
+  both moments — during a breakdown and during a single node's
+  preparation. States the disposition of each of the four hand-written
+  encodings the plan's register review found, and states the writer
+  rule. Sibling order as a dependency signal is retired rather than
+  reconciled, and the explicit hierarchy is kept (owner direction
+  2026-09-17, [RU-018](rulings.md)). Criteria: I1–I3, I2a, G1–G5 of
+  [the specification](specs/p3-n001-comprehension-and-continuous-implementation.md).
+  **Planned 2026-09-17** ([plan](plans/p3-n002-comprehension-model.md)):
+  interior, four children in a genuine chain — the thin slice over five
+  real parts, the type and its arguments, the instance, then retirement
+  and checks. The open question is **answered, not staged**: the model
+  is a **new document type keyed to the hierarchy that already exists**
+  — type spec `docs/process/project-model.md`, instance
+  `docs/project-model.md`, declared by citation alongside the four
+  types already there, with the Plan register's line, grammar, nesting
+  and single writer unchanged. It adds one entity (the abstract
+  resource, flat and ungranular by design) and one edge kind, node →
+  resource, labelled creates/modifies/uses; node-to-node dependency is
+  derived. **No K-003 amendment** (I4's second disjunction): the model
+  carries no progress field, resource state is derived from register
+  stages, and a form-check rule reports divergence — a view that owns
+  no data cannot be a second source of truth. The Orchestrator is the
+  model's single writer. Navigation bound kept at three steps with the
+  latitude spent defining the unit: a step is opening a document or
+  following one link, from eight enumerated starting points, so the
+  worst case is three by construction. Repository reach: this
+  repository only ([RU-016](rulings.md)); no planned non-monotonicity,
+  new checks inert where no instance is declared. Eight decisions
+  staged. Next stage: specify.
+
+- [ ] **The common risk catalogue** (node P3-N003, chunk 2 of P3-N001,
+  `identified` 2026-09-17) — a populated register of risks every
+  project must mitigate directly, drafted here and then proposed
+  upstream at the methodology level; populate first, propose second.
+  Every entry carries the real encounter it came from, with a date and
+  an artifact. The entry test is stated and applied — a risk recurs
+  *across* projects and must be mitigated by each, rather than being
+  tracked by one — and at least one candidate is rejected by it in
+  writing. Execution-environment coverage is present, the class this
+  project previously admitted nothing covered. Carries the
+  class-to-instance citation and the omission check of G7.
+  **Independent of P3-N002** ([RU-018](rulings.md)): dispatchable
+  alongside it. Criteria: G7, P4. **Planned 2026-09-17**
+  ([plan](plans/p3-n003-common-risk-catalogue.md)): interior, three
+  children — one class carried end to end as the thin slice
+  (execution-environment coverage), the five-seam sweep with the
+  omission list, and the Article 8 proposal. Entries live at
+  `docs/proposals/common-risk-catalogue.md` in [RU-015](rulings.md)'s
+  delivery form, IDs CR-001…, **one copy only** — a local duplicate
+  would instantiate the catalogue's own "a copy goes stale silently"
+  class on the day it was written. G7's trap is answered with a
+  **negative control**: the check is proven by breaking it, on
+  P1-N009's drift-guard precedent. Independence from P3-N002 checked
+  in three places and recorded; none found. Repository reach: this
+  repository only ([RU-016](rulings.md)). Nine decisions staged. Next
+  stage: specify.
+
+- [ ] **Reversibility, and the measurement that says whether it pays**
+  (node P3-N004, chunk 3 of P3-N001, `identified` 2026-09-17) — work
+  inside an active workstream made cheap to reverse and redo, and the
+  measurement that says whether the trade is paying. Adds the Cost log
+  field saying what a rework row is rework *of*, in the type spec and
+  the instance together; computes one real comparison over this
+  project's own history and records the method; states what "reverse"
+  means operationally for this project's artifact classes. **An
+  unfavourable result satisfies the criterion** ([RU-019](rulings.md)).
+  **Depends on P3-N002**: the economics are computable only once what
+  depended on a reversed thing is recorded. Criteria: I7, G5. Next
+  stage: plan, after P3-N002.
+
+- [ ] **Sequence mode: run it, and determine whether it needs
+  specialising** (node P3-N005, chunk 4 of P3-N001, `identified`
+  2026-09-17) — two halves. The local half is required: the change
+  that lets this project's own dispatch loop run W-001's pre-ratified
+  sequence mode, with the four stop conditions written where a
+  dispatched role meets them without looking and scored against this
+  project's own past task results so two readings agree. The asks-driven
+  stop reads W-008's named section rather than judging prose, and
+  applies the owner's 2026-09-17 clarification of what an *Asks*
+  section may contain. The upstream half is optional: an Article 8
+  proposal, **or** a recorded argument that W-001 as released needs no
+  change — a well-argued "no mechanism, and here is the clarification
+  that would have been one" is a complete deliverable. **Independent
+  of P3-N002** ([RU-018](rulings.md)). Criteria: G6, I8, P4.
+  **Planned 2026-09-17** ([plan](plans/p3-n005-sequence-mode.md)):
+  interior, four children in a strict chain — predicates evidenced,
+  then the loop section and the six role contracts, then the live
+  ratified-sequence run, then the determination. The load-bearing
+  find: **"a chunk needing a maintainer decision" becomes a lookup,
+  not a judgment** — a task result with status `needs-judgment`, or an
+  unadopted entry in a node's *Decisions for the gate* section, both of
+  which this project already forces into recorded form. Two findings
+  recorded rather than absorbed: *landing summary* has no local
+  referent (W-001 says landing summary, this project says task result;
+  the plan defines the mapping, without which the asks condition has
+  no artifact), and **the owner's Asks clarification removes a stop**
+  unless the maintainer-decision condition catches it — so those two
+  conditions are specified and scored **together, never separately**.
+  I8's two independent readings are two dispatched sessions on
+  different tiers, the second from a branch cut before the first's
+  commit, because blindness is a property of the checkout rather than
+  of an instruction. The corpus is asymmetric and the plan says so:
+  conditions 1–3 score over all task results, condition 4 only over
+  results written under W-008. G6's stopping ask must be **genuine** —
+  a manufactured one demonstrates the predicate and nothing about the
+  mode. Repository reach: this repository only; the orchestration
+  service is needed for nothing. Eight decisions staged. Next stage:
+  specify.
+
+- [ ] **The Ruling register's type taxonomy has no type for
+  dispatch-sequencing decisions** — found 2026-09-17 capturing
+  [RU-018](rulings.md) at the P3-N001 gate. The taxonomy in
+  [rulings.md](process/rulings.md) is `handoff` · `tier` ·
+  `completion` · `scope` · `verification` · `comms`, and a ruling
+  about whether a node may be dispatched alongside a sibling fits none
+  of them; `scope` was used as the nearest fit with the mismatch
+  stated in the entry rather than papered over. Extending the taxonomy
+  is a spec change by the type spec's own terms, so this is bound for
+  P1-N016's single considered change to the process spec rather than
+  fixed in place.
+
+- [ ] **Project comprehension and continuous implementation** (node
+  P3-N001, `planned` 2026-09-17) — the third top-level node, planned
+  in
+  [comprehension-and-continuous-implementation](plans/comprehension-and-continuous-implementation.md).
+  Defines one abstract comprehension model that applies to any managed
+  project, as an extension of the planning and execution model this
+  project already has, with each project's instance living in that
+  project. Dependencies are part of it: recorded, never inferred, each
+  naming an abstract resource one node creates or modifies and another
+  uses. Four chunks in dependency order — the comprehension model
+  itself, a common risk catalogue maintained at the methodology level
+  (populated before it is proposed upstream), reversibility of work
+  inside an active workstream, and a determination on whether W-001's
+  sequence mode needs specialising for orchestrated multi-agent work.
+  Driven by Allegro, which already runs both capabilities informally
+  and needs speed rather than a formally complete model; lanes are
+  neither a capability nor an outcome and nothing here builds them.
+  The plan's register review finds two likely Article 8 amendments:
+  K-003 extended so a structured view over progress is not a second
+  source of truth, and a type declaration for a model instance. One
+  open question stands — which register the model extends, or whether
+  it is a new one — and it is chunk 1's first design decision.
+  **Specified 2026-09-17** in
+  [p3-n001-comprehension-and-continuous-implementation](specs/p3-n001-comprehension-and-continuous-implementation.md):
+  the four chunks stand as the node's children with chunks 2 and 4
+  marked independent of chunk 1; seven gate criteria, eleven
+  integration invariants and six process criteria, all answerable
+  from this repository; the register review's two "likely" amendments
+  turned into criteria that a proposal **or** a recorded argument for
+  none can satisfy; eight decisions staged with defaults. **Gate crossed 2026-09-17**:
+  all eight defaults adopted with no override, specification `active`,
+  the four children entered as P3-N002..P3-N005 and the node
+  `broken-down`. Four rulings captured (RU-017..RU-020). Two owner
+  directions came with the go-ahead: the navigability bound is adopted
+  with latitude, and sibling order as a dependency signal is retired
+  while the explicit hierarchy is kept — which settles half of
+  criterion I2 and adds I2a. Next stage: the children's plans.
+
+- [ ] **The Backlog carries two open entries for P3-N001, one of them
+  stale** — found 2026-09-17 at the specify stage. The node entry
+  above is authoritative; further down the Upcoming section the
+  pre-node sketch entry ("Project comprehension and continuous
+  implementation — owner direction, 2026-09-16") still stands open,
+  and it describes the plan as `draft` with three chunks, then four
+  chunks in an order the active plan no longer uses (dependencies as
+  a separate chunk, which the plan has since folded into chunk 1, and
+  no risk catalogue). Two open entries for one unit of work make the
+  single source of progress truth disagree with itself, which is
+  exactly K-003's failure mode. The fix is an editorial reconciliation
+  — fold whatever the sketch entry records that the node entry does
+  not, and close it — and it belongs with the editorial pass over the
+  Backlog already queued below rather than opened as its own node.
+  Left for the owner to sequence rather than done here, because
+  rewriting another entry's history is not this task's work.
+
+- [ ] **A plan document has no declared place for RU-016's
+  repository-reach declaration** — found 2026-09-17 specifying
+  P3-N001. RU-016 puts the declaration "in the node's plan", and
+  P2-N012's plan carried a *Dependencies* section that did it. The
+  comprehension plan carries none, though its whole driver is another
+  repository, so the specification had to make the declaration
+  instead. Nothing catches the omission: the form checker does not
+  read plan documents, and no process document says a plan has such a
+  section. Either `dispatch.md` or `plan-model.md` names the section a
+  plan carries when a node reaches beyond its own repository, or the
+  checker looks for it. Belongs with node P1-N016's process-spec pass.
+
+- [ ] **The `specify`-stage packet row has no clause for a top-level
+  node, and no registers** — found 2026-09-17 on T039. The row reads
+  "the node's plan and the parent's specification, whole documents",
+  and P3-N001 has no parent, so the second item is empty by
+  construction rather than by defect; the table does not say so, which
+  leaves the role deciding whether its packet is short. Separately,
+  the task needed this repository's own registers — the Plan register,
+  Risk register, Cost log, run journal and the four register type
+  specs — because the node's plan is a review *of* them, and the
+  Orchestrator declared that widening at dispatch rather than letting
+  it be discovered. Both are small: a root-node clause, and a note
+  that a node whose subject is the registers takes them in its packet.
+  Third and fourth packet-table observations bound for P1-N016's
+  single considered change. **Two more from the 2026-09-17 parallel
+  round.** T042: a `plan`-stage task whose node changes the process
+  spec again needed the Risk register, the run journal and the agent
+  contracts — the third task to need the same additions, and the
+  Orchestrator pre-declared them, which is the point: the row still
+  does not name them. T040: a `plan`-stage task whose design constrains
+  the form checker and the travelling package had to read
+  `plugin/scripts/lib/` to check its own central claim, and the row has
+  no line for the code a node's design constrains. Filed here rather
+  than as separate entries, since P1-N016 makes one considered change
+  to this table.
+
+- [ ] **"Asks" in a report means only what the reader can act on now**
+  — owner clarification 2026-09-17, refining W-008's three-part report
+  shape. An Asks section carries only direct asks of the reader that
+  they can act on immediately. It may include an open question they
+  can answer on the spot; it must not include an open question waiting
+  on some other activity, and it must not include an item the report
+  itself says the reader need not answer yet. New, resolved or changed
+  open questions belong in *What changed*. The trigger was a report of
+  mine that listed the comprehension plan's remaining open question as
+  an ask while stating in the same breath that no answer was wanted —
+  which makes the section unreadable as a to-do list, the one thing it
+  is for. W-008 is upstream and the block in `CLAUDE.md` is a cache
+  that must not be amended locally, so this is bound for the
+  methodology via Article 8; the clarification is small enough to ride
+  with the next amendment rather than travel alone. **A carrier is now
+  proposed**: P3-N005's upstream half (decision 5 of
+  [p3-n005-sequence-mode](plans/p3-n005-sequence-mode.md)) would take
+  this clarification upstream alongside the W-001 interruption-criteria
+  clarification, in [RU-015](rulings.md)'s form with a cover note on
+  P1-N015's precedent. Same subject. Owner decision at the P3-N005
+  gate. Note that T042 found the clarification is not cosmetic: it
+  **removes a sequence stop** unless W-001's maintainer-decision
+  condition catches it. Owned here so it
+  is not an unowned known issue (W-005).
+
 - [ ] **Six dangling links inside verbatim upstream quotations** —
   found 2026-09-02 by the form audit at the 1.5.0 migration; not
   pre-existing to that PR, which changed no proposal document.
@@ -349,7 +745,7 @@
   known issues).
 
 
-- [ ] **Service chunk 1 — skeleton and plan state** (node P2-N002) —
+- [x] **Service chunk 1 — skeleton and plan state** (node P2-N002, `done` 2026-09-16) —
   repository bootstrap and Classification for
   project-orchestrator-service, a deployed MCP service exposing
   plan-state read/update, `.mcp.json` enlistment proven from a web
@@ -435,12 +831,21 @@
   criteria are live demonstrations on two surfaces, one of which only
   the owner's machine can perform, so a subagent could not have
   judged them.
-- [ ] **Service repo lint hygiene: ignore `.aws-sam/`** — the service
-  repo's `eslint.config.js` ignores `dist`, `node_modules` and
-  `coverage` but not `.aws-sam/`, so `npm run lint` fails after a
-  `sam build` unless the artifact is deleted first. Found and worked
-  around during T009; belongs in the service repo, tracked here until
-  a task there picks it up.
+- [x] **Service repo lint hygiene: ignore `.aws-sam/`** (`done`) — the
+  service repo's `eslint.config.js` ignored `dist`, `node_modules` and
+  `coverage` but not `.aws-sam/`, so `npm run lint` failed after a
+  `sam build` unless the artifact was deleted first. Found and worked
+  around during T009; assigned 2026-09-01 to P2-N012's child B. **The
+  assignment was made against a stale reading of the service
+  repository, and this entry with it** (K-011, marked rather than
+  quietly rewritten): the P2-N010 outage rework had already added
+  `.aws-sam/**` and `dist-lambda/**` to `eslint.config.js` and to
+  `.gitignore` at T025, before this node existed. T031 checked the
+  file rather than trusting the brief that repeated this entry's
+  claim, and said so. What it actually closed was the remaining half:
+  `.prettierignore`, which listed neither. The lesson is the entry's,
+  not the role's — a Backlog item describing another repository's
+  state goes stale silently, and nothing here re-reads it.
 - [x] **Chunk-1 child: plan-state read** (node P2-N009, `done`)
   — delivered in the service
   repo on branch `p2-n009-plan-state-read` (`cd67d75`, five commits):
@@ -1104,6 +1509,558 @@
   [founding plan](plans/orchestrator-v1.md) makes that tooling
   upstream, so nothing equivalent is built here; the Auditor picks
   them up like any other `mtool` result kind.
+- [ ] **The Lambda bundle cannot load under ESM once the AWS SDK is
+  in it** — the deploy of node P2-N010's write path took the whole
+  service down: `/health`, which needs no auth and no GitHub,
+  returned API Gateway's own `{"message":"Internal Server Error"}`,
+  which is the signature of a function that never initialises rather
+  than an application error. Reproduced locally and root-caused:
+  `bundle:lambda` emits `--format=esm`, and `@aws-sdk/client-dynamodb`
+  reaches `@smithy/node-http-handler`, which is CommonJS and
+  `require()`s Node builtins. esbuild rewrites those to a shim that
+  reads `typeof require !== "undefined" ? require : throw`, so the
+  bundle throws `Dynamic require of "node:https" is not supported` the
+  moment it is imported from an ESM context — which is exactly how
+  Lambda loads an `.mjs` handler. The service survived until now only
+  because nothing had pulled the AWS SDK in. Recommended fix: an
+  esbuild banner defining `require` from `node:module`'s
+  `createRequire`, which keeps the ESM output and is the standard
+  remedy; bundling as CommonJS is the alternative.
+- [ ] **The bundle's import check was a false negative, and needs to
+  run under ESM** — every task that has validated this bundle ran
+  `node -e "import(...)"`, which executes in **CommonJS** mode, where
+  esbuild's shim finds a real `require` and the bundle loads happily.
+  The same import from an `.mjs` file fails. So the check that was
+  supposed to catch exactly this class of defect could never have
+  caught it, and reported success on a bundle that cannot run in
+  production. The replacement is a test that imports the built bundle
+  from an ESM context and asserts a callable handler — cheap, and it
+  would have failed before the deploy rather than after. **Fixed at
+  T025**, and the trap is wider than the one command: a plain
+  `await import(builtArtifact)` **inside Vitest** also fails to
+  reproduce the defect, because Vite's module runner is a third
+  CommonJS-flavoured context. The committed test therefore spawns a
+  real `node --input-type=module` subprocess. Nothing stops a future
+  test writing the natural-looking, silently-wrong form, so the
+  service repo carries a Backlog entry proposing a shared helper.
+- [x] **Deploy the service from CI on merge** (node P2-N012, `done`) —
+  owner direction, 2026-09-01, after a deploy took the service down
+  and nothing noticed until a session curled the endpoint. Checks on
+  every pull request (build, lint, test, `sam validate --lint`),
+  deploy on merge to `main`, and a **post-deploy smoke test that
+  fails the run** — `/health` returns 200 and `tools/list` carries
+  the expected tools, or the workflow goes red. That last part is
+  what turns today's outage into a two-minute event. Credentials are
+  settled and provisioned: GitHub OIDC to
+  `arn:aws:iam::656557768279:role/project-orchestrator-service-deploy`,
+  so no long-lived secret exists to leak from an S1 repository. One
+  real decision remains and it is the owner's, because it changes a
+  Classification: the service currently declares
+  `Workflow: none declared (⇒ deployed is false)`, and v1.4.0's
+  Workflow declaration format requires three parts — ordered stages,
+  a designated live stage, and a Backlog default rule. Declaring one
+  is what makes `deployed` derivable, and the service repository's
+  own migration entry predicted this moment. **Shape settled with the
+  owner, 2026-09-01**: rather than a second stack, a **preprod Lambda
+  alias** exposed by a Function URL — one resource, and it avoids the
+  stage-prefix defect class that caused the first outage. Because
+  Lambda environment variables belong to the function version rather
+  than the alias, the handler reads its own qualifier from the
+  invoked ARN and picks the lease table, failing closed on an
+  unrecognised one; the preprod table is permanent, cleaned by TTL.
+  The smoke test runs against the preprod URL — `/health` 200,
+  `tools/list` carrying all six tools, and a full lease
+  acquire-and-release cycle, which is the check that would have
+  caught the reserved-word defect. Promotion is repointing the `live`
+  alias at the tested version, so rollback is repointing back and a
+  failed smoke test simply leaves production untouched. No new
+  secrets: preprod shares the bearer token and the GitHub App, and
+  the additions are one table, one IAM permission and one public URL
+  carrying the same auth. The alias/environment constraint is the
+  assumption the design rests on and could not be confirmed against
+  AWS documentation from this environment, so verifying it is the
+  first thing the work does. Planned 2026-09-01
+  ([plan](plans/p2-n012-deploy-from-ci-on-merge.md)): interior, four
+  children led by that assumption spike, with six decisions staged —
+  among them the exact Workflow declaration text and the boundary
+  that keeps a fork or workflow-editing pull request away from the
+  deploy role. All six adopted at the gate the same day, and
+  cross-repo scope made permanent by [RU-016](rulings.md). Specified
+  2026-09-01 ([spec](specs/p2-n012-deploy-from-ci-on-merge.md)): the
+  four children stand, and the plan's twelve criteria split into six
+  that belong to one child and eight node-level compositions built so
+  that a verifier holding no AWS credential can still check them —
+  from repository content, workflow run logs, HTTPS calls to the two
+  endpoints, and one owner attestation on the deploy role's trust
+  policy. Four further decisions staged (7–10): how the failed smoke
+  test is induced, attended verification rather than a dispatched
+  Reviewer, whether branch protection blocks `done`, and where the two
+  prerequisite outage fixes execute. **Done 2026-09-07**: all twenty
+  criteria met, the assembly in the
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md)'s Gate
+  evidence section, with I2's trust-policy clause attested by the
+  owner because no session can read an IAM role. Four `push` runs to
+  reach green, and four distinct defects on the way — an IAM audience
+  reading `sts.amazon.com`, a missing `CreateChangeSet` grant on the
+  SAM transform, a Function URL missing the `lambda:InvokeFunction`
+  grant AWS has required since October 2025, and `live` bootstrapped
+  to the mutable `$LATEST` so that every deploy was a production
+  deploy. Each was invisible to a passing test suite and visible in
+  one real run; the last was found because a smoke test failed and
+  production changed anyway, which is the outage class this node
+  exists to prevent, caught by the machinery built to prevent it.
+  **All four adopted at the
+  specification gate, 2026-09-01**, together with the Orchestrator's
+  fifth — that the written breakdown crosses at the same gate, so the
+  four children entered the register as P2-N013 to P2-N016 without a
+  separate `break down` task, as chunk 1's children did. Decision 10
+  is already discharged: the service's `main` is `1d48503` and carries
+  both outage fixes.
+- [x] **Alias assumptions verified against AWS documentation** (node
+  P2-N013, child A of P2-N012, `done`) — the six platform assumptions the
+  design rests on, answered yes or no in a committed finding with the
+  documentation URL and the date read: environment variables are
+  per-version rather than per-alias; the handler can read its invoked
+  qualifier through `hono/aws-lambda`; a Function URL can be bound to
+  an alias, and delivers an event shape that adapter handles; the
+  production integration can be bound to `live`; and a stack update
+  does not reset `live`. First of the four by
+  [decision 2](plans/p2-n012-deploy-from-ci-on-merge.md), because a
+  false assumption here costs one task rather than the node. Criteria
+  in the [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
+  **Blocked 2026-09-01, before dispatch**: this environment's network
+  egress policy denies `docs.aws.amazon.com`, `aws.amazon.com` and
+  `repost.aws` — a 403 at the CONNECT, for both `curl` and the fetch
+  tool — so no role running here can read the documentation the
+  criteria require it to cite. Web *search* still returns AWS-authored
+  summaries, which is evidence of a different grade than "the
+  documentation URL and the date it was read". Unblocking is the
+  owner's: allow the domain in the environment's network policy, or
+  answer the six assumptions himself as an attestation, or accept a
+  lower evidence grade — the last being a deviation from the criteria
+  he has just adopted. **Unblocked the same day**: the owner allowed
+  the domain in the environment's network policy, and
+  `docs.aws.amazon.com` now answers 200 with the guide's prose in the
+  HTML rather than behind a script. The criteria stand as adopted.
+  **Delivered 2026-09-01** (T030): all six answered yes, on branch
+  `p2-n013-alias-assumptions` (`f95b9e8`) in the service repository at
+  `docs/findings/alias-assumptions.md`, each with its
+  `docs.aws.amazon.com` URL, the date read, a verbatim quote, and the
+  criterion that later exercises it live. The one conditional answer
+  is assumption 5: a stack update leaves `live` alone **unless** the
+  template manages that alias through SAM's `AutoPublishAlias`, which
+  republishes and repoints it on every code-changing deploy and would
+  defeat "deploy, then promote" the first time CI ran. The finding
+  gives child C the alternative rather than leaving it to
+  rediscover — a plain `AWS::Lambda::Alias` whose `FunctionVersion`
+  comes from a template parameter, with promotion done outside
+  CloudFormation as an `aws lambda update-alias` call.
+- [x] **Pull-request checks that cannot deploy** (node P2-N014, child
+  B of P2-N012, `done`) — the `pull_request` workflow: build, lint, test and
+  `sam validate --lint`, each able to fail the check;
+  `permissions: contents: read` and no `id-token: write`; no
+  `pull_request_target`; third-party actions pinned to commit SHAs.
+  Independent of the other three and shippable alone. Closes the
+  `.aws-sam/` lint-hygiene entry above, since the workflow runs a
+  `sam build` every time. Criteria in the
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
+  **Delivered 2026-09-01** (T031): branch `p2-n014-pr-checks`
+  (`a5f75f3`), four separately named jobs — `Build`, `Lint`, `Test`,
+  `SAM validate --lint` — on `pull_request` only, `contents: read` at
+  the workflow level with no job override and no `id-token` anywhere,
+  every action pinned to a full commit SHA with its version in a
+  trailing comment, and the check names written into `docs/runbook.md`
+  so O10 is a selection rather than a guess. Locally: build, lint,
+  test (131 passing), `format`, `sam validate --lint` and `sam build`
+  all clean, and lint re-run *after* `sam build` to prove the
+  artifact-ignore holds. What the first run must still confirm: that
+  the workflow executes at all, and that the four check names appear
+  as predicted — a branch with no pull request runs nothing, so
+  neither is knowable yet.
+- [x] **Alias-aware lease-table selection, failing closed** (node
+  P2-N015, child C of P2-N012, `done`) — the runtime change and the template
+  resources it needs: the qualifier read from the invoked ARN, `live`
+  and `preprod` mapping to their own tables, an unrecognised
+  qualifier refused with the qualifier named, the rule scoped to
+  Lambda so the dev server and the suite are untouched, and the
+  preprod table, alias, Function URL, IAM grants and `live` binding in
+  the template. `service_identity` gains the qualifier and the
+  resolved table, which is what makes the choice checkable in one
+  authenticated call. Criteria in the
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
+  **Delivered 2026-09-01** (T032): branch
+  `p2-n015-alias-aware-lease-table` (`62e144a`). A call arriving
+  through `live` resolves the production table, through `preprod` the
+  preprod one, and any other qualifier — `$LATEST` and an unqualified
+  invocation included — is refused by name before a DynamoDB client is
+  constructed. The rule fires only under a real Lambda invocation, so
+  the dev server and the whole existing corpus still resolve
+  `LEASE_TABLE_NAME` unchanged. `template.yaml` gains the preprod
+  table, both aliases as plain `AWS::Lambda::Alias` resources driven by
+  parameters, preprod's Function URL, and explicit
+  `AWS::ApiGatewayV2::*` resources binding production to `live` —
+  SAM's `Events:` sugar cannot target an alias, which is why the sugar
+  is gone. `scripts/deploy.sh` reads `live`'s current
+  `FunctionVersion` back before every deploy and passes it through, so
+  an ordinary deploy declares no change to it. 167 tests pass, 131 of
+  them pre-existing with **zero deletions across every test file**
+  (W-002), verified from a clean clone by the Orchestrator rather than
+  from the role's report. Unproven until child D deploys: the alias
+  binding holding in a real account, the Function URL's real event
+  shape, and I4 itself — that a second, template-changing deploy
+  leaves `live` where it was.
+- [x] **Deploy, smoke and promote on merge to main** (node P2-N016,
+  child D of P2-N012, `done`) — the `push` workflow end to end: OIDC, the
+  deploy through `scripts/deploy.sh`, the three-check smoke test
+  against the preprod Function URL with its token read from Secrets
+  Manager, promotion by repointing `live`, the runbook's rollback and
+  smoke-failure procedures, and the Workflow declaration in the
+  service repository's Classification. The child the owner sees
+  working, and the only one blocking on owner actions O7 to O10.
+  Criteria in the
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
+  **Workflows delivered 2026-09-02** (T034), branch
+  `p2-n016-deploy-workflow` (`74d67c1`): `deploy.yml` on `push` to
+  `main` with `id-token: write` and a non-cancelling `deploy-main`
+  concurrency group, invoking `scripts/deploy.sh` unmodified, then
+  publishing a version, pointing `preprod` at it, running
+  `scripts/smoke-test.sh`'s three checks against the preprod Function
+  URL, and promoting `live` by `aws lambda update-alias` only if the
+  smoke test passed — logging the version before and after. Steps run
+  in one job, so a non-zero smoke exit stops the run before promotion
+  and `live` is untouched. `oidc-preflight.yml` on `workflow_dispatch`
+  answers the owner's question before a merge can: it assumes the role
+  and, on failure, decodes the token's own claims and prints them
+  beside the expected subject, because AWS's denial names no failing
+  condition. The token never reaches the log — captured into a shell
+  variable rather than a file, passed to Node by environment rather
+  than argv, masked immediately, and no shell tracing anywhere near
+  it. The trust-policy section of `docs/deploy-role-permissions.md` is
+  corrected and dated: this repository was created 2026-08-26, so
+  immutable subject claims are mandatory, and the earlier reasoning
+  that it predated the cutoff was wrong. Nothing about the pipeline's
+  real behaviour is proved — no session holds AWS credentials — so
+  the first CI deploy is both this child's verification and the node's
+  gate demonstration.
+  **Prerequisites cleared 2026-09-01** (T033), branch
+  `p2-n016-deploy-prerequisites` (`db8b66a`): both owner actions the
+  owner found broken are now documented rather than guessed at.
+  `docs/deploy-role-permissions.md` carries an eleven-statement IAM
+  policy for the deploy role, derived from AWS's SAM permissions
+  documentation and from `template.yaml` resource by resource, with
+  only two actions left unscoped and each carrying the citation that
+  forces it. O7's plan text was too narrow in a second way the owner
+  had not raised: the template resolves *two* Secrets Manager
+  references, not one. The `GITHUB_` problem needs no code change —
+  the prefix ban governs configuration variables, while the rule on
+  workflow-set environment variables only forbids overriding GitHub's
+  enumerated defaults, and none of the three App names is on that
+  list. The workflow maps five repository variables into the script's
+  existing contract, so `scripts/deploy.sh` and criterion I1 are
+  untouched. What remains for this node is the `push` workflow
+  itself.
+- [ ] **Continuous monitoring for the service, between deploys**
+  (identified at P2-N012's plan stage, 2026-09-01) — the CI smoke
+  test catches breakage a deploy causes, and nothing catches
+  breakage that arrives between deploys, such as an expired
+  credential or a revoked App installation. The motivating failure
+  was that nothing noticed, which a deploy-time check only half
+  fixes. Candidate shape: a scheduled synthetic call to `/health`
+  and `tools/list`, alerting the owner where he will see it. Sized
+  as its own node when wanted.
+- [ ] **Continuous integration for this coordinating repository**
+  (identified at P2-N012's plan stage, 2026-09-01) — `node
+  plugin/scripts/form_check.ts` and `mtool`'s form audit and link
+  check on every pull request here. Today both run only when a role
+  session remembers to run them, and the register is what gates
+  dispatch. Deliberately out of P2-N012's scope, which is the
+  service's deploy path.
+- [ ] **Deployment machinery P2-N012 deliberately left out**
+  (recorded 2026-09-01) — gradual traffic shifting, CodeDeploy
+  deployment preferences, and a second stack or AWS account for
+  preprod. All three were weighed against the parent plan's
+  constraint 3 (degrade to git-only), which makes a service outage
+  expensive attention rather than stopped work, and none earns its
+  cost at this traffic volume. Revisit if the service ever becomes
+  something work stops without.
+- [ ] **`plan_lease_release` fails against real DynamoDB: `token` is
+  a reserved keyword** — surfaced by the chunk 1 gate demonstration
+  itself, on the first call ever made against the production table.
+  `plan_confirm` succeeded — it fetched the pushed commit, checked the
+  register carried the edit, and reported the transition confirmed —
+  and then failed to release the lease:
+  `Invalid ConditionExpression: Attribute name is a reserved keyword;
+  reserved keyword: token`. The cause is one line:
+  `dynamoLeaseBackend.ts` writes `ConditionExpression: "token = :token"`,
+  and DynamoDB reserves `token`, so it needs an
+  `ExpressionAttributeNames` alias. `acquireLease`'s expression uses
+  only `pk` and `expiresAt`, which is why acquire worked and release
+  did not. **Why 124 tests missed it**: every test runs the in-memory
+  lease backend, so no test has ever sent a condition expression to
+  DynamoDB. The class of gap is the same one the ESM bundle defect
+  had — a check that cannot fail in the environment where the code
+  actually runs. The TTL contained it exactly as designed: the lease
+  self-released at expiry and the register was never at risk, because
+  the service holds no write credential.
+- [ ] **Q-004 makes the test-environment decision reversible at C2**
+  — today's choice of a preprod alias over a second stack was taken
+  on this service's economics: one consumer, no authoritative state,
+  designed degradation to git-only. The methodology's rules README
+  carries `Q-004 — Functional tests run against a deployed test
+  environment`, tagged `[C2+] [type: web-app, backend-service]`,
+  as the worked example of an applicability header. It does not bind
+  a C1 project and it is illustrative rather than live corpus today
+  — but the service is a `backend-service`, and
+  [RU-007](rulings.md) ties this project's C2 promotion to chunk 5.
+  So the decision has a scheduled review point rather than being
+  permanent, and whoever revisits it should start from Q-004's text
+  rather than re-deriving the argument.
+- [ ] **The `plan`-stage packet carries no rule corpus** — T028
+  needed the methodology's rules to establish what declaring a
+  Workflow actually costs, which is the load-bearing claim of a
+  decision that changes a Classification. The packet gave it the
+  vocabulary and the release register but not the rules. This is the
+  fourth packet-table observation and the second naming a structural
+  gap rather than a one-off; it belongs with the others in node
+  P1-N016's single considered change to `dispatch.md`'s table.
+- [ ] **A criterion only the owner can evidence has no recorded form**
+  (identified at P2-N012's specify stage, 2026-09-01) — the node's
+  criterion that the deploy role's trust policy restricts the OIDC
+  subject to `main` is real, load-bearing, and unreadable by any
+  dispatched session, because no session holds AWS credentials. The
+  specification marks it owner-attested and says the attestation is
+  recorded with the gate, which is prose invented for one node. The
+  process spec has owner *actions* (O-numbers) but no owner
+  *attestation*: a criterion whose evidence is the owner's word, with
+  the date it was given. Every deploy-path and account-boundary node
+  will meet this. Sized as a `docs/process/` change when a second node
+  needs it; until then the prose above stands.
+- [ ] **Plan nodes have no way to state a dependency** — owner
+  finding at the P2-N012 gate, 2026-09-01. `dispatch.md` makes
+  "earlier siblings `done`" the entry condition for `execute`, and
+  sibling order in the Plan register *is* dependency order by
+  convention. The owner's judgment: conservative, and not correct.
+  P2-N012 has no dependency on P2-N011 whatever, yet the default
+  would have held it behind an unrelated node, and the only way past
+  was an owner decision — which is precisely the attention the
+  decision economics exist to protect. What is missing is a way for
+  the **Planner to state a node's actual dependencies**, so the
+  Orchestrator can compute what is actionable instead of inferring it
+  from list position. That touches the register grammar (a dependency
+  field or edge), `plan-model.md` (what a dependency means for stage
+  entry), `dispatch.md`'s selection rule, and the form checker (a
+  dependency on an unknown node, or a cycle, is a finding). Sized as
+  its own node when the owner wants it; it is a change to the plan
+  model, not a tweak. Until then, sibling order remains the
+  convention and a departure is an owner decision, as this one was.
+- [ ] **The run journal can record a block but not its release** —
+  found 2026-09-01 while unblocking node P2-N013. `EVENTS` in
+  `plugin/scripts/lib/form-check-core.ts` admits `blocked` and twelve
+  siblings, and nothing for the transition back: a node's block is a
+  first-class event, its release is not, so the only record of the
+  release is prose inside whatever event happens to come next. That
+  makes "how long was this blocked, and what freed it" unanswerable
+  from the journal, which is the one question a block log exists to
+  answer. Fix is an `unblocked` kind in `EVENTS` and in
+  [observability.md](process/observability.md)'s vocabulary, with the
+  note carrying what changed. Small, and it belongs with P1-N016's
+  process-spec pass rather than opened as its own node. **A second
+  gap, same day**: opening a Risk-register entry has no kind either.
+  R15 came out of T030 and had to be recorded inside that task's
+  `accepted` note, because `precedent-applied` is for rulings and
+  names one — using it for a risk fails the register cross-check,
+  correctly. Two omissions of the same shape suggest the vocabulary
+  was drawn from the dispatch loop's happy path; the pass should ask
+  what else a node does that the journal cannot say.
+- [x] **The session's AWS environment variables are placeholders, not
+  credentials** (`done`) — raised 2026-09-01 at T031's acceptance,
+  answered the same day. `AWS_ACCESS_KEY_ID` and
+  `AWS_SECRET_ACCESS_KEY` are set in the orchestration session's
+  environment, which contradicted the P2-N012
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md)'s
+  organizing premise that no dispatched session holds AWS access. It
+  was marked rather than assumed away, and the owner — who had not put
+  them there — gave explicit permission for one diagnostic call. AWS
+  answered `sts get-caller-identity` with `InvalidClientTokenId`: the
+  token is not a credential for any account. Both values are 14
+  characters and begin `prox`, no session token is present, and
+  `AWS_CA_BUNDLE` points at the agent proxy's CA bundle — placeholders
+  set by the environment's proxy tooling so an AWS SDK fails fast
+  instead of hanging on instance-metadata discovery. The premise
+  holds. Worth keeping as a record of the shape: an environment
+  variable that looks like a credential is not evidence of access, and
+  the cost of finding out was one authorized call.
+- [ ] **A journalled dispatch is not evidence that a task was
+  dispatched** — found 2026-09-02, by the Orchestrator making the
+  mistake. T034's `dispatched` event was written to the journal and
+  committed, and the owner was told the task was running, before the
+  role was actually launched; the launch had simply been skipped. The
+  form checker cannot catch this — a `dispatched` event with no
+  terminal event is indistinguishable from a task legitimately still
+  in flight, which is why the `liveness` rule reads it as healthy.
+  What is missing is a second signal: an agent identifier, or a
+  `result-received` event that only a real return can produce,
+  recorded against the dispatch so that a journalled-but-never-run
+  task is detectable rather than merely regrettable. Cheap version:
+  the journal's `dispatched` event carries the dispatched agent's ID,
+  and the checker warns on a dispatch older than a session with
+  neither a terminal event nor an ID. Belongs with P1-N016's
+  process-spec pass.
+- [ ] **A session cannot tell a missing service from an unreachable
+  one** — found 2026-09-07 in the R12 credential case. The observable
+  state a session works in is identical whether the service is
+  absent, unreachable, or refusing its credential: no tools, no
+  capability, proceed on files. The distinction exists only in a
+  harness notice that arrives *after* the first tool call, so a
+  session that answers from repository content without calling a tool
+  never sees it. This matters for the degrade-to-git-only design:
+  a session that cannot distinguish the cases cannot report which one
+  it hit, and the run journal therefore cannot either. Candidate fix:
+  the enlistment procedure gives a session one cheap, deliberate way
+  to ask — read `.mcp.json`, and if a server is declared there but
+  absent from the tool list, say so in the journal with the
+  distinction named. Related to R17.
+- [ ] **The no-retry rule has never been tested against a service
+  that answers badly** — found 2026-09-07. Both R12 cases remove the
+  capability outright, so, in the exercising session's own words,
+  "not-retrying took no discipline here, because there was nothing to
+  retry with". The rule's hard case is a service that connects,
+  offers its tools, and then fails, times out, or answers wrongly —
+  where a tool exists to call again and retrying is the tempting
+  move. Nothing exercises that. Candidate: a third R12 case using a
+  reachable endpoint that accepts the connection and errors on every
+  call. Sized with P2-N011's remaining half or as its own node.
+- [ ] **`enlistment.md` tells a session what to do and leaves a person
+  guessing** — found 2026-09-07 when the owner ran the procedure in a
+  local terminal and had to ask how to do two of its steps. "Confirming
+  enlistment worked" says *list tools* and *call `service_identity`*,
+  which is a session's vocabulary, not a person's: it names no command
+  a human types. The R12 exercise has the same gap — it asks for
+  startup timing against a normal baseline without saying how to
+  measure either. The document's own criterion is steps precise enough
+  that the runner invents nothing, so this is a defect against it
+  rather than a wish. Fix: every step that a person performs names the
+  exact command, and the exercise gives a measurement method — a timed
+  non-interactive run against a working enlistment for the baseline,
+  the same against the broken one for the comparison. Both R12
+  sessions reported, unprompted, that they have no clock reading from
+  before their first turn, so the procedure currently asks a session
+  for a number no session can produce — the measurement is
+  necessarily external, and the document must say so.
+  **Third failure, 2026-09-07**: the Orchestrator supplied a
+  Unix-shaped timing command (`time claude -p "…"`) to an owner
+  working on Windows, without checking the platform — visible in his
+  own `/mcp` output as `C:\Users\majod\Projects\…` — and it hung
+  on the *working* branch, costing five minutes and producing no
+  evidence about anything. The document assumes a POSIX shell nowhere
+  it says so. Fix, beyond the two above: the procedure's observable
+  is **what a person can see** — does the prompt appear at normal
+  speed, and what does `/mcp` report — rather than a timing command
+  at all. A stopwatch measurement that needs a portable shell command
+  is worse than an eyeball comparison against a baseline the runner
+  already knows. Belongs with P2-N011 rather than a later node, since
+  the exercise it blocks is that node's remaining half.
+- [ ] **The form checker does not check a plan or specification's
+  Status against its node's stage** — found 2026-09-16 while closing
+  chunk 1. `docs/specs/p2-n002-service-skeleton.md` sat at
+  `Status: draft` from its writing until its node reached `done`,
+  though its own K-007 contract required `active` once the owner
+  accepted it and the breakdown at the node's gate — which he did on
+  2026-08-27. Five children were verified against criteria read out
+  of a document describing itself as a draft, and criterion I9 was
+  amended in it. Nothing downstream is wrong; the content was the
+  accepted content throughout. But no check noticed for three weeks,
+  and the one that should have is the one this project owns. The
+  relation is mechanical and therefore checkable: a node at `done`
+  whose plan or specification is not `closed`, or a node past
+  `planned` whose plan is still `draft`, is a finding. Swept the rest
+  of `docs/plans/` and `docs/specs/` by hand at the same time — no
+  other document is stranded — but a hand sweep is exactly what a
+  checker is for. Belongs with P1-N016's process-spec pass, alongside
+  the three journal-vocabulary gaps and the dispatch-verification gap.
+- [x] **Project comprehension and continuous implementation sketched
+  and planned** — owner direction 2026-09-16, driven by the two-way
+  relationship with **Allegro**. Recorded here while it was a sketch
+  with no node. Superseded by the **P3-N001** entry above, which is
+  authoritative for this work's shape and progress; this entry is kept
+  for the history it holds and makes no current claim. What happened:
+  the first draft was written without reading Allegro because no
+  `add_repo` tool was available; the repository was then cloned and
+  read on 2026-09-16, and the reading changed the plan rather than
+  confirming it. Continuous implementation turned out not to be this
+  project's to design — it is **methodology W-001, two delivery modes,
+  human-gated, released in v1.5.0 with Allegro as the evidencing
+  instance** — so the work is to *run* the mode, not invent it. The
+  chunk list, the plan's status and the treatment of dependencies all
+  changed after this entry was written; read the P3-N001 entry for
+  them, not this one.
+
+- [ ] **The Orchestrator cannot delete a remote branch** — found
+  2026-09-16 cleaning up the gate's scratch branches. `git push
+  --delete` returns `HTTP 403` and the agent proxy records no relay
+  failure, so the refusal is GitHub's, not the network's. W-006 makes
+  branches single-use and deleted after merge, and both repositories
+  auto-delete *merged* head branches — but a scratch branch that is
+  never merged has no automatic path, and the role that created it
+  cannot remove it. Three are stranded now: `i1-equivalence-check`,
+  `r12-exercise-dead-endpoint`, `r12-exercise-unset-credential`, each
+  saying in its own commit message that it should be deleted. Likely
+  cause to check first: a branch ruleset's **Restrict deletions**
+  rule, which is enabled by default and may target more than `main`.
+  The process needs to say who deletes an unmerged branch, since the
+  answer is evidently not the session that made it.
+- [ ] **A Backlog entry describing another repository goes stale
+  silently** — found 2026-09-01 when T031 checked `eslint.config.js`
+  and found the gap this Backlog still claimed was open, closed six
+  hours earlier by an unrelated task in that repository. Nothing
+  re-reads a cross-repository claim, and a dispatch brief that repeats
+  one carries the staleness into a role's packet, where it costs the
+  role time to disbelieve. Candidate fix: entries that assert another
+  repository's state name the file and the commit they were true at,
+  so a reader can check cheaply, and the form checker flags a
+  cross-repo assertion with no such anchor. Related to the Planner's
+  repo-access declaration under [RU-016](rulings.md) — both are about
+  the coordinating repository knowing what it does and does not know
+  about a repository it does not hold.
+- [ ] **`.prettierignore` still lacks `dist-lambda/`** — found by T031
+  while closing the `.aws-sam/` half of the same gap; out of that
+  child's named scope, so flagged rather than fixed. Redundant today,
+  since Prettier follows `.gitignore` by default and that file lists
+  it, which is exactly why it will be missed if `.gitignore` ever
+  stops covering it.
+- [ ] **No workflow linter is available to sessions authoring
+  workflows** — T031 wrote this project's first GitHub Actions
+  workflow and could validate it only as YAML plus a manual read
+  against documented Actions syntax; no `actionlint` exists on the
+  machine. Child D writes a second, more dangerous workflow — the one
+  holding the deploy credentials — so the gap is about to matter more.
+  Candidate fix: install `actionlint` into the session scratchpad the
+  way the SAM CLI already is, and name it in the execute-stage packet
+  for workflow-authoring tasks.
+- [ ] **Process spec maintenance: branch lifecycle, PR citation,
+  packet table** (node P1-N016) — three queued corrections to
+  `docs/process/`, opened as one node on 2026-09-01 because the
+  specification is this project's product and three edits in passing
+  is how a specification rots. **(i) The branch lifecycle has no
+  mechanism.** W-006 requires a single-use branch to be deleted after
+  merge; `dispatch.md` and `roles.md` say work lands on such a branch
+  and neither says who deletes it or when. Ten merged branches
+  survived until the owner cleared them. The Orchestrator performs
+  the merge, so deletion belongs in `dispatch.md`'s acceptance step,
+  alongside recording the register and the Cost log — and the reason
+  role branches are pushed at all (a container restart mid-session
+  already cost work once) belongs there too, so the push does not
+  read as waste. **(ii) The specification never mentions pull
+  requests.** [RU-009](rulings.md) and [RU-010](rulings.md) carry the
+  whole practice of reaching `main` by PR; per P1-N014's decision 1
+  the spec cites them rather than leaving the rule in the register
+  alone. Note the boundary the rulings do not cover and the spec
+  should: a role branch merging into the design branch is internal
+  integration and takes no PR, because the gate is where the owner
+  reviews. **(iii) The `plan`-stage packet row is wrong.** It omits
+  `docs/process/README.md`, which three consecutive tasks had to
+  widen for, and the break-down row omits the node's plan, where the
+  child sketch a breakdown tests actually lives.
 - [ ] **`docs/process/README.md` is the packet gap, three times
   running** — T019 widened to it for the subordination clause, T020
   widened to it for the *Defined terms* section, and the earlier
@@ -1363,14 +2320,37 @@
   appears, the vendor-plus-drift-check mechanism P1-N009 chooses
   stops paying and a proper home earns its Classification and
   enrollment. RU-006 is the test to apply then.
-- [ ] **Chunk-1 child: plan-state update with the advisory lease**
+- [x] **Chunk-1 child: plan-state update with the advisory lease**
   (node P2-N010) — the three-step git-authoritative write model
   (lease → update returning the exact edit → confirm with the SHA);
   the gate demonstrator, with the by-hand-vs-by-service equivalence
   check.
-- [ ] **Chunk-1 child: degrade to git-only, and enlistment
-  documentation** (node P2-N011) — the R12 exercise (dead endpoint
-  *and* unset credential) plus the enlistment runbook.
+- [x] **Chunk-1 child: degrade to git-only, and enlistment
+  documentation** (node P2-N011, `done` 2026-09-07) — the R12
+  exercise ran on both surfaces and both failure modes, and R12 is
+  closed; see the Risk register for the evidence and for the two
+  things it left open (between-deploy breakage, and the
+  degraded-but-present service the no-retry rule has never faced).
+  The exercise also sharpened the rule: three client reconnects read
+  as a violation of "does not retry" until you see that the rule
+  governs the session and not the transport, which
+  [enlistment.md](process/enlistment.md) now says. Documentation half
+  delivered
+  (T038, 2026-09-07): [docs/process/enlistment.md](process/enlistment.md)
+  takes the coordinating repository from not-enlisted to enlisted
+  (the checked-in `.mcp.json`, `.claude/settings.json`'s
+  `enableAllProjectMcpServers`, the `MCP_AUTH_TOKEN` variable, and
+  `service_identity` as the cheapest confirmation), states the R12
+  fallback rule explicitly (also cross-referenced from
+  [docs/process/dispatch.md](process/dispatch.md#the-orchestration-service-optional-accelerator)),
+  and writes the two-case exercise procedure — endpoint unreachable,
+  and the unset-credential case the specification's breakdown added
+  for Child E. **Still open**: the exercise itself, which needs a
+  genuine Claude Code session start (no subagent session can produce
+  that evidence) and is recorded against
+  [R12](open-risks.md#r12) once run — the Orchestrator's or the
+  owner's to perform, per this task's `needs-judgment`-free
+  boundary.
 - [ ] **Fallback task-claim protocol** — when the service is
   unreachable after retries, a session picks its next task from the
   repo directly; how does it claim one so two sessions do not collide?
@@ -1400,15 +2380,21 @@
 - [ ] **Service chunk 5 — migration and pilot** (node P2-N006) — move
   this repo's orchestration onto the service, then run the deferred
   portfolio pilot through it; C2 promotion of this repo begins here.
-- [ ] **Service enlistment section in the process spec** — the
-  additive v1-spec update the service implies: how a managed
-  repository enlists (`.mcp.json`, per-server timeout, the token
-  environment variable), and the standing rule that a session whose
-  service is unreachable proceeds on the v1 process without retrying
-  or waiting. Chunk 1 documents enlistment in the service repository;
-  folding it into [docs/process/](process/README.md) rides the chunk-5
-  migration unless an earlier chunk needs it
-  ([P2-N002 plan](plans/p2-n002-service-skeleton.md)).
+- [x] **Service enlistment section in the process spec** — delivered
+  early, at chunk 1 itself (node P2-N011, T038, 2026-09-07), because
+  Child E's own criteria needed it rather than waiting for the
+  chunk-5 migration this item originally deferred to: how a managed
+  repository enlists (`.mcp.json`, `enableAllProjectMcpServers`,
+  `MCP_AUTH_TOKEN`, confirming with `service_identity`) is
+  [docs/process/enlistment.md](process/enlistment.md), and the
+  standing rule that a session whose service is unreachable proceeds
+  on the v1 process without retrying or waiting is stated there and
+  cross-referenced from
+  [docs/process/dispatch.md](process/dispatch.md#the-orchestration-service-optional-accelerator).
+  The service repository's own `docs/mcp-enlistment.md` (written
+  before the coordinating repository's `.mcp.json` was actually
+  committed) still covers producing the file's values from a fresh
+  deploy and is cited from the new document rather than duplicated.
 - [ ] **OAuth authentication for the service** — replace the chunk-1
   bearer token supplied by environment expansion if that proves
   awkward on any surface, or when the service is enlisted by

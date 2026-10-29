@@ -15,12 +15,14 @@ spec. First entries land at the pending P1-N008 gate.
   reach a repo outside granted scope? Ruling: the owner hand-carries
   it; cross-repo scope is granted only explicitly. Rationale: no
   scope expansion for a delivery a human can make. Source: P1-N008
-  gate (decision 2, default adopted), 2026-08-26. Applied: T020.
+  gate (decision 2, default adopted), 2026-08-26. Applied: T020,
+  T039.
 - RU-003 [active] completion/process — Does a node targeting an
   external party complete at the artifact or at upstream
   disposition? Ruling: at the artifact. Rationale: external
   acceptance is not ours to verify. Source: P1-N008 gate
-  (decision 3, default adopted), 2026-08-26. Applied: T004, T020.
+  (decision 3, default adopted), 2026-08-26. Applied: T004, T020,
+  T039.
 - RU-004 [active] completion/node — Full reference implementation or
   conformance sketch for the extension-point proposal? Ruling:
   sketch only. Rationale: the contract is still under discussion.
@@ -30,7 +32,7 @@ spec. First entries land at the pending P1-N008 gate.
   owner-gated, and where? Ruling: yes, gate at `verifying`.
   Rationale: the owner sees the artifact before it represents the
   project. Source: P1-N008 gate (decision 5, default adopted),
-  2026-08-26. Applied: T020.
+  2026-08-26. Applied: T020, T039.
 
 - RU-006 [active] scope/process — When does a new capability get its
   own repository rather than joining an existing one? Ruling: when it
@@ -57,7 +59,7 @@ spec. First entries land at the pending P1-N008 gate.
   PR is where the "what was and was not verified" record belongs.
   Source: owner request at the P2-N008 slice merge, 2026-08-27.
   Applied: T009, T010, and the v1.4.0 migration of 2026-08-31
-  (no task — an orchestrator-run change, not a dispatched one).
+  (no task — an orchestrator-run change, not a dispatched one) Also T024 (PR #5) and T025 (PR #6).
 
 - RU-010 [active] handoff/project — How does work reach `main` in
   this coordinating repo, given the owner created `main` from the
@@ -95,7 +97,7 @@ spec. First entries land at the pending P1-N008 gate.
   cost at two consumers; RU-006 is the near match, and reaching for a
   third repository is what it warns against. Revisit at a third
   consumer. Source: P1-N009 gate (decisions 1 and 2, defaults
-  adopted), 2026-08-29. Applied: —
+  adopted), 2026-08-29. Applied: T024.
 
 - RU-013 [active] stack/process — What does a majodali tool do when
   the runtime it needs is missing or too old? Ruling: preflight and
@@ -136,12 +138,79 @@ spec. First entries land at the pending P1-N008 gate.
   between drafting and delivery is undetectable by the reader.
   Generalizes past the methodology to any upstream this project
   proposes into. Source: P1-N015 gate (decision 2, default adopted),
-  2026-09-01. Applied: T022, T023.
+  2026-09-01. Applied: T022, T023, T039.
+
+- RU-016 [active] scope/process — Who decides which repositories a
+  node's work may write to? Ruling: the Planner declares the repository
+  access a node needs, in the node's plan; the Orchestrator grants it
+  and records the grant; the owner is asked only when a repository is
+  new to the project. This project's approved scope permanently
+  includes
+  [majodali/project-orchestrator-service](https://github.com/majodali/project-orchestrator-service).
+  Rationale: the owner's attention is the scarcest resource in the
+  loop, and re-granting a repository the project writes to constantly
+  is a question with a known answer. The declaration keeps the reach
+  visible rather than assumed — a node that writes a repository its
+  plan never named is still a scope violation, which is the property
+  the original owner-names-it rule was protecting. Supersedes
+  `dispatch.md`'s "cross-repo reach is scope" only in *who* grants,
+  not in *whether* it must be declared. Source: owner decision at the
+  P2-N012 gate, 2026-09-01. Applied: T039.
+
+- RU-017 [active] scope/project — When a node's whole driver is
+  another portfolio project, is that project's adoption part of the
+  node? Ruling: no. The node is verified against this repository's own
+  instance; adoption by the other project is a separate node with its
+  own repository grant, requested when it is wanted. Rationale: every
+  criterion must be answerable by a verifier inside the project doing
+  the work, and a node that completes only on another project's
+  adoption cannot be verified by anyone who works on it. Generalizes
+  RU-003 one step out, from an upstream repository to a sibling
+  project. Source: P3-N001 gate (decision 1, default adopted),
+  2026-09-17. Applied: —
+
+- RU-018 [active] scope/process — Is a child queued behind an earlier
+  sibling it does not depend on? Ruling: no. A child that needs
+  nothing an earlier sibling produces is marked independent in the
+  register and may be dispatched alongside it; only a real dependency
+  holds a node. This narrows `dispatch.md`'s earlier-siblings-`done`
+  default, which stands wherever independence is not recorded.
+  Rationale: sibling order was only ever a stand-in for dependency
+  information the register could not hold (see the owner's direction
+  of 2026-09-17, recorded in P3-N001's plan), and holding unrelated
+  work behind it is the defect the comprehension model exists to fix.
+  *Type note:* the taxonomy in
+  [rulings.md](process/rulings.md) has no type for dispatch-sequencing
+  decisions; `scope` is the nearest fit and the gap is filed in the
+  Backlog against P1-N016 rather than papered over. Source: P3-N001
+  gate (decision 2, default adopted), 2026-09-17. Applied: —
+
+- RU-019 [active] verification/project — May a criterion that measures
+  something be satisfied by an unfavourable result? Ruling: yes, and
+  it must be. A measurement criterion is met by the number, the
+  method and the conclusion being recorded, whichever way the number
+  falls; the response to an unfavourable one is a plan change, not a
+  failed node. Rationale: a criterion satisfiable only by a favourable
+  figure measures nothing. Source: P3-N001 gate (decision 6, default
+  adopted), 2026-09-17. Applied: —
+
+- RU-020 [active] completion/process — Does an interior node need a
+  separate `break down` task after its specification? Ruling: no, when
+  the specification already carries the children at the depth such a
+  task would produce: the children are entered `identified` with their
+  Backlog entries at the specification gate and the parent moves
+  `specified` → `broken-down` in the same act. Rationale: three
+  interior nodes have now crossed this way — P2-N002, P2-N012 and
+  P3-N001 — and dispatching a task to restate a breakdown the owner
+  has just approved spends tokens to produce nothing. A specification
+  that does *not* reach that depth still gets the task. Source:
+  P3-N001 gate (decision 8, default adopted), 2026-09-17. Applied: —
 
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events
 (the lists were not maintained on the first run).
 
-Promotion flags: RU-002, RU-003, RU-011, RU-012, RU-013, RU-014 and RU-015 are process-scope — flagged for
-the next design pass on this spec (rulings.md promotion rule).
+Promotion flags: RU-002, RU-003, RU-011, RU-012, RU-013, RU-014,
+RU-015, RU-016, RU-018 and RU-020 are process-scope — flagged for the
+next design pass on this spec (rulings.md promotion rule).

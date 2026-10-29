@@ -46,6 +46,25 @@ Acceptance stays serial regardless (the single-writer rule), and the
 dependency default above still gates `execute` on earlier siblings
 `done` unless the plan records otherwise.
 
+## The orchestration service (optional accelerator)
+
+A managed project MAY be enlisted against a deployed
+[orchestration service](../plans/orchestration-service.md) instance,
+which lets a session read and update its Plan register through MCP
+tools instead of editing the register by hand — git remains the sole
+source of truth regardless
+([orchestration-service](../plans/orchestration-service.md),
+constraint 1). [enlistment.md](enlistment.md) covers taking a
+repository from not enlisted to enlisted, and confirming it worked.
+
+**The fallback rule.** With the service unreachable — the endpoint
+does not answer, or the session's own credential is not configured —
+a session does not retry and does not wait. It proceeds on this loop
+exactly as written above, editing the register and committing
+directly: the service is never a dependency, only an accelerator when
+it answers. This is the standing mitigation this project records for
+[R12](../open-risks.md) in the Risk register.
+
 ## Judgment routing
 
 The Orchestrator makes **low-judgment decisions only**: those the
