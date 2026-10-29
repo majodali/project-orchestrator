@@ -331,6 +331,30 @@
 
 ## Upcoming
 
+- [ ] **P1-N014 specified, 2026-10-29 (T046)** — the role contracts'
+  specification stands at
+  [specs/p1-n014-role-contracts-adopt-conduct-rules.md](specs/p1-n014-role-contracts-adopt-conduct-rules.md),
+  against the 1.6.0 pin: a seventeen-row inventory of conduct duties
+  from W-008, K-010, K-011, P-004, P-007, P-008, W-009, the paraphraser
+  and stranger clauses and risks R15 to R17, each with its owning
+  document and the contracts that carry it; criteria a verifier checks
+  row by row; a leaf, one commit; decisions 10 to 16 staged, decision
+  12 needs-judgment (the gate summary template takes W-008's four parts;
+  the Planner recommends adopting). The node adds no W-001 stop
+  condition; P3-N005's child B does, after this node's execute (owner,
+  2026-10-29). Carried from the task: no contracts yet for the
+  Paraphraser or the Reviewer (stranger) (decision 10 holds that);
+  roles.md's pipeline clauses run ahead of the pin and retarget at the
+  next pin bump; a dispatched role whose working directory is another
+  repository receives that repository's CLAUDE.md, for P1-N016's packet
+  pass; orchestrator-v1.md still claims a v1.4.0 pin, corrected in this
+  node's execute. The register's P1-N014 line reads specified, where
+  the older entry below said identified.
+- [x] **Migrated to methodology 1.6.0** (2026-10-28, PR #11) — the pin
+  and the amended W-008 bootstrap block with its fourth part, Terms
+  introduced; no other migration note. Recorded late, at T046's
+  finding that the migration had no Backlog entry.
+
 - [ ] **P3-N002 specified, 2026-10-29 (T043)** — the comprehension
   model's specification stands at
   [specs/p3-n002-comprehension-model.md](specs/p3-n002-comprehension-model.md):

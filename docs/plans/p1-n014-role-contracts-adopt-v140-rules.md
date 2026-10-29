@@ -6,10 +6,16 @@ Status: active
      X, because Y | closed → Backlog entry). Anything unmarked here is a
      live claim of current intent. This is the plan document for node
      P1-N014; it goes `active` when the owner approves it at the gate,
-     and `closed → Backlog entry` when the node reaches `done`. -->
+     and `closed → Backlog entry` when the node reaches `done`.
+     The methodology is now pinned at 1.6.0 (migrated 2026-10-28). The
+     sections above the gate outcome were written against v1.4.0; the
+     specification records each place where the text at 1.6.0 changes
+     them. -->
 
 Node P1-N014, child of P1-N001
-([orchestrator-v1](orchestrator-v1.md)). A Backlog-discovered node, in
+([orchestrator-v1](orchestrator-v1.md)). Specification:
+[p1-n014-role-contracts-adopt-conduct-rules](../specs/p1-n014-role-contracts-adopt-conduct-rules.md).
+A Backlog-discovered node, in
 the same position as [P1-N008](p1-n008-mtool-checker-extension-point.md)
 and [P1-N009](p1-n009-plugin-tooling-portfolio-stack.md). It is placed
 before chunks 5 and 6 because both of those write a great deal of prose
