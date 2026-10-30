@@ -350,11 +350,11 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
   - Needed by: P3-N008.
   - Documents: [plan](plans/p3-n007-type-declared-amendment-drafted.md), the parent's specification, child B.
 - P3-N008 The instance, over this repository
-  - Stage: identified, 2026-10-29. No plan yet.
-  - Outcome: The instance covers every current part of majodali/project-orchestrator. P3-N008 compares the two renderings with the Backlog, to prove the model carries the content of the Backlog's two lists. With P3-N006's renderings, the renderings of P3-N008 replace this document.
-  - Depends on: P3-N007, for its executing stage. Its plan may be dispatched once P3-N007's first execute task, E1, is accepted (P3-N007 decision 9).
+  - Stage: planned, 2026-10-30 (task T079). Gated on the owner's review of the plan, six decisions.
+  - Outcome: The instance `docs/project-model.md` holds one entry per current part of majodali/project-orchestrator, in the type's grammar, every item naming its source. Every node past identified has an edge or the preamble says why not. Every starting point links the instance in its header. A population record holds the enumeration, the edge list, the measured paths, both renderings and their comparison with the Backlog, run in both directions. The Backlog stays the referent for what is done and what is next. The plan runs the node as three execute tasks: the parts and their entries, the edges, then the headers, the measurement and the renderings. Under its decision 5 this document stays the hand rendering until the Backlog switches to a rendering of the model.
+  - Depends on: P3-N007, for its executing stage (P3-N007 decision 9). Its plan was dispatched after P3-N007's first execute task was accepted.
   - Needed by: P3-N009.
-  - Documents: the parent's [specification, child C](specs/p3-n002-comprehension-model.md#child-c-the-instance-over-this-repository).
+  - Documents: [plan](plans/p3-n008-instance-over-this-repository.md), the parent's [specification, child C](specs/p3-n002-comprehension-model.md#child-c-the-instance-over-this-repository).
 - P3-N009 Sibling ordering retired, and the checks that replace it
   - Stage: identified, 2026-10-29. No plan yet.
   - Outcome: Four statements that make list order mean dependency order are rewritten, in `plan-register.md`, `plan-model.md`, `dispatch.md` and the [Plan register](plan-register.md)'s header. Afterwards [dispatch.md](process/dispatch.md) starts a node only when the nodes that create the parts it uses, and the modifying nodes its edges name, are done. The form checker gains checks on the Project model, for example that every edge names a known part.
@@ -527,11 +527,12 @@ Gated on the owner:
 - P2-N003 (owner questions and the plan view): the owner's review of its plan, ten decisions.
 - P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
 - P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
+- P3-N008 (the instance): the owner's review of its plan, six decisions.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:
 
-- P3-N008 (the instance): planning dispatched 2026-10-30 (task T079) after P3-N007's E1 was accepted; its execution waits on P3-N007.
+- P3-N008 (the instance): its executing stage waits on P3-N007. Its plan is gated, below.
 - P3-N009 (sibling ordering retired): waits on P3-N008.
 - P3-N012 (the Article 8 proposal): waits on P3-N011.
 - P3-N016 (the determination): waits on P3-N015.
@@ -550,7 +551,7 @@ No plan yet, in register order:
 - P1-N007 (cost reporting and close-out)
 - P2-N004 (topics and coordination)
 - P2-N006 (migration and pilot)
-- P3-N008 and P3-N009 (the comprehension model's later children)
+- P3-N009 (sibling ordering retired)
 - P3-N004 (reversibility)
 - P3-N012 (the risk catalogue's last child)
 - P3-N016 (sequence mode's last child)

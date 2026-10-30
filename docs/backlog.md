@@ -470,9 +470,47 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   lands** — When: 2026-10-30, planning P3-N007 (slice finding 10).
   Status: open; the slice's rule is kept until then. Pointer:
   [type specification](process/project-model.md#risks).
-- [ ] **P3-N008 identified, 2026-10-29** — the instance over this
+- [ ] **P3-N008 planned, 2026-10-30 (T079)** — the instance over this
   repository, with G6's renderings compared against the Backlog (spec
-  child C). Depends on P3-N007.
+  child C). Status: planned, gated on the owner's review (six
+  decisions); a leaf run as three execute tasks, the parts and their
+  entries, the edges, then the headers, the measurement and the
+  renderings. Its executing stage depends on P3-N007. Pointer:
+  [plan](plans/p3-n008-instance-over-this-repository.md).
+- [ ] **P3-N009's rules check that no heading's find matches two
+  entries** — When: 2026-10-30, planning P3-N008 (T079). Status: open,
+  for P3-N009; decision 6 makes a heading's name required, and a
+  checker rule keeps condition (ii) true. Pointer:
+  [plan of P3-N008](plans/p3-n008-instance-over-this-repository.md),
+  decision 6.
+- [ ] **A new plan or specification links the instance in its header** —
+  When: 2026-10-30, planning P3-N008 (T079). Status: open, for P3-N009
+  (a checker rule) or P1-N016 (the Planner contract); condition (i)
+  holds after E3 only while every new starting point carries the line.
+  Pointer: [plan of P3-N008](plans/p3-n008-instance-over-this-repository.md),
+  *The navigation measure, extended from fifty paths to the instance*.
+- [ ] **No trigger keeps an entry's `is:`, `spec:` and `risks:` lines
+  current** — When: 2026-10-30, planning P3-N008 (T079). Status: open,
+  for P1-N016; edges reach the instance at plan acceptance, but a new
+  Risk register entry or a changed process document reaches no entry
+  unless a task result proposes it. Pointer:
+  [plan of P3-N008](plans/p3-n008-instance-over-this-repository.md),
+  *Entries at scale, under the writer rule*.
+- [ ] **`docs/plan.md`'s dependency fields follow P3-N009's rule** — When:
+  2026-10-30, planning P3-N008 (T079). Status: open, for the
+  Orchestrator at P3-N009's acceptance; the *Depends on* fields and the
+  *What is next* section read register notes and sibling order today.
+  Pointer: [plan of P3-N008](plans/p3-n008-instance-over-this-repository.md),
+  *What `docs/plan.md` becomes*.
+- [ ] **The edges stated by the plans of P1-N016 and P3-N008 are held
+  for transcription** — When: 2026-10-30, at the acceptance of T074
+  and T079. Status: open; both plans state their edges in the type's
+  notation in their *Dependencies* sections, and neither set is in the
+  instance yet. Transcribed as T077 transcribed the held edges of
+  P3-N006 and P3-N007, by a task whose brief names the instance, or by
+  P3-N008's second execute task. Pointer:
+  [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md),
+  [plan of P3-N008](plans/p3-n008-instance-over-this-repository.md).
 - [ ] **P3-N009 identified, 2026-10-29** — sibling ordering retired
   from `dispatch.md`, `plan-model.md` and the register's header, and
   the checks that replace it (spec child D). Depends on P3-N008.
@@ -481,6 +519,7 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   drafts is released and pinned (P3-N002 decision 13, option (a), owner
   2026-10-29). Paired with a rendering tool for the Backlog's two
   remaining jobs, the implementation map and the list of what is next.
+  At the switch, `docs/plan.md` is superseded (P3-N008 decision 5).
 - [x] **One risk class carried end to end (node P3-N010, child A of P3-N003)** —
   When: executed 2026-10-30, task T055; done the same day at the
   Orchestrator's acceptance. Status: done, self-verified against
@@ -516,8 +555,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   [sweep record](common-risk-catalogue-check.md#sweep-record-the-five-passes).
 - [ ] **A leaf may need several execute tasks, and plan-model.md says
   one session** — When: 2026-10-30, planning P3-N011. Status: open, for
-  P1-N016; three leaves now run as fixed task sequences (P2-N016,
-  P3-N013, P3-N011). Pointer: [plan of P3-N011](plans/p3-n011-sweep-and-omission-list.md).
+  P1-N016; five leaves now run as fixed task sequences (P2-N016,
+  P3-N013, P3-N011, P3-N007, P3-N008). Pointer: [plan of P3-N011](plans/p3-n011-sweep-and-omission-list.md).
 - [ ] **P3-N012 identified, 2026-10-29** — the Article 8 proposal for
   `docs/registers/common-risk-catalogue.md` upstream, written IR first
   and reviewed, delivered under RU-015 and RU-022 (spec child C).
