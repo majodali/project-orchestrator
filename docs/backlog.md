@@ -463,7 +463,7 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   definition; the `edge-recorded` event kind; and the K-003 proposal
   with its IR and review record, approved for carrying as it stands
   after count 1 closed at the limit. Ten terms ratified; the
-  meta-review of the count is dispatched as communication-pipeline
+  meta-review of the count was delivered as communication-pipeline
   evaluation case 013. The node completes at the artifact (RU-003).
   Pointer: [plan](plans/p3-n007-type-declared-amendment-drafted.md),
   [type specification](process/project-model.md),
@@ -475,12 +475,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   first, and fills the Release-register entry's pull-request link; the
   maintainers accept, amend or reject it. Pointer:
   [proposal](proposals/planning-execution-model-is-progress-truth.md).
-- [ ] **Set the K-003 review record's Meta-review line when case 013 is
-  delivered** — When: 2026-10-30, at P3-N007's verifying gate. Status:
-  open, for the Orchestrator; the line reads `Meta-review: pending`
-  until communication-pipeline evaluation case 013 is delivered, then
-  `Meta-review: delivered` with a link, under the IR specification's
-  *The Meta-review line*. Pointer:
+- [x] **Set the K-003 review record's Meta-review line when case 013 is
+  delivered** — When: 2026-10-30, at P3-N007's verifying gate; closed
+  2026-10-30. Status: done; the line reads `Meta-review: delivered`
+  with the date and a link to communication-pipeline evaluation case
+  013 on that repository's `main`, whose merge (pull request #26) is
+  pending. Pointer:
   [review record](proposals/planning-execution-model-is-progress-truth.review.md).
 - [ ] **P3-N009's rules gain a cycle check over derived dependencies**
   — When: 2026-10-30, planning P3-N007. Status: open, for P3-N009; the
