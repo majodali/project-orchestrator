@@ -1,6 +1,6 @@
 # Review record: a declared planning/execution model is the source of progress truth
 
-Status: open (count 1, round 6 running)
+Status: open (count 1, round 7 running)
 
 <!-- K-007 contract: Status transitions open → closed (the count's
      verdict recorded and the fixes confirmed). This file is the
@@ -367,4 +367,45 @@ carried by a sentence; 0 missing, 0 stale. Prose 2,543 words by tool.
 Brief changes for round 6: none beyond the declined list already carried.
 
 ## Round 6, 2026-10-30
+
+Stranger: a fresh instance at the frugal tier (task T087). Prose about
+2,750 words by the stranger's hand count (2,543 by tool at the round's
+start); 86 claims; 6 findings.
+
+Restatement: matched the IR on the problem, the terms, the change, the
+authorities, the open entries, the evidence and the asks. No mismatch.
+
+Mismatches: none.
+
+Step-6 passage (the evidencing instance among the four kinds of
+evidence, the slice): matched on restatement. The structural fix of
+round 4 is confirmed by restatement.
+
+Findings by rule: SP-01 1 (6); SP-04 1 (5); SP-25 2 (1, 2); SP-26 2
+(3, 4). Undefined term 1: verification evidence at first use.
+Contradictions 2: the yielding sentence named only the first referent
+clause while "no other document may claim that role" stood (1); the
+kept title against the amended statement for a declaring project (2).
+
+Verdict: not readable. Blocking: 1, 2, 5.
+
+Accepted and fixed, in the IR then the prose: 1 to 6 (6 of 6). The two
+contradictions are met in the commentary, not in the rule text, because
+the owner's decision 10 limits the amendment to one appended clause
+and keeps the title: C83 now says both referent sentences yield to the
+exception where it applies, and C87 says the statement governs a
+declaring project because the title is the rule's name. Whether the
+amendment should instead condition the referent sentences or the title
+goes to the owner at the gate, with round 4's like point. Verification
+evidence glossed at first use (C12); the repeated form of the list cut;
+C77 reworded to name the exception only; the eleven-differences
+sentence split.
+
+Declined: none.
+
+After the fixes `mtool ir check` reported one violation (C86's "the
+same" without a referent) and three warnings (semicolons in C78 and
+C87; C49 with two clauses); all four were corrected before the
+confirmation request: C86 and C87 reworded, C78 joined by "beside",
+C49 split (C88 added).
 

@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: under review (round 6, 2026-10-30)
+Status: under review (round 7, 2026-10-30)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →
@@ -91,9 +91,10 @@ Classification declares a planning/execution model, that model is the
 referent instead, and the Backlog's implementation map and list of what
 is next are renderings of it."
 
-The appended sentence is an exception. Where it applies, the model and
-not the Backlog is the referent. K-003's sentence "The Backlog is the
-referent for what is done and what is next" yields to it there. How a
+The appended sentence is an exception to the two referent sentences
+before it. Where it applies, K-003's sentences "The Backlog is the
+referent for what is done and what is next" and "no other document may
+claim that role" both yield to it. How a
 Classification declares a model is stated under [*How a Classification
 declares a model*](#how-a-classification-declares-a-model) below. A
 project whose
@@ -104,14 +105,17 @@ reads K-003 unchanged. The amendment leaves K-003's sentence on
 [Workflow](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-workflow)
 stage designations unchanged. The amendment says nothing about the
 verification evidence of each
-[node](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node).
+[node](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node),
+the record of whether the node's work holds.
 A planning/execution model has two components: the plan model, the
 project's nodes with their stages and edges, and that verification
 evidence. The amendment reaches the plan model only.
 
 The amendment keeps K-003's title, so links to the rule's anchor keep
 resolving. The title stays true for every project whose
-Classification declares no planning/execution model. K-003's
+Classification declares no planning/execution model. For a project
+that declares one, the rule's statement governs, because the title is
+the rule's name and not its text. K-003's
 Motivated-by line gains a citation of the evidencing instance, the
 slice of the project-orchestrator [Project
 model](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md)
@@ -243,7 +247,7 @@ lines that follow it up to the next entry or heading. The count takes
 an entry as open when the entry's checkbox is unchecked. The count
 takes an entry as naming a node when its text holds a node identifier
 such as P3-N007, the node that drafted this proposal. An entry a node holds names that node, and an entry that merely
-mentions one is counted the same way. So 31 is a lower bound on the
+mentions a node is counted as naming it too. So 31 is a lower bound on the
 open entries no node holds.
 
 ## Whether "built but broken" stands
@@ -265,8 +269,8 @@ outside the amendment.
 ## The evidencing instance
 
 The evidencing instance is one of four kinds of evidence for the
-amendment. The others are the owner's decisions of 2026-10-28, the
-term-by-term cross-check and the count of open Backlog entries. The
+amendment, beside the owner's decisions of 2026-10-28, the term-by-term
+cross-check and the count of open Backlog entries. The
 slice is the first five entries of the project-orchestrator
 [Project
 model](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md),
@@ -289,11 +293,10 @@ the rows read from the Plan register agreed with the state the entries
 recorded. The slice record rendered the list of what is next in a narrower form,
 per part: the open nodes with an edge to the part. Each of the five
 lists held no open item, because the slice's plan had held back the
-edges from open nodes to the five parts. The list over the whole model, one item per node not yet done, is the
-form the full instance renders.
+edges from open nodes to the five parts. The full instance renders that form over the whole model.
 
 The comparison of the renderings with the Backlog listed eleven
-differences and left none unexplained. Of the eleven differences,
+differences. It left none unexplained. Of the eleven differences,
 seven were claims the model lacked, two were claims the Backlog lacked,
 and two were disagreements ([slice
 record](https://github.com/majodali/project-orchestrator/blob/86a13308f70574abc0223ddb4f044b7e43ca1eb6/docs/project-model-slice-record.md),
@@ -404,4 +407,4 @@ The proposal also asks the
 to ratify or strike the two terms it defines: [list of what is next](#def-list-of-what-is-next) and
 [rendering](#def-rendering).
 
-<!-- render map: C1→¶7 C2→¶7 C3→¶11 C4→¶11 C5→¶11 C6→¶12 C7→¶12 C8→¶13 C9→¶13 C10→¶14 C11→¶14 C12→¶14 C13→¶15 C14→¶15 C15→¶15 C16→¶15 C17→¶16 C18→¶20 C19→¶20 C20→¶20 C21→¶21 C22→¶21 C23→¶22 C24→¶22 C25→¶22 C26→¶23 C27→¶24 C28→¶7 C29→¶24 C30→¶24 C31→¶25 C32→¶25 C33→¶25 C34→¶25 C35→¶25 C36→¶26 C37→¶26 C38→¶26 C39→¶26 C40→¶26 C41→¶27 C42→¶27 C43→¶28 C44→¶28 C45→¶28 C46→¶29 C47→¶29 C48→¶29 C49→¶30 C50→¶30 C51→¶31 C52→¶31 C53→¶31 C54→¶32 C55→¶32 C56→¶32 C57→¶34 C58→¶35 C59→¶36 C60→¶37 C61→¶38 C62→¶39 C63→¶40 C64→¶41 C65→¶42 C66→¶42 C67→¶43 C68→¶43 C69→¶43 C70→¶45 C71→¶46 C72→¶47 C73→¶47 C74→¶22 C75→¶28 C76→¶43 C77→¶12 C78→¶27 C79→¶37 C80→¶45 C81→¶46 C82→¶47 C83→¶12 C84→¶12 C85→¶12 C86→¶26 -->
+<!-- render map: C1→¶7 C2→¶7 C3→¶11 C4→¶11 C5→¶11 C6→¶12 C7→¶12 C8→¶13 C9→¶13 C10→¶14 C11→¶14 C12→¶14 C13→¶15 C14→¶15 C15→¶15 C16→¶15 C17→¶16 C18→¶20 C19→¶20 C20→¶20 C21→¶21 C22→¶21 C23→¶22 C24→¶22 C25→¶22 C26→¶23 C27→¶24 C28→¶7 C29→¶24 C30→¶24 C31→¶25 C32→¶25 C33→¶25 C34→¶25 C35→¶25 C36→¶26 C37→¶26 C38→¶26 C39→¶26 C40→¶26 C41→¶27 C42→¶27 C43→¶28 C44→¶28 C45→¶28 C46→¶29 C47→¶29 C48→¶29 C49→¶30 C50→¶30 C51→¶31 C52→¶31 C53→¶31 C54→¶32 C55→¶32 C56→¶32 C57→¶34 C58→¶35 C59→¶36 C60→¶37 C61→¶38 C62→¶39 C63→¶40 C64→¶41 C65→¶42 C66→¶42 C67→¶43 C68→¶43 C69→¶43 C70→¶45 C71→¶46 C72→¶47 C73→¶47 C74→¶22 C75→¶28 C76→¶43 C77→¶12 C78→¶27 C79→¶37 C80→¶45 C81→¶46 C82→¶47 C83→¶12 C84→¶12 C85→¶12 C86→¶26 C87→¶14 C88→¶29 -->
