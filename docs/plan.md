@@ -289,11 +289,11 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 ### P2-N003 Owner questions and the plan view (chunk 2)
 
-- Stage: identified, 2026-08-26. No plan yet.
+- Stage: planned, 2026-10-30 (task T075). Gated on the owner's review of its plan, which splits it into two children.
 - Outcome: The service plan gives this chunk an owner question queue and a first view of the plan. P2-N003 stays one node until its planning splits it into two children. One child is the first version of the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view), read-only and drilling down to node and task. The second child is the owner question queue.
 - Depends on: nothing for its own planning, which performs the split. After the split, the web view child waits on P3-N006 (the thin end-to-end slice). The queue child waits on P2-N006 (migration and pilot).
 - Needed by: P2-N006, which needs the web view child only.
-- Documents: [service plan, chunk 2](plans/orchestration-service.md#chunk-2--owner-questions-and-the-plan-view).
+- Documents: [plan](plans/p2-n003-owner-questions-and-plan-view.md), [service plan, chunk 2](plans/orchestration-service.md#chunk-2--owner-questions-and-the-plan-view).
 
 ### P2-N004 Topics and coordination (chunk 3)
 
@@ -516,7 +516,6 @@ Planning now, dispatched on 2026-10-30 after the owner's scope grant:
 
 - P2-N005 (the task-pull loop), task T073: the next service chunk the owner chose on 2026-10-29.
 - P1-N016 (process spec maintenance), task T074. Its executing stage waits on P3-N009.
-- P2-N003 (owner questions and the plan view), task T075: the planning that splits it. Its children's later stages wait as listed below.
 
 Actionable, not yet dispatched:
 
@@ -529,6 +528,7 @@ Executing now, dispatched after the owner's second plan gates of 2026-10-30:
 
 Gated on the owner:
 
+- P2-N003 (owner questions and the plan view): the owner's review of its plan, ten decisions.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:
@@ -552,7 +552,6 @@ No plan yet, in register order:
 - P1-N016 (process spec maintenance)
 - P1-N006 (pilot on a real project)
 - P1-N007 (cost reporting and close-out)
-- P2-N003 (owner questions and the plan view)
 - P2-N004 (topics and coordination)
 - P2-N005 (the task-pull loop)
 - P2-N006 (migration and pilot)

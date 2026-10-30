@@ -2755,9 +2755,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   projection from the repo and reconciles claims made while it was
   down. Owner-raised 2026-08-26; bears on R10 and R12.
 - [ ] **Service chunk 2 — owner questions and the plan view** (node
-  P2-N003) — question queue (elicitation for immediate class, queue
-  plus UI for gate batches) and the first UI: plan hierarchy with
-  drill-down, waiting-questions list, live updates.
+  P2-N003) — When: planned 2026-10-30 (T075). Status: planned, gated
+  on the owner's review; splits into the web view's first version (the
+  plan tree from commits, drilling to node and task, read-only) and the
+  owner question queue (after the pilot); ten decisions staged; the
+  earlier "live updates" struck by the owner on 2026-10-29. Pointer:
+  [plan](plans/p2-n003-owner-questions-and-plan-view.md).
 - [ ] **Service chunk 3 — topics and coordination** (node P2-N004) —
   project topics for status and cross-session coordination, including
   who is blocked on what; channels-push availability on the web
