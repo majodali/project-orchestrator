@@ -2439,8 +2439,21 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   Candidate fix: install `actionlint` into the session scratchpad the
   way the SAM CLI already is, and name it in the execute-stage packet
   for workflow-authoring tasks.
+- [ ] **The selection rule is restated outside P3-N009's four
+  statements** — When: 2026-10-30, planning P1-N016 (T074). Status:
+  open, for P3-N009 (criteria D1 and D4): `dispatch.md`'s *Parallel
+  dispatch* paragraph and step 2 of `.claude/agents/orchestrator.md`,
+  with its mirror in `plugin/agents/`, restate "earlier siblings
+  `done`". Pointer:
+  [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), *What
+  this node leaves alone*.
 - [ ] **Process spec maintenance: branch lifecycle, PR citation,
-  packet table** (node P1-N016) — three queued corrections to
+  packet table** (node P1-N016) — When: planned 2026-10-30 (T074).
+  Status: planned, gated on the owner's review of the plan (seventeen
+  decisions, five names). The plan inventories thirty-five routed
+  rows and runs the node as two execute tasks. Pointer:
+  [plan](plans/p1-n016-process-spec-maintenance.md). The original
+  entry follows: three queued corrections to
   `docs/process/`, opened as one node on 2026-09-01 because the
   specification is this project's product and three edits in passing
   is how a specification rots. **(i) The branch lifecycle has no

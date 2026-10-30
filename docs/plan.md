@@ -181,11 +181,11 @@ The children of P1-N009, in their chain order:
 
 ### P1-N016 Process spec maintenance: branch lifecycle, PR citation, packet table
 
-- Stage: identified, 2026-09-01. No plan yet.
-- Outcome: Three corrections to `docs/process/`. One says who deletes a merged branch, and when. One states how work reaches `main` by pull request. One fixes the packet table, which lists the documents each stage's task receives.
-- Depends on: nothing for planning. Its executing stage waits on P3-N009 (sibling ordering retired).
+- Stage: planned, 2026-10-30 (task T074). Gated on the owner's review of the plan: seventeen decisions and five names.
+- Outcome: Every Backlog row routed to this node, thirty-five in all, is landed in the process specification or closed with a stated reason. `dispatch.md` says who deletes a task branch and when, and how work reaches `main` by pull request. The packet table carries every observation recorded against it. `plan-model.md` says what a leaf is when its work takes several tasks. `observability.md` can record a block's release and a new risk. The project gains a vocabulary file. Each process-scope ruling flagged for promotion is promoted or declined.
+- Depends on: P3-N007's first execute task, which is done. The recorded wait of its executing stage on P3-N009 (sibling ordering retired) stands until the gate; the plan's decision 3 proposes to remove it, because the node edits no text P3-N009 owns.
 - Needed by: P1-N001.
-- Documents: none yet. The node's Backlog [entry](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-entry) holds the detail.
+- Documents: [plan](plans/p1-n016-process-spec-maintenance.md).
 
 ### P1-N006 Pilot on a real project (chunk 5)
 
@@ -379,7 +379,7 @@ The children of P3-N003, a strict chain in their [specification](specs/p3-n003-c
   - Needed by: P3-N011.
   - Documents: [plan](plans/p3-n010-one-class-end-to-end.md), [specification](specs/p3-n003-common-risk-catalogue.md#child-a-one-class-carried-end-to-end).
 - P3-N011 The sweep, the rest of the catalogue, and the omission list
-  - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day).
+  - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day). E1 is done (task T071): passes 1 and 2 recorded, classes CR-002 to CR-008 admitted, three candidates deferred. E2 (task T080) runs passes 3 to 5.
   - Outcome: The sweep reads five sources, named by the parent specification's [criterion B1](specs/p3-n003-common-risk-catalogue.md#verification-criteria): the Risk register, the Backlog's two sections, the Cost log's notes and the Ruling register. Every candidate class is admitted, merged, rejected or deferred, on the record. Risk entries cite their classes. The list of uncovered parts is ready for the owner.
   - Depends on: P3-N010.
   - Needed by: P3-N012.
@@ -512,10 +512,6 @@ graph LR
 
 A node is actionable when every recorded dependency of its next stage is met.
 
-Planning now, dispatched on 2026-10-30 after the owner's scope grant:
-
-- P1-N016 (process spec maintenance), task T074. Its executing stage waits on P3-N009.
-
 Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
@@ -523,12 +519,13 @@ Actionable, not yet dispatched:
 Executing now, dispatched after the owner's second plan gates of 2026-10-30:
 
 - P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): E1 done (task T070, the type specification `docs/process/project-model.md`); E2, the K-003 amendment IR first, task T078.
-- P3-N011 (the sweep, the rest of the catalogue, and the omission list): E1, task T071; E2 and E3 follow.
+- P3-N011 (the sweep, the rest of the catalogue, and the omission list): E1 done (task T071, passes 1 and 2, CR-002 to CR-008); E2, the Backlog and Cost log passes, task T080; E3 follows.
 
 Gated on the owner:
 
 - P2-N005 (the task-pull loop): the owner's review of its plan, thirteen decisions and four terms.
 - P2-N003 (owner questions and the plan view): the owner's review of its plan, ten decisions.
+- P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:
@@ -549,7 +546,6 @@ Waiting:
 
 No plan yet, in register order:
 
-- P1-N016 (process spec maintenance)
 - P1-N006 (pilot on a real project)
 - P1-N007 (cost reporting and close-out)
 - P2-N004 (topics and coordination)
