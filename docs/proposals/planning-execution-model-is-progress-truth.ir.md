@@ -2,7 +2,7 @@
 
 Reader: RD-4 (a fresh agent session) reading K-003 and the proposal beside this IR; the maintainers of majodali/methodology adjudicate the amendment, and the project-orchestrator owner gates the proposal before it is carried.
 Purpose: document. The proposal to amend K-003 (the Backlog is the single source of progress truth) in place by one conditional sentence, so that a project whose Classification declares a planning/execution model takes that model as its referent for what is done and what is next.
-Status: draft (rendered by the reasoning role on 2026-10-30; round 8; round 7 not readable, 13 of 15 findings fixed and 1 re-fixed after confirmation, 1 declined, 5 omissions not counted; round 6 not readable, 6 of 6 findings fixed and 1 re-fixed after confirmation, the step-6 passage matched on restatement; round 5 not readable, 9 of 10 findings fixed, all held at confirmation, 7 new defects fixed; round 4 not readable, 13 of 14 findings fixed and 1 re-fixed after confirmation, 1 declined, one step-6 structural fix awaiting restatement; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 91 claims; 2 unratified terms)
+Status: draft (rendered by the reasoning role on 2026-10-30; round 8, 4 of 6 findings fixed, 2 own mismatches; round 7 not readable, 13 of 15 findings fixed and 1 re-fixed after confirmation, 1 declined, 5 omissions not counted; round 6 not readable, 6 of 6 findings fixed and 1 re-fixed after confirmation, the step-6 passage matched on restatement; round 5 not readable, 9 of 10 findings fixed, all held at confirmation, 7 new defects fixed; round 4 not readable, 13 of 14 findings fixed and 1 re-fixed after confirmation, 1 declined, one step-6 structural fix awaiting restatement; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 91 claims; 2 unratified terms)
 Source: RU-021 (the planning/execution model is the source of progress truth), owner, 2026-10-29; decisions 10 to 13 of the P3-N002 specification's gate record of 2026-10-29; decisions 4 to 6 of the P3-N007 plan, adopted on 2026-10-30; the Project model slice at commit 86a1330.
 Normative: yes
 Footprint: docs/proposals/planning-execution-model-is-progress-truth.md; docs/backlog.md
@@ -19,7 +19,7 @@ T3. Classification: a project's binding declaration of its tier, pinned version 
 
 T4. Implementation map: the Backlog's completed section, whose checked entries describe what actually shipped. defined-at: https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth [decided: methodology v1.6.0, K-003]
 
-T5. List of what is next: the Backlog's answer to what is next. Under K-003 as released it is the Backlog's entries of upcoming work; under the amendment it is rendered from the model and holds nodes only. [proposed: this IR]
+T5. List of what is next: the Backlog's answer to what is next. Under K-003 as released it is the Backlog's entries of upcoming work, its upcoming section; under the amendment it is rendered from the model and holds nodes only. [proposed: this IR]
 
 T6. Rendering: a text produced from a source by a stated procedure. The rendering adds no claim the source lacks. It drops no claim the procedure says it carries. [proposed: this IR]
 
@@ -75,9 +75,9 @@ C11. The amendment leaves K-003's sentence on Workflow stage designations unchan
 
 C12. The amendment says nothing about the verification evidence of each node, the record of whether what the node built works. [decided: owner, 2026-10-29]
 
-C84. A planning/execution model has two components: the plan model, the project's nodes with their stages and edges, and the verification evidence of each node. evidence: E2. [decided: owner, 2026-10-28]
+C84. A planning/execution model has two components: the plan model (the project's nodes with their stages and edges) and the verification evidence of each node. evidence: E2. [decided: owner, 2026-10-28]
 
-C85. The declared model as a whole is the referent, and what is done and what is next are read from its plan model. [proposed: this IR]
+C85. The declared model is the referent for what is done and what is next, which its plan model holds; its verification evidence is not read for that role. [proposed: this IR]
 
 C13. The amendment keeps K-003's title, so links to the rule's anchor keep resolving. [proposed: this IR]
 
@@ -119,7 +119,7 @@ C26. A term-by-term cross-check found each authority in this section stated by a
 
 ### Open Backlog entries that name no node
 
-C27. Under the amendment, an open Backlog entry that names no node stays in the Backlog's upcoming section, outside the rendered list, as the Backlog's own content. evidence: E12. [decided: owner, 2026-10-30]
+C27. Under the amendment, an open Backlog entry that names no node stays in the Backlog's upcoming section as the Backlog's own content, outside the rendered list. evidence: E12. [decided: owner, 2026-10-30]
 
 C28. Under the amendment, the rendered list of what is next holds nodes only. [decided: owner, 2026-10-30]
 
@@ -147,7 +147,7 @@ C36. Under the amendment, a part's derived state `built` says the work on the pa
 
 C37. The known limit that the model cannot say "built but broken" stands under the amendment. [proposed: this IR]
 
-C38. The limit stands because whether a part works is verification evidence, which the amendment leaves outside K-003. [inferred: R4]
+C38. The limit stands because whether a part works is verification evidence. [inferred: R4]
 
 C39. The limit's earlier premise, that K-003 stays unamended, no longer holds. [decided: owner, 2026-10-29]
 

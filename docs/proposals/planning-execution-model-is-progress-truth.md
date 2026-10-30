@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: under review (round 8, 2026-10-30)
+Status: under review (round 8, fixes applied, 2026-10-30)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →
@@ -51,7 +51,8 @@ This proposal defines two terms.
 
 - <a id="def-list-of-what-is-next"></a>**List of what is next**: the
   Backlog's answer to what is next.
-  Under K-003 as released it is the Backlog's entries of upcoming work.
+  Under K-003 as released it is the Backlog's entries of upcoming work,
+  its upcoming section.
   Under the amendment it is rendered from the declared
   [planning/execution model](https://github.com/majodali/methodology/blob/350f75f0a11b326eb1f536f172359b1cc8a9cb1e/docs/vocabulary.md#def-planning-execution-model)
   and holds
@@ -63,7 +64,7 @@ This proposal defines two terms.
 
 The
 [owner](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner)
-is one person, who owns the methodology and project-orchestrator alike.
+is one person, who owns the methodology and project-orchestrator.
 On 2026-10-28 the owner decided that each project's [planning/execution
 model](https://github.com/majodali/methodology/blob/350f75f0a11b326eb1f536f172359b1cc8a9cb1e/docs/vocabulary.md#def-planning-execution-model)
 is the primary source of truth about progress. The owner
@@ -108,10 +109,11 @@ stage designations unchanged. The amendment says nothing about the
 verification evidence of each
 [node](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node),
 the record of whether what the node built works.
-A planning/execution model has two components: the plan model, the
-project's nodes with their stages and edges, and that verification
-evidence. The declared model as a whole is the referent, and what is done and
-what is next are read from its plan model.
+A planning/execution model has two components: the plan model (the
+project's nodes with their stages and edges) and that verification
+evidence. The declared model is the referent for what is done and what is next,
+which its plan model holds. Its verification evidence is not read for
+that role.
 
 The amendment keeps K-003's title, so links to the rule's anchor keep
 resolving. The title stays true for every project whose
@@ -234,9 +236,9 @@ Under the amendment, an open
 [Backlog](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth)
 entry that names no
 [node](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node)
-stays in the Backlog's upcoming section, outside the rendered [list of
-what is next](#def-list-of-what-is-next). The entry is the Backlog's own
-content. An open
+stays in the Backlog's upcoming section as the Backlog's own content,
+outside the rendered [list of what is next](#def-list-of-what-is-next).
+An open
 Backlog entry joins the list of what is next when it becomes a node,
 or when a node's plan takes it in. Entering each small
 finding as a node would add planning ceremony that the finding does not
@@ -260,8 +262,7 @@ derived state `built` says the work on the part is done, not that the
 part works. The [known
 limit](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/backlog.md#L750)
 that the model cannot say "built but broken" stands under the
-amendment, because whether a part works is verification evidence. The
-amendment leaves that evidence outside K-003.
+amendment, because whether a part works is verification evidence.
 The limit's earlier premise, that K-003 stays unamended, no longer
 holds. Recording where each node's verification evidence lands is
 later work on the [planning/execution

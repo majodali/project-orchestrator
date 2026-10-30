@@ -502,3 +502,42 @@ round 8: round 7's declined finding 7 added to the declined list.
 
 ## Round 8, 2026-10-30
 
+Stranger: a fresh instance at the frugal tier (task T089). Prose about
+2,700 words by the stranger's hand count (2,567 by tool at the round's
+start); 91 claims; 6 findings.
+
+Restatement: matched the IR on the problem, the clause, the terms, the
+authorities, the open entries, the asks and the evidence. Two
+mismatches, both attributed by the stranger to its own restatement: the
+owner's "decision" in the singular (C78) and "a count of 31 open
+entries" for 31 of 139 (C31). Sentences relied on: "The other three are
+the owner's decisions of 2026-10-28, the term-by-term cross-check and
+the count of open Backlog entries." and "At drafting, 31 of the 139
+open entries in the project-orchestrator Backlog named no node." Both
+quoted sentences carry the IR's claim; under branch point v1.8, which
+this count runs under, an own mismatch still counts.
+
+Mismatches: C78 (own), C31 (own).
+
+Step-6 passage: matched on restatement.
+
+Findings by rule: SP-04 1 (4); SP-26 3 (3, 5, 6); restatement mismatch
+2 (1, 2). Undefined term 1: upcoming section. Contradictions: none.
+Three tensions noted without a finding: the whole model as referent
+against the amendment saying nothing about verification evidence; an
+open entry as upcoming work outside the list of what is next; the
+two-components sentence reading as three items.
+
+Verdict: not readable. Blocking: 4, and the two own mismatches under
+the literal rule.
+
+Accepted and fixed, in the IR then the prose: 3, 4, 5 (3 of 4 prose
+findings), and the three tensions (C85 reworded: the model is the
+referent for what is done and what is next, which its plan model holds;
+C84's components parenthesized; the upcoming section defined at T5).
+
+Declined: 6 (SP-26, "The entry is the Backlog's own content"), because
+the phrase is the owner's decision wording (P3-N007 decision 4, C27);
+instead the two sentences are merged into one of 25 words that keeps
+the phrase.
+
