@@ -70,11 +70,11 @@ each of these.
 journal event whose `task` field is the item's ID, of any event kind,
 or the notes column of the item's Cost log row. An event with no task
 ID is a note of no item, even when it names the item's node or reports
-the item's checks. The predicates are evaluated when the item lands, and
-a gate event written after its acceptance cannot inform that verdict.
-The *result's notes* are those of its `result-received` and `accepted`
-events and its Cost log row. A `dispatched` note is the brief, not the
-result.
+the item's checks. Gate events are read only where predicate 2's
+stand-in grant and predicate 3's test 2 name them, and as those texts
+state. The *result's notes* are those of its `result-received` and
+`accepted` events and its Cost log row. A `dispatched` note is the
+brief, not the result.
 
 **The item's node and stage.** They are the `node` and `stage` fields
 of the item's `dispatched` event, or of its `accepted` event when it has
@@ -172,26 +172,49 @@ the corpus statement names for the item (plan decision 4).
 1. *Nodes and stages.* The item's node and stage. Add each node outside
    the item's own node and the nodes under it that the result's notes
    name with a stage transition of its own, written
-   `<stage> -> <stage>`. A transition belongs to the node whose ID
+   `<stage> -> <stage>` or `<stage> → <stage>`. A *stage word* is one of
+   the seven node stages of `plan-model.md`: `identified`, `planned`,
+   `specified`, `broken-down`, `executing`, `verifying` and `done`. A
+   punctuation mark after the second stage word ends it. An arrow with a
+   word other than a stage word on either side is not a transition. A
+   transition belongs to the node whose ID
    stands immediately before it, with nothing between them but a colon
    or spaces. A transition with no node ID immediately before it belongs
    to the item's own node. A node named without a transition of its own
    is not added.
-2. *Repositories written.* This repository, when a recorded ref of the
-   item resolves in it or when the item records no ref. For each
-   recorded ref that does not resolve in this repository: each
-   repository a note of the item names, in any sentence, in a naming
-   form. The *naming forms* are a repository's full name
-   `owner/name`, alone or with a pull request number, and the words
-   "the service repository", "the service repo", "the service work
-   repo" and "the work repo", in any case. No other wording names a
-   repository: not "the service" alone, not "this repo", "this
-   repository" or "the repository", and not a pull request number
-   without a full name. Add each repository a note names in a naming
-   form in the same sentence as a commit hash, a branch name or a pull
-   request number of the item. A ref that does not resolve here, and
-   whose repository no note names in a naming form, is an unknown
-   repository.
+2. *Repositories written.* A *recorded ref* is a commit hash in the
+   `ref` field of a journal event whose `task` field is the item's ID.
+   A ruling ID in a `ref` field, such as `RU-001` in a
+   `precedent-applied` event, is not a recorded ref. The corpus
+   statement's table lists each item's recorded refs.
+
+   Set 2 holds this repository when a recorded ref of the item resolves
+   in it, or when the item records no ref. For each recorded ref that
+   does not resolve in this repository, set 2 holds each repository
+   that a note of the item names in a naming form. Every note of the
+   item counts for this, of any event kind: a `dispatched` note, a
+   `packet-widened` note and a sentence reporting a read count too.
+   Naming a repository identifies where a ref was written; it is not a
+   read added to a set.
+
+   The *naming forms* are a closed list, matched in any case: the full
+   names the scope names, and the phrases the corpus statement lists
+   for the corpus. No other wording names a repository. Not "the
+   service" alone; not "this repo", "this repository" or "the
+   repository"; not a pull request number without a full name; and not
+   another string of the shape `owner/name`, such as
+   `actions/checkout` or "input/output".
+
+   Set 2 also holds each repository that one of the *result's notes*
+   names in a naming form in the same sentence as a commit hash, a
+   branch name or a pull request number. A *commit hash* is a run of 7
+   to 40 characters from `0` to `9` and `a` to `f` that holds at least
+   one digit. A *branch name* is the word after "branch" or "branches"
+   when that word holds a hyphen or a slash, so "a branch diff" holds
+   none. A *pull request number* is `#` followed by digits.
+
+   A ref that does not resolve here, and whose repository no note of
+   the item names in a naming form, is an unknown repository.
 3. *Immediate-class flags.* `dispatch.md` names four immediate classes:
    approved-scope expansion, a change to an existing test's conditions
    under methodology W-002 (existing tests are signals, not obstacles),
@@ -204,8 +227,10 @@ the corpus statement names for the item (plan decision 4).
    a budget overrun. A W-002 flag is also raised by a note of the item
    that states an existing test or assertion was modified, retired or
    deleted, or that a licence or ruling for a test change was applied.
-   The note must call the thing changed a test or an assertion; a
-   harness, a fixture or a script is not a test.
+   The verbs are those three, in any tense; another verb, such as
+   "made false" or "broke", does not raise the flag. The note must call
+   the thing changed a test or an assertion; a harness, a fixture or a
+   script is not a test.
 
 **Compares** by membership.
 
@@ -217,7 +242,9 @@ the corpus statement names for the item (plan decision 4).
   `dispatch.md`'s default holds: approved scope is this repository
   alone.
 - Each flag of set 3 is named by one of the scope's
-  pre-authorizations.
+  pre-authorizations. A pre-authorization names a flag when it names
+  the flag's class. A W-002 disposition or a ruling that licenses a
+  test change names the W-002 class, whichever test it names.
 
 **Yields stop** when any element lies outside the scope, when a
 repository is unknown (fails closed), or when no scope can be recovered
@@ -247,32 +274,41 @@ sections. The located findings and open questions the result reports.
    closed).
 2. *An unadopted gate decision.* A numbered entry in a *Decisions for
    the gate* section of a member's document is unadopted unless both
-   hold:
-   - a gate record section of the same document, or of the other
-     member document of the same node, adopts or overrides it. A gate
-     record section is a section headed "Gate record", "Gate outcome"
-     or "Hold released", with a date. It adopts an entry by its number,
-     by a range holding the number, or by stating that "all" or "every"
-     staged decision or default is adopted, accepted or settled;
-   - the journal holds a `gate-crossed` event for the document's node
-     earlier than the item's first result event, at the document's
-     stage or a later one. A plan's stage is `planned` and a
-     specification's is `specified`; `broken-down` and `done` are
-     later.
+   of these hold.
+   - *The record.* A gate record section adopts or overrides the
+     entry. The section is in the same document, or in the other
+     member document whose stated node is the same. A gate record
+     section is a section headed "Gate record", "Gate outcome" or "Hold
+     released", with a date. It adopts an entry by its number, by a
+     range holding the number, or by stating that "all" or "every"
+     staged decision or default is adopted, accepted or settled. The
+     section is read as it stands at the cut-off, whatever its date.
+     Its date names the gate; it does not time the adoption.
+   - *The time.* The journal holds a `gate-crossed` event for the
+     document's node, at the document's stage or a later one, whose
+     `ts` is earlier than the item's first result event. The item's
+     *first result event* is the earliest `result-received` or
+     `accepted` event with its task ID. The stages are ordered
+     `identified`, `planned`, `specified`, `broken-down`, `executing`,
+     `verifying`, `done`. A plan's stage is `planned` and a
+     specification's is `specified`. A `gate-crossed` event whose
+     `stage` field holds none of the seven, or is empty, times nothing.
+
+   Only the event times the adoption. A `gate-crossed` event at or
+   after the item's first result event is not read for this item,
+   however long after; the test has no window. A `gate-crossed` event
+   alone adopts nothing.
 
    An entry is a numbered entry only. A bullet or a paragraph of the
-   section is not an entry.
+   section is not an entry. A `plan` or `specify` item whose result
+   stages decisions therefore stops on them: they wait on the owner's
+   gate.
 
-   A `gate-crossed` event later than the item's first result event
-   leaves the entry unadopted for this item, even when a gate record
-   section adopts it. That stop rests on recorded input and is not
-   marked failed closed. A `plan` or
-   `specify` item whose result stages decisions therefore stops on
-   them: they wait on the owner's gate.
-
-   Test 2's stop fails closed in two cases only. A member's document
-   has a *Decisions for the gate* section and neither member document
-   of its node has a gate record section. Or the item has no member.
+   Test 2's stop is marked failed closed in two cases only. The item
+   has no member. Or every unadopted entry fails *the record* alone,
+   and neither member document of its node has a gate record section.
+   A stop on an entry that fails *the time* rests on the journal's
+   recorded gate events and is not marked failed closed.
 3. *A located finding against the member's own documents.* The result
    reports a located finding (`dispatch.md`, the handoff contract)
    whose contradicted decision or criterion is in a member document.
@@ -280,7 +316,8 @@ sections. The located findings and open questions the result reports.
    the item stands for it when one sentence holds "K-011" (found
    contradictions are marked, not routed around), the word "marked",
    and the member's plan or specification, named as "the plan" or
-   "the specification" with no other node's ID. A contradiction a note
+   "the specification" with no other node's ID. Each of these words
+   matches in any case, so "Marked" matches. A contradiction a note
    reports without that marking does not match.
 4. *An open question.* The result's *What changed* part, or its
    intermediate representation (IR), carries an open question that
@@ -336,14 +373,16 @@ Orchestrator as its
 Each reading writes one file, `reading-<n>-round-<r>.md`, in
 `docs/findings/p3-n005-stop-predicates/`. `<n>` is 1 for the frugal
 tier's reading and 2 for the advanced tier's. `<r>` is the round: 1
-for the readings of draft 2, commit `d843457`, and 2 for the readings
-of draft 3, the predicate commit that follows it. The file holds one
-table with one row per item and predicate, ordered by item and then by
-predicate:
+for the readings of draft 2, commit `d843457`; 2 for the readings of
+draft 3, commit `027ca03`; and 3 for the readings of draft 4, the
+predicate commit that follows it. Predicates 1 and 4 closed after round
+2, so a round 3 file holds predicates 2 and 3 only. The file holds one
+table with one row per item and predicate it scores, ordered by item
+and then by predicate:
 
 | Item | Predicate | Verdict | Artifact and field read | Failed closed | I5 |
 |---|---|---|---|---|---|
-| T0nn | 1 to 4 | `stop` or `continue` | the artifact and field | `yes` or `no` | predicate 3 only |
+| T0nn | 1 to 4; 2 and 3 in round 3 | `stop` or `continue` | the artifact and field | `yes` or `no` | predicate 3 only |
 
 *Verdict* is `stop` or `continue`. *Artifact and field read* names the
 artifact and the field or note the verdict rests on, with the event's
@@ -402,6 +441,10 @@ corpus.
 3. The repository at each recorded ref, where the ref resolves in this
    repository. 15 items carry only refs of another repository; those
    refs do not resolve here and are not read. 10 items record no ref.
+   The recorded refs in the table below are the commit hashes in the
+   `ref` fields of each item's events. The ruling IDs in the `ref`
+   fields of the `precedent-applied` events of T004, T009, T010, T020,
+   T024, T025, T039 and T043 are not refs.
 4. The member's documents at the cut-off: the plan and specification
    the Plan register line links, as defined above, with their *Decisions
    for the gate*, gate record and *Repository reach* sections.
@@ -450,10 +493,14 @@ failing closed and is counted apart.
 counts them apart. T051 and T053 also have no node, so they have no
 member. Predicate 3's test 2 fails closed for them.
 
-**The repository the naming forms name.** In the corpus, "the service
-repository", "the service repo", "the service work repo" and "the work
-repo" name majodali/project-orchestrator-service. It is the one
-repository other than this one that any grant names.
+**The naming forms in the corpus.** The closed list has five forms.
+One is the full name `majodali/project-orchestrator-service`, which
+grants G4, G11 and G12 name. The other four are the phrases "the
+service repository", "the service repo", "the service work repo" and
+"the work repo". Each of the five names
+majodali/project-orchestrator-service, the one repository other than
+this one that any grant names. No other wording names a repository in
+the corpus.
 
 **The items.** *Member documents of* names the node whose register line
 supplies the member's documents. A ref marked "(not here)" does not
