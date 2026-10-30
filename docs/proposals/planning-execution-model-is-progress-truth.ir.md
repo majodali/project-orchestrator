@@ -2,7 +2,7 @@
 
 Reader: RD-4 (a fresh agent session) reading K-003 and the proposal beside this IR; the maintainers of majodali/methodology adjudicate the amendment, and the project-orchestrator owner gates the proposal before it is carried.
 Purpose: document. The proposal to amend K-003 (the Backlog is the single source of progress truth) in place by one conditional sentence, so that a project whose Classification declares a planning/execution model takes that model as its referent for what is done and what is next.
-Status: draft (rendered by the reasoning role on 2026-10-30; round 10, the limit, 4 of 4 findings fixed, 1 own mismatch; round 9 not readable, 5 of 6 findings fixed and 2 re-fixed after confirmation, 1 declined, 1 own mismatch; round 8 not readable, 3 of 4 prose findings fixed and 3 re-fixed after confirmation, 1 declined, 2 own mismatches; round 7 not readable, 13 of 15 findings fixed and 1 re-fixed after confirmation, 1 declined, 5 omissions not counted; round 6 not readable, 6 of 6 findings fixed and 1 re-fixed after confirmation, the step-6 passage matched on restatement; round 5 not readable, 9 of 10 findings fixed, all held at confirmation, 7 new defects fixed; round 4 not readable, 13 of 14 findings fixed and 1 re-fixed after confirmation, 1 declined, one step-6 structural fix awaiting restatement; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 93 claims; 2 unratified terms)
+Status: draft (rendered by the reasoning role on 2026-10-30; count 1 closed at the limit, round 10 not readable, 4 of 4 findings fixed and 2 re-fixes confirmed, 1 own mismatch, Meta-review: pending; round 9 not readable, 5 of 6 findings fixed and 2 re-fixed after confirmation, 1 declined, 1 own mismatch; round 8 not readable, 3 of 4 prose findings fixed and 3 re-fixed after confirmation, 1 declined, 2 own mismatches; round 7 not readable, 13 of 15 findings fixed and 1 re-fixed after confirmation, 1 declined, 5 omissions not counted; round 6 not readable, 6 of 6 findings fixed and 1 re-fixed after confirmation, the step-6 passage matched on restatement; round 5 not readable, 9 of 10 findings fixed, all held at confirmation, 7 new defects fixed; round 4 not readable, 13 of 14 findings fixed and 1 re-fixed after confirmation, 1 declined, one step-6 structural fix awaiting restatement; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 93 claims; 2 unratified terms)
 Source: RU-021 (the planning/execution model is the source of progress truth), owner, 2026-10-29; decisions 10 to 13 of the P3-N002 specification's gate record of 2026-10-29; decisions 4 to 6 of the P3-N007 plan, adopted on 2026-10-30; the Project model slice at commit 86a1330.
 Normative: yes
 Footprint: docs/proposals/planning-execution-model-is-progress-truth.md; docs/backlog.md
@@ -121,7 +121,7 @@ C26. A term-by-term cross-check found each authority in this section stated by a
 
 C27. Under the amendment, an open Backlog entry that names no node stays in the Backlog's upcoming section as the Backlog's own content, outside the rendered list. evidence: E12. [decided: owner, 2026-10-30]
 
-C92. Such an entry is upcoming work the Backlog records. It is not part of what is next until it becomes a node or a node's plan takes it in. [inferred: R22]
+C92. Such an entry is upcoming work the Backlog records. [inferred: R22]
 
 C28. Under the amendment, the rendered list of what is next holds nodes only. [decided: owner, 2026-10-30]
 
@@ -297,7 +297,7 @@ R20. C85 depends-on C12 because the amendment says nothing about the verificatio
 
 R21. C87 refines C14 because a title that names the common case does not bind the declaring project.
 
-R22. C92 depends-on C28 because a list that holds nodes only answers what is next with nodes only.
+R22. C92 depends-on C27 because an entry that stays in the upcoming section is work the Backlog still records.
 
 R23. C93 depends-on C29 because joining the list through a node's plan needs the plan to name the entry.
 

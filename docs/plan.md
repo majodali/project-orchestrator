@@ -344,7 +344,7 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
   - Needed by: P3-N007, and the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view) child of P2-N003.
   - Documents: [plan](plans/p3-n006-thin-end-to-end-slice.md), [specification](specs/p3-n002-comprehension-model.md#child-a-the-thin-end-to-end-slice-five-real-parts-all-the-way-through).
 - P3-N007 The type declared, the arguments written, the K-003 (the Backlog is the single source of progress truth) amendment drafted
-  - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day). E1 is done (task T070, the type specification). The fifty edges E1 held were transcribed into the Project model instance by task T077. E2 is drafted (task T078): the K-003 proposal and its IR, `docs/proposals/planning-execution-model-is-progress-truth.md`. Its stranger rounds run now under criterion B14; the owner's gate at verifying follows.
+  - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day). E1 is done (task T070, the type specification). The fifty edges E1 held were transcribed into the Project model instance by task T077. E2 is done (task T078): the K-003 proposal and its IR, `docs/proposals/planning-execution-model-is-progress-truth.md`. Its ten stranger rounds (tasks T081 to T091) ran to the limit without a readable verdict; the final round's fixes are confirmed and the record carries Meta-review: pending. The node is verifying, gated on your review of the proposal under RU-005, ten terms, and a meta-review of the count.
   - Outcome: The Project model is defined in `docs/process/` and declared in the [Classification](classification.md). The design arguments are written down, such as who may write the model and where a node's edges are first recorded. P3-N007 drafts the amendment to K-003 (the Backlog is the single source of progress truth), as an IR first. Under the amendment, a project that declares a [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes that model as its progress record. The rule changes only when the methodology releases the amendment, after the owner carries it upstream.
   - Depends on: P3-N006.
   - Needed by: P3-N008.
@@ -522,7 +522,6 @@ Specifying now, after the owner's gate of 2026-10-30:
 
 Executing now, dispatched after the owner's second plan gates of 2026-10-30:
 
-- P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): E1 done (task T070, the type specification `docs/process/project-model.md`); E2, the K-003 amendment IR first, task T078.
 
 Gated on the owner:
 
@@ -530,6 +529,7 @@ Gated on the owner:
 - P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
 - P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
+- P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): verifying; your review of the K-003 proposal under RU-005 (approve for carrying, amend or return), ten terms, the open points of its record, and a meta-review of its count.
 - P3-N011 (the sweep, the rest of the catalogue, and the omission list): verifying; the owner's rulings on the omission list (56 items), the three weaker Class lines, the scope arguments and closed entries, and the terms citation test and delta row.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 

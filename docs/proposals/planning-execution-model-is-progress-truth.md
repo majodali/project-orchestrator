@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: under review (round 10, the limit, fixes applied, 2026-10-30)
+Status: draft (count 1 closed at the limit on 2026-10-30, round 10 not readable, the final round's fixes confirmed; awaiting the owner's gate at node P3-N007's verifying stage)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →
@@ -242,8 +242,6 @@ entry that names no
 stays in the Backlog's upcoming section as the Backlog's own content.
 Such an entry is upcoming work the Backlog records. A node's plan
 takes an entry in when the plan lists the entry as work the node does.
-The entry is not part of what is next until it becomes a node or a
-node's plan takes it in.
 An open Backlog entry joins the rendered [list of what is
 next](#def-list-of-what-is-next) when it becomes a node, or when a
 node's plan takes it in. Entering each small
@@ -302,9 +300,9 @@ the rows read from the Plan register agreed with the state the entries
 recorded. The slice record rendered the list of what is next in a narrower form,
 per part: the open nodes with an edge to the part. Each of the five
 lists held no open item, because the slice's plan had held back the
-edges from open nodes to the five parts. When built, the full instance renders the list of what is next over
-the whole model, in the form stated under [*What the model is
-authoritative for*](#what-the-model-is-authoritative-for).
+edges from open nodes to the five parts. When built, the full instance renders the list of what is next in the
+form stated under [*What the model is authoritative
+for*](#what-the-model-is-authoritative-for).
 
 The comparison of the renderings with the Backlog listed eleven
 differences. It left none unexplained. Of the eleven differences,

@@ -1,6 +1,6 @@
 # Review record: a declared planning/execution model is the source of progress truth
 
-Status: open (count 1, round 10 running, the limit)
+Status: closed (count 1 closed at the limit on 2026-10-30; the verdict at round 10 not readable; the final round's fixes confirmed; Meta-review: pending)
 
 <!-- K-007 contract: Status transitions open → closed (the count's
      verdict recorded and the fixes confirmed). This file is the
@@ -648,3 +648,49 @@ node's plan takes it in"), 4 ("When built, the full instance renders").
 Declined: none. The final round's instance confirms each fix below; each
 finding is then marked confirmed or unfixed.
 
+Confirmation: 4 of 4 fixes hold. Not held: none. Declines accepted: 0
+of 0. New defects: 2 (N1 a 27-word sentence; N2 the condition stated
+twice). Both re-fixed and confirmed by the same instance: N1 ("in the
+form stated under", 23 words), N2 (the negative form cut from the prose
+and C92, the condition standing once in C29; R22 re-based on C27).
+Each finding of the final round is marked confirmed; none is unfixed.
+
+## Verdict, count 1
+
+Round 10 was the limit. The verdict at round 10 was not readable, on
+two undefined terms and two contradictions, all fixed and confirmed
+after it. No round of the count returned readable. The count closes at
+the limit under step 7.
+
+Curve: findings per round 23, 19, 16, 14, 10, 6, 15 (five of them the
+stranger's omissions), 6, 6, 4. Prose by tool 2,170 at round 1, 2,585
+at round 10 (19 percent). Claims 73 at round 1, 93 at round 10.
+Restatement mismatches by round: 1 (prose), 0, 1 own, 2 (one IR, one
+own), 1 own, 0, 0 (five omissions), 2 own, 1 own, 1 own. Contradictions
+by round: 1, 2, 1, 1, 1, 2, 0, 0, 0, 2. Undefined terms by round: 5, 6,
+3, 1, 4, 1, 4, 1, 1, 3.
+
+Signals, read by hand under branch point v1.8 (the signals script reads
+the pipeline's record form, not this one): signal 1 fired (fixes not
+held at confirmation in rounds 1, 2, 3, 4, 6 and 7); signal 2 fired (the
+slice passage in rounds 3 and 4, step 6 applied in round 4 and matched
+from round 6); signal 3 not computed by the script, the prose grew 19
+percent against 27 percent more claims; signal 4 fired (contradictions
+in rounds 6 and 10 on passages earlier fixes wrote). The count reached
+the limit.
+
+Meta-review: pending. The owner is asked, in the report that delivers
+this proposal to the P3-N007 gate, to dispatch a meta-review of this
+count (an evaluation case in communication-pipeline).
+
+Decided claims changed by structural fixes, for the owner: none; the
+step-6 fix added C78 (proposed). Decided claims reworded in the rounds,
+for the owner's ratification of the new wording: C3, C8, C12, C22, C24,
+C27, C28, C29, C41, C45, C49, C55, C65, C70, C72 (each listed in the
+round that changed it).
+
+Open points carried to the owner's gate: the appended sentence's
+length (29 words) and whether to split it; whether the amendment should
+also condition K-003's referent clauses and title, which the proposal
+now says yield to the exception; the two terms list of what is next
+and rendering.
