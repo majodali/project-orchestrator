@@ -64,6 +64,16 @@ status and its Asks part verbatim (parent decision 12); the
 For the corpus, the corpus statement below names what stands in for
 each of these.
 
+**The item's notes.** A note of the item is the `note` field of a
+journal event whose `task` field is the item's ID, of any event kind,
+or the notes column of the item's Cost log row. An event with no task
+ID is a note of no item, even when it names the item's node or reports
+the item's checks. The predicates are evaluated when the item lands, and
+a gate event written after its acceptance cannot inform that verdict.
+The *result's notes* are those of its `result-received` and `accepted`
+events and its Cost log row. A `dispatched` note is the brief, not the
+result.
+
 **The item's node and stage.** They are the `node` and `stage` fields
 of the item's `dispatched` event, or of its `accepted` event when it has
 no `dispatched` event.
@@ -71,7 +81,7 @@ no `dispatched` event.
 **The member.** Inside a sequence, the predicates read a
 [member of a sequence](../specs/p3-n005-sequence-mode.md#gate-record-2026-10-29):
 a chunk the owner ratified. For the corpus, the member is the item's
-node.
+node. An item with no node has no member and no member documents.
 
 **The member's documents.** A member's plan and specification are the
 documents its [Plan register](../plan-register.md) line links. A node
@@ -90,7 +100,9 @@ The recorded outcome of each named check, in the item's result record.
    `node plugin/scripts/form_check.ts`, or its predecessor
    `python3 plugin/scripts/form_check.py`, which node P1-N013 (the
    cutover: sync_agents ported, every invocation site moved, the Python
-   retired) retired. A note naming either names the form check.
+   retired) retired. A note names the form check when it holds either
+   command, the script name `form_check` with or without an extension,
+   or the words "form check" or "form checks", in any case.
 2. For an item at stage `execute` or `verify`: each command, in code
    formatting, that the member's criteria require to pass, to exit
    zero, or to report a stated result. The member's criteria are the
@@ -107,22 +119,29 @@ the criteria, and the commands in it bind the node's later `execute`.
 **Recorded outcomes.** A check's outcome is recorded when a note of the
 item names the check and states one of these outcomes.
 
-- Pass: "clean", "pass", "passes", "passed", "green", "met", "holds",
-  "0 violations", "exit 0", or a count *N/N* whose two numbers are
-  equal.
+- Pass: "clean", "pass", "passes", "passed", "green", "met",
+  "satisfied", "holds", "0 violations", "0 errors", "in sync", "exit 0",
+  or a count *N/N* whose two numbers are equal.
 - Failure: "fail", "failed", "red", "caught", "not met", a violation
   count above zero, a non-zero exit, or a count *N/M* with *N* below
   *M*.
 
 When a note states more than one outcome for one check, the last one
 stated is its outcome. When two notes state different outcomes for one
-check, the failure stands. A failure made on purpose to prove that a test
-can fail, and then restored, is not a failure outcome.
+check, the failure stands. A failure made on purpose to prove that a
+check, a test or a pipeline can fail, and then reverted or restored, is
+not a failure outcome. A failure a note states without naming a check,
+such as a failed deploy or a denied permission, is the outcome of no
+named check.
 
 A verdict stated for all criteria at once, such as "all eight criteria
-met" or "every criterion holds", records the outcome of each. A
-statement that verification happened without its outcome, such as
-"self-verified", "re-verified" or "checked", records no outcome. So do
+met" or "every criterion holds", records the outcome of each. When the
+same sentence states an exception, such as "every criterion holds (G4
+not confirmable)" or "passes except G5 untested", each excepted
+criterion takes the outcome the exception states, and the others take
+the verdict. A statement that verification happened without its
+outcome, such as "self-verified", "re-verified" or "checked", records
+no outcome. So do
 "untested", "unrun", "not confirmable", "not claimed" and a
 placeholder. A test, build or lint command is named in a note by its
 command or by the word "tests", "suite", "build", "lint" or
@@ -149,27 +168,42 @@ the corpus statement names for the item (plan decision 4).
 **The three sets.**
 
 1. *Nodes and stages.* The item's node and stage. Add each node outside
-   the item's own node and the nodes under it that the item's
-   `result-received` or `accepted` note names with a stage transition
-   written `<stage> -> <stage>`.
+   the item's own node and the nodes under it that the result's notes
+   name with a stage transition of its own, written
+   `<stage> -> <stage>`. A transition belongs to the node whose ID
+   stands immediately before it, with nothing between them but a colon
+   or spaces. A transition with no node ID immediately before it belongs
+   to the item's own node. A node named without a transition of its own
+   is not added.
 2. *Repositories written.* This repository, when a recorded ref of the
    item resolves in it or when the item records no ref. For each
-   recorded ref that does not resolve in this repository: the
-   repository a note of the item or its Cost log row names, by its
-   name, as "the service repository", "the service" or "the work repo",
-   or by a pull request of that repository. Add each repository a note
-   names together with a commit, a branch or a pull request of the
-   item's work. A ref that does not resolve here, and whose repository
-   no note names, is an unknown repository.
+   recorded ref that does not resolve in this repository: each
+   repository a note of the item names, in any sentence, in a naming
+   form. The *naming forms* are a repository's full name
+   `owner/name`, alone or with a pull request number, and the words
+   "the service repository", "the service repo", "the service work
+   repo" and "the work repo", in any case. No other wording names a
+   repository: not "the service" alone, not "this repo", "this
+   repository" or "the repository", and not a pull request number
+   without a full name. Add each repository a note names in a naming
+   form in the same sentence as a commit hash, a branch name or a pull
+   request number of the item. A ref that does not resolve here, and
+   whose repository no note names in a naming form, is an unknown
+   repository.
 3. *Immediate-class flags.* `dispatch.md` names four immediate classes:
    approved-scope expansion, a change to an existing test's conditions
    under methodology W-002 (existing tests are signals, not obstacles),
    a deviation from the process specification or the methodology, and
-   budget overrun. A flag is raised by a `needs-judgment` event of the
-   item whose note names one of the four classes. It is also raised by
-   a note of the item that states an existing test was modified,
-   retired or deleted, or that a licence or ruling for a test change
-   was applied.
+   budget overrun. A flag is raised by a note of the item, in an event
+   of any kind, that holds the words "immediate class",
+   "immediate-class" or "immediate-escalation". Its class is the class
+   the same note names: an additional repository or a scope expansion;
+   W-002 or a change to an existing test's conditions; a deviation; or
+   a budget overrun. A W-002 flag is also raised by a note of the item
+   that states an existing test or assertion was modified, retired or
+   deleted, or that a licence or ruling for a test change was applied.
+   The note must call the thing changed a test or an assertion; a
+   harness, a fixture or a script is not a test.
 
 **Compares** by membership.
 
@@ -216,32 +250,45 @@ sections. The located findings and open questions the result reports.
      member document of the same node, adopts or overrides it. A gate
      record section is a section headed "Gate record", "Gate outcome"
      or "Hold released", with a date. It adopts an entry by its number,
-     by a range holding the number, or by adopting "all" or "every"
-     default;
+     by a range holding the number, or by stating that "all" or "every"
+     staged decision or default is adopted, accepted or settled;
    - the journal holds a `gate-crossed` event for the document's node
      earlier than the item's first result event, at the document's
      stage or a later one. A plan's stage is `planned` and a
      specification's is `specified`; `broken-down` and `done` are
      later.
 
-   When a member's document has a *Decisions for the gate* section and
-   neither member document of its node has a gate record section, the
-   stop fails closed.
+   An entry is a numbered entry only. A bullet or a paragraph of the
+   section is not an entry.
+
+   A `gate-crossed` event later than the item's first result event
+   leaves the entry unadopted for this item, even when a gate record
+   section adopts it. That stop rests on recorded input and is not
+   marked failed closed. A `plan` or
+   `specify` item whose result stages decisions therefore stops on
+   them: they wait on the owner's gate.
+
+   Test 2's stop fails closed in two cases only. A member's document
+   has a *Decisions for the gate* section and neither member document
+   of its node has a gate record section. Or the item has no member.
 3. *A located finding against the member's own documents.* The result
    reports a located finding (`dispatch.md`, the handoff contract)
    whose contradicted decision or criterion is in a member document.
    Only the owner amends an adopted criterion. In the corpus, a note of
-   the item that records a contradiction marked under methodology
-   K-011 (found contradictions are marked, not routed around) in a
-   member document stands for it.
+   the item stands for it when one sentence holds "K-011" (found
+   contradictions are marked, not routed around), the word "marked",
+   and the member's plan or specification, named as "the plan" or
+   "the specification" with no other node's ID. A contradiction a note
+   reports without that marking does not match.
 4. *An open question.* The result's *What changed* part, or its
    intermediate representation (IR), carries an open question that
    waits on other activity. The owner's clarification of 2026-09-17
    moves such a question out of Asks, so this test keeps it a stop
    (criterion I5, conditions 3 and 4 lose no stop together). In the
-   corpus, a note of the item stating that the result carried a
-   question forward unresolved, or left an open question, stands for
-   it.
+   corpus, one of the result's notes stands for it when one sentence
+   holds the word "question" and one of "unresolved", "left open",
+   "remains open" or "still open". A `dispatched` note is not read for
+   this test.
 
 **Yields continue** otherwise. Each test is a lookup or a wording
 match.
@@ -285,8 +332,12 @@ Orchestrator as its
 ## The verdict file
 
 Each reading writes one file, `reading-<n>-round-<r>.md`, in
-`docs/findings/p3-n005-stop-predicates/`. It holds one table with one
-row per item and predicate, ordered by item and then by predicate:
+`docs/findings/p3-n005-stop-predicates/`. `<n>` is 1 for the frugal
+tier's reading and 2 for the advanced tier's. `<r>` is the round: 1
+for the readings of draft 2, commit `d843457`, and 2 for the readings
+of draft 3, the predicate commit that follows it. The file holds one
+table with one row per item and predicate, ordered by item and then by
+predicate:
 
 | Item | Predicate | Verdict | Artifact and field read | Failed closed | I5 |
 |---|---|---|---|---|---|
@@ -339,7 +390,9 @@ corpus.
 **The artifacts read for each item.**
 
 1. The journal events whose `task` field is the item's ID. Their notes
-   are the Orchestrator's records of the result. They stand in for the
+   are the Orchestrator's records of the result. An event with no task
+   ID is a note of no item; the gate events of point 5 are read only
+   for the stand-in grant and for predicate 3's test 2. They stand in for the
    result record where the predicates read a status, a check outcome, a
    located finding, an open question or a stage transition.
 2. The item's Cost log row, where one exists. Its notes column is read
@@ -392,7 +445,13 @@ failing closed and is counted apart.
 | none | — | — | — | T019: the `gate-opened` event of 2026-08-31T01:28Z opens P1-N014 and records no owner grant. T051 and T053: no node, and no gate event; each `dispatched` note cites an owner request made in conversation |
 
 **3 items have no recoverable grant: T019, T051 and T053.** Predicate 2
-counts them apart.
+counts them apart. T051 and T053 also have no node, so they have no
+member. Predicate 3's test 2 fails closed for them.
+
+**The repository the naming forms name.** In the corpus, "the service
+repository", "the service repo", "the service work repo" and "the work
+repo" name majodali/project-orchestrator-service. It is the one
+repository other than this one that any grant names.
 
 **The items.** *Member documents of* names the node whose register line
 supplies the member's documents. A ref marked "(not here)" does not
