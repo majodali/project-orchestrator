@@ -9,6 +9,8 @@ Status: closed → Backlog entry
      breakdown at this node's gate, and `closed → Backlog entry` when the
      node reaches `done`. -->
 
+Project model: the five-resource slice is [project-model.md](../project-model.md).
+
 Node **P1-N009**, child of P1-N001
 ([orchestrator-v1](../plans/orchestrator-v1.md)), specifying the
 outcome fixed by its

@@ -1,5 +1,7 @@
 # Backlog
 
+Project model: the five-resource slice is [project-model.md](project-model.md).
+
 Reader: RD-4 in the methodology's
 [reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers) (a fresh agent
 session), and the owner returning after a gap (RD-2). It assumes the
@@ -432,20 +434,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   project-wide by declaration stays an option decision 15 declines by
   default.
 
-- [ ] **P3-N006 identified, 2026-10-29** — the comprehension model's
-  thin end-to-end slice: five real parts of this repository through
-  the model and both renderings
-  ([spec, child A](specs/p3-n002-comprehension-model.md)). Planned
-  2026-10-29 (T048): [plans/p3-n006-thin-end-to-end-slice.md](plans/p3-n006-thin-end-to-end-slice.md),
-  a leaf; five resources (form-checker, plan-register-grammar,
-  run-journal, RU-016, project-orchestrator-repo), fifty recorded
-  paths, the slice record in `docs/project-model-slice-record.md`;
-  decisions 1 to 3 staged (no separate specify task; only edges derived
-  from earlier records enter the instance; a facet with nothing to
-  state reads `none` with a link). Carried from the task: the parent's
-  derivation rule yields use-before-later-modification cycles for this
-  node too (criterion B1); P1-N014 also edits the Backlog header. Gate
-  crossed 2026-10-30, defaults 1 to 3; specified. Next: execute.
+- [x] **The thin end-to-end slice: five resources through the project
+  model and both renderings** (node P3-N006) — When: executed
+  2026-10-30 (T054, the execute task). Status: self-verified against
+  the criteria of child A; fifty paths within three steps; awaiting the
+  Orchestrator's acceptance. Pointer: [project-model.md](project-model.md),
+  [slice record](project-model-slice-record.md).
 - [ ] **Whether a child carried at criteria depth by its parent's
   specification needs its own plan or specify task** — found
   2026-10-29 planning P3-N006: earlier children went straight to
