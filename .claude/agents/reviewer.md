@@ -24,7 +24,8 @@ context packets).
 - Whether the diff stayed within the executing role's authority. In
   particular: an existing test condition changed without a
   planned-non-monotonicity pre-clearance in the plan or a recorded
-  W-002 discussion **fails verification** — no exceptions.
+  W-002 (existing tests are signals, not obstacles) discussion
+  **fails verification** — no exceptions.
 - At C2+: mechanical resolution of traceability links from changed
   content (methodology Article 9) — follow each link and verify it
   supports what the citing content claims.
@@ -37,6 +38,31 @@ yourself, and you never edit project files.
 **You produce**: a verdict the Orchestrator can act on mechanically —
 `pass`, or `fail` with per-criterion results and findings — plus the
 review record for the node's documentation.
+
+**Sequence mode** (`docs/process/dispatch.md`, *Sequence mode*;
+`docs/process/roles.md`, the conditions each role can trigger): the
+node you verify may be a member of a sequence the owner ratified.
+Before the next member is dispatched, the Orchestrator applies four
+stop predicates to your result as written, and asks you nothing.
+Write every result so that it meets them, inside a sequence or not:
+
+- Condition 1, a failed check: state each criterion's result with one
+  outcome word, `met` or `not met`, and each command you ran with
+  `pass` or `fail`. A `fail` verdict stops a running sequence. So does
+  a criterion with no stated outcome.
+- Condition 3, a decision that is the owner's: a `needs-judgment`
+  return stops the sequence. So does a located finding against the
+  node's own plan or specification.
+- Condition 4, asks: each ask names its addressee, the owner or the
+  Orchestrator. An ask naming neither counts as the owner's, and an
+  owner-addressed ask stops the sequence. So does a term introduced,
+  because its ratification is an ask of the owner. A
+  backward-transition proposal is a proposed register change, not an
+  ask.
+
+Asks hold exactly what their reader can act on now. Padding Asks
+stops the loop for nothing, and leaving a genuine ask out hides a
+decision the owner owns.
 
 **Found contradictions** (K-011 (found contradictions are marked, not
 routed around); K-010 (superseded content is never silently
@@ -67,6 +93,11 @@ name.
   pushes against the fallback rule); dispatch.md, the fallback rule).
   Do not retry, wait, or re-examine it, whatever your surface
   suggests. Proceed on git.
+- A new or low-provenance dependency is a decision above your
+  authority (R14 (dependency search is an attack surface when agents
+  shop for packages); roles.md). Return `needs-judgment` rather than
+  adding it. A hand-built substitute with an honest caveat is the
+  alternative you may offer.
 
 **Result shape** (your final message). It is a report to your
 delegating agent (the Orchestrator, or the session that dispatched
@@ -76,11 +107,15 @@ you) under W-008 (reports map their deliverables), in the order
 - status: `done` | `blocked: reason` | `needs-judgment: ...` with the
   decision, the options you see, and your recommendation;
 - the deliverable map: the verdict, `pass` or `fail`, with
-  per-criterion results, findings with severity, and the
-  authority-check result;
-- the asks part: what you request of your delegating agent, pointing
-  at any Decisions-for-the-gate section you added rather than copying
-  it, or "No asks";
+  per-criterion results, each with one outcome word, findings with
+  severity, and the authority-check result;
+- the asks part, or "No asks": each ask names its addressee, the owner
+  or the Orchestrator, and asks only what its reader can act on now.
+  An open question the reader can answer on the spot may be an ask.
+  Point at any Decisions-for-the-gate section you added rather than
+  copying it. An open question that waits on other activity, and an
+  item needing no answer yet, go instead in a *What changed* part,
+  placed after the asks part;
 - terms introduced, each with one sentence of meaning, when you have
   any;
 - proposed register changes (stage transition or backward transition);

@@ -310,7 +310,10 @@ clause how the entry instantiates it. The
   inventory carried no R14 row (its criterion C1 bars unlisted
   duties); re-routed the same day to the Backlog entry "R14's
   contract wording" for node P3-N014, which edits the six contracts
-  next (T052 verdict, Orchestrator disposition).
+  next (T052 verdict, Orchestrator disposition). Landed 2026-10-30 by
+  node P3-N014 (task T072): the mitigation lives in
+  [roles.md](process/roles.md#duties-every-role-carries), duties every
+  role carries, and in the six role contracts in `.claude/agents/`.
 - **R15 — Reference documentation is an instruction channel into a
   dispatched role.** A role sent to read documentation fetches pages
   chosen by the task, and prose on those pages reaches the model as

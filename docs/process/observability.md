@@ -11,12 +11,25 @@ extract for analysis.
 
 The journal is telemetry. The Backlog remains the source of truth for
 execution, the Plan register for hierarchy and stages, the Cost log
-for accepted-task usage; the journal claims none of those roles, and
-nothing in the process may depend on reading it back. It therefore
-lives outside `docs/`: one file per managed project,
-`orchestration/journal.jsonl`, a custom **artifact** type adopted the
-same way as the registers (definition citing this spec). Losing or
-truncating a journal loses drill-down history, never project state.
+for accepted-task usage; the journal claims none of those roles. No
+step of the loop depends on reading the journal back, with one
+exception. Inside a ratified sequence, a member task's
+`result-received` event is the audit record the owner reads at the
+gate ([dispatch.md](dispatch.md#sequence-mode), the member's result
+record). The stop is decided in session, and the record lets the
+owner check it afterwards. The journal therefore lives outside
+`docs/`: one file per managed project, `orchestration/journal.jsonl`,
+a custom **artifact** type adopted the same way as the registers
+(definition citing this spec). Losing or truncating a journal loses
+drill-down history and a sequence's audit records, never project
+state.
+
+(Corrected 2026-10-30 by node P3-N014. The paragraph said that
+nothing in the process may depend on reading the journal back. That
+contradicted decision 12 of the
+[P3-N005 specification](../specs/p3-n005-sequence-mode.md#decisions-for-the-gate),
+which makes the `result-received` event the audit record the owner
+reads at that node's criterion G2.)
 
 ## Events
 
@@ -34,14 +47,32 @@ Fields: `ts` · `event` · `task` · `node` · `stage` · `role` ·
 drill-down key into its transcript) · `ref` (commit SHA or PR when
 one exists) · `tokens_in`/`tokens_out` (where the event carries
 usage) · `note` (short free text). Absent fields are `null` or
-omitted.
+omitted. A `note` may be long when it carries a sequence member's
+result record ([dispatch.md](dispatch.md#sequence-mode)).
 
 Event kinds (v1, extendable by spec change): `dispatched` ·
 `result-received` (with the task's returned status) · `accepted` ·
 `check-failed` · `needs-judgment` · `blocked` · `stale` ·
 `backward-transition` · `packet-widened` · `precedent-applied` (a
 [Ruling register](rulings.md) match deciding a staged question) ·
-`gate-opened` · `gate-crossed`.
+`gate-opened` · `gate-crossed` · `sequence-ratified` ·
+`sequence-stopped`.
+
+The two sequence kinds record a ratified sequence
+([dispatch.md](dispatch.md#sequence-mode)). Both names were ratified
+at node P3-N014's gate of 2026-10-30.
+
+- `sequence-ratified`: the owner ratified a sequence. Its `node` is
+  the node whose document holds the ratification record, and its
+  `ref` is the commit of that record. Its `note` lists the members,
+  each node with its stages, in dispatch order. It precedes the first
+  member's `dispatched` event.
+- `sequence-stopped`: a running sequence stopped. Its `task` and
+  `node` are the stopping member's. Its `note` opens with the
+  condition, "condition 1" to "condition 4" of W-001 (two delivery
+  modes, human-gated), or the step-4 stop: "empty actionable set",
+  "blocked task" or "scope exhausted". The note then carries the
+  stopping member's asks verbatim.
 
 ## Write and read rules
 
