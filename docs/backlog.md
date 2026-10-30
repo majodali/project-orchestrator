@@ -2957,12 +2957,45 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   surface verified here (R11), with pull as the fallback.
 - [ ] **Service chunk 4 — the task-pull loop** (node P2-N005) — When:
   planned 2026-10-30 (T073), plan gate crossed 2026-10-30 (defaults 1 to
-  13, four terms ratified), specification written 2026-10-30 (T092).
-  Status: planned; the specification is `draft`, gated on the owner's
-  review, with children A to D at breakdown depth, decisions 14 to 22
-  and three terms for ratification. Pointer:
+  13, four terms ratified), specification written 2026-10-30 (T092),
+  specification gate crossed 2026-10-30 (defaults 14 to 22, three terms
+  ratified). Status: broken-down into P2-N017 to P2-N020 (RU-020); the
+  specification is `active`; the node verifies against its criteria I1
+  to I16 after its children are done. Pointer:
   [plan](plans/p2-n005-task-pull-loop.md) ·
   [specification](specs/p2-n005-task-pull-loop.md).
+- [ ] **P2-N017 identified, 2026-10-30: the platform facts, verified**
+  — When: 2026-10-30, at P2-N005's specification gate. Status:
+  identified; execute against criteria A1 to A10, with owner action
+  O11 for the local surface; no other child starts until its finding
+  is committed. Pointer:
+  [specification of P2-N005, child
+  A](specs/p2-n005-task-pull-loop.md#child-a-the-platform-facts-verified).
+- [ ] **P2-N018 identified, 2026-10-30: the loop in git alone** — When:
+  2026-10-30, at P2-N005's specification gate. Status: identified;
+  execute against criteria B1 to B12; depends on P2-N017. Pointer:
+  [specification of P2-N005, child
+  B](specs/p2-n005-task-pull-loop.md#child-b-the-loop-in-git-alone).
+- [ ] **P2-N019 identified, 2026-10-30: role-aware identity** — When:
+  2026-10-30, at P2-N005's specification gate. Status: identified;
+  execute against criteria C1 to C11, with owner action O12; depends
+  on P2-N017, independent of P2-N018 (RU-018). Pointer:
+  [specification of P2-N005, child
+  C](specs/p2-n005-task-pull-loop.md#child-c-role-aware-identity).
+- [ ] **P2-N020 identified, 2026-10-30: the task tools** — When:
+  2026-10-30, at P2-N005's specification gate. Status: identified;
+  execute against criteria D1 to D12, with owner action O13; depends
+  on P2-N018 and P2-N019. Pointer:
+  [specification of P2-N005, child
+  D](specs/p2-n005-task-pull-loop.md#child-d-the-task-tools).
+- [ ] **P3-N014's modifies edges on `dispatch-rules` and
+  `role-contracts` are held** — When: 2026-10-30, transcribing P2-N005's
+  breakdown edges. Status: open; P2-N018's uses edges name P3-N014 in
+  an after qualifier, and checker rule 6 needs P3-N014's modifies edge
+  on each resource; P3-N014 is done, so no wait is affected; for
+  P3-N008's second execute task, from P3-N014's done records. Pointer:
+  [Project model type, the rules a checker
+  applies](process/project-model.md#the-rules-a-checker-applies-to-the-instance).
 - [ ] **A `claimed` journal event kind** — When: 2026-10-30,
   specifying P2-N005 (T092, decision 14 defers it). Status: open, for
   the web view of P2-N003 (owner questions and the plan view) to read a
@@ -2985,8 +3018,9 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   open; the plan was accepted twenty seconds before the Project model
   type was declared, so it predates the rule that a plan's Dependencies
   section first writes the node's edges; the specification states the
-  children's edges. For the Orchestrator at the specification gate, or
-  P3-N008's second execute task. Pointer:
+  children's edges, which the Orchestrator transcribed at the
+  specification gate of 2026-10-30; the node's own edges remain
+  unwritten, for P3-N008's second execute task. Pointer:
   [plan of P2-N005](plans/p2-n005-task-pull-loop.md), *Dependencies*.
 - [ ] **A form check for task files, claim branches and result files**
   — When: 2026-10-30, planning P2-N005 (T073). Status: open, for

@@ -206,7 +206,7 @@ spec. First entries land at the pending P1-N008 gate.
   that does *not* reach that depth still gets the task. Source:
   P3-N001 gate (decision 8, default adopted), 2026-09-17. Applied: the
   P3-N002, P3-N003 and P3-N005 specification gates, 2026-10-29; the
-  P2-N003 specification gate, 2026-10-30.
+  P2-N003 and P2-N005 specification gates, 2026-10-30.
 
 - RU-021 [active] knowledge/project — Which document is the source of
   progress truth in an orchestrated project? Ruling: the

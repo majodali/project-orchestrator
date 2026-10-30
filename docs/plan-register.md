@@ -39,7 +39,11 @@ honestly; chunks 1–3 completed before this register existed.
     - P2-N021 [identified] The web view's first version: the plan tree from commits, drilling to node and task — independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8) — spec: specs/p2-n003-owner-questions-and-plan-view.md
     - P2-N022 [identified] The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop — depends on P2-N021 and P2-N005, and follows P2-N006 (owner, 2026-10-29) — spec: specs/p2-n003-owner-questions-and-plan-view.md
   - P2-N004 [identified] Topics and coordination (chunk 3) — after P2-N006, built only on a shown need (owner, 2026-10-29)
-  - P2-N005 [specified] [gated: owner review of the specification, decisions 14 to 22 and three terms] The task-pull loop (chunk 4) — independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29): the next service chunk; plan gate crossed 2026-10-30, defaults 1 to 13 — plan: plans/p2-n005-task-pull-loop.md · spec: specs/p2-n005-task-pull-loop.md
+  - P2-N005 [broken-down] The task-pull loop (chunk 4) — independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29) — plan: plans/p2-n005-task-pull-loop.md · spec: specs/p2-n005-task-pull-loop.md
+    - P2-N017 [identified] The platform facts, verified — spec: specs/p2-n005-task-pull-loop.md
+    - P2-N018 [identified] The loop in git alone — depends on P2-N017 — spec: specs/p2-n005-task-pull-loop.md
+    - P2-N019 [identified] Role-aware identity — depends on P2-N017; independent of P2-N018 (RU-018) — spec: specs/p2-n005-task-pull-loop.md
+    - P2-N020 [identified] The task tools — depends on P2-N018 and P2-N019 — spec: specs/p2-n005-task-pull-loop.md
   - P2-N006 [identified] Migration and pilot (chunk 5) — depends on P2-N005 and on P2-N021, the web view's first version, not on P2-N003 as a whole (owner, 2026-10-29)
 - P3-N001 [broken-down] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
   - P3-N002 [broken-down] The comprehension model (chunk 1) — plan: plans/p3-n002-comprehension-model.md · spec: specs/p3-n002-comprehension-model.md

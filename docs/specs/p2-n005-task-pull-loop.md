@@ -1,6 +1,6 @@
 # The task-pull loop: specification
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -1314,6 +1314,27 @@ ruling reaches decisions 14 to 18 or 22.
     claim commit. Default: ratify all three. Rationale: the protocol
     and the tools refer to each throughout, and the plan already used
     "pull run" undefined. Affected locations: none.
+
+## Gate record, 2026-10-30
+
+The owner accepted this specification and the breakdown on 2026-10-30
+("P2-N005 spec: all decision defaults approved and terms ratified"),
+with defaults 14 to 22 adopted. Under decision 22 the owner ratified
+the three terms this document introduces: *pull run*, *offering
+branch* and *claim commit*. The two drafted texts of decision 15 were
+placed in the [plan](../plans/p2-n005-task-pull-loop.md): in *Progress,
+completion, and how a claim ends*, and in decision 5. Decisions 14 and
+16 to 22 state no affected location. RU-020 (an interior node whose
+specification carries its children needs no separate break-down task)
+applied. The four children were entered `identified`, with their
+Backlog entries, under the IDs proposed here: P2-N017 (child A),
+P2-N018 (child B), P2-N019 (child C) and P2-N020 (child D). In the same
+act the node moved `specified` → `broken-down`. The edges under *Edges
+stated at this breakdown* were transcribed into the [Project model
+instance](../project-model.md). The owner actions keep the numbers O11
+to O13 this document gives them. Decisions 14 to 22 were judged
+node-scope, so no ruling was captured. Next: P2-N017's execute, the
+platform facts.
 
 ## References
 

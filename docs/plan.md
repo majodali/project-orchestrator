@@ -14,7 +14,7 @@ Status: active
 
 This [document](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-document) renders the [Plan register](plan-register.md) by hand.
 Each node's outcome comes from the node's [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan) and [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification).
-The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gate of P2-N003.
+The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gates of P2-N003 and P2-N005.
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
@@ -320,11 +320,38 @@ The children of P2-N003, in their [specification](specs/p2-n003-owner-questions-
 
 ### P2-N005 The task-pull loop (chunk 4)
 
-- Stage: specified, 2026-10-30 (task T092), gated on the owner's review of the specification: decisions 14 to 22 and three terms. The specification carries the four children at breakdown depth with criteria A1 to A10, B1 to B12, C1 to C11 and D1 to D12; they enter the register at its gate as P2-N017 to P2-N020.
-- Outcome: A session asks the service for its next task and claims the task, so no other session takes it. The session then reports progress and completion. When the service is down, a session claims a task by creating a git branch named after the task.
+- Stage: broken-down, 2026-10-30, at the owner's specification gate: decisions 14 to 22 adopted, the terms pull run, offering branch and claim commit ratified, the four children entered (RU-020).
+- Outcome: A session asks the service for its next task and claims the task, so no other session takes it. The session then reports progress and completion. When the service is down, a session claims a task by pushing a claim branch in git, the same protocol with or without the service. A claimant that gives up pushes a release commit.
 - Depends on: P2-N002 (service skeleton and plan state), which is done. The register marks P2-N005 independent of P2-N003 and P2-N004.
 - Needed by: P2-N006 and P2-N022.
-- Documents: [plan](plans/p2-n005-task-pull-loop.md), [service plan, chunk 4](plans/orchestration-service.md#chunk-4--the-task-pull-loop).
+- Documents: [plan](plans/p2-n005-task-pull-loop.md), [specification](specs/p2-n005-task-pull-loop.md), [service plan, chunk 4](plans/orchestration-service.md#chunk-4--the-task-pull-loop).
+
+The children of P2-N005, in their [specification](specs/p2-n005-task-pull-loop.md#the-breakdown)'s order. Each goes to execute with no plan or specify task of its own:
+
+- P2-N017 The platform facts, verified
+  - Stage: identified, 2026-10-30.
+  - Outcome: A committed finding records five facts from real sessions, each answered yes or no with its evidence. The facts include whether a session can push a claim branch, whether git refuses a second claim, and whether a session can delete a claim branch.
+  - Depends on: nothing. No other child starts until its finding is committed. Owner action O11 supplies the facts from the owner's local surface.
+  - Needed by: P2-N018, P2-N019 and P2-N020.
+  - Documents: the parent's [specification, child A](specs/p2-n005-task-pull-loop.md#child-a-the-platform-facts-verified).
+- P2-N018 The loop in git alone
+  - Stage: identified, 2026-10-30.
+  - Outcome: The process documents and the six role contracts describe the pull run and its fallback. Two real sessions run one real task through it with the service unreachable.
+  - Depends on: P2-N017.
+  - Needed by: P2-N020.
+  - Documents: the parent's [specification, child B](specs/p2-n005-task-pull-loop.md#child-b-the-loop-in-git-alone).
+- P2-N019 Role-aware identity
+  - Stage: identified, 2026-10-30.
+  - Outcome: A session declares its role and receives a session handle. The lease refuses a handle whose role is not `orchestrator`. Every call without a handle behaves as before.
+  - Depends on: P2-N017. The register marks it independent of P2-N018.
+  - Needed by: P2-N020.
+  - Documents: the parent's [specification, child C](specs/p2-n005-task-pull-loop.md#child-c-role-aware-identity).
+- P2-N020 The task tools
+  - Stage: identified, 2026-10-30.
+  - Outcome: The five task tools serve the pull run from git, and the deployed service lists twelve tools.
+  - Depends on: P2-N018 and P2-N019.
+  - Needed by: P2-N022, which uses the task tools.
+  - Documents: the parent's [specification, child D](specs/p2-n005-task-pull-loop.md#child-d-the-task-tools).
 
 ### P2-N006 Migration and pilot (chunk 5)
 
@@ -463,6 +490,7 @@ One piece of work moved between lines: P2-N006 took over the pilot of P1-N006 (p
 
 Inside each line the open nodes form chains, listed here from first to last.
 
+- Line P2, the task-pull loop: P2-N017, then P2-N018 and P2-N019, independent of each other, then P2-N020.
 - Line P2: P2-N005 (the task-pull loop) and P2-N021 (the web view's first version) come before P2-N006. P2-N004 (topics and coordination) and P2-N022 (the owner question queue) come after P2-N006. P2-N022 also waits on P2-N021 and P2-N005.
 - Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out).
 - Line P3, the comprehension model: P3-N006, then P3-N007, then P3-N008, then P3-N009. P3-N004 (reversibility) waits on the whole of P3-N002.
@@ -487,7 +515,12 @@ graph LR
       P2N022["P2-N022 owner question queue"]
     end
     P2N004["P2-N004 topics and coordination"]
-    P2N005["P2-N005 task-pull loop"]
+    subgraph P2N005["P2-N005 task-pull loop"]
+      P2N017["P2-N017 platform facts"]
+      P2N018["P2-N018 loop in git alone"]
+      P2N019["P2-N019 role-aware identity"]
+      P2N020["P2-N020 task tools"]
+    end
     P2N006["P2-N006 migration and pilot"]
   end
   subgraph P3N001["P3-N001 comprehension and continuous implementation"]
@@ -519,7 +552,9 @@ graph LR
   P2N021 --> P2N006
   P2N006 --> P2N022
   P2N021 --> P2N022
-  P2N005 --> P2N022
+  P2N017 --> P2N018 --> P2N020
+  P2N017 --> P2N019 --> P2N020
+  P2N020 --> P2N022
   P2N005 --> P2N006
   P2N006 --> P2N004
   P2N006 --> P1N006
@@ -535,6 +570,7 @@ Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
 - P2-N021 (the web view's first version): execute task E1, the thin end-to-end slice. Its merge waits on the owner actions O-view-1 to O-view-3.
+- P2-N017 (the platform facts, verified): execute. Its local-surface facts wait on owner action O11.
 
 Specifying now, after the owner's gate of 2026-10-30:
 
@@ -547,7 +583,6 @@ Gated on the owner:
 - P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
 - P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
-- P2-N005 (the task-pull loop): specified; your review of the specification, decisions 14 to 22 (decision 15 changes how a claim is released, with drafted corrections to the plan) and three terms (pull run, offering branch, claim commit); the four children enter at that gate.
 - P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): verifying; your review of the K-003 proposal under RU-005 (approve for carrying, amend or return), ten terms, the open points of its record, and a meta-review of its count.
 - P3-N011 (the sweep, the rest of the catalogue, and the omission list): verifying; the owner's rulings on the omission list (56 items), the three weaker Class lines, the scope arguments and closed entries, and the terms citation test and delta row.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
@@ -560,12 +595,14 @@ Waiting:
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.
 - P2-N021 (the web view's first version): its task E3 waits on P3-N007. Its tasks E1 and E2 wait on nothing.
+- P2-N018 (the loop in git alone) and P2-N019 (role-aware identity): each waits on P2-N017.
+- P2-N020 (the task tools): waits on P2-N018 and P2-N019.
 - P2-N022 (the owner question queue): waits on P2-N021 and P2-N005, and follows P2-N006.
 - P2-N006 (migration and pilot): waits on P2-N005 and P2-N021.
 - P2-N004 (topics and coordination): its executing stage waits on P2-N006.
 - P1-N006 (pilot on a real project): waits on P2-N006.
 - P1-N007 (cost reporting and close-out): its executing stage waits on P1-N006.
-- P2-N003, P3-N002, P3-N003 and P3-N005: each waits on its children.
+- P2-N003, P2-N005, P3-N002, P3-N003 and P3-N005: each waits on its children.
 - P1-N001, P2-N001 and P3-N001: each waits on its open children.
 
 No plan yet, in register order:
