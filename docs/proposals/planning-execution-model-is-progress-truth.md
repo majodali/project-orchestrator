@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: under review (round 4, fixes applied, 2026-10-30)
+Status: under review (round 5, 2026-10-30)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →
@@ -91,11 +91,12 @@ Classification declares a planning/execution model, that model is the
 referent instead, and the Backlog's implementation map and list of what
 is next are renderings of it."
 
-How a Classification declares a model is stated under [*How a
-Classification declares a model*](#how-a-classification-declares-a-model)
-below. The appended sentence is an exception: where it applies, it overrides
-the sentence before it, which makes the Backlog the referent. A project
-whose
+The appended sentence is an exception. Where it applies, the model and
+not the Backlog is the referent, and K-003's sentence "The Backlog is
+the referent for what is done and what is next" yields to it. How a
+Classification declares a model is stated under [*How a Classification
+declares a model*](#how-a-classification-declares-a-model) below. A
+project whose
 [Classification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-classification)
 declares no [planning/execution
 model](https://github.com/majodali/methodology/blob/350f75f0a11b326eb1f536f172359b1cc8a9cb1e/docs/vocabulary.md#def-planning-execution-model)
@@ -259,10 +260,10 @@ outside the amendment.
 
 ## The evidencing instance
 
-The evidence for the amendment is of four kinds: the owner's decisions
-of 2026-10-28, the evidencing instance, the term-by-term cross-check
-and the count of open Backlog entries. This section describes the
-evidencing instance. The slice is the first five entries of the project-orchestrator
+The evidencing instance is one of four kinds of evidence for the
+amendment. The others are the owner's decisions of 2026-10-28, the
+term-by-term cross-check and the count of open Backlog entries. The
+slice is the first five entries of the project-orchestrator
 [Project
 model](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md),
 built by node P3-N006 (the thin end-to-end slice). Its record is the
@@ -284,8 +285,8 @@ the rows read from the Plan register agreed with the state the entries
 recorded. The slice record rendered the list of what is next in a narrower form,
 per part: the open nodes with an edge to the part. Each of the five
 lists held no open item, because the slice's plan had held back the
-edges from open nodes to the five parts. The list over the whole model, one item per open node, is the form the
-full instance renders.
+edges from open nodes to the five parts. The list over the whole model, one item per node not yet done, is the
+form the full instance renders.
 
 The comparison of the renderings with the Backlog listed eleven
 differences and left none unexplained. Of the eleven differences,
@@ -382,8 +383,8 @@ project-orchestrator asks the maintainers to accept the amendment,
 accept it with amendments, or reject it.
 
 - **If accepted**: project-orchestrator declares its planning/execution
-  model once the release is pinned. It then switches its Backlog to a
-  rendering.
+  model once the release is pinned. After the declaration,
+  project-orchestrator switches its Backlog to a rendering.
 - **If accepted with different wording**: project-orchestrator re-reads
   its practice against the released text. It then adapts the practice.
 - **If rejected**: the project-orchestrator Backlog stays the referent.

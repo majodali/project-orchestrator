@@ -2,7 +2,7 @@
 
 Reader: RD-4 (a fresh agent session) reading K-003 and the proposal beside this IR; the maintainers of majodali/methodology adjudicate the amendment, and the project-orchestrator owner gates the proposal before it is carried.
 Purpose: document. The proposal to amend K-003 (the Backlog is the single source of progress truth) in place by one conditional sentence, so that a project whose Classification declares a planning/execution model takes that model as its referent for what is done and what is next.
-Status: draft (rendered by the reasoning role on 2026-10-30; round 4, 13 of 14 findings fixed, 1 declined, one step-6 structural fix awaiting restatement; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 82 claims; 2 unratified terms)
+Status: draft (rendered by the reasoning role on 2026-10-30; round 5; round 4 not readable, 13 of 14 findings fixed and 1 re-fixed after confirmation, 1 declined, one step-6 structural fix awaiting restatement; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 82 claims; 2 unratified terms)
 Source: RU-021 (the planning/execution model is the source of progress truth), owner, 2026-10-29; decisions 10 to 13 of the P3-N002 specification's gate record of 2026-10-29; decisions 4 to 6 of the P3-N007 plan, adopted on 2026-10-30; the Project model slice at commit 86a1330.
 Normative: yes
 Footprint: docs/proposals/planning-execution-model-is-progress-truth.md; docs/backlog.md
@@ -83,7 +83,7 @@ C15. K-003's Motivated-by line gains a citation of the evidencing instance, the 
 
 C16. The amendment changes no other part of K-003. [proposed: this IR]
 
-C77. The appended sentence is an exception: where it applies, it overrides the sentence before it, which makes the Backlog the referent. [proposed: this IR]
+C77. The appended sentence is an exception: where it applies, the model and not the Backlog is the referent, and K-003's sentence "The Backlog is the referent for what is done and what is next" yields to it. [proposed: this IR]
 
 C17. A condition on a Classification declaration lets the rule apply mechanically, project by project, as RU-021 (the planning/execution model is the source of progress truth) directs. evidence: E12. [decided: owner, 2026-10-29]
 
@@ -145,7 +145,7 @@ C40. Recording where each node's verification evidence lands is later work on th
 
 C41. The evidencing instance is the slice of the project-orchestrator Project model pinned at commit 86a1330. evidence: E3. [decided: owner, 2026-10-29]
 
-C78. The evidence for the amendment is of four kinds: the owner's decisions, the evidencing instance, the term-by-term cross-check and the count of open Backlog entries. evidence: E3, E4, E7, E8. [proposed: this IR]
+C78. The evidencing instance is one of four kinds of evidence for the amendment; the others are the owner's decisions, the term-by-term cross-check and the count of open Backlog entries. evidence: E3, E4, E7, E8. [proposed: this IR]
 
 C42. The slice holds five entries, one per part, derived from documents the repository already held. evidence: E3. [decided: project-orchestrator slice record at commit 86a1330]
 

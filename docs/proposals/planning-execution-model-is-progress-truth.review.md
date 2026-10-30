@@ -1,6 +1,6 @@
 # Review record: a declared planning/execution model is the source of progress truth
 
-Status: open (count 1, round 4 running)
+Status: open (count 1, round 5 running)
 
 <!-- K-007 contract: Status transitions open → closed (the count's
      verdict recorded and the fixes confirmed). This file is the
@@ -235,4 +235,76 @@ Brief changes for round 4: round 3's declined finding 14 added to the
 declined list.
 
 ## Round 4, 2026-10-30
+
+Stranger: a fresh instance at the frugal tier (task T085). Prose about
+2,250 words by the stranger's hand count (2,395 by tool at the round's
+start); 76 claims; 14 findings.
+
+Restatement: matched the IR on the problem, the terms, the change, the
+authorities, the open entries and the asks. Two mismatches: C41's
+wording ("in the slice" against the prose's "that slice"), attributed
+by the stranger to the IR; and the evidence base read as "one
+five-entry slice" (C31, C3 to C5), attributed to its own restatement,
+sentence relied on: "The evidencing instance is that slice, pinned at
+commit `86a1330`."
+
+Mismatches: C41 (IR), C31 (own; relied on C41).
+
+Step 6: the slice passage drew a restatement mismatch in rounds 3 and 4
+(both on the sentence above). It is a prose finding whatever the
+strangers attributed it to. Structural fix: the section now opens by
+placing the evidencing instance among the four kinds of evidence, so a
+reader meets the evidence base before the slice (C78 added, R17). Marked
+`awaiting restatement`; round 5's entry states whether its restatement
+matched on the passage.
+
+Findings by rule: SP-01 4 (11 to 14); SP-03 1 (9); SP-04 3 (3, 5, 8);
+SP-05 2 (6, 10); SP-25 1 (7); SP-26 1 (4); restatement mismatch 2 (1,
+2). Undefined terms: whole-model list; node, the model, evidencing
+instance and slice used before their links or definitions.
+Contradiction 1: the unchanged referent sentence of K-003 against the
+appended "instead" (7).
+
+Verdict: not readable. Blocking: 1, 2, 7, 8.
+
+Accepted and fixed, in the IR then the prose: 1, 3, 5 to 14 (12 of 14,
+with 2 the step-6 fix). C41 reworded to the prose's reading. The
+contradiction (7): a sentence in *The change* states that the appended
+sentence is an exception that overrides the referent sentence where it
+applies (C77, R16). "whole-model list" replaced by plain words (C22).
+Four SP-01 splits, in the IR as C79 to C82. Links for node, the model,
+knowledge.md and G6.
+
+Declined: 4 (SP-26, the Workflow sentence against "no other part"),
+because C11 is the owner's decision of 2026-10-29 naming that sentence
+as untouched and a rendering drops no claim; C16 is the general closing
+statement.
+
+Confirmation: 12 of 13 fixes hold. Not held: 7. Declines accepted: 0 of
+1. New defects: 4 (1 the override sentence read as reversing the
+effect, and "the sentence before it" unnamed; 2 the forward pointer
+displaced; 3 "open node" against "node not yet done"; 4 the section
+opening with the evidence list before its subject).
+
+Re-fixes before round 5, in the IR then the prose: 7 and 1 (C77 and its
+sentence now quote the referent sentence and say it yields where the
+exception applies); 2 (the pointer moved after the exception); 3 ("one
+item per node not yet done" in both places); 4 (the step-6 fix reworded
+to name the evidencing instance first, C78). The stranger's second point
+under 7, that the replacement text itself keeps the unconditional
+referent sentence and the override lives only in the commentary, is
+not fixed here: the owner's decision 10 of the P3-N002 specification
+limits the amendment to one appended clause, and the word "instead" is
+the override inside the rule. The point goes to the owner at the gate.
+The decline of 4 stands: a rendering drops no claim, and C11 is
+decided.
+
+## Before round 5
+
+Claims check (the round 4 prose as base): 13 changed claims; one
+reported missing (C80) until its sentence named project-orchestrator in
+place of "It"; then 0 missing, 0 stale. Prose 2,494 words by tool.
+Brief changes for round 5: round 4's declined finding 4 added to the declined list.
+
+## Round 5, 2026-10-30
 
