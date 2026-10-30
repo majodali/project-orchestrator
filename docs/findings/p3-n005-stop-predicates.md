@@ -1,6 +1,6 @@
 # The four stop conditions as predicates: the record
 
-Status: active
+Status: closed → Backlog entry (node P3-N013 done 2026-10-30, tasks T056 and T059 to T067; see the Backlog entry on the four stop conditions)
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a

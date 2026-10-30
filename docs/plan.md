@@ -410,8 +410,8 @@ The children of P3-N003, a strict chain in their [specification](specs/p3-n003-c
 The children of P3-N005, a strict chain in their [specification](specs/p3-n005-sequence-mode.md#the-breakdown)'s order:
 
 - P3-N013 The four stop conditions, decidable, evidenced, and related to the [meta-review signals](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-meta-review-signal)
-  - Stage: executing since 2026-10-30. The parent specification's child A section is the specification (gate decision of the same day).
-  - Outcome: The four stop rules are committed as text. Two sessions that cannot see each other's verdicts apply the rules to past task results, and agree on every verdict. A table maps the four conditions to the methodology's four meta-review signals.
+  - Stage: done, 2026-10-30 (tasks T056 and T059 to T067).
+  - Outcome: Shipped the four stop conditions as written predicates that two blind readers applied identically to all 53 past task results (212 of 212 rows, after two text revisions), the corpus statement, the relation table to the meta-review signals, and sixteen Backlog rows naming what the loop must record for the predicates to decide at landing.
   - Depends on: nothing.
   - Needed by: P3-N014.
   - Documents: [plan](plans/p3-n013-stop-conditions-decidable.md), [specification](specs/p3-n005-sequence-mode.md#child-a-the-four-stop-conditions-decidable-evidenced-and-related-to-the-meta-review-signals).
@@ -521,7 +521,6 @@ Actionable now, all at the planning stage:
 
 Executing now, dispatched after the owner's plan gates of 2026-10-30:
 
-- P3-N013 (the four stop conditions, decidable), task T056, the first of its fixed sequence E1 to E4.
 
 The Orchestrator proposes P2-N005 first, by the owner's order, and asks the owner for scope before dispatching any of the four.
 
@@ -536,7 +535,7 @@ Waiting:
 - P3-N008 (the instance): waits on P3-N007.
 - P3-N009 (sibling ordering retired): waits on P3-N008.
 - P3-N012 (the Article 8 proposal): waits on P3-N011.
-- P3-N014 (the loop runs sequence mode): waits on P3-N013.
+- P3-N014 (the loop runs sequence mode): planning dispatched 2026-10-30 (task T068), after P3-N013 closed.
 - P3-N015 (the demonstration): waits on P3-N014.
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.

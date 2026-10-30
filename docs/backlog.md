@@ -509,8 +509,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 - [x] **W-001's four stop conditions as decidable predicates, with
   two blind readings and the relation table** (node P3-N013) — When:
   done 2026-10-30, tasks T056 and T059 to T067 (E1, three rounds of
-  readings, three comparisons). Status: done, pending the
-  Orchestrator's acceptance; predicate text at draft 4, commit
+  readings, three comparisons), accepted by the Orchestrator the same
+  day. Status: done; predicate text at draft 4, commit
   `fcf4894`; 53 corpus items at cut-off `d1c3659`; the readings agree
   on all 212 verdict rows, 95 of 95 where input existed; predicates 1
   and 4 closed after round 2, 2 and 3 after round 3, none escalated;
