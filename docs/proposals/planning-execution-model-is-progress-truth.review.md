@@ -617,3 +617,34 @@ Claims check (the round 9 prose as base): 0 missing, 0 stale; prose 2686 words b
 
 ## Round 10, 2026-10-30, the limit
 
+Stranger: a fresh instance at the frugal tier (task T091). Prose about
+2,900 words by the stranger's hand count (2,585 by tool at the round's
+start); 93 claims; 4 findings and one own mismatch.
+
+Restatement: matched the IR on the problem, the clause, the terms, the
+authorities, the open entries, the gate, the asks and the evidence. One
+mismatch, attributed by the stranger to its own restatement: the
+Motivated-by citation dropped from the change (C8, C15). Sentence relied
+on: "**Change:** one conditional sentence appended to K-003's statement,
+and one citation added to its Motivated-by line."
+
+Mismatches: C8 (own).
+
+Step-6 passage: matched on restatement.
+
+Findings by rule: SP-04 2 (1, 2); SP-25 2 (3, 4). Undefined terms 3:
+project-orchestrator (never defined for an upstream reader), stages and
+edges (linked only after first use). Contradictions 2: an entry that
+becomes a node without a plan taking it in would both join the list and
+not be part of what is next (C92 against C29); the full instance's
+rendering stated in the present while the instance is not yet built.
+
+Verdict: not readable. Blocking: 1, 2, 3, 4.
+
+Step 7 at the limit. Fixed in the IR then the prose: 1 (project-
+orchestrator linked and named at first use), 2 (stages and edges linked
+at first use), 3 (C92 and its sentence: "until it becomes a node or a
+node's plan takes it in"), 4 ("When built, the full instance renders").
+Declined: none. The final round's instance confirms each fix below; each
+finding is then marked confirmed or unfixed.
+

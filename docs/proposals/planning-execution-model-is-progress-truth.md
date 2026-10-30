@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: under review (round 10, the limit, 2026-10-30)
+Status: under review (round 10, the limit, fixes applied, 2026-10-30)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →
@@ -64,7 +64,9 @@ This proposal defines two terms.
 
 The
 [owner](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner)
-is one person, who owns the methodology and project-orchestrator.
+is one person, who owns the methodology and
+[project-orchestrator](https://github.com/majodali/project-orchestrator),
+the repository this proposal comes from.
 On 2026-10-28 the owner decided that each project's [planning/execution
 model](https://github.com/majodali/methodology/blob/350f75f0a11b326eb1f536f172359b1cc8a9cb1e/docs/vocabulary.md#def-planning-execution-model)
 is the primary source of truth about progress. The owner
@@ -110,8 +112,11 @@ verification evidence of each
 [node](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node),
 the record of whether what the node built works.
 A planning/execution model has two components: the plan model (the
-project's nodes with their stages and edges) and that verification
-evidence. What is done and what is next are read from the model's plan model.
+project's nodes with their
+[stages](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/plan-model.md#the-node-lifecycle)
+and
+[edges](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md#def-edge))
+and that verification evidence. What is done and what is next are read from the model's plan model.
 
 The amendment keeps K-003's title, so links to the rule's anchor keep
 resolving. The title stays true for every project whose
@@ -237,7 +242,8 @@ entry that names no
 stays in the Backlog's upcoming section as the Backlog's own content.
 Such an entry is upcoming work the Backlog records. A node's plan
 takes an entry in when the plan lists the entry as work the node does.
-The entry is not part of what is next until a node's plan takes it in.
+The entry is not part of what is next until it becomes a node or a
+node's plan takes it in.
 An open Backlog entry joins the rendered [list of what is
 next](#def-list-of-what-is-next) when it becomes a node, or when a
 node's plan takes it in. Entering each small
@@ -296,9 +302,9 @@ the rows read from the Plan register agreed with the state the entries
 recorded. The slice record rendered the list of what is next in a narrower form,
 per part: the open nodes with an edge to the part. Each of the five
 lists held no open item, because the slice's plan had held back the
-edges from open nodes to the five parts. The full instance renders the list of what is next over the whole
-model, in the form stated under [*What the model is authoritative
-for*](#what-the-model-is-authoritative-for).
+edges from open nodes to the five parts. When built, the full instance renders the list of what is next over
+the whole model, in the form stated under [*What the model is
+authoritative for*](#what-the-model-is-authoritative-for).
 
 The comparison of the renderings with the Backlog listed eleven
 differences. It left none unexplained. Of the eleven differences,
