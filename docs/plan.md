@@ -181,11 +181,11 @@ The children of P1-N009, in their chain order:
 
 ### P1-N016 Process spec maintenance: branch lifecycle, PR citation, packet table
 
-- Stage: identified, 2026-09-01. No plan yet.
-- Outcome: Three corrections to `docs/process/`. One says who deletes a merged branch, and when. One states how work reaches `main` by pull request. One fixes the packet table, which lists the documents each stage's task receives.
-- Depends on: nothing for planning. Its executing stage waits on P3-N009 (sibling ordering retired).
+- Stage: planned, 2026-10-30 (task T074). Gated on the owner's review of the plan: seventeen decisions and five names.
+- Outcome: Every Backlog row routed to this node, thirty-five in all, is landed in the process specification or closed with a stated reason. `dispatch.md` says who deletes a task branch and when, and how work reaches `main` by pull request. The packet table carries every observation recorded against it. `plan-model.md` says what a leaf is when its work takes several tasks. `observability.md` can record a block's release and a new risk. The project gains a vocabulary file. Each process-scope ruling flagged for promotion is promoted or declined.
+- Depends on: P3-N007's first execute task, which is done. The recorded wait of its executing stage on P3-N009 (sibling ordering retired) stands until the gate; the plan's decision 3 proposes to remove it, because the node edits no text P3-N009 owns.
 - Needed by: P1-N001.
-- Documents: none yet. The node's Backlog [entry](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-entry) holds the detail.
+- Documents: [plan](plans/p1-n016-process-spec-maintenance.md).
 
 ### P1-N006 Pilot on a real project (chunk 5)
 
@@ -289,11 +289,11 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 ### P2-N003 Owner questions and the plan view (chunk 2)
 
-- Stage: identified, 2026-08-26. No plan yet.
+- Stage: specified, 2026-10-30 (task T093), gated on the owner's review of the specification: decisions 11 to 15 and three terms. The specification carries the web view's first version at full depth (criteria V1 to V30, tasks E1 to E3 and the owner demonstration) and the owner question queue at outcome depth; both enter the register at its gate as P2-N021 and P2-N022.
 - Outcome: The service plan gives this chunk an owner question queue and a first view of the plan. P2-N003 stays one node until its planning splits it into two children. One child is the first version of the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view), read-only and drilling down to node and task. The second child is the owner question queue.
 - Depends on: nothing for its own planning, which performs the split. After the split, the web view child waits on P3-N006 (the thin end-to-end slice). The queue child waits on P2-N006 (migration and pilot).
 - Needed by: P2-N006, which needs the web view child only.
-- Documents: [service plan, chunk 2](plans/orchestration-service.md#chunk-2--owner-questions-and-the-plan-view).
+- Documents: [plan](plans/p2-n003-owner-questions-and-plan-view.md), [service plan, chunk 2](plans/orchestration-service.md#chunk-2--owner-questions-and-the-plan-view).
 
 ### P2-N004 Topics and coordination (chunk 3)
 
@@ -305,11 +305,11 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 ### P2-N005 The task-pull loop (chunk 4)
 
-- Stage: identified, 2026-08-26. No plan yet.
+- Stage: specified, 2026-10-30 (task T092), gated on the owner's review of the specification: decisions 14 to 22 and three terms. The specification carries the four children at breakdown depth with criteria A1 to A10, B1 to B12, C1 to C11 and D1 to D12; they enter the register at its gate as P2-N017 to P2-N020.
 - Outcome: A session asks the service for its next task and claims the task, so no other session takes it. The session then reports progress and completion. When the service is down, a session claims a task by creating a git branch named after the task.
 - Depends on: P2-N002 (service skeleton and plan state), which is done. The register marks P2-N005 independent of P2-N003 and P2-N004.
 - Needed by: P2-N006.
-- Documents: [service plan, chunk 4](plans/orchestration-service.md#chunk-4--the-task-pull-loop).
+- Documents: [plan](plans/p2-n005-task-pull-loop.md), [service plan, chunk 4](plans/orchestration-service.md#chunk-4--the-task-pull-loop).
 
 ### P2-N006 Migration and pilot (chunk 5)
 
@@ -344,20 +344,20 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
   - Needed by: P3-N007, and the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view) child of P2-N003.
   - Documents: [plan](plans/p3-n006-thin-end-to-end-slice.md), [specification](specs/p3-n002-comprehension-model.md#child-a-the-thin-end-to-end-slice-five-real-parts-all-the-way-through).
 - P3-N007 The type declared, the arguments written, the K-003 (the Backlog is the single source of progress truth) amendment drafted
-  - Stage: planned, 2026-10-30 (task T057). Gated on the owner's review of its plan.
+  - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day). E1 is done (task T070, the type specification). The fifty edges E1 held were transcribed into the Project model instance by task T077. E2 is done (task T078): the K-003 proposal and its IR, `docs/proposals/planning-execution-model-is-progress-truth.md`. Its ten stranger rounds (tasks T081 to T091) ran to the limit without a readable verdict; the final round's fixes are confirmed and the record carries Meta-review: pending. The node is verifying, gated on your review of the proposal under RU-005, ten terms, and a meta-review of the count.
   - Outcome: The Project model is defined in `docs/process/` and declared in the [Classification](classification.md). The design arguments are written down, such as who may write the model and where a node's edges are first recorded. P3-N007 drafts the amendment to K-003 (the Backlog is the single source of progress truth), as an IR first. Under the amendment, a project that declares a [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes that model as its progress record. The rule changes only when the methodology releases the amendment, after the owner carries it upstream.
   - Depends on: P3-N006.
   - Needed by: P3-N008.
   - Documents: [plan](plans/p3-n007-type-declared-amendment-drafted.md), the parent's specification, child B.
 - P3-N008 The instance, over this repository
-  - Stage: identified, 2026-10-29. No plan yet.
-  - Outcome: The instance covers every current part of majodali/project-orchestrator. P3-N008 compares the two renderings with the Backlog, to prove the model carries the content of the Backlog's two lists. With P3-N006's renderings, the renderings of P3-N008 replace this document.
-  - Depends on: P3-N007.
+  - Stage: planned, 2026-10-30 (task T079). Gated on the owner's review of the plan, six decisions.
+  - Outcome: The instance `docs/project-model.md` holds one entry per current part of majodali/project-orchestrator, in the type's grammar, every item naming its source. Every node past identified has an edge or the preamble says why not. Every starting point links the instance in its header. A population record holds the enumeration, the edge list, the measured paths, both renderings and their comparison with the Backlog, run in both directions. The Backlog stays the referent for what is done and what is next. The plan runs the node as three execute tasks: the parts and their entries, the edges, then the headers, the measurement and the renderings. Under its decision 5 this document stays the hand rendering until the Backlog switches to a rendering of the model.
+  - Depends on: P3-N007, for its executing stage (P3-N007 decision 9). Its plan was dispatched after P3-N007's first execute task was accepted.
   - Needed by: P3-N009.
-  - Documents: the parent's [specification, child C](specs/p3-n002-comprehension-model.md#child-c-the-instance-over-this-repository).
+  - Documents: [plan](plans/p3-n008-instance-over-this-repository.md), the parent's [specification, child C](specs/p3-n002-comprehension-model.md#child-c-the-instance-over-this-repository).
 - P3-N009 Sibling ordering retired, and the checks that replace it
   - Stage: identified, 2026-10-29. No plan yet.
-  - Outcome: Four statements that make list order mean dependency order are rewritten, in `plan-register.md`, `plan-model.md`, `dispatch.md` and the [Plan register](plan-register.md)'s header. Afterwards [dispatch.md](process/dispatch.md) starts a node only when the nodes whose parts it uses are done. The form checker gains checks on the Project model, for example that every edge names a known part.
+  - Outcome: Four statements that make list order mean dependency order are rewritten, in `plan-register.md`, `plan-model.md`, `dispatch.md` and the [Plan register](plan-register.md)'s header. Afterwards [dispatch.md](process/dispatch.md) starts a node only when the nodes that create the parts it uses, and the modifying nodes its edges name, are done. The form checker gains checks on the Project model, for example that every edge names a known part.
   - Depends on: P3-N008.
   - Needed by: P1-N016, whose executing stage builds on the new dispatch rule.
   - Documents: the parent's [specification, child D](specs/p3-n002-comprehension-model.md#child-d-sibling-ordering-retired-and-the-checks-that-replace-it).
@@ -379,7 +379,7 @@ The children of P3-N003, a strict chain in their [specification](specs/p3-n003-c
   - Needed by: P3-N011.
   - Documents: [plan](plans/p3-n010-one-class-end-to-end.md), [specification](specs/p3-n003-common-risk-catalogue.md#child-a-one-class-carried-end-to-end).
 - P3-N011 The sweep, the rest of the catalogue, and the omission list
-  - Stage: planned, 2026-10-30 (task T058). Gated on the owner's review of its plan.
+  - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day). All three tasks are done (T071, T080, T083): the five passes recorded, 128 candidates found, classes CR-002 to CR-012 admitted, six deferred; nine Class lines on the Risk register; 35 parts; the check run over 12 classes and 35 parts, 82 applicable pairs, 26 covered, 56 omissions (11 accepted with a reason, 45 routed to 18 Backlog entries); the negative control on CR-003 returned its pair. The node is verifying, gated on your rulings on the omission list, three weaker Class lines (R5, R9, R10), the scope arguments and closed entries; it reaches done at that gate.
   - Outcome: The sweep reads five sources, named by the parent specification's [criterion B1](specs/p3-n003-common-risk-catalogue.md#verification-criteria): the Risk register, the Backlog's two sections, the Cost log's notes and the Ruling register. Every candidate class is admitted, merged, rejected or deferred, on the record. Risk entries cite their classes. The list of uncovered parts is ready for the owner.
   - Depends on: P3-N010.
   - Needed by: P3-N012.
@@ -416,17 +416,17 @@ The children of P3-N005, a strict chain in their [specification](specs/p3-n005-s
   - Needed by: P3-N014.
   - Documents: [plan](plans/p3-n013-stop-conditions-decidable.md), [specification](specs/p3-n005-sequence-mode.md#child-a-the-four-stop-conditions-decidable-evidenced-and-related-to-the-meta-review-signals).
 - P3-N014 The loop runs sequence mode, and the roles meet the conditions without looking
-  - Stage: planned, 2026-10-30 (task T068). Gated on the owner's review of its plan.
-  - Outcome: [dispatch.md](process/dispatch.md) gains a sequence-mode section. Each role contract lists the stop conditions that role can trigger. The run journal records when the owner approves a run and when a run stops.
+  - Stage: done, 2026-10-30 (task T072).
+  - Outcome: Shipped the *Sequence mode* section of dispatch.md with the four stop predicates copied from P3-N013's record, the member's result record, the addressee rule in every result shape, the conditions each role can trigger in its contract, and the two journal event kinds, with thirteen routed Backlog rows landed.
   - Depends on: P3-N013, and the executing stage of P1-N014, which is done.
   - Needed by: P3-N015.
   - Documents: [plan](plans/p3-n014-loop-runs-sequence-mode.md), the parent's specification, child B.
 - P3-N015 The demonstration: a ratified sequence lands two chunks and stops on asks
-  - Stage: identified, 2026-10-29. No plan yet.
-  - Outcome: An owner-approved run lands at least two chunks with no gate between them. A result carrying asks then stops the run.
-  - Depends on: P3-N014.
+  - Stage: planned, 2026-10-30 (task T076). Gated on the owner's review of the plan, seven decisions, and on the owner's explicit ratification of the sequence in words that say so.
+  - Outcome: The owner ratifies one sequence of four members, each an open Backlog item of this repository: the process specification's methodology links retargeted to the pin, anchors on the Risk register entries, the cover note for the checker extension-point proposal, and a test that runs the plugin tools as child processes. The first two land with no gate between them. The third carries an ask of the owner and stops the sequence. The fourth is ratified and never dispatched by the sequence. Two blind readings apply the four stop predicates to the run's results.
+  - Depends on: P3-N014, which is done.
   - Needed by: P3-N016.
-  - Documents: the parent's [specification, child C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks).
+  - Documents: [plan](plans/p3-n015-sequence-demonstration.md), the parent's [specification, child C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks).
 - P3-N016 The determination on W-001 (two delivery modes, human-gated), and the artifact or the argument
   - Stage: identified, 2026-10-29. No plan yet.
   - Outcome: The decision is recorded, as an amendment proposal or as an argument that the sequence mode needs no change.
@@ -512,31 +512,32 @@ graph LR
 
 A node is actionable when every recorded dependency of its next stage is met.
 
-Actionable now, all at the planning stage:
+Actionable, not yet dispatched:
 
-- P2-N005 (the task-pull loop): the next service chunk the owner chose on 2026-10-29.
-- P1-N016 (process spec maintenance). Its executing stage waits on P3-N009.
-- P2-N003 (owner questions and the plan view): the planning that splits it. Its children's later stages wait as listed below.
-- P1-N007 (cost reporting and close-out). Its executing stage waits on P1-N006.
+- P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
 
-Executing now, dispatched after the owner's plan gates of 2026-10-30:
+Specifying now, after the owner's gate of 2026-10-30:
 
 
-The Orchestrator proposes P2-N005 first, by the owner's order, and asks the owner for scope before dispatching any of the four.
+Executing now, dispatched after the owner's second plan gates of 2026-10-30:
+
 
 Gated on the owner:
 
-- P3-N014 (the loop runs sequence mode, and the roles meet the conditions without looking): the owner's review of its plan.
-- P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): the owner's review of its plan.
-- P3-N011 (the sweep, the rest of the catalogue, and the omission list): the owner's review of its plan.
+- P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
+- P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
+- P3-N008 (the instance): the owner's review of its plan, six decisions.
+- P2-N005 (the task-pull loop): specified; your review of the specification, decisions 14 to 22 (decision 15 changes how a claim is released, with drafted corrections to the plan) and three terms (pull run, offering branch, claim commit); the four children enter at that gate.
+- P2-N003 (owner questions and the plan view): specified; your review of the specification, decisions 11 to 15 and three terms (view token, view cookie, not computable); the two children enter at that gate.
+- P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): verifying; your review of the K-003 proposal under RU-005 (approve for carrying, amend or return), ten terms, the open points of its record, and a meta-review of its count.
+- P3-N011 (the sweep, the rest of the catalogue, and the omission list): verifying; the owner's rulings on the omission list (56 items), the three weaker Class lines, the scope arguments and closed entries, and the terms citation test and delta row.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:
 
-- P3-N008 (the instance): waits on P3-N007.
+- P3-N008 (the instance): its executing stage waits on P3-N007. Its plan is gated, below.
 - P3-N009 (sibling ordering retired): waits on P3-N008.
 - P3-N012 (the Article 8 proposal): waits on P3-N011.
-- P3-N015 (the demonstration): waits on P3-N014.
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.
 - P2-N003 (owner questions and the plan view), after its split: the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view) child waits on P3-N006. The queue child waits on P2-N006.
@@ -549,17 +550,14 @@ Waiting:
 
 No plan yet, in register order:
 
-- P1-N016 (process spec maintenance)
 - P1-N006 (pilot on a real project)
 - P1-N007 (cost reporting and close-out)
-- P2-N003 (owner questions and the plan view)
 - P2-N004 (topics and coordination)
-- P2-N005 (the task-pull loop)
 - P2-N006 (migration and pilot)
-- P3-N007, P3-N008 and P3-N009 (the comprehension model's later children)
+- P3-N009 (sibling ordering retired)
 - P3-N004 (reversibility)
-- P3-N011 and P3-N012 (the risk catalogue's later children)
-- P3-N014, P3-N015 and P3-N016 (sequence mode's later children)
+- P3-N012 (the risk catalogue's last child)
+- P3-N016 (sequence mode's last child)
 
 ## Where the detail is: the documents this plan summarizes
 

@@ -17,8 +17,8 @@ detects or contains them. This register's numbering is project-local.
 
 An entry that instantiates a class in the
 [common risk catalogue](proposals/common-risk-catalogue.md) carries one
-*Class* line. The line links the class by ID and name, then says in one
-clause how the entry instantiates it. The
+*Class* line per class it instantiates. Each line links the class by ID
+and name, then says in one clause how the entry instantiates it. The
 [check document](common-risk-catalogue-check.md) reads these lines.
 
 - **R1 — Dispatch oscillation.** A loop between roles that never
@@ -59,6 +59,10 @@ clause how the entry instantiates it. The
   tasks unresolved at session end are recorded `stale` in the journal
   and redispatched only after a fresh check (dispatch.md). *Status*:
   open; mitigation spec'd.
+  *Class*: [CR-005 (a copy or description disagrees with its source,
+  unseen)](proposals/common-risk-catalogue.md#cr-005) — the entry's
+  second clause: a register goes stale, and dispatch decisions run on
+  fiction.
 - **R6 — Packet-insufficiency spiral.** Context packets routinely too
   small; roles wander the repository, costing tokens and risking
   stale reads. *Mitigation*: widenings are recorded (Cost log notes;
@@ -112,6 +116,12 @@ clause how the entry instantiates it. The
   unavailable on web while nested dispatch is missing (the
   orchestration service's task-pull loop addresses it), and both
   documentation gaps are still worth reporting upstream to Anthropic.
+  *Class*: [CR-001 (a check that cannot fail in the environment the code
+  runs in)](proposals/common-risk-catalogue.md#cr-001) — the entry
+  records that plugin loading is documented for local terminal sessions
+  and not for the web, that the first web demo found the plugin absent,
+  and that across four trials on two surfaces the plugin was never
+  observed loading.
 
 - **R10 — The service becomes a second source of truth.** Live state
   in the service drifts from the registers in git, and decisions get
@@ -135,6 +145,11 @@ clause how the entry instantiates it. The
   *Status*: open as a standing design constraint; the chunk 1
   exercise is recorded above and the constraint binds every later
   chunk.
+  *Class*: [CR-005 (a copy or description disagrees with its source,
+  unseen)](proposals/common-risk-catalogue.md#cr-005) — the entry states
+  that live state in the service can drift from the registers in git and
+  that decisions could then be made against the projection. The exercise
+  of 2026-09-07 produced no divergence.
 - **R11 — MCP surface constraints.** The transport imposes limits that
   a naive design would trip: a 5-second default tool-call timeout
   (configurable per server), auto-backgrounding of calls past two
@@ -310,7 +325,15 @@ clause how the entry instantiates it. The
   inventory carried no R14 row (its criterion C1 bars unlisted
   duties); re-routed the same day to the Backlog entry "R14's
   contract wording" for node P3-N014, which edits the six contracts
-  next (T052 verdict, Orchestrator disposition).
+  next (T052 verdict, Orchestrator disposition). Landed 2026-10-30 by
+  node P3-N014 (task T072): the mitigation lives in
+  [roles.md](process/roles.md#duties-every-role-carries), duties every
+  role carries, and in the six role contracts in `.claude/agents/`.
+  *Class*: [CR-002 (an agent adopts a package it found by
+  searching)](proposals/common-risk-catalogue.md#cr-002) — task T027
+  searched a public registry for a DynamoDB reserved-word list and found
+  a package published days earlier by a new single-package maintainer.
+  The role declined it.
 - **R15 — Reference documentation is an instruction channel into a
   dispatched role.** A role sent to read documentation fetches pages
   chosen by the task, and prose on those pages reaches the model as
@@ -333,6 +356,10 @@ clause how the entry instantiates it. The
   [roles.md](process/roles.md#duties-every-role-carries), duties every
   role carries, and in the six role contracts in `.claude/agents/`
   (node P1-N014, 2026-10-29).
+  *Class*: [CR-003 (fetched content carries an instruction for the
+  agent)](proposals/common-risk-catalogue.md#cr-003) — task T030 fetched
+  an AWS documentation page whose *See also* block told the reader to
+  run an agent-toolkit command. The role declined it.
 - **R16 — A cloud provider's error names the wrong layer, and a
   diagnostic that models one failure mode makes it worse.** Proving
   OIDC took three runs on 2026-09-04, against two independent defects
@@ -358,6 +385,11 @@ clause how the entry instantiates it. The
   role carries, and in the six role contracts in `.claude/agents/`
   (node P1-N014, 2026-10-29). The preflight's own wording is still to
   fix.
+  *Class*: [CR-004 (a diagnostic names a cause it did not
+  test)](proposals/common-risk-catalogue.md#cr-004) — the preflight's
+  verdict line asserted a trust-policy mismatch for every failure in
+  which the subject matched, and AWS's error text named a layer that was
+  not at fault.
 - **R17 — The harness's own guidance pushes against the fallback
   rule.** The R12 exercise's credential case, 2026-09-07, surfaced
   this from inside a real session. When the enlisted server failed to
@@ -384,6 +416,11 @@ clause how the entry instantiates it. The
   cited from [roles.md](process/roles.md#duties-every-role-carries),
   duties every role carries, and in the six role contracts in
   `.claude/agents/` (node P1-N014, 2026-10-29).
+  *Class*: [CR-006 (a rule meets contrary guidance where it
+  applies)](proposals/common-risk-catalogue.md#cr-006) — the harness
+  notice told the session not to conclude that access does not exist,
+  against the project's no-retry rule, and the document stating the rule
+  was absent from the branch under test.
 
 Unexpected interplay is by nature not enumerable in advance: the
 pilot (plan chunk 5) treats every failure it hits as a candidate

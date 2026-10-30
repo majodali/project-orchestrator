@@ -85,6 +85,13 @@ the duty inventory).
   ([R17 (the harness's guidance pushes against the fallback rule)](../open-risks.md)).
   The role proceeds under
   [dispatch.md's fallback rule](dispatch.md#the-orchestration-service-optional-accelerator).
+- **A new dependency is a decision**: a new or low-provenance
+  dependency is above every role's authority
+  ([R14 (dependency search is an attack surface when agents shop for packages)](../open-risks.md)).
+  The role returns `needs-judgment` rather than adding it. A
+  hand-built substitute with an honest caveat is the alternative the
+  role may offer. (Added 2026-10-30 by node P3-N014, from the Backlog
+  entry "R14's contract wording".)
 
 Who handles a found contradiction, and who handles a staged
 decision's affected locations, by role:
@@ -97,6 +104,39 @@ decision's affected locations, by role:
 | Reviewer; Auditor, both passes | none: it discharges by located finding | none |
 | Paraphraser; Reviewer (stranger) | none: it discharges by located finding | none |
 | Liaison | none: it routes a finding to the registers through the Orchestrator | none |
+
+## The conditions each role can trigger
+
+Inside a sequence the owner ratified, the Orchestrator applies four
+stop predicates to each member's result
+([dispatch.md](dispatch.md#sequence-mode), *Sequence mode*). The
+predicates carry methodology W-001 (two delivery modes, human-gated)'s
+four stop conditions: 1, a failed check; 2, a scope change; 3, a chunk
+needing the owner's decision; 4, a landing summary carrying asks. A
+role meets them by writing its result as the handoff contract states
+([dispatch.md](dispatch.md#the-handoff-contract), the result core).
+Each row below names what a role can trigger and the consequence. A
+stop means the Orchestrator dispatches nothing further, summarizes to
+the owner, and waits. Each contract in `.claude/agents/` carries its
+role's row in the role's own terms.
+
+| Role | What it can trigger | The consequence |
+|---|---|---|
+| Orchestrator | All four conditions, as the one who applies them; and the loop's step-4 stops | It runs *Sequence mode* in its own loop: it never ratifies, extends or infers a sequence; it writes each member's result record; it journals `sequence-ratified` and `sequence-stopped` |
+| Implementer | 1: its checks. 2: its writes, its refs and its flags. 3: its status, its located findings and its open questions. 4: its asks | A `needs-judgment` or `blocked` return, a check with a failure outcome or none, a located finding against its own node's documents, an open question waiting on other activity, an owner-addressed ask, and a term introduced each stop a running sequence |
+| Planner | As the Implementer; and predicate 3's test 2 | As the Implementer; and a *Decisions for the gate* entry it stages stops a running sequence until a gate adopts it |
+| Reviewer | 1: a criterion not met. 3: its status and its located findings. 4: its asks | A `fail` verdict stops a running sequence, and so do a `needs-judgment` return and an owner-addressed ask |
+| Auditor; Semantic Auditor | None | A finding goes to the audit channel. It is not a sequence stop |
+| Paraphraser | None directly | It neither adds an ask nor drops one, so the rendered result carries the same asks as its intermediate representation (IR) |
+| Reviewer (stranger) | None directly | Its verdicts reach a sequence only through the author's result: at the limit of ten rounds the author returns `needs-judgment`, and on a meta-review signal the author's result carries an owner-addressed ask |
+| Liaison | None | Its quiet loop holds through a sequence: the owner hears immediate-class escalations, blockers and, at the end, the stop summary |
+
+Two rows rest on the [P3-N014 plan](../plans/p3-n014-loop-runs-sequence-mode.md#decisions-for-the-gate)'s
+decisions. An ask to the Orchestrator for anything it does not
+discharge at acceptance fails the handoff check, which predicate 1
+reads (decision 6). An author whose text reaches the stranger-round
+limit, or shows a meta-review signal, stops a running sequence through
+its own result (decision 7).
 
 ## The roles
 

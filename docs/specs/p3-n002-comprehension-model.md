@@ -281,10 +281,14 @@ every other project out of scope.
   procedure the type spec states: the implementation map, and the list
   of what is next. A rendering here means what the IR specification's
   rendering rule means for prose: it adds no claim its source lacks
-  and drops no claim its source holds. Each rendering is compared with
-  the Backlog as it stands. Each difference is listed and classified:
-  the model lacks a claim, the Backlog lacks a claim, or the two
-  disagree. Each difference is either fixed or carried as a Backlog
+  and drops no claim its source holds. A rendering's source is the
+  facets its procedure in the type spec says it carries, and the
+  procedure names the facets it omits (P3-N007 decision 6). Each
+  rendering is compared with the Backlog as it stands. Each difference
+  is listed and classified: the model lacks a claim, the Backlog lacks
+  a claim, or the two disagree. An open Backlog entry that no node
+  holds is the Backlog's own content, not a difference (P3-N007
+  decision 4). Each difference is either fixed or carried as a Backlog
   item. A listed difference does not fail the criterion. An
   unexplained difference does. RU-019, the ruling that a measurement
   may be satisfied by an unfavourable result, is the near match.
@@ -500,9 +504,10 @@ issue.
 
 This list is the breakdown-moment record G4 needs. It uses the plan's
 sketch notation. Child B may refine the notation. The Orchestrator
-transcribes these edges into the instance at child B's acceptance,
-without changing their meaning, with one journal event per edge naming
-this document as the authoring point.
+transcribes these edges into the instance at the acceptance of child
+B's first execute task, E1, which lands the type spec and the event
+kind (P3-N007 decision 8), without changing their meaning, with one
+journal event per edge naming this document as the authoring point.
 
 The resource slugs used:
 
@@ -540,15 +545,17 @@ creates. D uses `project-model` and `project-model-type`, which A, B
 and C create or modify. So A, B, C, D is a chain, and no pair is
 independent.
 
-**Applied as the plan states it, the derivation rule also yields
-cycles from these edges.** The plan's rule: node X depends on node Y
-if X uses a resource Y creates or modifies. C uses `plan-register`,
-and D modifies its header line, so C would depend on D. C uses
-`backlog`, and every child modifies it, so C would depend on D again.
+**Applied as the plan stated it, the derivation rule also yields
+cycles from these edges.** The plan's rule at this breakdown: node X
+depends on node Y if X uses a resource Y creates or modifies. C uses
+`plan-register`, and D modifies its header line, so C would depend on
+D. C uses `backlog`, and every child modifies it, so C would depend on
+D again.
 The rule has no notion of order between a use and a later
 modification. Writing the edges of a real breakdown exposed this
 before any child executed, which is what the thin slice exists to do.
-Criterion B1 requires the type spec to resolve it.
+Criterion B1 requires the type spec to resolve it. P3-N007 decision 3
+resolves it, and the plan now states the resolved rule.
 
 ### Child A: the thin end-to-end slice, five real parts all the way through
 
@@ -621,7 +628,8 @@ role that writes the IR of normative text to render it.
   step, in terms of the instance and the Plan register only. The
   what-is-next procedure uses the same derivation child D writes into
   `dispatch.md`'s selection rule: a node is actionable when every node
-  that creates or modifies a resource it uses is `done`.
+  that creates a resource it uses, and every modifying node its `uses`
+  edge names, is `done` (P3-N007 decision 3).
 - B3. The Classification declares the type by citation, with the
   instance named. The repository contains what it declares
   (Article 4).
@@ -676,9 +684,11 @@ role that writes the IR of normative text to render it.
   covering acceptance, amendment and rejection.
 - B14. The IR is written first and kept beside the proposal. The role
   that wrote the IR renders the normative text and appends the render
-  map. Stranger rounds run under the IR specification at v1.6.0 until
-  a round returns readable or the count reaches the limit of ten. The
-  Orchestrator dispatches each round's stranger with a fresh context.
+  map. Stranger rounds run under the IR specification at v1.6.0, with
+  the verdict and confirmation rules of the Reviewer (stranger)
+  contract in [roles](../process/roles.md), until a round returns
+  readable or the count reaches the limit of ten (P3-N007 decision 7).
+  The Orchestrator dispatches each round's stranger with a fresh context.
   A review record holds each round's findings, their dispositions, the
   verdict, the prose word count and the IR claim count. At the limit,
   the text is not delivered before the owner's decision.
@@ -747,8 +757,9 @@ recorded edges. The form checker gains the model's rules.
   dependency-ordered", `dispatch.md`'s "entering `execute` requires
   earlier siblings `done`", and the Plan register instance's header
   line. The replacement rule: entering `execute` requires that every
-  node which creates or modifies a resource this node uses is `done`.
-  List position keeps its presentation meaning only.
+  node which creates a resource this node uses, and every modifying
+  node its `uses` edge names, is `done` (P3-N007 decision 3). List
+  position keeps its presentation meaning only.
 - D2. D states the disposition of the register's "independent of
   P3-N002 (RU-018)" annotations, now that absence of an edge says the
   same thing.
@@ -760,7 +771,8 @@ recorded edges. The form checker gains the model's rules.
   every entry carries all five facet lines; each written state equals
   its derivation; no creating or modifying node of a `built` resource
   has an unchecked Backlog entry; and no node at `executing` or later
-  uses a resource whose creating or modifying node is not `done`.
+  uses a resource whose creating node, or a modifying node its `uses`
+  edge names, is not `done`.
 - D6. Each rule is demonstrated firing on a contradiction induced on a
   local scratch branch that is never pushed. The transcripts are
   recorded. The branch is deleted.
@@ -927,6 +939,13 @@ one term this document introduced, *structural conditions (i) to
 entered `identified` as P3-N006 to P3-N009 and the node moved
 `specified` → `broken-down` in the same act. Decisions 9 to 15 were
 judged node-scope; no ruling was captured.
+
+Corrections at P3-N007's plan gate, 2026-10-30, placed by task T069.
+The owner adopted that node's decisions there, in the [plan of
+P3-N007](../plans/p3-n007-type-declared-amendment-drafted.md).
+Criteria B2, D1 and D5 take the dependency rule of its decision 3. G6
+takes its decisions 4 and 6. B14 takes its decision 7. *Edges stated at
+this breakdown* takes its decision 8.
 
 ## References
 

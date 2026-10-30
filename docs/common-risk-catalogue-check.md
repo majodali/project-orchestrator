@@ -25,26 +25,36 @@ records of the catalogue live) of the specification fixes. Node P3-N010
 (one class, carried end to end) wrote it for the class
 [CR-001](proposals/common-risk-catalogue.md#cr-001) alone. The
 [plan](plans/p3-n010-one-class-end-to-end.md) of that node and child A
-of the specification are the authority.
+of the specification are the authority. Node P3-N011 (the sweep, the
+rest of the catalogue and the omission list) extends it to every class,
+under its [plan](plans/p3-n011-sweep-and-omission-list.md).
 
 | Section | Content |
 |---|---|
 | The check procedure | The inputs, the three steps, the omission list and the negative control. |
 | Sweep record for CR-001 | The entry test applied, the header argued, every candidate dispositioned, the Risk register pass. |
-| Parts enumeration | The committed list of parts the check reads. |
-| Run record, 2026-10-30 | The four inputs by commit, steps 1 to 3 for CR-001 and the omission list. |
+| Sweep record: the five passes | Status of the passes, the method they share, passes 1 to 5 with every candidate, the classes admitted with their headers, the deferred candidates, the named candidates and the findings. Task E2 of node P3-N011 added passes 3 to 5. |
+| Citations: the Class lines | The register re-read, the citation test, the lines written and the delta rows for sources that moved after the passes. Task E3 added it. |
+| Parts enumeration | The committed list of parts the check reads, brought current by task E3 to 35 parts. |
+| Run record, 2026-10-30 | The four inputs by commit, steps 1 to 3 for CR-001 and the omission list. Node P3-N010's run, unchanged. |
 | Negative-control record | The deliberately broken input and the pair that returned. |
+| Run record, 2026-10-30, full scope | Task E3's run of all twelve classes over all 35 parts: inputs, steps 1 to 3, the omission list of 56 items and its dispositions. |
+| Negative-control record, 2026-10-30, full scope | The control on CR-003 against PT-23 and the pair that returned. |
 | Shape findings | What in the entry shape the check could not read, and what changed. |
+| Verification of node P3-N011 | Criteria B1 to B18 and the three adopted decisions, with the owner's open decisions and the carry-overs. |
 
 ## The check procedure
 
 The procedure is the one the specification defines under
 [the class-to-instance check](specs/p3-n003-common-risk-catalogue.md#the-class-to-instance-check)
 and [the negative control](specs/p3-n003-common-risk-catalogue.md#the-negative-control).
-Two refinements apply, both adopted at the gate of 2026-10-30. They are
-decision 2 (which Classification step 1 reads) and decision 3 (which
-Backlog entries the parts enumeration reads) of the plan of node
-P3-N010. Each is marked below.
+Four refinements apply, all adopted at the plan gates of 2026-10-30.
+Two are decision 2 (which Classification step 1 reads) and decision 3
+(which Backlog entries the parts enumeration reads) of the plan of node
+P3-N010. Their markers name the decision alone. Two are decision 3
+(what a covering entry's *Class* clause states) and decision 5 (whether
+the service repository's Backlog is read) of the plan of node P3-N011.
+Their markers name the node. Each is marked below.
 
 ### Inputs
 
@@ -66,6 +76,11 @@ ID, and a stated list of standing artifact classes.
 *Refinement, decision 3.* The specification reads the Backlog's
 Completed section only.
 
+The checked entries of the service repository's Backlog are read too,
+at the commit the run names. A service entry becomes a part only when
+it delivers an artifact no existing part holds. *Refinement, decision
+5 of the plan of node P3-N011.*
+
 ### Steps
 
 1. *Project applicability.* For each class and each repository that
@@ -81,7 +96,11 @@ Completed section only.
 3. *Coverage.* For each pair recorded `applies`, the run looks for a
    covering entry: a Risk register entry that cites the class and names
    the part, or names a scope the run argues contains the part. A pair
-   with a covering entry records that entry's ID.
+   with a covering entry records that entry's ID. A covering entry's
+   *Class* clause also states the exposure that the pair's step 2
+   argument names. A pair whose argument names an exposure the clause
+   does not state is an omission, and its item names that exposure.
+   *Refinement, decision 3 of the plan of node P3-N011.*
 
 How a run reads the Risk register for step 3: the command
 `grep -n 'CR-' docs/open-risks.md` lists every line that cites a
@@ -255,6 +274,1166 @@ the code runs in. Two entries do, and carry the *Class* line.
 The two citations are complete for CR-001 at this pass, which is the
 second condition for a genuine omission.
 
+## Sweep record: the five passes
+
+Node P3-N011 (the sweep, the rest of the catalogue and the omission list)
+runs the sweep in three execute tasks. Task E1 ran passes 1 and 2 below.
+Task E2 ran passes 3 to 5. This section holds all five, so a reader
+finds the whole sweep in one place. The earlier section for CR-001 stays
+as P3-N010 wrote it.
+
+### Status of the passes
+
+| Pass | Source | Task | Commit read | Found | Admitted | Merged | Rejected | Deferred | Seen again |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | Risk register | E1 | `bd4fc8d` | 25 | 5 | 3 | 16 | 1 | 2 |
+| 2 | Ruling register and plans | E1 | `bd4fc8d` | 18 | 2 | 8 | 6 | 2 | 7 |
+| 3 | Backlog, Completed section | E2 | `089b79c` | 6 | 1 | 1 | 4 | 0 | 5 |
+| 4 | Backlog, Upcoming section | E2 | `089b79c` | 58 | 3 | 27 | 25 | 3 | 21 |
+| 5 | Cost log, notes column | E2 | `089b79c` | 21 | 0 | 12 | 9 | 0 | 17 |
+
+Found counts new candidates only. It equals admitted, merged, rejected
+and deferred added together. *Seen again* counts rows that cite a failure
+already recorded, which are not new candidates. One row of pass 2 is a
+named candidate that records no failure. It is in no count. Passes 3 to 5
+add 85 candidates found, 4 classes admitted, 40 merged, 38 rejected and 3
+deferred. With passes 1 and 2 the sweep holds 128 candidates found, 11
+classes admitted (CR-002 to CR-012), 51 merged, 60 rejected and 6 deferred.
+Each merged row counts once, whether it adds an encounter or an instance.
+
+### Method common to the passes
+
+Passes 1 and 2 read this repository at commit `bd4fc8d`, the head of
+branch `catalogue-sweep` when task E1 was dispatched. Passes 3 to 5 read it
+at commit `089b79c`, the head when task E2 was dispatched. All passes read
+the service repository at commit `58e6819` and the methodology at tag
+v1.6.0, commit `3e34829`, both read-only. Task E2 re-read the service's
+`docs/classification.md` and its `docs/findings/` path at `58e6819`, the
+service's `main` at that date. Specifications are not a source. Criterion B1
+names the plans only, and no pass read a specification for a candidate.
+
+**Candidates.** A passage yields a candidate when it records something
+that went wrong or states a risk as a failure. A work item, a wish, a
+principle or a cost yields none. A candidate is the failure as its source
+states it. A generalization is its own row, with the generalization
+stated.
+
+**Labels.** Rows of pass 1 are `RR-nn`. Rows of pass 2 are `RP-nn`.
+Labels `N1` to `N14` mark the fourteen named candidates in the order of
+the plan's table: eleven from the parent plan and three from the record
+of P3-N010. Rows `RR-nn` and `RP-nn` do not change once issued. Pass 3
+uses `BC-nn`, pass 4 `BU-nn` and pass 5 `CL-nn`. A row of passes 3 to 5
+names its source by Backlog line number at commit `089b79c` and by the
+entry's title, or by Cost log task ID.
+
+**Answers.** Every row answers ET-1 to ET-4. A cell reads *Holds* or
+*Fails*, with a key where a shared argument applies. Rows that fail for
+the same reason share the key's argument and keep their own row. A row
+that needs more than a key is argued under its table.
+
+| Key | Shared argument |
+|---|---|
+| A1 | The precondition names a mechanism that exists only in this project's orchestration: the dispatch loop, the Plan register's node tree and stages, the roles' decides-lists, the context packet, the breakdown and its ascent-side verification, the liveness invariant, the orchestration service with its queue, or the enlistment procedure. A project without that mechanism cannot have the failure. |
+| A2 | The entry records no event of the failure. It states a risk and a mitigation. |
+| A3 | No Article 4 tag expresses "runs this orchestration mechanism". The tags are the C-tier, the S-level, the type, the target and the derived conditions `deployable` and `deployed`. P3-N010 argued the same for R1. |
+| A4 | ET-2, part (a). The methodology at v1.6.0 already holds a rule that requires the fix or the marking, or an upstream amendment or tool change would remove the failure. What remains is non-compliance, or a gap that waits for an amendment. Rows RP-11 and RP-12 of pass 2 use the same argument. |
+| A5 | ET-2, part (b). The failure is a gap in what the harness reports or does. Its owner can repair it once for every project, as RR-09, RR-20 and RR-22 of pass 1 argue. |
+
+**Reading of ET-2.** ET-2 as the specification states it fails a
+candidate that "one upstream change could remove for every project,
+without action by any project". The specification does not say whether
+the upstream is the methodology alone. The plan's table reads R17 (the
+harness's guidance pushes against the fallback rule) as failing ET-2
+because one harness change removes the notice. The passes apply that
+reading in two parts.
+
+- **Part (a).** A change to the methodology's rules or tooling would
+  remove the failure. Each pass searched the rule files of the corpus at
+  v1.6.0 (the K, M, P, Q, S and W files) for the candidate's key words
+  and read the rules the hits named. The words included `supply`,
+  `untrusted`, `fetched`, `injection`, `dependen`, `billing`,
+  `concurren`, `parallel`, `stale`, `drift`, `silent`, `diagnos`,
+  `snapshot`, `frozen`, `fixture`, `ignore`, `binary`, `skip`, `contrary`,
+  `pressure`, `preflight` and `runtime`.
+- **Part (b).** The failure is a defect or gap of one component whose
+  owner can repair it once for every project, so that no hazard is left
+  for a project to mitigate. A hazard that stays whatever the owner does
+  passes. Hostile content in a registry or a page, and a provider's
+  misleading error text in general, are such hazards. The specification's
+  worked example agrees, because it passes R14 although a registry
+  operator could change.
+
+This reading is the sweep's, not the specification's. Rows RR-09, RR-17,
+RR-20 and RR-22 turn on part (b). The report of task E1 asks the owner to
+ratify or strike it.
+
+**Reading of ET-4.** A header is argued from the Classification of each
+repository where an encounter happened (shape finding 4 of P3-N010). The
+table under *The classes the passes admitted* gives the argument per
+class.
+
+**Outcome conventions.** Three conventions apply beyond the four outcomes
+of the specification.
+
+- <a id="def-seen-again"></a>*Seen again* is a row that cites a failure
+  recorded in an earlier row or in the sweep record for CR-001. It
+  adds no candidate and no encounter.
+- <a id="def-merge-with-exposure"></a>*Merge with exposure* is a merge
+  where the candidate states an admitted class and records no event of
+  its own. A candidate cannot become an encounter without an event. The
+  row is cited as an instance of the class, as a Risk register *Class*
+  line cites R13, and adds no encounter. ET-3 holds for the class by its
+  own encounters. Finding S1 below records the gap in the specification.
+- *No candidate* is a row for a named candidate that records a gap, not
+  something that went wrong. The plan's rule gives it no outcome.
+
+**Ordering.** A failure met in two sources is recorded once, at its first
+pass. Pass 1 holds the generalization that admits CR-005. Its encounters
+come from pass 2. The later rows cite it, as the plan requires. Pass 2
+also dispositions three named candidates whose encounter is in the
+Backlog: stale copy (N6), lost update (N10) and ripgrep (N12, N13). The
+brief of task E1 asked for them, and the plans pass meets each in a plan
+before pass 3 or 4 reads the Backlog. Passes 3 and 4 cite those rows and
+count them as seen again.
+
+### Pass 1: the Risk register
+
+**Method.** The pass read the Risk register whole at commit `bd4fc8d`.
+That is the preamble and all seventeen entries, R1 to R17. It ran no
+search. It put every entry to the entry test (criterion B2). An entry
+that states more than one failure yields one row per failure.
+
+| Label | Candidate as its source states it | ET-1 | ET-2 | ET-3 | ET-4 | Outcome |
+|---|---|---|---|---|---|---|
+| RR-01 | R1 (dispatch oscillation): a loop between roles never converges. Fully tested in the sweep record for CR-001 | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| RR-02 | R2 (runaway fan-out): breakdown inflates the tree, or backward transitions cycle a subtree | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| RR-03 | R3 (orphaned work): a node is neither progressing nor visibly stuck | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| RR-04 | R4 (role overreach): a role decides above its authority without routing | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| RR-05 | R5 (register and reality divergence): a session dies mid-task or a register goes stale | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| RR-06 | R6 (packet-insufficiency spiral): context packets are routinely too small | Fails (A1) | Holds | Holds, see below | Fails (A3) | Reject, ET-1 |
+| RR-07 | R7 (billing misroute): an environment with an API key set bills API credits despite the subscription | Holds | Holds | Fails | Holds | Defer |
+| RR-08 | R8 (compounding bad plan): a flawed breakdown propagates before ascent-side verification | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| RR-09 | R9 (surface-dependent plugin loading): checked-in plugin settings did not take effect on the web surface | Holds | Fails, see below | Holds | Holds | Reject, ET-2 |
+| RR-10 | R10 (the service as a second source of truth): live state in the service drifts from the registers in git | Fails (A1) | Holds | Fails, see below | Fails (A3) | Reject, ET-1 |
+| RR-11 | R11 (MCP surface constraints): the transport imposes limits a naive design trips | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| RR-12 | R12 (service outage stops work): a coordination plane turns its downtime into a stoppage | Fails (A1) | Holds | Fails, see below | Fails (A3) | Reject, ET-1 |
+| RR-13 | R13 (the tooling's runtime assumption moves to `node`): a surface with an older or absent Node loses the checker silently | Holds | Holds | Holds for CR-001 | Holds | Merge with exposure, CR-001 |
+| RR-14 | R14 (dependency search is an attack surface): an agent adopts a package found by searching | Holds | Holds | Holds | Holds | Admit, [CR-002 (an agent adopts a package it found by searching)](proposals/common-risk-catalogue.md#cr-002) |
+| RR-15 | R15 (reference documentation is an instruction channel): fetched prose carries an instruction | Holds | Holds | Holds | Holds | Admit, [CR-003 (fetched content carries an instruction for the agent)](proposals/common-risk-catalogue.md#cr-003) |
+| RR-16 | R16 (a provider's error names the wrong layer): a diagnostic asserts a cause it did not test | Holds | Holds | Holds | Holds | Admit, [CR-004 (a diagnostic names a cause it did not test)](proposals/common-risk-catalogue.md#cr-004) |
+| RR-17 | R17 (the harness's guidance pushes against the fallback rule): the harness notice presses against the project's no-retry rule | Holds | Fails, see below | Holds | Holds | Reject, ET-2 |
+| RR-18 | Generalization of R5's second clause and R10's failure: a copy or description of another document's content falls out of step with it | Holds | Holds | Holds | Holds | Admit, [CR-005 (a copy or description disagrees with its source, unseen)](proposals/common-risk-catalogue.md#cr-005) |
+| RR-19 | Generalization of R9: a capability documented for one surface is relied on across several | Holds | Holds | Holds for CR-001 | Holds | Merge with exposure, CR-001 |
+| RR-20 | R9, trial 1: cloud sessions do not give subagents the Agent tool | Holds | Fails, see below | Holds | Holds | Reject, ET-2 |
+| RR-21 | R12: the exercise could not test waiting, and its credential case tested the rule's consequence, not the rule | | | | | Seen again: CR-001, encounter 2026-09-07 |
+| RR-22 | R12: the failure notice arrives after the first tool call, not at startup | Holds | Fails, see below | Holds | Holds | Reject, ET-2 |
+| RR-23 | R12: a session cannot measure its own startup, so the exercise procedure asks for what no session can supply | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| RR-24 | R12: an unreachable service, a missing credential and an absent server look the same from inside the session | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| RR-25 | R16: a provider's error names a layer other than the one at fault | Holds | Holds | Holds, same investigation as RR-16 | Holds | Merge, CR-004 |
+| RR-26 | R16: the audience typo and the trust-policy subject defects | | | | | Seen again: CR-001, encounter 2026-09-06 |
+| RR-27 | Generalization of R17: a rule meets contrary guidance where it applies | Holds | Holds | Holds | Holds | Admit, [CR-006 (a rule meets contrary guidance where it applies)](proposals/common-risk-catalogue.md#cr-006) |
+
+**Counts.** Found 25. Admitted 5: RR-14, RR-15, RR-16, RR-18, RR-27.
+Merged 3: RR-13, RR-19, RR-25. Rejected 16: RR-01 to RR-06, RR-08 to
+RR-12, RR-17, RR-20, RR-22 to RR-24. Deferred 1: RR-07. Seen again 2:
+RR-21 and RR-26.
+
+**Rows argued singly.**
+
+- RR-01: P3-N010 tested R1 condition by condition in the sweep record for
+  CR-001. The row cites that table and adds nothing.
+- RR-06: the entry reports two firings of the detection, in trial 1 and
+  trial 2, and gives no date. ET-1 decides, because the context packet is
+  this project's dispatch mechanism.
+- RR-07: the plan's table names ET-1 and ET-3. ET-1 holds. The
+  precondition is an environment variable and a subscription, and the
+  loop is not needed for the failure to occur. ET-2 holds. Only a project
+  controls what its execution environment sets, and no change to the
+  methodology removes the hazard. ET-3 fails. The entry and the founding
+  plan record a watch item from a policy review of 2026-08-24 and a check
+  that was pending. A search of the Backlog and the Cost log for
+  `ANTHROPIC_API_KEY` and `billing` found the watch item, the plugin's
+  hook and omission item O1 of P3-N010's run, which asks whether the hook
+  fires. No session is recorded billing the wrong account. ET-4 holds with
+  `[C1+]`. Outcome: defer. Passes 3 to 5 read the Backlog and the Cost log
+  whole and can overturn this. An encounter there turns the row into an
+  admission.
+- RR-09: the entry places the repair upstream: "both documentation gaps
+  are still worth reporting upstream to Anthropic". Whether a checked-in
+  plugin loads on a surface is the harness's behavior. One harness change
+  removes the failure for every project and leaves nothing to mitigate.
+  Part (b) of the reading applies.
+- RR-10: ET-3 fails. The entry records an exercise on 2026-09-07 in which
+  two refusals left git winning. No divergence occurred. The exercise is
+  a mitigation proven by use, as the plan's table says.
+- RR-12: ET-3 fails. The entry records an exercise that passed. No outage
+  stopped work. The exercise's own weakness is RR-21.
+- RR-13: the plan's table gives two paths, a merge with CR-001 or its own
+  class with ET-3 failing. The owner kept R13's citation of CR-001 at the
+  gate of 2026-10-30, so the register treats the failure as CR-001's: the
+  check cannot run where the code runs. R13 records an exposure and no
+  event. A search of the Backlog for `22.18`, `preflight` and `runtime
+  floor` found the floor's declaration and the preflight's tests, and no
+  surface that lacked the floor. Outcome: merge with exposure.
+  [RU-013](rulings.md) (what a tool does when its runtime is missing or
+  too old) states the same failure and is row RP-02.
+- RR-17: the stated failure is the notice that the harness raised. It told
+  the session to treat the condition as a connection failure and not to
+  conclude that access does not exist. One harness change removes the
+  notice. Part (b) applies, as the plan's table reads it. The
+  generalization is a separate row, RR-27.
+- RR-18, RR-27 and the three admissions RR-14 to RR-16: the entry test is
+  argued under *The classes the passes admitted*.
+- RR-19: CR-001's reaches line already names "procedures exercised on one
+  surface and relied on across several". The four trials of R9 ran on the
+  surfaces and found the plugin absent. The checks could fail and did, as
+  P3-N010 found. They are CR-001's mitigation working, so the row adds an
+  instance and no encounter.
+- RR-20: the harness gives subagents no Agent tool on the cloud surface.
+  The entry records the orchestrator agent stopping correctly. One harness
+  change removes it. Part (b) applies.
+- RR-22: when the harness raises the notice is the harness's behavior.
+  One change moves it to startup. Part (b) applies.
+- RR-23 and RR-24: the exercise procedure in `enlistment.md` and the
+  `.mcp.json` of the orchestration service are this project's artifacts.
+- RR-25: the incident of R16 holds two failures, the provider's text and
+  the preflight's verdict. The class sentence of CR-004 covers both. Both
+  were found by the same three runs on 2026-09-04, so they count as one
+  encounter.
+
+### Pass 2: the Ruling register and the plans
+
+**Method.** The pass read the Ruling register whole at commit `bd4fc8d`:
+all twenty-two rulings, from RU-001 (execute a proposal draft before its evidencing node closes) to RU-022 (how a document drafted for the methodology corpus carries the rule that the corpus writes its deliverables IR first). It read each plan's gate records
+and ran six searches over the eighteen files of `docs/plans/`. The
+searches were `backward`, `rework`, `correction`, `stale`, `found` and
+`defect`. Each ran as a case-insensitive substring over lines.
+
+| Phrase | Matching lines | Plans with a match |
+|---|---|---|
+| `backward` | 6 | 5 |
+| `rework` | 16 | 5 |
+| `correction` | 15 | 5 |
+| `stale` | 19 | 9 |
+| `found` | 60 | 16 |
+| `defect` | 25 | 10 |
+
+The pass read the section around every matching line whole. Of the 60
+lines for `found`, 14 are the word "founding", which matches the substring
+and names the founding plan. They yield nothing.
+
+*Rulings.* Six rulings state a failure in their rationale. They are
+[RU-011](rulings.md) (the language of repo-local tooling),
+[RU-013](rulings.md) (what a tool does when its runtime is missing),
+[RU-014](rulings.md) (a port retires the only other implementation a test
+compares against), [RU-015](rulings.md) (how this project delivers a change
+to a repository it cannot write to), [RU-018](rulings.md) (whether a child
+is queued behind a sibling it does not depend on) and
+[RU-021](rulings.md) (which document is the source of progress truth). The remaining sixteen rulings state a
+principle, a preference or a cost, and yield no candidate. RU-014 and RU-015 yield two
+rows each.
+
+*Plans.* The plans that yield candidates are the plans of P1-N009 (plugin
+tooling on the portfolio stack), P1-N014 (role contracts adopt the v1.4.0
+rules), P1-N015 (methodology amendments for delegated work), P2-N012
+(deploy the service from CI on merge), P3-N002 (the comprehension model),
+P3-N003 (the common risk catalogue), P3-N005 (sequence mode), P3-N010
+(one class, carried end to end) and the comprehension plan. The matches in
+the other plans yield nothing. The plan of this node names the phrases and
+the candidates and records no failure. The other matches are backward-transition contingencies
+(P1-N008, P1-N015), staleness made visible by design (P2-N002), Backlog
+additions that are gaps and work items (P3-N006, P3-N013), corrections
+that apply an adopted decision (P3-N007, P3-N002, P3-N003) and design
+statements about a form (P3-N014).
+
+| Label | Candidate as its source states it | ET-1 | ET-2 | ET-3 | ET-4 | Outcome |
+|---|---|---|---|---|---|---|
+| RP-01 | RU-011 (language of repo-local tooling), with the plan of P1-N009: two implementations of one register grammar disagree about what a legal stage is | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-08-29 |
+| RP-02 | RU-013 (what a tool does when its runtime is missing): a tool with an unmet floor degrades quietly | | | | | Seen again: RR-13 (N8) |
+| RP-03 | RU-014 (a port retires the only other implementation a test compares against): the test keeps a frozen transcript of the retired side | Fails, see below | Holds | Holds | Holds | Reject, ET-1 |
+| RP-04 | Generalization of RU-014: a test freezes a snapshot of a document that changes by routine operation | Holds | Holds | Holds | Holds | Admit, [CR-007 (a test freezes a snapshot of a document that changes by routine operation)](proposals/common-risk-catalogue.md#cr-007) |
+| RP-05 | RU-015 (how this project delivers a change to a repository it cannot write to): a patch drafted without means to apply it fails on unverified context | Holds | Holds | Fails | Holds | Defer |
+| RP-06 | RU-015: a quotation that went stale between drafting and delivery cannot be detected by the reader | Holds | Holds | Holds for CR-005 | Holds | Merge with exposure, CR-005 |
+| RP-07 | RU-018 (is a child queued behind a sibling it does not depend on): holding unrelated work behind a sibling | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| RP-08 | RU-021 (which document is the source of progress truth): two documents claiming progress truth diverge | | | | | Seen again: RR-18 |
+| RP-09 | Plan of P1-N014: the founding plan stated a pin of v1.3.0 while the Classification recorded v1.4.0 | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-08-31 |
+| RP-10 | Plan of P1-N014: one contract is stated in two places, which is a drift hazard | Holds | Holds | Holds for CR-005 | Holds | Merge with exposure, CR-005 |
+| RP-11 | Plan of P1-N014: task T017 found plan decision 6 colliding with specification criterion D1 | Holds | Fails, see below | Holds | Holds | Reject, ET-2 |
+| RP-12 | Plan of P1-N014: task T018 cleared stale present-tense claims out of the ported tools | Holds | Fails, see below | Holds | Holds | Reject, ET-2 |
+| RP-13 | Plan of P1-N015: the Portfolio register's row for this project is stale | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-08-31 |
+| RP-14 | N6, a register entry describing another repository goes stale silently (parent plan, plan of P3-N003; evidence in the Backlog) | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-09-01 |
+| RP-15 | N6, generalization: a copy of another document goes stale silently | | | | | Seen again: RR-18 |
+| RP-16 | Plan of P3-N005: a Backlog item describing another document's state going stale is a failure the project "has already recorded twice" | | | | | Seen again: RR-18 |
+| RP-17 | Plan of P3-N005: a stop condition stated only in `dispatch.md` has R17's defect | | | | | Seen again: RR-27 |
+| RP-18 | N9, a guard believed because it is present, not because it was broken (plan of P3-N003, drift guard of P1-N009) | Holds | Holds | Holds for CR-001 | Holds | Merge with exposure, CR-001 |
+| RP-19 | N10, a lost update on a single-writer file under parallel work (Backlog 2026-09-17; plan of P3-N003) | Fails, see below | Holds | Fails | Holds | Reject, ET-1 |
+| RP-20 | N10, generalization: concurrent writers to one shared file lose an update | Holds | Holds | Fails | Holds | Defer |
+| RP-21 | Plans of P3-N002 and P3-N005: the race on the Backlog "would be inherited", and two roles appending to one file lose a write | | | | | Seen again: RP-19 |
+| RP-22 | N12, ripgrep silently dropped a file with NUL bytes from searches (plan of P3-N010; evidence in the Backlog) | Holds | Holds | Holds | Holds | Merge, CR-008, encounter 2026-08-30 |
+| RP-23 | N13, generalization of RP-22: a verification tool silently excludes part of its input | Holds | Holds | Holds | Holds | Admit, [CR-008 (a verification tool silently excludes part of its input)](proposals/common-risk-catalogue.md#cr-008) |
+| RP-24 | N14, no committed test runs the plugin tools as `node plugin/scripts/<tool>.ts` (step 2 arguments for PT-08 to PT-11) | | | | | No candidate |
+| RP-25 | Comprehension plan: its previous draft argued that the model carries observed dependencies, which was wrong | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| RP-26 | Plan of P2-N012: two outage defects in two days, and the stage-prefix defect class | | | | | Seen again: CR-001, encounters 2026-08-27, 2026-09-01 and 2026-09-06 |
+
+**Counts.** Found 18. Admitted 2: RP-04, RP-23. Merged 8: RP-01, RP-06,
+RP-09, RP-10, RP-13, RP-14, RP-18, RP-22. Rejected 6: RP-03, RP-07,
+RP-11, RP-12, RP-19, RP-25. Deferred 2: RP-05, RP-20. Seen again 7:
+RP-02, RP-08, RP-15, RP-16, RP-17, RP-21, RP-26. No candidate 1: RP-24.
+
+**Rows argued singly.**
+
+- RP-01: RU-011 says the form checker and the service's `plan_read` "parse
+  the same register grammar and should not be two implementations in two
+  languages". The plan of P1-N009 says the cross-check "found" two places
+  disagreeing about what a legal stage is. The event is in the Backlog,
+  entry "`plan_read` passes through a stage outside the lifecycle
+  vocabulary", recorded at the acceptance of task T010 on 2026-08-29. The
+  service's parser accepted a stage outside the vocabulary that the
+  checker rejects. CR-005's
+  class sentence covers a second implementation.
+- RP-03: the stated failure needs the port of P1-N009 and the form checker,
+  which was the only other implementation. Both are this project's
+  artifacts. ET-1 decides.
+- RP-04: the evidence is the Backlog entries "`test/plan-register.test.ts`'s
+  live-register cross-check went stale the moment it was accepted" and
+  "`test/plan-register.test.ts` freezes a snapshot of the live register, so
+  it breaks at every acceptance", 2026-08-30. The generalization is not a
+  reworded rejection. RP-03 needs a port. The generalization needs a living
+  document, and holds without one.
+- RP-05: the rationale of RU-015 says a session that cannot apply or test a
+  patch "produces one that fails on context it never verified". No failed
+  patch is recorded. ET-1 holds, because any project that delivers into a
+  repository it cannot write meets the precondition.
+- RP-06: RU-015 says that without the provenance line "a quote that went
+  stale between drafting and delivery is undetectable by the reader". No
+  such quotation is recorded. The failure is CR-005's, so the row is cited
+  as an instance and adds no encounter.
+- RP-11: [K-011 (found contradictions are marked, not routed around)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-011--found-contradictions-are-marked-not-routed-around)
+  already requires the session that finds a contradiction of a recorded
+  decision to fix or mark it. The methodology has made the amendment, so
+  the failure is not a catalogue entry. Part (a) of the reading applies.
+- RP-12: [K-010 (superseded content is never silently readable)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-010--superseded-content-is-never-silently-readable)
+  already covers content that a recorded decision supersedes. Part (a)
+  applies. CR-005 is different, and ET-2 for CR-005 says why.
+- RP-14: the Backlog entry "A Backlog entry describing another repository
+  goes stale silently" records that task T031 found a gap still called open
+  that an unrelated task had closed six hours earlier.
+- RP-19: the Backlog entry "Parallel dispatch collides with the single-Backlog
+  write, and nothing says so" names `docs/backlog.md`, the duty of
+  [W-003 (documentation moves in the same commit as the work)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-003--documentation-moves-in-the-same-commit-as-the-work)
+  and this project's parallel dispatch. The plan's table names the same
+  turning point. ET-3 fails as well, because the entry records the hazard
+  and a workaround and no lost write.
+- RP-20: the generalization needs only concurrent writers and a shared
+  file. ET-2 holds. The rule corpus has no rule on concurrent writers.
+  ET-3 fails, for the reason in RP-19. Outcome: defer.
+- RP-22 and RP-23: P3-N010 ruled the omission no encounter of CR-001,
+  because no environment differs between the check and the code. The two
+  rows were decided together. The generalization is the class sentence of
+  CR-008. The stated failure becomes its encounter. ET-2 holds for both
+  rows. Ripgrep skips binary files by design, the cause in this encounter
+  was a file the project wrote, and the hazard recurs in every tool with
+  ignore rules.
+- RP-24: the row records a gap, not a failure. Decision 3 of the plan of
+  P3-N011 makes it an omission item at E3's run if R13's existing text
+  does not state the exposure. R13 names the loss of the checker on a
+  surface that lacks the Node floor. It does not name a missing test that
+  runs the tools as `node`. E3 writes each *Class* clause from the
+  entry's existing text and never widens it (criterion B16), so the pairs
+  of PT-08 to PT-11 are expected omissions.
+- RP-25: a plan's previous draft argued the wrong thing, and the plan
+  marks the correction. The precondition is this project's planning of its
+  model.
+
+### Pass 3: the Backlog, Completed section
+
+**Method.** The pass read the Completed section of `docs/backlog.md` whole
+at commit `089b79c`: lines 31 to 353, 323 lines, 20 entries, all checked.
+It ran no search. It read each entry for a passage that records something
+that went wrong or states a risk as a failure. Seven entries yield rows.
+The other thirteen report shipped work or decisions and yield none. A row
+names its entry by line number and title.
+
+| Label | Candidate as its source states it | ET-1 | ET-2 | ET-3 | ET-4 | Outcome |
+|---|---|---|---|---|---|---|
+| BC-01 | Line 116, "Plugin v1 built and repo enrolled self-hosted": the first run of `form_check.py` caught four real gaps between the Plan register and the Backlog | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| BC-02 | Line 116, trial 1: the checker's liveness rule lacked the hold-marker arms (finding 1), and the dispatch dependency default was undefined (finding 3) | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| BC-03 | Lines 116 and 252: the settings-declared plugin did not observably load in a web session, and did not load locally either (R9) |  |  |  |  | Seen again: RR-09 and RR-19 |
+| BC-04 | Line 116, trial 1 finding 2: cloud sessions give no nested dispatch |  |  |  |  | Seen again: RR-20 |
+| BC-05 | Lines 116, 175, 191 and 252: packet rows too narrow, four firings of R6 repaired in turn |  |  |  |  | Seen again: RR-06 |
+| BC-06 | Line 191, "Trial-3 review": the Orchestrator gave itself an 18-file packet and a timer detour, and about 30 minutes passed before dispatch | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| BC-07 | Line 252, "Trial 4 (local session) and its analysis": task T004 showed 1h51m elapsed for about 68k tokens and 26 tool calls, against 3 to 3.5 minutes for web Planner tasks. The record attributes the gap to waiting on permission prompts on an attended surface, not to the model | Holds | Holds | Holds | Holds | Admit, [CR-009 (a figure presented under one name includes something else)](proposals/common-risk-catalogue.md#cr-009) |
+| BC-08 | Line 252: the Ruling register's `Applied:` lists were not maintained, and the cross-check added after trial 4 caught all three gaps on its first run | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-08-26 |
+| BC-09 | Lines 40 and 274: the `ANTHROPIC_API_KEY`-precedence trap recorded as a must-check, and an agent-SDK engine whose inference "would bill API credits" |  |  |  |  | Seen again: RR-07 |
+| BC-10 | Line 318, "Upstream disposition of the P1-N015 proposals": four gaps in the methodology's rules that v1.5.0 closed. The report rule misfires on agent-to-agent reports. K-011 does not say whose duty marking is when sessions nest. There is no delegation vocabulary. K-010 lacks its converse for active documents | Holds | Fails (A4) | Holds | Holds | Reject, ET-2. Turns on part (a) |
+| BC-11 | Line 318: the founding plan's v1.3.0 claim, corrected at task T019, is named as the evidencing instance of amendment A4 |  |  |  |  | Seen again: RP-09 |
+
+**Counts.** Found 6. Admitted 1: BC-07. Merged 1: BC-08. Rejected 4: BC-01, BC-02, BC-06, BC-10. Deferred 0. Seen again 5: BC-03, BC-04, BC-05, BC-09, BC-11.
+
+**Rows argued singly.**
+
+- BC-06: the entry states a failure of this project's
+  Orchestrator, whose packet and timer are the mechanism. ET-1 decides.
+- BC-07: the failure is a figure that the record names as one
+  thing and that includes another. ET-1 holds, because the precondition is
+  an elapsed time over a surface that waits on a person. No artifact of this
+  project is needed. ET-2 holds. Part (a): a search of the rule files for
+  `latency`, `wall-clock`, `elapsed` and `measure` found no rule on what a
+  figure includes. Part (b): a harness that reports active time still leaves
+  every figure a project computes to its own naming. ET-3 holds with the
+  encounter of 2026-08-26 in the entry, and pass 5 adds a second at
+  CL-01. The Backlog states the cause as a diagnosis, and an open
+  entry (line 2868, "Latency comparison: local session trial") would isolate
+  surface latency from process overhead. The class sentence of CR-009
+  asserts no cause. Outcome: admit.
+- BC-08: the lists record which tasks applied a ruling and
+  restate what the journal's `precedent-applied` events hold. Nothing
+  signalled the difference until the cross-check existed. The row is the
+  class of CR-005, a description that disagrees with its source, in its
+  second-record form. Date 2026-08-26 is that of task T004's row, the trial
+  that ran the check.
+- BC-10: the methodology has closed all four gaps. PRs #34 to
+  #37 shipped them in v1.5.0, with three amended in adjudication. Part (a)
+  of the reading of ET-2 applies, as it did to RP-11 and RP-12.
+- BC-03, BC-04, BC-05, BC-09 and
+  BC-11 cite rows of passes 1 and 2. They add no encounter.
+  BC-09 adds no event for R7, so RR-07 stays deferred.
+
+### Pass 4: the Backlog, Upcoming section
+
+**Method.** The pass read the Upcoming section of `docs/backlog.md` whole at
+commit `089b79c`: lines 354 to 2907, 2,554 lines, 187 entries, of which 47
+are checked and 140 open. It ran the searches below over the section as
+line matches, case-insensitive, and read the whole entry for every hit.
+Every hit lies in an entry the whole reading had already covered.
+
+| Phrase | Matching lines | Entries with a match |
+|---|---|---|
+| `missed it` | 0 | 0 |
+| `tests missed` | 0 | 0 |
+| `false negative` | 1 | 1 |
+| `goes stale silently` | 2 | 2 |
+| `found by T0` | 1 | 1 |
+| `cannot fail in the environment` | 0 | 0 |
+| `could never have caught` | 0 | 0 |
+| `invisible to a passing` | 1 | 1 |
+| `bundle guard` | 0 | 0 |
+| `drift guard` | 0 | 0 |
+| `$default` | 1 | 1 |
+| `oscillat` | 0 | 0 |
+| `ping-pong` | 0 | 0 |
+| `backward` | 1 | 1 |
+| `rework` | 3 | 3 |
+| `correction` | 1 | 1 |
+| `stale` | 15 | 12 |
+| `found` | 48 | 42 |
+| `defect` | 15 | 11 |
+
+The first five phrases are the plan's. The next eight are the phrases that
+the record for CR-001 lists. The last six are the phrases that pass 2 ran
+over the plans. Of the 48 lines for `found`, 3 are the word "founding" and
+yield nothing. The one hit for `found by T0` is the entry on
+`.prettierignore` (line 2427). It records a redundant gap that no failure
+has exposed, so it yields no row. The hit for `false negative` and the hit
+for `invisible to a passing` are in entries that CR-001 already holds as
+encounters. The hits for `goes stale silently` are in the entry on the common risk
+catalogue (line 901) and the entry on service lint hygiene (line 1219). The
+title of the entry for N6 (line 2414) wraps across two lines, so the line
+match missed it. The whole reading covered it. The entries that yield rows
+are 79 of the 187. The rest report shipped work,
+state a work item or a wish, or record a gap in this project's process text
+without a failure, and yield none.
+
+| Label | Candidate as its source states it | ET-1 | ET-2 | ET-3 | ET-4 | Outcome |
+|---|---|---|---|---|---|---|
+| BU-01 | Line 356, "P1-N014 specified, 2026-10-29 (T046)": `orchestrator-v1.md` claimed a v1.4.0 pin, and the Classification pins 1.6.0. Corrected in the node's execute | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-10-29 |
+| BU-02 | Line 356: the register's P1-N014 line reads `specified`, where the older Backlog entry said `identified` | Holds | Holds | Holds | Holds | Merge, CR-005, same investigation as BU-01 (task T046). Adds an instance, no encounter |
+| BU-03 | Line 379, "Migrated to methodology 1.6.0": the migration had no Backlog entry until task T046 found it and recorded it late | Holds | Holds | Holds | Holds | Merge, CR-005, same investigation as BU-01 (task T046). Adds an instance, no encounter |
+| BU-04 | Line 384, "P3-N002 specified, 2026-10-29 (T043)": two plan defects, a derivation rule that yields cycles on real edges and a journal event kind placed in the wrong child | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| BU-05 | Line 422, "P3-N003 specified, 2026-10-29 (T044)": the parent plan's "four instances" of the execution-environment class are two independent encounters | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-10-29 |
+| BU-06 | Line 422: the Risk register shares the Backlog's lost-update hazard under parallel dispatch |  |  |  |  | Seen again: RP-20 |
+| BU-07 | Line 614, "A blind task's scratch directory is shared": reading 1's verdicts sat in the session's shared scratch directory when reading 2 ran, and task T065 left `/gates.py` outside every repository | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| BU-08 | Generalization of BU-07: independent sessions isolated by checkout can see each other's output through other shared state | Holds | Holds | Fails, see below | Holds | Defer |
+| BU-09 | Line 620, "Dispatch checks that the task's worktree exists": task T066 was dispatched before its worktree existed | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| BU-10 | Line 637, "Re-vendor the conformance corpus into the service repository": the fixture P3-N014 adds leaves the service's vendored copy behind its source | Holds | Holds | Holds for CR-005 | Holds | Merge with exposure, CR-005 |
+| BU-11 | Line 656, "Editorial pass over the plan documents to the prose rules": the plan and specification documents break P-001 to P-008 often enough that the owner could not follow them | Holds | Fails (A4) | Holds | Holds | Reject, ET-2. Turns on part (a) |
+| BU-12 | Line 667, "Reconcile RU-016's Applied list with the plans that cite it": the list names T039, T043 and T055, while the plans of five nodes cite the ruling at planning | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-10-30 |
+| BU-13 | Line 676, "The service repository cites a findings file its main does not hold": the service's Backlog and runbook cite `docs/findings/alias-assumptions.md`, and this Backlog says P2-N013 delivered it on a branch | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-10-30 |
+| BU-14 | Line 687, "No committed test runs the plugin tools the way they run" |  |  |  |  | Seen again: RP-24 (N14) |
+| BU-15 | Lines 710 and 726: two nodes reach the selection rule in `dispatch.md`, and two nodes edit the same six role contracts. The Orchestrator merged both sets of edits by hand |  |  |  |  | Seen again: RP-20 (N10). A merge conflict is not a lost update, so ET-3 stays unmet |
+| BU-16 | Line 735, "Retiring the Ruling register's `Applied:` field": the journal cross-check failed on 2026-09-17 until five rulings' lists were updated by hand | Holds | Holds | Holds for CR-005 | Holds | Merge with exposure, CR-005. The check signalled at once, so the row is the mitigation working and adds no encounter |
+| BU-17 | Line 753, "The comprehension model cannot say built but broken": a part whose nodes are all `done` reads `built` even when it does not work | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| BU-18 | Line 783, "The omission check should read the comprehension model's parts": otherwise the catalogue acquires a fifth hand-written encoding of what a register knows | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| BU-19 | Line 796, "Mechanizing the deterministic half of the class-to-instance check": mechanizing a judgment produces a tool that asserts a cause it did not test, which is R16 | Holds | Holds | Holds for CR-004 | Holds | Merge with exposure, CR-004 |
+| BU-20 | Line 821, "Criterion I8's corpus figure is ambiguous": the Cost log's 38 rows and the journal's 39 task results give two readings of one count | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| BU-21 | Line 832, "Parallel dispatch collides with the single-Backlog write": two roles running at once both append, and the second write silently drops the first |  |  |  |  | Seen again: RP-19 and RP-20 (N10) |
+| BU-22 | Line 855, "The comprehension model": the plan's earlier default of no K-003 amendment was superseded by the owner's override and "corrected here 2026-10-29 on P3-N006's finding" | Holds | Fails (A4) | Holds | Holds | Reject, ET-2. Turns on part (a) |
+| BU-23 | Line 901, "The common risk catalogue": a local duplicate of the catalogue "would instantiate the catalogue's own 'a copy goes stale silently' class" |  |  |  |  | Seen again: RR-18 (N6) |
+| BU-24 | Line 941, "Sequence mode: run it": W-001's "landing summary" has no local referent, and the owner's Asks clarification removes a stop unless another condition catches it | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| BU-25 | Line 1030, "The Backlog carries two open entries for P3-N001, one of them stale": the sketch entry still describes the plan as `draft` with three chunks | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-09-17 |
+| BU-26 | Lines 1062, 1287, 2220, 2450 (iii), 2479 and 2487: the `specify`, `break down` and `plan` packet rows omit documents that tasks keep needing |  |  |  |  | Seen again: RR-06 |
+| BU-27 | Line 1087, "'Asks' in a report means only what the reader can act on now": a report listed an open question as an ask while saying no answer was wanted | Holds | Fails (A4) | Holds | Holds | Reject, ET-2. Turns on part (a). The owner's clarification awaits an upstream amendment of W-008 |
+| BU-28 | Line 1115, "Six dangling links inside verbatim upstream quotations": byte-exact quotations carry the methodology's repo-relative links, which cannot resolve here | Holds | Fails (A4) | Holds | Holds | Reject, ET-2. Turns on part (a). A change to the link checker in methodology-tools removes it |
+| BU-29 | Line 1154, "Chunk-1 child: service repository bootstrap": the `mtool` form audit and link check could not run, because dispatch environments hold no `mtool`. The new Classification's cross-repo links point at `blob/main` of this repository, which has no `main`, and dangle | Holds | Holds | Holds | Holds | Admit, [CR-010 (a task depends on a fact about its environment that nobody checked)](proposals/common-risk-catalogue.md#cr-010). Encounter 2026-08-27, dated by Cost log row T007 |
+| BU-30 | Line 1173, "Chunk-1 child: reachability slice": the first deploy answered 404 on every path |  |  |  |  | Seen again: CR-001, encounter 2026-08-27 |
+| BU-31 | Line 1173: `esbuild` must sit in `dependencies`, or SAM's isolated build sandbox cannot see it | Holds | Holds | Holds for CR-001 | Holds | Merge with exposure, CR-001 |
+| BU-32 | Line 1219, "Service repo lint hygiene: ignore `.aws-sam/`": the assignment was made against a stale reading of the service repository |  |  |  |  | Seen again: RP-14 (N6) |
+| BU-33 | Line 1274, "`plan_read` passes through a stage outside the lifecycle vocabulary": the service parser accepts a stage the form checker rejects |  |  |  |  | Seen again: RP-01 |
+| BU-34 | Line 1274: the Implementer chose the pass-through silently, where the question should have returned as `needs-judgment` | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1. R4 states the same failure (RR-04) |
+| BU-35 | Line 1308, "`sam validate --lint` and `sam build` for the P2-N009 template changes": the dispatch environment holds no SAM CLI, so the template was checked as YAML and through an equivalent `esbuild` bundle | Holds | Holds | Holds | Holds | Merge, CR-010, encounter 2026-08-29, dated by Cost log row T010 |
+| BU-36 | Line 1313, "Keep the service repo's register fixture in sync": the fixture is a byte copy of this repository's register and "will drift silently" | Holds | Holds | Holds for CR-005 | Holds | Merge with exposure, CR-005 |
+| BU-37 | Lines 1321, 2680 and 2852: three entries stayed open after their work shipped, and the service review of task T051 found them: P1-N009 at `specified`, the service-side adoption of the shared grammar, and CI for the service | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-10-29. One investigation, so one encounter |
+| BU-38 | Line 1321, "Plugin tooling on the portfolio stack": specifying found that `sync_agents` cannot be ported after the cutover, because `CLAUDE.md` names it | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| BU-39 | Line 1450, "`journal_tail`'s duplicate-ID behaviour changed in the port": the Python keeps the last occurrence of a repeated node ID, and the TypeScript port through the shared unit keeps the first | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-08-30, dated by Cost log row T014 |
+| BU-40 | Line 1475, "A JSON configuration file cannot carry a required comment": a criterion asked for a comment in a file that has no comment syntax | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| BU-41 | Lines 1483, 1547 and 1558: `test/plan-register.test.ts` froze a snapshot of the live register and broke at every acceptance |  |  |  |  | Seen again: RP-04 (CR-007, encounter 2026-08-30) |
+| BU-42 | Line 1595, "The form checker on the shared unit": a port bug, an early `path.resolve()` that would have changed every finding's printed path, caught by the differential harness before it shipped | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| BU-43 | Line 1679, "Preserved deviation": `form_check` never checks that a Backlog entry's stage designation matches the register's where a Workflow is declared. The invariant has two clauses, and the checker implements one | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| BU-44 | Line 1731, "The Cost log's sequentiality check cannot tell a gap in flight from a gap forever": a warning that fires routinely gets ignored, and a permanent gap hides in the transient noise | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| BU-45 | Generalization of BU-44: a check whose warning fires routinely hides the one real finding among the routine ones | Holds | Holds | Fails, see below | Holds | Defer |
+| BU-46 | Line 1773, "Methodology amendments for delegated, multi-agent work drafted": the four gaps of amendments A1 to A4 |  |  |  |  | Seen again: BC-10 |
+| BU-47 | Line 1825, "The portfolio register's row for this project is stale" |  |  |  |  | Seen again: RP-13 |
+| BU-48 | Line 1870, "Bare methodology identifiers in the six contracts": W-002, W-003, W-006, R1, R4 and R5 appear without their names | Holds | Fails (A4) | Holds | Holds | Reject, ET-2. Turns on part (a). P-004 already binds it |
+| BU-49 | Line 1894, "Methodology citations in the process spec point at the superseded pin": nine links target the `v1.3.0` tag after the pin moved to 1.4.0 | Holds | Holds | Holds | Holds | Merge, CR-005, same investigation as RP-09 (the planning of P1-N014). Adds an instance, no encounter |
+| BU-50 | Lines 1926, 1943 and 2200: the bundle could not load under ESM and the import check was a false negative. `plan_lease_release` failed against real DynamoDB |  |  |  |  | Seen again: CR-001, encounter 2026-09-01 (two encounters) |
+| BU-51 | Line 1960, "Deploy the service from CI on merge": a deploy took the service down, and nothing noticed until a session called the endpoint | Holds | Holds | Holds | Holds | Admit, [CR-011 (a deployed service fails and nothing notices)](proposals/common-risk-catalogue.md#cr-011) |
+| BU-52 | Line 1960: four distinct deploy defects on the way to the first green run |  |  |  |  | Seen again: CR-001, encounter 2026-09-06 |
+| BU-53 | Line 2033, "Alias assumptions verified against AWS documentation": the environment's egress policy denied `docs.aws.amazon.com`, so no role could read the documentation the criteria require it to cite. Blocked 2026-09-01 before dispatch | Holds | Holds | Holds | Holds | Merge, CR-010, encounter 2026-09-01 |
+| BU-54 | Line 2126, "Deploy, smoke and promote on merge to main", task T033: the plan's text of owner action O7 was too narrow, because the template resolves two Secrets Manager references and not one | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-09-01 |
+| BU-55 | Line 2126, task T034: the trust-policy section of the deploy role's document reasoned that the repository predated the immutable-claims cutoff. It was created 2026-08-26, so the reasoning was wrong and is corrected and dated | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-09-02 |
+| BU-56 | Line 2176, "Continuous monitoring for the service, between deploys": nothing catches breakage that arrives between deploys, such as an expired credential or a revoked App installation | Holds | Holds | Holds for CR-011 | Holds | Merge with exposure, CR-011 |
+| BU-57 | Line 2185, "Continuous integration for this coordinating repository": `form_check` and the `mtool` audit run only when a role session remembers to run them | Holds | Holds | Fails, see below | Holds | Defer |
+| BU-58 | Line 2240, "Plan nodes have no way to state a dependency": the default "earlier siblings `done`" would have held P2-N012 behind an unrelated node | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| BU-59 | Line 2277, "The session's AWS environment variables are placeholders, not credentials": variables that look like credentials contradicted the premise that no dispatched session holds AWS access. One authorized call showed the premise held | Holds | Holds | Holds for CR-010 | Holds | Merge with exposure, CR-010. The premise was checked, so the row is the mitigation working |
+| BU-60 | Line 2295, "A journalled dispatch is not evidence that a task was dispatched": the Orchestrator wrote task T034's `dispatched` event and told the owner it was running before the launch, which had been skipped | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| BU-61 | Generalization of BU-60: a record of an action is written before the action, and is read as evidence that the action happened | Holds | Holds | Holds | Holds | Admit, [CR-012 (a record is written before the action it records)](proposals/common-risk-catalogue.md#cr-012). Encounter 2026-09-02 |
+| BU-62 | Line 2311, "A session cannot tell a missing service from an unreachable one" |  |  |  |  | Seen again: RR-24 |
+| BU-63 | Line 2325, "The no-retry rule has never been tested against a service that answers badly": both R12 cases remove the capability outright, so not retrying took no discipline |  |  |  |  | Seen again: RR-21 (CR-001, encounter 2026-09-07) |
+| BU-64 | Line 2335, "`enlistment.md` tells a session what to do and leaves a person guessing": steps a person performs name no command | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| BU-65 | Line 2335: the R12 exercise asks a session for a startup timing that no session can produce |  |  |  |  | Seen again: RR-23 |
+| BU-66 | Line 2335, "Third failure, 2026-09-07": the Orchestrator gave an owner on Windows a Unix-shaped timing command without checking the platform. It hung on the working branch and cost five minutes | Holds | Holds | Holds | Holds | Merge, CR-010, encounter 2026-09-07 |
+| BU-67 | Line 2365, "The form checker does not check a plan or specification's Status against its node's stage": a specification sat at `Status: draft` for three weeks after its gate | Holds | Fails (A4) | Holds | Holds | Reject, ET-2. Turns on part (a). K-007 requires the Status transitions |
+| BU-68 | Line 2383, "Project comprehension and continuous implementation sketched and planned": the first draft was written without reading Allegro, because no `add_repo` tool was available. Reading it later changed the plan | Holds | Holds | Holds | Holds | Merge, CR-010, encounter 2026-09-16 |
+| BU-69 | Line 2400, "The Orchestrator cannot delete a remote branch": `git push --delete` returned HTTP 403, and three scratch branches are stranded | Holds | Holds | Holds | Holds | Merge, CR-010, encounter 2026-09-16 |
+| BU-70 | Line 2414, "A Backlog entry describing another repository goes stale silently" |  |  |  |  | Seen again: RP-14 (N6) |
+| BU-71 | Line 2433, "No workflow linter is available to sessions authoring workflows": task T031 validated the project's first workflow as YAML plus a manual read, because no `actionlint` exists on the machine | Holds | Holds | Holds | Holds | Merge, CR-010, encounter 2026-09-01, dated by Cost log row T031 |
+| BU-72 | Line 2442, "The selection rule is restated outside P3-N009's four statements": `dispatch.md` and an agent contract restate "earlier siblings `done`" | Holds | Holds | Holds for CR-005 | Holds | Merge with exposure, CR-005 |
+| BU-73 | Line 2450 (i), "Process spec maintenance": W-006 requires a merged branch to be deleted, and ten merged branches survived until the owner cleared them | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| BU-74 | Lines 2499 and 2513: a file with NUL bytes read as binary and ripgrep dropped it from searches, and the proposal that a checker assert every source file reads as text |  |  |  |  | Seen again: RP-22 and RP-23 (N12, N13) |
+| BU-75 | Line 2534, "Additions to spec C2's permitted set": present-tense claims in the ported tools "were false the moment the cutover landed" |  |  |  |  | Seen again: RP-12 |
+| BU-76 | Line 2576, "A `needs-judgment` return leaves its cost unrecorded": task T017 consumed about 253k tokens and produced no Cost log row | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| BU-77 | Line 2592, "Orchestrator brief defect": the T017 packet said "all five test files" when there are four | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-08-30, dated by Cost log row T018 |
+| BU-78 | Line 2701, "`node` became a runtime assumption where `python3` was" |  |  |  |  | Seen again: RR-13 and RP-02 (N8) |
+| BU-79 | Line 2745, "Chunk-1 child: degrade to git-only": three client reconnects read as a violation of "does not retry" until the rule was stated as governing the session and not the transport | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+
+**Counts.** Found 58. Admitted 3: BU-29, BU-51, BU-61. Merged 27: BU-01, BU-02, BU-03, BU-05, BU-10, BU-12, BU-13, BU-16, BU-19, BU-25, BU-31, BU-35, BU-36, BU-37, BU-39, BU-49, BU-53, BU-54, BU-55, BU-56, BU-59, BU-66, BU-68, BU-69, BU-71, BU-72, BU-77. Rejected 25: BU-04, BU-07, BU-09, BU-11, BU-17, BU-18, BU-20, BU-22, BU-24, BU-27, BU-28, BU-34, BU-38, BU-40, BU-42, BU-43, BU-44, BU-48, BU-58, BU-60, BU-64, BU-67, BU-73, BU-76, BU-79. Deferred 3: BU-08, BU-45, BU-57. Seen again 21: BU-06, BU-14, BU-15, BU-21, BU-23, BU-26, BU-30, BU-32, BU-33, BU-41, BU-46, BU-47, BU-50, BU-52, BU-62, BU-63, BU-65, BU-70, BU-74, BU-75, BU-78.
+
+**Rows argued singly.**
+
+- BU-01, BU-02, BU-03: the Classification pins 1.6.0
+  and records the migration of 2026-10-28. `orchestrator-v1.md` claimed v1.4.0.
+  The claim is a statement about a source its document does not own, as RP-09
+  is. Task T046 found all three. The definition of an independent encounter
+  counts one investigation once, so BU-02 and BU-03 add
+  instances and no encounter.
+- BU-05: the plan counted four instances of the
+  execution-environment class. The specification counted two by the
+  independence rule. The Backlog entries are the source, and the plan's count
+  is the description that disagreed. Task T044 found it, with the stale
+  binding version of CL-22.
+- BU-07 and BU-08: the stated failure is the shared
+  scratch directory of this project's blind readings. ET-1 decides. The
+  generalization holds ET-1, ET-2 and ET-4 and fails ET-3, because no
+  reading is recorded to have used another's output. One recorded case admits
+  it.
+- BU-10: the vendored copy lags its source by decision. The
+  drift check `sync_shared_unit.ts --check` exists, and the service does not
+  run it automatically, so nothing at the service signals the lag. The row
+  records no event of its own. Convention *merge with exposure*.
+- BU-12 and BU-13: both are open entries dated
+  2026-10-30 by tasks T054 and T055. For BU-13 the pass re-read
+  the service repository at `58e6819`. `docs/findings/` does not exist there.
+- BU-15: git raised the conflict and the Orchestrator kept both
+  sets of edits. No update was lost, so ET-3 stays unmet for RP-20. The row
+  strengthens the exposure and does not evidence the class.
+- BU-16: the check signalled loudly until five lists were
+  updated. CR-005's class requires that nothing signals the difference. The
+  row is the mitigation working, as RR-19 is for CR-001. Convention *merge
+  with exposure*.
+- BU-11, BU-22, BU-27, BU-28,
+  BU-48 and BU-67 reject on ET-2 by part (a) of E1's
+  reading. BU-11: P-001 to P-008 already bind the prose.
+  BU-22: K-010 and K-011 already bind content that a recorded
+  decision supersedes. BU-27: W-008 at v1.6.0 lists asks as
+  "decisions and actions requested of the reader" and carries no limit to what
+  the reader can act on now. An amendment of W-008 removes the failure for
+  every project, and P3-N016 holds the upstream half. BU-28: a
+  change to the link checker in methodology-tools removes it, and the entry
+  says it was raised there. BU-48: P-004 already requires names.
+  BU-67: K-007 already requires the Status transitions. All six rows
+  turn on part (a). If the owner strikes part (a) at the P3-N003 gate, these
+  rows and the rows of pass 5 that cite A4 need a second look, and finding S4
+  says why.
+- BU-34: R4 (role overreach) states the same failure, and
+  RR-04 rejected it on ET-1.
+- BU-29, BU-35, BU-53, BU-71,
+  BU-66, BU-68 and BU-69: each is a task
+  that needed something its environment lacked, found by a different task on
+  a different day. The entry test for the class is argued under *The classes
+  the passes admitted*. The Backlog entries of BU-29,
+  BU-35 and BU-71 carry no date, so the encounters
+  take the date of the Cost log row of the task named in the row.
+- BU-59: the premise that no dispatched session holds AWS
+  access held. One authorized call checked it. The row is CR-010's mitigation
+  working. Convention *merge with exposure*.
+- BU-51 and BU-56: the outage of 2026-09-01 is also
+  CR-001's encounter of that date, through its ESM defect. The failure here
+  is a different one: the deploy broke the service and no check noticed. The
+  two failures of one incident are stated apart, as RR-25 stated two failures
+  of R16's incident. BU-56 states the class for the time between
+  deploys and records no event of its own.
+- BU-60 and BU-61: the stated failure needs
+  this project's Orchestrator and journal. The generalization needs only a
+  record written ahead of the act it records.
+- BU-44, BU-45: the stated failure needs the
+  Cost log and its task IDs. The generalization holds ET-1, ET-2 and ET-4.
+  ET-3 fails: the standing warning about task T017 is a true finding, and the
+  entry on line 2576 says it is not noise. No finding is recorded to have
+  been hidden by routine warnings.
+- BU-57: ET-3 fails, because no defect is recorded to have
+  shipped for want of a run of the checks. The dangling links of
+  BU-29 shipped because the tool was absent, which is CR-010's
+  cause.
+- BU-39: the Python and the TypeScript port of a shared grammar
+  differ for a repeated node ID. This is CR-005's second-implementation form.
+  The differential diff of task T014 found it, which differs from RP-01,
+  found at the acceptance of task T010. Date 2026-08-30 is that of row T014.
+- BU-37: one service review found three entries open after their
+  work shipped. One investigation counts once.
+- BU-77, BU-54, BU-55: a brief or a plan states
+  something that its source does not hold. These claims were wrong when
+  written. CR-005's class sentence and reaches line cover "briefs that repeat
+  a claim", and RP-01 is a second implementation that was never in step.
+- BU-49: the same investigation as RP-09, the planning of P1-N014.
+  The row adds an instance and no encounter.
+- Seen-again rows cite their first row and add nothing. BU-63
+  extends RR-21, which the sweep for CR-001 counts under the R12 exercise.
+
+### Pass 5: the Cost log, notes column
+
+**Method.** The pass read the notes column of every row of `docs/cost-log.md`
+whole at commit `089b79c`: 74 rows, T001 to T075 with no row for T017, which
+returned `needs-judgment`. It ran no search. It read each note for a passage
+that records something that went wrong. The rows below cite the notes of 52 rows by task ID.
+The other notes report tokens, tool calls, wall-clock, commits and packet
+widenings, and yield none.
+
+| Label | Candidate as its source states it | ET-1 | ET-2 | ET-3 | ET-4 | Outcome |
+|---|---|---|---|---|---|---|
+| CL-01 | Row T001: the elapsed time "spans the design conversation rather than agent work" | Holds | Holds | Holds | Holds | Merge, CR-009, encounter 2026-08-25 |
+| CL-02 | Row T004: about 110 minutes of wall-clock for about 68k tokens |  |  |  |  | Seen again: BC-07 |
+| CL-03 | Rows T005, T006, T011, T012, T020 and T028: briefs and packets that omitted a document the task needed, or invited work ahead of its stage. T012 counts the seventh firing of R6 |  |  |  |  | Seen again: RR-06 |
+| CL-04 | Row T009: rework after the first backward transition, the 404 on every path |  |  |  |  | Seen again: CR-001, encounter 2026-08-27 |
+| CL-05 | Rows T010, T024, T030 and T039: a subagent's self-reported model was contradictory, inconsistent with the tier dispatched, or different from the pin, and a role's count of its tool calls differed from the harness's | Holds | Fails (A5) | Holds | Holds | Reject, ET-2. Turns on part (b) |
+| CL-06 | Rows T002 to T075: the harness reported no input and output split, only a running total, a remaining-budget counter or nothing. The `input tok` and `output tok` columns read `n/a` | Holds | Fails (A5) | Holds | Holds | Reject, ET-2. Turns on part (b) |
+| CL-07 | Rows T015 and T016: T015 found `test/plan-register.test.ts` broken by the Orchestrator's own acceptance commit. T016 found the duplicate-ID divergence and the `path.resolve()` port bug |  |  |  |  | Seen again: RP-04, BU-39 and BU-42 |
+| CL-08 | Row T018: the redispatch of task T017, which returned `needs-judgment` and cost about 253k tokens with no row of its own |  |  |  |  | Seen again: BU-76 |
+| CL-09 | Row T019: the founding plan claimed a v1.3.0 pin in two places, and the Classification has said 1.4.0 since 2026-08-30 |  |  |  |  | Seen again: RP-09 |
+| CL-10 | Row T022: the Write tool refused a file whose name contains "report", "apparently a path heuristic"; the role routed around it with a heredoc | Holds | Fails (A5) | Holds | Holds | Reject, ET-2. Turns on part (b) |
+| CL-11 | Row T025: the Orchestrator's brief said two Backlog entries existed in the service repository, and the Orchestrator had written them in this one | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-09-01 |
+| CL-12 | Rows T026 and T027: the reserved-word defect on the first call to the production lease table, and the suspicious package met while hunting a reserved-word list (R14) |  |  |  |  | Seen again: CR-001, encounter 2026-09-01, and RR-14 |
+| CL-13 | Row T031: the lint-gap claim in the brief was stale, and `api.github.com` was unreachable, so action SHAs came from `git ls-remote` |  |  |  |  | Seen again: RP-14, and BU-71 for the unreachable host (same task, so an instance of that encounter) |
+| CL-14 | Row T035: neither the Service Authorization Reference nor the SAM permissions page documents a `transform` resource type, so the missing grant is evidenced only by the runtime denial |  |  |  |  | Seen again: CR-001, encounter 2026-09-06 |
+| CL-15 | Row T036: the brief said `AWS::Lambda::Permission` has no CloudFormation property for `lambda:InvokedViaFunctionUrl`, and the resource reference documents it | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-09-06 |
+| CL-16 | Row T037: the revert branch would not have reverted anything, because a branch cut before a change makes no change to that line. The Orchestrator found it by simulating the merge | Holds | Holds | Holds for CR-001 | Holds | Merge with exposure, CR-001. The simulation caught it before use, so the row is the mitigation working |
+| CL-17 | Row T037: the deliberate-failure message would have read "returned 200, expected 200", which reads as a smoke-test bug | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| CL-18 | Row T038: the brief's cited precedent did not resolve, because the placeholder it pointed at had been filled in | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-09-07 |
+| CL-19 | Row T042: the owner's Asks clarification removes a sequence stop |  |  |  |  | Seen again: BU-24 |
+| CL-20 | Row T043: two plan defects, a derivation rule that yields cycles and a journal event kind in the wrong child |  |  |  |  | Seen again: BU-04 |
+| CL-21 | Row T044: the plan's Status line stayed stale after its gate | Holds | Fails (A4) | Holds | Holds | Reject, ET-2. Turns on part (a). K-007 requires the Status transitions |
+| CL-22 | Row T044: the binding version in `CLAUDE.md` was stale | Holds | Holds | Holds | Holds | Merge, CR-005, same investigation as BU-05 (task T044). Adds an instance, no encounter |
+| CL-23 | Row T046: `orchestrator-v1.md` claims a v1.4.0 pin, the Backlog's P1-N014 entry lags the register, and `dispatch.md`'s handoff contract lacks the Terms introduced line |  |  |  |  | Seen again: BU-01 and BU-02. The third finding is P1-N014's work and records no failure |
+| CL-24 | Row T047: criterion G5 was untested because `vitest` was absent, and G3 ran by script because `mtool` was absent | Holds | Holds | Holds | Holds | Merge, CR-010, encounter 2026-10-29 |
+| CL-25 | Row T048: the stale comprehension-model Backlog entry was corrected at acceptance. The breakdown's child A edge list missed the spec-header modification |  |  |  |  | Seen again: BU-25 for the entry. The edge list is this project's plan defect and rejects on ET-1 (A1) as BU-04 does |
+| CL-26 | Row T049: two located findings, on the parent specification's step 1 and on the Backlog's Completed convention | Fails (A1) | Holds | Fails (A2) | Fails (A3) | Reject, ET-1 |
+| CL-27 | Row T051: the service review's housekeeping fixed seven of eight findings and closed four further Upcoming entries |  |  |  |  | Seen again: BU-37 |
+| CL-28 | Row T053: the central plan document found three roadmap decisions missing from the register and five stale texts | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-10-29 |
+| CL-29 | Row T054: the README's pin was stale, found and corrected at acceptance | Holds | Holds | Holds | Holds | Merge, CR-005, same investigation as BU-12 (task T054). Adds an instance, no encounter |
+| CL-30 | Row T055: one contradiction located in the service repository |  |  |  |  | Seen again: BU-13 |
+| CL-31 | Rows T056, T061 and T064: defects in this project's own predicate drafts, a status-token defect and self-contradictions of draft 3, found by the pre-pass and the readings | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+| CL-32 | Rows T057, T058, T073, T074 and T075: plan and process text that contradicts a recorded decision, found and marked or corrected at acceptance. T057 found unmarked pre-override K-003 passages, T058 a check text from before the refinement, T073 and T075 text struck by the owner, T074 four contradictions of RU-016 and other rulings | Holds | Fails (A4) | Holds | Holds | Reject, ET-2. Turns on part (a). K-010 and K-011 already bind them |
+| CL-33 | Rows T065, T066 and T067: a stray `/gates.py`, a dispatch before the worktree existed, and blindness that holds on the commit graph only |  |  |  |  | Seen again: BU-07 and BU-09 |
+| CL-34 | Row T069: `plan.md`'s No-plan-yet list was stale, corrected at acceptance | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-10-30 |
+| CL-35 | Row T070: the E1 branch merged with conflicts against P3-N014, resolved by keeping both |  |  |  |  | Seen again: BU-15 |
+| CL-36 | Row T072: `npm test` was unrun in the worktree and passed on the Orchestrator's run after the merge | Holds | Holds | Holds | Holds | Merge, CR-010, encounter 2026-10-30 |
+| CL-37 | Row T073: the plan found a stale lease-release Backlog row, open after the fix of 2026-09-01 | Holds | Holds | Holds | Holds | Merge, CR-005, encounter 2026-10-30 |
+| CL-38 | Row T075: a register deadlock between P2-N003 and P2-N006, broken by a note on P2-N006 | Fails (A1) | Holds | Holds | Fails (A3) | Reject, ET-1 |
+
+**Counts.** Found 21. Admitted 0. Merged 12: CL-01, CL-11, CL-15, CL-16, CL-18, CL-22, CL-24, CL-28, CL-29, CL-34, CL-36, CL-37. Rejected 9: CL-05, CL-06, CL-10, CL-17, CL-21, CL-26, CL-31, CL-32, CL-38. Deferred 0. Seen again 17: CL-02, CL-03, CL-04, CL-07, CL-08, CL-09, CL-12, CL-13, CL-14, CL-19, CL-20, CL-23, CL-25, CL-27, CL-30, CL-33, CL-35.
+
+**Rows argued singly.**
+
+- CL-01: the note says the elapsed time spans the design
+  conversation. The figure is CR-009's class, found in a record rather than a
+  reader's mistake. It is the second encounter, dated 2026-08-25.
+- CL-05: a model's report of its own model, or of its own tool
+  calls, is wrong or absent. The Cost log's own notes record that the project
+  took the tier from the dispatch, not from the self-report. A harness that
+  reports the model it served removes the need to ask the role. Part (b) of the reading applies, as it did to RR-22. The row
+  turns on part (b).
+- CL-06: the `input tok` and `output tok` columns read `n/a` in all 74 rows.
+  The notes give the reason. The harness reported a running total, a
+  remaining-budget counter or nothing. The figure is the harness's to report,
+  so part (b) applies. The row turns on part (b).
+- CL-10: the role named the cause as "apparently a path heuristic",
+  which no test confirmed. The refusal is the harness's behavior. Part (b)
+  applies.
+- CL-11, CL-15, CL-18: briefs written by the
+  Orchestrator that state something the source does not hold. Each task found
+  its own. They are separate investigations, and each is an encounter of
+  CR-005.
+- CL-16: the simulation of the merge caught a revert branch that
+  would have reverted nothing, before anyone relied on it. CR-001's
+  mitigation is to prove a check able to fail. The row is that mitigation
+  working. Convention *merge with exposure*.
+- CL-21 and CL-32: K-007, K-010 and K-011 already bind
+  them. Both rows turn on part (a).
+- CL-22, CL-29: the same investigation as a row of pass 4,
+  so each adds an instance and no encounter.
+- CL-24 and CL-36: the missing `vitest` and `mtool`, and
+  the unrun `npm test` in a worktree, are CR-010's class. Two tasks on two
+  days.
+- CL-13 cites two rows. The unreachable host belongs to task T031,
+  whose encounter BU-71 already records.
+
+### The classes the passes admitted
+
+Each table answers the four conditions in full. The relation to the
+named candidate is stated where the plan asks for it.
+
+**CR-002, an agent adopts a package it found by searching** (RR-14, N2).
+
+| Condition | Answer |
+|---|---|
+| ET-1 | Holds. The precondition is an agent that searches a public registry for a package. No artifact of this project is needed. |
+| ET-2 | Holds. Part (a): a search of the rule files for `supply`, `dependen` and `untrusted` found no rule on dependencies that an agent chooses. [S-001 (no secrets in repositories, ever)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/security.md#s-001--no-secrets-in-repositories-ever) and S-002 (exposure means rotate and purge, immediately) cover secrets. Part (b): a hostile package stays a hazard whatever a registry or the methodology changes. |
+| ET-3 | Holds. One encounter, 2026-09-01, in R14. Task T027 of node P2-N010 met the package. |
+| ET-4 | Holds with `[C1+]`. See the header table below. |
+
+**CR-003, fetched content carries an instruction for the agent** (RR-15, N3).
+The plan asks whether R14's class states it too. It does not. CR-002 states
+that an agent adopts code it found. CR-003 states that an agent follows prose
+it read. R15 calls itself R14's sibling, and the two differ in the object
+(a package against an instruction), in the reach (dependency steps against
+every fetch) and in what the encounter evidences. One encounter does not
+evidence the other. The catalogue keeps two entries, so that the check can
+argue each class from its own reaches line.
+
+| Condition | Answer |
+|---|---|
+| ET-1 | Holds. The precondition is an agent that reads content its project does not author. |
+| ET-2 | Holds. Part (a): the rule files hold no rule on instructions in fetched content. Part (b): hostile prose in a page stays a hazard whatever any page's author does. |
+| ET-3 | Holds. One encounter, 2026-09-01, in R15. Task T030 of node P2-N013 fetched the AWS page. |
+| ET-4 | Holds with `[C1+]`. See the header table below. |
+
+**CR-004, a diagnostic names a cause it did not test** (RR-16, N4, with RR-25).
+
+| Condition | Answer |
+|---|---|
+| ET-1 | Holds. The precondition is diagnostic output that names a cause. The preflight workflow and AWS appear in the encounter, not in the precondition. |
+| ET-2 | Holds. Part (a): the rule files hold no rule on diagnostics. Part (b): a provider repairing one error text leaves every other provider and every project's own check output. |
+| ET-3 | Holds. One encounter, 2026-09-04, in R16. It covers both failures of the entry, because one set of three runs found both. |
+| ET-4 | Holds with `[C1+]`. The plan requires the header to admit the service repository, where the preflight ran. See the header table below. |
+
+**CR-005, a copy or description disagrees with its source, unseen**
+(RR-18, with RP-01, RP-06, RP-09, RP-10, RP-13, RP-14 and the seen-again
+rows). The stated forms of R5 and R10 are rejected on ET-1. The
+generalization is a different failure. It is not that the orchestration
+service diverges from git. It is that a copy diverges from its source with
+nothing to say so.
+
+| Condition | Answer |
+|---|---|
+| ET-1 | Holds. The precondition is a document that states or copies content another document or repository holds. Registers appear in the encounters only. |
+| ET-2 | Holds. Part (a): [K-010 (superseded content is never silently readable)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-010--superseded-content-is-never-silently-readable) and K-011 (found contradictions are marked, not routed around) bind content that contradicts a recorded decision. The block of [W-008 (reports map their deliverables)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-008--reports-map-their-deliverables) in the bootstrap is a copy audited for drift, so the rule applies the mitigation to one text. Rule M-002 (the review-round audit and census run) has the methodology's audit refresh stale summaries in its own register. No rule asks a project to anchor a statement about another repository or to check any other copy. Part (b): the hazard stays whatever any owner does. |
+| ET-3 | Holds. Four independent encounters from passes 1 and 2, in the first table below. Passes 3 to 5 add 17, in the second table. |
+| ET-4 | Holds with `[C1+]`. See the header table below. |
+
+| Date | Defect | Found by |
+|---|---|---|
+| 2026-08-29 | A service parser accepts a stage that the form checker rejects | The acceptance of task T010, plan-state read (node P2-N009) |
+| 2026-08-31 | The founding plan states a pin of v1.3.0 while the Classification says v1.4.0 | The planning of node P1-N014 |
+| 2026-08-31 | The Portfolio register records the pin as 1.3.0 and omits the service repository | The planning of node P1-N015 |
+| 2026-09-01 | The Backlog calls a gap open that another task closed six hours earlier | Task T031, pull-request checks (node P2-N014) |
+
+Each pair differs in defect and in the investigation that found it. The
+Backlog entry "Keep the service repo's register fixture in sync" warns
+that a fixture copy "will drift silently". It records no drift, so it is
+not an encounter. Row BU-36 cites it again as an exposure.
+
+Passes 3 to 5 add 17 encounters. Each pair differs in defect and in the
+task or review that found it. Rows that a task found together with another
+row of the same task add an instance and no encounter: BU-02, BU-03, CL-22, CL-29 and BU-49.
+
+| Date | Defect | Found by |
+|---|---|---|
+| 2026-08-26 | The Ruling register's `Applied:` lists were not kept in step with the journal's `precedent-applied` events | The cross-check added after trial 4 (BC-08) |
+| 2026-08-30 | The Python `journal_tail` keeps the last of two nodes with one ID, and its TypeScript port keeps the first | The byte-for-byte diff of task T014 (BU-39) |
+| 2026-08-30 | The brief of task T017 counted five test files where four exist | Task T017, reconciling its packet (BU-77) |
+| 2026-09-01 | The plan's text of owner action O7 named one Secrets Manager reference where the template resolves two | Task T033 (BU-54) |
+| 2026-09-01 | The brief of task T025 placed two Backlog entries in the service repository, where they were written in this one | Task T025 (CL-11) |
+| 2026-09-02 | The deploy role's document reasoned that the repository predated an immutable-claims cutoff, and it was created 2026-08-26 | Task T034 (BU-55) |
+| 2026-09-06 | The brief of task T036 said a CloudFormation property does not exist, and the resource reference documents it | Task T036 (CL-15) |
+| 2026-09-07 | The brief of task T038 cited a precedent whose placeholder had since been filled in | Task T038 (CL-18) |
+| 2026-09-17 | A sketch entry in the Backlog still described the P3-N001 plan as `draft` with three chunks | The specify stage of P3-N001 (BU-25) |
+| 2026-10-29 | `orchestrator-v1.md` claimed a v1.4.0 pin, and the Backlog's P1-N014 entry lagged the register | Task T046 (BU-01) |
+| 2026-10-29 | The parent plan counted four instances of one class where the Backlog holds two independent encounters | Task T044 (BU-05) |
+| 2026-10-29 | Three Backlog entries stayed open after their work shipped | The service review of task T051 (BU-37) |
+| 2026-10-29 | Three roadmap decisions were missing from the register, and five texts were stale | Task T053 (CL-28) |
+| 2026-10-30 | The `Applied:` list of RU-016 omitted the plans that cite the ruling | Task T054 (BU-12) |
+| 2026-10-30 | The Backlog and the service's runbook cite a findings file that the service's `main` does not hold | Task T055 (BU-13) |
+| 2026-10-30 | `plan.md`'s No-plan-yet list was stale | Task T069 (CL-34) |
+| 2026-10-30 | A Backlog row for the lease-release defect stayed open after the fix | Task T073 (CL-37) |
+
+The class now holds 21 independent encounters. All 17 that passes 3 to 5
+add are statements in this project's documents or briefs, found by its own
+tasks. Finding S5 records what that means for the entry's table.
+
+**CR-006, a rule meets contrary guidance where it applies** (RR-27, N5).
+The stated failure, RR-17, is rejected on ET-2. The generalization is the
+hazard that stays whatever the harness says. Its one encounter is the
+event of RR-17. An event can evidence a broader class than the one its
+source states, and it cannot make a rejected failure admissible. For that
+reason the class sentence of CR-006 names no harness notice.
+
+| Condition | Answer |
+|---|---|
+| ET-1 | Holds. The precondition is a rule given to agents and a surface that gives contrary guidance. No mechanism of this project is needed. |
+| ET-2 | Holds. Part (a): the rule files hold no general duty to state a rule where the agent meets it. They apply the mitigation to one rule. The Rationale of W-008 (reports map their deliverables) caches its block in the bootstrap "where it is re-read". Part (b): contrary guidance can come from any surface or page. |
+| ET-3 | Holds. One encounter, 2026-09-07, in R17. |
+| ET-4 | Holds with `[C1+]`. See the header table below. |
+
+**CR-007, a test freezes a snapshot of a document that changes by routine
+operation** (RP-04). The relation to CR-005: the frozen snapshot is a copy,
+and it failed loudly, not silently. The class sentence of CR-005 requires
+that nothing at the place of use signals the difference, so the encounter
+does not belong to it. The mitigations also differ.
+
+| Condition | Answer |
+|---|---|
+| ET-1 | Holds. The precondition is a test with recorded facts of a document that changes by routine operation. The Plan register appears in the encounter only. |
+| ET-2 | Holds. Part (a): [W-002 (existing tests are signals, not obstacles)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-002--existing-tests-are-signals-not-obstacles) governs when a test may change. No rule governs how a test is built. Part (b): the hazard stays in any project with a living document. |
+| ET-3 | Holds. One encounter, 2026-08-30. The acceptance commits of tasks T014 and T015 broke the test in turn. They are one defect observed again, so they count once. |
+| ET-4 | Holds with `[C1+]`. See the header table below. |
+
+**CR-008, a verification tool silently excludes part of its input**
+(RP-23, N13, with RP-22, N12). P3-N010's finding stands: the encounter is
+not CR-001's, because no environment differs between the check and the code.
+
+| Condition | Answer |
+|---|---|
+| ET-1 | Holds. The precondition is a check that relies on a tool which leaves part of its input unread. Ripgrep appears in the encounter only. |
+| ET-2 | Holds. Part (a): the rule files hold no rule on a tool's input filter. Part (b): ripgrep skips binary files by design, the cause here was a file the project wrote, and the hazard recurs in every tool with ignore rules. |
+| ET-3 | Holds. One encounter, 2026-08-30. Task T017 confirmed it at the cutover of node P1-N013. |
+| ET-4 | Holds with `[C1+]`. See the header table below. |
+
+**CR-009, a figure presented under one name includes something else**
+(BC-07, CL-01).
+
+| Condition | Answer |
+|---|---|
+| ET-1 | Holds. The precondition is a figure that a record names as one measure and that also includes another, such as an elapsed time that spans a wait for a person. The Cost log, the journal and the attended surface appear in the encounters only. |
+| ET-2 | Holds. Part (a): a search of the rule files for `latency`, `wall-clock`, `elapsed`, `measure` and `metric` found no rule on what a recorded figure includes. The one hit for `metric` is the motivation of a prose rule. Part (b): a harness that reports active time still leaves every figure a project computes to its own naming. |
+| ET-3 | Holds. Two encounters, 2026-08-25 and 2026-08-26, one in the Cost log and one in the Backlog. |
+| ET-4 | Holds with `[C1+]`. See the header table below. |
+
+**CR-010, a task depends on a fact about its environment that nobody
+checked** (BU-29, BU-35, BU-53,
+BU-71, BU-66, BU-68, BU-69,
+CL-24, CL-36). The relation to CR-001: CR-001 is a check
+that passes where the part fails. CR-010 is a task that cannot complete as
+specified, or completes through a stand-in, because its environment lacks
+something. No encounter here passed a check silently. Each task was blocked,
+deferred in writing, or found out at a person's cost. A stand-in that is not
+shown able to fail is a CR-001 case, so CR-010's mitigation cites it.
+
+| Condition | Answer |
+|---|---|
+| ET-1 | Holds. The precondition is a task and a runner whose environment lacks a tool, a host, a permission or a platform the task assumes. `mtool`, SAM, `add_repo`, a Windows shell and a branch ruleset appear in the encounters only. |
+| ET-2 | Holds. Part (a): searches of the rule files for `permission`, `egress`, `network`, `platform`, `shell`, `available` and `unreachable` found no rule on what a task's environment provides. Part (b): environments differ by project and by surface. No single change supplies every tool, host and permission that every project's tasks assume. |
+| ET-3 | Holds. Nine encounters between 2026-08-27 and 2026-10-30, each by a different task. |
+| ET-4 | Holds with `[C1+]`. See the header table below. |
+
+**CR-011, a deployed service fails and nothing notices**
+(BU-51, with BU-56). Two failures of one incident:
+the deploy of 2026-09-01 is CR-001's encounter through its ESM defect. This
+class is the second failure, that no check noticed.
+
+| Condition | Answer |
+|---|---|
+| ET-1 | Holds. The precondition is a deployed service and no check that runs against it live. Lambda, API Gateway and the session that called the endpoint appear in the encounter only. |
+| ET-2 | Holds. Part (a): searches of the rule files for `smoke`, `monitor`, `outage`, `health` and `deploy` found no rule on checking a live service. The hits for `deploy` are the section table of the rules README, the motivation of a secrets rule, and Q-004, which the record for CR-001 found illustrative and not live. The rules README reserves the families `D-` (delivery) and `O-` (operations) and holds no rule file for either at v1.6.0. A rule there would bind each project to act, and so would not remove the failure without action. Part (b): a service fails unnoticed whatever the methodology says, until its project runs a check against its own endpoint. |
+| ET-3 | Holds. One encounter, 2026-09-01, in BU-51. |
+| ET-4 | Holds with `[C1+] [deployable]`. See the header table below. |
+
+**CR-012, a record is written before the action it records**
+(BU-61, from the stated failure BU-60). The
+relation to CR-005: CR-005's source is a document or a repository. This
+class has an action that did not happen, and the record copies nothing.
+
+| Condition | Answer |
+|---|---|
+| ET-1 | Holds. The precondition is a record written ahead of the act it records, and a reader who takes the record as evidence. The Orchestrator, the journal and the dispatch of task T034 appear in the encounter only. |
+| ET-2 | Holds. Part (a): searches of the rule files for `journal`, `dispatched` and `ahead of` found no rule on when a record is written. Part (b): no harness can know when a project's own ledger is written. |
+| ET-3 | Holds. One encounter, 2026-09-02, in BU-61. |
+| ET-4 | Holds with `[C1+]`. See the header table below. |
+
+**The headers.** Criterion B13 requires each header to admit every
+repository where an encounter happened. The three repositories are all at
+C1.
+
+| Repository | Classification read |
+|---|---|
+| This repository, project-orchestrator | C1, S0, `component/library`, target `none/local` (`docs/classification.md`) |
+| Service repository, project-orchestrator-service | C1, S1, `backend-service`, target `serverless-aws`, Workflow declared on 2026-09-02, at commit `58e6819` |
+| Methodology repository, majodali/methodology | C1, S0, `methodology-corpus`, target `none/local`, at tag v1.6.0 |
+
+| Class | Repositories where encounters happened | Header | Admits each |
+|---|---|---|---|
+| CR-002 | The service (task T027). Recorded here. | `[C1+]` | Yes |
+| CR-003 | The service (task T030). Recorded here. | `[C1+]` | Yes |
+| CR-004 | The service (`oidc-preflight.yml`). Recorded here. | `[C1+]` | Yes |
+| CR-005 | This repository, the service and the methodology repository | `[C1+]` | Yes |
+| CR-006 | This repository (cloud sessions on scratch branches of it) | `[C1+]` | Yes |
+| CR-007 | This repository | `[C1+]` | Yes |
+| CR-008 | This repository | `[C1+]` | Yes |
+| CR-009 | This repository | `[C1+]` | Yes |
+| CR-010 | This repository, and the service repository (the tasks that built it, run from sessions of this one) | `[C1+]` | Yes |
+| CR-011 | The service repository (the outage of 2026-09-01). Recorded here. | `[C1+] [deployable]` | Yes for the service, whose target is `serverless-aws`. No for this repository, whose target is `none/local`, and no encounter happened here |
+| CR-012 | This repository | `[C1+]` | Yes |
+
+The tier floor is C1 for the reason that CR-001 gives. Every encounter
+is at C1, and the methodology's default for an unstated header is
+`[C1+]`. One class depends on a target. CR-011 carries `[deployable]`,
+which is `target ≠ none/local`. Its one encounter happened in the service
+repository, whose target is `serverless-aws`. The tag `[deployed]` is the
+narrower choice and is rejected: the service declared `Workflow: none
+declared` on 2026-09-01, so `deployed` was false when the outage happened,
+and a header that excludes the project at the time of its own encounter
+leaves the class inapplicable where it was evidenced. No other class
+depends on a type or a target, so no narrower tag is argued. A tag such as
+`[deployable]` would have excluded this repository from CR-004 and CR-005,
+where it recorded encounters. The reaches line, not the header, narrows
+each class to its parts.
+
+### Deferred candidates
+
+Six rows are deferred: RR-07, RP-05 and RP-20 from passes 1 and 2, and
+BU-08, BU-45 and BU-57 from pass 4.
+The catalogue's section *What this catalogue does not yet cover* lists each
+with its source and the evidence that would admit it. Passes 3 to 5 read the
+Backlog and the Cost log whole, and they added no encounter to the first
+three. A search of the Backlog and the Cost log for `ANTHROPIC_API_KEY`,
+`billing` and `API credits` found the watch item and the SDK constraint
+(BC-09) and no session that billed the wrong account, so RR-07 stays
+deferred. A search for `did not apply` and `failed to apply` found no failed
+patch, so RP-05 stays deferred. BU-15 and CL-35
+record merge conflicts that the Orchestrator resolved by keeping both sets of
+edits, and no lost update, so RP-20 stays deferred.
+
+### Named candidates: the full table
+
+Criterion B15 asks task E2 for the full table. It lists the fourteen
+candidates in the order of the plan's table, each with every row across the
+five passes that bears on it and its final outcome. The rows of passes 1 and
+2 are E1's. The rows of passes 3 to 5 are E2's.
+
+| Named | Candidate | Rows | Outcome |
+|---|---|---|---|
+| N1 | A check that cannot fail in the environment the code runs in | Sweep record for CR-001; BU-30, BU-31, BU-50, BU-52, BU-63, CL-04, CL-12, CL-14, CL-16 | Admit, CR-001 (P3-N010). Passes 3 to 5 cite its encounters as seen again and add two instances of the mitigation working (BU-31, CL-16) |
+| N2 | Dependency search as an attack surface (R14) | RR-14; CL-12 | Admit, CR-002. No new encounter |
+| N3 | Fetched documentation as an instruction channel (R15) | RR-15 | Admit, CR-003. No row of passes 3 to 5 bears on it |
+| N4 | A diagnostic that asserts a cause it did not test (R16) | RR-16, RR-25; BU-19 | Admit, CR-004. BU-19 adds an exposure |
+| N5 | The surface's own guidance contradicting the project's rule (R17) | RR-17, RR-27; BU-62 | Stated failure rejected, ET-2. Generalization admitted, CR-006 |
+| N6 | A register entry describing another repository goes stale silently | RP-14, RP-15, RR-18; BU-32, BU-70, CL-13, BU-23 | Merge, CR-005. Generalization admitted at RR-18, CR-005 |
+| N7 | A projection becomes a second source of truth (R10) | RR-10, RR-18; BU-16, BU-18 | Stated failure rejected, ET-1. Generalization admitted, CR-005 |
+| N8 | A tool whose runtime floor is unmet degrades silently (R13, RU-013) | RR-13, RP-02; BU-78 | Merge with exposure, CR-001 |
+| N9 | A guard believed because it is present, not because it was broken | RP-18; CL-16 | Merge with exposure, CR-001 |
+| N10 | A lost update on a single-writer file under parallel work | RP-19, RP-20, RP-21; BU-06, BU-15, BU-21, CL-35 | Stated failure rejected, ET-1. Generalization deferred. No lost update is recorded in passes 3 to 5 |
+| N11 | An execution environment bills the wrong account (R7) | RR-07; BC-09 | Defer |
+| N12 | ripgrep silently dropped a file with NUL bytes from searches | RP-22; BU-74 | Merge, CR-008 |
+| N13 | A verification tool that silently excludes part of its input | RP-23; BU-74 | Admit, CR-008 |
+| N14 | No committed test runs the plugin tools as `node` | RP-24; BU-14 | No candidate. An omission item at E3 under decision 3 |
+
+### P3-N010's carry-overs
+
+Criterion B12 asks for the disposition of each carry-over.
+
+| Carry-over | Disposition |
+|---|---|
+| The two ripgrep rows | RP-22 and RP-23, as N12 and N13 above |
+| The plugin-tools row | RP-24, no candidate, with the omission expected at E3. Pass 4 cites it at BU-14 |
+| Shape finding 2, coverage cannot read adequacy | Decision 3 is placed in step 3 of the procedure above. E3 applies it when it runs the check |
+| Shape finding 4, the header decided the run | Applied. The header table above argues each header from the repositories of its encounters |
+| Shape finding 5, entries have no anchors | No change. Each encounter artifact stays a file link plus the quoted entry title, and child C pins the file |
+| Shape finding 6, no counting rule for a run sequence | Decision 4 is added to the catalogue's definition of an independent encounter. CR-001's counting of the four deploy defects as one encounter now follows from the rule |
+| Shape finding 7, an entry can instantiate a class without an encounter | No change. The convention *merge with exposure* above applies it |
+| Shape finding 8, the service repository's Backlog | Decision 5 is placed in the inputs above. E3 reads the service Backlog at the commit the run names |
+
+### Findings from the sweep
+
+Task E3 carried these into the *Shape findings* section as findings 9 to 14,
+with the findings of the full run (criterion B18).
+
+- **S1.** The four outcomes have none for a candidate that states an
+  admitted class and records no event. A merge makes the candidate an
+  encounter, which needs an event. Five rows of passes 1 and 2 (RR-13, RR-19, RP-06, RP-10 and
+  RP-18) and 9 rows of passes 3 to 5 (BU-10, BU-16, BU-19, BU-31, BU-36, BU-56, BU-59, BU-72, CL-16) use the convention *merge with
+  exposure*. The specification could name it, or could say that such a
+  candidate is not a candidate.
+- **S2.** ET-2 does not say whether "upstream" includes the owner of a
+  component the project runs on. The plan's table reads it as including the
+  harness. The sweep states the two parts of that reading and asks for
+  ratification.
+- **S3.** ET-3 asks for an encounter in "this repository". Several
+  encounters happened in the service repository and are recorded here only
+  as Risk register entries or Backlog entries. The sweep reads the artifact
+  that resolves in this repository as the encounter's record. The header
+  rule of finding 4 depends on this reading.
+- **S4.** Part (a) of the reading of ET-2 rejects a candidate when a rule
+  of the methodology already requires the fix or the marking. ET-2 as the
+  specification words it fails a candidate that one upstream change removes
+  "without action by any project". A rule that binds each project to act is
+  not such a change. The rows that cite A4 are BC-10, BU-11, BU-22, BU-27, BU-28, BU-48, BU-67, CL-21, CL-32. Three of
+  them rest on an amendment or a tool change that removes the failure with
+  no action by a project (BC-10, BU-27, BU-28).
+  Six rest on a rule that exists and that projects do not follow
+  (BU-11, BU-22, BU-48, BU-67, CL-21, CL-32). Under the strict wording those six pass ET-2, and
+  with RP-11 and RP-12 of pass 2 they would need a class of their own,
+  content that a recorded decision supersedes stays unmarked. Part (a) as
+  E1 stated it decides all of them, so the owner's ruling on part (a)
+  decides these eight rows. Part (b) decides CL-05, CL-06, CL-10.
+- **S5.** CR-005 now holds 21 independent encounters, 17 of them from
+  passes 3 to 5. The definition of an independent encounter lets every stale
+  statement that a different task found count. The specification sets a
+  floor of two encounters per entry and no ceiling or sampling rule. The
+  catalogue's table for the class is long, and each added row is cheap to
+  find in this project's Backlog and Cost log. A rule such as "list the
+  first N independent encounters and count the rest" would bound the
+  entry. The sweep lists all of them, because the outcome *merge* makes each
+  candidate an encounter.
+- **S6.** Backlog entries written before the row shape of 2026-10-29 carry
+  no date in the entry. Six encounters of passes 3 to 5 take their date
+  from the Cost log row of the task the entry names (BC-08, BU-29, BU-35,
+  BU-39, BU-71 and BU-77). ET-3 asks for a date and an artifact
+  that resolves. The artifact here does not carry its date. Finding 5 of
+  P3-N010 covers the missing anchors, and this finding adds the missing
+  dates. Child C's conversion could pin both.
+
+**The methodology's own pin.** The methodology's `docs/classification.md` at
+tag v1.6.0 declares its pin as 1.5.0. On the methodology's `main` it reads
+1.6.0, "migrated from 1.5.0 on 2026-10-28". Task E2 read both with
+`git show`. The tag was cut before the methodology bumped its own pin, so
+the lag at the tag follows the release order. It is an intended lag and not
+an encounter of CR-005. The methodology's Classification is also outside the
+five sources.
+
+
+## Citations: the Class lines
+
+Task E3 wrote every *Class* line of the Risk register before it ran the
+check, so that the run reads complete citations (criterion B7). This
+section records the register re-read, the test applied to each entry and
+the lines written.
+
+### The register re-read
+
+Task E3 read `docs/open-risks.md` whole at commit `0aefb00`, the head of
+branch `catalogue-sweep` at its dispatch. The register holds the 17
+entries R1 to R17 that pass 1 read at `bd4fc8d`. It holds no entry added
+since, so pass 1 gains no row. One entry text changed in between. Node
+P3-N014 (task T072) appended a sentence to R14's *Status* on 2026-10-30
+that names the landing of R14's mitigation. The sentence adds no failure.
+
+### The citation test
+
+An entry carries a *Class* line for a class when one of two things holds.
+
+- The sweep recorded the entry as the source of a row that admits the
+  class, merges into it, or merges with exposure into it.
+- The entry's existing text states the class's failure as its own subject.
+
+The clause is written from the entry's words and is never widened to cover
+a pair (criterion B16). A pair that needs a wider clause is an omission at
+step 3 (decision 3 of the plan of node P3-N011). An entry that names a
+class's failure only to hand it to a Backlog entry carries no line for it.
+
+### The lines written
+
+Nine lines stand in the register. R12 and R13 carry the two that node
+P3-N010 wrote. Task E3 wrote seven more. No entry instantiates two
+classes, so no entry carries two lines.
+
+| Entry | Class | Basis | Clause, from the entry's text |
+|---|---|---|---|
+| R5 register and reality divergence | CR-005 | RR-18 names R5's second clause as a source of the generalization | A register goes stale, and dispatch decisions run on fiction. The source is the work, not a document, so this is the weaker fit of the two sources of CR-005. |
+| R9 surface-dependent plugin loading | CR-001 | RR-19, merge with exposure | Plugin loading is documented for local terminal sessions and not for the web. The first web demo found the plugin absent, and in four trials on two surfaces it was never observed loading. |
+| R10 the service as a second source of truth | CR-005 | RR-18 names R10's failure as the other source | Live state in the service can drift from the registers in git, and decisions could then be made against the projection. The exercise of 2026-09-07 produced no divergence. |
+| R12 service outage stops work | CR-001 | P3-N010 | The "does not wait" case ran where the egress proxy answered at once. |
+| R13 runtime assumption moves to `node` | CR-001 | P3-N010, kept by the owner at the gate | On a surface with an older or absent Node the checker cannot run, and the loss is silent unless something looks. |
+| R14 dependency search | CR-002 | RR-14, admission | Task T027 searched a public registry and found a package published days earlier by a new single-package maintainer. The role declined it. |
+| R15 reference documentation | CR-003 | RR-15, admission | Task T030 fetched an AWS page whose *See also* block told the reader to run an agent-toolkit command. The role declined it. |
+| R16 a provider's error names the wrong layer | CR-004 | RR-16 and RR-25, admission | The preflight's verdict line asserted a trust-policy mismatch for every failure in which the subject matched, and the provider's error text named a layer that was not at fault. |
+| R17 the harness's guidance against the fallback rule | CR-006 | RR-27, admission | The harness notice told the session not to conclude that access does not exist, against the no-retry rule, and the document stating the rule was absent from the branch under test. |
+
+### Entries considered for a class and not cited
+
+Every entry was put to every class. The table lists each entry that carries
+no line, or that was considered for a second class. R4, R6 and R8 are
+omitted from it: no class states a failure of theirs.
+
+| Entry | Class considered | Why no line |
+|---|---|---|
+| R1, R2, R3 | CR-001 to CR-012 | Each states a failure of this project's dispatch loop, fan-out or liveness. Pass 1 rejected them on ET-1, and no catalogue class states them. R3's unrecorded answer is the reverse of CR-012, a record that is missing and not early. |
+| R7 billing misroute | none | The billing class is deferred and has no catalogue ID. |
+| R9 | CR-010 | Trial 1 found that cloud sessions give subagents no Agent tool. Pass 1 (RR-20) and pass 3 (BC-04) rejected the harness gap on ET-2, and no pass merged it into CR-010. The entry records the Orchestrator stopping correctly. The owner may decide the other way. |
+| R10 | CR-001 | The divergence exercise ran against the deployed service. That is the class's mitigation working, not an instance. |
+| R11 MCP surface constraints | CR-010 | The entry states transport limits and an unverified push channel for a design to configure around. It records no task that depended on an unchecked fact, and CR-010's reaches line names criteria, briefs, workflows and plans, not transport design. |
+| R12 | CR-011, CR-004 | R12 names between-deploy breakage only to hand it to the monitoring Backlog entry, which is that failure's subject. Pass 1 rejected R12's observability sub-findings on ET-1 (RR-23, RR-24). |
+| R15 | CR-002 | R15 calls itself R14's sibling. CR-002 states an adopted package and CR-003 an instruction followed, and one encounter does not evidence the other. |
+| R16 | CR-001 | Node P3-N010 ruled that the audience typo counted at CR-001's fourth encounter is not the entry's subject. The entry's subject is the diagnostic. |
+| R17 | CR-003 | The notice is the harness's own guidance and not content fetched from outside. Pass 1 treats it as CR-006 only. |
+
+R5 and R10 are cited as instances of CR-005 although pass 1 rejected their
+stated forms on ET-1. The generalization is the class, and the stated forms
+are its sources (RR-18). The convention *merge with exposure* cites R9 and R13 for CR-001.
+
+### The preamble
+
+The preamble of the register read "carries one *Class* line", which reads as
+one line per entry. Task E3 amended that sentence to "carries one *Class*
+line per class it instantiates" and "The line" to "Each line" (criterion I7).
+The preamble still names the field without citing a class by ID, so the
+command in *Steps* never lists it as a hit.
+
+### Sources that moved after the passes
+
+The passes stand at the commits they name (criterion B14). Between the commit
+`089b79c` that passes 3 to 5 read and `0aefb00`, the Backlog changed by 109 insertions and 26
+deletions, the Cost log gained the rows T076 to T081, and two plans (P3-N008, P3-N015) were written.
+Task E3 scanned those additions for a failure as a source states it. It found
+three, none an admission, and records them as delta rows.
+
+| Label | Candidate as its source states it | Outcome |
+|---|---|---|
+| DL-01 | Cost log row T076 and the Backlog entry "The P3-N005 plan places R16's preflight in this repository": the plan of node P3-N005 names this repository where the preflight ran in the service repository | Merge, CR-005, encounter 2026-10-30 (task T076). The catalogue does not yet list it. |
+| DL-02 | Row T076 and the Backlog entry "The entry 'two open entries for P3-N001, one of them stale' can close": the entry says a sketch entry stands open, and that entry is checked | Merge, CR-005, same investigation as DL-01. Adds an instance, no encounter. |
+| DL-03 | Rows T077, T078 and T081: located findings on this project's Project model instance and on a draft proposal | Reject, ET-1. Each needs this project's model or its proposal pipeline. |
+
+The catalogue's table for CR-005 holds 21 encounters and gains a 22nd when
+DL-01 is added. Task E3 did not edit the catalogue. The Orchestrator may carry
+DL-01 into it.
+
 ## Parts enumeration
 
 The enumeration is committed with the check so a reader can dispute a
@@ -262,17 +1441,30 @@ part's presence or absence. It was drawn on 2026-10-30 from this
 repository at commit `d1c3659`. Each part names its source. A part
 added later is added with its date and source.
 
+Task E3 of node P3-N011 brought it current on 2026-10-30. It read this
+repository at commit `0aefb00`, the head of branch `catalogue-sweep` at
+E3's dispatch. It read the service repository's Backlog at commit
+`58e6819`, which is the service's `main` (decision 5 of the plan of node
+P3-N011). Parts PT-27 to PT-31 are the additions, and each names the date
+and source it was added with. The rows drawn at `d1c3659` are unchanged.
+
 ### Rules
 
 - Every checked Backlog entry is read wherever it sits. At commit
   `d1c3659` there are 51: 20 under *Completed* and 31 under *Upcoming*.
   The plan counted 47 when it was written. Four entries were closed
   after that.
+- At commit `0aefb00` there are 68: 20 under *Completed* and 48 under
+  *Upcoming*. The 17 added since `d1c3659` are BE-52 to BE-68. E2 counted
+  47 under *Upcoming* at `089b79c`. BE-62 was checked after that.
 - By this Backlog's convention a finished child stays under *Upcoming*
   until its parent is `done`, so a read of the Completed section alone
   drops most of the service's work.
-- The Plan register has 23 `done` nodes. A node and a Backlog entry
-  that describe the same work are one part.
+- The Plan register has 23 `done` nodes at `d1c3659` and 27 at
+  `0aefb00`. The four added since are P3-N006, P3-N010, P3-N013 and
+  P3-N014, all done on 2026-10-30. P1-N014 was `done` at `d1c3659` and is
+  already part PT-12. A node and a Backlog entry that describe the same
+  work are one part.
 - An <a id="def-aggregate-node"></a>aggregate node is an interior
   `done` node whose children are all enumerated. It adds no part of its
   own. Three nodes are aggregates: P1-N009 (plugin tooling on the
@@ -290,13 +1482,15 @@ added later is added with its date and source.
 
 ### Parts
 
-There are 30 parts: 20 from nodes, 6 from checked entries that name no
-node, and 4 standing artifact classes.
+There are 35 parts: 24 from nodes, 7 from checked entries that name no
+node, and 4 standing artifact classes. At `d1c3659` there were 30. Task E3
+added five: PT-27 to PT-30 from the four nodes done since, and PT-31 from
+the service repository's Backlog.
 
 | Part | Name | Source | Checked entries | Repository |
 |---|---|---|---|---|
 | PT-01 | Founding plan and bootstrap | P1-N002 (bootstrap and founding plan) | BE-01, BE-02 | C |
-| PT-02 | Process specification, `docs/process/` | P1-N003 (process specification v1) | BE-03, BE-04, BE-10, BE-11 | C |
+| PT-02 | Process specification, `docs/process/` | P1-N003 (process specification v1) | BE-03, BE-04, BE-10, BE-11, BE-63, BE-65 | C |
 | PT-03 | Role definitions, `docs/process/roles.md` | P1-N004 (role definitions v1) | BE-05, BE-09 | C |
 | PT-04 | Orchestrator plugin and its self-hosted enrolment, including the SessionStart billing hook | P1-N005 (plugin v1 with self-hosted trial) | BE-08 | C |
 | PT-05 | Risk register, observability specification and run journal | no node | BE-07 | C |
@@ -306,23 +1500,28 @@ node, and 4 standing artifact classes.
 | PT-09 | Conformance corpus, `run_corpus` and the vendoring generator | P1-N011 (the travelling package) | BE-29 | C |
 | PT-10 | Form checker on the shared unit | P1-N012 (the form checker on the shared unit) | BE-31, BE-32 | C |
 | PT-11 | Cutover: `sync_agents` port, moved invocation sites, retirement of the Python scripts | P1-N013 (the cutover) | BE-33, BE-43, BE-44, BE-46, BE-47 | C |
-| PT-12 | Role contracts in `.claude/agents/` and their generated copy | P1-N014 (role contracts adopt the methodology's conduct rules) | BE-35 | C |
+| PT-12 | Role contracts in `.claude/agents/` and their generated copy | P1-N014 (role contracts adopt the methodology's conduct rules) | BE-35, BE-64 | C |
 | PT-13 | Methodology amendment proposals for delegated work | P1-N015 (methodology amendments for delegated work) | BE-18, BE-34 | C |
 | PT-14 | Classification, version pin and `CLAUDE.md` binding block | no node | BE-06, BE-17, BE-19, BE-21 | C |
 | PT-15 | Communication-pipeline roles in `roles.md` and `dispatch.md` | no node | BE-20 | C |
 | PT-16 | Orchestration-service plan and breakdown | no node (P2-N001 is `broken-down`) | BE-15, BE-16 | C |
 | PT-17 | Comprehension-and-implementation plan sketch | no node (P3-N001 is not `done`) | BE-42 | C |
-| PT-18 | Service repository bootstrap | P2-N007 (service repository bootstrap) | BE-23, BE-25 | S |
-| PT-19 | Reachability slice: MCP server, Lambda handler, API Gateway binding, SAM template, deploy script | P2-N008 (reachability slice) | BE-24 | S |
-| PT-20 | Plan-state read: register parser, `plan_read` tool, GitHub register fetcher | P2-N009 (plan-state read) | BE-26 | S |
-| PT-21 | Plan-state update with the advisory lease: lease backends, write tools, vendored grammar unit | P2-N010 (plan-state update with the advisory lease) | BE-45, BE-48 | S |
-| PT-22 | Degrade-to-git-only rule, enlistment documentation and the R12 exercise | P2-N011 (degrade to git-only, and enlistment documentation) | BE-49, BE-50 | C |
+| PT-18 | Service repository bootstrap | P2-N007 (service repository bootstrap) | BE-23, BE-25, SE-01 | S |
+| PT-19 | Reachability slice: MCP server, Lambda handler, API Gateway binding, SAM template, deploy script | P2-N008 (reachability slice) | BE-24, SE-02, SE-03, SE-07 | S |
+| PT-20 | Plan-state read: register parser, `plan_read` tool, GitHub register fetcher | P2-N009 (plan-state read) | BE-26, SE-04, SE-08 | S |
+| PT-21 | Plan-state update with the advisory lease: lease backends, write tools, vendored grammar unit | P2-N010 (plan-state update with the advisory lease) | BE-45, BE-48, BE-68, SE-05, SE-06, SE-09, SE-22 | S |
+| PT-22 | Degrade-to-git-only rule, enlistment documentation and the R12 exercise | P2-N011 (degrade to git-only, and enlistment documentation) | BE-49, BE-50, SE-20 | C, see note 2 |
 | PT-23 | Alias assumptions finding | P2-N013 (alias assumptions verified against AWS documentation) | BE-37 | S, see note 1 |
-| PT-24 | Pull-request checks workflow | P2-N014 (pull-request checks that cannot deploy) | BE-38, BE-51 | S |
-| PT-25 | Alias-aware lease-table selection and the template resources it needs | P2-N015 (alias-aware lease-table selection) | BE-39 | S |
-| PT-26 | Deploy, smoke and promote workflow, OIDC preflight and deploy-role policy | P2-N016 (deploy, smoke and promote on merge to main) | BE-40, BE-51 | S |
+| PT-24 | Pull-request checks workflow | P2-N014 (pull-request checks that cannot deploy) | BE-38, BE-51, SE-14, SE-21 | S |
+| PT-25 | Alias-aware lease-table selection and the template resources it needs | P2-N015 (alias-aware lease-table selection) | BE-39, SE-12 | S |
+| PT-26 | Deploy, smoke and promote workflow, OIDC preflight and deploy-role policy | P2-N016 (deploy, smoke and promote on merge to main) | BE-40, BE-51, SE-13, SE-15 to SE-19, SE-21, SE-23 | S |
+| PT-27 | Project model slice: `docs/project-model.md` and the slice record `docs/project-model-slice-record.md` | P3-N006 (the thin end-to-end slice), done 2026-10-30, task T054. Added by E3. | BE-52 | C |
+| PT-28 | Common risk catalogue, `docs/proposals/common-risk-catalogue.md`, and its check document | P3-N010 (one class, carried end to end), done 2026-10-30, task T055. Added by E3. | BE-53 | C |
+| PT-29 | Stop-predicate record, `docs/findings/p3-n005-stop-predicates.md` | P3-N013 (the four stop conditions, decidable), done 2026-10-30, tasks T056 and T059 to T067. Added by E3. | BE-54 | C |
+| PT-30 | Sequence mode: `dispatch.md`'s *Sequence mode* section, the member's result record, the six contracts' conditions, `form-check-core.ts` and a corpus fixture | P3-N014 (the loop runs sequence mode), done 2026-10-30, task T072. Added by E3. | BE-55 to BE-61, BE-66, BE-67 | C |
+| PT-31 | Service Classification, `CLAUDE.md` binding block and methodology migrations of the service repository | no node. Added by E3 under decision 5, from the service Backlog entries SE-10 and SE-11 (2026-08-31 and 2026-09-02). | SE-10, SE-11 | S |
 | SA-1 | Plan register, Backlog and Cost log as documents | standing artifact class | none | C |
-| SA-2 | Plans, specifications and proposals | standing artifact class | none | C |
+| SA-2 | Plans, specifications and proposals | standing artifact class | BE-62 | C |
 | SA-3 | The deployed service's live surface: production endpoint, production lease table, aliases | standing artifact class | none | S |
 | SA-4 | The sessions' execution surfaces: cloud web session and local terminal, with their network policy and environment variables | standing artifact class | BE-41 | C |
 
@@ -332,10 +1531,16 @@ absent from the service repository's `main` at commit `58e6819`. That
 checkout is shallow, so this document cannot say whether the file was
 ever merged.
 
+Note 2. The service repository's `docs/mcp-enlistment.md` and its template
+belong to the same node as PT-22 (SE-20). They are text. Step 1 reads the
+Classification of the repository that holds them, which admits every header
+of the catalogue except that of CR-011, and CR-011 does not reach text.
+
 ### Checked Backlog entries and their parts
 
 Each checked entry is labelled BE-nn in file order. The column *Line*
-is the entry's first line at commit `d1c3659`.
+is the entry's first line at commit `d1c3659`. For BE-52 to BE-68, which
+were added after it, *Line* is the first line at commit `0aefb00`.
 
 | Label | Entry | Line | Section | Part |
 |---|---|---|---|---|
@@ -390,10 +1595,76 @@ is the entry's first line at commit `d1c3659`.
 | BE-49 | Chunk-1 child: degrade to git-only, and enlistment documentation | 2562 | Upcoming | PT-22 |
 | BE-50 | Service enlistment section in the process spec | 2620 | Upcoming | PT-22 |
 | BE-51 | CI for project-orchestrator-service | 2662 | Upcoming | PT-24, PT-26 |
+| BE-52 | The thin end-to-end slice: five resources through the project model and both renderings (node P3-N006) | 438 | Upcoming | PT-27 |
+| BE-53 | One risk class carried end to end (node P3-N010, child A of P3-N003) | 523 | Upcoming | PT-28 |
+| BE-54 | W-001's four stop conditions as decidable predicates, with two blind readings and the relation table (node P3-N013) | 566 | Upcoming | PT-29 |
+| BE-55 | A result names no repository for a ref of another repository | 604 | Upcoming | PT-30 |
+| BE-56 | Predicate 2's naming forms in the normative text | 609 | Upcoming | PT-30 |
+| BE-57 | Predicate 3's override forms and gate headings | 626 | Upcoming | PT-30 |
+| BE-58 | A member's documents when its register line links the parent's specification | 631 | Upcoming | PT-30 |
+| BE-59 | Predicate 2's W-002 flag verbs | 636 | Upcoming | PT-30 |
+| BE-60 | A grant "up to" a gate in the ratification record | 641 | Upcoming | PT-30 |
+| BE-61 | Predicate 1's normative text and negated failure words | 645 | Upcoming | PT-30 |
+| BE-62 | A home in the model for open findings that are not nodes | 734 | Upcoming | SA-2, see note 3 |
+| BE-63 | Ratify or strike the slice's seven terms | 746 | Upcoming | PT-02, see note 3 |
+| BE-64 | Two nodes edit the same six role contracts | 801 | Upcoming | PT-12 |
+| BE-65 | A plan document has no declared place for RU-016's repository-reach declaration | 1120 | Upcoming | PT-02, see note 3 |
+| BE-66 | R14's contract wording | 1938 | Upcoming | PT-30 |
+| BE-67 | Bare methodology identifiers in the six contracts | 1943 | Upcoming | PT-30 |
+| BE-68 | `plan_lease_release` fails against real DynamoDB: `token` is a reserved keyword | 2283 | Upcoming | PT-21 |
 
-Node mapping. The 20 non-aggregate `done` nodes map to parts as the
-*Source* column shows. The three aggregates map to their children. Every
-`done` node of the Plan register at commit `d1c3659` appears once.
+Note 3. Three of the new entries deliver an artifact that an existing part
+already holds. BE-62 closed on the K-003 proposal, a proposal document, so it
+joins SA-2. BE-63 closed on the type specification
+`docs/process/project-model.md`, and BE-65 on `docs/process/plan-model.md`.
+Both are files of `docs/process/`, so both join PT-02. Node P3-N007 wrote
+all three and is not `done`, so it adds no part of its own. The other entries
+of the new rows join the part of their node, or of the node that landed them.
+The Backlog entry of P3-N014 itself is still unchecked at `0aefb00` while
+the Plan register holds the node `done`. PT-30's source is the register, and
+the unchecked entry is a located finding for the Orchestrator.
+
+### Checked entries of the service repository's Backlog
+
+Decision 5 of the plan of node P3-N011 adds this table. It reads the
+service repository's `docs/backlog.md` at commit `58e6819`, which holds 23
+checked entries. Each is labelled SE-nn in file order. The column *Line* is
+the entry's first line there. An entry becomes a part only when it delivers
+an artifact no existing part holds. One does: SE-10 and SE-11 deliver the
+service's Classification and binding block as migrated, which no node part
+holds, and which this repository holds as PT-14 for its own copies. They form
+PT-31. The other 21 entries join the part of their node.
+
+| Label | Entry | Line | Part |
+|---|---|---|---|
+| SE-01 | Methodology scaffolding and project skeleton (node P2-N007) | 15 | PT-18 |
+| SE-02 | Reachability slice (node P2-N008) | 33 | PT-19 |
+| SE-03 | Rework: fix the deployed 404 | 82 | PT-19 |
+| SE-04 | Plan-state read (node P2-N009) | 133 | PT-20 |
+| SE-05 | Plan-state update with the advisory lease (node P2-N010) | 227 | PT-21 |
+| SE-06 | Rework: fix the lease-release reserved-word defect | 319 | PT-21 |
+| SE-07 | Rework: fix the ESM/CJS bundle outage | 374 | PT-19 |
+| SE-08 | `sam validate --lint` / `sam build` for the GitHub App wiring | 461 | PT-20 |
+| SE-09 | `sam validate --lint` / `sam build` for the `LeaseTable` addition | 471 | PT-21 |
+| SE-10 | Migrated to methodology v1.4.0 | 480 | PT-31 |
+| SE-11 | Migrated to methodology 1.5.0 | 498 | PT-31 |
+| SE-12 | Alias-aware lease-table selection, failing closed | 514 | PT-25 |
+| SE-13 | Deploy prerequisites cleared: the deploy role's IAM policy and the `GITHUB_`-variable naming fix | 628 | PT-26 |
+| SE-14 | Pull-request checks that cannot deploy | 629 | PT-24 |
+| SE-15 | The `push`-triggered deploy, smoke and promote workflow, and the on-demand OIDC preflight | 670 | PT-26 |
+| SE-16 | G6: record the first green run's numbers | 671 | PT-26 |
+| SE-17 | Fix: CI's first deploy blocked on `cloudformation:CreateChangeSet` | 673 | PT-26 |
+| SE-18 | Two defects from the first real pipeline run: the preprod Function URL's 403, and `live` unsafely pinnable to `$LATEST` | 674 | PT-26 |
+| SE-19 | G5 demonstration: a deliberately failing smoke check, once | 676 | PT-26 |
+| SE-20 | Degrade to git-only, and enlistment documentation (node P2-N011) | 678 | PT-22, see note 2 |
+| SE-21 | Deploy-on-merge CI for this repository | 690 | PT-24, PT-26 |
+| SE-22 | A full end-to-end write-path exercise against the deployed service | 703 | PT-21 |
+| SE-23 | A repository variable for the deploy role's ARN | 718 | PT-26 |
+
+Node mapping. The 24 non-aggregate `done` nodes map to parts as the
+*Source* column shows: 20 from `d1c3659` and the four added by E3. The
+three aggregates map to their children. Every `done` node of the Plan
+register at commit `0aefb00` appears once.
 
 ## Run record, 2026-10-30
 
@@ -532,12 +1803,536 @@ holds that record.
 | Outcome | The chosen pair returned. The control passed. |
 | Discarded | The scratch branch held one commit, which was never merged. The branch was deleted. |
 
+## Run record, 2026-10-30, full scope
+
+Role: Implementer, task T083 of node P3-N011 (execute task E3). Classes:
+CR-001 to CR-012, all twelve. Parts: all 35 of the enumeration as brought
+current above. This record re-runs CR-001 and does not copy the record of
+node P3-N010, which stands above unchanged. The steps are those under *The
+check procedure*, with decision 3 of the plan of node P3-N011 applied at
+step 3.
+
+### Full run: inputs
+
+| Input | Where | Commit |
+|---|---|---|
+| Catalogue | `docs/proposals/common-risk-catalogue.md` | `69e67af` (last changed in `616ebaf`) |
+| Risk register | `docs/open-risks.md` | `69e67af` |
+| Parts enumeration | the *Parts enumeration* section of this document | `69e67af` |
+| Classification of this repository | `docs/classification.md` | `69e67af` (last changed in `38138c9`) |
+| Classification of the service repository | `docs/classification.md` in project-orchestrator-service | `58e6819` |
+| Backlog of the service repository | `docs/backlog.md` in project-orchestrator-service | `58e6819` |
+
+The commit `69e67af` is the first commit of task E3. It holds the first four
+inputs. The service repository's `main` is at `58e6819`, where node
+P3-N010 read it, so the service inputs are unchanged since that run.
+
+### Full run: step 1, project applicability
+
+Eleven classes carry the header `[C1+]` and one carries `[C1+]
+[deployable]`. The derived condition `deployable` is `target ≠ none/local`.
+
+| Repository | Classification read | Parts held | `[C1+]` admits | `[C1+] [deployable]` admits |
+|---|---|---|---|---|
+| This repository, project-orchestrator (C) | C1, S0, `component/library`, target `none/local`, no Workflow | 25 parts: PT-01 to PT-17, PT-22, PT-27 to PT-30, SA-1, SA-2, SA-4 | Yes | No. The target is `none/local`. |
+| Service repository, project-orchestrator-service (S) | C1, S1, `backend-service`, target `serverless-aws`, Workflow declared | 10 parts: PT-18 to PT-21, PT-23 to PT-26, PT-31, SA-3 | Yes | Yes |
+
+CR-011 is applicable to the 10 parts of the service repository and not
+applicable to the 25 parts held here. Step 2 skips those 25 for CR-011. The
+header of CR-011 decides the run for it. Eleven classes are applicable to
+all 35 parts. This is the first run in which a header decides a result. It
+excludes this repository from CR-011.
+
+### Full run: step 2, reach
+
+Each class is a table of the parts that apply, each with its argument, and
+a list of the parts that do not, grouped by the argument that covers them.
+Every part of each applicable set appears once. The question for each part
+is the question in the class's reaches line. The *exposure* names what the
+part's argument says can go wrong, which step 3 compares with the covering
+entry's clause.
+
+**CR-001, a check that cannot fail in the environment the code runs in** (`[C1+]`).
+
+| Part | Result | Argument |
+|---|---|---|
+| PT-04 | applies | The SessionStart hook that carries R7's billing check is declared only in `plugin/hooks/hooks.json`, and `.claude/settings.json` declares no hook. R9 records that the plugin was never observed loading, and no committed record shows the hook running. |
+| PT-08 | applies | The tools run as `node plugin/scripts/<tool>.ts`. The five test files in `test/` run under Vitest, and none runs a tool as a subprocess. Two exposures: a surface without the Node floor cannot run the tools, and no committed check runs a tool the way it is run. |
+| PT-09 | applies | `run_corpus.ts` and `sync_shared_unit.ts` run as `node` scripts and no test runs them. Their drift check compares bytes inside one checkout. The two exposures are those of PT-08. |
+| PT-10 | applies | `form_check.ts` runs the corpus self-check in-process on every run, so each run exercises the tool where it runs. The one exposure is a surface without the Node floor, where the checker cannot report. |
+| PT-11 | applies | `sync_agents.ts` and every moved invocation site run as `node` commands on each surface, and no test runs them. The two exposures are those of PT-08. |
+| PT-19 | applies | The Lambda bundle and the API Gateway binding are checked by tests that import source or send synthetic events (`test/lambda.test.ts`), and by one test that imports the built bundle in a `node` subprocess (`test/lambdaBundle.test.ts`). The deploy workflow's smoke test targets the preprod Function URL, not the endpoint that serves production. |
+| PT-20 | applies | `plan_read` reads registers from GitHub through the App. Its tests inject a fake `fetchImpl` and token provider (`test/registerFetcher.test.ts`). The smoke test lists the tools and never calls `plan_read`. |
+| PT-21 | applies | The write-tool tests use the in-memory lease backend, and the DynamoDB backend's contract test uses a fake client. The smoke test runs a lease cycle on the preprod table and never calls `plan_update` or `plan_confirm`, which read GitHub. |
+| PT-22 | applies | The R12 exercise ran in cloud sessions whose egress proxy answered an unroutable address at once. The "does not wait" case could not run to its timeout there. |
+| PT-24 | applies | The pull-request workflow cannot deploy by design. Build, lint, test and `sam validate --lint` run without the deploy role, so no check there can fail on an IAM, alias or function-URL defect. |
+| PT-25 | applies | The lease-table selection reads the qualifier from the invoked ARN, and its tests use synthetic ARNs. The smoke test exercises the `preprod` qualifier. No step of the deploy workflow exercises the `live` qualifier's production-table path. |
+| PT-26 | applies | The deploy role's policy was derived from AWS documentation, and nothing runs it except the pipeline itself. Four defects appeared only in the pipeline's first real runs. |
+| PT-30 | applies | The part includes changes to `form-check-core.ts` and a corpus fixture. Both run in-process in the self-check of every `form_check.ts` run. The one exposure is the Node floor, as for PT-10. |
+| SA-3 | applies | The deploy workflow runs the smoke test once, against the preprod Function URL, before the promote step. Production is reached through API Gateway bound to `live`. The workflow ends at the promote step and sends no request to the production endpoint (`deploy.yml` at `58e6819`). |
+| SA-4 | applies | Checks and exercises run on a cloud web session or a local terminal, and the rules they test are relied on across both. The cloud session's egress policy and environment differ from the local one, as R12's 502 and the Backlog entry on placeholder AWS variables record. |
+
+Does not apply:
+
+| Argument | Parts |
+|---|---|
+| Text, JSON lines or declarations, read where they are written or used and never executed. | PT-01, PT-02, PT-03, PT-05, PT-06, PT-07, PT-13, PT-14, PT-15, PT-16, PT-17, PT-23, PT-27, PT-28, PT-29, PT-31, SA-1, SA-2 |
+| Role contracts are text loaded into a role session. Their generated copy is guarded by `sync_agents.ts --check`, which PT-11 holds. | PT-12 |
+| The scaffold is checked by running the build, lint and test commands that CI later runs. It has no artifact and no test double. | PT-18 |
+
+**CR-002, an agent adopts a package it found by searching** (`[C1+]`).
+
+| Part | Result | Argument |
+|---|---|---|
+| PT-08 | applies | `package.json` and `package-lock.json` list eight development dependencies (`eslint`, `prettier`, `typescript`, `vitest` and four more). A session can add or update one. |
+| PT-18 | applies | The service's `package.json` and lockfile list its dependencies. A session can add or update one. |
+| PT-19 | applies | The slice imports `hono`, `@hono/node-server` and `@modelcontextprotocol/sdk` and bundles with `esbuild`, all third-party packages that a session chose. |
+| PT-20 | applies | `githubAppAuth.ts` imports `universal-github-app-jwt`, a third-party package that a session chose. |
+| PT-21 | applies | `dynamoLeaseBackend.ts` imports `@aws-sdk/client-dynamodb`. T027 met the exact-match package while building this part. |
+| PT-24 | applies | `checks.yml` installs with `npm ci` and uses third-party actions pinned by SHA (`actions/setup-node`, `aws-actions/setup-sam`). A session can add or change a step. |
+| PT-26 | applies | `deploy.yml` installs with `npm ci` and uses third-party actions pinned by SHA, among them `aws-actions/configure-aws-credentials`, in the workflow that holds the deploy credentials. |
+
+Does not apply:
+
+| Argument | Parts |
+|---|---|
+| Reads project text only. It holds no manifest, lockfile, install step or vendored third-party code. | PT-01, PT-02, PT-03, PT-05, PT-06, PT-07, PT-13, PT-14, PT-15, PT-16, PT-17, PT-23, PT-27, PT-28, PT-29, PT-31, SA-1, SA-2, PT-12, PT-22 |
+| The plugin package declares a marketplace source in this project's own repository. It holds no manifest or install step. | PT-04 |
+| It vendors this project's own unit and corpus and copies no third-party code. | PT-09 |
+| Its code imports `node:` modules and this project's own unit only. A search of `plugin/scripts` for non-relative imports finds `node:fs`, `node:path` and `node:url`. | PT-10, PT-11, PT-30 |
+| It imports no third-party package (`aliasLeaseTable.ts`). | PT-25 |
+| A surface is an environment. It holds no manifest an agent edits. | SA-3, SA-4 |
+
+**CR-003, fetched content carries an instruction for the agent** (`[C1+]`).
+
+| Part | Result | Argument |
+|---|---|---|
+| PT-13 | applies | Drafting the four proposals read the methodology's rules and tools, which the project does not author. |
+| PT-23 | applies | The finding rests on AWS documentation pages that the role fetched. T030 met an instruction on one of them (R15). |
+| PT-26 | applies | The deploy-role policy was derived from AWS documentation, and row T035 records pages that were silent on a grant the pipeline then needed. |
+| PT-28 | applies | The catalogue is drafted against the methodology at v1.6.0, quotes its rules and links to them, and the passes read its rule files. |
+
+Does not apply:
+
+| Argument | Parts |
+|---|---|
+| The part's source and its Backlog entries record no read of content from outside the project's repositories as its input. | PT-01, PT-02, PT-03, PT-04, PT-05, PT-06, PT-07, PT-08, PT-09, PT-10, PT-11, PT-12, PT-14, PT-15, PT-16, PT-17, PT-18, PT-19, PT-20, PT-21, PT-22, PT-24, PT-25, PT-27, PT-29, PT-30, PT-31, SA-1, SA-2, SA-3, SA-4 |
+
+**CR-004, a diagnostic names a cause it did not test** (`[C1+]`).
+
+| Part | Result | Argument |
+|---|---|---|
+| PT-10 | applies | When the corpus self-check fails, `form_check.ts` prints "This is a problem with the checker, not with your project". The self-check reads only the corpus fixtures, so "not with your project" is tested. "A problem with the checker" cannot tell a checker defect from a stale corpus expectation or an environment fault that the Node preflight did not catch. |
+| PT-26 | applies | The OIDC preflight's "diagnose a failed assumption" step prints that the mismatch is "in the trust policy, not the token" whenever the token's subject matches. R16 records that this is false when the audience list is at fault, and `deploy.yml` at `58e6819` still holds the wording. |
+
+Does not apply:
+
+| Argument | Parts |
+|---|---|
+| Text. It names no cause for a failure. | PT-01, PT-02, PT-03, PT-05, PT-06, PT-07, PT-13, PT-14, PT-15, PT-16, PT-17, PT-23, PT-27, PT-28, PT-29, PT-31, SA-1, SA-2, PT-12, PT-22 |
+| It prints what it observed. A search of its source outside comments for `because`, `likely`, `probably`, `problem with` and `cause` finds no message that names a cause. | PT-04, PT-08, PT-09, PT-11, PT-19, PT-20, PT-21, PT-25, PT-30 |
+| `checks.yml` runs `npm ci`, build, lint, test and `sam validate`, and prints the tools' own output. It adds no message of its own. | PT-24 |
+| The scaffold holds no message that names a cause. | PT-18 |
+| A surface prints no message that the project authors. | SA-3, SA-4 |
+
+**CR-005, a copy or description disagrees with its source, unseen** (`[C1+]`).
+
+| Part | Result | Argument |
+|---|---|---|
+| PT-01 | applies | The founding plan stated a pin of v1.3.0 while the Classification recorded v1.4.0 (2026-08-31). A reader acts on the plan's claim without opening the Classification. |
+| PT-02 | applies | Nine citations in the process specification targeted the superseded v1.3.0 tag after the pin moved (Backlog, 2026-08-31). They restate the methodology's rules. |
+| PT-04 | applies | `plugin/agents/` is a generated copy of `.claude/agents/`. A reader of the copy sees no signal when the source changes. |
+| PT-05 | applies | The Risk register states in each entry where a mitigation lives and which node landed it. The statement is about other documents, and a reader acts on it without opening them. |
+| PT-06 | applies | The Ruling register's `Applied:` lists restate which tasks applied each ruling, which the journal's `precedent-applied` events also hold. The lists lagged on 2026-08-26 and 2026-10-30. |
+| PT-07 | applies | The proposal restates the state of `mtool`, which another repository holds, and carries no provenance line. It is still undelivered. |
+| PT-12 | applies | `plugin/agents/` is a generated copy, and each contract restates duties that `roles.md` also states (RP-10). Two exposures: the generated copy, and the restatement of `roles.md`. |
+| PT-13 | applies | A proposal quotes upstream rules, and a quotation can go stale between drafting and delivery (RP-06). |
+| PT-14 | applies | The `CLAUDE.md` binding block caches the methodology's W-008 text and names the pin. The binding version in `CLAUDE.md` was stale on 2026-10-29 (row T044). |
+| PT-15 | applies | `dispatch.md` and `roles.md` restate the selection rule "earlier siblings `done`", and the Orchestrator contract restates it again (open Backlog entry). |
+| PT-16 | applies | The plan states decisions, pins and register stages of the service. A reader acts on them without opening the register. |
+| PT-17 | applies | The Backlog entry for the sketch still described the plan as `draft` with three chunks after the plan became `active` (2026-09-17). |
+| PT-18 | applies | The service's Classification and `CLAUDE.md` link into this repository's documents. At bootstrap the links pointed at a `main` that did not exist (2026-08-27). |
+| PT-20 | applies | `plan_read`'s tests use `test/fixtures/plan-register.sample.md`, a byte copy of this repository's register that "will drift silently" (open Backlog entry). The parser once accepted a stage the checker rejects (2026-08-29). |
+| PT-21 | applies | `src/planRegister/vendored` holds copies of the shared grammar unit and its corpus, generated by `sync_shared_unit.ts`, which has a `--check` mode. P3-N014 adds a fixture that the copy lacks (open Backlog entry). |
+| PT-22 | applies | The service's `docs/mcp-enlistment.md` and template keep the form that this repository's checked-in `.mcp.json` follows (service Backlog). |
+| PT-23 | applies | The service's Backlog and runbook cite `docs/findings/alias-assumptions.md`, which the service's `main` at `58e6819` does not hold. |
+| PT-27 | applies | The Project model's entries restate nodes, stages and edges that the Plan register and the Backlog hold. Task T077 transcribed 50 edges, each with its sources. |
+| PT-28 | applies | The catalogue's Encounters restate Backlog and Risk register entries in one sentence each, and the check document restates the catalogue's classes. |
+| PT-30 | applies | `dispatch.md` carries the four predicates copied byte for byte from `fcf4894` (plan of P3-N014, decision 3). No standing check compares the copy with its source. |
+| PT-31 | applies | The service's `CLAUDE.md` block is a cache of upstream text, and its Classification states the pin and the coordinating repository in prose. |
+| SA-1 | applies | The Backlog, Plan register and Cost log restate each other's state. Encounters on 2026-09-01, 2026-09-17, 2026-10-29 and 2026-10-30 record stale lines. |
+| SA-2 | applies | Plans, specifications and proposals restate pins, ruling numbers and stages. Encounters on 2026-08-31, 2026-10-29 and 2026-10-30 record stale statements in plans and in the central plan document. |
+
+Does not apply:
+
+| Argument | Parts |
+|---|---|
+| `roles.md` is the source of the duties. The restatements are the contracts of PT-12. | PT-03 |
+| The shared grammar unit and its consumers are the source. The copies are held by PT-21. | PT-08 |
+| It holds the mechanism that makes the copies, with a `--check` mode, and the corpus is the source. The copies are PT-21's. | PT-09 |
+| The checker imports the shared unit. Since the cutover no second implementation of the grammar exists in this repository. | PT-10 |
+| The cutover moved every invocation site once. The generated copy it produces is held by PT-04 and PT-12. | PT-11 |
+| The slice restates no other document or repository. | PT-19 |
+| The pinned action SHAs are the pins. The `# vX.Y.Z` comments label them, and no statement relies on a comment. | PT-24, PT-26 |
+| It reads the qualifier from the invoked ARN and restates nothing. | PT-25 |
+| The record is the source of the predicates. The copy in `dispatch.md` is PT-30's. | PT-29 |
+| A surface is the source of its own state and restates nothing. | SA-3, SA-4 |
+
+**CR-006, a rule meets contrary guidance where it applies** (`[C1+]`).
+
+| Part | Result | Argument |
+|---|---|---|
+| PT-02 | applies | `dispatch.md` states the fallback rule and the stop conditions, which sessions apply under contrary harness guidance. A session may not have read it: R17's exercise found `enlistment.md` absent from the branch under test. |
+| PT-03 | applies | `roles.md` states the duties every role carries. A role meets them through its contract, not through `roles.md`. |
+| PT-12 | applies | The contracts are where a rule must sit for an agent to meet it. Their wording must survive contrary guidance. |
+| PT-15 | applies | The duties of the communication-pipeline roles sit in `roles.md` and `dispatch.md`, outside the contract of the role that applies them. |
+| PT-22 | applies | `enlistment.md` states the fallback rule. R17's encounter met the harness's contrary notice here. |
+| PT-30 | applies | The four stop conditions sit in `dispatch.md` and in the six contracts. The plan of P3-N005 records that a condition stated only in `dispatch.md` has R17's defect (RP-17). |
+
+Does not apply:
+
+| Argument | Parts |
+|---|---|
+| `CLAUDE.md` is loaded at session start, which is where the mitigation of CR-006 puts a rule. | PT-14 |
+| Its skills state procedure. The rules a role holds sit in its contract (PT-12). | PT-04 |
+| Records, plans, proposals or registers, read for reference. The rules an agent holds under pressure sit in a contract or in `dispatch.md`. | PT-01, PT-05, PT-06, PT-07, PT-13, PT-16, PT-17, PT-23, PT-27, PT-28, PT-29, PT-31, SA-1, SA-2 |
+| Code or a surface. It states no rule that an agent holds. | PT-08, PT-09, PT-10, PT-11, PT-18, PT-19, PT-20, PT-21, PT-24, PT-25, PT-26, SA-3, SA-4 |
+
+**CR-007, a test freezes a snapshot of a document that changes by routine operation** (`[C1+]`).
+
+No part applies.
+
+Does not apply:
+
+| Argument | Parts |
+|---|---|
+| No test or fixture in the part compares against recorded facts of a document that changes by routine operation. | PT-01, PT-02, PT-03, PT-04, PT-05, PT-06, PT-07, PT-11, PT-12, PT-13, PT-14, PT-15, PT-16, PT-17, PT-18, PT-19, PT-22, PT-23, PT-24, PT-25, PT-26, PT-27, PT-28, PT-29, PT-31, SA-1, SA-2, SA-3, SA-4 |
+| `test/plan-register.test.ts` computes its facts from the live register at run time and asserts agreement. That is the mitigation of CR-007. | PT-08 |
+| Corpus fixtures are frozen on purpose, with recorded expectations and a README. | PT-09 |
+| `test/form-check-edge-recorded.test.ts` builds its fixture in a temporary directory. | PT-10 |
+| The tests use `plan-register.sample.md`, a frozen copy. A test on a frozen copy cannot fail when the live register moves. CR-005 covers the copy's drift. | PT-20, PT-21 |
+| Its corpus fixture is a frozen fixture of the corpus. | PT-30 |
+
+**CR-008, a verification tool silently excludes part of its input** (`[C1+]`).
+
+| Part | Result | Argument |
+|---|---|---|
+| PT-08 | applies | `.prettierignore` excludes `docs/`, `plugin/agents/` and other paths, `tsconfig.json` includes `plugin/scripts` and `test` only, and `eslint.config.js` ignores `node_modules/**` and `coverage/**`. A check passes over what its configuration includes and does not report the rest. |
+| PT-11 | applies | The cutover's proof that no reference to the retired scripts survives is an orphan-reference search. Ripgrep dropped `run_corpus.ts` from it (2026-08-30). |
+| PT-18 | applies | The service's lint and format ignore lists (`.aws-sam/`, `dist-lambda/`) decide which files its checks read. |
+| PT-24 | applies | The workflow runs build, lint and test over configured globs, and `npm run format` is not among its four required checks. |
+
+Does not apply:
+
+| Argument | Parts |
+|---|---|
+| No claim of the part rests on a search, scan or lint over a file set. | PT-01, PT-02, PT-03, PT-04, PT-05, PT-06, PT-07, PT-12, PT-13, PT-14, PT-15, PT-16, PT-17, PT-19, PT-20, PT-21, PT-22, PT-23, PT-25, PT-26, PT-27, PT-28, PT-29, PT-30, PT-31, SA-1, SA-2, SA-3, SA-4 |
+| Its `--check` mode compares two listings and reports each difference. | PT-09 |
+| The checker reads fixed paths and does not scan for files. | PT-10 |
+
+**CR-009, a figure presented under one name includes something else** (`[C1+]`).
+
+| Part | Result | Argument |
+|---|---|---|
+| PT-05 | applies | The observability specification and the run journal record timestamps from which latencies are read. An elapsed time on an attended surface includes waits for the person (BC-07). |
+| SA-1 | applies | The Cost log reports tokens and elapsed time per task. The figures include different things by surface and by reporting path (rows T001, T004 and T071). |
+
+Does not apply:
+
+| Argument | Parts |
+|---|---|
+| It reports no measure. | PT-01, PT-02, PT-03, PT-04, PT-06, PT-07, PT-08, PT-09, PT-10, PT-11, PT-12, PT-13, PT-14, PT-15, PT-16, PT-17, PT-18, PT-19, PT-20, PT-21, PT-22, PT-23, PT-24, PT-25, PT-27, PT-29, PT-30, PT-31, SA-2, SA-3, SA-4 |
+| The runbook records the numbers of one run beside its run ID, and the smoke test reports pass or fail. | PT-26 |
+| The counts it reports are listed with their rows, and each names what it counts. | PT-28 |
+
+**CR-010, a task depends on a fact about its environment that nobody checked** (`[C1+]`).
+
+| Part | Result | Argument |
+|---|---|---|
+| PT-04 | applies | `billing_check.sh` is a shell script run by the SessionStart hook. It assumes a POSIX `sh` on every surface, and the owner's local terminal is on Windows (Backlog, 2026-09-07). |
+| PT-12 | applies | Row T047 records that criterion G5 stayed untested because `vitest` was absent, and G3 ran by script because `mtool` was absent. |
+| PT-17 | applies | The first draft was written without reading the Allegro repository, because no `add_repo` tool was available (2026-09-16). |
+| PT-18 | applies | The `mtool` form audit and link check could not run at bootstrap because dispatch environments hold no `mtool`, and the new Classification's links dangled (2026-08-27). |
+| PT-20 | applies | The dispatch environment held no SAM CLI, so the template was checked as YAML and through an equivalent bundle (2026-08-29). |
+| PT-22 | applies | The Orchestrator gave an owner on Windows a Unix-shaped timing command without checking the platform (2026-09-07). |
+| PT-23 | applies | The egress policy denied the AWS documentation hosts, and the criteria required citing the pages (2026-09-01). |
+| PT-24 | applies | The first workflow was validated as YAML plus a manual read, because no `actionlint` existed (2026-09-01). |
+| PT-26 | applies | The deploy workflow, the more dangerous of the two, was authored under the same lack of a workflow linter. |
+| PT-30 | applies | Row T072 records that `npm test` was not run in the task's worktree, and the Orchestrator ran it after the merge (2026-10-30). Task E3 found `mtool` on no PATH. |
+| SA-4 | applies | The surfaces differ in tools, hosts and permissions. The Backlog entry on placeholder AWS variables records a premise about the environment that needed a check. |
+
+Does not apply:
+
+| Argument | Parts |
+|---|---|
+| It needs only what its runner's environment holds: Node, Git and the checkout. | PT-08, PT-09, PT-10, PT-11 |
+| P2-N008 ran `sam validate --lint` and `sam build` on its template (Backlog). | PT-19, PT-21, PT-25 |
+| The part is text, and its sources were read from the checkout. | PT-01, PT-02, PT-03, PT-05, PT-06, PT-07, PT-13, PT-14, PT-15, PT-16, PT-27, PT-28, PT-29, PT-31, SA-1, SA-2 |
+| A surface is the environment itself and names no tool, host or permission of its own. | SA-3 |
+
+**CR-011, a deployed service fails and nothing notices** (`[C1+] [deployable]`).
+
+| Part | Result | Argument |
+|---|---|---|
+| PT-19 | applies | The deployed MCP server runs on Lambda behind API Gateway. The smoke test calls the preprod Function URL once per deploy, and nothing calls the service between deploys. |
+| PT-20 | applies | `plan_read` runs in production and reads GitHub through an App installation. A revoked installation or an expired key fails it between deploys. |
+| PT-21 | applies | `plan_update` and the lease tools run in production against the lease table and GitHub. A credential that expires fails them between deploys. |
+| PT-25 | applies | The selection fails closed on the production table. A failure there is reached only when a call arrives. |
+| PT-26 | applies | The workflow and its deploy credentials run only at a merge. An expired or revoked credential is found at the next merge. |
+| SA-3 | applies | The production endpoint is reached only when a session calls it. |
+
+Does not apply:
+
+| Argument | Parts |
+|---|---|
+| A scaffold of build, lint and test commands. It runs in no production. | PT-18 |
+| Text. It runs nothing. | PT-23 |
+| It runs on pull requests and cannot deploy by design. No part of it runs in production. | PT-24 |
+| Declarations. They run nothing. | PT-31 |
+| Not applicable at step 1: the header excludes the repository | PT-01, PT-02, PT-03, PT-04, PT-05, PT-06, PT-07, PT-08, PT-09, PT-10, PT-11, PT-12, PT-13, PT-14, PT-15, PT-16, PT-17, PT-22, PT-27, PT-28, PT-29, PT-30, SA-1, SA-2, SA-4 |
+
+**CR-012, a record is written before the action it records** (`[C1+]`).
+
+| Part | Result | Argument |
+|---|---|---|
+| PT-05 | applies | The run journal records `dispatched` events. The Orchestrator wrote and committed one before the launch, which was skipped (2026-09-02). |
+| SA-1 | applies | The Plan register's stage is set by the Orchestrator at dispatch. A stage `executing` is a record set before the work completes, and a skipped dispatch would leave it standing. |
+
+Does not apply:
+
+| Argument | Parts |
+|---|---|
+| Its records are written after the act they record, or it is read-only text or code. | PT-01, PT-02, PT-03, PT-04, PT-06, PT-07, PT-08, PT-09, PT-10, PT-11, PT-12, PT-13, PT-14, PT-15, PT-16, PT-17, PT-18, PT-19, PT-20, PT-21, PT-22, PT-23, PT-24, PT-25, PT-26, PT-27, PT-28, PT-29, PT-31, SA-2, SA-3, SA-4 |
+| The member's result record is written after the task it records. | PT-30 |
+
+**Counts.** The run recorded 395 pairs at step 2 and 25 pairs as not applicable at step 1.
+
+| Class | Applies | Does not apply | Not applicable (step 1) |
+|---|---|---|---|
+| CR-001 | 15 | 20 | 0 |
+| CR-002 | 7 | 28 | 0 |
+| CR-003 | 4 | 31 | 0 |
+| CR-004 | 2 | 33 | 0 |
+| CR-005 | 23 | 12 | 0 |
+| CR-006 | 6 | 29 | 0 |
+| CR-007 | 0 | 35 | 0 |
+| CR-008 | 4 | 31 | 0 |
+| CR-009 | 2 | 33 | 0 |
+| CR-010 | 11 | 24 | 0 |
+| CR-011 | 6 | 4 | 25 |
+| CR-012 | 2 | 33 | 0 |
+| Total | 82 | 313 | 25 |
+
+### Full run: step 3, coverage
+
+The run read the register with `grep -n 'CR-' docs/open-risks.md`. It
+returned 9 hits, one for each *Class* line. The preamble never
+appears, as the procedure states. The run attributed each hit to the entry
+whose bullet holds it.
+
+| Hit at line | Entry | Class |
+|---|---|---|
+| 62 | R5 | CR-005 |
+| 119 | R9 | CR-001 |
+| 148 | R10 | CR-005 |
+| 284 | R12 | CR-001 |
+| 305 | R13 | CR-001 |
+| 332 | R14 | CR-002 |
+| 359 | R15 | CR-003 |
+| 388 | R16 | CR-004 |
+| 419 | R17 | CR-006 |
+
+Decision 3 applies to each pair. A pair is covered when a register entry
+cites the class, names the part or a scope the run argues contains it, and
+carries a clause that states the exposure the pair's argument names.
+
+**Covered pairs.** 26 of the 82 pairs that apply have a covering entry.
+
+| Part | Class | Covering entry | Argument |
+|---|---|---|---|
+| PT-04 | CR-001 | R9 | R9 names the plugin. Its clause states that the plugin was never observed loading, which is the exposure PT-04's argument names. The clause does not say that the hook fires, and the Backlog entry on the hook stays open. |
+| PT-10 | CR-001 | R13 | R13 names the form checker. Its clause states the Node-floor exposure that PT-10's argument names. |
+| PT-22 | CR-001 | R12 | R12 names node P2-N011 and the exercise. Its clause states the exposure that PT-22's argument names. |
+| PT-30 | CR-001 | R13 | R13 names the form checker, and `form-check-core.ts` is its rules unit (scope argued). The clause states the Node-floor exposure. |
+| SA-4 | CR-001 | R12 | R12 names both surfaces and the proxy that answered at once. |
+| PT-08 | CR-002 | R14 | R14's scope is every dispatched role that can add a dependency (scope argued). The clause states the exposure, a session that finds an exact-match package. |
+| PT-18 | CR-002 | R14 | As PT-08. |
+| PT-19 | CR-002 | R14 | As PT-08. |
+| PT-20 | CR-002 | R14 | As PT-08. |
+| PT-21 | CR-002 | R14 | R14 names task T027, which met the package while building this part. |
+| PT-24 | CR-002 | R14 | As PT-08. The install step and the pinned actions are edited by a role. |
+| PT-26 | CR-002 | R14 | As PT-24. |
+| PT-13 | CR-003 | R15 | R15's scope is any role that reads text its project does not author (scope argued). The clause states the exposure. |
+| PT-23 | CR-003 | R15 | R15 names task T030, which fetched the AWS page for this node. |
+| PT-26 | CR-003 | R15 | As PT-13. The policy was derived from AWS documentation. |
+| PT-28 | CR-003 | R15 | As PT-13. The passes read the methodology's rule files. |
+| PT-26 | CR-004 | R16 | R16 names the preflight, and its clause states the exposure: the verdict line asserts a trust-policy mismatch. |
+| PT-05 | CR-005 | R5 | R5 names registers, and the Risk register is one. Its clause states that a register goes stale. |
+| PT-06 | CR-005 | R5 | R5 names registers, and the Ruling register is one. The clause states the exposure. |
+| SA-1 | CR-005 | R5 | R5 names registers. The Plan register, the Backlog and the Cost log are registers. The clause states the exposure. |
+| PT-02 | CR-006 | R17 | R17 names `dispatch.md`'s fallback rule. Its clause states the exposure. |
+| PT-03 | CR-006 | R17 | R17 names `roles.md`, duties every role carries. |
+| PT-12 | CR-006 | R17 | R17 names the six role contracts. |
+| PT-15 | CR-006 | R17 | R17 names `dispatch.md` and `roles.md`, where this part's duties sit (scope argued). |
+| PT-22 | CR-006 | R17 | R17 names `enlistment.md` and the exercise. |
+| PT-30 | CR-006 | R17 | R17 names `dispatch.md`, `roles.md` and the six contracts, where this part's conditions sit. The plan of P3-N005 ties the part to R17's defect (RP-17). The clause states the exposure. |
+
+**Pairs a register entry names and decision 3 refuses.** Three pairs of
+CR-001 stay uncovered although R13 names their tools. R13's clause states
+the loss of the checker on a surface without the Node floor. The arguments of
+PT-08, PT-09 and PT-11 also name a second exposure, that no committed test
+runs the tool as `node plugin/scripts/<tool>.ts`, which the clause does not
+state. Node P3-N010 recorded these three as covered. R10 names the service
+and R5 names registers, and neither clause states what the arguments of PT-20
+and PT-21 name (a second implementation of the grammar, a fixture copy and a
+vendored copy). Those two pairs are omissions too.
+
+### Full run: the omission list
+
+56 pairs applied and had no covering entry. The citations were complete
+when the run read the Risk register (section *Citations: the Class lines*),
+so each omission is genuine. Each item names the part, the class, the
+exposure from the pair's argument and its disposition. The arguments are in
+step 2 above. The dispositions use the three the specification allows:
+mitigated here, accepted with a written reason, or routed to the Backlog.
+Nothing is mitigated here. 11 items are accepted with a reason, and 45 are
+routed to 18 Backlog entries, 16 open before this task and 2 added with this
+record.
+
+| Item | Part | Class | Exposure | Disposition |
+|---|---|---|---|---|
+| OM-01 | PT-08 | CR-001 | no committed test runs the tool as `node plugin/scripts/<tool>.ts` | Routed to the Backlog: "No committed test runs the plugin tools the way they run". |
+| OM-02 | PT-09 | CR-001 | no committed test runs the tool as `node plugin/scripts/<tool>.ts` | Routed to the Backlog: "No committed test runs the plugin tools the way they run". |
+| OM-03 | PT-11 | CR-001 | no committed test runs the tool as `node plugin/scripts/<tool>.ts` | Routed to the Backlog: "No committed test runs the plugin tools the way they run". |
+| OM-04 | PT-19 | CR-001 | no check runs against the endpoint that serves production | Routed to the Backlog: "Track the service's deployed parts under CR-001, or check them where they run". |
+| OM-05 | PT-20 | CR-001 | the GitHub path is tested with injected fakes and never called by a check against the service | Routed to the Backlog: "Track the service's deployed parts under CR-001, or check them where they run". |
+| OM-06 | PT-21 | CR-001 | `plan_update` and `plan_confirm` run in no check against the real service | Routed to the Backlog: "Track the service's deployed parts under CR-001, or check them where they run". |
+| OM-07 | PT-24 | CR-001 | no check can fail on a deploy-time defect | Accepted. The checks cannot deploy by design (node P2-N014, pull-request checks that cannot deploy). The check that runs where the code runs is the smoke test of PT-26, and the exposure after promotion is item OM-10 (SA-3). |
+| OM-08 | PT-25 | CR-001 | the `live` qualifier's production-table path has no check | Routed to the Backlog: "Track the service's deployed parts under CR-001, or check them where they run". |
+| OM-09 | PT-26 | CR-001 | the policy is verified only by running the pipeline | Accepted. The pipeline run is the check that runs where the code runs, and it failed four times before it passed. The exposure after promotion is item OM-10 (SA-3). |
+| OM-10 | SA-3 | CR-001 | no request reaches the production endpoint after promotion | Routed to the Backlog: "Track the service's deployed parts under CR-001, or check them where they run". |
+| OM-11 | PT-10 | CR-004 | the self-check failure message names the checker as the cause | Accepted. The self-check reads only the corpus fixtures and never the project's documents, so "not with your project" is tested by construction. The message names the corpus and points to its README. The one untested alternative is an environment fault that the Node preflight did not catch. |
+| OM-12 | PT-01 | CR-005 | a statement of the pin in a plan goes stale | Routed to the Backlog: "Documents that restate other documents have no Risk register entry citing CR-005". |
+| OM-13 | PT-02 | CR-005 | citations of the methodology go stale after a pin moves | Routed to the Backlog: "Methodology citations in the process spec point at the superseded pin". |
+| OM-14 | PT-04 | CR-005 | a generated copy falls behind its source | Accepted. The mitigation of CR-005 is in place. `.claude/agents/` is the canonical source, `plugin/agents/` is generated from it, and `sync_agents.ts --check` compares them. Node P1-N009 proved the drift guard by changing one byte of a vendored copy. |
+| OM-15 | PT-07 | CR-005 | a quotation of upstream goes stale before delivery | Routed to the Backlog: "Deliver the extension-point proposal upstream". |
+| OM-16 | PT-12 | CR-005 | a contract restates `roles.md` with no check that they agree | Routed to the Backlog: "Documents that restate other documents have no Risk register entry citing CR-005". |
+| OM-17 | PT-13 | CR-005 | a quotation of upstream goes stale before delivery | Accepted. Each of the four proposals carries a provenance line under RU-015 that names the commit at which the quoted text was true, which is the mitigation of CR-005. |
+| OM-18 | PT-14 | CR-005 | a pin or cached block falls behind the Classification | Routed to the Backlog: "Documents that restate other documents have no Risk register entry citing CR-005". |
+| OM-19 | PT-15 | CR-005 | a rule restated in several documents diverges | Routed to the Backlog: "The selection rule is restated outside P3-N009's four statements". |
+| OM-20 | PT-16 | CR-005 | a plan's statement of another document goes stale | Routed to the Backlog: "Documents that restate other documents have no Risk register entry citing CR-005". |
+| OM-21 | PT-17 | CR-005 | a Backlog entry describing a plan goes stale | Routed to the Backlog: "Documents that restate other documents have no Risk register entry citing CR-005". |
+| OM-22 | PT-18 | CR-005 | a cross-repository link or statement goes stale | Routed to the Backlog: "Documents that restate other documents have no Risk register entry citing CR-005". |
+| OM-23 | PT-20 | CR-005 | the register fixture drifts from the register | Routed to the Backlog: "Keep the service repo's register fixture in sync". |
+| OM-24 | PT-21 | CR-005 | the vendored copy falls behind the source | Routed to the Backlog: "Re-vendor the conformance corpus into the service repository". |
+| OM-25 | PT-22 | CR-005 | a template copy falls behind its source | Routed to the Backlog: "Documents that restate other documents have no Risk register entry citing CR-005". |
+| OM-26 | PT-23 | CR-005 | a cited file is absent from the repository that cites it | Routed to the Backlog: "The service repository cites a findings file its main does not hold". |
+| OM-27 | PT-27 | CR-005 | the model restates the register and the Backlog | Routed to the Backlog: "Documents that restate other documents have no Risk register entry citing CR-005". |
+| OM-28 | PT-28 | CR-005 | an encounter sentence restates a source that changes | Accepted. Each encounter of the catalogue names its artifact and date, and the provenance line names the methodology commit. The run record names the commits it read. That is the mitigation of CR-005. |
+| OM-29 | PT-30 | CR-005 | a copy kept on purpose has no drift check | Routed to the Backlog: "Documents that restate other documents have no Risk register entry citing CR-005". |
+| OM-30 | PT-31 | CR-005 | a pin or cached block falls behind its source | Routed to the Backlog: "Documents that restate other documents have no Risk register entry citing CR-005". |
+| OM-31 | SA-2 | CR-005 | a plan's statement of another document goes stale | Routed to the Backlog: "Documents that restate other documents have no Risk register entry citing CR-005". |
+| OM-32 | PT-08 | CR-008 | an ignore list or include glob hides files from a check | Accepted. Each exclusion is declared with its reason in `.prettierignore` and `tsconfig.json`, and no check relies on the excluded paths. `docs/` is read by the form checker and `mtool`, not by Prettier. |
+| OM-33 | PT-11 | CR-008 | an orphan-reference search drops a file it classifies as binary | Routed to the Backlog: "Upstream proposal for `mtool`: no source file may read as binary to grep". |
+| OM-34 | PT-18 | CR-008 | an ignore list hides files from a check | Routed to the Backlog: "`.prettierignore` still lacks `dist-lambda/`". |
+| OM-35 | PT-24 | CR-008 | an ignore list or glob hides files from a check | Routed to the Backlog: "`.prettierignore` still lacks `dist-lambda/`". |
+| OM-36 | PT-05 | CR-009 | an elapsed time includes a wait for a person | Accepted. The specifications now say that wall-clock on an attended surface is attended time (Backlog, "Trial 4 (local session) and its analysis"). |
+| OM-37 | SA-1 | CR-009 | a figure includes something its column name does not say | Accepted. Each Cost log note states what its figure covers, for example "dispatch→result (unattended)", "no input/output split reported" and "read from the session transcript". |
+| OM-38 | PT-04 | CR-010 | the hook assumes a POSIX shell | Routed to the Backlog: "Revisit `billing_check.sh`'s language". |
+| OM-39 | PT-12 | CR-010 | a task assumes a tool its environment lacks | Routed to the Backlog: "A brief does not say what its task needs from the dispatch environment". |
+| OM-40 | PT-17 | CR-010 | a task assumes access its environment lacks | Accepted. The exposure occurred and was corrected. Reading the repository later changed the plan (Backlog, "Project comprehension and continuous implementation sketched and planned"). |
+| OM-41 | PT-18 | CR-010 | a task assumes a tool its environment lacks | Routed to the Backlog: "A brief does not say what its task needs from the dispatch environment". |
+| OM-42 | PT-20 | CR-010 | a task assumes a tool its environment lacks | Routed to the Backlog: "`sam validate --lint` and `sam build` for the P2-N009 template changes". |
+| OM-43 | PT-22 | CR-010 | a brief names a command without checking the platform | Routed to the Backlog: "`enlistment.md` tells a session what to do and leaves a person guessing". |
+| OM-44 | PT-23 | CR-010 | a task assumes a host its environment denies | Accepted. The node was blocked before dispatch on 2026-09-01 and named the denied host, which is the mitigation of CR-010, and it is `done`. |
+| OM-45 | PT-24 | CR-010 | a task assumes a tool its environment lacks | Routed to the Backlog: "No workflow linter is available to sessions authoring workflows". |
+| OM-46 | PT-26 | CR-010 | a task assumes a tool its environment lacks | Routed to the Backlog: "No workflow linter is available to sessions authoring workflows". |
+| OM-47 | PT-30 | CR-010 | a task assumes a tool its environment lacks | Routed to the Backlog: "A brief does not say what its task needs from the dispatch environment". |
+| OM-48 | SA-4 | CR-010 | a task assumes a fact about the surface | Routed to the Backlog: "A brief does not say what its task needs from the dispatch environment". |
+| OM-49 | PT-19 | CR-011 | no check between deploys | Routed to the Backlog: "Continuous monitoring for the service, between deploys". |
+| OM-50 | PT-20 | CR-011 | no check between deploys | Routed to the Backlog: "Continuous monitoring for the service, between deploys". |
+| OM-51 | PT-21 | CR-011 | no check between deploys | Routed to the Backlog: "Continuous monitoring for the service, between deploys". |
+| OM-52 | PT-25 | CR-011 | no check between deploys | Routed to the Backlog: "Continuous monitoring for the service, between deploys". |
+| OM-53 | PT-26 | CR-011 | no check between deploys | Routed to the Backlog: "Continuous monitoring for the service, between deploys". |
+| OM-54 | SA-3 | CR-011 | no check between deploys | Routed to the Backlog: "Continuous monitoring for the service, between deploys". |
+| OM-55 | PT-05 | CR-012 | a journal event is written before the launch | Routed to the Backlog: "A journalled dispatch is not evidence that a task was dispatched". |
+| OM-56 | SA-1 | CR-012 | a stage is set before the work starts | Routed to the Backlog: "A journalled dispatch is not evidence that a task was dispatched". |
+
+**Items by Backlog entry.**
+
+| Backlog entry | State | Items |
+|---|---|---|
+| "No committed test runs the plugin tools the way they run" | open before this task | OM-01, OM-02, OM-03 |
+| "Track the service's deployed parts under CR-001, or check them where they run" | open before this task | OM-04, OM-05, OM-06, OM-08, OM-10 |
+| "Documents that restate other documents have no Risk register entry citing CR-005" | added with this record | OM-12, OM-16, OM-18, OM-20, OM-21, OM-22, OM-25, OM-27, OM-29, OM-30, OM-31 |
+| "Methodology citations in the process spec point at the superseded pin" | open before this task | OM-13 |
+| "Deliver the extension-point proposal upstream" | open before this task | OM-15 |
+| "The selection rule is restated outside P3-N009's four statements" | open before this task | OM-19 |
+| "Keep the service repo's register fixture in sync" | open before this task | OM-23 |
+| "Re-vendor the conformance corpus into the service repository" | open before this task | OM-24 |
+| "The service repository cites a findings file its main does not hold" | open before this task | OM-26 |
+| "Upstream proposal for `mtool`: no source file may read as binary to grep" | open before this task | OM-33 |
+| "`.prettierignore` still lacks `dist-lambda/`" | open before this task | OM-34, OM-35 |
+| "Revisit `billing_check.sh`'s language" | open before this task | OM-38 |
+| "A brief does not say what its task needs from the dispatch environment" | added with this record | OM-39, OM-41, OM-47, OM-48 |
+| "`sam validate --lint` and `sam build` for the P2-N009 template changes" | open before this task | OM-42 |
+| "`enlistment.md` tells a session what to do and leaves a person guessing" | open before this task | OM-43 |
+| "No workflow linter is available to sessions authoring workflows" | open before this task | OM-45, OM-46 |
+| "Continuous monitoring for the service, between deploys" | open before this task | OM-49, OM-50, OM-51, OM-52, OM-53, OM-54 |
+| "A journalled dispatch is not evidence that a task was dispatched" | open before this task | OM-55, OM-56 |
+
+**Against the run of node P3-N010.** That run listed eight items, O1 to O8.
+Five are items here again: O2, O3, O4, O6 and O8 (PT-19, PT-20, PT-21, PT-25
+and SA-3), with the same Backlog entry. O5 and O7 (PT-24 and PT-26) are
+accepted again for the same reasons. O1 is gone: PT-04 is now covered by R9,
+which carries a CR-001 line since task E3 (the convention *merge with
+exposure* applies to R9 as it does to R13). R9's status is closed, so the
+check covers PT-04 with an entry that tracks nothing open. The Backlog entry
+"Whether R7's SessionStart billing check fires on each surface" stays open,
+and finding 15 below records the gap. PT-08, PT-09 and PT-11 are new omissions
+under decision 3. PT-30 is covered by R13.
+
+**The plugin-tools item.** OM-01 to OM-03 are the omission that RP-24 and
+N14 expected, for PT-08, PT-09 and PT-11. They route to the Backlog entry
+"No committed test runs the plugin tools the way they run". Task T055 wrote
+that entry on 2026-10-30 as the argument behind the same pairs, so it is open
+and matches. No new entry is added for it.
+
+## Negative-control record, 2026-10-30, full scope
+
+The control follows the five steps of *The negative control* above. It ran
+on the full-scope run record, so its base is the commit that holds that
+record. The pair belongs to CR-003, a class other than CR-001 (criterion
+B17).
+
+| Item | Record |
+|---|---|
+| Scratch branch | `scratch-negative-control-cr-003` |
+| Base commit | `b03d5b0`, the commit that holds the full-scope run record |
+| Pair chosen | CR-003 (fetched content carries an instruction for the agent) against PT-23 (the alias assumptions finding), covered by R15 |
+| Citation removed | R15's *Class* line, four lines ending "The role declined it." |
+| Steps 2 and 3 re-run | `grep -n 'CR-' docs/open-risks.md` returned 8 hits where the base returned 9. The base hit at line 359 (R15) was gone. Step 2 for CR-003 does not read the register and stayed as recorded. Step 3 read the 8 hits and checked each covered pair of the class against them. |
+| Pair that returned | PT-23 returned to the omission list: R15 was its only covering entry. |
+| Pairs that returned with it | PT-13, PT-26 and PT-28, for the same reason. R15 was the only covering entry of CR-003. |
+| Pairs that stayed covered | Every pair of the other classes. The 22 covered pairs of CR-001, CR-002, CR-004, CR-005 and CR-006 did not change. |
+| Omission list on the scratch branch | 60 items. The base list has 56. |
+| Outcome | The chosen pair returned. The control passed. |
+| Discarded | The removal was never committed. The working copy was restored, and the branch, which pointed at the base commit, was deleted without a merge. |
+
+The recomputation read the covering entry of each pair from step 3 above and
+asked whether the register, after the removal, still carried a *Class* line of
+that entry for the pair's class. A script did the lookup; the argument for each
+covered pair is the one in step 3.
+
 ## Shape findings
 
 The section states what in the entry shape the check could not read and
 what changed. Findings 1 to 3 changed the delivered text. Findings 4 to
 8 changed nothing and are recorded for node P3-N011 (the sweep, the rest
-of the catalogue and the omission list).
+of the catalogue and the omission list). Findings 9 to 14 carry findings S1
+to S6 of the sweep, which task E3 brings here (criterion B18). Findings 15
+to 21 are the findings of the full run. None of findings 9 to 21 changed
+delivered text.
 
 1. The Reaches field, as the specification defines it ("the kind of part
    of a project the failure occurs in"), gives step 2 a kind and no
@@ -585,6 +2380,131 @@ of the catalogue and the omission list).
    and migrations are text and are not listed as a part. They would
    record `does not apply` for CR-001. Whether the enumeration reads the
    second Backlog is a question for child B.
+
+9. (S1) The four outcomes have none for a candidate that states an
+   admitted class and records no event. The convention *merge with
+   exposure* covers it. Fourteen rows of the five passes use it, and the
+   *Class* lines of R9 and R13 follow it. The specification could name the
+   convention, or say that such a candidate is not a candidate.
+10. (S2) ET-2 does not say whether "upstream" includes the owner of a
+    component the project runs on. The sweep read it in two parts, (a) a
+    methodology change and (b) a change by a component's owner. The full
+    run applies no entry test, so this reading did not change a result of
+    the run. It decides rows RR-09, RR-17, RR-20, RR-22, CL-05, CL-06 and
+    CL-10, and it awaits the owner's ruling.
+11. (S3) ET-3 asks for an encounter in "this repository", and several
+    encounters happened in the service repository. The sweep reads the
+    artifact that resolves here as the record. The header rule of finding 4
+    depends on this reading. The full run did not change it.
+12. (S4) Part (a) of the reading of ET-2 rejects a candidate when a rule of
+    the methodology already requires the fix. Eleven rows depend on it:
+    BC-10, BU-11, BU-22, BU-27, BU-28, BU-48, BU-67, CL-21, CL-32, RP-11
+    and RP-12. The owner's ruling on part (a) decides them. The full run does
+    not read them.
+13. (S5) CR-005 lists 21 independent encounters, and DL-01 would make 22.
+    The specification sets a floor of two and no ceiling. The full run adds
+    a second effect of the breadth of CR-005, finding 18.
+14. (S6) Backlog entries written before the row shape carry no date, so six
+    encounters take their date from the Cost log row of the task the entry
+    names. The full run did not need those dates. Child C's conversion could
+    pin them.
+15. Coverage cannot read an entry's status. R9 is closed since 2026-08-26.
+    Once R9 carries its CR-001 line, it covers PT-04, and the pair left the
+    omission list. The question that the pair raised, whether the billing
+    hook fires on a surface, is still open in the Backlog entry "Whether R7's
+    SessionStart billing check fires on each surface". The list lost the item
+    and the exposure remains. The definition of a covering entry could require
+    an open entry, or the item could record the covering entry's status.
+    Striking R9's line would restore the omission.
+16. Scope arguments decide 11 of the 26 covered pairs. The covered pairs of
+    CR-002 (6 of 7) and CR-003 (3 of 4) rest on the scope of R14 and R15,
+    which state what a role does and name no part. The full run argued them
+    in the open, and a reader can dispute each. A stricter rule, that a
+    covering entry must name the part, would turn 11 pairs into omissions. The
+    choice between the two rules is the owner's.
+17. A class whose mitigation sits in the role contracts finds no omission.
+    CR-002 and CR-003 produced 11 covered pairs and none uncovered, because
+    one register entry for each states a behaviour of roles. The check cannot
+    show that a part of such a class is unprotected. It can show only that the
+    contracts exist.
+18. CR-005 reaches 23 of the 35 parts and 20 of the 56 omissions. Its reaches
+    question, whether a part says something about a source it does not own,
+    is answered yes for almost every document that cites another. The class is
+    broad enough that its omissions group into one Backlog entry, which asks
+    whether the register should cite it for documents at all.
+19. A part of mixed kind gets one result per class. PT-30 holds text, a
+    contract wording and a code change, and its CR-001 reach comes from the
+    code alone. PT-04, PT-12 and PT-26 are mixed too. The enumeration does not
+    split a part by artifact kind, so a result for a mixed part describes its
+    most exposed artifact.
+20. The sweep has no rule for a source that moves between the passes and the
+    final run. Task E3 scanned the additions after the passes' commits and
+    recorded three delta rows (DL-01 to DL-03). The passes stay at their
+    commits, and DL-01 is a CR-005 encounter that the catalogue does not hold.
+21. CR-010 recurred in the run that records it. The brief of task T083 names
+    `mtool`, and no `mtool` is on the PATH. The role ran it from a sibling
+    checkout of majodali/methodology-tools with `npx tsx src/cli.ts` and the
+    flag `--corpus`. The catalogue holds nine encounters of CR-010, and this
+    one is a tenth (2026-10-30, task T083). Task E3 did not edit the catalogue.
+
+## Verification of node P3-N011
+
+The plan names no Reviewer (*Verification*), so task E3 verifies the node
+against criteria B1 to B18 and the three adopted decisions. The commits are
+`69e67af` (citations and parts enumeration), `b03d5b0` (the run) and the commit
+of this section.
+
+| Criterion | Result | Where |
+|---|---|---|
+| B1, one pass per source with method and counts | Met | *Status of the passes* and passes 1 to 5 |
+| B2, every register entry put to the entry test, with the commit | Met | Pass 1 at `bd4fc8d`. *The register re-read* finds no entry added since. |
+| B3, every named candidate has an outcome | Met | *Named candidates: the full table* |
+| B4, every admitted entry has six fields, each encounter a date and an artifact, each generalization its own row | Met | The catalogue holds CR-001 to CR-012 with six fields each. Task E3 counted 12 entries, 6 fields each, and every encounter row has a date and a link. |
+| B5, at least one rejection in writing | Met | 60 rejections across the passes |
+| B6, the not-yet-covered section lists every deferred candidate | Met | Six deferrals in the catalogue and in *Deferred candidates* |
+| B7, every instantiating entry cites its class, the preamble states the field, the diff meets I7 | Met | *Citations: the Class lines*. The register diff since `0aefb00` adds seven *Class* lines and amends one sentence of the preamble. No other line changed. |
+| B8, the check at full scope, parts added with date and source, a non-empty list, items with part, class, argument and disposition, Backlog entries in the same commit | Met | *Run record, 2026-10-30, full scope*. The list has 56 items. The two new Backlog entries are in `b03d5b0`, the commit of the list. |
+| B9, the negative control re-run and recorded | Met | *Negative-control record, 2026-10-30, full scope* |
+| B10, no edit of another node overwritten | Met | The Backlog diff since `0aefb00` adds entries and rewrites only the entry of this node. The register diff is as for B7. |
+| B11, `form_check` passes and the Backlog moves with the work | Met | 0 violations at each commit. The Backlog moved in `b03d5b0` and in the commit of this section. |
+| B12, each carry-over of node P3-N010 dispositioned | Met | The table below |
+| B13, every header admits each repository where an encounter happened | Met | *The classes the passes admitted*, the header table. The full run applied the headers at step 1. |
+| B14, each pass names its commit, and one failure in two sources has one row | Met | *Status of the passes*. The delta rows name their sources. |
+| B15, a table maps each named candidate to its row and outcome | Met | *Named candidates: the full table* |
+| B16, each *Class* clause is written from its entry's text | Met | *The lines written*. Three fits are weaker (R5, R9, R10), and the owner may strike them. |
+| B17, the control's pair belongs to a class other than CR-001 | Met | CR-003 against PT-23 |
+| B18, *Shape findings* gains the full run's findings, or states none | Met | Findings 9 to 21 |
+| Decision 3, a covering clause states the exposure | Met | Step 3 of the full run. It turned PT-08, PT-09 and PT-11 into omissions. |
+| Decision 4, defects of one run sequence count once | Met | The catalogue's definition of an independent encounter holds the sentence. No row of the full run needed it. |
+| Decision 5, the service Backlog is read | Met | The table of checked service entries, read at `58e6819`. It added PT-31. |
+
+**Depends on the owner's gate decisions.** Five results stand until the owner
+rules.
+
+- B16 and B7 depend on the three weaker *Class* lines. Striking R9's line
+  returns PT-04 to the omission list. Striking R5's or R10's line removes
+  coverage of the three registers (PT-05, PT-06, SA-1).
+- The coverage of 11 pairs rests on scope arguments (finding 16). A rule that
+  a covering entry must name the part would return them.
+- The ratification of the two parts of the reading of ET-2 (findings 10 and 12)
+  decides the rejections that depend on it. The full run does not use it.
+- The ratification of the term *aggregate node* is still open (Backlog entry
+  "Ratify or strike the term aggregate node").
+- The two terms task E3 introduces (*citation test* and *delta row*) await
+  the owner.
+
+**B12, the carry-overs of node P3-N010, now complete.**
+
+| Carry-over | Disposition now |
+|---|---|
+| The two ripgrep rows | Complete. RP-22 and RP-23 are N12 and N13, and CR-008 holds the encounter. The full run reaches CR-008 at four parts (OM-32 to OM-35). |
+| The plugin-tools row | Complete. RP-24 is no candidate, and the omission is OM-01 to OM-03, routed to the open Backlog entry "No committed test runs the plugin tools the way they run". |
+| Shape finding 2, coverage cannot read adequacy | Complete. Decision 3 applied at step 3 turned three pairs into omissions. |
+| Shape finding 4, the header decided the run | Complete. Step 1 of the full run applied the headers, and CR-011's excluded this repository. |
+| Shape finding 5, entries have no anchors | Complete as decided. The run cites entries by title, and child C pins the file. |
+| Shape finding 6, no counting rule for a run sequence | Complete. The sentence is in the catalogue's definition. |
+| Shape finding 7, an entry can instantiate a class without an encounter | Complete. R5, R9 and R10 are such entries and carry lines. |
+| Shape finding 8, the service Backlog | Complete. The service Backlog was read at `58e6819` and added PT-31. |
 
 ## References
 

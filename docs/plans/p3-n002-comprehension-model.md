@@ -102,7 +102,8 @@ dependency definition already names and which nothing currently holds.
   another uses" — promoted from a definition to an entry.
 - The only edge kind is **node → resource**, labelled `creates`,
   `modifies` or `uses`. Node-to-node dependency is derived: node X
-  depends on node Y iff X uses a resource Y creates or modifies.
+  depends on node Y iff X uses a resource Y creates, or X's `uses` edge
+  names Y as a modifying node it needs (P3-N007 decision 3).
 
 Resources are **flat**. They get no hierarchy, no layers and no tracks.
 Granularity is decided by whoever records the edge, never by the model
@@ -252,9 +253,10 @@ neither.
    dependency-ordered", `dispatch.md`'s selection rule "entering
    `execute` requires earlier siblings `done`", and the Plan register
    instance's own header line. The replacement rule: entering `execute`
-   requires that every node which creates or modifies a resource this
-   node uses is `done`. List position keeps its presentation meaning
-   and loses its dependency meaning. **No code and no grammar change**
+   requires that every node which creates a resource this node uses,
+   and every modifying node its `uses` edge names, is `done`. List
+   position keeps its presentation meaning and loses its dependency
+   meaning. **No code and no grammar change**
    — verified: neither `plugin/scripts/lib/plan-register.ts` nor
    `plugin/scripts/lib/form-check-core.ts` mentions siblings or
    dependencies.
@@ -612,6 +614,13 @@ Specification dispatched as T043 to the Planner. The gate was crossed
 after a five-week pause; the owner reviewed the three sibling plans
 from a plain-language briefing rather than from the September gate
 summaries.
+
+Corrections at P3-N007's plan gate, 2026-10-30, placed by task T069.
+The owner adopted decision 3 of the [plan of
+P3-N007](p3-n007-type-declared-amendment-drafted.md) there. Under it, a
+`uses` edge depends on the creating nodes. It depends on a modifying
+node only when the edge names that node. *Two entities, one edge kind*
+and encoding 1 of *The four hand-written encodings* state that rule.
 
 ## References
 

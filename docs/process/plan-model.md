@@ -2,6 +2,11 @@
 
 Part of the [orchestration process specification](README.md).
 
+Reader: RD-4 (a fresh agent session) in the methodology's
+[reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers):
+any role that plans, dispatches or verifies a node. The reader knows
+the [process specification's](README.md) defined terms.
+
 ## The hierarchy
 
 A managed project's plan is a tree of **nodes**. The root node is the
@@ -107,6 +112,20 @@ Rules:
 - An interior node's `verifying` runs after its children are `done`,
   against its own criteria — integration is verified where it was
   specified, not assumed from child success.
+- From `planned` on, a node's plan carries a *Dependencies* section.
+  That section is the single place where the node's repository reach
+  is first written, under RU-016 (the Planner declares the repository
+  access a node needs). Where the project's Classification declares
+  the [Project model](project-model.md) type, the section is also the
+  single place where the node's
+  [edges](project-model.md#def-edge) are first written. The Planner
+  writes them in [the type's
+  notation](project-model.md#how-a-plan-writes-an-edge). The
+  Orchestrator transcribes them into the model when it accepts the
+  plan. A breakdown states its children's edges in that notation, in the
+  parent's specification or plan. A dependency stated anywhere else,
+  such as in another plan's prose, is not a record. Links between
+  plans keep only their navigation meaning.
 - Backward transitions (any stage → an earlier stage) are permitted
   and MUST record their reason. They are learning, not failure; the
   monotonic ideal bounds them, it does not forbid them.

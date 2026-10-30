@@ -11,6 +11,12 @@ earn-your-keep amendment mechanism
 [Article 8](https://github.com/majodali/methodology/blob/v1.3.0/docs/constitution.md#article-8--amendments-versions-and-migration)),
 applied one level down.
 
+Reader: RD-4 (a fresh agent session) in the methodology's
+[reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers):
+the Orchestrator, which writes the register, and any role that cites a
+ruling. The reader knows the [process specification's](README.md)
+defined terms.
+
 **Custom-definition mechanics.** As with the other orchestration
 types: defined by citation to this document; instance
 `docs/rulings.md` in the managed project; the Orchestrator is the
@@ -58,6 +64,23 @@ Status: `active` · `superseded by RU-<n>, because <reason>`.
   event, the ruling's Applied list extended, and one line in the
   gate summary (`Precedents: RU-003 applied to T012`) — visibility
   at zero decision cost.
+- **Why `Applied:` stays beside the Project model.** A ruling is also
+  a [resource](project-model.md#def-resource) of the [Project
+  model](project-model.md), and a node that consumes the ruling has a
+  `uses` [edge](project-model.md#def-edge) on it. The two record
+  different facts. `Applied:` is keyed by task: it names each task
+  whose staged question the ruling decided at the Apply step. The form
+  checker cross-checks it against `precedent-applied` journal events.
+  A `uses` edge is keyed by node: it records that the node's work
+  consumes the ruling, as a plan's citation of the ruling does. So a
+  plan that cites a ruling as its authority gains a `uses` edge and no
+  `Applied:` entry. A blast radius reads the model's `used-by:` line,
+  not `Applied:`. Retiring `Applied:` would rewrite the checker's
+  cross-check and its conformance-corpus expectation. That corpus
+  travels to the service repository under RU-012 (how two repositories
+  share one unit of code). Decision 5 of the [plan of P3-N002 (the
+  comprehension model)](../plans/p3-n002-comprehension-model.md)
+  declined that, and a Backlog entry keeps the option.
 - **Guardrails.** Precedents decide gate-class matters only — never
   the immediate class (scope expansion, W-002, deviations, budget).
   The owner may reopen any ruling at any time ("revisit RU-003");

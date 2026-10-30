@@ -300,10 +300,9 @@ fourth child holding the check at full scope. After child A proves the
 procedure and the negative control, running it over more classes is the
 same mechanism with more content, and no sub-behavior validates
 separately — so it folds into child B. Child B is nonetheless the
-largest child; if its own specification finds the sweep exceeds one
-session, it is broken down by seam (Risk register and rulings · Backlog
-and Cost log), which is a technical-structure cut and is recorded as one
-when it happens.
+largest child. Its own plan keeps it a leaf and splits the work by
+source across three execute tasks: Risk register and rulings, then
+Backlog and Cost log, then the run (plan of node P3-N011, decision 1).
 
 ### Proposed children, in dependency order
 
@@ -499,6 +498,12 @@ deliverable be written IR first and, as a document for a fresh reader,
 reviewed in stranger rounds under the communication pipeline's branch
 point; the Article 8 proposal is such a deliverable and child C absorbs
 that when specified. Specification dispatched as T044 to the Planner.
+
+Correction at P3-N011's plan gate, 2026-10-30, placed by task T069.
+The owner adopted decision 1 of the [plan of
+P3-N011](p3-n011-sweep-and-omission-list.md) there. *Leaf or interior*
+records that child B stays a leaf, split by source across three
+execute tasks.
 
 ## References
 
