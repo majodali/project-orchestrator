@@ -1023,13 +1023,14 @@ record](project-model-slice-record.md) holds it.
 - **spec:** not yet derived (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **risks:** not yet derived (from [specification of
+- **risks:** [R18](open-risks.md) (the view cookie, a standing read
+  credential for the whole plan; from [Risk register](open-risks.md))
+- **created-by:** P2-N021 (The web view's first version; task E1 (T094)
+  built the sign-in routes and the tree page in
+  majodali/project-orchestrator-service commit bf8f1b5, its pull request
+  not yet merged; from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
-  at this breakdown)
-- **created-by:** P2-N021 (The web view's first version; from
-  [specification of
-  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
-  at this breakdown)
+  at this breakdown; [Backlog, entry for P2-N021](backlog.md))
 - **modified-by:** P2-N022 (The owner question queue; its answering
   action; from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated

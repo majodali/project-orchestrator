@@ -2926,9 +2926,13 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   [specification](specs/p2-n003-owner-questions-and-plan-view.md).
 - [ ] **P2-N021 identified, 2026-10-30: the web view's first version**
   — When: 2026-10-30, at P2-N003's specification gate; E1 dispatched
-  2026-10-30 (T094). Status: executing; a leaf, run as execute tasks E1
-  to E3 against criteria V1 to V30, then the owner demonstration; no
-  plan or specify task (plan decision 2); E3's wait on P3-N007 is met.
+  2026-10-30 (T094). Status: executing; E1 returned blocked, its pull
+  request open on majodali/project-orchestrator-service (commit
+  `bf8f1b5`), every criterion met but V19 and V22, which wait on the
+  deploy after O-view-1 to O-view-4, and `sam validate --lint`, which
+  the pull request's check runs; a leaf, run as execute tasks E1 to E3
+  against criteria V1 to V30, then the owner demonstration; no plan or
+  specify task (plan decision 2); E3's wait on P3-N007 is met.
   Pointer:
   [specification of P2-N003, child
   1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
@@ -2944,12 +2948,36 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   note carries the split until P3-N009 decides how a task-level wait is
   recorded. Pointer:
   [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#edges-stated-at-this-breakdown).
-- [ ] **Record the view cookie as a risk** — When: 2026-10-30,
-  specifying P2-N003 (T093). Status: open; a proposed R18: the view
+- [x] **Record the view cookie as a risk** — When: 2026-10-30,
+  specifying P2-N003 (T093); closed 2026-10-30, entered as R18 at T094's
+  result. Status: done; R18: the view
   cookie is a standing read credential for the whole plan on the
   owner's devices, mitigated by its attributes, a 30-day lifetime and
   revocation by token rotation (decision 13). Pointer:
+  [Risk register, R18](open-risks.md),
   [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#risks).
+- [ ] **The service's deploy workflow calls its smoke test three
+  checks** — When: 2026-10-30, T094 (located finding). Status: open;
+  the comment "Smoke test (G3) — three checks" in
+  `.github/workflows/deploy.yml` of majodali/project-orchestrator-service
+  is stale after E1's fourth check, and the file lies outside the
+  child's reach but for its `env:` mapping. Pointer: the service's
+  `.github/workflows/deploy.yml`.
+- [ ] **`scripts/deploy.sh` warns on an unset view-token secret name**
+  — When: 2026-10-30, T094 (located finding). Status: open; the service's
+  deploy script warns rather than fails when `VIEW_TOKEN_SECRET_NAME` is
+  unset, so the existing test `test/deployScriptLivePinning.test.ts`
+  passes unchanged (V29); a hard failure needs the W-002 discussion with
+  the owner. Pointer: majodali/project-orchestrator-service commit
+  `bf8f1b5`.
+- [x] **Two readings of P2-N021's criteria, confirmed** — When:
+  2026-10-30, T094 (located findings). Status: done; the Orchestrator
+  confirmed both: a page with no SHA names "none, the ref did not
+  resolve" and carries the Backlog limit line unlinked (V2, V13); the
+  rotation runbook stores the view token under a new dated secret name,
+  because CloudFormation resolves a dynamic reference only when the
+  resource changes (V21). Pointer: [specification of P2-N003, child
+  1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
 - [ ] **The task page reads P2-N005's task files** — When: 2026-10-30,
   specifying P2-N003 (T093). Status: open, after P2-N005; once task,
   claim and result files exist in git, the task page can show them
