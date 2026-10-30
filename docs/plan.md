@@ -416,11 +416,11 @@ The children of P3-N005, a strict chain in their [specification](specs/p3-n005-s
   - Needed by: P3-N014.
   - Documents: [plan](plans/p3-n013-stop-conditions-decidable.md), [specification](specs/p3-n005-sequence-mode.md#child-a-the-four-stop-conditions-decidable-evidenced-and-related-to-the-meta-review-signals).
 - P3-N014 The loop runs sequence mode, and the roles meet the conditions without looking
-  - Stage: identified, 2026-10-29. No plan yet.
+  - Stage: planned, 2026-10-30 (task T068). Gated on the owner's review of its plan.
   - Outcome: [dispatch.md](process/dispatch.md) gains a sequence-mode section. Each role contract lists the stop conditions that role can trigger. The run journal records when the owner approves a run and when a run stops.
   - Depends on: P3-N013, and the executing stage of P1-N014, which is done.
   - Needed by: P3-N015.
-  - Documents: the parent's [specification, child B](specs/p3-n005-sequence-mode.md#child-b-the-loop-runs-sequence-mode-and-the-roles-meet-the-conditions-without-looking).
+  - Documents: [plan](plans/p3-n014-loop-runs-sequence-mode.md), the parent's specification, child B.
 - P3-N015 The demonstration: a ratified sequence lands two chunks and stops on asks
   - Stage: identified, 2026-10-29. No plan yet.
   - Outcome: An owner-approved run lands at least two chunks with no gate between them. A result carrying asks then stops the run.
@@ -526,6 +526,7 @@ The Orchestrator proposes P2-N005 first, by the owner's order, and asks the owne
 
 Gated on the owner:
 
+- P3-N014 (the loop runs sequence mode, and the roles meet the conditions without looking): the owner's review of its plan.
 - P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): the owner's review of its plan.
 - P3-N011 (the sweep, the rest of the catalogue, and the omission list): the owner's review of its plan.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
@@ -535,7 +536,6 @@ Waiting:
 - P3-N008 (the instance): waits on P3-N007.
 - P3-N009 (sibling ordering retired): waits on P3-N008.
 - P3-N012 (the Article 8 proposal): waits on P3-N011.
-- P3-N014 (the loop runs sequence mode): planning dispatched 2026-10-30 (task T068), after P3-N013 closed.
 - P3-N015 (the demonstration): waits on P3-N014.
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.

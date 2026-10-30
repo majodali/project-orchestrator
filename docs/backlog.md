@@ -603,10 +603,25 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   T066's false start. Status: open; T066 was dispatched before its
   worktree existed; `dispatch.md` names no such check; for P1-N016.
   Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, blindness outside the commit graph.
-- [ ] **P3-N014 identified, 2026-10-29** — the loop runs sequence mode
-  and the roles meet the conditions without looking: asks name their
-  addressee, result-received events carry the Asks part (spec child B;
-  decisions 11 and 12). Depends on P3-N013 and on P1-N014's execute.
+- [ ] **The loop runs sequence mode, and the roles meet the conditions
+  without looking** (node P3-N014, child B of P3-N005) — When: planned
+  2026-10-30 (T068). Status: planned, gated on the owner's review; a
+  leaf run as one execute task; the predicate text copied byte for
+  byte into dispatch.md, the member's result record holding every
+  predicate input, two journal event kinds; eleven decisions staged.
+  Pointer: [plan](plans/p3-n014-loop-runs-sequence-mode.md).
+- [ ] **Re-vendor the conformance corpus into the service repository**
+  — When: 2026-10-30, planning P3-N014. Status: open; the fixture
+  P3-N014 adds leaves the service's vendored copy behind. Pointer:
+  [plan of P3-N014](plans/p3-n014-loop-runs-sequence-mode.md), decision 8.
+- [ ] **A form-check rule for a sequence's journal** — When: 2026-10-30,
+  planning P3-N014. Status: open, for P1-N016; ratification before the
+  first dispatch, serial dispatch, a stop after an owner-addressed ask,
+  all checked by hand today. Pointer: [plan of P3-N014](plans/p3-n014-loop-runs-sequence-mode.md).
+- [ ] **The predicate text enlarges the Orchestrator's startup set** —
+  When: 2026-10-30, planning P3-N014. Status: open, for P1-N016's packet
+  work; about 250 lines added to dispatch.md, read at every startup.
+  Pointer: [plan of P3-N014](plans/p3-n014-loop-runs-sequence-mode.md).
 - [ ] **P3-N015 identified, 2026-10-29** — the demonstration: a
   ratified sequence lands two chunks and stops on asks (spec child C;
   decisions 13 and 15). Depends on P3-N014.
