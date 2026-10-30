@@ -2926,11 +2926,13 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   [specification](specs/p2-n003-owner-questions-and-plan-view.md).
 - [ ] **P2-N021 identified, 2026-10-30: the web view's first version**
   — When: 2026-10-30, at P2-N003's specification gate; E1 dispatched
-  2026-10-30 (T094). Status: executing; E1 returned blocked, its pull
-  request open on majodali/project-orchestrator-service (commit
-  `bf8f1b5`), every criterion met but V19 and V22, which wait on the
-  deploy after O-view-1 to O-view-4, and `sam validate --lint`, which
-  the pull request's check runs; a leaf, run as execute tasks E1 to E3
+  2026-10-30 (T094), accepted 2026-10-30; E2 dispatched 2026-10-30
+  (T095). Status: executing; E1 returned blocked and was accepted under
+  the T008 precedent, its pull request #18 open on
+  majodali/project-orchestrator-service (commit `bf8f1b5`), every
+  criterion met but V19 and V22, owed as deploy evidence, and
+  `sam validate --lint`, which the pull request's check runs; E2, the
+  node and task pages, is executing; a leaf, run as execute tasks E1 to E3
   against criteria V1 to V30, then the owner demonstration; no plan or
   specify task (plan decision 2); E3's wait on P3-N007 is met.
   Pointer:
@@ -2956,6 +2958,17 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   revocation by token rotation (decision 13). Pointer:
   [Risk register, R18](open-risks.md),
   [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#risks).
+- [ ] **E1's deploy evidence: the smoke-test run log and the latency
+  figures, recorded after the deploy that follows O-view-1 to
+  O-view-4** — When: 2026-10-30, at T094's acceptance. Status: open,
+  for the Orchestrator after the owner's actions; V19 needs the first
+  deploy's run log with the smoke test's fourth check passing against
+  the preprod Function URL, and V22 needs the cold and warm latency of
+  the sign-in and tree pages recorded in the service's
+  `docs/runbook.md`; `sam validate --lint` is read from pull request
+  #18's check. Pointer: [specification of P2-N003, Child 1's
+  verification
+  criteria](specs/p2-n003-owner-questions-and-plan-view.md#child-1s-verification-criteria).
 - [ ] **The service's deploy workflow calls its smoke test three
   checks** — When: 2026-10-30, T094 (located finding). Status: open;
   the comment "Smoke test (G3) — three checks" in
