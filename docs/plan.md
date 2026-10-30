@@ -344,11 +344,11 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
   - Needed by: P3-N007, and the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view) child of P2-N003.
   - Documents: [plan](plans/p3-n006-thin-end-to-end-slice.md), [specification](specs/p3-n002-comprehension-model.md#child-a-the-thin-end-to-end-slice-five-real-parts-all-the-way-through).
 - P3-N007 The type declared, the arguments written, the K-003 (the Backlog is the single source of progress truth) amendment drafted
-  - Stage: identified, 2026-10-29. No plan yet.
+  - Stage: planned, 2026-10-30 (task T057). Gated on the owner's review of its plan.
   - Outcome: The Project model is defined in `docs/process/` and declared in the [Classification](classification.md). The design arguments are written down, such as who may write the model and where a node's edges are first recorded. P3-N007 drafts the amendment to K-003 (the Backlog is the single source of progress truth), as an IR first. Under the amendment, a project that declares a [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes that model as its progress record. The rule changes only when the methodology releases the amendment, after the owner carries it upstream.
   - Depends on: P3-N006.
   - Needed by: P3-N008.
-  - Documents: the parent's [specification, child B](specs/p3-n002-comprehension-model.md#child-b-the-type-declared-the-arguments-written-the-k-003-amendment-drafted).
+  - Documents: [plan](plans/p3-n007-type-declared-amendment-drafted.md), the parent's specification, child B.
 - P3-N008 The instance, over this repository
   - Stage: identified, 2026-10-29. No plan yet.
   - Outcome: The instance covers every current part of majodali/project-orchestrator. P3-N008 compares the two renderings with the Backlog, to prove the model carries the content of the Backlog's two lists. With P3-N006's renderings, the renderings of P3-N008 replace this document.
@@ -527,12 +527,12 @@ The Orchestrator proposes P2-N005 first, by the owner's order, and asks the owne
 
 Gated on the owner:
 
+- P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): the owner's review of its plan.
 - P3-N011 (the sweep, the rest of the catalogue, and the omission list): the owner's review of its plan.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:
 
-- P3-N007 (the Project model definition and the amendment): planning dispatched 2026-10-30 (task T057), after P3-N006 closed.
 - P3-N008 (the instance): waits on P3-N007.
 - P3-N009 (sibling ordering retired): waits on P3-N008.
 - P3-N012 (the Article 8 proposal): waits on P3-N011.

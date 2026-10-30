@@ -42,7 +42,7 @@ honestly; chunks 1–3 completed before this register existed.
 - P3-N001 [broken-down] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
   - P3-N002 [broken-down] The comprehension model (chunk 1) — plan: plans/p3-n002-comprehension-model.md · spec: specs/p3-n002-comprehension-model.md
     - P3-N006 [done] The thin end-to-end slice: five real parts all the way through, and both renderings — plan: plans/p3-n006-thin-end-to-end-slice.md · spec: specs/p3-n002-comprehension-model.md
-    - P3-N007 [identified] The type declared, the arguments written, the K-003 amendment drafted — depends on P3-N006
+    - P3-N007 [planned] [gated: owner review of the plan] The type declared, the arguments written, the K-003 amendment drafted — depends on P3-N006 — plan: plans/p3-n007-type-declared-amendment-drafted.md
     - P3-N008 [identified] The instance, over this repository — depends on P3-N007
     - P3-N009 [identified] Sibling ordering retired, and the checks that replace it — depends on P3-N008
   - P3-N003 [broken-down] The common risk catalogue (chunk 2) — independent of P3-N002 (RU-018) — plan: plans/p3-n003-common-risk-catalogue.md · spec: specs/p3-n003-common-risk-catalogue.md

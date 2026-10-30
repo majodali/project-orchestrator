@@ -451,10 +451,13 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   found 2026-10-29 planning P3-N006: links to a risk or a ruling land
   at the top of the document; the web view (P2-N003) will want
   per-entry links.
-- [ ] **P3-N007 identified, 2026-10-29** — the Project model type
-  declared, the arguments written, the K-003 amendment drafted on
-  P3-N006's slice, IR first, owner-gated at `verifying` (spec child
-  B; decisions 10 to 12). Depends on P3-N006.
+- [ ] **The type declared, the arguments written, the K-003 amendment
+  drafted** (node P3-N007, child B of P3-N002) — When: planned
+  2026-10-30 (T057). Status: planned, gated on the owner's review; a
+  leaf run as E1 (the type and the design arguments) then E2 (the
+  amendment IR first, the proposal, stranger rounds, owner gate);
+  twelve decisions staged, among them a new dependency rule for `uses`
+  edges and eight terms for ratification. Pointer: [plan](plans/p3-n007-type-declared-amendment-drafted.md).
 - [ ] **P3-N008 identified, 2026-10-29** — the instance over this
   repository, with G6's renderings compared against the Backlog (spec
   child C). Depends on P3-N007.

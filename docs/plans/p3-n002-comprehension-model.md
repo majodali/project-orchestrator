@@ -82,6 +82,9 @@ dependency definition already names and which nothing currently holds.
   "defined here, instantiated there" needs a declarable type.
 - **I4** (K-003) lands on its **second** disjunction: no amendment, and
   a recorded argument for why none is needed. See *K-003* below.
+  Superseded at the gate of 2026-10-29: the owner overrode decision 3,
+  so I4 lands on its first disjunction, the amendment, drafted by
+  P3-N007 (RU-021).
 - The Plan register's grammar, the shared unit and the conformance
   corpus do not move, which is what keeps this node inside one
   repository (*Dependencies*).
@@ -150,8 +153,9 @@ in by hand.
 finished, not that the part works. A part that is built and broken
 reads as `built`. The Backlog carries whether it works, and the Risk
 register carries what threatens it — the model points at both. That
-limit is the price of K-003 staying unamended, and it is the right
-price.
+limit was the price of K-003 staying unamended; superseded at the gate
+of 2026-10-29, where the owner chose the amendment (RU-021), and the
+model becomes the progress record once the amendment is released.
 
 ### The writer rule (I3)
 
@@ -399,7 +403,7 @@ plan's sketch — a slice that cannot is not a slice.
 **Child B — The type, declared; the two arguments, written.**
 `docs/process/project-model.md` as the type spec, the Classification's
 fifth custom definition by citation (**I5**), the writer rule stated
-(**I3**), the K-003 argument written (**I4**), and the specification
+(**I3**), the K-003 amendment drafted (**I4**; superseded 2026-10-29 from "argument written", RU-021), and the specification
 lifecycle answer recorded and applied (**I10**). Criteria: what the
 repository contains matches what it declares (Article 4); the writer
 rule names the Orchestrator and the Plan register's fields are
