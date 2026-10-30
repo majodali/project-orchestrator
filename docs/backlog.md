@@ -546,50 +546,52 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   signal rewording `350f75f`, and the record relates the text quoted
   at `195eba9`; for P3-N016, which cites the later text. Pointer:
   [record](findings/p3-n005-stop-predicates.md), *The text related*.
-- [ ] **A result names no repository for a ref of another
-  repository** — When: 2026-10-30, P3-N013 readings, rounds 1 to 3.
-  Status: open; predicate 2 fails closed on 8 corpus items, T008,
-  T027 and T032 to T037; for P3-N014's handoff contract, a full name
-  per ref. Pointer: [record](findings/p3-n005-stop-predicates.md), *Revision log*, points not revised in round 2.
-- [ ] **Predicate 2's naming forms in the normative text** — When: 2026-10-30,
-  P3-N013 readings, round 3 (T065, T066). Status: open; the possessive
-  "the service repo's" decides T031, and "the repository", "this repo"
-  and "the repo" would decide T034; for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md),
-  *Round 3*, the hard points.
+- [x] **A result names no repository for a ref of another
+  repository** — When: 2026-10-30, P3-N013 readings, rounds 1 to 3;
+  landed 2026-10-30 by P3-N014 (T072). Status: done; the result core's
+  deliverable map, item 2, and the member's result record's *Refs*
+  name each commit's repository in full. Pointer: [dispatch.md](process/dispatch.md#the-handoff-contract), the result core.
+- [x] **Predicate 2's naming forms in the normative text** — When: 2026-10-30,
+  P3-N013 readings, round 3 (T065, T066); closed 2026-10-30 by P3-N014
+  (T072). Status: done with no text change; inside a sequence the
+  naming forms are the full names the ratification record holds, as
+  *Sequence mode*'s lead-in to the predicates states. Pointer: [dispatch.md](process/dispatch.md#sequence-mode).
 - [ ] **"All twelve staged decisions settled" against predicate 3's
   adoption wording** — When: 2026-10-30, P3-N013 readings, round 3 (T065,
-  T066). Status: open; both readings matched it, and a strict reading
-  turns 14 continues to stop; for P3-N014, evidence for P3-N016.
-  Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard points.
+  T066); answered for new records 2026-10-30 by P3-N014 (T072). Status:
+  open as evidence for P3-N016 only; a new gate record names each
+  decision by number or range, in the form *Gates* now states, and the
+  past record stays as it is. Pointer: [dispatch.md](process/dispatch.md#gates-v1), the gate record.
 - [ ] **Predicate 3's failed-closed mark for an entry failing the record
   and the time** — When: 2026-10-30, P3-N013 readings, round 3 (T065,
-  T066). Status: open; the text marks "the record alone", and both
-  readings left T002 and T003 unmarked; for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md),
+  T066); answered 2026-10-30 by P3-N014 (T072) with no text change.
+  Status: open as evidence for P3-N016 only; the loop reads the
+  verdict, not the mark. Pointer: [record](findings/p3-n005-stop-predicates.md),
   *Round 3*, the hard points.
-- [ ] **Predicate 3's override forms and gate headings** — When: 2026-10-30,
-  P3-N013 readings, round 3 (T065, T066). Status: open; only adoption
-  forms are listed, and "with defaults 1 to 3" and a "Gate evidence"
-  heading are unaddressed; for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the
-  hard points.
-- [ ] **A member's documents when its register line links the parent's
-  specification** — When: 2026-10-30, P3-N013 reading 1, round 3 (T065).
-  Status: open; read as a member document with its own stated node
-  (T048 to T050); for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard
+- [x] **Predicate 3's override forms and gate headings** — When: 2026-10-30,
+  P3-N013 readings, round 3 (T065, T066); landed 2026-10-30 by P3-N014
+  (T072). Status: done; a gate record is a section headed "Gate record,
+  <date>" naming each decision by number or range with "adopted" or
+  "overridden". Pointer: [dispatch.md](process/dispatch.md#gates-v1), the gate record.
+- [x] **A member's documents when its register line links the parent's
+  specification** — When: 2026-10-30, P3-N013 reading 1, round 3 (T065);
+  closed 2026-10-30 by P3-N014 (T072). Status: done with no text
+  change; both readings applied the text alike. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard
   points.
-- [ ] **Predicate 2's W-002 flag verbs** — When: 2026-10-30, P3-N013
-  readings, round 3 (T065, T066). Status: open; T016's "was used"
-  raises no flag under the closed verb list; for P3-N014, the role
-  raising the flag in immediate-class words. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*,
-  the hard points.
-- [ ] **A grant "up to" a gate in the ratification record** — When: 2026-10-30,
-  P3-N013 reading 1, round 3 (T065). Status: open; grants G7, G9 and
-  G12 were read inclusively; for P3-N014, stages listed explicitly
-  (parent decision 13). Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard points.
-- [ ] **Predicate 1's normative text and negated failure words** —
-  When: 2026-10-30, P3-N013 reading 2, round 2 (T063). Status: open; T024's
-  "cannot immediately fail that repo's form check" split the
-  failed-closed column; for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md), *Revision log*,
-  points not revised in round 2.
+- [x] **Predicate 2's W-002 flag verbs** — When: 2026-10-30, P3-N013
+  readings, round 3 (T065, T066); landed 2026-10-30 by P3-N014 (T072).
+  Status: done; the Implementer and Planner contracts raise every
+  immediate-class matter, W-002 (existing tests are signals, not
+  obstacles) included, in the words "immediate class". Pointer: `.claude/agents/`, *Sequence mode*.
+- [x] **A grant "up to" a gate in the ratification record** — When: 2026-10-30,
+  P3-N013 reading 1, round 3 (T065); landed 2026-10-30 by P3-N014
+  (T072). Status: done; the ratification record lists each member's
+  node and each stage one by one. Pointer: [dispatch.md](process/dispatch.md#sequence-mode), ratification.
+- [x] **Predicate 1's normative text and negated failure words** —
+  When: 2026-10-30, P3-N013 reading 2, round 2 (T063); landed
+  2026-10-30 by P3-N014 (T072). Status: done with no text change; the
+  member's result record states one outcome word per named check.
+  Pointer: [dispatch.md](process/dispatch.md#sequence-mode), the member's result record.
 - [ ] **The journal's stage values, and gate events that carry a task
   ID** — When: 2026-10-30, P3-N013 readings, round 3 (T065, T066).
   Status: open; "break down" and "verify" are not `plan-model.md`
@@ -607,13 +609,16 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, blindness outside the commit graph.
 - [ ] **The loop runs sequence mode, and the roles meet the conditions
   without looking** (node P3-N014, child B of P3-N005) — When: planned
-  2026-10-30 (T068); specified at the gate of 2026-10-30, defaults 1 to
-  11 adopted and two event kinds ratified. Status: specified, execute
-  next; a
-  leaf run as one execute task; the predicate text copied byte for
-  byte into dispatch.md, the member's result record holding every
-  predicate input, two journal event kinds; eleven decisions staged.
-  Pointer: [plan](plans/p3-n014-loop-runs-sequence-mode.md).
+  and specified 2026-10-30 (T068, gate of 2026-10-30); executed
+  2026-10-30 (T072). Status: executed, awaiting acceptance and the
+  Orchestrator's try of the record form (decision 9); `dispatch.md`
+  gained *Sequence mode* with the four predicates copied byte for byte
+  from `fcf4894`, the member's result record, the addressee rule, the
+  restated Asks clarification and the gate record form; roles.md and
+  the six contracts carry each role's conditions; two journal event
+  kinds and a corpus fixture; of the 13 routed rows, 10 closed and 3
+  rewritten.
+  Pointer: [plan](plans/p3-n014-loop-runs-sequence-mode.md), [dispatch.md](process/dispatch.md#sequence-mode).
 - [ ] **Re-vendor the conformance corpus into the service repository**
   — When: 2026-10-30, planning P3-N014. Status: open; the fixture
   P3-N014 adds leaves the service's vendored copy behind. Pointer:
@@ -691,12 +696,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   `lib/form-check-core.ts` encodes them — so this is an editorial
   amendment, not a code change.
 
-- [ ] **Two nodes edit the same six role contracts** — When: found
-  2026-09-17 planning P3-N005, ordered by the owner 2026-10-29.
-  Status: P1-N014's contract edits landed first, 2026-10-29 (T047).
-  P3-N014, P3-N005's child B, edits the same files next and reads them
-  as they then stand (P3-N005 decision 8). Pointer:
-  [P1-N014 specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the binding section.
+- [x] **Two nodes edit the same six role contracts** — When: found
+  2026-09-17 planning P3-N005, ordered by the owner 2026-10-29; closed
+  2026-10-30 by P3-N014 (T072). Status: done; P1-N014's edits landed
+  first (T047, commit `7521066`), and P3-N014 read the contracts as
+  they stood at its branch base, commit `bd4fc8d`, unchanged since
+  `7521066`. Pointer: [P1-N014 specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the binding section.
 
 - [ ] **Retiring the Ruling register's `Applied:` field** — the option
   P3-N002's decision 5 declines by default, kept live here. A ruling is
@@ -813,7 +818,10 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   parallel, or roles write to per-task fragments the Orchestrator
   merges. Bound for P1-N016, and it is also live input for P3-N005,
   which makes this project's loop run sequences, and for P3-N002,
-  whose model has the same single-writer question.
+  whose model has the same single-writer question. The serial rule
+  (2026-10-30, P3-N014, T072): inside a ratified sequence, dispatch is
+  serial ([dispatch.md](process/dispatch.md#sequence-mode), *Sequence
+  mode*, the run); the general rule stays with P1-N016.
 
 - [ ] **The comprehension model** (node P3-N002, chunk 1 of P3-N001,
   `identified` 2026-09-17) — the model itself, defined as an extension
@@ -1067,7 +1075,10 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   gate. Note that T042 found the clarification is not cosmetic: it
   **removes a sequence stop** unless W-001's maintainer-decision
   condition catches it. Owned here so it
-  is not an unowned known issue (W-005).
+  is not an unowned known issue (W-005). Restated locally 2026-10-30 by
+  P3-N014 (T072) in [dispatch.md](process/dispatch.md#the-handoff-contract)'s
+  result core, item 3, and in the gate summary's Asks (that plan's
+  decision 5); the upstream half stays with P3-N016.
 
 - [ ] **Six dangling links inside verbatim upstream quotations** —
   found 2026-09-02 by the form audit at the 1.5.0 migration; not
@@ -1819,14 +1830,16 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   `docs/process/` and carried by the six role contracts, with
   `plugin/agents/` regenerated; R14's wording re-routed to P3-N014.
   Pointer: [specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the duty inventory.
-- [ ] **R14's contract wording** — When: 2026-10-29, T052 verdict on
-  P1-N014. Status: open; a new or low-provenance dependency is a
-  `needs-judgment` return, to land in the six contracts with node
-  P3-N014. Pointer: [open-risks.md](open-risks.md), R14.
-- [ ] **Bare methodology identifiers in the six contracts** — When:
-  2026-10-29, T052 finding 6. Status: open; W-002, W-003, W-006 and
-  R1 to R5 appear without names in lines P1-N014 did not edit, to be
-  named with P3-N014. Pointer: `.claude/agents/`.
+- [x] **R14's contract wording** — When: 2026-10-29, T052 verdict on
+  P1-N014; landed 2026-10-30 by P3-N014 (T072). Status: done; a new or
+  low-provenance dependency is a `needs-judgment` return, stated in
+  roles.md's duties every role carries and in the six contracts; R14's
+  status names the landing. Pointer: [roles.md](process/roles.md#duties-every-role-carries), [open-risks.md](open-risks.md), R14.
+- [x] **Bare methodology identifiers in the six contracts** — When:
+  2026-10-29, T052 finding 6; landed 2026-10-30 by P3-N014 (T072).
+  Status: done; W-002, W-003, W-006, R1, R4 and R5 carry their names in
+  the Implementer, Orchestrator, Reviewer and Semantic Auditor
+  contracts. Pointer: `.claude/agents/`.
 - [ ] **A prose-reach class for `plugin/skills/`** — When: 2026-10-29,
   T052 finding 5. Status: open; the README's prose-reach section names
   no class for the skill files. Pointer: [process/README.md](process/README.md).

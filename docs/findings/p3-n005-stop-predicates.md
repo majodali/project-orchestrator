@@ -21,6 +21,14 @@ verifier who did not do the work. It assumes the
 [parent specification](../specs/p3-n005-sequence-mode.md)'s section
 *Child A*.
 
+**The normative text is in `dispatch.md`.** From node **P3-N014**
+(the loop runs sequence mode), task T072 of 2026-10-30, the normative
+predicate text is the
+[*Sequence mode*](../process/dispatch.md#sequence-mode) section of
+`dispatch.md`. That section copies draft 4 below byte for byte. This
+record holds the evidence for the text; it is no longer the text's
+normative copy.
+
 Methodology **W-001** (two delivery modes, human-gated) stops a running
 sequence on four conditions: a failed check, a scope change, a chunk
 needing the human's decision, and a landing summary carrying asks. This

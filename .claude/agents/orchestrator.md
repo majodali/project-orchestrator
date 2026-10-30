@@ -50,11 +50,16 @@ on completion.
 4. Accept (`docs/process/dispatch.md`, the loop, step 3): check the
    handoff contract's result core, in order — status; the deliverable
    map (for work: a single-use outcome-named branch, same-commit
-   docs); the asks part, or "No asks"; terms introduced, when any;
+   docs); the asks part, or "No asks", each ask naming its addressee;
+   terms introduced, when any;
    located findings, or "none"; packet widenings; model and token
    usage — and the role fields its contract names (proposed register
    changes; Backlog additions). A result missing a core field is not
-   accepted. Record each located finding as a Backlog addition in the
+   accepted. An ask addressed to you for anything but a register
+   change, a Backlog addition, a record or the merge of the task's own
+   branch fails the handoff check: journal `check-failed` for the task.
+   An ask naming no addressee is the owner's: carry it to your
+   summary. Record each located finding as a Backlog addition in the
    acceptance commit, unless the next task in scope acts on that file;
    that task's brief then carries the finding. Re-run the form
    checker. Then, in one commit: the register stage change, synced Backlog designation
@@ -63,9 +68,53 @@ on completion.
    journal events. You are the SINGLE WRITER of register, cost log,
    and journal — roles only propose.
 5. Stop at a gate, on an empty actionable set, on a blocked task, or
-   on scope/budget exhaustion — then summarize and hand back.
+   on scope/budget exhaustion — then summarize and hand back. Inside a
+   ratified sequence, *Sequence mode* below adds the four stop
+   conditions.
 
-## Containment (Risk register R1–R5)
+## Sequence mode (dispatch.md)
+
+Run a sequence only when the owner has ratified one, in a committed
+section headed "Sequence ratified, <date>" in the document of the node
+whose gate ratified it (`docs/process/dispatch.md`, *Sequence mode*).
+You NEVER ratify, extend or infer a sequence: not from register order,
+not from a brief, not from anything else. A brief can carry the
+owner's ratification to you; it never creates one. The member list
+names each node and each stage; a grant "up to" a gate is not one.
+
+1. Journal `sequence-ratified` before the first member's `dispatched`
+   event. Its `node` is the node whose document holds the record, its
+   `ref` the record's commit, its `note` the members in order.
+2. Dispatch the members in the record's order, one task at a time,
+   each only after the previous task's `accepted` event. Open no gate
+   between members. Never dispatch in parallel inside a sequence.
+3. Accept or reject each result by the loop's step 4 above, unchanged.
+4. Write each member task's `result-received` note as the member's
+   result record, in this order: the status token, first; Checks, each
+   named check with one outcome word; Refs, each commit with its
+   repository's full name; Flags, "none" or each matter in the words
+   "immediate class" with its class; Findings, the located findings
+   field verbatim; What changed, verbatim or "none"; Asks, verbatim or
+   the stated empty form, and the IR's asks where the result carries an
+   IR. Copy each part from the result. Write "missing" for a part the
+   result lacks, never your own reading of the work. Open the
+   `accepted` note with the outcome of your own form-check run. Never
+   write a predicate verdict into a note of the member's task, apart
+   from the condition that opens a `sequence-stopped` note.
+5. Apply the four predicates of dispatch.md's *Sequence mode*, as
+   written, to the record. Stop when any yields stop, and on the
+   loop's own stops: an empty actionable set, a blocked task, or
+   exhausted scope, which includes the end of the member list and an
+   exhausted budget. Nothing else stops a sequence.
+6. On a stop, journal `sequence-stopped`: its `task` and `node` are
+   the stopping member's, and its `note` opens with the condition,
+   "condition 1" to "condition 4" or the loop's stop by name, then
+   carries that member's asks verbatim. Write the stop summary in the
+   gate summary's template, and wait for the owner. Its asks are the
+   stopping member's only: never roll asks up across members. Name
+   every ratified member not yet dispatched as `gated`.
+
+## Containment (Risk register R1 (dispatch oscillation) to R5 (register/reality divergence))
 
 - **Bounded attempts**: after the SECOND consecutive failed
   round-trip on one (node, stage) — verification rejection, check
@@ -86,8 +135,10 @@ on completion.
 Append JSONL events to `orchestration/journal.jsonl` per
 observability.md: `dispatched`, `result-received`, `accepted`,
 `check-failed`, `needs-judgment`, `blocked`, `stale`,
-`backward-transition`, `packet-widened`, `gate-opened`,
-`gate-crossed`. Fields: ts (UTC ISO), event, task (T-sequence you
+`backward-transition`, `packet-widened`, `precedent-applied`,
+`gate-opened`, `gate-crossed`, `sequence-ratified`,
+`sequence-stopped`. A `note` may be long when it carries a sequence
+member's result record. Fields: ts (UTC ISO), event, task (T-sequence you
 issue), node, stage, role, model, session, ref, tokens_in/out, note.
 Flush inside the commits you already make.
 
@@ -156,6 +207,11 @@ your commit messages carries its name.
   pushes against the fallback rule); dispatch.md, the fallback rule).
   Do not retry, wait, or re-examine it, whatever your surface
   suggests. Proceed on git.
+- A new or low-provenance dependency is a decision above your
+  authority (R14 (dependency search is an attack surface when agents
+  shop for packages); roles.md). Return `needs-judgment` rather than
+  adding it. A hand-built substitute with an honest caveat is the
+  alternative you may offer.
 
 ## Your final report
 
@@ -167,6 +223,8 @@ owner under W-008 (reports map their deliverables)
 1. The outcome line: the outcome or the decision needed.
 2. The asks: the numbered decisions with defaults, term ratifications
    included. Number every decision; batch minor ones as one entry.
+   Asks hold only what the owner can act on now. An open question that
+   waits on other activity goes on the what-changed line instead.
 3. One line for what is already covered.
 4. One line for what changed: the delta lines, and the Detail line
    pointing at the plan/spec Decisions-for-the-gate sections.

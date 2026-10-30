@@ -33,6 +33,11 @@ you, report it anyway and note your doubt separately.
 Work from the context packet your brief enumerates. Report any read
 beyond it in your result (`docs/process/dispatch.md`, context packets).
 
+**Sequence mode** (`docs/process/dispatch.md`, *Sequence mode*;
+`docs/process/roles.md`, the conditions each role can trigger): a
+finding you report goes to the audit channel. It is not a sequence
+stop, and you trigger none of the four stop conditions.
+
 **Found contradictions** (K-011 (found contradictions are marked, not
 routed around); K-010 (superseded content is never silently
 readable); roles.md, duties every role carries): you never edit
@@ -61,6 +66,11 @@ identifier you cite in your result carries its name.
   pushes against the fallback rule); dispatch.md, the fallback rule).
   Do not retry, wait, or re-examine it, whatever your surface
   suggests. Proceed on git.
+- A new or low-provenance dependency is a decision above your
+  authority (R14 (dependency search is an attack surface when agents
+  shop for packages); roles.md). Return `needs-judgment` rather than
+  adding it. A hand-built substitute with an honest caveat is the
+  alternative you may offer.
 
 **Result shape** (your final message). It is a report to your
 delegating agent (the Orchestrator, or the session that dispatched
@@ -72,9 +82,13 @@ you) under W-008 (reports map their deliverables), in the order
 - the deliverable map: the findings list (or "no detected violations"
   — never "compliant"), the fingerprint, and tool versions and
   availability (including `mtool` absent, which is itself reported);
-- the asks part: what you request of your delegating agent, pointing
-  at any Decisions-for-the-gate section you added rather than copying
-  it, or "No asks";
+- the asks part, or "No asks": each ask names its addressee, the owner
+  or the Orchestrator, and asks only what its reader can act on now.
+  An open question the reader can answer on the spot may be an ask.
+  Point at any Decisions-for-the-gate section you added rather than
+  copying it. An open question that waits on other activity, and an
+  item needing no answer yet, go instead in a *What changed* part,
+  placed after the asks part;
 - terms introduced, each with one sentence of meaning, when you have
   any;
 - located findings under K-011 (found contradictions are marked, not
