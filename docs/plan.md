@@ -512,20 +512,21 @@ graph LR
 
 A node is actionable when every recorded dependency of its next stage is met.
 
-Actionable now, all at the planning stage:
+Planning now, dispatched on 2026-10-30 after the owner's scope grant:
 
-- P2-N005 (the task-pull loop): the next service chunk the owner chose on 2026-10-29.
-- P1-N016 (process spec maintenance). Its executing stage waits on P3-N009.
-- P2-N003 (owner questions and the plan view): the planning that splits it. Its children's later stages wait as listed below.
-- P1-N007 (cost reporting and close-out). Its executing stage waits on P1-N006.
+- P2-N005 (the task-pull loop), task T073: the next service chunk the owner chose on 2026-10-29.
+- P1-N016 (process spec maintenance), task T074. Its executing stage waits on P3-N009.
+- P2-N003 (owner questions and the plan view), task T075: the planning that splits it. Its children's later stages wait as listed below.
+
+Actionable, not yet dispatched:
+
+- P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
 
 Executing now, dispatched after the owner's second plan gates of 2026-10-30:
 
 - P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): E1, task T070; E2 follows.
 - P3-N011 (the sweep, the rest of the catalogue, and the omission list): E1, task T071; E2 and E3 follow.
 - P3-N014 (the loop runs sequence mode): task T072.
-
-The Orchestrator proposes P2-N005 first, by the owner's order, and asks the owner for scope before dispatching any of the four.
 
 Gated on the owner:
 
