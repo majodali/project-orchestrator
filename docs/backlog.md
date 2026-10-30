@@ -444,8 +444,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   from earlier records enter the instance; a facet with nothing to
   state reads `none` with a link). Carried from the task: the parent's
   derivation rule yields use-before-later-modification cycles for this
-  node too (criterion B1); P1-N014 also edits the Backlog header.
-  Next: the owner's plan gate.
+  node too (criterion B1); P1-N014 also edits the Backlog header. Gate
+  crossed 2026-10-30, defaults 1 to 3; specified. Next: execute.
 - [ ] **Whether a child carried at criteria depth by its parent's
   specification needs its own plan or specify task** — found
   2026-10-29 planning P3-N006: earlier children went straight to
@@ -482,8 +482,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   cited from the Risk register entries that instantiate it; no IR at
   this child). Carried from the task: the check could come back empty
   under this repository's component/library Classification; 20 of 47
-  checked Backlog entries sit under Completed. Next: the owner's plan
-  gate.
+  checked Backlog entries sit under Completed. Gate crossed 2026-10-30,
+  defaults 1 to 5; specified. Next: execute.
 - [ ] **P3-N011 identified, 2026-10-29** — the sweep, the rest of the
   catalogue and the omission list in the check document (spec child
   B). Depends on P3-N010.
@@ -502,7 +502,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   ratification, predicate commit and stand-in grant. Carried from the
   task: no committed source holds the pinned v1.6.0 signal text, so the
   packet or the tag URL must carry it; no past task has a ratification
-  record. Next: the owner's plan gate.
+  record. Gate crossed 2026-10-30, defaults 1 to 7; specified. Next:
+  E1.
 - [ ] **A leaf whose evidence needs independent sessions** — found
   2026-10-29 planning P3-N013: `plan-model.md`'s leaf definition
   assumes one session, while P3-N013's two blind readings need
@@ -524,6 +525,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   with the residue table, and the artifact or the argument (spec child
   D). Depends on P3-N015.
 
+- [ ] **Editorial pass over the plan documents to the prose rules** —
+  When: 2026-10-30, owner review of the plans. Status: open; the plan
+  and specification documents break P-001 to P-008 often enough that
+  the owner could not follow them, which is why `docs/plan.md` exists;
+  one pass rewrites them to the rules without changing decisions.
+  Pointer: [plan.md](plan.md), [P-rules](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md).
 - [ ] **Hierarchical resources, for complex resource validations** —
   owner note at the P3-N002 gate, 2026-10-29: the comprehension model's
   resources are flat by that plan's decision 2, and a hierarchy may

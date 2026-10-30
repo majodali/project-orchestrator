@@ -14,7 +14,7 @@ Status: active
 
 This [document](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-document) renders the [Plan register](plan-register.md) by hand.
 Each node's outcome comes from the node's [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan) and [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification).
-The rendering reads the register as it stood on 2026-10-29, after [pull request 14](https://github.com/majodali/project-orchestrator/pull/14) merged.
+The rendering reads the register as it stands after the owner's plan gates of 2026-10-30.
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
@@ -82,7 +82,7 @@ The sketch notation is the draft entry format in the [P3-N002 plan](plans/p3-n00
 
 ## P1-N001 Orchestrator v1, the process specification and the plugin
 
-- Stage: broken-down since enrollment, 2026-08-25.
+- Stage: broken-down since enrollment.
 - Outcome: A process [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification) and a Claude Code plugin that runs it at low cost, tried on one real portfolio project.
 - Depends on: nothing beyond its children.
 - Needed by: nothing.
@@ -189,7 +189,7 @@ The children of P1-N009, in their chain order:
 
 ### P1-N006 Pilot on a real project (chunk 5)
 
-- Stage: identified at enrollment, 2026-08-25. No plan yet.
+- Stage: identified at enrollment. No plan yet.
 - Outcome: The pilot this node was created for now runs inside P2-N006 (migration and pilot), through the service. No work remains in P1-N006 itself. The node is not done. It stays identified until P2-N006 is done. P1-N007 then retires it with the founding plan. P1-N006 has no executing stage of its own, so the sibling-order default does not reach it.
 - Depends on: P2-N006.
 - Needed by: P1-N007.
@@ -197,7 +197,7 @@ The children of P1-N009, in their chain order:
 
 ### P1-N007 Cost reporting v1 and close-out (chunk 6)
 
-- Stage: identified at enrollment, 2026-08-25. No plan yet.
+- Stage: identified at enrollment. No plan yet.
 - Outcome: Reports of cost per node, role and tier, drawn from the Cost log, the run journal and the service. A review against the founding plan's two goals, then the founding plan closed.
 - Depends on: P1-N006, by the dispatch.md default, for its executing stage. Its planning can start at any time.
 - Needed by: P1-N001.
@@ -338,11 +338,11 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 The children of P3-N002, a strict chain in their [specification](specs/p3-n002-comprehension-model.md#the-breakdown)'s order:
 
 - P3-N006 The thin end-to-end slice: five real parts all the way through, and both renderings
-  - Stage: planned, 2026-10-29. Gated on the owner's review of its [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan).
+  - Stage: specified, 2026-10-30, at the owner's plan gate. The parent specification's child A section is the specification (gate decision).
   - Outcome: The Project model holds five real parts of majodali/project-orchestrator, each with every facet. The model's two renderings are produced from those parts. A record beside the model lists the paths a reader walks under the navigation bound, with their step counts. The record also lists every change to the sketch notation, with reasons.
   - Depends on: nothing.
   - Needed by: P3-N007, and the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view) child of P2-N003.
-  - Documents: [plan](plans/p3-n006-thin-end-to-end-slice.md).
+  - Documents: [plan](plans/p3-n006-thin-end-to-end-slice.md), [specification](specs/p3-n002-comprehension-model.md#child-a-the-thin-end-to-end-slice-five-real-parts-all-the-way-through).
 - P3-N007 The type declared, the arguments written, the K-003 (the Backlog is the single source of progress truth) amendment drafted
   - Stage: identified, 2026-10-29. No plan yet.
   - Outcome: The Project model is defined in `docs/process/` and declared in the [Classification](classification.md). The design arguments are written down, such as who may write the model and where a node's edges are first recorded. P3-N007 drafts the amendment to K-003 (the Backlog is the single source of progress truth), as an IR first. Under the amendment, a project that declares a [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes that model as its progress record. The rule changes only when the methodology releases the amendment, after the owner carries it upstream.
@@ -373,11 +373,11 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
 The children of P3-N003, a strict chain in their [specification](specs/p3-n003-common-risk-catalogue.md#the-breakdown)'s order:
 
 - P3-N010 One class, carried end to end
-  - Stage: planned, 2026-10-29. Gated on the owner's review of its [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan).
+  - Stage: specified, 2026-10-30, at the owner's plan gate. The parent specification's child A section is the specification (gate decision).
   - Outcome: The catalogue holds one class, CR-001 (a check that cannot fail in the environment the code runs in). A check looks for a [Risk register](open-risks.md) entry covering each part the class applies to. A deliberately broken input then proves the check can fail.
   - Depends on: nothing.
   - Needed by: P3-N011.
-  - Documents: [plan](plans/p3-n010-one-class-end-to-end.md).
+  - Documents: [plan](plans/p3-n010-one-class-end-to-end.md), [specification](specs/p3-n003-common-risk-catalogue.md#child-a-one-class-carried-end-to-end).
 - P3-N011 The sweep, the rest of the catalogue, and the omission list
   - Stage: identified, 2026-10-29. No plan yet.
   - Outcome: The sweep reads five sources, named by the parent specification's [criterion B1](specs/p3-n003-common-risk-catalogue.md#verification-criteria): the Risk register, the Backlog's two sections, the Cost log's notes and the Ruling register. Every candidate class is admitted, merged, rejected or deferred, on the record. Risk entries cite their classes. The list of uncovered parts is ready for the owner.
@@ -410,11 +410,11 @@ The children of P3-N003, a strict chain in their [specification](specs/p3-n003-c
 The children of P3-N005, a strict chain in their [specification](specs/p3-n005-sequence-mode.md#the-breakdown)'s order:
 
 - P3-N013 The four stop conditions, decidable, evidenced, and related to the [meta-review signals](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-meta-review-signal)
-  - Stage: planned, 2026-10-29. Gated on the owner's review of its [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan).
+  - Stage: specified, 2026-10-30, at the owner's plan gate. The parent specification's child A section is the specification (gate decision).
   - Outcome: The four stop rules are committed as text. Two sessions that cannot see each other's verdicts apply the rules to past task results, and agree on every verdict. A table maps the four conditions to the methodology's four meta-review signals.
   - Depends on: nothing.
   - Needed by: P3-N014.
-  - Documents: [plan](plans/p3-n013-stop-conditions-decidable.md).
+  - Documents: [plan](plans/p3-n013-stop-conditions-decidable.md), [specification](specs/p3-n005-sequence-mode.md#child-a-the-four-stop-conditions-decidable-evidenced-and-related-to-the-meta-review-signals).
 - P3-N014 The loop runs sequence mode, and the roles meet the conditions without looking
   - Stage: identified, 2026-10-29. No plan yet.
   - Outcome: [dispatch.md](process/dispatch.md) gains a sequence-mode section. Each role contract lists the stop conditions that role can trigger. The run journal records when the owner approves a run and when a run stops.
@@ -519,13 +519,16 @@ Actionable now, all at the planning stage:
 - P2-N003 (owner questions and the plan view): the planning that splits it. Its children's later stages wait as listed below.
 - P1-N007 (cost reporting and close-out). Its executing stage waits on P1-N006.
 
+Actionable now, at the executing stage, after the owner's plan gates of 2026-10-30:
+
+- P3-N006 (the thin end-to-end slice).
+- P3-N010 (one class, carried end to end).
+- P3-N013 (the four stop conditions, decidable), as a fixed sequence of tasks E1 to E4.
+
 The Orchestrator proposes P2-N005 first, by the owner's order, and asks the owner for scope before dispatching any of the four.
 
 Gated on the owner:
 
-- P3-N006 (the thin end-to-end slice): the owner's review of its [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan).
-- P3-N010 (one class, carried end to end): the owner's review of its plan.
-- P3-N013 (the four stop conditions, decidable): the owner's review of its plan.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:

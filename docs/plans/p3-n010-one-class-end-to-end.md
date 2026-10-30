@@ -1,6 +1,6 @@
 # One class, carried end to end
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -262,6 +262,20 @@ RU-002, RU-003 and RU-005 bind child C, not this node.
    drafting role writes the IR first" applies from this node on, and
    child B extends the IR. That reading reopens the breakdown the owner
    accepted on 2026-10-29.
+
+
+## Gate record, 2026-10-30
+
+The owner accepted this plan with defaults 1 to 5. Under decision 1
+the node moved `planned` → `specified` at this gate, with the parent
+specification's child A section as its specification. Decisions 2 and
+3 refine the parent specification's class-to-instance check (step 1
+reads the Classification of the repository holding each part; the
+parts enumeration reads every checked Backlog entry); the refinement
+is recorded in the parent specification's gate record. Decision 5:
+this node writes no IR. The Orchestrator grants read-only reach to
+majodali/methodology and majodali/project-orchestrator-service at
+dispatch (RU-016). Next: execute.
 
 ## References
 

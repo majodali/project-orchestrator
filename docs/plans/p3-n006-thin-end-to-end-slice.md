@@ -1,6 +1,6 @@
 # The thin end-to-end slice: five real parts all the way through, and both renderings
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -332,6 +332,15 @@ A6 and A8, as the parent specification cites it for G6.
   document. The bound holds only because scrolling is not a step. The
   web view will want entry-level targets (P2-N003). Found planning
   P3-N006.
+
+
+## Gate record, 2026-10-30
+
+The owner accepted this plan with defaults 1 to 3. Under decision 1 no
+specify task runs: the parent specification's child A section is this
+node's specification, and the node moved `planned` → `specified` at
+this gate. Decisions 2 and 3 are node-scope. Next: execute, at the
+standard tier (P3-N002 decision 14).
 
 ## References
 

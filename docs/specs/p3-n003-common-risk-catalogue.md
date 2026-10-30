@@ -701,6 +701,14 @@ were entered `identified` as P3-N010 to P3-N012 and the node moved
 `specified` → `broken-down` in the same act. Decisions 10 to 16 were
 judged node-scope; no ruling was captured.
 
+Refinement at P3-N010's gate, 2026-10-30 (its decisions 2 and 3,
+adopted): step 1 of the class-to-instance check reads the
+Classification of the repository that holds each part, so the service
+repository's Classification becomes a fourth input to the run record;
+the parts enumeration reads every checked Backlog entry wherever it
+sits, not only the Completed section. Criterion I4 is read with this
+refinement.
+
 ## References
 
 - [p3-n003-common-risk-catalogue](../plans/p3-n003-common-risk-catalogue.md):
