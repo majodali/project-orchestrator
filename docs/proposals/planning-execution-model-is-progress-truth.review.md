@@ -564,3 +564,37 @@ round 9: round 8's declined finding 6 added to the declined list.
 
 ## Round 9, 2026-10-30
 
+Stranger: a fresh instance at the frugal tier (task T090). Prose about
+2,500 words by the stranger's hand count (2,578 by tool at the round's
+start); 92 claims; 6 findings. The restatement ran 205 words, which the
+stranger left untrimmed rather than edit after reading the IR.
+
+Restatement: matched the IR on the problem, the clause, the terms, the
+authorities, the open entries, the evidence and the asks. One mismatch,
+attributed by the stranger to its own restatement: it turned "the
+amendment claims no authority for three further items" into "the model
+is not authoritative for" them (C25). Sentence relied on: "The
+amendment claims no authority for three further items the model
+carries for each part."
+
+Mismatches: C25 (own).
+
+Step-6 passage: matched on restatement.
+
+Findings by rule: SP-01 1 (F4); SP-03 1 (F2); SP-04 1 (F5); SP-10 1
+(F6); SP-26 1 (F3); restatement mismatch 1 (F1). Undefined term 1:
+"taken in". Contradictions: none.
+
+Verdict: not readable. Blocking: F1, F5.
+
+Accepted and fixed, in the IR then the prose: F2 ("describes that
+slice"), F3 (the duplicate exclusion cut), F4 (C92 split into two
+sentences), F5 (C93 added, inferred: a node's plan takes an entry in
+when the plan names the entry as work the node does).
+
+Declined: F6 (SP-10, the owner's gate after the maintainers' ask),
+because round 7's instance asked for the ask first and confirmed that
+order; the section is ordered by addressee, the maintainers then the
+owner, and the gate sentence states its timing ("Before the proposal is
+carried").
+
