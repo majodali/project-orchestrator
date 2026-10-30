@@ -522,7 +522,7 @@ Actionable, not yet dispatched:
 
 Executing now, dispatched after the owner's second plan gates of 2026-10-30:
 
-- P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): E1, task T070; E2 follows.
+- P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): E1 done (task T070, the type specification `docs/process/project-model.md`); E2, the K-003 amendment IR first, task T078.
 - P3-N011 (the sweep, the rest of the catalogue, and the omission list): E1, task T071; E2 and E3 follow.
 
 Gated on the owner:
@@ -533,7 +533,7 @@ Gated on the owner:
 
 Waiting:
 
-- P3-N008 (the instance): its plan may be dispatched once P3-N007's E1 is accepted; its execution waits on P3-N007.
+- P3-N008 (the instance): planning dispatched 2026-10-30 (task T079) after P3-N007's E1 was accepted; its execution waits on P3-N007.
 - P3-N009 (sibling ordering retired): waits on P3-N008.
 - P3-N012 (the Article 8 proposal): waits on P3-N011.
 - P3-N015 (the demonstration): planning dispatched 2026-10-30 (task T076), after P3-N014 closed.

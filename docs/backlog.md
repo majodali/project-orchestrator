@@ -690,6 +690,10 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   — When: 2026-10-30, T072. Status: open, for P1-N016; the event
   carries the member's task ID, so its opening condition is a note a
   later reading of the predicates would see. Pointer: [dispatch.md](process/dispatch.md), Sequence mode.
+- [ ] **The Orchestrator's Serves line omits three things it writes** —
+  When: 2026-10-30, T070. Status: open, for P1-N016; roles.md's
+  Orchestrator *Serves* line names neither the journal, the Ruling
+  register nor the Project model. Pointer: [roles.md](process/roles.md).
 - [ ] **Hierarchical resources, for complex resource validations** —
   owner note at the P3-N002 gate, 2026-10-29: the comprehension model's
   resources are flat by that plan's decision 2, and a hierarchy may
