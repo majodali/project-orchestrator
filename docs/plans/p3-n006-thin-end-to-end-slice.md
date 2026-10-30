@@ -1,6 +1,6 @@
 # The thin end-to-end slice: five real parts all the way through, and both renderings
 
-Status: active
+Status: closed → Backlog entry (node P3-N006 done 2026-10-30, task T054; see the Backlog entry "The thin end-to-end slice")
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a

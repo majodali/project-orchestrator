@@ -338,8 +338,8 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 The children of P3-N002, a strict chain in their [specification](specs/p3-n002-comprehension-model.md#the-breakdown)'s order:
 
 - P3-N006 The thin end-to-end slice: five real parts all the way through, and both renderings
-  - Stage: executing since 2026-10-30. The parent specification's child A section is the specification (gate decision of the same day).
-  - Outcome: The Project model holds five real parts of majodali/project-orchestrator, each with every facet. The model's two renderings are produced from those parts. A record beside the model lists the paths a reader walks under the navigation bound, with their step counts. The record also lists every change to the sketch notation, with reasons.
+  - Stage: done, 2026-10-30 (task T054).
+  - Outcome: Shipped `docs/project-model.md`, five real parts through every facet, and the slice record with fifty measured paths, both renderings compared with the Backlog, and fourteen findings for P3-N007.
   - Depends on: nothing.
   - Needed by: P3-N007, and the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view) child of P2-N003.
   - Documents: [plan](plans/p3-n006-thin-end-to-end-slice.md), [specification](specs/p3-n002-comprehension-model.md#child-a-the-thin-end-to-end-slice-five-real-parts-all-the-way-through).
@@ -521,7 +521,6 @@ Actionable now, all at the planning stage:
 
 Executing now, dispatched after the owner's plan gates of 2026-10-30:
 
-- P3-N006 (the thin end-to-end slice), task T054.
 - P3-N010 (one class, carried end to end), task T055.
 - P3-N013 (the four stop conditions, decidable), task T056, the first of its fixed sequence E1 to E4.
 
@@ -533,7 +532,7 @@ Gated on the owner:
 
 Waiting:
 
-- P3-N007 (the Project model definition and the amendment): waits on P3-N006.
+- P3-N007 (the Project model definition and the amendment): planning dispatched 2026-10-30 (task T057), after P3-N006 closed.
 - P3-N008 (the instance): waits on P3-N007.
 - P3-N009 (sibling ordering retired): waits on P3-N008.
 - P3-N011 (the sweep): waits on P3-N010.

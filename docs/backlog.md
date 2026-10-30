@@ -396,8 +396,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   on real edges (child B resolves it, criterion B1); the journal event
   kind moves from child D to child B. Gate crossed 2026-10-29:
   defaults adopted, decision 13 option (a) no deviation, the one term
-  ratified; children P3-N006 to P3-N009 entered (RU-020). Next:
-  P3-N006's planning.
+  ratified; children P3-N006 to P3-N009 entered (RU-020). P3-N006 done
+  2026-10-30. Next: P3-N007's planning.
 
 - [ ] **P3-N005 specified, 2026-10-29 (T045)** — sequence mode's
   specification stands at
@@ -436,9 +436,10 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 
 - [x] **The thin end-to-end slice: five resources through the project
   model and both renderings** (node P3-N006) — When: executed
-  2026-10-30 (T054, the execute task). Status: self-verified against
-  the criteria of child A; fifty paths within three steps; awaiting the
-  Orchestrator's acceptance. Pointer: [project-model.md](project-model.md),
+  2026-10-30 (T054); done the same day at the Orchestrator's
+  acceptance. Status: done; self-verified against the criteria of
+  child A, fifty paths within three steps, fourteen findings handed to
+  P3-N007. Pointer: [project-model.md](project-model.md),
   [slice record](project-model-slice-record.md).
 - [ ] **Whether a child carried at criteria depth by its parent's
   specification needs its own plan or specify task** — found
@@ -525,6 +526,19 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   the owner could not follow them, which is why `docs/plan.md` exists;
   one pass rewrites them to the rules without changing decisions.
   Pointer: [plan.md](plan.md), [P-rules](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md).
+- [ ] **A home in the model for open findings that are not nodes** —
+  When: 2026-10-30, T054 (slice record finding 4). Status: open; seven
+  open Backlog entries are not nodes and have no place in the model's
+  edges; an `identified` node or an `open:` line would hold them.
+  Pointer: [slice record](project-model-slice-record.md), section 7.
+- [ ] **Reconcile RU-016's Applied list with the plans that cite it** —
+  When: 2026-10-30, T054. Status: open; the list names T039, T043 and
+  T055, while the plans of P3-N003, P3-N005, P3-N006, P3-N010 and
+  P3-N013 cite the ruling at planning. Pointer: [rulings.md](rulings.md).
+- [ ] **Ratify or strike the slice's seven terms** — When: 2026-10-30,
+  T054. Status: open, for the owner: facet, held edge, own status,
+  formerly line, standing append, node specification, process
+  specification. Pointer: [slice record](project-model-slice-record.md).
 - [ ] **Hierarchical resources, for complex resource validations** —
   owner note at the P3-N002 gate, 2026-10-29: the comprehension model's
   resources are flat by that plan's decision 2, and a hierarchy may
