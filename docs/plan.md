@@ -305,7 +305,7 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 ### P2-N005 The task-pull loop (chunk 4)
 
-- Stage: planned, 2026-10-30 (task T073); plan gate crossed 2026-10-30 with defaults 1 to 13 and four terms ratified. The specification (task T092) is being written; it carries the four children at breakdown depth, and they are entered at its gate.
+- Stage: specified, 2026-10-30 (task T092), gated on the owner's review of the specification: decisions 14 to 22 and three terms. The specification carries the four children at breakdown depth with criteria A1 to A10, B1 to B12, C1 to C11 and D1 to D12; they enter the register at its gate as P2-N017 to P2-N020.
 - Outcome: A session asks the service for its next task and claims the task, so no other session takes it. The session then reports progress and completion. When the service is down, a session claims a task by creating a git branch named after the task.
 - Depends on: P2-N002 (service skeleton and plan state), which is done. The register marks P2-N005 independent of P2-N003 and P2-N004.
 - Needed by: P2-N006.
@@ -518,7 +518,6 @@ Actionable, not yet dispatched:
 
 Specifying now, after the owner's gate of 2026-10-30:
 
-- P2-N005 (the task-pull loop): the specification, task T092; children A to D (the platform facts, the loop in git alone, role-aware identity, the task tools) enter at its gate.
 - P2-N003 (owner questions and the plan view): the specification, task T093; the web view's first version and the owner question queue enter at its gate.
 
 Executing now, dispatched after the owner's second plan gates of 2026-10-30:
@@ -529,6 +528,7 @@ Gated on the owner:
 - P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
 - P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
+- P2-N005 (the task-pull loop): specified; your review of the specification, decisions 14 to 22 (decision 15 changes how a claim is released, with drafted corrections to the plan) and three terms (pull run, offering branch, claim commit); the four children enter at that gate.
 - P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): verifying; your review of the K-003 proposal under RU-005 (approve for carrying, amend or return), ten terms, the open points of its record, and a meta-review of its count.
 - P3-N011 (the sweep, the rest of the catalogue, and the omission list): verifying; the owner's rulings on the omission list (56 items), the three weaker Class lines, the scope arguments and closed entries, and the terms citation test and delta row.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.

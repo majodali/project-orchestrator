@@ -2934,6 +2934,31 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   and three terms for ratification. Pointer:
   [plan](plans/p2-n005-task-pull-loop.md) ·
   [specification](specs/p2-n005-task-pull-loop.md).
+- [ ] **A `claimed` journal event kind** — When: 2026-10-30,
+  specifying P2-N005 (T092, decision 14 defers it). Status: open, for
+  the web view of P2-N003 (owner questions and the plan view) to read a
+  claim without listing branches. Pointer:
+  [specification of P2-N005](specs/p2-n005-task-pull-loop.md),
+  decision 14.
+- [ ] **Claim times rest on session clocks** — When: 2026-10-30,
+  specifying P2-N005 (T092). Status: open; `Expires` and the committer
+  time are both written by the claimant, bounded by `Claim expiry`; a
+  Risk register entry may fit better. Pointer:
+  [specification of P2-N005](specs/p2-n005-task-pull-loop.md), *Risks*.
+- [ ] **A pulled Paraphraser or Reviewer (stranger) task has no
+  contract to carry the pull duty** — When: 2026-10-30, specifying
+  P2-N005 (T092). Status: open; only roles.md reaches those roles, and
+  `.claude/agents/` holds no contract for them (see the entry on their
+  contracts). Pointer:
+  [specification of P2-N005](specs/p2-n005-task-pull-loop.md), child B.
+- [ ] **The P2-N005 plan's Dependencies section writes no edges** —
+  When: 2026-10-30, specifying P2-N005 (T092 located finding). Status:
+  open; the plan was accepted twenty seconds before the Project model
+  type was declared, so it predates the rule that a plan's Dependencies
+  section first writes the node's edges; the specification states the
+  children's edges. For the Orchestrator at the specification gate, or
+  P3-N008's second execute task. Pointer:
+  [plan of P2-N005](plans/p2-n005-task-pull-loop.md), *Dependencies*.
 - [ ] **A form check for task files, claim branches and result files**
   — When: 2026-10-30, planning P2-N005 (T073). Status: open, for
   P1-N016 (process spec maintenance); today a verifier checks the
