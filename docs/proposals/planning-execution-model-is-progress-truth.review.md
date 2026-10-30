@@ -1,6 +1,6 @@
 # Review record: a declared planning/execution model is the source of progress truth
 
-Status: open (count 1, round 3 running)
+Status: open (count 1, round 4 running)
 
 <!-- K-007 contract: Status transitions open → closed (the count's
      verdict recorded and the fixes confirmed). This file is the
@@ -178,4 +178,61 @@ Brief changes for round 3: the declined findings of rounds 1 and 2
 (round 1's 4, 15 and 18; round 2's 19) with their reasons.
 
 ## Round 3, 2026-10-30
+
+Stranger: a fresh instance at the frugal tier (task T084). Prose about
+2,650 words by the stranger's hand count (2,410 by tool at the round's
+start); 76 claims; 16 findings.
+
+Restatement: matched the IR on the problem, the clause, the
+authorities, the open entries, the terms, the dependency and the asks.
+One mismatch, attributed by the stranger to its own restatement: it
+read the evidence as "one slice", where the IR also rests on the
+owner's decisions, the cross-check and the Backlog count. Sentence
+relied on: "The evidencing instance is that slice, pinned at commit
+`86a1330`."
+
+Mismatches: C41 (own).
+
+Findings by rule: SP-01 2 (13, 16); SP-02 2 (10, 11); SP-03 1 (12);
+SP-04 3 (4, 6, 7); SP-05 1 (9); SP-25 1 (2); SP-26 5 (3, 5, 8, 14, 15);
+restatement mismatch 1 (1). Undefined terms 3: node, Project model,
+stage (each first used before its link). Contradiction 1: the Change
+line named one sentence while the body also changed the Motivated-by
+line (2).
+
+Verdict: not readable. Blocking: 1, 2, 4, 6, 7.
+
+Accepted and fixed, in the IR then the prose: 2 to 13, 15, 16 (15 of
+16). The contradiction: C8 and the Change line now name the sentence
+and the citation. The three terms are linked at first use; the slice's
+definition is stated once; three repeated claims cut; two sentences
+over 25 words shortened; two SP-01 splits; the "it" of P3-N008's
+sentence named.
+
+Declined: 14 (SP-26, the project-orchestrator impact bullet against
+The ask), because the Release-register entry is a self-contained form
+whose impact assessment states each project's situation on its own, the
+reason that declined round 1's finding 4.
+
+Confirmation: 14 of 15 fixes hold. Not held: 7 (held in part; the
+appositive "its place in the node lifecycle" was new and undefined).
+Declines accepted: 1 of 1. New defects: 4 (1 "It" with an ambiguous
+referent; 2 and 3 the appositive, undefined and absent from C18; 4 the
+one-citation change stated in the Change line, C8's sentence and C15's
+paragraph, low confidence).
+
+Re-fixes before round 4, in the prose: 7, 2 and 3 (the appositive cut;
+"stage" linked to the plan model's node lifecycle section, the anchor
+verified); 1 ("The entry is the Backlog's own content"). New defect 4
+declined: the Change line is the front-matter form, and C8 and C15 are
+distinct claims, the change in sum and the Motivated-by detail.
+
+## Before round 4
+
+Claims check (the round 3 prose as base): 6 changed claims, each
+carried by a sentence; 0 missing, 0 stale. Prose 2,395 words by tool.
+Brief changes for round 4: round 3's declined finding 14 added to the
+declined list.
+
+## Round 4, 2026-10-30
 

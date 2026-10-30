@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: under review (round 3, 2026-10-30)
+Status: under review (round 4, 2026-10-30)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →
@@ -34,7 +34,7 @@ migration)](https://github.com/majodali/methodology/blob/v1.6.0/docs/constitutio
 [as released at
 v1.6.0](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth).
 
-**Change:** one conditional sentence appended to K-003's statement.
+**Change:** one conditional sentence appended to K-003's statement, and one citation added to its Motivated-by line.
 
 **Asked of the reader:** accept the amendment, accept it with
 amendments, or reject it.
@@ -83,7 +83,7 @@ referent for what is done and what is next.
 The amendment changes
 [K-003](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth)
 in place by appending one conditional sentence to the rule's
-statement. The appended sentence reads: "Where the project's
+statement and one citation to its Motivated-by line. The appended sentence reads: "Where the project's
 Classification declares a planning/execution model, that model is the
 referent instead, and the Backlog's implementation map and list of what
 is next are renderings of it."
@@ -97,16 +97,16 @@ model](https://github.com/majodali/methodology/blob/350f75f0a11b326eb1f536f17235
 reads K-003 unchanged. The amendment leaves K-003's sentence on
 [Workflow](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-workflow)
 stage designations unchanged. The amendment says nothing about the
-verification evidence of each node, the second component of a
-planning/execution model.
+verification evidence of each
+[node](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node),
+the second component of a planning/execution model.
 
 The amendment keeps K-003's title, so links to the rule's anchor keep
 resolving. The title stays true for every project whose
 Classification declares no planning/execution model. K-003's
 Motivated-by line gains a citation of the evidencing instance at [commit
 `86a1330`](https://github.com/majodali/project-orchestrator/blob/86a13308f70574abc0223ddb4f044b7e43ca1eb6/docs/project-model-slice-record.md).
-The instance is the slice, the first five entries of the
-project-orchestrator Project model, described under [*The evidencing
+The instance is the slice, described under [*The evidencing
 instance*](#the-evidencing-instance).
 The amendment changes no other part of K-003.
 
@@ -176,8 +176,9 @@ carrying it. The quote may have moved.
 
 Under the amendment, a project's declared [planning/execution
 model](https://github.com/majodali/methodology/blob/350f75f0a11b326eb1f536f172359b1cc8a9cb1e/docs/vocabulary.md#def-planning-execution-model)
-is authoritative for the stage of each
-[node](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node).
+is authoritative for the
+[stage](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/plan-model.md#the-node-lifecycle)
+of each node.
 The model is authoritative for each
 [part](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md#def-resource)'s
 state, as derived from the stages of the nodes that create and modify
@@ -204,7 +205,9 @@ register](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b
 A term-by-term cross-check ties each authority in this section to a
 named section of the [Project model type
 specification](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md).
-The cross-check is evidence E7 of the IR beside this file.
+The cross-check is evidence
+[E7](planning-execution-model-is-progress-truth.ir.md#evidence) of the
+IR beside this file.
 
 ## Open Backlog entries that name no node
 
@@ -212,9 +215,9 @@ Under the amendment, an open
 [Backlog](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth)
 entry that names no
 [node](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node)
-stays in the Backlog's upcoming section as the Backlog's own content,
-outside the rendered list. Under the amendment, the rendered [list of
-what is next](#def-list-of-what-is-next) holds nodes only. An open
+stays in the Backlog's upcoming section, outside the rendered [list of
+what is next](#def-list-of-what-is-next). The entry is the Backlog's own
+content. An open
 Backlog entry joins the list of what is next when it becomes a node,
 or when a node's plan takes it in. Entering each small
 finding as a node would add planning ceremony that the finding does not
@@ -227,8 +230,7 @@ lines that follow it up to the next entry or heading. The count takes
 an entry as open when the entry's checkbox is unchecked. The count
 takes an entry as naming a node when its text holds a node identifier
 such as P3-N007, the node that drafted this proposal. Because a mere mention of a node identifier counts as
-naming the node, 31 is a lower bound on the open entries that no node
-holds.
+naming the node, 31 is a lower bound on the open entries no node holds.
 
 ## Whether "built but broken" stands
 
@@ -257,8 +259,8 @@ record](https://github.com/majodali/project-orchestrator/blob/86a13308f70574abc0
 The evidencing instance is that slice, pinned at commit `86a1330`. The
 full instance is the Project model with an entry for every part of the
 repository. Node
-[P3-N008](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/plan-register.md),
-the instance over this repository, is planned to build it. The
+[P3-N008](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/plan-register.md)
+is planned to build the full instance over this repository. The
 slice holds five entries, one per
 [part](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md#def-resource),
 derived from documents the repository already held.
@@ -270,8 +272,7 @@ the rows read from the Plan register agreed with the state the entries
 recorded. The slice record rendered the list of what is next in a narrower form,
 per part: the open nodes with an edge to the part. Each of the five
 lists held no open item, because the slice's plan had held back the
-edges from open nodes to the five parts. The whole-model list, one item
-per node not yet done, is the form the full instance renders.
+edges from open nodes to the five parts. The whole-model list is the form the full instance renders.
 
 The comparison of the renderings with the Backlog listed eleven
 differences and left none unexplained. Of the eleven differences,
@@ -279,7 +280,7 @@ seven were claims the model lacked, two were claims the Backlog lacked,
 and two were disagreements ([slice
 record](https://github.com/majodali/project-orchestrator/blob/86a13308f70574abc0223ddb4f044b7e43ca1eb6/docs/project-model-slice-record.md),
 section 3). In both disagreements, the Backlog showed finished work
-as unfinished, and the model showed the work as done.
+as unfinished. The model showed the work as done.
 
 The project-orchestrator criterion G6 later renders the implementation
 map and the whole-model list of what is next over the full instance. It
@@ -356,10 +357,10 @@ register](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md
   model](https://github.com/majodali/methodology/blob/350f75f0a11b326eb1f536f172359b1cc8a9cb1e/docs/vocabulary.md#def-planning-execution-model)
   changes nothing. A project that declares a planning/execution
   model renders its Backlog's implementation map and list of what is
-  next from the model from the declaration on. A project that
-  declares a planning/execution model rewrites its checked entries by
-  re-rendering the implementation map from the model. K-003's duty
-  to rewrite checked entries stands, and that re-rendering meets it.
+  next from the model from the declaration on. Such a project
+  rewrites its checked entries by that rendering of the implementation
+  map. K-003's duty to rewrite checked entries stands. That rendering
+  meets it.
 
 ## The ask
 
@@ -382,4 +383,4 @@ The proposal also asks the
 to ratify or strike the two terms it defines: [list of what is next](#def-list-of-what-is-next) and
 [rendering](#def-rendering).
 
-<!-- render map: C1→¶7 C2→¶7 C3→¶11 C4→¶11 C5→¶11 C6→¶12 C7→¶12 C8→¶13 C9→¶13 C10→¶14 C11→¶14 C12→¶14 C13→¶15 C14→¶15 C15→¶15 C16→¶15 C17→¶16 C18→¶20 C19→¶20 C20→¶20 C21→¶21 C22→¶21 C23→¶22 C24→¶22 C25→¶22 C26→¶23 C27→¶24 C28→¶24 C29→¶24 C30→¶24 C31→¶25 C32→¶25 C33→¶25 C34→¶25 C35→¶25 C36→¶26 C37→¶26 C38→¶26 C39→¶26 C40→¶26 C41→¶27 C42→¶27 C43→¶28 C44→¶28 C45→¶28 C46→¶29 C47→¶29 C48→¶29 C49→¶30 C50→¶30 C51→¶31 C52→¶31 C53→¶31 C54→¶32 C55→¶32 C56→¶32 C57→¶34 C58→¶35 C59→¶36 C60→¶37 C61→¶38 C62→¶39 C63→¶40 C64→¶41 C65→¶42 C66→¶42 C67→¶43 C68→¶43 C69→¶43 C70→¶45 C71→¶46 C72→¶47 C73→¶47 C74→¶22 C75→¶28 C76→¶43 -->
+<!-- render map: C1→¶7 C2→¶7 C3→¶11 C4→¶11 C5→¶11 C6→¶12 C7→¶12 C8→¶13 C9→¶13 C10→¶14 C11→¶14 C12→¶14 C13→¶15 C14→¶15 C15→¶15 C16→¶15 C17→¶16 C18→¶20 C19→¶20 C20→¶20 C21→¶21 C22→¶21 C23→¶22 C24→¶22 C25→¶22 C26→¶23 C27→¶24 C28→¶7 C29→¶24 C30→¶24 C31→¶25 C32→¶25 C33→¶25 C34→¶25 C35→¶25 C36→¶26 C37→¶26 C38→¶26 C39→¶26 C40→¶26 C41→¶27 C42→¶27 C43→¶28 C44→¶28 C45→¶28 C46→¶29 C47→¶29 C48→¶29 C49→¶30 C50→¶30 C51→¶31 C52→¶31 C53→¶31 C54→¶32 C55→¶32 C56→¶32 C57→¶34 C58→¶35 C59→¶36 C60→¶37 C61→¶38 C62→¶39 C63→¶40 C64→¶41 C65→¶42 C66→¶42 C67→¶43 C68→¶43 C69→¶43 C70→¶45 C71→¶46 C72→¶47 C73→¶47 C74→¶22 C75→¶28 C76→¶43 -->

@@ -2,7 +2,7 @@
 
 Reader: RD-4 (a fresh agent session) reading K-003 and the proposal beside this IR; the maintainers of majodali/methodology adjudicate the amendment, and the project-orchestrator owner gates the proposal before it is carried.
 Purpose: document. The proposal to amend K-003 (the Backlog is the single source of progress truth) in place by one conditional sentence, so that a project whose Classification declares a planning/execution model takes that model as its referent for what is done and what is next.
-Status: draft (rendered by the reasoning role on 2026-10-30; round 3; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 76 claims; 2 unratified terms)
+Status: draft (rendered by the reasoning role on 2026-10-30; round 4; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 76 claims; 2 unratified terms)
 Source: RU-021 (the planning/execution model is the source of progress truth), owner, 2026-10-29; decisions 10 to 13 of the P3-N002 specification's gate record of 2026-10-29; decisions 4 to 6 of the P3-N007 plan, adopted on 2026-10-30; the Project model slice at commit 86a1330.
 Normative: yes
 Footprint: docs/proposals/planning-execution-model-is-progress-truth.md; docs/backlog.md
@@ -65,7 +65,7 @@ C7. K-003 as released lets no project make its planning/execution model the refe
 
 ### The change
 
-C8. The amendment changes K-003 in place by appending one conditional sentence to the rule's statement. evidence: E12. [decided: owner, 2026-10-29]
+C8. The amendment changes K-003 in place by appending one conditional sentence to the rule's statement and one citation to its Motivated-by line. evidence: E12. [decided: owner, 2026-10-29]
 
 C9. The appended sentence reads: "Where the project's Classification declares a planning/execution model, that model is the referent instead, and the Backlog's implementation map and list of what is next are renderings of it." [proposed: this IR]
 
@@ -109,7 +109,7 @@ C26. A term-by-term cross-check found each authority in this section stated by a
 
 ### Open Backlog entries that name no node
 
-C27. Under the amendment, an open Backlog entry that names no node stays in the Backlog's upcoming section as the Backlog's own content, outside the rendered list. evidence: E12. [decided: owner, 2026-10-30]
+C27. Under the amendment, an open Backlog entry that names no node stays in the Backlog's upcoming section, outside the rendered list, as the Backlog's own content. evidence: E12. [decided: owner, 2026-10-30]
 
 C28. Under the amendment, the rendered list of what is next holds nodes only. [decided: owner, 2026-10-30]
 
@@ -125,7 +125,7 @@ C33. The count takes an entry as open when the entry's checkbox is unchecked. [p
 
 C34. The count takes an entry as naming a node when its text holds a node identifier such as P3-N007, the node that drafted this proposal. [proposed: this IR]
 
-C35. Because a mere mention of a node identifier counts as naming the node, 31 is a lower bound on the open entries that no node holds. [proposed: this IR]
+C35. Because a mere mention of a node identifier counts as naming the node, 31 is a lower bound on the open entries no node holds. [proposed: this IR]
 
 ### Whether "built but broken" stands
 
@@ -157,7 +157,7 @@ C46. The comparison of the renderings with the Backlog listed eleven differences
 
 C47. Of the eleven differences, seven were claims the model lacked, two were claims the Backlog lacked, and two were disagreements. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
 
-C48. In both disagreements, the Backlog showed finished work as unfinished, and the model showed the work as done. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
+C48. In both disagreements, the Backlog showed finished work as unfinished while the model showed the work as done. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
 
 C49. The project-orchestrator criterion G6 later renders the implementation map and the whole-model list of what is next over the full instance and compares the renderings with the Backlog. evidence: E12. [decided: owner, 2026-10-29]
 
@@ -205,9 +205,9 @@ C67. The migration note says a project that declares no planning/execution model
 
 C68. The migration note says a project that declares a planning/execution model renders its Backlog's implementation map and list of what is next from the model from the declaration on. [proposed: this IR]
 
-C69. A project that declares a planning/execution model rewrites its checked entries by re-rendering the implementation map from the model. [proposed: this IR]
+C69. Such a project rewrites its checked entries by that rendering of the implementation map. [proposed: this IR]
 
-C76. K-003's duty to rewrite checked entries stands under the amendment and is met by that re-rendering. [inferred: R15]
+C76. K-003's duty to rewrite checked entries stands under the amendment, met by that rendering. [inferred: R15]
 
 ### The ask
 
