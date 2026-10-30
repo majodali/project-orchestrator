@@ -338,7 +338,7 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 The children of P3-N002, a strict chain in their [specification](specs/p3-n002-comprehension-model.md#the-breakdown)'s order:
 
 - P3-N006 The thin end-to-end slice: five real parts all the way through, and both renderings
-  - Stage: specified, 2026-10-30, at the owner's plan gate. The parent specification's child A section is the specification (gate decision).
+  - Stage: executing since 2026-10-30. The parent specification's child A section is the specification (gate decision of the same day).
   - Outcome: The Project model holds five real parts of majodali/project-orchestrator, each with every facet. The model's two renderings are produced from those parts. A record beside the model lists the paths a reader walks under the navigation bound, with their step counts. The record also lists every change to the sketch notation, with reasons.
   - Depends on: nothing.
   - Needed by: P3-N007, and the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view) child of P2-N003.
@@ -373,7 +373,7 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
 The children of P3-N003, a strict chain in their [specification](specs/p3-n003-common-risk-catalogue.md#the-breakdown)'s order:
 
 - P3-N010 One class, carried end to end
-  - Stage: specified, 2026-10-30, at the owner's plan gate. The parent specification's child A section is the specification (gate decision).
+  - Stage: executing since 2026-10-30. The parent specification's child A section is the specification (gate decision of the same day).
   - Outcome: The catalogue holds one class, CR-001 (a check that cannot fail in the environment the code runs in). A check looks for a [Risk register](open-risks.md) entry covering each part the class applies to. A deliberately broken input then proves the check can fail.
   - Depends on: nothing.
   - Needed by: P3-N011.
@@ -410,7 +410,7 @@ The children of P3-N003, a strict chain in their [specification](specs/p3-n003-c
 The children of P3-N005, a strict chain in their [specification](specs/p3-n005-sequence-mode.md#the-breakdown)'s order:
 
 - P3-N013 The four stop conditions, decidable, evidenced, and related to the [meta-review signals](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-meta-review-signal)
-  - Stage: specified, 2026-10-30, at the owner's plan gate. The parent specification's child A section is the specification (gate decision).
+  - Stage: executing since 2026-10-30. The parent specification's child A section is the specification (gate decision of the same day).
   - Outcome: The four stop rules are committed as text. Two sessions that cannot see each other's verdicts apply the rules to past task results, and agree on every verdict. A table maps the four conditions to the methodology's four meta-review signals.
   - Depends on: nothing.
   - Needed by: P3-N014.
@@ -519,11 +519,11 @@ Actionable now, all at the planning stage:
 - P2-N003 (owner questions and the plan view): the planning that splits it. Its children's later stages wait as listed below.
 - P1-N007 (cost reporting and close-out). Its executing stage waits on P1-N006.
 
-Actionable now, at the executing stage, after the owner's plan gates of 2026-10-30:
+Executing now, dispatched after the owner's plan gates of 2026-10-30:
 
-- P3-N006 (the thin end-to-end slice).
-- P3-N010 (one class, carried end to end).
-- P3-N013 (the four stop conditions, decidable), as a fixed sequence of tasks E1 to E4.
+- P3-N006 (the thin end-to-end slice), task T054.
+- P3-N010 (one class, carried end to end), task T055.
+- P3-N013 (the four stop conditions, decidable), task T056, the first of its fixed sequence E1 to E4.
 
 The Orchestrator proposes P2-N005 first, by the owner's order, and asks the owner for scope before dispatching any of the four.
 
