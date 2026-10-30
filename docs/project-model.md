@@ -122,7 +122,9 @@ record](project-model-slice-record.md) holds it.
   of P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at
   this breakdown) ·
   P2-N021 (The web view's first version; task E2 (T095) moved the Cost
-  log and journal parsing out of the core into the shared unit; from
+  log and journal parsing out of the core into the shared unit; recorded
+  at T095's result, before its acceptance, because the specification
+  already stated the edge; from
   [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown; [specification of
@@ -1414,7 +1416,8 @@ record](project-model-slice-record.md) holds it.
   P2-N021](backlog.md))
 - **created-by:** P2-N021 (The web view's first version; task E2 (T095),
   majodali/project-orchestrator commit 3259736, its pull request not yet
-  merged; from [specification of
+  merged; recorded at T095's result, before its acceptance, because the
+  specification already stated the edge; from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown; [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
