@@ -689,7 +689,7 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   T066's false start. Status: open; T066 was dispatched before its
   worktree existed; `dispatch.md` names no such check; for P1-N016.
   Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, blindness outside the commit graph.
-- [ ] **The loop runs sequence mode, and the roles meet the conditions
+- [x] **The loop runs sequence mode, and the roles meet the conditions
   without looking** (node P3-N014, child B of P3-N005) — When: planned
   and specified 2026-10-30 (T068, gate of 2026-10-30); executed
   2026-10-30 (T072); done the same day at the Orchestrator's acceptance,

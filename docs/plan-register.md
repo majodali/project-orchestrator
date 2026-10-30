@@ -47,7 +47,7 @@ honestly; chunks 1–3 completed before this register existed.
     - P3-N009 [identified] Sibling ordering retired, and the checks that replace it — depends on P3-N008
   - P3-N003 [broken-down] The common risk catalogue (chunk 2) — independent of P3-N002 (RU-018) — plan: plans/p3-n003-common-risk-catalogue.md · spec: specs/p3-n003-common-risk-catalogue.md
     - P3-N010 [done] One class, carried end to end — plan: plans/p3-n010-one-class-end-to-end.md · spec: specs/p3-n003-common-risk-catalogue.md
-    - P3-N011 [executing] The sweep, the rest of the catalogue, and the omission list — depends on P3-N010 — plan: plans/p3-n011-sweep-and-omission-list.md · spec: specs/p3-n003-common-risk-catalogue.md
+    - P3-N011 [verifying] [gated: owner rulings on the omission list, the three weaker Class lines, scope arguments and closed entries] The sweep, the rest of the catalogue, and the omission list — depends on P3-N010 — plan: plans/p3-n011-sweep-and-omission-list.md · spec: specs/p3-n003-common-risk-catalogue.md
     - P3-N012 [identified] The Article 8 proposal, written IR first and reviewed — depends on P3-N011
   - P3-N004 [identified] Reversibility, and the measurement that says whether it pays (chunk 3) — depends on P3-N002
   - P3-N005 [broken-down] Sequence mode: run W-001's pre-ratified mode, and determine whether it needs specialising (chunk 4) — independent of P3-N002 (RU-018) — plan: plans/p3-n005-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
