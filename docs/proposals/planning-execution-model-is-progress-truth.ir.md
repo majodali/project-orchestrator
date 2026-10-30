@@ -2,7 +2,7 @@
 
 Reader: RD-4 (a fresh agent session) reading K-003 and the proposal beside this IR; the maintainers of majodali/methodology adjudicate the amendment, and the project-orchestrator owner gates the proposal before it is carried.
 Purpose: document. The proposal to amend K-003 (the Backlog is the single source of progress truth) in place by one conditional sentence, so that a project whose Classification declares a planning/execution model takes that model as its referent for what is done and what is next.
-Status: draft (rendered by the reasoning role on 2026-10-30; round 4; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 76 claims; 2 unratified terms)
+Status: draft (rendered by the reasoning role on 2026-10-30; round 4, 13 of 14 findings fixed, 1 declined, one step-6 structural fix awaiting restatement; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 82 claims; 2 unratified terms)
 Source: RU-021 (the planning/execution model is the source of progress truth), owner, 2026-10-29; decisions 10 to 13 of the P3-N002 specification's gate record of 2026-10-29; decisions 4 to 6 of the P3-N007 plan, adopted on 2026-10-30; the Project model slice at commit 86a1330.
 Normative: yes
 Footprint: docs/proposals/planning-execution-model-is-progress-truth.md; docs/backlog.md
@@ -83,6 +83,8 @@ C15. K-003's Motivated-by line gains a citation of the evidencing instance, the 
 
 C16. The amendment changes no other part of K-003. [proposed: this IR]
 
+C77. The appended sentence is an exception: where it applies, it overrides the sentence before it, which makes the Backlog the referent. [proposed: this IR]
+
 C17. A condition on a Classification declaration lets the rule apply mechanically, project by project, as RU-021 (the planning/execution model is the source of progress truth) directs. evidence: E12. [decided: owner, 2026-10-29]
 
 ### What the model is authoritative for
@@ -95,7 +97,7 @@ C20. The model is authoritative for the recorded edges from nodes to the parts t
 
 C21. The model renders the implementation map as one row per part, with the part's derived state and the nodes that created and modified the part. evidence: E6. [proposed: this IR]
 
-C22. The model renders the list of what is next as one item per node not yet done, each with the node's stage and the nodes that node waits for. evidence: E6. [proposed: this IR]
+C22. The model renders the list of what is next over every node of the model, one item per node not yet done, each with the node's stage and the nodes that node waits for. evidence: E6. [proposed: this IR]
 
 C23. The model is not authoritative for whether a part works. evidence: E6. [proposed: this IR]
 
@@ -141,7 +143,9 @@ C40. Recording where each node's verification evidence lands is later work on th
 
 ### The evidencing instance
 
-C41. The evidencing instance is the Project model of the project-orchestrator repository, in the slice pinned at commit 86a1330. evidence: E3. [decided: owner, 2026-10-29]
+C41. The evidencing instance is the slice of the project-orchestrator Project model pinned at commit 86a1330. evidence: E3. [decided: owner, 2026-10-29]
+
+C78. The evidence for the amendment is of four kinds: the owner's decisions, the evidencing instance, the term-by-term cross-check and the count of open Backlog entries. evidence: E3, E4, E7, E8. [proposed: this IR]
 
 C42. The slice holds five entries, one per part, derived from documents the repository already held. evidence: E3. [decided: project-orchestrator slice record at commit 86a1330]
 
@@ -159,7 +163,7 @@ C47. Of the eleven differences, seven were claims the model lacked, two were cla
 
 C48. In both disagreements, the Backlog showed finished work as unfinished while the model showed the work as done. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
 
-C49. The project-orchestrator criterion G6 later renders the implementation map and the whole-model list of what is next over the full instance and compares the renderings with the Backlog. evidence: E12. [decided: owner, 2026-10-29]
+C49. The project-orchestrator criterion G6 later renders the implementation map and the list of what is next over the full instance and compares the renderings with the Backlog. evidence: E12. [decided: owner, 2026-10-29]
 
 C50. If criterion G6 contradicts the slice's evidence, project-orchestrator reopens this proposal with the reason recorded. evidence: E12. [decided: owner, 2026-10-29]
 
@@ -175,7 +179,9 @@ C53. The amendment needs the vocabulary entry released with the amendment or bef
 
 C54. A Classification declares a planning/execution model by an entry in its Custom definitions section. evidence: E12. [decided: owner, 2026-10-30]
 
-C55. The declaring entry takes Article 7's definition-by-citation form and names the types that make up the model. evidence: E12. [decided: owner, 2026-10-30]
+C55. The declaring entry takes Article 7's definition-by-citation form. evidence: E12. [decided: owner, 2026-10-30]
+
+C79. The declaring entry names the types that make up the model. evidence: E12. [decided: owner, 2026-10-30]
 
 C56. The declaration needs no new Classification field. evidence: E12. [decided: owner, 2026-10-30]
 
@@ -211,11 +217,17 @@ C76. K-003's duty to rewrite checked entries stands under the amendment, met by 
 
 ### The ask
 
-C70. If the amendment is accepted, project-orchestrator declares its planning/execution model once the release is pinned, and switches its Backlog to a rendering. evidence: E12. [decided: owner, 2026-10-29]
+C70. If the amendment is accepted, project-orchestrator declares its planning/execution model once the release is pinned. evidence: E12. [decided: owner, 2026-10-29]
 
-C71. If the amendment is accepted with different wording, project-orchestrator re-reads its practice against the released text and adapts the practice. [proposed: this IR]
+C80. After the declaration, project-orchestrator switches its Backlog to a rendering. evidence: E12. [decided: owner, 2026-10-29]
 
-C72. If the amendment is rejected, the project-orchestrator Backlog stays the referent, and the Project model stays a description of the project's parts. [proposed: this IR]
+C71. If the amendment is accepted with different wording, project-orchestrator re-reads its practice against the released text. [proposed: this IR]
+
+C81. After that re-reading, project-orchestrator adapts the practice. [proposed: this IR]
+
+C72. If the amendment is rejected, the project-orchestrator Backlog stays the referent. [proposed: this IR]
+
+C82. If the amendment is rejected, the Project model stays a description of the project's parts. [proposed: this IR]
 
 C73. After a rejection, project-orchestrator raises the amendment again only with new evidence, such as criterion G6 over the full instance. [proposed: this IR]
 
@@ -250,6 +262,10 @@ R13. C74 refines C24 because the dispatch choice has an input the model does not
 R14. C45 depends-on C75 because a list of what is next is rendered from edges to the parts, and the held-back edges were those.
 
 R15. C76 depends-on C69 because a rendering that restates the completed section rewrites its checked entries.
+
+R16. C77 refines C9 because the word "instead" in the appended sentence marks it as the exception.
+
+R17. C78 supports C9 because the four kinds of evidence are what the proposal rests on.
 
 ## Evidence
 
