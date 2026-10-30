@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: under review (round 7, 2026-10-30)
+Status: under review (round 7, fixes applied, 2026-10-30)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →
@@ -66,11 +66,11 @@ The
 is one person, who owns the methodology and project-orchestrator alike.
 On 2026-10-28 the owner decided that each project's [planning/execution
 model](https://github.com/majodali/methodology/blob/350f75f0a11b326eb1f536f172359b1cc8a9cb1e/docs/vocabulary.md#def-planning-execution-model)
-is the primary source of truth about progress. The owner also
+is the primary source of truth about progress. The owner
 decided on 2026-10-28 that the [implementation
 map](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth)
 and the list of what is next become renderings of the planning/execution
-model. The owner decided as well that the Backlog becomes a
+model. The owner decided that the Backlog becomes a
 rendering project by project, as each project adopts the
 project-orchestrator. The three decisions are recorded in the [vision
 IR](https://github.com/majodali/methodology/blob/195eba92efa2dc86631af839fd5de22f30240d30/docs/vision.ir.md)
@@ -87,7 +87,8 @@ The amendment changes
 [K-003](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth)
 in place by appending one conditional sentence to the rule's
 statement and one citation to its Motivated-by line. The appended sentence reads: "Where the project's
-Classification declares a planning/execution model, that model is the
+[Classification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-classification)
+declares a planning/execution model, that model is the
 referent instead, and the Backlog's implementation map and list of what
 is next are renderings of it."
 
@@ -109,7 +110,8 @@ verification evidence of each
 the record of whether what the node built works.
 A planning/execution model has two components: the plan model, the
 project's nodes with their stages and edges, and that verification
-evidence. The amendment reaches the plan model only.
+evidence. Of the model's two components, the appended sentence draws on the plan
+model only.
 
 The amendment keeps K-003's title, so links to the rule's anchor keep
 resolving. The title stays true for every project whose
@@ -246,9 +248,9 @@ named no node. The count takes one entry to be a checkbox line plus the
 lines that follow it up to the next entry or heading. The count takes
 an entry as open when the entry's checkbox is unchecked. The count
 takes an entry as naming a node when its text holds a node identifier
-such as P3-N007, the node that drafted this proposal. An entry a node holds names that node, and an entry that merely
-mentions a node is counted as naming it too. So 31 is a lower bound on the
-open entries no node holds.
+such as P3-N007, the node that drafted this proposal. An entry a node's plan has taken in names that node. An entry that
+merely mentions a node is counted as naming it too. So 31 is a lower
+bound on the open entries that no node's plan has taken in.
 
 ## Whether "built but broken" stands
 
@@ -269,8 +271,8 @@ outside the amendment.
 ## The evidencing instance
 
 The evidencing instance is one of four kinds of evidence for the
-amendment, beside the owner's decisions of 2026-10-28, the term-by-term
-cross-check and the count of open Backlog entries. The
+amendment. The other three are the owner's decisions of 2026-10-28, the
+term-by-term cross-check and the count of open Backlog entries. The
 slice is the first five entries of the project-orchestrator
 [Project
 model](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md),
@@ -328,8 +330,9 @@ A
 [Classification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-classification)
 declares a [planning/execution
 model](https://github.com/majodali/methodology/blob/350f75f0a11b326eb1f536f172359b1cc8a9cb1e/docs/vocabulary.md#def-planning-execution-model)
-by an entry in its Custom definitions section. The declaring entry
-takes Article 7's definition-by-citation form. It names the types that
+by an entry in its [Custom definitions
+section](https://github.com/majodali/methodology/blob/v1.6.0/docs/constitution.md#article-7--the-c0-baseline-custom-definitions-and-the-sandbox). The declaring entry
+takes [Article 7](https://github.com/majodali/methodology/blob/v1.6.0/docs/constitution.md#article-7--the-c0-baseline-custom-definitions-and-the-sandbox)'s definition-by-citation form. It names the types that
 make up the model. The declaration needs no new Classification
 field.
 
@@ -389,8 +392,13 @@ register](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md
 
 ## The ask
 
-project-orchestrator asks the maintainers to accept the amendment,
-accept it with amendments, or reject it.
+Before the proposal is carried, the project-orchestrator owner gates it
+at node P3-N007's verifying stage under [RU-005 (proposal-class nodes
+are owner-gated at
+verifying)](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/rulings.md),
+approving it for carrying, amending it or returning it. Once the
+proposal is carried, project-orchestrator asks the maintainers to
+accept the amendment, accept it with amendments, or reject it.
 
 - **If accepted**: project-orchestrator declares its planning/execution
   model once the release is pinned. After the declaration,
@@ -404,9 +412,9 @@ accept it with amendments, or reject it.
   only with new evidence, such as criterion G6 over the full
   instance.
 
-The proposal also asks the
+At that gate the proposal also asks the
 [owner](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner)
 to ratify or strike the two terms it defines: [list of what is next](#def-list-of-what-is-next) and
 [rendering](#def-rendering).
 
-<!-- render map: C1→¶7 C2→¶7 C3→¶11 C4→¶11 C5→¶11 C6→¶12 C7→¶12 C8→¶13 C9→¶13 C10→¶14 C11→¶14 C12→¶14 C13→¶15 C14→¶15 C15→¶15 C16→¶15 C17→¶16 C18→¶20 C19→¶20 C20→¶20 C21→¶21 C22→¶21 C23→¶22 C24→¶22 C25→¶22 C26→¶23 C27→¶24 C28→¶7 C29→¶24 C30→¶24 C31→¶25 C32→¶25 C33→¶25 C34→¶25 C35→¶25 C36→¶26 C37→¶26 C38→¶26 C39→¶26 C40→¶26 C41→¶27 C42→¶27 C43→¶28 C44→¶28 C45→¶28 C46→¶29 C47→¶29 C48→¶29 C49→¶30 C50→¶30 C51→¶31 C52→¶31 C53→¶31 C54→¶32 C55→¶32 C56→¶32 C57→¶34 C58→¶35 C59→¶36 C60→¶37 C61→¶38 C62→¶39 C63→¶40 C64→¶41 C65→¶42 C66→¶42 C67→¶43 C68→¶43 C69→¶43 C70→¶45 C71→¶46 C72→¶47 C73→¶47 C74→¶22 C75→¶28 C76→¶43 C77→¶12 C78→¶27 C79→¶37 C80→¶45 C81→¶46 C82→¶47 C83→¶12 C84→¶12 C85→¶12 C86→¶26 C87→¶14 C88→¶29 -->
+<!-- render map: C1→¶7 C2→¶7 C3→¶11 C4→¶11 C5→¶11 C6→¶12 C7→¶12 C8→¶13 C9→¶13 C10→¶14 C11→¶14 C12→¶14 C13→¶15 C14→¶15 C15→¶15 C16→¶15 C17→¶16 C18→¶20 C19→¶20 C20→¶20 C21→¶21 C22→¶21 C23→¶22 C24→¶22 C25→¶22 C26→¶23 C27→¶24 C28→¶7 C29→¶24 C30→¶24 C31→¶25 C32→¶25 C33→¶25 C34→¶25 C35→¶25 C36→¶26 C37→¶26 C38→¶26 C39→¶26 C40→¶26 C41→¶27 C42→¶27 C43→¶28 C44→¶28 C45→¶28 C46→¶29 C47→¶29 C48→¶29 C49→¶30 C50→¶30 C51→¶31 C52→¶31 C53→¶31 C54→¶32 C55→¶32 C56→¶32 C57→¶34 C58→¶35 C59→¶36 C60→¶37 C61→¶38 C62→¶39 C63→¶40 C64→¶41 C65→¶42 C66→¶42 C67→¶43 C68→¶43 C69→¶43 C70→¶45 C71→¶46 C72→¶47 C73→¶47 C74→¶22 C75→¶28 C76→¶43 C77→¶12 C78→¶27 C79→¶37 C80→¶45 C81→¶46 C82→¶47 C83→¶12 C84→¶12 C85→¶12 C86→¶26 C87→¶14 C88→¶29 C89→¶26 C90→¶44 -->

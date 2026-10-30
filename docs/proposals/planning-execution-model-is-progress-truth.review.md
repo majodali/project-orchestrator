@@ -431,3 +431,43 @@ prose already carried, an artefact as before. Prose 2587 words by tool.
 
 ## Round 7, 2026-10-30
 
+Stranger: a fresh instance at the frugal tier (task T088). Prose about
+2,120 words of the proposal's own prose by the stranger's hand count
+(2,556 by tool at the round's start); 88 claims; 15 findings as the
+stranger numbered them.
+
+Restatement: matched the IR on the problem, the clause, the terms, the
+authorities, the open entries and the asks. The stranger reported six
+"restatement mismatches": five are omissions of its own restatement
+(the Motivated-by citation, the unaffected projects, the three items
+with no authority, the owner's three decisions, the four kinds of
+evidence), which are not disagreements and so not mismatches; the
+sixth is a gap in the prose, the owner's gate of ask A1 present only
+in the HTML comment, counted as a prose finding (6).
+
+Mismatches: none.
+
+Step-6 passage: not covered by this restatement (an omission), so no
+match is recorded; the round 6 match stands as the confirming one.
+
+Findings by rule: SP-01 1 (10); SP-02 2 (7, 9); SP-04 3 (11, 12, 13);
+SP-18 1 (14); SP-25 1, possible (15); SP-26 1 (8); the prose gap (6).
+Undefined terms 4: definition-by-citation form, Custom definitions
+section, "holds" for a node's relation to an entry, and "upcoming
+section" under the amendment (noted, no finding). Contradictions: none
+certain; one possible (15).
+
+Verdict: not readable. Blocking as the stranger named them: 1 to 6,
+11, 12, 15; under the rule, 6, 11, 12 and 15.
+
+Accepted and fixed, in the IR then the prose: 6 (C90 added, rendering
+A1's gate in The ask), 8, 9, 10 (C86 split, C89), 11 ("holds" replaced
+by "a node's plan has taken in", C35, C86), 12 (Article 7 linked at
+both uses), 13 (Classification linked at first use), 14 (triggers for
+both asks), 15 (C85 reworded: the appended sentence draws on the plan
+model only). 13 of 15 as numbered; the five omissions are not fixes.
+
+Declined: 7 (SP-02 on the appended sentence), because the sentence is
+the proposed rule text whose shape the owner's decision 10 fixes as one
+conditional sentence, and its length is the maintainers' to judge.
+
