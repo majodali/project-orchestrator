@@ -33,6 +33,8 @@ of the specification are the authority.
 | Sweep record for CR-001 | The entry test applied, the header argued, every candidate dispositioned, the Risk register pass. |
 | Parts enumeration | The committed list of parts the check reads. |
 | Run record, 2026-10-30 | The four inputs by commit, steps 1 to 3 for CR-001 and the omission list. |
+| Negative-control record | The deliberately broken input and the pair that returned. |
+| Shape findings | What in the entry shape the check could not read, and what changed. |
 
 ## The check procedure
 
@@ -510,6 +512,79 @@ genuine. The dispositions use the three the specification allows.
 
 The two Backlog entries are in the Backlog's *Upcoming* section, next to
 the P3-N010 entry.
+
+## Negative-control record, 2026-10-30
+
+The control follows the five steps of *The negative control* above. It
+ran on the run record of 2026-10-30, so its base is the commit that
+holds that record.
+
+| Item | Record |
+|---|---|
+| Scratch branch | `scratch-negative-control-cr-001` |
+| Base commit | `3fd85dc`, the commit that holds the run record |
+| Pair chosen | CR-001 against PT-22 (degrade-to-git-only rule, enlistment documentation and the R12 exercise), covered by R12 |
+| Citation removed | R12's *Class* line, four lines ending "so it could not exercise waiting." |
+| Steps 2 and 3 re-run | `grep -n 'CR-' docs/open-risks.md` returned one hit, line 286 in R13, where the base returned lines 269 (R12) and 290 (R13). |
+| Pair that returned | PT-22 returned to the omission list: R12 was its only covering entry. SA-4 returned too, for the same reason. |
+| Pairs that stayed covered | PT-08, PT-09, PT-10 and PT-11, covered by R13. |
+| Omission list on the scratch branch | 10 items: O1 to O8 and the two pairs above. The base list has 8. |
+| Outcome | The chosen pair returned. The control passed. |
+| Discarded | The scratch branch held one commit, which was never merged. The branch was deleted. |
+
+## Shape findings
+
+The section states what in the entry shape the check could not read and
+what changed. Findings 1 to 3 changed the delivered text. Findings 4 to
+8 changed nothing and are recorded for node P3-N011 (the sweep, the rest
+of the catalogue and the omission list).
+
+1. The Reaches field, as the specification defines it ("the kind of part
+   of a project the failure occurs in"), gives step 2 a kind and no
+   decision. Most parts of this project fit some kind, so a run would
+   decide by taste. Changed: the field now ends with the question the
+   run asks of each part, and the catalogue's entry shape says so. Step 2
+   applied that question to 30 parts and found 14.
+2. Coverage by citation cannot read adequacy. R13 covers PT-08 to PT-11
+   because it cites CR-001 and names their tooling. Its *Class* clause
+   answers the arguments about a surface that lacks the Node floor. It
+   does not answer the arguments that no test runs the tool as `node`.
+   Changed: the Risk register's class-citation field now carries a
+   clause saying how the entry instantiates the class, so a reader can
+   compare the clause with the step 2 argument. The definition of a
+   covering entry is unchanged. A stricter definition would change the
+   procedure the specification fixes, and the decision is for the owner.
+3. The entry test as the specification states it names "this project"
+   in ET-1 and "this repository" in ET-3. The catalogue must be
+   project-neutral. Changed: the catalogue states both with "the
+   proposing project". The four conditions are unchanged.
+4. Decision 2 changed no outcome for CR-001, because the header
+   `[C1+]` admits both repositories. It would have decided the run for
+   `[C1+] [deployable]`. Step 1 against this repository's Classification
+   would have recorded CR-001 as not applicable for 21 parts, among them
+   the R12 exercise whose evidence admitted the class. The header was
+   argued from the encounters' Classifications for that reason.
+5. Backlog and Risk register entries carry no anchors. An encounter's
+   artifact that resolves is therefore a link to a file plus the quoted
+   entry title. The Encounters field needs both. Child C's conversion
+   to commit-pinned URLs pins the file, and a reader finds the entry by
+   its title. The existing Backlog entry on anchors in the Risk register
+   and the Ruling register covers part of this.
+6. The definition of an independent encounter gives no rule for several
+   defects found in one sequence of runs. The record counted the four
+   deploy defects once. A rule such as "defects found by one run
+   sequence count once" would remove the choice.
+7. A Risk register entry can instantiate a class without being an
+   encounter. R13 records an exposure and no event. The shape keeps
+   encounters in the catalogue and instantiations in the register, and
+   needed no change.
+8. The enumeration reads this repository's Backlog only. The service
+   repository keeps its own Backlog, with 23 checked entries at
+   `58e6819`. Each names a node from P2-N007 to P2-N016 or a service
+   migration. The nodes are enumerated. The service's own Classification
+   and migrations are text and are not listed as a part. They would
+   record `does not apply` for CR-001. Whether the enumeration reads the
+   second Backlog is a question for child B.
 
 ## References
 
