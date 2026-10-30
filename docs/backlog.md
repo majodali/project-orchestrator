@@ -398,7 +398,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   defaults adopted, decision 13 option (a) no deviation, the one term
   ratified; children P3-N006 to P3-N009 entered (RU-020). P3-N006 done
   2026-10-30. P3-N007's first execute task (T070) landed the type
-  2026-10-30. Next: P3-N007's amendment.
+  2026-10-30. P3-N007 done 2026-10-30 at its verifying gate. Next:
+  P3-N008's plan gate.
 
 - [ ] **P3-N005 specified, 2026-10-29 (T045)** — sequence mode's
   specification stands at
@@ -452,16 +453,35 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   found 2026-10-29 planning P3-N006: links to a risk or a ruling land
   at the top of the document; the web view (P2-N003) will want
   per-entry links.
-- [ ] **The type declared, the arguments written, the K-003 amendment
+- [x] **The type declared, the arguments written, the K-003 amendment
   drafted** (node P3-N007, child B of P3-N002) — When: planned
   2026-10-30 (T057); specified at the gate of 2026-10-30; E1 executed
-  2026-10-30 (T070). Status: executing; E1 landed the type
-  specification, the Classification's fifth custom definition, the
-  writer rule, the Dependencies section as the place edges are first
-  written, the `Applied:` retention reason and the `edge-recorded`
-  event kind; E2, the amendment IR first, is next. Pointer:
-  [plan](plans/p3-n007-type-declared-amendment-drafted.md),
-  [type specification](process/project-model.md).
+  2026-10-30 (T070), E2 (T078), stranger rounds T081 to T091; done
+  2026-10-30 at the owner's verifying gate. Status: done. Shipped the
+  Project model type specification with its grammar, dependency rule,
+  renderings and writer rule; the Classification's fifth custom
+  definition; the `edge-recorded` event kind; and the K-003 proposal
+  with its IR and review record, approved for carrying as it stands
+  after count 1 closed at the limit. Ten terms ratified; the
+  meta-review of the count is dispatched as communication-pipeline
+  evaluation case 013. The node completes at the artifact (RU-003).
+  Pointer: [plan](plans/p3-n007-type-declared-amendment-drafted.md),
+  [type specification](process/project-model.md),
+  [proposal](proposals/planning-execution-model-is-progress-truth.md).
+- [ ] **Upstream disposition of the K-003 amendment proposal** — When:
+  2026-10-30, at P3-N007's verifying gate. Status: open; the owner
+  carries the proposal and its IR to majodali/methodology under RU-002
+  and RU-015, re-verifying the quote of K-003 against upstream `main`
+  first, and fills the Release-register entry's pull-request link; the
+  maintainers accept, amend or reject it. Pointer:
+  [proposal](proposals/planning-execution-model-is-progress-truth.md).
+- [ ] **Set the K-003 review record's Meta-review line when case 013 is
+  delivered** — When: 2026-10-30, at P3-N007's verifying gate. Status:
+  open, for the Orchestrator; the line reads `Meta-review: pending`
+  until communication-pipeline evaluation case 013 is delivered, then
+  `Meta-review: delivered` with a link, under the IR specification's
+  *The Meta-review line*. Pointer:
+  [review record](proposals/planning-execution-model-is-progress-truth.review.md).
 - [ ] **P3-N009's rules gain a cycle check over derived dependencies**
   — When: 2026-10-30, planning P3-N007. Status: open, for P3-N009; the
   after qualifier lets a planner write a cycle. Pointer:
@@ -475,7 +495,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   child C). Status: planned, gated on the owner's review (six
   decisions); a leaf run as three execute tasks, the parts and their
   entries, the edges, then the headers, the measurement and the
-  renderings. Its executing stage depends on P3-N007. Pointer:
+  renderings. Its executing stage depended on P3-N007, done
+  2026-10-30. Pointer:
   [plan](plans/p3-n008-instance-over-this-repository.md).
 - [ ] **P3-N009's rules check that no heading's find matches two
   entries** — When: 2026-10-30, planning P3-N008 (T079). Status: open,
@@ -516,8 +537,9 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   the checks that replace it (spec child D). Depends on P3-N008.
 - [ ] **Switch this repository's Backlog to a rendering of the
   planning/execution model** — when the K-003 amendment P3-N007
-  drafts is released and pinned (P3-N002 decision 13, option (a), owner
-  2026-10-29). Paired with a rendering tool for the Backlog's two
+  drafted is released and pinned (P3-N002 decision 13, option (a), owner
+  2026-10-29). The owner approved the amendment for carrying on
+  2026-10-30; it awaits its release upstream. Paired with a rendering tool for the Backlog's two
   remaining jobs, the implementation map and the list of what is next.
   At the switch, `docs/plan.md` is superseded (P3-N008 decision 5).
 - [x] **One risk class carried end to end (node P3-N010, child A of P3-N003)** —

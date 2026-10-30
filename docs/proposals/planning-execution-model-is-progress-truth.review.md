@@ -1,6 +1,6 @@
 # Review record: a declared planning/execution model is the source of progress truth
 
-Status: closed (count 1 closed at the limit on 2026-10-30; the verdict at round 10 not readable; the final round's fixes confirmed; Meta-review: pending)
+Status: closed (count 1 closed at the limit on 2026-10-30; the verdict at round 10 not readable; the final round's fixes confirmed; the proposal approved for carrying by the owner at node P3-N007's verifying gate on 2026-10-30, with the reworded claims and the two terms ratified; Meta-review: pending, dispatched as communication-pipeline evaluation case 013)
 
 <!-- K-007 contract: Status transitions open → closed (the count's
      verdict recorded and the fixes confirmed). This file is the

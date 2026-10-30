@@ -95,10 +95,10 @@ record](project-model-slice-record.md) holds it.
   [form_check.ts](../plugin/scripts/form_check.ts); [Backlog, entry for
   P1-N012](backlog.md); [Risk register](open-risks.md), R13 (the
   tooling's runtime assumption moves from python3 to node))
-- **state:** built, changing (derived from the stages of the nodes on
-  the created-by and modified-by lines: the creating nodes done, P3-N007
-  executing; from [Plan register](plan-register.md); [Project model
-  type](process/project-model.md), State derivation)
+- **state:** built (derived from the stages of the nodes on the
+  created-by and modified-by lines: the creating nodes done, P3-N007
+  done, P3-N009 identified; from [Plan register](plan-register.md);
+  [Project model type](process/project-model.md), State derivation)
 - **spec:** [Plugin tooling on the portfolio stack,
   specification](specs/p1-n009-plugin-tooling-portfolio-stack.md) (node
   specification, closed; from [Backlog, entry for P1-N009](backlog.md))
@@ -337,10 +337,10 @@ record](project-model-slice-record.md) holds it.
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used; [plan of
   P3-N006](plans/p3-n006-thin-end-to-end-slice.md), Dependencies)
-- **state:** built, changing (derived from the created-by line, where
-  P3-N006 is done, and the modified-by line, where P3-N007 is verifying
-  and P3-N008 planned; from [Plan register](plan-register.md); [Project
-  model type](process/project-model.md), State derivation)
+- **state:** built (derived from the created-by line, where P3-N006 is
+  done, and the modified-by line, where P3-N007 is done and P3-N008
+  planned; from [Plan register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown)
@@ -379,8 +379,8 @@ record](project-model-slice-record.md) holds it.
   Edges stated at this breakdown, the slugs used; [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
-- **state:** building (derived from the created-by line, where P3-N007
-  is verifying; the modified-by line reads not yet derived; from [Plan
+- **state:** built (derived from the created-by line, where P3-N007 is
+  done; the modified-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -415,8 +415,8 @@ record](project-model-slice-record.md) holds it.
   breakdown, the slugs used; [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
-- **state:** building (derived from the created-by line, where P3-N007
-  is executing; the modified-by line reads not yet derived; from [Plan
+- **state:** built (derived from the created-by line, where P3-N007 is
+  done; the modified-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -443,9 +443,9 @@ record](project-model-slice-record.md) holds it.
 - **is:** The Classification, `docs/classification.md` (from
   [specification of P3-N002](specs/p3-n002-comprehension-model.md),
   Edges stated at this breakdown, the slugs used)
-- **state:** built, changing (derived from the modified-by line, where
-  P3-N007 is executing; the created-by line reads not yet derived; from
-  [Plan register](plan-register.md); [Project model
+- **state:** built (derived from the modified-by line, where P3-N007 is
+  done; the created-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
@@ -472,10 +472,10 @@ record](project-model-slice-record.md) holds it.
   `docs/process/observability.md` (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
-- **state:** built, changing (derived from the modified-by line, where
-  P3-N007 is verifying and P2-N018 is identified; the created-by line
-  reads not yet derived; from [Plan register](plan-register.md);
-  [Project model type](process/project-model.md), State derivation)
+- **state:** built (derived from the modified-by line, where P3-N007 is
+  done and P2-N018 is identified; the created-by line reads not yet
+  derived; from [Plan register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown)
@@ -504,11 +504,10 @@ record](project-model-slice-record.md) holds it.
   (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
-- **state:** built, changing (derived from the modified-by line, where
-  P3-N007 is verifying and P3-N009 and P2-N018 are identified; the
-  created-by line reads not yet derived; from [Plan
-  register](plan-register.md); [Project model
-  type](process/project-model.md), State derivation)
+- **state:** built (derived from the modified-by line, where P3-N007 is
+  done and P3-N009 and P2-N018 are identified; the created-by line reads
+  not yet derived; from [Plan register](plan-register.md); [Project
+  model type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown)
@@ -539,10 +538,10 @@ record](project-model-slice-record.md) holds it.
   (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
-- **state:** built, changing (derived from the modified-by line, where
-  P3-N007 is executing and P3-N009 identified; the created-by line reads
-  not yet derived; from [Plan register](plan-register.md); [Project
-  model type](process/project-model.md), State derivation)
+- **state:** built (derived from the modified-by line, where P3-N007 is
+  done and P3-N009 identified; the created-by line reads not yet
+  derived; from [Plan register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown)
@@ -854,9 +853,9 @@ record](project-model-slice-record.md) holds it.
 - **is:** The Ruling register type spec, `docs/process/rulings.md` (from
   [plan of P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
-- **state:** built, changing (derived from the modified-by line, where
-  P3-N007 is executing; the created-by line reads not yet derived; from
-  [Plan register](plan-register.md); [Project model
+- **state:** built (derived from the modified-by line, where P3-N007 is
+  done; the created-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
@@ -881,10 +880,10 @@ record](project-model-slice-record.md) holds it.
   (from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
-- **state:** built, changing (derived from the modified-by line, where
-  P3-N007 is verifying and P2-N018 is identified; the created-by line
-  reads not yet derived; from [Plan register](plan-register.md);
-  [Project model type](process/project-model.md), State derivation)
+- **state:** built (derived from the modified-by line, where P3-N007 is
+  done and P2-N018 is identified; the created-by line reads not yet
+  derived; from [Plan register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)

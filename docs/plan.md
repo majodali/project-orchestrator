@@ -14,7 +14,7 @@ Status: active
 
 This [document](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-document) renders the [Plan register](plan-register.md) by hand.
 Each node's outcome comes from the node's [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan) and [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification).
-The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gates of P2-N003 and P2-N005.
+The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gates of P2-N003 and P2-N005 and the verifying gate of P3-N007.
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
@@ -22,7 +22,7 @@ Today the [Backlog](backlog.md) holds the implementation map (its [Completed](ba
 K-003 (the Backlog is the single source of progress truth) requires that at 1.6.0.
 On 2026-10-29 the owner decided that the [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes over the implementation map and the list of what is next.
 The decision is RU-021 (the planning/execution model is the source of progress truth), in the [Ruling register](rulings.md).
-The takeover waits until the methodology releases the amendment to K-003 (the Backlog is the single source of progress truth) that P3-N007 drafts.
+The takeover waits until the methodology releases the amendment to K-003 (the Backlog is the single source of progress truth) that P3-N007 drafted. The owner approved that amendment for carrying on 2026-10-30.
 The owner carries that amendment upstream, under RU-002 (the owner hand-carries upstream output).
 Before that [release](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-release), this document is a rendering of the register with no authority of its own.
 
@@ -300,7 +300,7 @@ The children of P2-N003, in their [specification](specs/p2-n003-owner-questions-
 - P2-N021 The web view's first version: the plan tree from commits, drilling to node and task
   - Stage: identified, 2026-10-30. No plan or specify task: the parent's specification carries it at full criteria depth (plan decision 2).
   - Outcome: In a browser on any device, the owner sees the plan tree of this repository at a named commit. Each node shows its stage, outcome and dependencies, beside what is next. The owner drills from a node to its tasks. Every fact shown comes from that commit. The work runs as three execute tasks, E1 to E3, and ends at an owner demonstration.
-  - Depends on: P3-N006, which is done, and P3-N007 for its third task, E3. Its tasks E1 and E2 wait on nothing. The register marks it independent of P2-N005 and P2-N004.
+  - Depends on: P3-N006 and, for its third task E3, P3-N007. Both are done. The register marks it independent of P2-N005 and P2-N004.
   - Needed by: P2-N006 and P2-N022.
   - Documents: the parent's [specification, child 1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
 - P2-N022 The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop
@@ -386,15 +386,15 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
   - Needed by: P3-N007, and P2-N021, the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view)'s first version.
   - Documents: [plan](plans/p3-n006-thin-end-to-end-slice.md), [specification](specs/p3-n002-comprehension-model.md#child-a-the-thin-end-to-end-slice-five-real-parts-all-the-way-through).
 - P3-N007 The type declared, the arguments written, the K-003 (the Backlog is the single source of progress truth) amendment drafted
-  - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day). E1 is done (task T070, the type specification). The fifty edges E1 held were transcribed into the Project model instance by task T077. E2 is done (task T078): the K-003 proposal and its IR, `docs/proposals/planning-execution-model-is-progress-truth.md`. Its ten stranger rounds (tasks T081 to T091) ran to the limit without a readable verdict; the final round's fixes are confirmed and the record carries Meta-review: pending. The node is verifying, gated on your review of the proposal under RU-005, ten terms, and a meta-review of the count.
-  - Outcome: The Project model is defined in `docs/process/` and declared in the [Classification](classification.md). The design arguments are written down, such as who may write the model and where a node's edges are first recorded. P3-N007 drafts the amendment to K-003 (the Backlog is the single source of progress truth), as an IR first. Under the amendment, a project that declares a [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes that model as its progress record. The rule changes only when the methodology releases the amendment, after the owner carries it upstream.
+  - Stage: done, 2026-10-30, at the owner's verifying gate under RU-005 (proposal-class nodes are owner-gated at verifying). The owner approved the K-003 proposal for carrying as it stands, ratified ten terms, and dispatched the meta-review of its stranger count as communication-pipeline evaluation case 013.
+  - Outcome: Shipped the Project model type in `docs/process/project-model.md`, declared in the [Classification](classification.md), with the design arguments written where a reader meets them, such as who may write the model and where a node's edges are first recorded. Shipped the amendment to K-003 (the Backlog is the single source of progress truth), IR first, with its review record: `docs/proposals/planning-execution-model-is-progress-truth.md`. Under the amendment, a project that declares a [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes that model as its progress record. The rule changes only when the methodology releases the amendment, after the owner carries it upstream (RU-002).
   - Depends on: P3-N006.
   - Needed by: P3-N008, and the third task of P2-N021 (the web view's first version).
   - Documents: [plan](plans/p3-n007-type-declared-amendment-drafted.md), the parent's specification, child B.
 - P3-N008 The instance, over this repository
   - Stage: planned, 2026-10-30 (task T079). Gated on the owner's review of the plan, six decisions.
   - Outcome: The instance `docs/project-model.md` holds one entry per current part of majodali/project-orchestrator, in the type's grammar, every item naming its source. Every node past identified has an edge or the preamble says why not. Every starting point links the instance in its header. A population record holds the enumeration, the edge list, the measured paths, both renderings and their comparison with the Backlog, run in both directions. The Backlog stays the referent for what is done and what is next. The plan runs the node as three execute tasks: the parts and their entries, the edges, then the headers, the measurement and the renderings. Under its decision 5 this document stays the hand rendering until the Backlog switches to a rendering of the model.
-  - Depends on: P3-N007, for its executing stage (P3-N007 decision 9). Its plan was dispatched after P3-N007's first execute task was accepted.
+  - Depends on: P3-N007, for its executing stage (P3-N007 decision 9), which is done. Its plan was dispatched after P3-N007's first execute task was accepted.
   - Needed by: P3-N009.
   - Documents: [plan](plans/p3-n008-instance-over-this-repository.md), the parent's [specification, child C](specs/p3-n002-comprehension-model.md#child-c-the-instance-over-this-repository).
 - P3-N009 Sibling ordering retired, and the checks that replace it
@@ -478,12 +478,12 @@ The children of P3-N005, a strict chain in their [specification](specs/p3-n005-s
 
 ## How the lines depend on each other
 
-Five waits cross between the lines of the [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan). The first three are met, the last two are open.
+Five waits cross between the lines of the [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan). The first four are met, the last is open.
 
 - P3-N014 (the loop runs sequence mode) waits on the executing stage of P1-N014 (role contracts adopt the conduct rules), which is done.
 - P2-N006 (migration and pilot) waits on P1-N014, which is done.
 - P2-N021, the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view)'s first version, waits on P3-N006 (the thin end-to-end slice), which is done.
-- The third task of P2-N021, E3, waits on P3-N007 (the type declared, the K-003 amendment drafted).
+- The third task of P2-N021, E3, waits on P3-N007 (the type declared, the K-003 amendment drafted), which is done.
 - The executing stage of P1-N016 (process spec maintenance) waits on P3-N009 (sibling ordering retired).
 
 One piece of work moved between lines: P2-N006 took over the pilot of P1-N006 (pilot on a real project), and P1-N006 stays in line P1 as a node with no work of its own.
@@ -493,7 +493,7 @@ Inside each line the open nodes form chains, listed here from first to last.
 - Line P2, the task-pull loop: P2-N017, then P2-N018 and P2-N019, independent of each other, then P2-N020.
 - Line P2: P2-N005 (the task-pull loop) and P2-N021 (the web view's first version) come before P2-N006. P2-N004 (topics and coordination) and P2-N022 (the owner question queue) come after P2-N006. P2-N022 also waits on P2-N021 and P2-N005.
 - Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out).
-- Line P3, the comprehension model: P3-N006, then P3-N007, then P3-N008, then P3-N009. P3-N004 (reversibility) waits on the whole of P3-N002.
+- Line P3, the comprehension model: P3-N008, then P3-N009. P3-N006 and P3-N007 are done. P3-N004 (reversibility) waits on the whole of P3-N002.
 - Line P3, the risk catalogue: P3-N010, then P3-N011, then P3-N012.
 - Line P3, sequence mode: P3-N013, then P3-N014, then P3-N015, then P3-N016.
 
@@ -526,7 +526,6 @@ graph LR
   subgraph P3N001["P3-N001 comprehension and continuous implementation"]
     subgraph P3N002["P3-N002 comprehension model"]
       P3N006["P3-N006 thin slice"]
-      P3N007["P3-N007 type and K-003 amendment"]
       P3N008["P3-N008 instance"]
       P3N009["P3-N009 sibling ordering retired"]
     end
@@ -543,12 +542,11 @@ graph LR
       P3N016["P3-N016 determination on W-001"]
     end
   end
-  P3N006 --> P3N007 --> P3N008 --> P3N009
+  P3N008 --> P3N009
   P3N010 --> P3N011 --> P3N012
   P3N013 --> P3N014 --> P3N015 --> P3N016
   P3N002 --> P3N004
   P3N006 --> P2N021
-  P3N007 -->|task E3| P2N021
   P2N021 --> P2N006
   P2N006 --> P2N022
   P2N021 --> P2N022
@@ -583,18 +581,15 @@ Gated on the owner:
 - P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
 - P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
-- P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): verifying; your review of the K-003 proposal under RU-005 (approve for carrying, amend or return), ten terms, the open points of its record, and a meta-review of its count.
 - P3-N011 (the sweep, the rest of the catalogue, and the omission list): verifying; the owner's rulings on the omission list (56 items), the three weaker Class lines, the scope arguments and closed entries, and the terms citation test and delta row.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:
 
-- P3-N008 (the instance): its executing stage waits on P3-N007. Its plan is gated, below.
 - P3-N009 (sibling ordering retired): waits on P3-N008.
 - P3-N012 (the Article 8 proposal): waits on P3-N011.
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.
-- P2-N021 (the web view's first version): its task E3 waits on P3-N007. Its tasks E1 and E2 wait on nothing.
 - P2-N018 (the loop in git alone) and P2-N019 (role-aware identity): each waits on P2-N017.
 - P2-N020 (the task tools): waits on P2-N018 and P2-N019.
 - P2-N022 (the owner question queue): waits on P2-N021 and P2-N005, and follows P2-N006.
