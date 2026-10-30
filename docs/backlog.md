@@ -2878,20 +2878,22 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   [R12](open-risks.md#r12) once run — the Orchestrator's or the
   owner's to perform, per this task's `needs-judgment`-free
   boundary.
-- [ ] **Fallback task-claim protocol** — when the service is
-  unreachable after retries, a session picks its next task from the
-  repo directly; how does it claim one so two sessions do not collide?
-  Owner's proposal (2026-08-26): put the task ID in the branch name
-  and let first-to-create win — git as the lease of last resort.
-  Shapes chunk-1 child P2-N011 and chunk 4.
-- [ ] **Claim release when a session dies** — a branch-name claim
-  outlives the session that made it; define how an abandoned claim is
-  detected and released (the journal's `stale` rule is the in-service
-  analogue). Owner-raised 2026-08-26.
-- [ ] **Service reconciliation after an outage** — when the service
-  returns, git has moved without it; define how it rebuilds its
-  projection from the repo and reconciles claims made while it was
-  down. Owner-raised 2026-08-26; bears on R10 and R12.
+- [ ] **Fallback task-claim protocol** — When: owner's proposal of
+  2026-08-26 (the task ID in the branch name, first to create wins).
+  Status: planned in node P2-N005; a session claims a task by pushing
+  the claim branch without force, the same with or without the
+  service. Pointer: [plan of P2-N005](plans/p2-n005-task-pull-loop.md),
+  decision 4.
+- [ ] **Claim release when a session dies** — When: owner-raised
+  2026-08-26. Status: planned in node P2-N005; a claim ends at
+  acceptance, at voluntary release or at its expiry, after which the
+  task is `stale` and re-offered under a new task ID. Pointer:
+  [plan of P2-N005](plans/p2-n005-task-pull-loop.md), decision 5.
+- [ ] **Service reconciliation after an outage** — When: owner-raised
+  2026-08-26; bears on R10 and R12. Status: planned in node P2-N005, by
+  construction: the service keeps no offer, claim or result, so there
+  is nothing to reconcile but handles and progress notes. Pointer:
+  [plan of P2-N005](plans/p2-n005-task-pull-loop.md), decision 9.
 - [ ] **Service chunk 2 — owner questions and the plan view** (node
   P2-N003) — When: planned 2026-10-30 (T075). Status: planned, gated
   on the owner's review; splits into the web view's first version (the
@@ -2904,13 +2906,27 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   who is blocked on what; channels-push availability on the web
   surface verified here (R11), with pull as the fallback.
 - [ ] **Service chunk 4 — the task-pull loop** (node P2-N005) — When:
-  planned 2026-10-30 (T073). Status: planned, gated on the owner's
-  review; every offer, claim and result lives in git (task files, claim
+  planned 2026-10-30 (T073); plan gate crossed 2026-10-30, defaults 1
+  to 13 adopted and four terms ratified (task file, claim branch,
+  result file, session handle). Status: planned; the specification
+  (T092) carries the children at breakdown depth; every offer, claim and result lives in git (task files, claim
   branches, result files), the service reads git and says what to push;
   an interior node with four children (a platform spike, the loop in
   git alone, role-aware identity, the task tools); thirteen decisions
   staged, four terms for ratification. Pointer:
   [plan](plans/p2-n005-task-pull-loop.md).
+- [ ] **A form check for task files, claim branches and result files**
+  — When: 2026-10-30, planning P2-N005 (T073). Status: open, for
+  P1-N016 (process spec maintenance); today a verifier checks the
+  three forms by hand. Pointer:
+  [plan of P2-N005](plans/p2-n005-task-pull-loop.md), *Backlog
+  additions*.
+- [ ] **A delegation request from a surface without a repository
+  clone** — When: 2026-10-30, planning P2-N005 (T073). Status: open,
+  for the remote MCP connector node after the pilot; the service holds
+  the request until the Orchestrator commits it as a task file.
+  Pointer: [plan of P2-N005](plans/p2-n005-task-pull-loop.md),
+  *Backlog additions*.
 - [ ] **Service chunk 5 — migration and pilot** (node P2-N006) — move
   this repo's orchestration onto the service, then run the deferred
   portfolio pilot through it on methodology-tools, which the owner
@@ -2944,12 +2960,11 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   this repository's register only; serving several enlisted projects
   arrives with the chunk-5 migration and pilot (P2-N002 plan,
   decision 4).
-- [ ] **Role-aware identity on the service's write path** — chunk 1
-  authenticates a client, not a role: one shared bearer token cannot
-  tell an Orchestrator from an Implementer, so the single-writer rule
-  stays a process rule the session honors (P2-N002 spec, decision 12).
-  Real role identity arrives with chunk 4's task-pull loop, which has
-  to know who is asking anyway.
+- [ ] **Role-aware identity on the service's write path** — When:
+  2026-08-26, P2-N002 specification decision 12. Status: planned in
+  node P2-N005; the role is declared at registration and checked, not
+  authenticated. Pointer:
+  [plan of P2-N005](plans/p2-n005-task-pull-loop.md), decision 7.
 - [ ] **Secret scanning over both repositories' histories** — chunk 1
   checks "no secret in history" by hand at its gate (P2-N002 spec,
   I7); the durable form is a push-time scan (GitHub secret scanning or

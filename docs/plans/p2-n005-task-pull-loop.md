@@ -1,6 +1,6 @@
 # The task-pull loop
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -66,8 +66,8 @@ Concretely, at `done`:
 
 ## Terms this plan introduces
 
-Each term below is proposed. Decision 13 asks the owner to ratify or
-strike it.
+Each term below was ratified by the owner at this node's gate of
+2026-10-30 (decision 13).
 
 - <a id="def-task-file"></a>**Task file**: a task's brief, committed
   by the Orchestrator at `orchestration/tasks/<task ID>.md` and pushed,
@@ -506,6 +506,20 @@ Orchestrator takes the lease
 - A delegation request from a surface without a repository clone: the
   service holds it until the Orchestrator commits it as a task file.
   For the remote MCP connector node after the pilot.
+
+## Gate record, 2026-10-30
+
+The owner accepted this plan with defaults 1 to 13 ("go with defaults
+on all decisions") and ratified the four terms: task file, claim
+branch, result file and session handle. The drafted texts of decisions
+4 and 7 were placed by the Orchestrator at this crossing: the Backlog
+row on role-aware identity and the service plan's chunk 4 sentence. The
+three Backlog rows this plan names were rewritten to "planned in node
+P2-N005", and the two Backlog additions were entered. Under decision 1
+the node stays `planned` and a specification task follows, whose
+document carries children A to D at breakdown depth (RU-020); the
+children are entered at the specification gate. Next: the
+specification, task T092.
 
 ## References
 

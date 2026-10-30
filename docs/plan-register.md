@@ -37,7 +37,7 @@ honestly; chunks 1–3 completed before this register existed.
     - P2-N016 [done] Deploy, smoke and promote on merge to main
   - P2-N003 [planned] [gated: owner review of the plan] Owner questions and the plan view (chunk 2) — split into the web view's first version, specified against P3-N006, and the owner question queue, after P2-N006 (owner, 2026-10-29) — plan: plans/p2-n003-owner-questions-and-plan-view.md
   - P2-N004 [identified] Topics and coordination (chunk 3) — after P2-N006, built only on a shown need (owner, 2026-10-29)
-  - P2-N005 [planned] [gated: owner review of the plan] The task-pull loop (chunk 4) — independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29): the next service chunk — plan: plans/p2-n005-task-pull-loop.md
+  - P2-N005 [planned] The task-pull loop (chunk 4) — independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29): the next service chunk; plan gate crossed 2026-10-30, defaults 1 to 13 — plan: plans/p2-n005-task-pull-loop.md
   - P2-N006 [identified] Migration and pilot (chunk 5) — depends on P2-N005 and on the web view's first version of P2-N003, not on P2-N003 as a whole (owner, 2026-10-29)
 - P3-N001 [broken-down] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
   - P3-N002 [broken-down] The comprehension model (chunk 1) — plan: plans/p3-n002-comprehension-model.md · spec: specs/p3-n002-comprehension-model.md

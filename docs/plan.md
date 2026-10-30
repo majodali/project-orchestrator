@@ -305,7 +305,7 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 ### P2-N005 The task-pull loop (chunk 4)
 
-- Stage: planned, 2026-10-30 (task T073). Gated on the owner's review of its plan.
+- Stage: planned, 2026-10-30 (task T073); plan gate crossed 2026-10-30 with defaults 1 to 13 and four terms ratified. The specification (task T092) is being written; it carries the four children at breakdown depth, and they are entered at its gate.
 - Outcome: A session asks the service for its next task and claims the task, so no other session takes it. The session then reports progress and completion. When the service is down, a session claims a task by creating a git branch named after the task.
 - Depends on: P2-N002 (service skeleton and plan state), which is done. The register marks P2-N005 independent of P2-N003 and P2-N004.
 - Needed by: P2-N006.
@@ -516,13 +516,16 @@ Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
 
+Specifying now, after the owner's gate of 2026-10-30:
+
+- P2-N005 (the task-pull loop): the specification, task T092; children A to D (the platform facts, the loop in git alone, role-aware identity, the task tools) enter at its gate.
+
 Executing now, dispatched after the owner's second plan gates of 2026-10-30:
 
 - P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): E1 done (task T070, the type specification `docs/process/project-model.md`); E2, the K-003 amendment IR first, task T078.
 
 Gated on the owner:
 
-- P2-N005 (the task-pull loop): the owner's review of its plan, thirteen decisions and four terms.
 - P2-N003 (owner questions and the plan view): the owner's review of its plan, ten decisions.
 - P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
 - P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.

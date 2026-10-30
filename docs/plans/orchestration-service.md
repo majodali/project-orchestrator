@@ -144,7 +144,10 @@ Gate: two enlisted sessions coordinate through the service, visibly.
 
 A session asks the service for the next task in its role, confirms
 progress, and reports completion — the standing substitute for
-server-side spawning. Includes the write lease in anger.
+server-side spawning. Includes the advisory lease under several live
+sessions: role sessions claim tasks through git, and only the
+Orchestrator takes the lease
+([P2-N005 plan](p2-n005-task-pull-loop.md), decisions 4 and 7).
 Gate: a node moves through its lifecycle across two sessions with no
 owner intervention beyond the gate.
 
