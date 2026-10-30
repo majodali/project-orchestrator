@@ -2,12 +2,12 @@
 
 Reader: RD-4 (a fresh agent session) reading K-003 and the proposal beside this IR; the maintainers of majodali/methodology adjudicate the amendment, and the project-orchestrator owner gates the proposal before it is carried.
 Purpose: document. The proposal to amend K-003 (the Backlog is the single source of progress truth) in place by one conditional sentence, so that a project whose Classification declares a planning/execution model takes that model as its referent for what is done and what is next.
-Status: draft (rendered by the reasoning role on 2026-10-30; round 1; 73 claims; 2 unratified terms)
+Status: draft (rendered by the reasoning role on 2026-10-30; round 1, 20 of 23 findings fixed, 3 declined; 76 claims; 2 unratified terms)
 Source: RU-021 (the planning/execution model is the source of progress truth), owner, 2026-10-29; decisions 10 to 13 of the P3-N002 specification's gate record of 2026-10-29; decisions 4 to 6 of the P3-N007 plan, adopted on 2026-10-30; the Project model slice at commit 86a1330.
 Normative: yes
 Footprint: docs/proposals/planning-execution-model-is-progress-truth.md; docs/backlog.md
 
-Provenance: K-003 is quoted in E1 against majodali/methodology v1.6.0, commit `3e34829`, on 2026-10-30, and checked unchanged against the methodology's `main` at commit `195eba9` on 2026-10-30. This line covers the IR and the proposal beside it. Re-verify the quote against upstream `main` before the proposal is carried; it may have moved.
+Provenance: K-003 is quoted in E1 against majodali/methodology v1.6.0, commit `3e34829`, on 2026-10-30, and checked unchanged against the methodology's `main` at commit `195eba9` on 2026-10-30. This line covers the IR and the proposal beside it. The owner, who carries the proposal upstream under RU-002 (upstream output is hand-carried), re-verifies the quote against upstream `main` before carrying it; the quote may have moved.
 
 ## Terms
 
@@ -21,7 +21,7 @@ T4. Implementation map: the Backlog's completed section, whose checked entries d
 
 T5. List of what is next: the Backlog's entries of upcoming work, the part of the Backlog that K-003 makes the referent for what is next. [proposed: this IR]
 
-T6. Rendering: a text produced from a source by a stated procedure, which adds no claim the source lacks and drops no claim the procedure says the text carries. [proposed: this IR]
+T6. Rendering: a text produced from a source by a stated procedure. The rendering adds no claim the source lacks and drops no claim the procedure says it carries. [proposed: this IR]
 
 T7. Node: one unit of work at any level of a project's plan hierarchy. defined-at: https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node [decided: project-orchestrator process specification]
 
@@ -38,6 +38,10 @@ T12. Release register: the methodology's register of amendments and releases, in
 T13. Part: a component, document, ruling or repository of a project that nodes create, modify or use, which the Project model type specification calls a resource. defined-at: https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md#def-resource [decided: owner, 2026-10-29]
 
 T14. Owner: the human owner of the methodology and of its portfolio projects, who adjudicates amendments. defined-at: https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner [decided: methodology v1.6.0, vocabulary]
+
+T15. Referent: the record a reader consults for what is done and what is next, the role K-003 gives the Backlog. defined-at: https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth [decided: methodology v1.6.0, K-003]
+
+T16. Slice: the first five entries of the project-orchestrator Project model, built by node P3-N006 (the thin end-to-end slice) and pinned at commit 86a1330. defined-at: https://github.com/majodali/project-orchestrator/blob/86a13308f70574abc0223ddb4f044b7e43ca1eb6/docs/project-model-slice-record.md [decided: project-orchestrator P3-N006 plan, 2026-10-29]
 
 ## Claims
 
@@ -73,7 +77,7 @@ C13. The amendment keeps K-003's title, so links to the rule's anchor keep resol
 
 C14. K-003's title stays true for every project whose Classification declares no planning/execution model. [proposed: this IR]
 
-C15. K-003's Motivated-by line gains the evidencing instance, cited at commit 86a1330. evidence: E3. [proposed: this IR]
+C15. K-003's Motivated-by line gains a citation of the evidencing instance, the slice at commit 86a1330, described under The evidencing instance. evidence: E3. [proposed: this IR]
 
 C16. The amendment changes no other part of K-003. [proposed: this IR]
 
@@ -89,13 +93,15 @@ C20. The model is authoritative for the recorded edges from nodes to the parts t
 
 C21. The model renders the implementation map as one row per part, with the part's derived state and the nodes that created and modified the part. evidence: E6. [proposed: this IR]
 
-C22. The model renders the list of what is next as one item per node not yet done, with the node's stage and the nodes that the node waits for. evidence: E6. [proposed: this IR]
+C22. The model renders the list of what is next as one item per node not yet done, each with the node's stage and the nodes it waits for. evidence: E6. [proposed: this IR]
 
 C23. The model is not authoritative for whether a part works. evidence: E6. [proposed: this IR]
 
-C24. The model is not authoritative for which node starts next among the nodes free to start, because that choice also depends on the scope and budget the owner approves. evidence: E6. [proposed: this IR]
+C24. The model is not authoritative for which node starts next among the nodes free to start. evidence: E6. [proposed: this IR]
 
-C25. The amendment claims no authority for the description, the specification links and the risk links that the model also carries for each part. evidence: E7. [proposed: this IR]
+C74. The choice of which node starts next also depends on the scope and budget the owner approves. evidence: E6. [proposed: this IR]
+
+C25. The amendment claims no authority for three further lines the model carries for each part: the part's description, its links to specifications and its links to Risk register entries. evidence: E7. [proposed: this IR]
 
 C26. A term-by-term cross-check found each authority in this section stated by a named section of the Project model type specification. evidence: E7. [proposed: this IR]
 
@@ -105,17 +111,17 @@ C27. Under the amendment, an open Backlog entry that names no node stays in the 
 
 C28. The list of what is next holds nodes only. [decided: owner, 2026-10-30]
 
-C29. An open Backlog entry joins the list of what is next when the entry becomes a node or when a node's plan takes the entry in. [decided: owner, 2026-10-30]
+C29. An open Backlog entry joins the list of what is next when it becomes a node, or when a node's plan takes it in. [decided: owner, 2026-10-30]
 
 C30. Entering each small finding as a node would add planning ceremony that the finding does not need. [decided: owner, 2026-10-30]
 
 C31. At drafting, 31 of the 139 open entries in the project-orchestrator Backlog named no node. evidence: E8. [decided: project-orchestrator docs/backlog.md at commit 198768a]
 
-C32. The count takes as one entry a line that opens with a checkbox, together with the lines after the checkbox line up to the next entry or heading. [proposed: this IR]
+C32. The count takes one entry to be a checkbox line plus the lines that follow it up to the next entry or heading. [proposed: this IR]
 
 C33. The count takes an entry as open when the entry's checkbox is unchecked. [proposed: this IR]
 
-C34. The count takes an entry as naming a node when the entry's text holds a node identifier in the form of P3-N007. [proposed: this IR]
+C34. The count takes an entry as naming a node when the entry's text holds a node identifier, of the form P3-N007 (the project-orchestrator node that drafted this proposal). [proposed: this IR]
 
 C35. Because a mere mention of a node identifier counts as naming the node, 31 is a lower bound on the open entries that no node holds. [proposed: this IR]
 
@@ -141,7 +147,9 @@ C43. From the five entries and the Plan register alone, the slice rendered five 
 
 C44. Every stage the rows read from the Plan register agreed with the state the entries recorded. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
 
-C45. The slice's list of what is next held no open item, because the slice's plan held back the edges from open nodes to the five parts. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
+C45. The slice's list of what is next held no open item. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
+
+C75. The slice's plan held back the edges from open nodes to the five parts. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
 
 C46. The comparison of the renderings with the Backlog listed eleven differences and left none unexplained. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
 
@@ -173,7 +181,7 @@ C56. The declaration needs no new Classification field. evidence: E12. [decided:
 
 C57. The Release-register entry's title is "A declared planning/execution model is the source of progress truth". [proposed: this IR]
 
-C58. The entry's PR field is a placeholder that the carrier fills with the pull request's URL when the pull request is opened. [proposed: this IR]
+C58. The entry's PR field is a placeholder that the owner fills with the pull request's URL when the pull request is opened. [proposed: this IR]
 
 C59. The entry names project-orchestrator as the suggesting project, with RU-021 and the slice at commit 86a1330. [proposed: this IR]
 
@@ -195,7 +203,9 @@ C67. The migration note says a project that declares no planning/execution model
 
 C68. The migration note says a project that declares a planning/execution model renders its Backlog's implementation map and list of what is next from the model from the declaration on. [proposed: this IR]
 
-C69. For a project that declares a planning/execution model, the duty to rewrite checked entries is met in the model, from which the implementation map is rendered. [proposed: this IR]
+C69. For a project that declares a planning/execution model, checked entries are rewritten by re-rendering the implementation map from the model. [proposed: this IR]
+
+C76. K-003's duty to rewrite checked entries stands under the amendment and is met by that re-rendering. [inferred: R15]
 
 ### The ask
 
@@ -232,6 +242,12 @@ R10. C53 depends-on C51 because a released rule cannot link an unreleased vocabu
 R11. C68 refines C9 because the migration note states when the renderings start.
 
 R12. C37 depends-on C36 because the limit is the gap between work done and a part that works.
+
+R13. C74 refines C24 because the dispatch choice has an input the model does not hold.
+
+R14. C45 depends-on C75 because a list of what is next is rendered from edges to the parts, and the held-back edges were those.
+
+R15. C76 depends-on C69 because a rendering that restates the completed section rewrites its checked entries.
 
 ## Evidence
 
