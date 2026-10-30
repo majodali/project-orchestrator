@@ -2,7 +2,7 @@
 
 Reader: RD-4 (a fresh agent session) reading K-003 and the proposal beside this IR; the maintainers of majodali/methodology adjudicate the amendment, and the project-orchestrator owner gates the proposal before it is carried.
 Purpose: document. The proposal to amend K-003 (the Backlog is the single source of progress truth) in place by one conditional sentence, so that a project whose Classification declares a planning/execution model takes that model as its referent for what is done and what is next.
-Status: draft
+Status: draft (rendered by the reasoning role on 2026-10-30; no stranger round yet; 73 claims; 2 unratified terms)
 Source: RU-021 (the planning/execution model is the source of progress truth), owner, 2026-10-29; decisions 10 to 13 of the P3-N002 specification's gate record of 2026-10-29; decisions 4 to 6 of the P3-N007 plan, adopted on 2026-10-30; the Project model slice at commit 86a1330.
 Normative: yes
 Footprint: docs/proposals/planning-execution-model-is-progress-truth.md; docs/backlog.md
@@ -34,6 +34,10 @@ T10. Edge: a recorded relation from one node to one part of the project, labelle
 T11. Portfolio register: the methodology's enumeration of all majodali projects. defined-at: https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-portfolio-register [decided: methodology v1.6.0, vocabulary]
 
 T12. Release register: the methodology's register of amendments and releases, in docs/releases.md. defined-at: https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-release-register [decided: methodology v1.6.0, vocabulary]
+
+T13. Part: a component, document, ruling or repository of a project that nodes create, modify or use, which the Project model type specification calls a resource. defined-at: https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md#def-resource [decided: owner, 2026-10-29]
+
+T14. Owner: the human owner of the methodology and of its portfolio projects, who adjudicates amendments. defined-at: https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner [decided: methodology v1.6.0, vocabulary]
 
 ## Claims
 
@@ -77,7 +81,7 @@ C17. A condition on a Classification declaration lets the rule apply mechanicall
 
 ### What the model is authoritative for
 
-C18. Under the amendment, a declaring project's planning/execution model is authoritative for the stage of each node. evidence: E6. [proposed: this IR]
+C18. Under the amendment, a project's declared planning/execution model is authoritative for the stage of each node. evidence: E6. [proposed: this IR]
 
 C19. The model is authoritative for each part's state, as derived from the stages of the nodes that create and modify the part. evidence: E6. [proposed: this IR]
 
@@ -85,11 +89,11 @@ C20. The model is authoritative for the recorded edges from nodes to the parts t
 
 C21. The model renders the implementation map as one row per part, with the part's derived state and the nodes that created and modified the part. evidence: E6. [proposed: this IR]
 
-C22. The model renders the list of what is next as one item per node not yet done, with the node's stage and the nodes it waits for. evidence: E6. [proposed: this IR]
+C22. The model renders the list of what is next as one item per node not yet done, with the node's stage and the nodes that the node waits for. evidence: E6. [proposed: this IR]
 
 C23. The model is not authoritative for whether a part works. evidence: E6. [proposed: this IR]
 
-C24. The model is not authoritative for which ready node starts next, because that choice also depends on the scope and budget the owner approves. evidence: E6. [proposed: this IR]
+C24. The model is not authoritative for which node starts next among the nodes free to start, because that choice also depends on the scope and budget the owner approves. evidence: E6. [proposed: this IR]
 
 C25. The amendment claims no authority for the description, the specification links and the risk links that the model also carries for each part. evidence: E7. [proposed: this IR]
 
@@ -111,7 +115,7 @@ C32. The count takes as one entry a line that opens with a checkbox, together wi
 
 C33. The count takes an entry as open when the entry's checkbox is unchecked. [proposed: this IR]
 
-C34. The count takes an entry as naming a node when the entry's text holds a node identifier, written P, the plan number, -N and the node number. [proposed: this IR]
+C34. The count takes an entry as naming a node when the entry's text holds a node identifier in the form of P3-N007. [proposed: this IR]
 
 C35. Because a mere mention of a node identifier counts as naming the node, 31 is a lower bound on the open entries that no node holds. [proposed: this IR]
 
@@ -145,7 +149,7 @@ C47. Of the eleven differences, seven were claims the model lacked, two were cla
 
 C48. In both disagreements, the Backlog showed finished work as unfinished, and the model showed the work as done. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
 
-C49. The project's criterion G6 later renders both jobs over the full instance and compares the renderings with the Backlog. evidence: E12. [decided: owner, 2026-10-29]
+C49. The project-orchestrator criterion G6 later renders both jobs over the full instance and compares the renderings with the Backlog. evidence: E12. [decided: owner, 2026-10-29]
 
 C50. If criterion G6 contradicts the slice's evidence, project-orchestrator reopens this proposal with the reason recorded. evidence: E12. [decided: owner, 2026-10-29]
 
@@ -191,7 +195,7 @@ C67. The migration note says a project that declares no planning/execution model
 
 C68. The migration note says a project that declares a planning/execution model renders its Backlog's implementation map and list of what is next from the model from the declaration on. [proposed: this IR]
 
-C69. For a declaring project, the duty to rewrite checked entries is met in the model, from which the implementation map is rendered. [proposed: this IR]
+C69. For a project that declares a planning/execution model, the duty to rewrite checked entries is met in the model, from which the implementation map is rendered. [proposed: this IR]
 
 ### The ask
 

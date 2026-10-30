@@ -747,16 +747,14 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   owner takes decision 5's alternative at the P3-N002 gate, this closes
   into that node.
 
-- [ ] **The comprehension model cannot say "built but broken"** — known
-  limit of P3-N002's design, recorded 2026-09-17 rather than discovered
-  later. A resource's `state` is *derived* from the register stages of
-  the nodes that create or modify it, which is exactly what keeps the
-  model from being a second source of progress truth under K-003. The
-  cost: a part whose nodes are all `done` reads `built` even when it
-  does not work. The Backlog carries whether it works and the Risk
-  register carries what threatens it, and the model points at both —
-  but nothing computes the difference. Revisit if the gap bites; it is
-  deliberately not being closed by adding a hand-written state field.
+- [ ] **The comprehension model cannot say "built but broken"** — When:
+  recorded 2026-09-17 at P3-N002's planning; rewritten 2026-10-30 by
+  P3-N007's E2 (the K-003 amendment drafted). Status: open. The limit
+  stands under the drafted amendment. Whether a part works is
+  verification evidence, the planning/execution model's second
+  component, which the amendment leaves outside K-003. No hand-written
+  state field closes the limit. Pointer: [the proposal, *Whether
+  "built but broken" stands*](proposals/planning-execution-model-is-progress-truth.md#whether-built-but-broken-stands).
 
 - [ ] **Service support for the comprehension model** — out of scope
   for P3-N002 by the parent specification, whose I9 requires the model
