@@ -72,6 +72,7 @@ const EVENTS = new Set([
   "precedent-applied",
   "gate-opened",
   "gate-crossed",
+  "edge-recorded",
 ]);
 const TASK_TERMINAL = new Set(["accepted", "blocked", "stale"]);
 const TASK_RE = /^T\d{3,}$/;

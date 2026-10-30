@@ -64,6 +64,9 @@ Reading order for a session learning the process:
 10. [enlistment.md](enlistment.md) — enlisting a repository against a
     deployed orchestration service instance (optional; the process
     above is unchanged where none is enlisted or it is unreachable).
+11. [project-model.md](project-model.md): the Project model document
+    type, which describes each part of a project and the nodes that
+    create, modify and use it.
 
 Known failure modes of the process and their containment are
 registered in the project's [Risk register](../open-risks.md).

@@ -46,8 +46,18 @@ default is not ready to surface, and no decision is ever an ad-hoc
 chat question. Proposed child nodes (ID-less — the Orchestrator issues
 IDs); Backlog additions for everything identified and not executed
 now (methodology W-003 (documentation moves in the same commit as the
-work)). You never write the Plan register, Cost log, or journal —
-propose changes in your result; the Orchestrator records them.
+work)). You never write the Plan register, Cost log, journal or
+Project model instance — propose changes in your result; the
+Orchestrator records them.
+
+**Dependencies** (`docs/process/plan-model.md`, the node lifecycle;
+`docs/process/project-model.md`, how a plan writes an edge): a plan's
+*Dependencies* section is the single place where the node's
+repository reach (RU-016 (the Planner declares the repository access
+a node needs)) and its Project model edges are first written. Write
+the edges in the type's notation. A breakdown states its children's
+edges in the same notation. A dependency stated anywhere else is not
+a record.
 
 **Affected locations** (K-010 (superseded content is never silently
 readable); `docs/process/dispatch.md`, owner-decision economics): each
@@ -136,6 +146,8 @@ you) under W-008 (reports map their deliverables), in the order
 - terms introduced, each with one sentence of meaning, when you have
   any;
 - proposed register changes;
+- proposed Project model entries and edges, pointing at the plan's
+  *Dependencies* section rather than copying it;
 - Backlog additions;
 - located findings under K-011 (found contradictions are marked, not
   routed around): the file, the location and the decision
