@@ -1,6 +1,6 @@
 # Review record: a declared planning/execution model is the source of progress truth
 
-Status: open (count 1, round 7 running)
+Status: open (count 1, round 8 running)
 
 <!-- K-007 contract: Status transitions open → closed (the count's
      verdict recorded and the fixes confirmed). This file is the
@@ -470,4 +470,35 @@ model only). 13 of 15 as numbered; the five omissions are not fixes.
 Declined: 7 (SP-02 on the appended sentence), because the sentence is
 the proposed rule text whose shape the owner's decision 10 fixes as one
 conditional sentence, and its length is the maintainers' to judge.
+
+Confirmation: 11 of 12 fixes hold. Not held: 15 (the appended sentence
+still names the whole model as referent while the fix spoke of the plan
+model only). Declines accepted: 0 of 1: the stranger showed that K-003's
+longest sentence runs about 21 words, so the decline's second reason was
+wrong; the decline stands on decision 10 alone and the question goes to
+the owner (below). New defects: 3 (1 the gate sentence at 32 words with
+its parenthesis; 2 The ask opening with the gate before the ask; 3 A3
+naming no timing while the prose placed the ratification at the gate),
+plus a residual "also".
+
+Re-fixes before round 8, in the IR then the prose: 15 (C85 now says the
+declared model as a whole is the referent and what is done and what is
+next are read from its plan model); N1 (the gate sentence split, C90 and
+C91); N2 (The ask opens with the maintainers' ask, the gate follows);
+N3 (A3 names the gate); the residual "also" cut.
+
+For the owner: whether the appended sentence (29 words) is split into
+two sentences, "Where the project's Classification declares a
+planning/execution model, that model is the referent instead." and
+"The Backlog's implementation map and list of what is next are
+renderings of it.", or kept as the one conditional sentence decision
+10 names. The second sentence alone loses the condition, which is why
+the reasoning role did not split it; the maintainers may prefer either.
+
+## Before round 8
+
+Claims check (the round 7 prose as base): 0 missing, 0 stale; prose 2657 words by tool. Brief changes for
+round 8: round 7's declined finding 7 added to the declined list.
+
+## Round 8, 2026-10-30
 

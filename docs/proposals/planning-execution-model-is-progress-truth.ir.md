@@ -2,7 +2,7 @@
 
 Reader: RD-4 (a fresh agent session) reading K-003 and the proposal beside this IR; the maintainers of majodali/methodology adjudicate the amendment, and the project-orchestrator owner gates the proposal before it is carried.
 Purpose: document. The proposal to amend K-003 (the Backlog is the single source of progress truth) in place by one conditional sentence, so that a project whose Classification declares a planning/execution model takes that model as its referent for what is done and what is next.
-Status: draft (rendered by the reasoning role on 2026-10-30; round 7, 13 of 15 findings fixed, 1 declined, 5 omissions not counted; round 6 not readable, 6 of 6 findings fixed and 1 re-fixed after confirmation, the step-6 passage matched on restatement; round 5 not readable, 9 of 10 findings fixed, all held at confirmation, 7 new defects fixed; round 4 not readable, 13 of 14 findings fixed and 1 re-fixed after confirmation, 1 declined, one step-6 structural fix awaiting restatement; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 90 claims; 2 unratified terms)
+Status: draft (rendered by the reasoning role on 2026-10-30; round 8; round 7 not readable, 13 of 15 findings fixed and 1 re-fixed after confirmation, 1 declined, 5 omissions not counted; round 6 not readable, 6 of 6 findings fixed and 1 re-fixed after confirmation, the step-6 passage matched on restatement; round 5 not readable, 9 of 10 findings fixed, all held at confirmation, 7 new defects fixed; round 4 not readable, 13 of 14 findings fixed and 1 re-fixed after confirmation, 1 declined, one step-6 structural fix awaiting restatement; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 91 claims; 2 unratified terms)
 Source: RU-021 (the planning/execution model is the source of progress truth), owner, 2026-10-29; decisions 10 to 13 of the P3-N002 specification's gate record of 2026-10-29; decisions 4 to 6 of the P3-N007 plan, adopted on 2026-10-30; the Project model slice at commit 86a1330.
 Normative: yes
 Footprint: docs/proposals/planning-execution-model-is-progress-truth.md; docs/backlog.md
@@ -77,7 +77,7 @@ C12. The amendment says nothing about the verification evidence of each node, th
 
 C84. A planning/execution model has two components: the plan model, the project's nodes with their stages and edges, and the verification evidence of each node. evidence: E2. [decided: owner, 2026-10-28]
 
-C85. Of the model's two components, the appended sentence draws on the plan model only. [proposed: this IR]
+C85. The declared model as a whole is the referent, and what is done and what is next are read from its plan model. [proposed: this IR]
 
 C13. The amendment keeps K-003's title, so links to the rule's anchor keep resolving. [proposed: this IR]
 
@@ -241,7 +241,9 @@ C81. After that re-reading, project-orchestrator adapts the practice. [proposed:
 
 C72. If the amendment is rejected, the project-orchestrator Backlog stays the referent. [proposed: this IR]
 
-C90. Before the proposal is carried, the project-orchestrator owner gates it at node P3-N007's verifying stage under RU-005 (proposal-class nodes are owner-gated at verifying), approving it for carrying, amending it or returning it. evidence: E12. [decided: project-orchestrator RU-005]
+C90. Before the proposal is carried, the project-orchestrator owner gates it at node P3-N007's verifying stage under RU-005 (proposal-class nodes are owner-gated at verifying). evidence: E12. [decided: project-orchestrator RU-005]
+
+C91. At that gate the owner approves the proposal for carrying, amends it or returns it. evidence: E12. [decided: project-orchestrator RU-005]
 
 C82. If the amendment is rejected, the Project model stays a description of the project's parts. [proposed: this IR]
 
@@ -340,4 +342,4 @@ A1. The project-orchestrator owner, at node P3-N007's verifying gate under RU-00
 
 A2. The maintainers of majodali/methodology, under Article 8 (amendments, versions, and migration): accept the amendment, accept it with amendments, or reject it. Depends: C9, C53.
 
-A3. The owner: ratify or strike the two terms this IR introduces, list of what is next and rendering. Depends: C9.
+A3. The owner, at node P3-N007's verifying gate: ratify or strike the two terms this IR introduces, list of what is next and rendering. Depends: C9, C90.

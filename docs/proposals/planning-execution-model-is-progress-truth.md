@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: under review (round 7, fixes applied, 2026-10-30)
+Status: under review (round 8, 2026-10-30)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →
@@ -110,8 +110,8 @@ verification evidence of each
 the record of whether what the node built works.
 A planning/execution model has two components: the plan model, the
 project's nodes with their stages and edges, and that verification
-evidence. Of the model's two components, the appended sentence draws on the plan
-model only.
+evidence. The declared model as a whole is the referent, and what is done and
+what is next are read from its plan model.
 
 The amendment keeps K-003's title, so links to the rule's anchor keep
 resolving. The title stays true for every project whose
@@ -392,13 +392,8 @@ register](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md
 
 ## The ask
 
-Before the proposal is carried, the project-orchestrator owner gates it
-at node P3-N007's verifying stage under [RU-005 (proposal-class nodes
-are owner-gated at
-verifying)](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/rulings.md),
-approving it for carrying, amending it or returning it. Once the
-proposal is carried, project-orchestrator asks the maintainers to
-accept the amendment, accept it with amendments, or reject it.
+Once the proposal is carried, project-orchestrator asks the maintainers
+to accept the amendment, accept it with amendments, or reject it.
 
 - **If accepted**: project-orchestrator declares its planning/execution
   model once the release is pinned. After the declaration,
@@ -412,9 +407,14 @@ accept the amendment, accept it with amendments, or reject it.
   only with new evidence, such as criterion G6 over the full
   instance.
 
-At that gate the proposal also asks the
+Before the proposal is carried, the project-orchestrator owner gates it
+at node P3-N007's verifying stage under [RU-005 (proposal-class nodes
+are owner-gated at
+verifying)](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/rulings.md).
+At that gate the owner approves the proposal for carrying, amends it or
+returns it. At that gate the proposal asks the
 [owner](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner)
 to ratify or strike the two terms it defines: [list of what is next](#def-list-of-what-is-next) and
 [rendering](#def-rendering).
 
-<!-- render map: C1→¶7 C2→¶7 C3→¶11 C4→¶11 C5→¶11 C6→¶12 C7→¶12 C8→¶13 C9→¶13 C10→¶14 C11→¶14 C12→¶14 C13→¶15 C14→¶15 C15→¶15 C16→¶15 C17→¶16 C18→¶20 C19→¶20 C20→¶20 C21→¶21 C22→¶21 C23→¶22 C24→¶22 C25→¶22 C26→¶23 C27→¶24 C28→¶7 C29→¶24 C30→¶24 C31→¶25 C32→¶25 C33→¶25 C34→¶25 C35→¶25 C36→¶26 C37→¶26 C38→¶26 C39→¶26 C40→¶26 C41→¶27 C42→¶27 C43→¶28 C44→¶28 C45→¶28 C46→¶29 C47→¶29 C48→¶29 C49→¶30 C50→¶30 C51→¶31 C52→¶31 C53→¶31 C54→¶32 C55→¶32 C56→¶32 C57→¶34 C58→¶35 C59→¶36 C60→¶37 C61→¶38 C62→¶39 C63→¶40 C64→¶41 C65→¶42 C66→¶42 C67→¶43 C68→¶43 C69→¶43 C70→¶45 C71→¶46 C72→¶47 C73→¶47 C74→¶22 C75→¶28 C76→¶43 C77→¶12 C78→¶27 C79→¶37 C80→¶45 C81→¶46 C82→¶47 C83→¶12 C84→¶12 C85→¶12 C86→¶26 C87→¶14 C88→¶29 C89→¶26 C90→¶44 -->
+<!-- render map: C1→¶7 C2→¶7 C3→¶11 C4→¶11 C5→¶11 C6→¶12 C7→¶12 C8→¶13 C9→¶13 C10→¶14 C11→¶14 C12→¶14 C13→¶15 C14→¶15 C15→¶15 C16→¶15 C17→¶16 C18→¶20 C19→¶20 C20→¶20 C21→¶21 C22→¶21 C23→¶22 C24→¶22 C25→¶22 C26→¶23 C27→¶24 C28→¶7 C29→¶24 C30→¶24 C31→¶25 C32→¶25 C33→¶25 C34→¶25 C35→¶25 C36→¶26 C37→¶26 C38→¶26 C39→¶26 C40→¶26 C41→¶27 C42→¶27 C43→¶28 C44→¶28 C45→¶28 C46→¶29 C47→¶29 C48→¶29 C49→¶30 C50→¶30 C51→¶31 C52→¶31 C53→¶31 C54→¶32 C55→¶32 C56→¶32 C57→¶34 C58→¶35 C59→¶36 C60→¶37 C61→¶38 C62→¶39 C63→¶40 C64→¶41 C65→¶42 C66→¶42 C67→¶43 C68→¶43 C69→¶43 C70→¶45 C71→¶46 C72→¶47 C73→¶47 C74→¶22 C75→¶28 C76→¶43 C77→¶12 C78→¶27 C79→¶37 C80→¶45 C81→¶46 C82→¶47 C83→¶12 C84→¶12 C85→¶12 C86→¶26 C87→¶14 C88→¶29 C89→¶26 C90→¶48 C91→¶48 -->
