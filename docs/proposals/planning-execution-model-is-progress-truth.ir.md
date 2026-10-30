@@ -2,7 +2,7 @@
 
 Reader: RD-4 (a fresh agent session) reading K-003 and the proposal beside this IR; the maintainers of majodali/methodology adjudicate the amendment, and the project-orchestrator owner gates the proposal before it is carried.
 Purpose: document. The proposal to amend K-003 (the Backlog is the single source of progress truth) in place by one conditional sentence, so that a project whose Classification declares a planning/execution model takes that model as its referent for what is done and what is next.
-Status: draft (rendered by the reasoning role on 2026-10-30; round 2; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 76 claims; 2 unratified terms)
+Status: draft (rendered by the reasoning role on 2026-10-30; round 3; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 76 claims; 2 unratified terms)
 Source: RU-021 (the planning/execution model is the source of progress truth), owner, 2026-10-29; decisions 10 to 13 of the P3-N002 specification's gate record of 2026-10-29; decisions 4 to 6 of the P3-N007 plan, adopted on 2026-10-30; the Project model slice at commit 86a1330.
 Normative: yes
 Footprint: docs/proposals/planning-execution-model-is-progress-truth.md; docs/backlog.md
@@ -19,9 +19,9 @@ T3. Classification: a project's binding declaration of its tier, pinned version 
 
 T4. Implementation map: the Backlog's completed section, whose checked entries describe what actually shipped. defined-at: https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth [decided: methodology v1.6.0, K-003]
 
-T5. List of what is next: the Backlog's entries of upcoming work, the part of the Backlog that K-003 makes the referent for what is next. [proposed: this IR]
+T5. List of what is next: the Backlog's answer to what is next. Under K-003 as released it is the Backlog's entries of upcoming work; under the amendment it is rendered from the model and holds nodes only. [proposed: this IR]
 
-T6. Rendering: a text produced from a source by a stated procedure. The rendering adds no claim the source lacks and drops no claim the procedure says it carries. [proposed: this IR]
+T6. Rendering: a text produced from a source by a stated procedure. The rendering adds no claim the source lacks. It drops no claim the procedure says it carries. [proposed: this IR]
 
 T7. Node: one unit of work at any level of a project's plan hierarchy. defined-at: https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node [decided: project-orchestrator process specification]
 
@@ -41,6 +41,8 @@ T14. Owner: the one human who owns the methodology and its portfolio projects, p
 
 T15. Referent: the record a reader consults for what is done and what is next, the role K-003 gives the Backlog. defined-at: https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth [decided: methodology v1.6.0, K-003]
 
+T17. Full instance: the Project model with an entry for every part of the repository; node P3-N008 (the instance, over this repository) is planned to build it. defined-at: https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/plan-register.md [decided: project-orchestrator Plan register, P3-N008]
+
 T16. Slice: the first five entries of the project-orchestrator Project model, built by node P3-N006 (the thin end-to-end slice) and pinned at commit 86a1330. defined-at: https://github.com/majodali/project-orchestrator/blob/86a13308f70574abc0223ddb4f044b7e43ca1eb6/docs/project-model-slice-record.md [decided: project-orchestrator P3-N006 plan, 2026-10-29]
 
 ## Claims
@@ -51,7 +53,7 @@ C1. K-003 (the Backlog is the single source of progress truth) makes the Backlog
 
 C2. K-003 forbids any other document to claim the role of that referent. evidence: E1. [decided: methodology v1.6.0, K-003]
 
-C3. On 2026-10-28 the owner decided that each project's planning/execution model is the primary source of progress and status truth. evidence: E4. [decided: owner, 2026-10-28]
+C3. On 2026-10-28 the owner decided that each project's planning/execution model is the primary source of truth about progress. evidence: E4. [decided: owner, 2026-10-28]
 
 C4. On 2026-10-28 the owner decided that the implementation map and the list of what is next become renderings of the planning/execution model. evidence: E4. [decided: owner, 2026-10-28]
 
@@ -93,7 +95,7 @@ C20. The model is authoritative for the recorded edges from nodes to the parts t
 
 C21. The model renders the implementation map as one row per part, with the part's derived state and the nodes that created and modified the part. evidence: E6. [proposed: this IR]
 
-C22. The model renders the list of what is next as one item per node not yet done, each with the node's stage and the nodes it waits for. evidence: E6. [proposed: this IR]
+C22. The model renders the list of what is next as one item per node not yet done, each with the node's stage and the nodes that node waits for. evidence: E6. [proposed: this IR]
 
 C23. The model is not authoritative for whether a part works. evidence: E6. [proposed: this IR]
 
@@ -107,9 +109,9 @@ C26. A term-by-term cross-check found each authority in this section stated by a
 
 ### Open Backlog entries that name no node
 
-C27. Under the amendment, an open Backlog entry that names no node stays in the Backlog as the Backlog's own content. evidence: E12. [decided: owner, 2026-10-30]
+C27. Under the amendment, an open Backlog entry that names no node stays in the Backlog's upcoming section as the Backlog's own content, outside the rendered list. evidence: E12. [decided: owner, 2026-10-30]
 
-C28. The list of what is next holds nodes only. [decided: owner, 2026-10-30]
+C28. Under the amendment, the rendered list of what is next holds nodes only. [decided: owner, 2026-10-30]
 
 C29. An open Backlog entry joins the list of what is next when it becomes a node, or when a node's plan takes it in. [decided: owner, 2026-10-30]
 
@@ -147,7 +149,7 @@ C43. From the five entries and the Plan register alone, the slice rendered five 
 
 C44. Every stage the rows read from the Plan register agreed with the state the entries recorded. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
 
-C45. The slice's list of what is next held no open item. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
+C45. The slice record rendered the list of what is next in a narrower form, per part: the open nodes with an edge to the part. Each of the five lists held no open item. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
 
 C75. The slice's plan held back the edges from open nodes to the five parts. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
 
@@ -157,7 +159,7 @@ C47. Of the eleven differences, seven were claims the model lacked, two were cla
 
 C48. In both disagreements, the Backlog showed finished work as unfinished, and the model showed the work as done. evidence: E5. [decided: project-orchestrator slice record at commit 86a1330]
 
-C49. The project-orchestrator criterion G6 later renders both jobs over the full instance and compares the renderings with the Backlog. evidence: E12. [decided: owner, 2026-10-29]
+C49. The project-orchestrator criterion G6 later renders the implementation map and the whole-model list of what is next over the full instance and compares the renderings with the Backlog. evidence: E12. [decided: owner, 2026-10-29]
 
 C50. If criterion G6 contradicts the slice's evidence, project-orchestrator reopens this proposal with the reason recorded. evidence: E12. [decided: owner, 2026-10-29]
 
@@ -189,13 +191,13 @@ C60. The impact assessment covers every row of the Portfolio register at v1.6.0.
 
 C61. The methodology repository is accommodated, because K-003 gains one sentence and the methodology's Classification declares no planning/execution model. evidence: E11. [proposed: this IR]
 
-C62. methodology-tools is accommodated, because the sentence binds methodology-tools only once its Classification declares a planning/execution model, which the methodology's draft roadmap expects at the methodology-tools pilot. evidence: E9. [proposed: this IR]
+C62. methodology-tools is accommodated, because the sentence binds methodology-tools only once its Classification declares a planning/execution model, which the methodology's roadmap expects at the pilot. evidence: E9. [proposed: this IR]
 
 C63. project-orchestrator is accommodated as the evidencing instance, and declares its planning/execution model only after the amendment is released and pinned there. evidence: E12. [decided: owner, 2026-10-29]
 
 C64. allegro, in-real-life, in-real-life-ops, in-real-life-org, project-orchestrator-service, serverless-web-app-template and communication-pipeline are accommodated, because the sentence binds each only once its Classification declares a planning/execution model. evidence: E10. [proposed: this IR]
 
-C65. The thirteen implicit-C0 projects are unaffected, because K-003 applies from tier C1. evidence: E10. [decided: methodology v1.6.0, K-003]
+C65. The thirteen rows the Portfolio register marks implicit C0, projects with no Classification of their own that Article 7 places at the C0 baseline, are unaffected, because K-003 applies from criticality tier C1. evidence: E10. [decided: methodology v1.6.0, K-003]
 
 C66. The implicit-C0 rows are mc-tools, graph-analysis, open-context, open-context-v1, workbench, chat, antimatter, modcraft, tautology, simple-modeling, parser-generator, software-project-api and chloe-portfolio. evidence: E10. [decided: methodology v1.6.0, Portfolio register]
 
@@ -203,7 +205,7 @@ C67. The migration note says a project that declares no planning/execution model
 
 C68. The migration note says a project that declares a planning/execution model renders its Backlog's implementation map and list of what is next from the model from the declaration on. [proposed: this IR]
 
-C69. For a project that declares a planning/execution model, checked entries are rewritten by re-rendering the implementation map from the model. [proposed: this IR]
+C69. A project that declares a planning/execution model rewrites its checked entries by re-rendering the implementation map from the model. [proposed: this IR]
 
 C76. K-003's duty to rewrite checked entries stands under the amendment and is met by that re-rendering. [inferred: R15]
 

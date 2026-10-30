@@ -1,6 +1,6 @@
 # Review record: a declared planning/execution model is the source of progress truth
 
-Status: open (count 1, round 2 running)
+Status: open (count 1, round 3 running)
 
 <!-- K-007 contract: Status transitions open → closed (the count's
      verdict recorded and the fixes confirmed). This file is the
@@ -109,4 +109,73 @@ Brief changes for round 2: the declined findings 4, 15 and 18 with
 their reasons; the forms added for round 1 unchanged.
 
 ## Round 2, 2026-10-30
+
+Stranger: a fresh instance at the frugal tier (task T082). Prose about
+2,200 words by the stranger's hand count (2,170 by tool before the
+round's fixes); 76 claims; 19 findings.
+
+Restatement: matched the IR on the problem, the clause, the authorities,
+the open entries, the limit, the evidence and the asks. The stranger
+checked each sentence against the claims it names and found no
+disagreement.
+
+Mismatches: none.
+
+Findings by rule: SP-01 1 (18); SP-02 7 (11 to 17); SP-03 2 (7, 8);
+SP-04 2 (3, 4); SP-05 2 (5, 6); SP-08 1 (9); SP-18 1 (10); SP-25 2 (1,
+2); SP-26 1 (19). Undefined terms 6: full instance, implicit-C0, tier,
+IR (in the body), pilot, status truth. Contradictions 2: the list's
+definition (every upcoming entry) against "nodes only" (1); the rule of
+one item per open node against the slice's empty list (2).
+
+Verdict: not readable. Blocking: 1, 2, 3, 4, 5.
+
+Accepted and fixed, in the IR then the prose: 1 to 18 (18 of 19). The
+two contradictions: T5, C27 and C28 now say the list is the Backlog's
+answer to what is next, rendered from the model and holding nodes only
+under the amendment, with open entries that name no node outside the
+rendered list; C45 now says the slice record rendered per-part lists,
+the open nodes with an edge to the part, and the whole-model list is
+the form the full instance renders. Terms added: full instance (T17);
+the IR named and linked in the Reader paragraph; implicit C0 and
+criticality tier linked to Article 7 and the vocabulary; the pilot and
+the roadmap linked at pinned commits. Seven sentences over 25 words
+split or cut. The heading "Dependency" renamed. C69 gains its actor,
+the project.
+
+Declined: 19 (SP-26, the front-matter line "Asked of the reader" and
+the section "The ask"), because the four bold front-matter lines are the
+fixed opening of a proposal artifact carried upstream, and the section
+states the ask with its three outcomes. The stranger did not accept the
+decline at confirmation; the decline stands and goes into round 3's
+brief.
+
+Confirmation: 17 of 18 fixes hold. Not held: 17. Declines accepted: 0
+of 1. New defects: 6 (A two lists without a stated relation; B "projects
+with no Classification" beyond what E10 shows; C the roadmap link
+unpinned and the pilot's gloss unsupported; D a repeated parenthetical;
+E the full instance defined inside the slice's term and P3-N008 named
+only in a parenthetical; F the list's first sentence unqualified).
+
+Re-fixes before round 3, in the IR then the prose: 17 and D (the
+parenthetical cut; 24 words); A (the slice record's per-part form named
+as narrower, and the whole-model list named as the full instance's
+form; C45, C49); B (the thirteen rows the Portfolio register marks
+implicit C0; C65); C (the roadmap pinned at 195eba9; the pilot linked
+to the service plan at 198768a, its gloss cut; C62); E (T17 full
+instance as its own term, P3-N008 linked, "is planned to build it"); F
+(T5 opens "the Backlog's answer to what is next"). Checks after the
+re-fixes: `mtool ir check` 0 violations, 0 warnings; `mtool style` 0
+violations; roundtrip 76 of 76. Prose 2,410 words by tool.
+
+## Before round 3
+
+Claims check (the round 2 prose as base): 9 changed claims, each
+carried by a changed sentence; 0 missing, 0 stale after C22's sentence
+was reworded to carry the whole-model qualifier.
+
+Brief changes for round 3: the declined findings of rounds 1 and 2
+(round 1's 4, 15 and 18; round 2's 19) with their reasons.
+
+## Round 3, 2026-10-30
 
