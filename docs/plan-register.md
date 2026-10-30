@@ -52,6 +52,6 @@ honestly; chunks 1–3 completed before this register existed.
   - P3-N004 [identified] Reversibility, and the measurement that says whether it pays (chunk 3) — depends on P3-N002
   - P3-N005 [broken-down] Sequence mode: run W-001's pre-ratified mode, and determine whether it needs specialising (chunk 4) — independent of P3-N002 (RU-018) — plan: plans/p3-n005-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
     - P3-N013 [done] The four stop conditions, decidable, evidenced, and related to the meta-review signals — plan: plans/p3-n013-stop-conditions-decidable.md · spec: specs/p3-n005-sequence-mode.md
-    - P3-N014 [executing] The loop runs sequence mode, and the roles meet the conditions without looking — depends on P3-N013 and on P1-N014's execute — plan: plans/p3-n014-loop-runs-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
+    - P3-N014 [done] The loop runs sequence mode, and the roles meet the conditions without looking — depends on P3-N013 and on P1-N014's execute — plan: plans/p3-n014-loop-runs-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
     - P3-N015 [identified] The demonstration: a ratified sequence lands two chunks and stops on asks — depends on P3-N014
     - P3-N016 [identified] The determination on W-001, and the artifact or the argument — depends on P3-N015

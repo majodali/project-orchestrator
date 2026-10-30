@@ -610,8 +610,9 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 - [ ] **The loop runs sequence mode, and the roles meet the conditions
   without looking** (node P3-N014, child B of P3-N005) — When: planned
   and specified 2026-10-30 (T068, gate of 2026-10-30); executed
-  2026-10-30 (T072). Status: executed, awaiting acceptance and the
-  Orchestrator's try of the record form (decision 9); `dispatch.md`
+  2026-10-30 (T072); done the same day at the Orchestrator's acceptance,
+  the record form tried on this task with no verdict resting on missing
+  input. Status: done; `dispatch.md`
   gained *Sequence mode* with the four predicates copied byte for byte
   from `fcf4894`, the member's result record, the addressee rule, the
   restated Asks clarification and the gate record form; roles.md and
@@ -673,6 +674,10 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   PT-11). Status: open; a test invoking `node plugin/scripts/<tool>.ts`
   would close it. Pointer: [check document](common-risk-catalogue-check.md),
   omission list.
+- [ ] **A `sequence-stopped` note is a note of the stopping member's task**
+  — When: 2026-10-30, T072. Status: open, for P1-N016; the event
+  carries the member's task ID, so its opening condition is a note a
+  later reading of the predicates would see. Pointer: [dispatch.md](process/dispatch.md), Sequence mode.
 - [ ] **Hierarchical resources, for complex resource validations** —
   owner note at the P3-N002 gate, 2026-10-29: the comprehension model's
   resources are flat by that plan's decision 2, and a hierarchy may

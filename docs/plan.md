@@ -416,8 +416,8 @@ The children of P3-N005, a strict chain in their [specification](specs/p3-n005-s
   - Needed by: P3-N014.
   - Documents: [plan](plans/p3-n013-stop-conditions-decidable.md), [specification](specs/p3-n005-sequence-mode.md#child-a-the-four-stop-conditions-decidable-evidenced-and-related-to-the-meta-review-signals).
 - P3-N014 The loop runs sequence mode, and the roles meet the conditions without looking
-  - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day).
-  - Outcome: [dispatch.md](process/dispatch.md) gains a sequence-mode section. Each role contract lists the stop conditions that role can trigger. The run journal records when the owner approves a run and when a run stops.
+  - Stage: done, 2026-10-30 (task T072).
+  - Outcome: Shipped the *Sequence mode* section of dispatch.md with the four stop predicates copied from P3-N013's record, the member's result record, the addressee rule in every result shape, the conditions each role can trigger in its contract, and the two journal event kinds, with thirteen routed Backlog rows landed.
   - Depends on: P3-N013, and the executing stage of P1-N014, which is done.
   - Needed by: P3-N015.
   - Documents: [plan](plans/p3-n014-loop-runs-sequence-mode.md), the parent's specification, child B.
@@ -526,7 +526,6 @@ Executing now, dispatched after the owner's second plan gates of 2026-10-30:
 
 - P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): E1, task T070; E2 follows.
 - P3-N011 (the sweep, the rest of the catalogue, and the omission list): E1, task T071; E2 and E3 follow.
-- P3-N014 (the loop runs sequence mode): task T072.
 
 Gated on the owner:
 
@@ -537,7 +536,7 @@ Waiting:
 - P3-N008 (the instance): its plan may be dispatched once P3-N007's E1 is accepted; its execution waits on P3-N007.
 - P3-N009 (sibling ordering retired): waits on P3-N008.
 - P3-N012 (the Article 8 proposal): waits on P3-N011.
-- P3-N015 (the demonstration): waits on P3-N014.
+- P3-N015 (the demonstration): planning dispatched 2026-10-30 (task T076), after P3-N014 closed.
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.
 - P2-N003 (owner questions and the plan view), after its split: the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view) child waits on P3-N006. The queue child waits on P2-N006.

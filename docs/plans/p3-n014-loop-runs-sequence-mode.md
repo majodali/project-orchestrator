@@ -1,6 +1,6 @@
 # The loop runs sequence mode, and the roles meet the conditions without looking
 
-Status: active
+Status: closed → Backlog entry (node P3-N014 done 2026-10-30, task T072; see the Backlog entry on the loop running sequence mode)
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
