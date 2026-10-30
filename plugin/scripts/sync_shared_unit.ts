@@ -12,6 +12,9 @@
  * What travels (the manifest, spec T3's "the unit and the corpus with
  * its expectations"):
  *   - plugin/scripts/lib/plan-register.ts   (the canonical unit)
+ *   - plugin/scripts/lib/cost-log-and-journal.ts (the Cost log row and
+ *     run-journal line grammar, shared with the service's web view —
+ *     node P2-N021, task E2; added to the set, nothing removed)
  *   - plugin/scripts/lib/corpus/            (manifest, README,
  *     fixtures/, expectations/ — everything under it, recursively)
  *
@@ -80,8 +83,10 @@ const GENERATED_MD =
   "Everything under this directory was copied by `sync_shared_unit.ts` " +
   "from `plugin/scripts/lib/` in majodali/project-orchestrator (P1-N009, " +
   "decision 1 / RU-012): `plan-register.ts`, the canonical Plan-register " +
-  "grammar and lifecycle-stage-vocabulary unit, and `corpus/`, the " +
-  "conformance corpus it travels with (spec T3).\n\n" +
+  "grammar and lifecycle-stage-vocabulary unit; `corpus/`, the " +
+  "conformance corpus it travels with (spec T3); and " +
+  "`cost-log-and-journal.ts`, the Cost log row and run-journal line " +
+  "grammar (P2-N021, task E2).\n\n" +
   "`.ts` and `.md` files under this tree carry their own " +
   '"generated — do not edit here" comment; `.json`/`.jsonl` fixture ' +
   "and expectation files have no comment syntax to carry one in, so " +
@@ -90,8 +95,8 @@ const GENERATED_MD =
 
 /** Files (by relative path from the source's lib/ directory) that
  * make up the travelling set. Explicit, not a directory sweep of
- * lib/ — node-preflight.ts and parse-output.ts live alongside the
- * unit but are not part of what a consumer needs. */
+ * lib/ — node-preflight.ts, parse-output.ts and form-check-core.ts
+ * live alongside the units but are not part of what a consumer needs. */
 function travellingSet(
   sourceRoot: string,
 ): Array<{ rel: string; abs: string }> {
@@ -100,6 +105,10 @@ function travellingSet(
   entries.push({
     rel: "plan-register.ts",
     abs: path.join(libDir, "plan-register.ts"),
+  });
+  entries.push({
+    rel: "cost-log-and-journal.ts",
+    abs: path.join(libDir, "cost-log-and-journal.ts"),
   });
 
   const corpusDir = path.join(libDir, "corpus");
