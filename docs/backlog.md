@@ -2925,10 +2925,11 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   against its criteria I1 to I10 after both children are done. Pointer:
   [specification](specs/p2-n003-owner-questions-and-plan-view.md).
 - [ ] **P2-N021 identified, 2026-10-30: the web view's first version**
-  — When: 2026-10-30, at P2-N003's specification gate. Status:
-  identified; a leaf, run as execute tasks E1 to E3 against criteria V1
-  to V30, then the owner demonstration; no plan or specify task (plan
-  decision 2); E3 waits on P3-N007 done. Pointer:
+  — When: 2026-10-30, at P2-N003's specification gate; E1 dispatched
+  2026-10-30 (T094). Status: executing; a leaf, run as execute tasks E1
+  to E3 against criteria V1 to V30, then the owner demonstration; no
+  plan or specify task (plan decision 2); E3's wait on P3-N007 is met.
+  Pointer:
   [specification of P2-N003, child
   1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
 - [ ] **P2-N022 identified, 2026-10-30: the owner question queue** —

@@ -1016,10 +1016,10 @@ record](project-model-slice-record.md) holds it.
   majodali/project-orchestrator-service (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **state:** planned (derived from the created-by line, where P2-N021 is
-  identified, and the modified-by line, where P2-N022 is identified;
-  from [Plan register](plan-register.md); [Project model
-  type](process/project-model.md), State derivation)
+- **state:** building (derived from the created-by line, where P2-N021
+  is executing; the modified-by line, where P2-N022 is identified, does
+  not change the value; from [Plan register](plan-register.md); [Project
+  model type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
@@ -1044,8 +1044,8 @@ record](project-model-slice-record.md) holds it.
   `plugin/scripts/lib/`, vendored to the service (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **state:** planned (derived from the created-by line, where P2-N021 is
-  identified; the modified-by line reads not yet derived; from [Plan
+- **state:** building (derived from the created-by line, where P2-N021
+  is executing; the modified-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -1109,10 +1109,9 @@ record](project-model-slice-record.md) holds it.
   `plugin/scripts/sync_shared_unit.ts` (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **state:** built (derived by row 4 of the table: no creating or
-  counted modifying node; P2-N021 on the modified-by line is identified;
-  the created-by line reads not yet derived; from [Plan
-  register](plan-register.md); [Project model
+- **state:** built, changing (derived from the modified-by line, where
+  P2-N021 is executing; the created-by line reads not yet derived; from
+  [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated

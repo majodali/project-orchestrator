@@ -298,7 +298,7 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 The children of P2-N003, in their [specification](specs/p2-n003-owner-questions-and-plan-view.md#register-action-proposed-with-this-specification)'s order:
 
 - P2-N021 The web view's first version: the plan tree from commits, drilling to node and task
-  - Stage: identified, 2026-10-30. No plan or specify task: the parent's specification carries it at full criteria depth (plan decision 2).
+  - Stage: executing since 2026-10-30, when task E1 (T094), the thin end-to-end slice, was dispatched. No plan or specify task: the parent's specification carries it at full criteria depth (plan decision 2).
   - Outcome: In a browser on any device, the owner sees the plan tree of this repository at a named commit. Each node shows its stage, outcome and dependencies, beside what is next. The owner drills from a node to its tasks. Every fact shown comes from that commit. The work runs as three execute tasks, E1 to E3, and ends at an owner demonstration.
   - Depends on: P3-N006 and, for its third task E3, P3-N007. Both are done. The register marks it independent of P2-N005 and P2-N004.
   - Needed by: P2-N006 and P2-N022.
@@ -567,7 +567,6 @@ A node is actionable when every recorded dependency of its next stage is met.
 Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
-- P2-N021 (the web view's first version): execute task E1, the thin end-to-end slice. Its merge waits on the owner actions O-view-1 to O-view-3.
 - P2-N017 (the platform facts, verified): execute. Its local-surface facts wait on owner action O11.
 
 Specifying now, after the owner's gate of 2026-10-30:
@@ -575,6 +574,7 @@ Specifying now, after the owner's gate of 2026-10-30:
 
 Executing now, dispatched after the owner's second plan gates of 2026-10-30:
 
+- P2-N021 (the web view's first version): task E1 (T094), the thin end-to-end slice. Its merge waits on the owner actions O-view-1 to O-view-4.
 
 Gated on the owner:
 

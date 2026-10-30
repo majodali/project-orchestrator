@@ -36,7 +36,7 @@ honestly; chunks 1–3 completed before this register existed.
     - P2-N015 [done] Alias-aware lease-table selection, failing closed
     - P2-N016 [done] Deploy, smoke and promote on merge to main
   - P2-N003 [broken-down] Owner questions and the plan view (chunk 2) — split into the web view's first version and the owner question queue (owner, 2026-10-29) — plan: plans/p2-n003-owner-questions-and-plan-view.md · spec: specs/p2-n003-owner-questions-and-plan-view.md
-    - P2-N021 [identified] The web view's first version: the plan tree from commits, drilling to node and task — independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8) — spec: specs/p2-n003-owner-questions-and-plan-view.md
+    - P2-N021 [executing] The web view's first version: the plan tree from commits, drilling to node and task — independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8) — spec: specs/p2-n003-owner-questions-and-plan-view.md
     - P2-N022 [identified] The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop — depends on P2-N021 and P2-N005, and follows P2-N006 (owner, 2026-10-29) — spec: specs/p2-n003-owner-questions-and-plan-view.md
   - P2-N004 [identified] Topics and coordination (chunk 3) — after P2-N006, built only on a shown need (owner, 2026-10-29)
   - P2-N005 [broken-down] The task-pull loop (chunk 4) — independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29) — plan: plans/p2-n005-task-pull-loop.md · spec: specs/p2-n005-task-pull-loop.md
