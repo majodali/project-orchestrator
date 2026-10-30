@@ -39,7 +39,9 @@ under its [plan](plans/p3-n011-sweep-and-omission-list.md).
 | Run record, 2026-10-30 | The four inputs by commit, steps 1 to 3 for CR-001 and the omission list. Node P3-N010's run, unchanged. |
 | Negative-control record | The deliberately broken input and the pair that returned. |
 | Run record, 2026-10-30, full scope | Task E3's run of all twelve classes over all 35 parts: inputs, steps 1 to 3, the omission list of 56 items and its dispositions. |
+| Negative-control record, 2026-10-30, full scope | The control on CR-003 against PT-23 and the pair that returned. |
 | Shape findings | What in the entry shape the check could not read, and what changed. |
+| Verification of node P3-N011 | Criteria B1 to B18 and the three adopted decisions, with the owner's open decisions and the carry-overs. |
 
 ## The check procedure
 
@@ -1280,8 +1282,8 @@ Criterion B12 asks for the disposition of each carry-over.
 
 ### Findings from the sweep
 
-Task E3 carries these into the *Shape findings* section with the findings
-of the full run (criterion B18).
+Task E3 carried these into the *Shape findings* section as findings 9 to 14,
+with the findings of the full run (criterion B18).
 
 - **S1.** The four outcomes have none for a candidate that states an
   admitted class and records no event. A merge makes the candidate an
@@ -2296,6 +2298,32 @@ N14 expected, for PT-08, PT-09 and PT-11. They route to the Backlog entry
 that entry on 2026-10-30 as the argument behind the same pairs, so it is open
 and matches. No new entry is added for it.
 
+## Negative-control record, 2026-10-30, full scope
+
+The control follows the five steps of *The negative control* above. It ran
+on the full-scope run record, so its base is the commit that holds that
+record. The pair belongs to CR-003, a class other than CR-001 (criterion
+B17).
+
+| Item | Record |
+|---|---|
+| Scratch branch | `scratch-negative-control-cr-003` |
+| Base commit | `b03d5b0`, the commit that holds the full-scope run record |
+| Pair chosen | CR-003 (fetched content carries an instruction for the agent) against PT-23 (the alias assumptions finding), covered by R15 |
+| Citation removed | R15's *Class* line, four lines ending "The role declined it." |
+| Steps 2 and 3 re-run | `grep -n 'CR-' docs/open-risks.md` returned 8 hits where the base returned 9. The base hit at line 359 (R15) was gone. Step 2 for CR-003 does not read the register and stayed as recorded. Step 3 read the 8 hits and checked each covered pair of the class against them. |
+| Pair that returned | PT-23 returned to the omission list: R15 was its only covering entry. |
+| Pairs that returned with it | PT-13, PT-26 and PT-28, for the same reason. R15 was the only covering entry of CR-003. |
+| Pairs that stayed covered | Every pair of the other classes. The 22 covered pairs of CR-001, CR-002, CR-004, CR-005 and CR-006 did not change. |
+| Omission list on the scratch branch | 60 items. The base list has 56. |
+| Outcome | The chosen pair returned. The control passed. |
+| Discarded | The removal was never committed. The working copy was restored, and the branch, which pointed at the base commit, was deleted without a merge. |
+
+The recomputation read the covering entry of each pair from step 3 above and
+asked whether the register, after the removal, still carried a *Class* line of
+that entry for the pair's class. A script did the lookup; the argument for each
+covered pair is the one in step 3.
+
 ## Shape findings
 
 The section states what in the entry shape the check could not read and
@@ -2418,6 +2446,65 @@ delivered text.
     checkout of majodali/methodology-tools with `npx tsx src/cli.ts` and the
     flag `--corpus`. The catalogue holds nine encounters of CR-010, and this
     one is a tenth (2026-10-30, task T083). Task E3 did not edit the catalogue.
+
+## Verification of node P3-N011
+
+The plan names no Reviewer (*Verification*), so task E3 verifies the node
+against criteria B1 to B18 and the three adopted decisions. The commits are
+`69e67af` (citations and parts enumeration), `b03d5b0` (the run) and the commit
+of this section.
+
+| Criterion | Result | Where |
+|---|---|---|
+| B1, one pass per source with method and counts | Met | *Status of the passes* and passes 1 to 5 |
+| B2, every register entry put to the entry test, with the commit | Met | Pass 1 at `bd4fc8d`. *The register re-read* finds no entry added since. |
+| B3, every named candidate has an outcome | Met | *Named candidates: the full table* |
+| B4, every admitted entry has six fields, each encounter a date and an artifact, each generalization its own row | Met | The catalogue holds CR-001 to CR-012 with six fields each. Task E3 counted 12 entries, 6 fields each, and every encounter row has a date and a link. |
+| B5, at least one rejection in writing | Met | 60 rejections across the passes |
+| B6, the not-yet-covered section lists every deferred candidate | Met | Six deferrals in the catalogue and in *Deferred candidates* |
+| B7, every instantiating entry cites its class, the preamble states the field, the diff meets I7 | Met | *Citations: the Class lines*. The register diff since `0aefb00` adds seven *Class* lines and amends one sentence of the preamble. No other line changed. |
+| B8, the check at full scope, parts added with date and source, a non-empty list, items with part, class, argument and disposition, Backlog entries in the same commit | Met | *Run record, 2026-10-30, full scope*. The list has 56 items. The two new Backlog entries are in `b03d5b0`, the commit of the list. |
+| B9, the negative control re-run and recorded | Met | *Negative-control record, 2026-10-30, full scope* |
+| B10, no edit of another node overwritten | Met | The Backlog diff since `0aefb00` adds entries and rewrites only the entry of this node. The register diff is as for B7. |
+| B11, `form_check` passes and the Backlog moves with the work | Met | 0 violations at each commit. The Backlog moved in `b03d5b0` and in the commit of this section. |
+| B12, each carry-over of node P3-N010 dispositioned | Met | The table below |
+| B13, every header admits each repository where an encounter happened | Met | *The classes the passes admitted*, the header table. The full run applied the headers at step 1. |
+| B14, each pass names its commit, and one failure in two sources has one row | Met | *Status of the passes*. The delta rows name their sources. |
+| B15, a table maps each named candidate to its row and outcome | Met | *Named candidates: the full table* |
+| B16, each *Class* clause is written from its entry's text | Met | *The lines written*. Three fits are weaker (R5, R9, R10), and the owner may strike them. |
+| B17, the control's pair belongs to a class other than CR-001 | Met | CR-003 against PT-23 |
+| B18, *Shape findings* gains the full run's findings, or states none | Met | Findings 9 to 21 |
+| Decision 3, a covering clause states the exposure | Met | Step 3 of the full run. It turned PT-08, PT-09 and PT-11 into omissions. |
+| Decision 4, defects of one run sequence count once | Met | The catalogue's definition of an independent encounter holds the sentence. No row of the full run needed it. |
+| Decision 5, the service Backlog is read | Met | The table of checked service entries, read at `58e6819`. It added PT-31. |
+
+**Depends on the owner's gate decisions.** Five results stand until the owner
+rules.
+
+- B16 and B7 depend on the three weaker *Class* lines. Striking R9's line
+  returns PT-04 to the omission list. Striking R5's or R10's line removes
+  coverage of the three registers (PT-05, PT-06, SA-1).
+- The coverage of 11 pairs rests on scope arguments (finding 16). A rule that
+  a covering entry must name the part would return them.
+- The ratification of the two parts of the reading of ET-2 (findings 10 and 12)
+  decides the rejections that depend on it. The full run does not use it.
+- The ratification of the term *aggregate node* is still open (Backlog entry
+  "Ratify or strike the term aggregate node").
+- The two terms task E3 introduces (*citation test* and *delta row*) await
+  the owner.
+
+**B12, the carry-overs of node P3-N010, now complete.**
+
+| Carry-over | Disposition now |
+|---|---|
+| The two ripgrep rows | Complete. RP-22 and RP-23 are N12 and N13, and CR-008 holds the encounter. The full run reaches CR-008 at four parts (OM-32 to OM-35). |
+| The plugin-tools row | Complete. RP-24 is no candidate, and the omission is OM-01 to OM-03, routed to the open Backlog entry "No committed test runs the plugin tools the way they run". |
+| Shape finding 2, coverage cannot read adequacy | Complete. Decision 3 applied at step 3 turned three pairs into omissions. |
+| Shape finding 4, the header decided the run | Complete. Step 1 of the full run applied the headers, and CR-011's excluded this repository. |
+| Shape finding 5, entries have no anchors | Complete as decided. The run cites entries by title, and child C pins the file. |
+| Shape finding 6, no counting rule for a run sequence | Complete. The sentence is in the catalogue's definition. |
+| Shape finding 7, an entry can instantiate a class without an encounter | Complete. R5, R9 and R10 are such entries and carry lines. |
+| Shape finding 8, the service Backlog | Complete. The service Backlog was read at `58e6819` and added PT-31. |
 
 ## References
 

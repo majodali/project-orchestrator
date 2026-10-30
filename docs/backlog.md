@@ -566,16 +566,22 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   [omission list](common-risk-catalogue-check.md#full-run-the-omission-list).
 - [ ] **The sweep, the rest of the catalogue, and the omission list**
   (node P3-N011, child B of P3-N003) — When: planned 2026-10-30 (T058);
-  specified at the gate of 2026-10-30, defaults 1 to 5 adopted; task E1
-  (T071) and task E2 (T080) delivered 2026-10-30. Status: executing; a
-  leaf run as three tasks. E1 recorded passes 1 and 2 (43 candidates
-  found, 7 classes admitted as CR-002 to CR-008, 3 candidates deferred).
-  E2 recorded passes 3 to 5 (85 candidates found, four classes admitted as
-  CR-009 to CR-012, three more deferred). All five passes now stand. E3 is
-  next, with citations, the full-scope check and the negative control.
-  Pointer:
+  specified at the gate of 2026-10-30, defaults 1 to 5 adopted; tasks E1
+  (T071), E2 (T080) and E3 (T083) delivered 2026-10-30. Status:
+  executed, awaiting the Orchestrator's acceptance; a leaf run as three
+  tasks. E1 recorded passes 1 and 2 (43 candidates found, 7 classes
+  admitted as CR-002 to CR-008, 3 candidates deferred). E2 recorded
+  passes 3 to 5 (85 candidates found, four classes admitted as CR-009 to
+  CR-012, three more deferred). E3 wrote seven *Class* lines (R5, R9,
+  R10, R14, R15, R16, R17), brought the enumeration to 35 parts, and ran
+  all twelve classes: 82 pairs apply, 26 are covered, and 56 are
+  omissions, 11 accepted and 45 routed to 18 Backlog entries, two of
+  them added. The negative control on CR-003 against PT-23 returned its
+  pair. Self-verified against B1 to B18; the owner's decisions on the
+  weaker *Class* lines and the scope arguments remain. Pointer:
   [plan](plans/p3-n011-sweep-and-omission-list.md),
-  [sweep record](common-risk-catalogue-check.md#sweep-record-the-five-passes).
+  [omission list](common-risk-catalogue-check.md#full-run-the-omission-list),
+  [verification](common-risk-catalogue-check.md#verification-of-node-p3-n011).
 - [ ] **A leaf may need several execute tasks, and plan-model.md says
   one session** — When: 2026-10-30, planning P3-N011. Status: open, for
   P1-N016; five leaves now run as fixed task sequences (P2-N016,
