@@ -11,7 +11,8 @@ P3-N006 (the thin end-to-end slice) built its first five entries. The
 entries after the fifth were opened by transcribing [held
 edges](process/project-model.md#def-held-edge), as decision 8 of the
 plan of P3-N007 directed at the acceptance of that node's first
-execute task (E1).
+execute task (E1). Later entries were opened by transcribing the edges
+a breakdown states, when the Orchestrator entered its children.
 This document is not yet the populated instance. Node P3-N008 (the
 instance over this repository) populates it.
 
@@ -39,8 +40,14 @@ instance over this repository) populates it.
   section *Edges stated at this breakdown*, and the *Dependencies*
   sections of the [plan of
   P3-N006](plans/p3-n006-thin-end-to-end-slice.md) and the [plan of
-  P3-N007](plans/p3-n007-type-declared-amendment-drafted.md). Edges that
-  other records state are still held. An item reading `not yet derived`
+  P3-N007](plans/p3-n007-type-declared-amendment-drafted.md). The
+  entries also hold the children's edges that two breakdowns state:
+  P2-N021 and P2-N022 in the [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), and
+  P2-N017 to P2-N020 in the [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), each in its section *Edges
+  stated at this breakdown*. Edges that other
+  records state are still held. An item reading `not yet derived`
   marks a facet no record has filled yet. Each `state:` line reads what
   the edges the entries hold give.
 
@@ -90,7 +97,8 @@ record](project-model-slice-record.md) holds it.
   tooling's runtime assumption moves from python3 to node))
 - **state:** built, changing (derived from the stages of the nodes on
   the created-by and modified-by lines: the creating nodes done, P3-N007
-  executing; from [Plan register](plan-register.md); [Project model
+  done, P3-N009 identified, P2-N021 executing; from [Plan
+  register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** [Plugin tooling on the portfolio stack,
   specification](specs/p1-n009-plugin-tooling-portfolio-stack.md) (node
@@ -112,7 +120,17 @@ record](project-model-slice-record.md) holds it.
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies) · P3-N009 (Sibling ordering retired; from [specification
   of P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at
-  this breakdown)
+  this breakdown) ·
+  P2-N021 (The web view's first version; task E2 (T095) moved the Cost
+  log and journal parsing out of the core into the shared unit; recorded
+  at T095's result, before its acceptance, because the specification
+  already stated the edge; from
+  [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
 - **used-by:** P1-N008 (mtool checker extension-point proposal; its
   criterion E5 (checks clean) requires the checker to pass; from
   [specification of
@@ -188,7 +206,10 @@ record](project-model-slice-record.md) holds it.
   `src/planRegister/vendored/`, kept in step by
   `plugin/scripts/sync_shared_unit.ts --check`; from [Backlog, entry for
   the service-side adoption](backlog.md); [RU-012 (how two repositories
-  share one unit of code)](rulings.md))
+  share one unit of code)](rulings.md)) ·
+  P2-N021 (The web view's first version; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
 - **formerly:** the service repository's `src/planRegister/parser.ts`
   and `types.ts`, merged and adapted into this file at P1-N010 (from
   [Backlog, entry for P1-N010](backlog.md);
@@ -220,7 +241,10 @@ record](project-model-slice-record.md) holds it.
   P1-N010](backlog.md)) · P1-N012 (The form checker on the shared unit;
   the checker parses the journal and cross-checks it against the Plan
   register and the Cost log; from [Backlog, entry for
-  P1-N012](backlog.md))
+  P1-N012](backlog.md)) ·
+  P2-N021 (The web view's first version; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
 
 ## RU-016 (repository reach)
 
@@ -260,7 +284,10 @@ record](project-model-slice-record.md) holds it.
   Dependencies) · P3-N007 (The type declared, the K-003 amendment
   drafted; from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
-  Dependencies)
+  Dependencies) ·
+  P2-N021 (The web view's first version; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
 
 ## project-orchestrator-repo
 
@@ -296,7 +323,15 @@ record](project-model-slice-record.md) holds it.
   P3-N007 (The type declared, the K-003 amendment drafted; its
   repository reach, write; from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
-  Dependencies) · no record before RU-016 (2026-09-01) names the
+  Dependencies) · P2-N021 (The web view's first version; its
+  repository reach, write; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown) · P2-N017 (The platform facts, verified; its
+  probe branches and the finding; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown) · P2-N018 (The loop in git alone; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown) · no record before RU-016 (2026-09-01) names the
   repository a node wrote, so this list is partial (from [Ruling
   register](rulings.md), RU-016 (repository reach))
 - **used-by:** P2-N009 (Plan-state read; reads this repository's Plan
@@ -313,10 +348,10 @@ record](project-model-slice-record.md) holds it.
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used; [plan of
   P3-N006](plans/p3-n006-thin-end-to-end-slice.md), Dependencies)
-- **state:** built, changing (derived from the created-by line, where
-  P3-N006 is done, and the modified-by line, where P3-N007 is executing
-  and P3-N008 identified; from [Plan register](plan-register.md);
-  [Project model type](process/project-model.md), State derivation)
+- **state:** built (derived from the created-by line, where P3-N006 is
+  done, and the modified-by line, where P3-N007 is done and P3-N008
+  planned; from [Plan register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown)
@@ -343,7 +378,10 @@ record](project-model-slice-record.md) holds it.
   of P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at
   this breakdown; [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md), decision
-  8)
+  8) ·
+  P2-N021 (The web view's first version; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
 
 ## project-model-type
 
@@ -352,8 +390,8 @@ record](project-model-slice-record.md) holds it.
   Edges stated at this breakdown, the slugs used; [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
-- **state:** building (derived from the created-by line, where P3-N007
-  is executing; the modified-by line reads not yet derived; from [Plan
+- **state:** built (derived from the created-by line, where P3-N007 is
+  done; the modified-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -375,7 +413,10 @@ record](project-model-slice-record.md) holds it.
   [specification of P3-N002](specs/p3-n002-comprehension-model.md),
   Edges stated at this breakdown) · P3-N009 (Sibling ordering retired;
   from [specification of P3-N002](specs/p3-n002-comprehension-model.md),
-  Edges stated at this breakdown)
+  Edges stated at this breakdown) ·
+  P2-N021 (The web view's first version; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
 
 ## k-003-amendment
 
@@ -385,8 +426,8 @@ record](project-model-slice-record.md) holds it.
   breakdown, the slugs used; [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
-- **state:** building (derived from the created-by line, where P3-N007
-  is executing; the modified-by line reads not yet derived; from [Plan
+- **state:** built (derived from the created-by line, where P3-N007 is
+  done; the modified-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -413,9 +454,9 @@ record](project-model-slice-record.md) holds it.
 - **is:** The Classification, `docs/classification.md` (from
   [specification of P3-N002](specs/p3-n002-comprehension-model.md),
   Edges stated at this breakdown, the slugs used)
-- **state:** built, changing (derived from the modified-by line, where
-  P3-N007 is executing; the created-by line reads not yet derived; from
-  [Plan register](plan-register.md); [Project model
+- **state:** built (derived from the modified-by line, where P3-N007 is
+  done; the created-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
@@ -442,9 +483,9 @@ record](project-model-slice-record.md) holds it.
   `docs/process/observability.md` (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
-- **state:** built, changing (derived from the modified-by line, where
-  P3-N007 is executing; the created-by line reads not yet derived; from
-  [Plan register](plan-register.md); [Project model
+- **state:** built (derived from the modified-by line, where P3-N007 is
+  done and P2-N018 is identified; the created-by line reads not yet
+  derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
@@ -460,7 +501,10 @@ record](project-model-slice-record.md) holds it.
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown; [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
-  Dependencies)
+  Dependencies) ·
+  P2-N018 (The loop in git alone; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
 - **used-by:** not yet derived (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown)
@@ -471,8 +515,8 @@ record](project-model-slice-record.md) holds it.
   (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
-- **state:** built, changing (derived from the modified-by line, where
-  P3-N007 is executing and P3-N009 identified; the created-by line reads
+- **state:** built (derived from the modified-by line, where P3-N007 is
+  done and P3-N009 and P2-N018 are identified; the created-by line reads
   not yet derived; from [Plan register](plan-register.md); [Project
   model type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -489,9 +533,14 @@ record](project-model-slice-record.md) holds it.
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies) · P3-N009 (Sibling ordering retired; from [specification
   of P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at
-  this breakdown)
-- **used-by:** not yet derived (from [specification of
-  P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
+  this breakdown) ·
+  P2-N018 (The loop in git alone; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **used-by:** P2-N018 after P3-N014 (The loop in git alone; the after
+  qualifier is the record's; no record yet states P3-N014's modifies
+  edge on this resource, a Backlog entry holds it; from [specification
+  of P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
   breakdown)
 
 ## plan-model-spec
@@ -500,10 +549,10 @@ record](project-model-slice-record.md) holds it.
   (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
-- **state:** built, changing (derived from the modified-by line, where
-  P3-N007 is executing and P3-N009 identified; the created-by line reads
-  not yet derived; from [Plan register](plan-register.md); [Project
-  model type](process/project-model.md), State derivation)
+- **state:** built (derived from the modified-by line, where P3-N007 is
+  done and P3-N009 identified; the created-by line reads not yet
+  derived; from [Plan register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown)
@@ -578,7 +627,10 @@ record](project-model-slice-record.md) holds it.
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies) · P3-N008 (The instance, over this repository; from
   [specification of P3-N002](specs/p3-n002-comprehension-model.md),
-  Edges stated at this breakdown)
+  Edges stated at this breakdown) ·
+  P2-N021 (The web view's first version; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
 
 ## backlog
 
@@ -615,7 +667,16 @@ record](project-model-slice-record.md) holds it.
   [specification of P3-N002](specs/p3-n002-comprehension-model.md),
   Edges stated at this breakdown) · P3-N009 (Sibling ordering retired;
   from [specification of P3-N002](specs/p3-n002-comprehension-model.md),
-  Edges stated at this breakdown)
+  Edges stated at this breakdown) ·
+  P2-N021 (The web view's first version; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown) ·
+  P2-N017 (The platform facts, verified; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown) ·
+  P2-N018 (The loop in git alone; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
 - **used-by:** P3-N006 (The thin end-to-end slice; a document the slice
   derives from; from [plan of
   P3-N006](plans/p3-n006-thin-end-to-end-slice.md), Dependencies) ·
@@ -707,7 +768,10 @@ record](project-model-slice-record.md) holds it.
   [specification of P3-N002](specs/p3-n002-comprehension-model.md),
   Edges stated at this breakdown; [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
-  Dependencies)
+  Dependencies) ·
+  P2-N021 (The web view's first version; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
 
 ## project-model-slice-record
 
@@ -800,9 +864,9 @@ record](project-model-slice-record.md) holds it.
 - **is:** The Ruling register type spec, `docs/process/rulings.md` (from
   [plan of P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
-- **state:** built, changing (derived from the modified-by line, where
-  P3-N007 is executing; the created-by line reads not yet derived; from
-  [Plan register](plan-register.md); [Project model
+- **state:** built (derived from the modified-by line, where P3-N007 is
+  done; the created-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
@@ -827,9 +891,9 @@ record](project-model-slice-record.md) holds it.
   (from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
-- **state:** built, changing (derived from the modified-by line, where
-  P3-N007 is executing; the created-by line reads not yet derived; from
-  [Plan register](plan-register.md); [Project model
+- **state:** built (derived from the modified-by line, where P3-N007 is
+  done and P2-N018 is identified; the created-by line reads not yet
+  derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
@@ -843,10 +907,15 @@ record](project-model-slice-record.md) holds it.
 - **modified-by:** P3-N007 (The type declared, the K-003 amendment
   drafted; criterion B4; from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
-  Dependencies)
-- **used-by:** not yet derived (from [plan of
-  P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
-  Dependencies)
+  Dependencies) ·
+  P2-N018 (The loop in git alone; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **used-by:** P2-N018 after P3-N014 (The loop in git alone; the after
+  qualifier is the record's; no record yet states P3-N014's modifies
+  edge on this resource, a Backlog entry holds it; from [specification
+  of P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
 
 ## RU-002 (upstream output is hand-carried)
 
@@ -951,3 +1020,418 @@ record](project-model-slice-record.md) holds it.
   from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
+
+## web-view
+
+- **is:** The service's `/view` routes, their pages and sign-in, in
+  majodali/project-orchestrator-service (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **state:** building (derived from the created-by line, where P2-N021
+  is executing; the modified-by line, where P2-N022 is identified, does
+  not change the value; from [Plan register](plan-register.md); [Project
+  model type](process/project-model.md), State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **risks:** [R18](open-risks.md) (the view cookie, a standing read
+  credential for the whole plan; from [Risk register](open-risks.md))
+- **created-by:** P2-N021 (The web view's first version; task E1 (T094)
+  built the sign-in routes and the tree page in
+  majodali/project-orchestrator-service commit bf8f1b5, its pull request
+  not yet merged; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [Backlog, entry for P2-N021](backlog.md))
+- **modified-by:** P2-N022 (The owner question queue; its answering
+  action; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **used-by:** P2-N022 (The owner question queue; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+
+## project-model-parser
+
+- **is:** The parser of the Project model instance, under
+  `plugin/scripts/lib/`, vendored to the service (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **state:** building (derived from the created-by line, where P2-N021
+  is executing; the modified-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **risks:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **created-by:** P2-N021 (The web view's first version; under decision
+  7 the edge becomes a uses edge if P3-N009 has written the parser when
+  task E3 starts; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **modified-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **used-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+
+## project-orchestrator-service-repo
+
+- **is:** The repository majodali/project-orchestrator-service, a
+  standing resource (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **state:** built (derived by row 4 of the table: no creating or
+  counted modifying node; the modifying nodes of a standing resource are
+  not counted; the created-by line reads not yet derived; from [Project
+  model type](process/project-model.md), State derivation) · standing (a
+  repository; from [Project model type](process/project-model.md),
+  Standing resources)
+- **spec:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **risks:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **created-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **modified-by:** P2-N021 (The web view's first version; its repository
+  reach, write; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Child 1's
+  repository reach) ·
+  P2-N019 (Role-aware identity; its repository reach, write; from
+  [specification of P2-N005](specs/p2-n005-task-pull-loop.md), Edges
+  stated at this breakdown) ·
+  P2-N020 (The task tools; its repository reach, write; from
+  [specification of P2-N005](specs/p2-n005-task-pull-loop.md), Edges
+  stated at this breakdown)
+- **used-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+
+## vendoring-generator
+
+- **is:** The shared-unit generator,
+  `plugin/scripts/sync_shared_unit.ts` (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **state:** built, changing (derived from the modified-by line, where
+  P2-N021 is executing; the created-by line reads not yet derived; from
+  [Plan register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **risks:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **created-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **modified-by:** P2-N021 (The web view's first version; its travelling
+  set; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **used-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+
+## cost-log
+
+- **is:** The Cost log, `docs/cost-log.md` (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **state:** built (derived by row 4 of the table: no creating or
+  counted modifying node; the created-by and modified-by lines read not
+  yet derived; from [Project model type](process/project-model.md),
+  State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **risks:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **created-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **modified-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **used-by:** P2-N021 (The web view's first version; from
+  [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+
+## RU-012 (how two repositories share one unit of code)
+
+- **is:** A ruling: how two repositories share one unit of code (from
+  [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **state:** built (derived by row 4 of the table: no creating or
+  counted modifying node; the created-by and modified-by lines read not
+  yet derived; from [Project model type](process/project-model.md),
+  State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **risks:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **created-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **modified-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **used-by:** P2-N021 (The web view's first version; from
+  [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+
+## owner-question-queue
+
+- **is:** The queue of owner questions and answers in the service, and
+  its answering action in the web view (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **state:** planned (derived from the created-by line, where P2-N022 is
+  identified; the modified-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **risks:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **created-by:** P2-N022 (The owner question queue; from [specification
+  of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges
+  stated at this breakdown)
+- **modified-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **used-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+
+## task-tools
+
+- **is:** The five task tools P2-N005 creates, in the service's `src/`
+  (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **state:** planned (derived from the created-by line, where P2-N020 is
+  identified; the modified-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **risks:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **created-by:** P2-N020 (The task tools; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **modified-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **used-by:** P2-N022 (The owner question queue; the record writes the
+  slug `task-pull-loop` and directs the slug of P2-N005's specification;
+  from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+- **alias:** `task-pull-loop` (2026-10-30; the slug the specification of
+  P2-N003 wrote for this resource; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown)
+
+## p2-n005-platform-facts
+
+- **is:** The finding, `docs/findings/p2-n005-platform-facts.md` (from
+  [specification of P2-N005](specs/p2-n005-task-pull-loop.md), Edges
+  stated at this breakdown)
+- **state:** planned (derived from the created-by line, where P2-N017 is
+  identified; the modified-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **risks:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **created-by:** P2-N017 (The platform facts, verified; from
+  [specification of P2-N005](specs/p2-n005-task-pull-loop.md), Edges
+  stated at this breakdown)
+- **modified-by:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **used-by:** P2-N018 (The loop in git alone; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown) · P2-N019 (Role-aware identity; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown) · P2-N020 (The task tools; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+
+## pull-run-protocol
+
+- **is:** The *Pull runs* section of `docs/process/dispatch.md`: the
+  forms and the steps (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **state:** planned (derived from the created-by line, where P2-N018 is
+  identified; the modified-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **risks:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **created-by:** P2-N018 (The loop in git alone; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **modified-by:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **used-by:** P2-N020 (The task tools; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+
+## enlistment-spec
+
+- **is:** The enlistment process document, `docs/process/enlistment.md`
+  (from [specification of P2-N005](specs/p2-n005-task-pull-loop.md),
+  Edges stated at this breakdown)
+- **state:** built (derived by row 4 of the table: no creating or
+  counted modifying node; P2-N018 on the modified-by line is identified;
+  the created-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **risks:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **created-by:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **modified-by:** P2-N018 (The loop in git alone; from [specification
+  of P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **used-by:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+
+## roles-spec
+
+- **is:** The roles process document, `docs/process/roles.md` (from
+  [specification of P2-N005](specs/p2-n005-task-pull-loop.md), Edges
+  stated at this breakdown)
+- **state:** built (derived by row 4 of the table: no creating or
+  counted modifying node; P2-N018 on the modified-by line is identified;
+  the created-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **risks:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **created-by:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **modified-by:** P2-N018 (The loop in git alone; from [specification
+  of P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **used-by:** P2-N019 (Role-aware identity; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+
+## session-handle
+
+- **is:** `session_register`, the handle store and the lease's role
+  check, in the service's `src/` (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **state:** planned (derived from the created-by line, where P2-N019 is
+  identified; the modified-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **risks:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **created-by:** P2-N019 (Role-aware identity; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **modified-by:** not yet derived (from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+- **used-by:** P2-N020 (The task tools; from [specification of
+  P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
+  breakdown)
+
+## cost-log-and-journal-grammar
+
+- **is:** The shared unit that parses Cost log rows and run journal
+  lines, `plugin/scripts/lib/cost-log-and-journal.ts`, imported by the
+  form checker's core and vendored to the service (from [specification
+  of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges
+  stated at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
+- **state:** building (derived from the created-by line, where P2-N021
+  is executing; the modified-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
+- **risks:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
+- **created-by:** P2-N021 (The web view's first version; task E2 (T095),
+  majodali/project-orchestrator commit 3259736, its pull request not yet
+  merged; recorded at T095's result, before its acceptance, because the
+  specification already stated the edge; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
+- **modified-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
+- **used-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))

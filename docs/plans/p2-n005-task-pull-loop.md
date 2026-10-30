@@ -147,8 +147,10 @@ when the claim nears its expiry.
 
 A claim carries an expiry, two hours by default, set in the task file.
 The claimant renews it by pushing a later commit to its claim branch.
-A claimant that gives up deletes its claim branch, and the task is
-claimable again.
+A claimant that gives up pushes a release commit to its claim branch.
+At its next loop the Orchestrator re-offers the task under a new task
+ID, as for an expired claim
+([specification](../specs/p2-n005-task-pull-loop.md), decision 15).
 
 An expired claim ends the task. At its next loop, the Orchestrator
 journals the task `stale`, runs a form check, and offers a fresh task
@@ -425,7 +427,10 @@ source of progress truth) for decision 3.
    outage, which needs two claim stores reconciled. Affected locations:
    none.
 5. How a claim ends. Default: at acceptance, at voluntary release by
-   deleting the claim branch, or at its expiry, two hours by default
+   a release commit on the claim branch (corrected at the
+   specification gate by the
+   [specification](../specs/p2-n005-task-pull-loop.md)'s decision 15;
+   the text read "by deleting the claim branch"), or at its expiry, two hours by default
    and renewable. An expired claim makes the task `stale`, and the
    Orchestrator re-offers it under a new task ID. A late result for a
    stale task is not accepted. Rationale: it applies dispatch.md's stale

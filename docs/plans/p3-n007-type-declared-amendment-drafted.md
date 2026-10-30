@@ -1,6 +1,6 @@
 # The type declared, the arguments written, the K-003 amendment drafted
 
-Status: active
+Status: closed → Backlog entry (node P3-N007 done 2026-10-30 at the owner's verifying gate; see the Backlog entry "The type declared, the arguments written, the K-003 amendment drafted")
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -560,6 +560,40 @@ section as its specification. The drafted affected-location texts of
 the adopted decisions were placed by the Orchestrator at this crossing
 (task T069). Next: E1, the type and the design arguments, at the
 advanced tier; then E2, the amendment IR first.
+
+## Gate record, 2026-10-30, at verifying
+
+The owner crossed this node's `verifying` gate on 2026-10-30, under
+RU-005 (proposal-class nodes are owner-gated at verifying): "P3-N007
+amendment approved and terms ratified. Go ahead and dispatch the
+meta-review". The decisions:
+
+- The [K-003 proposal](../proposals/planning-execution-model-is-progress-truth.md)
+  is approved for carrying as it stands, the IR's ask A1. Count 1 closed
+  at the limit, round 10 not readable, the final round's fixes
+  confirmed.
+- Two open points of the review record are adopted at their defaults:
+  the appended sentence stays one sentence of 29 words, and the
+  referent clauses and the title stay as written, yielding to the
+  exception.
+- The decided claims the rounds reworded are ratified in their new
+  wording, and the proposed claims are decided.
+- Ten terms are ratified: alias line, closing parenthetical, node item,
+  after qualifier, gate item, outside item, partial item and date note,
+  defined in the [type specification](../process/project-model.md#defined-terms);
+  and list of what is next and rendering, the IR's ask A3, which gain
+  definition sites there.
+- The meta-review of count 1 is dispatched as communication-pipeline
+  evaluation case 013. The review record keeps `Meta-review: pending`
+  until that case is delivered.
+
+The node completes at the artifact, under RU-003 (a node targeting an
+external party completes at the artifact), and moved `verifying` →
+`done`. Nothing is carried upstream by this node, under RU-002
+(upstream output is hand-carried) and criterion B16. The owner carries
+the proposal and its IR to majodali/methodology in RU-015's delivery
+form, re-verifying the quote of K-003 against upstream `main` first.
+P3-N008's executing stage no longer waits (decision 9).
 
 ## References
 

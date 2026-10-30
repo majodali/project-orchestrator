@@ -1,6 +1,6 @@
 # Review record: a declared planning/execution model is the source of progress truth
 
-Status: closed (count 1 closed at the limit on 2026-10-30; the verdict at round 10 not readable; the final round's fixes confirmed; Meta-review: pending)
+Status: closed (count 1 closed at the limit on 2026-10-30; the verdict at round 10 not readable; the final round's fixes confirmed; the proposal approved for carrying by the owner at node P3-N007's verifying gate on 2026-10-30, with the reworded claims and the two terms ratified; Meta-review: delivered 2026-10-30, communication-pipeline evaluation case 013)
 
 <!-- K-007 contract: Status transitions open → closed (the count's
      verdict recorded and the fixes confirmed). This file is the
@@ -679,9 +679,11 @@ percent against 27 percent more claims; signal 4 fired (contradictions
 in rounds 6 and 10 on passages earlier fixes wrote). The count reached
 the limit.
 
-Meta-review: pending. The owner is asked, in the report that delivers
-this proposal to the P3-N007 gate, to dispatch a meta-review of this
-count (an evaluation case in communication-pipeline).
+Meta-review: delivered 2026-10-30, [communication-pipeline evaluation
+case 013](https://github.com/majodali/communication-pipeline/blob/main/eval/cases/013-meta-review-k003-proposal-count-1-2026-10-30.md),
+from the pipeline's branch `meta-review-case-013`, pull request #26 in
+majodali/communication-pipeline, its merge to `main` pending. The owner
+dispatched it at the P3-N007 gate, as this record asked.
 
 Decided claims changed by structural fixes, for the owner: none; the
 step-6 fix added C78 (proposed). Decided claims reworded in the rounds,
