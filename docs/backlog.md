@@ -491,19 +491,16 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   `docs/registers/common-risk-catalogue.md` upstream, written IR first
   and reviewed, delivered under RU-015 and RU-022 (spec child C).
   Depends on P3-N011.
-- [ ] **P3-N013 identified, 2026-10-29** — W-001's four stop
-  conditions made decidable, evidenced, and related to the meta-review
-  signals in the relation table
-  ([spec, child A](specs/p3-n005-sequence-mode.md)). Planned
-  2026-10-29 (T050): [plans/p3-n013-stop-conditions-decidable.md](plans/p3-n013-stop-conditions-decidable.md),
-  a leaf run as a fixed sequence of tasks E1 to E4 with blindness
-  built into the commit graph; decisions 1 to 7 staged (decision 6
-  closes a gap: no predicate reads a `blocked` status); two terms for
-  ratification, predicate commit and stand-in grant. Carried from the
-  task: no committed source holds the pinned v1.6.0 signal text, so the
-  packet or the tag URL must carry it; no past task has a ratification
-  record. Gate crossed 2026-10-30, defaults 1 to 7; specified. Next:
-  E1.
+- [x] **W-001's four stop conditions as decidable predicates, with
+  two blind readings and the relation table** (node P3-N013) — When:
+  done 2026-10-30, tasks T056 and T059 to T067 (E1, three rounds of
+  readings, three comparisons). Status: done, pending the
+  Orchestrator's acceptance; predicate text at draft 4, commit
+  `fcf4894`; 53 corpus items at cut-off `d1c3659`; the readings agree
+  on all 212 verdict rows, 95 of 95 where input existed; predicates 1
+  and 4 closed after round 2, 2 and 3 after round 3, none escalated;
+  signal 3 and signal 2's restatement half have no counterpart.
+  Pointer: [record](findings/p3-n005-stop-predicates.md), [plan](plans/p3-n013-stop-conditions-decidable.md).
 - [ ] **A leaf whose evidence needs independent sessions** — found
   2026-10-29 planning P3-N013: `plan-model.md`'s leaf definition
   assumes one session, while P3-N013's two blind readings need
@@ -514,6 +511,83 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 - [ ] **W-001's stop conditions do not name a `blocked` chunk** —
   found 2026-10-29 planning P3-N013; evidence for P3-N016's
   determination.
+- [ ] **Meta-review signal 3, prose growth, has no counterpart** —
+  When: 2026-10-30, P3-N013's relation table (T056). Status: open;
+  no W-001 condition and no `dispatch.md` rule measures how one
+  deliverable grows; evidence for P3-N016 (criterion D2). Pointer:
+  [record](findings/p3-n005-stop-predicates.md), *The rows*, row 3.
+- [ ] **Meta-review signal 2's restatement half has no counterpart** —
+  When: 2026-10-30, P3-N013's relation table (T056). Status: open;
+  nothing reads a recurring restatement mismatch; evidence for
+  P3-N016 (criterion D2). Pointer: [record](findings/p3-n005-stop-predicates.md), *The rows*, row 2.
+- [ ] **No stop condition covers non-convergence across chunks** —
+  When: 2026-10-30, P3-N013's relation table (T056). Status: open;
+  successive chunks reworking one passage stop nothing; evidence for
+  P3-N016. Pointer: [record](findings/p3-n005-stop-predicates.md), *The rows*, the structural reading.
+- [ ] **Which text methodology commit `350f75f` holds** — When: 2026-10-30,
+  P3-N013 E1 (T056). Status: open; parent decision 9 names the
+  signal rewording `350f75f`, and the record relates the text quoted
+  at `195eba9`; for P3-N016, which cites the later text. Pointer:
+  [record](findings/p3-n005-stop-predicates.md), *The text related*.
+- [ ] **A result names no repository for a ref of another
+  repository** — When: 2026-10-30, P3-N013 readings, rounds 1 to 3.
+  Status: open; predicate 2 fails closed on 8 corpus items, T008,
+  T027 and T032 to T037; for P3-N014's handoff contract, a full name
+  per ref. Pointer: [record](findings/p3-n005-stop-predicates.md), *Revision log*, points not revised in round 2.
+- [ ] **Predicate 2's naming forms in the normative text** — When: 2026-10-30,
+  P3-N013 readings, round 3 (T065, T066). Status: open; the possessive
+  "the service repo's" decides T031, and "the repository", "this repo"
+  and "the repo" would decide T034; for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md),
+  *Round 3*, the hard points.
+- [ ] **"All twelve staged decisions settled" against predicate 3's
+  adoption wording** — When: 2026-10-30, P3-N013 readings, round 3 (T065,
+  T066). Status: open; both readings matched it, and a strict reading
+  turns 14 continues to stop; for P3-N014, evidence for P3-N016.
+  Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard points.
+- [ ] **Predicate 3's failed-closed mark for an entry failing the record
+  and the time** — When: 2026-10-30, P3-N013 readings, round 3 (T065,
+  T066). Status: open; the text marks "the record alone", and both
+  readings left T002 and T003 unmarked; for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md),
+  *Round 3*, the hard points.
+- [ ] **Predicate 3's override forms and gate headings** — When: 2026-10-30,
+  P3-N013 readings, round 3 (T065, T066). Status: open; only adoption
+  forms are listed, and "with defaults 1 to 3" and a "Gate evidence"
+  heading are unaddressed; for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the
+  hard points.
+- [ ] **A member's documents when its register line links the parent's
+  specification** — When: 2026-10-30, P3-N013 reading 1, round 3 (T065).
+  Status: open; read as a member document with its own stated node
+  (T048 to T050); for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard
+  points.
+- [ ] **Predicate 2's W-002 flag verbs** — When: 2026-10-30, P3-N013
+  readings, round 3 (T065, T066). Status: open; T016's "was used"
+  raises no flag under the closed verb list; for P3-N014, the role
+  raising the flag in immediate-class words. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*,
+  the hard points.
+- [ ] **A grant "up to" a gate in the ratification record** — When: 2026-10-30,
+  P3-N013 reading 1, round 3 (T065). Status: open; grants G7, G9 and
+  G12 were read inclusively; for P3-N014, stages listed explicitly
+  (parent decision 13). Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard points.
+- [ ] **Predicate 1's normative text and negated failure words** —
+  When: 2026-10-30, P3-N013 reading 2, round 2 (T063). Status: open; T024's
+  "cannot immediately fail that repo's form check" split the
+  failed-closed column; for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md), *Revision log*,
+  points not revised in round 2.
+- [ ] **The journal's stage values, and gate events that carry a task
+  ID** — When: 2026-10-30, P3-N013 readings, round 3 (T065, T066).
+  Status: open; "break down" and "verify" are not `plan-model.md`
+  stage words, and some gate events carry a task ID; for P1-N016,
+  `observability.md`. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard points.
+- [ ] **A blind task's scratch directory is shared** — When: 2026-10-30,
+  P3-N013 E4 round 3 (T067). Status: open; reading 1's round 3
+  verdicts sat in the session's shared scratch directory when reading
+  2 ran, and T065 left `/gates.py` outside every repository; for
+  P1-N016, a private scratch directory per blind task. Pointer: [record](findings/p3-n005-stop-predicates.md),
+  *Round 3*, blindness outside the commit graph.
+- [ ] **Dispatch checks that the task's worktree exists** — When: 2026-10-30,
+  T066's false start. Status: open; T066 was dispatched before its
+  worktree existed; `dispatch.md` names no such check; for P1-N016.
+  Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, blindness outside the commit graph.
 - [ ] **P3-N014 identified, 2026-10-29** — the loop runs sequence mode
   and the roles meet the conditions without looking: asks name their
   addressee, result-received events carry the Asks part (spec child B;

@@ -38,7 +38,9 @@ round 2; draft 4 leaves their text as draft 3, commit `027ca03`, wrote
 it. Round 2's readings started from draft 3, and round 1's from draft
 2, commit `d843457`. The revision log, the hard-case sample's verdicts, the
 mechanical pre-pass, the relation table and the agreement result were
-added by later commits that no reading contains.
+added by later commits that no reading contains. All four predicates
+closed: 1 and 4 after round 2, and 2 and 3 after round 3 (*The
+agreement result*).
 
 ## How a reading applies the predicates
 
@@ -864,10 +866,10 @@ counterpart.
 
 **The "no counterpart" rows.** Row 3 and the restatement half of row 2
 have no counterpart. Each needs a Backlog entry (parent decision 14)
-and an answer in node P3-N016's determination (criterion D2). This
-task proposes the two entries in its result; the comparison task
-writes them with the readings' additions. Round 1 led to a revision,
-so they are written when the node closes.
+and an answer in node P3-N016's determination (criterion D2). The
+round 3 comparison task wrote both entries in the
+[Backlog](../backlog.md) when the node closed, with a third for the
+missing condition on non-convergence across chunks.
 
 ## The agreement result
 
@@ -1071,8 +1073,150 @@ A10 under the C1 profile.
 
 ### Round 3: draft 4, commit `fcf4894`
 
-Still to come, after both readings score predicates 2 and 3 from
-draft 4.
+Reading 1 ran on the frugal tier as task T065 and committed
+[reading-1-round-3.md](p3-n005-stop-predicates/reading-1-round-3.md)
+as `04f7e00`. Reading 2 ran on the advanced tier as task T066 and
+committed
+[reading-2-round-3.md](p3-n005-stop-predicates/reading-2-round-3.md)
+as `7a18e1a`. Each commit's parent is `fcf4894`, and each touches only
+its own verdict file. Each file holds 106 rows: 53 items and
+predicates 2 and 3. Predicates 1 and 4 closed after round 2 and were
+not scored again.
+
+**The diff.** No row differs. The two files agree on every verdict,
+every failed-closed mark and every I5 entry. Test 4 found an open
+question for T015 alone, as in rounds 1 and 2.
+
+Both files give the verdicts the author of draft 4 expected. Their
+predicate 3 rows equal reading 2's round 2 rows, verdict and mark.
+Their predicate 2 rows equal reading 1's round 2 rows. Against round
+2, 22 rows moved:
+
+- Reading 1, predicate 3: 18 verdicts moved from `continue` to `stop`.
+  T004's is marked failed closed: neither P1-N008 document has a gate
+  record section. The other 17 are not: T005, T006, T011, T012, T019,
+  T020, T028, T039 to T042, T044 to T046 and T048 to T050. Each fails
+  *the time*. Three marks moved to not failed closed: T002, T003 and
+  T029.
+- Reading 2, predicate 2: T031 moved from `stop`, failed closed, to
+  `continue`. Both readings read "the service repo's" in its notes as
+  the naming form "the service repo", which grant G12 names.
+
+**The agreement, twice.** As in rounds 1 and 2, a row's input existed
+when at least one reading did not mark its verdict failed closed.
+
+| Predicate | Rows | Same verdict | Rows whose input existed | Same verdict there | Stops, reading 1 and 2 | Failed closed, reading 1 and 2 |
+|---|---|---|---|---|---|---|
+| 2 | 53 | 53 | 42 | 42 | 13 and 13 | 11 and 11 |
+| 3 | 53 | 53 | 40 | 40 | 39 and 39 | 13 and 13 |
+| Both | 106 | 106, 100% | 82 | 82, 100% | | |
+
+**Against the pre-pass.** Both readings agree with every field the
+[pre-pass](p3-n005-stop-predicates/prepass-output.md) decides for
+predicates 2 and 3. The pre-pass, re-run at the cut-off, reproduces its
+committed output byte for byte.
+
+- Every pre-pass stop on these two predicates is a stop in both
+  readings: predicate 2 for T051 and T053, and predicate 3's test 1 for
+  its 16 items.
+- For the 41 items with a `result-received` event, each reading's
+  predicate 3 row states the status token the pre-pass gives. For the
+  12 items without one, both readings record no status.
+- The pre-pass marks predicate 3 failed closed for 12 items. Both
+  readings mark 10 of them so. T029 also stops on test 2's time and
+  T038 on test 3, so neither is marked failed closed. Both readings
+  also mark three items the pre-pass leaves open: T004, on test 2's
+  record alone, and T051 and T053, which have no member. The pre-pass
+  decides test 1 only, so this is no conflict with it.
+
+**The decision per predicate.** As in round 2, a predicate closes when
+its two readings agree on every verdict.
+
+| Predicate | Verdicts differing | Failed-closed marks alone differing | Decision |
+|---|---|---|---|
+| 1 | not scored | not scored | Closed after round 2, at draft 3. |
+| 2 | none | none | Closed at draft 4. Round 3's verdicts are its evidence. |
+| 3 | none | none | Closed at draft 4. Round 3's verdicts are its evidence. |
+| 4 | not scored | not scored | Closed after round 2, at draft 3. |
+
+All four predicates closed within the plan's bound of two revision
+rounds. No predicate returns `needs-judgment` to the owner. The text
+the readings last scored is draft 4, commit `fcf4894`. Its predicates
+1 and 4 read as draft 3 wrote them.
+
+**The node's final figures.** Each predicate is counted at the round
+that closed it.
+
+| Predicate | Closed after | Reading commits | Rows | Same verdict | Rows whose input existed | Same verdict there |
+|---|---|---|---|---|---|---|
+| 1 | Round 2, draft 3 `027ca03` | `ea7c4ef`, `0aa26f8` | 53 | 53 | 13 | 13 |
+| 2 | Round 3, draft 4 `fcf4894` | `04f7e00`, `7a18e1a` | 53 | 53 | 42 | 42 |
+| 3 | Round 3, draft 4 `fcf4894` | `04f7e00`, `7a18e1a` | 53 | 53 | 40 | 40 |
+| 4 | Round 2, draft 3 `027ca03` | `ea7c4ef`, `0aa26f8` | 53 | 53 | 0 | none |
+| All | | | 212 | 212, 100% | 95 | 95, 100% |
+
+Round by round, the agreement over rows whose input existed was 92 of
+94 in round 1, 77 of 96 in round 2 and 82 of 82 in round 3.
+Predicate 4 has no row whose input existed. That is a recorded result,
+not a failure (addition A3+). Condition 4's agreement on the
+demonstration's results is added by node P3-N015 (parent criterion C7).
+This node's `done` does not wait for it.
+
+**The hard points that remain.** Agreement closes a predicate. It does
+not show that every clause reads one way only. The round 3 readers
+reported eleven points (reading 1) and six (reading 2). None splits a
+verdict between them. The table holds the points that both reported,
+and those that bear on the normative text node P3-N014 writes. Each
+is evidence for node P3-N016's determination, and each has a
+[Backlog](../backlog.md) entry. Neither revises the predicate text:
+the plan's two revision rounds are spent.
+
+| Point | Reported by | Items | How the readings applied it | What the other reading would change |
+|---|---|---|---|---|
+| Words between "all" and "staged decisions", as in "All twelve staged decisions settled" | Both; reading 1's largest point | The `continue` rows of predicate 3 | As a statement that all staged decisions are settled | Reading 1 states that a strict reading turns all 14 predicate 3 continues to `stop` |
+| The failed-closed mark when an entry fails both *the record* and *the time* | Both | T002, T003 | Not failed closed: the entry fails the time | The mark only; the verdict stays `stop` |
+| A naming form in the possessive, and forms the closed list leaves out | Reading 2, the possessive; reading 1, "the repository", "this repo" and "the repo" | T031; T032, T034 | "the service repo's" matches; the left-out forms do not | T031 to `stop`, failed closed, without the possessive; T034 to `continue` with the left-out forms |
+| The journal's `stage` values "break down" and "verify" are not among the seven stage words | Reading 1 | T013, T026, T052 | Compared as written with the grant | None |
+| "adopts or overrides", with only the adoption forms listed; a gate record "with defaults 1 to 3"; a section headed "Gate evidence" | Reading 1; reading 2, the "with" wording | T043, T048, items of P2-N012 | An override counted as a settled entry; "with defaults" as adoption; "Gate evidence" not a gate record section | None |
+| A W-002 licence that "was used" | Both | T016 | No flag: "used" is not one of the three verbs | A flag, which grant G7a names; no change |
+| A member whose register line links its parent's specification | Reading 1 | T048 to T050 | The parent's specification is a member document, with its own stated node | None |
+| Grants "up to" a gate at `verifying`; a stop on missing and recorded input | Reading 1 | Items of G7, G9 and G12; T029, T038 | The gate's stage included; such a stop not marked failed closed | None |
+| Gate events that carry a task ID | Reading 2 | None named | No verdict rests on it | None |
+
+Reading 1 also found that the P2-N012 specification's *Gate outcome,
+2026-09-01* settles "decisions 7–11" and describes decision 11, while
+its *Decisions for the gate* section holds entries 7 to 10 only. No
+verdict rests on it: an entry is a numbered entry, and there is no
+entry 11.
+
+**Blindness outside the commit graph.** The commit graph shows each
+reading blind to the other (below). The session's scratch directory is
+shared by every task of the session. Reading 1's round 3 verdict
+generator, holding its predicate 3 verdict text, was in that directory
+when reading 2 ran. Reading 2's own scratch files name none of reading
+1's files. This task cannot tell whether reading 2 read them. Reading
+2's session transcript would show it, and this task did not read it.
+Reading 1 also left an empty file, `/gates.py`, outside
+every repository. Separately, reading 2 was dispatched once before its
+worktree existed, and blocked. The Orchestrator's journal records it
+in its `result-received` event for T066. The Backlog entries on private scratch
+directories and on the worktree check record both gaps.
+
+**Self-verification at round 3, the node's last**, against child A's
+criteria A1 to A10 under the C1 profile.
+
+| Criterion | Result | Evidence |
+|---|---|---|
+| A1, I1 to I4 as written | Met | Each predicate names its artifact and field, is a lookup or a wording match, and fails closed. Each yields the same verdict on every row in both readings of the round that closed it: predicates 1 and 4 in round 2, predicates 2 and 3 in round 3. |
+| A2, the corpus | Met | Cut-off `d1c3659`; 53 items; the artifacts read per item; 0 exclusions. Every row of both round 3 files cites a journal event, a Cost log row, the corpus statement or a member document. Neither file cites a session transcript. |
+| A3, the Asks inventory | Met | Unchanged: no item carries a committed Asks part; the gap is 53 of 53 (addition A3+). |
+| A4, the hard-case sample first | Met | Unchanged: commit `6096b56`, before any reading's commit. |
+| A5, tiers and packets | Met | The Orchestrator's journal records T065 dispatched as reading 1, round 3, "frugal tier, blind", and T066 as reading 2, round 3, "advanced tier, blind". Both start from `fcf4894`, and both files cite the same predicate commit and cut-off. |
+| A6, blindness and the pre-pass | Met on the commit graph | `git merge-base --is-ancestor`: `04f7e00` against `7a18e1a` exits 1, and `7a18e1a` against `04f7e00` exits 1; the round 2 record commit `4bbdabd` against each exits 1; `6096b56` against each exits 1; `fcf4894` against each exits 0. Both readings agree with the pre-pass, as above. The shared scratch directory is outside this check, as stated above. |
+| A7, disagreements closed | Met | Predicates 1 and 4 closed after one revision round, predicates 2 and 3 after two, the plan's bound. Each closing round's readings agree on every verdict. No condition is escalated to the owner. |
+| A8, text fixed before the readings | Met | `fcf4894` is the parent of both round 3 reading commits. No predicate text changed after them. |
+| A9, conditions 3 and 4 together | Met | Every predicate 3 row of both round 3 files fills the I5 column, and the two agree. |
+| A10, the relation table | Met | Five rows, the evaluation table and the v1.6.0 quotes are above. Each "no counterpart" row has a Backlog entry, written with this round. |
 
 ## References
 
