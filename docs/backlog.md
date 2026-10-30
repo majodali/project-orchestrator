@@ -466,19 +466,28 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   drafts is released and pinned (P3-N002 decision 13, option (a), owner
   2026-10-29). Paired with a rendering tool for the Backlog's two
   remaining jobs, the implementation map and the list of what is next.
-- [ ] **P3-N010 identified, 2026-10-29** — one risk class carried end
-  to end: the execution-environment entry under the entry test ET-1 to
-  ET-4, with at least two independent encounters
-  ([spec, child A](specs/p3-n003-common-risk-catalogue.md)). Planned
-  2026-10-29 (T049): [plans/p3-n010-one-class-end-to-end.md](plans/p3-n010-one-class-end-to-end.md),
-  a leaf; decisions 1 to 5 staged (no separate specify task; step 1 of
-  the check reads the Classification of the repository holding each
-  part; the parts enumeration reads every checked Backlog entry; CR-001
-  cited from the Risk register entries that instantiate it; no IR at
-  this child). Carried from the task: the check could come back empty
-  under this repository's component/library Classification; 20 of 47
-  checked Backlog entries sit under Completed. Gate crossed 2026-10-30,
-  defaults 1 to 5; specified. Next: execute.
+- [ ] **One risk class carried end to end (node P3-N010, child A of P3-N003)** —
+  When: executed 2026-10-30, task T055. Status: shipped and
+  self-verified against criteria A1 to A13. The catalogue holds CR-001
+  with five independent encounters. Of 30 parts, 14 apply, 6 of those
+  are covered by R12 or R13 and 8 are omissions. The negative control
+  returned its pair. Pointer:
+  [check document](common-risk-catalogue-check.md),
+  [catalogue](proposals/common-risk-catalogue.md),
+  [plan](plans/p3-n010-one-class-end-to-end.md).
+- [ ] **Track the service's deployed parts under CR-001, or check them where they run** —
+  When: 2026-10-30, P3-N010 run record, omission items O2, O3, O4, O6
+  and O8. Status: open; five parts have no Risk register entry citing
+  CR-001 (reachability slice, plan-state read, plan-state update,
+  alias-aware lease-table selection, the live surface), and the deploy
+  workflow sends no request to production after promotion. Pointer:
+  [omission list](common-risk-catalogue-check.md#omission-list).
+- [ ] **Whether R7's SessionStart billing check fires on each surface** —
+  When: 2026-10-30, P3-N010 run record, omission item O1. Status: open;
+  the hook is declared only in `plugin/hooks/hooks.json`, R9 records the
+  plugin as never observed loading, and no committed record shows the
+  hook running. Pointer:
+  [omission list](common-risk-catalogue-check.md#omission-list).
 - [ ] **P3-N011 identified, 2026-10-29** — the sweep, the rest of the
   catalogue and the omission list in the check document (spec child
   B). Depends on P3-N010.
