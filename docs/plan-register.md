@@ -35,7 +35,7 @@ honestly; chunks 1–3 completed before this register existed.
     - P2-N014 [done] Pull-request checks that cannot deploy
     - P2-N015 [done] Alias-aware lease-table selection, failing closed
     - P2-N016 [done] Deploy, smoke and promote on merge to main
-  - P2-N003 [planned] Owner questions and the plan view (chunk 2) — split into the web view's first version, specified against P3-N006, and the owner question queue, after P2-N006 (owner, 2026-10-29); plan gate crossed 2026-10-30, defaults 1 to 10 — plan: plans/p2-n003-owner-questions-and-plan-view.md
+  - P2-N003 [specified] [gated: owner review of the specification, decisions 11 to 15 and three terms] Owner questions and the plan view (chunk 2) — split into the web view's first version, specified against P3-N006, and the owner question queue, after P2-N006 (owner, 2026-10-29); plan gate crossed 2026-10-30, defaults 1 to 10 — plan: plans/p2-n003-owner-questions-and-plan-view.md · spec: specs/p2-n003-owner-questions-and-plan-view.md
   - P2-N004 [identified] Topics and coordination (chunk 3) — after P2-N006, built only on a shown need (owner, 2026-10-29)
   - P2-N005 [specified] [gated: owner review of the specification, decisions 14 to 22 and three terms] The task-pull loop (chunk 4) — independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29): the next service chunk; plan gate crossed 2026-10-30, defaults 1 to 13 — plan: plans/p2-n005-task-pull-loop.md · spec: specs/p2-n005-task-pull-loop.md
   - P2-N006 [identified] Migration and pilot (chunk 5) — depends on P2-N005 and on the web view's first version of P2-N003, not on P2-N003 as a whole (owner, 2026-10-29)

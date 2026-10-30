@@ -2903,6 +2903,23 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   an owner demonstration) and the owner question queue at outcome
   depth. Pointer:
   [specification](specs/p2-n003-owner-questions-and-plan-view.md).
+- [ ] **Waits per task under the node-to-node dependency rule** — When:
+  2026-10-30, specifying P2-N003 (T093). Status: open; the type's rule
+  is per node, while P2-N003's plan decision 8 is per task; a register
+  note carries the split until P3-N009 decides how a task-level wait is
+  recorded. Pointer:
+  [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#edges-stated-at-this-breakdown).
+- [ ] **Record the view cookie as a risk** — When: 2026-10-30,
+  specifying P2-N003 (T093). Status: open; a proposed R18: the view
+  cookie is a standing read credential for the whole plan on the
+  owner's devices, mitigated by its attributes, a 30-day lifetime and
+  revocation by token rotation (decision 13). Pointer:
+  [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#risks).
+- [ ] **The task page reads P2-N005's task files** — When: 2026-10-30,
+  specifying P2-N003 (T093). Status: open, after P2-N005; once task,
+  claim and result files exist in git, the task page can show them
+  beside the Cost log row and the journal events. Pointer:
+  [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#the-task-page).
 - [ ] **Drill from the web view to code and test results** — When:
   2026-10-30, planning P2-N003 (T075). Status: open; waits for the
   plan-model amendment on where each node's verification evidence

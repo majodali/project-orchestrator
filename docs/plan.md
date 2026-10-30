@@ -289,7 +289,7 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 ### P2-N003 Owner questions and the plan view (chunk 2)
 
-- Stage: planned, 2026-10-30 (task T075); plan gate crossed 2026-10-30 with defaults 1 to 10. The specification (task T093) is being written; it carries the web view child at full criteria depth and the queue child at outcome depth, and both enter the register at its gate.
+- Stage: specified, 2026-10-30 (task T093), gated on the owner's review of the specification: decisions 11 to 15 and three terms. The specification carries the web view's first version at full depth (criteria V1 to V30, tasks E1 to E3 and the owner demonstration) and the owner question queue at outcome depth; both enter the register at its gate as P2-N021 and P2-N022.
 - Outcome: The service plan gives this chunk an owner question queue and a first view of the plan. P2-N003 stays one node until its planning splits it into two children. One child is the first version of the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view), read-only and drilling down to node and task. The second child is the owner question queue.
 - Depends on: nothing for its own planning, which performs the split. After the split, the web view child waits on P3-N006 (the thin end-to-end slice). The queue child waits on P2-N006 (migration and pilot).
 - Needed by: P2-N006, which needs the web view child only.
@@ -518,7 +518,6 @@ Actionable, not yet dispatched:
 
 Specifying now, after the owner's gate of 2026-10-30:
 
-- P2-N003 (owner questions and the plan view): the specification, task T093; the web view's first version and the owner question queue enter at its gate.
 
 Executing now, dispatched after the owner's second plan gates of 2026-10-30:
 
@@ -529,6 +528,7 @@ Gated on the owner:
 - P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
 - P2-N005 (the task-pull loop): specified; your review of the specification, decisions 14 to 22 (decision 15 changes how a claim is released, with drafted corrections to the plan) and three terms (pull run, offering branch, claim commit); the four children enter at that gate.
+- P2-N003 (owner questions and the plan view): specified; your review of the specification, decisions 11 to 15 and three terms (view token, view cookie, not computable); the two children enter at that gate.
 - P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): verifying; your review of the K-003 proposal under RU-005 (approve for carrying, amend or return), ten terms, the open points of its record, and a meta-review of its count.
 - P3-N011 (the sweep, the rest of the catalogue, and the omission list): verifying; the owner's rulings on the omission list (56 items), the three weaker Class lines, the scope arguments and closed entries, and the terms citation test and delta row.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
