@@ -484,6 +484,19 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   under this repository's component/library Classification; 20 of 47
   checked Backlog entries sit under Completed. Gate crossed 2026-10-30,
   defaults 1 to 5; specified. Next: execute.
+- [ ] **Track the service's deployed parts under CR-001, or check them where they run** —
+  When: 2026-10-30, P3-N010 run record, omission items O2, O3, O4, O6
+  and O8. Status: open; five parts have no Risk register entry citing
+  CR-001 (reachability slice, plan-state read, plan-state update,
+  alias-aware lease-table selection, the live surface), and the deploy
+  workflow sends no request to production after promotion. Pointer:
+  [omission list](common-risk-catalogue-check.md#omission-list).
+- [ ] **Whether R7's SessionStart billing check fires on each surface** —
+  When: 2026-10-30, P3-N010 run record, omission item O1. Status: open;
+  the hook is declared only in `plugin/hooks/hooks.json`, R9 records the
+  plugin as never observed loading, and no committed record shows the
+  hook running. Pointer:
+  [omission list](common-risk-catalogue-check.md#omission-list).
 - [ ] **P3-N011 identified, 2026-10-29** — the sweep, the rest of the
   catalogue and the omission list in the check document (spec child
   B). Depends on P3-N010.

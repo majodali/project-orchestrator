@@ -32,6 +32,7 @@ of the specification are the authority.
 | The check procedure | The inputs, the three steps, the omission list and the negative control. |
 | Sweep record for CR-001 | The entry test applied, the header argued, every candidate dispositioned, the Risk register pass. |
 | Parts enumeration | The committed list of parts the check reads. |
+| Run record, 2026-10-30 | The four inputs by commit, steps 1 to 3 for CR-001 and the omission list. |
 
 ## The check procedure
 
@@ -391,6 +392,124 @@ is the entry's first line at commit `d1c3659`.
 Node mapping. The 20 non-aggregate `done` nodes map to parts as the
 *Source* column shows. The three aggregates map to their children. Every
 `done` node of the Plan register at commit `d1c3659` appears once.
+
+## Run record, 2026-10-30
+
+Role: Implementer, task T055 of node P3-N010. Class: CR-001 only.
+
+### Run inputs
+
+| Input | Where | Commit |
+|---|---|---|
+| Catalogue | `docs/proposals/common-risk-catalogue.md` | `6f5033e` |
+| Risk register | `docs/open-risks.md` | `6f5033e` |
+| Parts enumeration | the *Parts enumeration* section of this document | `6f5033e` |
+| Classification of the service repository | `docs/classification.md` in project-orchestrator-service | `58e6819` |
+| Classification of this repository (read for parts held here) | `docs/classification.md` | `6f5033e`, last changed in `45e30bd` |
+
+The commit `6f5033e` is the first commit of node P3-N010 on its branch.
+It holds the first three inputs. Nothing in the run record changes them.
+
+### Step 1: project applicability
+
+The header of CR-001 is `[C1+]`. The run evaluates it against each
+repository that holds parts.
+
+| Repository | Classification read | Parts held | Header admits |
+|---|---|---|---|
+| This repository, project-orchestrator (C) | C1, S0, `component/library`, target `none/local`, no Workflow | 21 parts: PT-01 to PT-17, PT-22, SA-1, SA-2, SA-4 | Yes. C1 meets the floor. |
+| Service repository, project-orchestrator-service (S) | C1, S1, `backend-service`, target `serverless-aws`, Workflow declared | 9 parts: PT-18 to PT-21, PT-23 to PT-26, SA-3 | Yes. C1 meets the floor. |
+
+CR-001 is applicable to the parts of both repositories. The refinement
+of decision 2 changed no outcome for this class, because the header
+admits both. A header of `[C1+] [deployable]` would have made it
+decisive. The *Shape findings* record that.
+
+### Step 2: reach
+
+Every part appears below. The test is the question in CR-001's reaches
+line: does the part run, or is it relied on, in an environment its
+checks do not reproduce? The run found 14 parts that apply and 16 that
+do not.
+
+| Part | Result | Argument |
+|---|---|---|
+| PT-01 | does not apply | Founding plan and bootstrap scaffolding are text, read and never executed. |
+| PT-02 | does not apply | The process specification is text read by role sessions and never executed. |
+| PT-03 | does not apply | Role definitions are text read by role sessions and never executed. |
+| PT-04 | applies | The SessionStart hook that carries the billing check of R7 is declared only in `plugin/hooks/hooks.json`. R9 records, at the trial of 2026-08-26, that "the plugin has never been observed loading". `.claude/settings.json` declares no hook. No committed record shows the hook running. Whether it runs on a given surface is untested here. |
+| PT-05 | does not apply | The Risk register, the observability specification and the run journal are text and JSON lines. The form checker reads them in the checkout where they are written. |
+| PT-06 | does not apply | The Ruling register is text. |
+| PT-07 | does not apply | The extension-point proposal is text, drafted for a human to carry. |
+| PT-08 | applies | The tools run as `node plugin/scripts/<tool>.ts` on every surface. The four test files in `test/` run under Vitest, and none imports `node:child_process` to run a tool. A surface with a Node older than the floor, or none, cannot run them. |
+| PT-09 | applies | `run_corpus.ts` and `sync_shared_unit.ts` run as `node` scripts, and no test runs them. The drift check compares bytes inside one checkout. |
+| PT-10 | applies | `form_check.ts` runs the corpus self-check in the invoking context on every run. The checker still cannot report on a surface that lacks its Node floor. |
+| PT-11 | applies | `sync_agents.ts` and every moved invocation site run as `node` commands on each surface. No committed test runs them. |
+| PT-12 | does not apply | Role contracts are text loaded into a role session, read in the medium where they are used. |
+| PT-13 | does not apply | The amendment proposals are text. |
+| PT-14 | does not apply | The Classification and the binding block are declarations read where they are written. |
+| PT-15 | does not apply | The roles and dispatch text is read and never executed. |
+| PT-16 | does not apply | The orchestration-service plan is text. |
+| PT-17 | does not apply | The comprehension plan sketch is text. |
+| PT-18 | does not apply | The scaffold is checked by running the build, lint and test commands that CI later runs. It has no artifact and no test double. |
+| PT-19 | applies | The Lambda bundle and the API Gateway binding are checked by tests that import source or send synthetic events (`test/lambda.test.ts`), and by one test that imports the built bundle in a `node` subprocess (`test/lambdaBundle.test.ts`). The deploy workflow's smoke test targets the preprod Function URL, not the API Gateway endpoint that serves production. |
+| PT-20 | applies | `plan_read` reads registers from GitHub through the App. Its tests inject a fake `fetchImpl` and token provider and state that they use no network or credential (`test/registerFetcher.test.ts`). The smoke test lists the tools and never calls `plan_read`. |
+| PT-21 | applies | The write-tool tests use the in-memory lease backend, and the DynamoDB backend's contract test uses a fake client. The smoke test runs a lease cycle on the preprod table. It never calls `plan_update` or `plan_confirm`, which read GitHub. |
+| PT-22 | applies | The R12 exercise ran in cloud sessions whose egress proxy answered an unroutable address at once. The "does not wait" case could not run to its timeout there. |
+| PT-23 | does not apply | The finding is text. It states claims read from AWS documentation, and the runs of PT-25 and PT-26 exercise those claims. See note 1 of the parts table. |
+| PT-24 | applies | The pull-request workflow cannot deploy by design. Build, lint, test and `sam validate --lint` run without the deploy role, so no check there can fail on an IAM, alias or function-URL defect. |
+| PT-25 | applies | The lease-table selection reads the qualifier from the invoked ARN, and its tests use synthetic ARNs. The smoke test exercises the `preprod` qualifier. No step of the deploy workflow exercises the `live` qualifier's production-table path. |
+| PT-26 | applies | The deploy role's policy was derived from AWS documentation, and nothing runs it except the pipeline itself. Four defects appeared only in the pipeline's first real runs. |
+| SA-1 | does not apply | The Plan register, Backlog and Cost log are text. The form checker reads them where they are written. |
+| SA-2 | does not apply | Plans, specifications and proposals are text. |
+| SA-3 | applies | The deploy workflow runs the smoke test once, against the preprod Function URL, before the promote step. Production is reached through API Gateway bound to `live`. The workflow ends at the promote step and sends no request to the production endpoint (`deploy.yml` at `58e6819`). |
+| SA-4 | applies | Checks and exercises run on a cloud web session or a local terminal, and the rules they test are relied on across both. The cloud session's egress policy and environment differ from the local one, as R12's 502 and the Backlog entry on placeholder AWS variables record. |
+
+### Step 3: coverage
+
+The run read the register with `grep -n 'CR-' docs/open-risks.md`. It
+returned two hits, attributed to R12 and R13.
+
+| Part | Covering entry | Argument or finding |
+|---|---|---|
+| PT-04 | none | No entry cites CR-001 and names the plugin or its hook. |
+| PT-08 | R13 | R13 names the tooling's move to `node` and its preflight criterion for the three tools. `journal_tail` and the preflight are in those tools. |
+| PT-09 | R13 | R13 names the P1-N009 rewrite (plugin tooling on the portfolio stack). PT-09 is a child of it, and its scripts run under the same Node floor. This argument is wider than R13's named tools. |
+| PT-10 | R13 | R13 names the form checker. |
+| PT-11 | R13 | R13 names every invocation site that the cutover moves, and `sync_agents` is one of the three tools. |
+| PT-19 | none | R12 treats the service as a black box whose outage is tolerated. Its scope is the stoppage and the fallback rule, so the run does not argue it contains the service's parts. |
+| PT-20 | none | Same finding as PT-19. |
+| PT-21 | none | Same finding as PT-19. R10 names the lease table but does not cite CR-001. |
+| PT-22 | R12 | R12 names node P2-N011 and the exercise. |
+| PT-24 | none | No entry cites CR-001 and names the pull-request checks. |
+| PT-25 | none | No entry cites CR-001 and names the alias-aware selection. |
+| PT-26 | none | No entry cites CR-001 and names the pipeline or the deploy role. |
+| SA-3 | none | No entry cites CR-001 and names the production surface. |
+| SA-4 | R12 | R12 names both surfaces and the proxy that short-circuited the exercise. |
+
+A covering entry shows that the register tracks the class for the
+part. It does not show that the entry's mitigation answers the part's
+argument in step 2. The *Shape findings* record this.
+
+### Omission list
+
+Eight pairs applied and had no covering entry. The citations were
+complete at the pass of the Risk register above, so each omission is
+genuine. The dispositions use the three the specification allows.
+
+| Item | Part | Class | Applicability argument | Disposition |
+|---|---|---|---|---|
+| O1 | PT-04, the plugin and its SessionStart hook | CR-001 | The hook that carries R7's billing check lives in a plugin that R9 records as never observed loading. | Routed to the Backlog: "Whether R7's SessionStart billing check fires on each surface". |
+| O2 | PT-19, the reachability slice | CR-001 | The bundle and the API Gateway binding are checked by source imports and synthetic events. The smoke test targets the preprod Function URL. | Routed to the Backlog: "Track the service's deployed parts under CR-001, or check them where they run". |
+| O3 | PT-20, plan-state read | CR-001 | The GitHub path is tested with injected fakes, and the smoke test never calls `plan_read`. | Routed to the same Backlog entry as O2. |
+| O4 | PT-21, plan-state update with the lease | CR-001 | The lease cycle runs on the preprod table. `plan_update` and `plan_confirm`, which read GitHub, run in no check against the real service. | Routed to the same Backlog entry as O2. |
+| O5 | PT-24, pull-request checks | CR-001 | The checks cannot deploy by design, so none can fail on a deploy-time defect. | Accepted. That split is the design of node P2-N014 (pull-request checks that cannot deploy). The check that runs where the code runs is the smoke test of PT-26, and the exposure after promotion is O8. |
+| O6 | PT-25, alias-aware lease-table selection | CR-001 | The `live` qualifier's production-table path has no step in the deploy workflow. | Routed to the same Backlog entry as O2. |
+| O7 | PT-26, deploy pipeline and deploy-role policy | CR-001 | The policy is derived from documentation and is verified only by running the pipeline. | Accepted. The pipeline run is the check that runs where the code runs, and it failed four times before it passed. The exposure after promotion is O8. |
+| O8 | SA-3, the deployed service's live surface | CR-001 | The workflow sends no request to the production endpoint after promotion. | Routed to the same Backlog entry as O2. |
+
+The two Backlog entries are in the Backlog's *Upcoming* section, next to
+the P3-N010 entry.
 
 ## References
 
