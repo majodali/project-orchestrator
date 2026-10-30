@@ -306,8 +306,8 @@ as unfinished. The model showed the work as done.
 Under the project-orchestrator criterion
 [G6](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/specs/p3-n002-comprehension-model.md),
 node P3-N008 renders the implementation map and the list of what is
-next over the full instance when it executes. It then compares the
-renderings with the Backlog. If criterion G6
+next over the full instance when it executes. Node P3-N008 then
+compares the renderings with the Backlog. If criterion G6
 contradicts the slice's evidence, project-orchestrator reopens this
 proposal with the reason recorded.
 
