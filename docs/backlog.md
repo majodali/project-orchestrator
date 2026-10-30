@@ -1,5 +1,7 @@
 # Backlog
 
+Project model: the five-resource slice is [project-model.md](project-model.md).
+
 Reader: RD-4 in the methodology's
 [reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers) (a fresh agent
 session), and the owner returning after a gap (RD-2). It assumes the
@@ -394,8 +396,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   on real edges (child B resolves it, criterion B1); the journal event
   kind moves from child D to child B. Gate crossed 2026-10-29:
   defaults adopted, decision 13 option (a) no deviation, the one term
-  ratified; children P3-N006 to P3-N009 entered (RU-020). Next:
-  P3-N006's planning.
+  ratified; children P3-N006 to P3-N009 entered (RU-020). P3-N006 done
+  2026-10-30. Next: P3-N007's planning.
 
 - [ ] **P3-N005 specified, 2026-10-29 (T045)** — sequence mode's
   specification stands at
@@ -424,7 +426,7 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   G6, I1 to I10 and P1 to P6, three children in a chain, decisions 10
   to 16 staged with defaults, and ten terms ratified at the gate of
   2026-10-29, all defaults adopted; children P3-N010 to P3-N012
-  entered (RU-020). Next: P3-N010's planning.
+  entered (RU-020). P3-N010 done 2026-10-30. Next: P3-N011's planning.
   Carried from the task: the Risk register shares the Backlog's
   lost-update hazard under parallel dispatch (child B's citations);
   the parent plan's "four instances" of the execution-environment class
@@ -432,20 +434,13 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   project-wide by declaration stays an option decision 15 declines by
   default.
 
-- [ ] **P3-N006 identified, 2026-10-29** — the comprehension model's
-  thin end-to-end slice: five real parts of this repository through
-  the model and both renderings
-  ([spec, child A](specs/p3-n002-comprehension-model.md)). Planned
-  2026-10-29 (T048): [plans/p3-n006-thin-end-to-end-slice.md](plans/p3-n006-thin-end-to-end-slice.md),
-  a leaf; five resources (form-checker, plan-register-grammar,
-  run-journal, RU-016, project-orchestrator-repo), fifty recorded
-  paths, the slice record in `docs/project-model-slice-record.md`;
-  decisions 1 to 3 staged (no separate specify task; only edges derived
-  from earlier records enter the instance; a facet with nothing to
-  state reads `none` with a link). Carried from the task: the parent's
-  derivation rule yields use-before-later-modification cycles for this
-  node too (criterion B1); P1-N014 also edits the Backlog header.
-  Next: the owner's plan gate.
+- [x] **The thin end-to-end slice: five resources through the project
+  model and both renderings** (node P3-N006) — When: executed
+  2026-10-30 (T054); done the same day at the Orchestrator's
+  acceptance. Status: done; self-verified against the criteria of
+  child A, fifty paths within three steps, fourteen findings handed to
+  P3-N007. Pointer: [project-model.md](project-model.md),
+  [slice record](project-model-slice-record.md).
 - [ ] **Whether a child carried at criteria depth by its parent's
   specification needs its own plan or specify task** — found
   2026-10-29 planning P3-N006: earlier children went straight to
@@ -456,10 +451,13 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   found 2026-10-29 planning P3-N006: links to a risk or a ruling land
   at the top of the document; the web view (P2-N003) will want
   per-entry links.
-- [ ] **P3-N007 identified, 2026-10-29** — the Project model type
-  declared, the arguments written, the K-003 amendment drafted on
-  P3-N006's slice, IR first, owner-gated at `verifying` (spec child
-  B; decisions 10 to 12). Depends on P3-N006.
+- [ ] **The type declared, the arguments written, the K-003 amendment
+  drafted** (node P3-N007, child B of P3-N002) — When: planned
+  2026-10-30 (T057). Status: planned, gated on the owner's review; a
+  leaf run as E1 (the type and the design arguments) then E2 (the
+  amendment IR first, the proposal, stranger rounds, owner gate);
+  twelve decisions staged, among them a new dependency rule for `uses`
+  edges and eight terms for ratification. Pointer: [plan](plans/p3-n007-type-declared-amendment-drafted.md).
 - [ ] **P3-N008 identified, 2026-10-29** — the instance over this
   repository, with G6's renderings compared against the Backlog (spec
   child C). Depends on P3-N007.
@@ -471,38 +469,53 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   drafts is released and pinned (P3-N002 decision 13, option (a), owner
   2026-10-29). Paired with a rendering tool for the Backlog's two
   remaining jobs, the implementation map and the list of what is next.
-- [ ] **P3-N010 identified, 2026-10-29** — one risk class carried end
-  to end: the execution-environment entry under the entry test ET-1 to
-  ET-4, with at least two independent encounters
-  ([spec, child A](specs/p3-n003-common-risk-catalogue.md)). Planned
-  2026-10-29 (T049): [plans/p3-n010-one-class-end-to-end.md](plans/p3-n010-one-class-end-to-end.md),
-  a leaf; decisions 1 to 5 staged (no separate specify task; step 1 of
-  the check reads the Classification of the repository holding each
-  part; the parts enumeration reads every checked Backlog entry; CR-001
-  cited from the Risk register entries that instantiate it; no IR at
-  this child). Carried from the task: the check could come back empty
-  under this repository's component/library Classification; 20 of 47
-  checked Backlog entries sit under Completed. Next: the owner's plan
-  gate.
-- [ ] **P3-N011 identified, 2026-10-29** — the sweep, the rest of the
-  catalogue and the omission list in the check document (spec child
-  B). Depends on P3-N010.
+- [x] **One risk class carried end to end (node P3-N010, child A of P3-N003)** —
+  When: executed 2026-10-30, task T055; done the same day at the
+  Orchestrator's acceptance. Status: done, self-verified against
+  criteria A1 to A13. The catalogue holds CR-001
+  with five independent encounters. Of 30 parts, 14 apply, 6 of those
+  are covered by R12 or R13 and 8 are omissions. The negative control
+  returned its pair. Pointer:
+  [check document](common-risk-catalogue-check.md),
+  [catalogue](proposals/common-risk-catalogue.md),
+  [plan](plans/p3-n010-one-class-end-to-end.md).
+- [ ] **Track the service's deployed parts under CR-001, or check them where they run** —
+  When: 2026-10-30, P3-N010 run record, omission items O2, O3, O4, O6
+  and O8. Status: open; five parts have no Risk register entry citing
+  CR-001 (reachability slice, plan-state read, plan-state update,
+  alias-aware lease-table selection, the live surface), and the deploy
+  workflow sends no request to production after promotion. Pointer:
+  [omission list](common-risk-catalogue-check.md#omission-list).
+- [ ] **Whether R7's SessionStart billing check fires on each surface** —
+  When: 2026-10-30, P3-N010 run record, omission item O1. Status: open;
+  the hook is declared only in `plugin/hooks/hooks.json`, R9 records the
+  plugin as never observed loading, and no committed record shows the
+  hook running. Pointer:
+  [omission list](common-risk-catalogue-check.md#omission-list).
+- [ ] **The sweep, the rest of the catalogue, and the omission list**
+  (node P3-N011, child B of P3-N003) — When: planned 2026-10-30 (T058).
+  Status: planned, gated on the owner's review; a leaf run as three
+  tasks (E1 the Risk register, rulings and plans; E2 the Backlog and
+  Cost log; E3 citations, full-scope check, negative control), five
+  decisions staged. Pointer: [plan](plans/p3-n011-sweep-and-omission-list.md).
+- [ ] **A leaf may need several execute tasks, and plan-model.md says
+  one session** — When: 2026-10-30, planning P3-N011. Status: open, for
+  P1-N016; three leaves now run as fixed task sequences (P2-N016,
+  P3-N013, P3-N011). Pointer: [plan of P3-N011](plans/p3-n011-sweep-and-omission-list.md).
 - [ ] **P3-N012 identified, 2026-10-29** — the Article 8 proposal for
   `docs/registers/common-risk-catalogue.md` upstream, written IR first
   and reviewed, delivered under RU-015 and RU-022 (spec child C).
   Depends on P3-N011.
-- [ ] **P3-N013 identified, 2026-10-29** — W-001's four stop
-  conditions made decidable, evidenced, and related to the meta-review
-  signals in the relation table
-  ([spec, child A](specs/p3-n005-sequence-mode.md)). Planned
-  2026-10-29 (T050): [plans/p3-n013-stop-conditions-decidable.md](plans/p3-n013-stop-conditions-decidable.md),
-  a leaf run as a fixed sequence of tasks E1 to E4 with blindness
-  built into the commit graph; decisions 1 to 7 staged (decision 6
-  closes a gap: no predicate reads a `blocked` status); two terms for
-  ratification, predicate commit and stand-in grant. Carried from the
-  task: no committed source holds the pinned v1.6.0 signal text, so the
-  packet or the tag URL must carry it; no past task has a ratification
-  record. Next: the owner's plan gate.
+- [x] **W-001's four stop conditions as decidable predicates, with
+  two blind readings and the relation table** (node P3-N013) — When:
+  done 2026-10-30, tasks T056 and T059 to T067 (E1, three rounds of
+  readings, three comparisons), accepted by the Orchestrator the same
+  day. Status: done; predicate text at draft 4, commit
+  `fcf4894`; 53 corpus items at cut-off `d1c3659`; the readings agree
+  on all 212 verdict rows, 95 of 95 where input existed; predicates 1
+  and 4 closed after round 2, 2 and 3 after round 3, none escalated;
+  signal 3 and signal 2's restatement half have no counterpart.
+  Pointer: [record](findings/p3-n005-stop-predicates.md), [plan](plans/p3-n013-stop-conditions-decidable.md).
 - [ ] **A leaf whose evidence needs independent sessions** — found
   2026-10-29 planning P3-N013: `plan-model.md`'s leaf definition
   assumes one session, while P3-N013's two blind readings need
@@ -513,10 +526,102 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 - [ ] **W-001's stop conditions do not name a `blocked` chunk** —
   found 2026-10-29 planning P3-N013; evidence for P3-N016's
   determination.
-- [ ] **P3-N014 identified, 2026-10-29** — the loop runs sequence mode
-  and the roles meet the conditions without looking: asks name their
-  addressee, result-received events carry the Asks part (spec child B;
-  decisions 11 and 12). Depends on P3-N013 and on P1-N014's execute.
+- [ ] **Meta-review signal 3, prose growth, has no counterpart** —
+  When: 2026-10-30, P3-N013's relation table (T056). Status: open;
+  no W-001 condition and no `dispatch.md` rule measures how one
+  deliverable grows; evidence for P3-N016 (criterion D2). Pointer:
+  [record](findings/p3-n005-stop-predicates.md), *The rows*, row 3.
+- [ ] **Meta-review signal 2's restatement half has no counterpart** —
+  When: 2026-10-30, P3-N013's relation table (T056). Status: open;
+  nothing reads a recurring restatement mismatch; evidence for
+  P3-N016 (criterion D2). Pointer: [record](findings/p3-n005-stop-predicates.md), *The rows*, row 2.
+- [ ] **No stop condition covers non-convergence across chunks** —
+  When: 2026-10-30, P3-N013's relation table (T056). Status: open;
+  successive chunks reworking one passage stop nothing; evidence for
+  P3-N016. Pointer: [record](findings/p3-n005-stop-predicates.md), *The rows*, the structural reading.
+- [ ] **Which text methodology commit `350f75f` holds** — When: 2026-10-30,
+  P3-N013 E1 (T056). Status: open; parent decision 9 names the
+  signal rewording `350f75f`, and the record relates the text quoted
+  at `195eba9`; for P3-N016, which cites the later text. Pointer:
+  [record](findings/p3-n005-stop-predicates.md), *The text related*.
+- [ ] **A result names no repository for a ref of another
+  repository** — When: 2026-10-30, P3-N013 readings, rounds 1 to 3.
+  Status: open; predicate 2 fails closed on 8 corpus items, T008,
+  T027 and T032 to T037; for P3-N014's handoff contract, a full name
+  per ref. Pointer: [record](findings/p3-n005-stop-predicates.md), *Revision log*, points not revised in round 2.
+- [ ] **Predicate 2's naming forms in the normative text** — When: 2026-10-30,
+  P3-N013 readings, round 3 (T065, T066). Status: open; the possessive
+  "the service repo's" decides T031, and "the repository", "this repo"
+  and "the repo" would decide T034; for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md),
+  *Round 3*, the hard points.
+- [ ] **"All twelve staged decisions settled" against predicate 3's
+  adoption wording** — When: 2026-10-30, P3-N013 readings, round 3 (T065,
+  T066). Status: open; both readings matched it, and a strict reading
+  turns 14 continues to stop; for P3-N014, evidence for P3-N016.
+  Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard points.
+- [ ] **Predicate 3's failed-closed mark for an entry failing the record
+  and the time** — When: 2026-10-30, P3-N013 readings, round 3 (T065,
+  T066). Status: open; the text marks "the record alone", and both
+  readings left T002 and T003 unmarked; for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md),
+  *Round 3*, the hard points.
+- [ ] **Predicate 3's override forms and gate headings** — When: 2026-10-30,
+  P3-N013 readings, round 3 (T065, T066). Status: open; only adoption
+  forms are listed, and "with defaults 1 to 3" and a "Gate evidence"
+  heading are unaddressed; for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the
+  hard points.
+- [ ] **A member's documents when its register line links the parent's
+  specification** — When: 2026-10-30, P3-N013 reading 1, round 3 (T065).
+  Status: open; read as a member document with its own stated node
+  (T048 to T050); for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard
+  points.
+- [ ] **Predicate 2's W-002 flag verbs** — When: 2026-10-30, P3-N013
+  readings, round 3 (T065, T066). Status: open; T016's "was used"
+  raises no flag under the closed verb list; for P3-N014, the role
+  raising the flag in immediate-class words. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*,
+  the hard points.
+- [ ] **A grant "up to" a gate in the ratification record** — When: 2026-10-30,
+  P3-N013 reading 1, round 3 (T065). Status: open; grants G7, G9 and
+  G12 were read inclusively; for P3-N014, stages listed explicitly
+  (parent decision 13). Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard points.
+- [ ] **Predicate 1's normative text and negated failure words** —
+  When: 2026-10-30, P3-N013 reading 2, round 2 (T063). Status: open; T024's
+  "cannot immediately fail that repo's form check" split the
+  failed-closed column; for P3-N014. Pointer: [record](findings/p3-n005-stop-predicates.md), *Revision log*,
+  points not revised in round 2.
+- [ ] **The journal's stage values, and gate events that carry a task
+  ID** — When: 2026-10-30, P3-N013 readings, round 3 (T065, T066).
+  Status: open; "break down" and "verify" are not `plan-model.md`
+  stage words, and some gate events carry a task ID; for P1-N016,
+  `observability.md`. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard points.
+- [ ] **A blind task's scratch directory is shared** — When: 2026-10-30,
+  P3-N013 E4 round 3 (T067). Status: open; reading 1's round 3
+  verdicts sat in the session's shared scratch directory when reading
+  2 ran, and T065 left `/gates.py` outside every repository; for
+  P1-N016, a private scratch directory per blind task. Pointer: [record](findings/p3-n005-stop-predicates.md),
+  *Round 3*, blindness outside the commit graph.
+- [ ] **Dispatch checks that the task's worktree exists** — When: 2026-10-30,
+  T066's false start. Status: open; T066 was dispatched before its
+  worktree existed; `dispatch.md` names no such check; for P1-N016.
+  Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, blindness outside the commit graph.
+- [ ] **The loop runs sequence mode, and the roles meet the conditions
+  without looking** (node P3-N014, child B of P3-N005) — When: planned
+  2026-10-30 (T068). Status: planned, gated on the owner's review; a
+  leaf run as one execute task; the predicate text copied byte for
+  byte into dispatch.md, the member's result record holding every
+  predicate input, two journal event kinds; eleven decisions staged.
+  Pointer: [plan](plans/p3-n014-loop-runs-sequence-mode.md).
+- [ ] **Re-vendor the conformance corpus into the service repository**
+  — When: 2026-10-30, planning P3-N014. Status: open; the fixture
+  P3-N014 adds leaves the service's vendored copy behind. Pointer:
+  [plan of P3-N014](plans/p3-n014-loop-runs-sequence-mode.md), decision 8.
+- [ ] **A form-check rule for a sequence's journal** — When: 2026-10-30,
+  planning P3-N014. Status: open, for P1-N016; ratification before the
+  first dispatch, serial dispatch, a stop after an owner-addressed ask,
+  all checked by hand today. Pointer: [plan of P3-N014](plans/p3-n014-loop-runs-sequence-mode.md).
+- [ ] **The predicate text enlarges the Orchestrator's startup set** —
+  When: 2026-10-30, planning P3-N014. Status: open, for P1-N016's packet
+  work; about 250 lines added to dispatch.md, read at every startup.
+  Pointer: [plan of P3-N014](plans/p3-n014-loop-runs-sequence-mode.md).
 - [ ] **P3-N015 identified, 2026-10-29** — the demonstration: a
   ratified sequence lands two chunks and stops on asks (spec child C;
   decisions 13 and 15). Depends on P3-N014.
@@ -524,6 +629,41 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   with the residue table, and the artifact or the argument (spec child
   D). Depends on P3-N015.
 
+- [ ] **Editorial pass over the plan documents to the prose rules** —
+  When: 2026-10-30, owner review of the plans. Status: open; the plan
+  and specification documents break P-001 to P-008 often enough that
+  the owner could not follow them, which is why `docs/plan.md` exists;
+  one pass rewrites them to the rules without changing decisions.
+  Pointer: [plan.md](plan.md), [P-rules](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md).
+- [ ] **A home in the model for open findings that are not nodes** —
+  When: 2026-10-30, T054 (slice record finding 4). Status: open; seven
+  open Backlog entries are not nodes and have no place in the model's
+  edges; an `identified` node or an `open:` line would hold them.
+  Pointer: [slice record](project-model-slice-record.md), section 7.
+- [ ] **Reconcile RU-016's Applied list with the plans that cite it** —
+  When: 2026-10-30, T054. Status: open; the list names T039, T043 and
+  T055, while the plans of P3-N003, P3-N005, P3-N006, P3-N010 and
+  P3-N013 cite the ruling at planning. Pointer: [rulings.md](rulings.md).
+- [ ] **Ratify or strike the slice's seven terms** — When: 2026-10-30,
+  T054. Status: open, for the owner: facet, held edge, own status,
+  formerly line, standing append, node specification, process
+  specification. Pointer: [slice record](project-model-slice-record.md).
+- [ ] **The service repository cites a findings file its main does not hold** —
+  When: 2026-10-30, T055 (located finding). Status: open; the service's
+  Backlog and runbook cite `docs/findings/alias-assumptions.md`, absent
+  from the service's `main` at 58e6819, while this Backlog says P2-N013
+  delivered it on branch `p2-n013-alias-assumptions` (f95b9e8); the
+  P2-N013 delivery claim and the service's tree contradict each other.
+  Pointer: the service repository's `docs/backlog.md` near line 528.
+- [ ] **Ratify or strike the term aggregate node** — When: 2026-10-30,
+  T055. Status: open, for the owner: an interior done node whose
+  children are all enumerated, so it adds no part of its own. Pointer:
+  [check document](common-risk-catalogue-check.md), parts enumeration.
+- [ ] **No committed test runs the plugin tools the way they run** —
+  When: 2026-10-30, T055 (the argument behind omission pairs PT-08 to
+  PT-11). Status: open; a test invoking `node plugin/scripts/<tool>.ts`
+  would close it. Pointer: [check document](common-risk-catalogue-check.md),
+  omission list.
 - [ ] **Hierarchical resources, for complex resource validations** —
   owner note at the P3-N002 gate, 2026-10-29: the comprehension model's
   resources are flat by that plan's decision 2, and a hierarchy may

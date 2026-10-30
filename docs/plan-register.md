@@ -21,7 +21,7 @@ honestly; chunks 1–3 completed before this register existed.
   - P1-N014 [done] Role contracts adopt the methodology's conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md · spec: specs/p1-n014-role-contracts-adopt-conduct-rules.md
   - P1-N015 [done] Methodology amendments for delegated, multi-agent work — plan: plans/p1-n015-methodology-amendments-delegated-work.md · spec: specs/p1-n015-methodology-amendments-delegated-work.md
   - P1-N016 [identified] Process spec maintenance: branch lifecycle, PR citation, packet table
-  - P1-N006 [identified] Pilot on a real project (chunk 5) — superseded in place by P2-N001 chunk 5; kept until the founding plan closes out
+  - P1-N006 [identified] Pilot on a real project (chunk 5) — superseded in place by P2-N006; kept until the founding plan closes out
   - P1-N007 [identified] Cost reporting v1 and close-out (chunk 6)
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
   - P2-N002 [done] Service skeleton and plan state (chunk 1) — plan: plans/p2-n002-service-skeleton.md · spec: specs/p2-n002-service-skeleton.md
@@ -35,23 +35,23 @@ honestly; chunks 1–3 completed before this register existed.
     - P2-N014 [done] Pull-request checks that cannot deploy
     - P2-N015 [done] Alias-aware lease-table selection, failing closed
     - P2-N016 [done] Deploy, smoke and promote on merge to main
-  - P2-N003 [identified] Owner questions and the plan view (chunk 2)
-  - P2-N004 [identified] Topics and coordination (chunk 3)
-  - P2-N005 [identified] The task-pull loop (chunk 4)
+  - P2-N003 [identified] Owner questions and the plan view (chunk 2) — to split at planning into the web view's first version, specified against P3-N006, and the owner question queue, after P2-N006 (owner, 2026-10-29)
+  - P2-N004 [identified] Topics and coordination (chunk 3) — after P2-N006, built only on a shown need (owner, 2026-10-29)
+  - P2-N005 [identified] The task-pull loop (chunk 4) — independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29): the next service chunk
   - P2-N006 [identified] Migration and pilot (chunk 5)
 - P3-N001 [broken-down] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
   - P3-N002 [broken-down] The comprehension model (chunk 1) — plan: plans/p3-n002-comprehension-model.md · spec: specs/p3-n002-comprehension-model.md
-    - P3-N006 [planned] [gated: owner review of the plan] The thin end-to-end slice: five real parts all the way through, and both renderings — plan: plans/p3-n006-thin-end-to-end-slice.md
-    - P3-N007 [identified] The type declared, the arguments written, the K-003 amendment drafted — depends on P3-N006
+    - P3-N006 [done] The thin end-to-end slice: five real parts all the way through, and both renderings — plan: plans/p3-n006-thin-end-to-end-slice.md · spec: specs/p3-n002-comprehension-model.md
+    - P3-N007 [planned] [gated: owner review of the plan] The type declared, the arguments written, the K-003 amendment drafted — depends on P3-N006 — plan: plans/p3-n007-type-declared-amendment-drafted.md
     - P3-N008 [identified] The instance, over this repository — depends on P3-N007
     - P3-N009 [identified] Sibling ordering retired, and the checks that replace it — depends on P3-N008
   - P3-N003 [broken-down] The common risk catalogue (chunk 2) — independent of P3-N002 (RU-018) — plan: plans/p3-n003-common-risk-catalogue.md · spec: specs/p3-n003-common-risk-catalogue.md
-    - P3-N010 [planned] [gated: owner review of the plan] One class, carried end to end — plan: plans/p3-n010-one-class-end-to-end.md
-    - P3-N011 [identified] The sweep, the rest of the catalogue, and the omission list — depends on P3-N010
+    - P3-N010 [done] One class, carried end to end — plan: plans/p3-n010-one-class-end-to-end.md · spec: specs/p3-n003-common-risk-catalogue.md
+    - P3-N011 [planned] [gated: owner review of the plan] The sweep, the rest of the catalogue, and the omission list — depends on P3-N010 — plan: plans/p3-n011-sweep-and-omission-list.md
     - P3-N012 [identified] The Article 8 proposal, written IR first and reviewed — depends on P3-N011
   - P3-N004 [identified] Reversibility, and the measurement that says whether it pays (chunk 3) — depends on P3-N002
   - P3-N005 [broken-down] Sequence mode: run W-001's pre-ratified mode, and determine whether it needs specialising (chunk 4) — independent of P3-N002 (RU-018) — plan: plans/p3-n005-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
-    - P3-N013 [planned] [gated: owner review of the plan] The four stop conditions, decidable, evidenced, and related to the meta-review signals — plan: plans/p3-n013-stop-conditions-decidable.md
-    - P3-N014 [identified] The loop runs sequence mode, and the roles meet the conditions without looking — depends on P3-N013 and on P1-N014's execute
+    - P3-N013 [done] The four stop conditions, decidable, evidenced, and related to the meta-review signals — plan: plans/p3-n013-stop-conditions-decidable.md · spec: specs/p3-n005-sequence-mode.md
+    - P3-N014 [planned] [gated: owner review of the plan] The loop runs sequence mode, and the roles meet the conditions without looking — depends on P3-N013 and on P1-N014's execute — plan: plans/p3-n014-loop-runs-sequence-mode.md
     - P3-N015 [identified] The demonstration: a ratified sequence lands two chunks and stops on asks — depends on P3-N014
     - P3-N016 [identified] The determination on W-001, and the artifact or the argument — depends on P3-N015

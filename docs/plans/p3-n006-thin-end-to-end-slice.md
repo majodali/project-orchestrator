@@ -1,6 +1,6 @@
 # The thin end-to-end slice: five real parts all the way through, and both renderings
 
-Status: draft
+Status: closed → Backlog entry (node P3-N006 done 2026-10-30, task T054; see the Backlog entry "The thin end-to-end slice")
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -246,7 +246,7 @@ notation. Decision 2 says when they reach the instance.
 - **Nodes.** None among the siblings: P3-N006 is first in the chain.
   P3-N003 and P3-N005 are independent of P3-N002
   ([RU-018](../rulings.md)), and nothing here changes that.
-- **Overlap, not dependency: P1-N014.** P1-N014 is `executing` and
+- **Overlap, not dependency: P1-N014.** P1-N014 (done on 2026-10-29, after this plan was written) also edits the Backlog header; it was `executing` at planning time and
   declares the Backlog's row shape in the Backlog header. P3-N006
   adds a line to the same header. The edits do not overlap. P3-N006
   reads the header as it then stands, and writes its Backlog entry in
@@ -332,6 +332,15 @@ A6 and A8, as the parent specification cites it for G6.
   document. The bound holds only because scrolling is not a step. The
   web view will want entry-level targets (P2-N003). Found planning
   P3-N006.
+
+
+## Gate record, 2026-10-30
+
+The owner accepted this plan with defaults 1 to 3. Under decision 1 no
+specify task runs: the parent specification's child A section is this
+node's specification, and the node moved `planned` → `specified` at
+this gate. Decisions 2 and 3 are node-scope. Next: execute, at the
+standard tier (P3-N002 decision 14).
 
 ## References
 

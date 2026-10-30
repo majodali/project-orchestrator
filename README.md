@@ -21,7 +21,7 @@ Constitution, Article 3).
 ## Where the documentation lives
 
 - [docs/classification.md](docs/classification.md) — the binding
-  declaration (C1 / S0, pinned methodology v1.2.0)
+  declaration (C1 / S0, pinned methodology 1.6.0)
 - [docs/process/](docs/process/README.md) — the orchestration
   process specification (v1)
 - [plugin/](plugin/README.md) — the Claude Code plugin implementing

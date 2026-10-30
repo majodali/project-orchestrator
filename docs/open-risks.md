@@ -15,6 +15,12 @@ roles — are detected. Entries carry ID, description, mitigation, and
 status; orchestration-failure entries cite the spec mechanism that
 detects or contains them. This register's numbering is project-local.
 
+An entry that instantiates a class in the
+[common risk catalogue](proposals/common-risk-catalogue.md) carries one
+*Class* line. The line links the class by ID and name, then says in one
+clause how the entry instantiates it. The
+[check document](common-risk-catalogue-check.md) reads these lines.
+
 - **R1 — Dispatch oscillation.** A loop between roles that never
   converges: verify↔execute ping-pong (Reviewer rejects, Implementer
   resubmits, repeat), or the same `needs-judgment` question bouncing
@@ -260,6 +266,10 @@ detects or contains them. This register's numbering is project-local.
   exposure is between-deploy breakage, which the monitoring Backlog
   entry carries, and the degraded-but-present case, which the
   Backlog entry on the untested no-retry path carries.
+  *Class*: [CR-001 (a check that cannot fail in the environment the
+  code runs in)](proposals/common-risk-catalogue.md#cr-001) — the
+  exercise's "does not wait" case ran where the egress proxy answered at
+  once, so it could not exercise waiting.
 - **R13 — The tooling's runtime assumption moves from `python3` to
   `node`.** The form checker is the loop's own guard: the Orchestrator
   runs it before every dispatch selection and at every acceptance. The
@@ -277,6 +287,10 @@ detects or contains them. This register's numbering is project-local.
   no surface is left calling a script that no longer exists. *Status*:
   open; opened at P1-N009's plan stage, 2026-08-29, from a Planner
   finding.
+  *Class*: [CR-001 (a check that cannot fail in the environment the
+  code runs in)](proposals/common-risk-catalogue.md#cr-001) — on a
+  surface with an older or absent Node the checker cannot run, and the
+  loss is silent unless something looks.
 - **R14 — Dependency search is an attack surface when agents shop for
   packages.** A dispatched role solving a niche problem searches a
   public registry, and a package matching the need precisely is the

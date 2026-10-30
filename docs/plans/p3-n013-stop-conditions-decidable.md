@@ -1,6 +1,6 @@
 # The four stop conditions: decidable, evidenced, and related to the meta-review signals
 
-Status: draft
+Status: closed → Backlog entry (node P3-N013 done 2026-10-30, tasks T056 and T059 to T067; see the Backlog entry on the four stop conditions)
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -289,6 +289,18 @@ line. A near match argues a default; it does not decide one.
 - **W-001's stop conditions do not name a `blocked` chunk.** Found
   2026-10-29 planning P3-N013 (decision 6). This is evidence for
   P3-N016's determination, whichever way decision 6 goes.
+
+
+## Gate record, 2026-10-30
+
+The owner accepted this plan with defaults 1 to 7. Under decision 2
+the node moved `planned` → `specified` at this gate, with the parent
+specification's child A section as its specification. Decision 1: a
+leaf run as the fixed task sequence E1 to E4. Decision 3: the
+Orchestrator quotes the pinned v1.6.0 Meta-review section in E1's
+packet, beside the later text. Decision 7: E1 and E4 at the advanced
+tier. The two terms, predicate commit and stand-in grant, await the
+owner's ratification. Next: E1.
 
 ## References
 
