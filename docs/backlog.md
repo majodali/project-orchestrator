@@ -426,7 +426,7 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   G6, I1 to I10 and P1 to P6, three children in a chain, decisions 10
   to 16 staged with defaults, and ten terms ratified at the gate of
   2026-10-29, all defaults adopted; children P3-N010 to P3-N012
-  entered (RU-020). Next: P3-N010's planning.
+  entered (RU-020). P3-N010 done 2026-10-30. Next: P3-N011's planning.
   Carried from the task: the Risk register shares the Backlog's
   lost-update hazard under parallel dispatch (child B's citations);
   the parent plan's "four instances" of the execution-environment class
@@ -466,9 +466,10 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   drafts is released and pinned (P3-N002 decision 13, option (a), owner
   2026-10-29). Paired with a rendering tool for the Backlog's two
   remaining jobs, the implementation map and the list of what is next.
-- [ ] **One risk class carried end to end (node P3-N010, child A of P3-N003)** —
-  When: executed 2026-10-30, task T055. Status: shipped and
-  self-verified against criteria A1 to A13. The catalogue holds CR-001
+- [x] **One risk class carried end to end (node P3-N010, child A of P3-N003)** —
+  When: executed 2026-10-30, task T055; done the same day at the
+  Orchestrator's acceptance. Status: done, self-verified against
+  criteria A1 to A13. The catalogue holds CR-001
   with five independent encounters. Of 30 parts, 14 apply, 6 of those
   are covered by R12 or R13 and 8 are omissions. The negative control
   returned its pair. Pointer:
@@ -548,6 +549,22 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   T054. Status: open, for the owner: facet, held edge, own status,
   formerly line, standing append, node specification, process
   specification. Pointer: [slice record](project-model-slice-record.md).
+- [ ] **The service repository cites a findings file its main does not hold** —
+  When: 2026-10-30, T055 (located finding). Status: open; the service's
+  Backlog and runbook cite `docs/findings/alias-assumptions.md`, absent
+  from the service's `main` at 58e6819, while this Backlog says P2-N013
+  delivered it on branch `p2-n013-alias-assumptions` (f95b9e8); the
+  P2-N013 delivery claim and the service's tree contradict each other.
+  Pointer: the service repository's `docs/backlog.md` near line 528.
+- [ ] **Ratify or strike the term aggregate node** — When: 2026-10-30,
+  T055. Status: open, for the owner: an interior done node whose
+  children are all enumerated, so it adds no part of its own. Pointer:
+  [check document](common-risk-catalogue-check.md), parts enumeration.
+- [ ] **No committed test runs the plugin tools the way they run** —
+  When: 2026-10-30, T055 (the argument behind omission pairs PT-08 to
+  PT-11). Status: open; a test invoking `node plugin/scripts/<tool>.ts`
+  would close it. Pointer: [check document](common-risk-catalogue-check.md),
+  omission list.
 - [ ] **Hierarchical resources, for complex resource validations** —
   owner note at the P3-N002 gate, 2026-10-29: the comprehension model's
   resources are flat by that plan's decision 2, and a hierarchy may

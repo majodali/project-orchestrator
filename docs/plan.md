@@ -373,8 +373,8 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
 The children of P3-N003, a strict chain in their [specification](specs/p3-n003-common-risk-catalogue.md#the-breakdown)'s order:
 
 - P3-N010 One class, carried end to end
-  - Stage: executing since 2026-10-30. The parent specification's child A section is the specification (gate decision of the same day).
-  - Outcome: The catalogue holds one class, CR-001 (a check that cannot fail in the environment the code runs in). A check looks for a [Risk register](open-risks.md) entry covering each part the class applies to. A deliberately broken input then proves the check can fail.
+  - Stage: done, 2026-10-30 (task T055).
+  - Outcome: Shipped the catalogue's first class, CR-001 (a check that cannot fail in the environment the code runs in), with five independent encounters; the check document with the thirty-part enumeration, the run record, an eight-item omission list and the negative control that caught a removed citation.
   - Depends on: nothing.
   - Needed by: P3-N011.
   - Documents: [plan](plans/p3-n010-one-class-end-to-end.md), [specification](specs/p3-n003-common-risk-catalogue.md#child-a-one-class-carried-end-to-end).
@@ -521,7 +521,6 @@ Actionable now, all at the planning stage:
 
 Executing now, dispatched after the owner's plan gates of 2026-10-30:
 
-- P3-N010 (one class, carried end to end), task T055.
 - P3-N013 (the four stop conditions, decidable), task T056, the first of its fixed sequence E1 to E4.
 
 The Orchestrator proposes P2-N005 first, by the owner's order, and asks the owner for scope before dispatching any of the four.
@@ -535,7 +534,7 @@ Waiting:
 - P3-N007 (the Project model definition and the amendment): planning dispatched 2026-10-30 (task T057), after P3-N006 closed.
 - P3-N008 (the instance): waits on P3-N007.
 - P3-N009 (sibling ordering retired): waits on P3-N008.
-- P3-N011 (the sweep): waits on P3-N010.
+- P3-N011 (the sweep): planning dispatched 2026-10-30 (task T058), after P3-N010 closed.
 - P3-N012 (the Article 8 proposal): waits on P3-N011.
 - P3-N014 (the loop runs sequence mode): waits on P3-N013.
 - P3-N015 (the demonstration): waits on P3-N014.

@@ -1,6 +1,6 @@
 # One class, carried end to end
 
-Status: active
+Status: closed → Backlog entry (node P3-N010 done 2026-10-30, task T055; see the Backlog entry "One risk class carried end to end")
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
