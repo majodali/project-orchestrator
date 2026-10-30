@@ -1,6 +1,6 @@
 # The sweep, the rest of the catalogue, and the omission list
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -409,6 +409,19 @@ pair does not return is a failed check by definition.
   open, for node P1-N016 (process spec maintenance); three leaves now
   run as fixed task sequences (P2-N016, P3-N013, P3-N011). Pointer:
   [this plan](p3-n011-sweep-and-omission-list.md), *Leaf or interior*.
+
+
+## Gate record, 2026-10-30
+
+The owner accepted this plan with defaults 1 to 5. Under decision 2
+the node moved `planned` → `specified` at this gate, with the parent
+specification's child B section as its specification. The drafted
+texts of decisions 1, 3 and 5 were placed by the Orchestrator at this
+crossing (task T069). The owner kept P3-N010's two judgments: CR-001's
+header is `[C1+]`, and R13 keeps its CR-001 citation. Read-only reach
+to majodali/project-orchestrator-service and majodali/methodology at
+v1.6.0 is granted at dispatch (RU-016). Next: E1, the Risk register,
+rulings and plans sweep.
 
 ## References
 

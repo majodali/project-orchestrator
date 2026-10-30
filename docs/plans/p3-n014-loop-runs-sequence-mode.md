@@ -1,6 +1,6 @@
 # The loop runs sequence mode, and the roles meet the conditions without looking
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -441,6 +441,18 @@ when. A near match argues a default; it does not decide one.
 - **The predicate text enlarges the Orchestrator's startup set**:
   `dispatch.md` is read at every startup, and the text adds about 250
   lines. For P1-N016's packet-table work.
+
+
+## Gate record, 2026-10-30
+
+The owner accepted this plan with defaults 1 to 11 and ratified the
+two event-kind names, `sequence-ratified` and `sequence-stopped`.
+Under decision 2 the node moved `planned` → `specified` at this gate,
+with the parent specification's child B section as its specification.
+The drafted affected-location texts were placed at this crossing
+(task T069); the two located findings (observability.md's read-back
+sentence, the result core's ask wording) travel in E1's brief. Next:
+E1, at the advanced tier.
 
 ## References
 

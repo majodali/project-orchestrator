@@ -1,6 +1,6 @@
 # The type declared, the arguments written, the K-003 amendment drafted
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -547,6 +547,19 @@ result), for decision 6.
   2026-10-30, planning P3-N007 (slice finding 11). Status: open; add
   the finding's pointer to the existing entry. Pointer: [slice
   record](../project-model-slice-record.md), section 7.
+
+
+## Gate record, 2026-10-30
+
+The owner accepted this plan with defaults 1 to 12 and ratified the
+eight terms of decision 11 (facet, held edge, own status, formerly
+line, standing append, node specification, process specification,
+standing resource). Under decision 1 the node moved `planned` →
+`specified` at this gate, with the parent specification's child B
+section as its specification. The drafted affected-location texts of
+the adopted decisions were placed by the Orchestrator at this crossing
+(task T069). Next: E1, the type and the design arguments, at the
+advanced tier; then E2, the amendment IR first.
 
 ## References
 
