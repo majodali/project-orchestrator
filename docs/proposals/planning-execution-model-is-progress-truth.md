@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: under review (round 5, fixes applied, 2026-10-30)
+Status: under review (round 6, 2026-10-30)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →
@@ -105,9 +105,9 @@ reads K-003 unchanged. The amendment leaves K-003's sentence on
 stage designations unchanged. The amendment says nothing about the
 verification evidence of each
 [node](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node).
-A planning/execution model has two components, the plan model and that
-verification evidence, the record of whether a node's work holds; the
-amendment reaches the first only.
+A planning/execution model has two components: the plan model, the
+project's nodes with their stages and edges, and that verification
+evidence. The amendment reaches the plan model only.
 
 The amendment keeps K-003's title, so links to the rule's anchor keep
 resolving. The title stays true for every project whose
@@ -242,7 +242,9 @@ named no node. The count takes one entry to be a checkbox line plus the
 lines that follow it up to the next entry or heading. The count takes
 an entry as open when the entry's checkbox is unchecked. The count
 takes an entry as naming a node when its text holds a node identifier
-such as P3-N007, the node that drafted this proposal. So 31 is a lower bound on the open entries no node holds.
+such as P3-N007, the node that drafted this proposal. An entry a node holds names that node, and an entry that merely
+mentions one is counted the same way. So 31 is a lower bound on the
+open entries no node holds.
 
 ## Whether "built but broken" stands
 
@@ -252,8 +254,8 @@ derived state `built` says the work on the part is done, not that the
 part works. The [known
 limit](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/backlog.md#L750)
 that the model cannot say "built but broken" stands under the
-amendment, because whether a part works is verification evidence,
-which the amendment leaves outside K-003.
+amendment, because whether a part works is verification evidence. The
+amendment leaves that evidence outside K-003.
 The limit's earlier premise, that K-003 stays unamended, no longer
 holds. Recording where each node's verification evidence lands is
 later work on the [planning/execution
@@ -269,7 +271,7 @@ slice is the first five entries of the project-orchestrator
 [Project
 model](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md),
 built by node P3-N006 (the thin end-to-end slice). The slice holds
-five entries, one per
+one entry per
 [part](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md#def-resource),
 derived from documents the repository already held. Its record is the
 [slice
@@ -375,9 +377,9 @@ register](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md
   model](https://github.com/majodali/methodology/blob/350f75f0a11b326eb1f536f172359b1cc8a9cb1e/docs/vocabulary.md#def-planning-execution-model)
   changes nothing. A project that declares a planning/execution
   model renders its Backlog's implementation map and list of what is
-  next from the model from the declaration on. From the declaration on, such a project
-  rewrites its checked entries by that rendering of the implementation
-  map. K-003's duty to rewrite checked entries stands. That rendering
+  next from the model from the declaration on. Such a project
+  then rewrites its checked entries by that rendering of the
+  implementation map. K-003's duty to rewrite checked entries stands. That rendering
   meets it.
 
 ## The ask
@@ -402,4 +404,4 @@ The proposal also asks the
 to ratify or strike the two terms it defines: [list of what is next](#def-list-of-what-is-next) and
 [rendering](#def-rendering).
 
-<!-- render map: C1→¶7 C2→¶7 C3→¶11 C4→¶11 C5→¶11 C6→¶12 C7→¶12 C8→¶13 C9→¶13 C10→¶14 C11→¶14 C12→¶14 C13→¶15 C14→¶15 C15→¶15 C16→¶15 C17→¶16 C18→¶20 C19→¶20 C20→¶20 C21→¶21 C22→¶21 C23→¶22 C24→¶22 C25→¶22 C26→¶23 C27→¶24 C28→¶7 C29→¶24 C30→¶24 C31→¶25 C32→¶25 C33→¶25 C34→¶25 C35→¶25 C36→¶26 C37→¶26 C38→¶26 C39→¶26 C40→¶26 C41→¶27 C42→¶27 C43→¶28 C44→¶28 C45→¶28 C46→¶29 C47→¶29 C48→¶29 C49→¶30 C50→¶30 C51→¶31 C52→¶31 C53→¶31 C54→¶32 C55→¶32 C56→¶32 C57→¶34 C58→¶35 C59→¶36 C60→¶37 C61→¶38 C62→¶39 C63→¶40 C64→¶41 C65→¶42 C66→¶42 C67→¶43 C68→¶43 C69→¶43 C70→¶45 C71→¶46 C72→¶47 C73→¶47 C74→¶22 C75→¶28 C76→¶43 C77→¶12 C78→¶27 C79→¶37 C80→¶45 C81→¶46 C82→¶47 C83→¶12 C84→¶12 -->
+<!-- render map: C1→¶7 C2→¶7 C3→¶11 C4→¶11 C5→¶11 C6→¶12 C7→¶12 C8→¶13 C9→¶13 C10→¶14 C11→¶14 C12→¶14 C13→¶15 C14→¶15 C15→¶15 C16→¶15 C17→¶16 C18→¶20 C19→¶20 C20→¶20 C21→¶21 C22→¶21 C23→¶22 C24→¶22 C25→¶22 C26→¶23 C27→¶24 C28→¶7 C29→¶24 C30→¶24 C31→¶25 C32→¶25 C33→¶25 C34→¶25 C35→¶25 C36→¶26 C37→¶26 C38→¶26 C39→¶26 C40→¶26 C41→¶27 C42→¶27 C43→¶28 C44→¶28 C45→¶28 C46→¶29 C47→¶29 C48→¶29 C49→¶30 C50→¶30 C51→¶31 C52→¶31 C53→¶31 C54→¶32 C55→¶32 C56→¶32 C57→¶34 C58→¶35 C59→¶36 C60→¶37 C61→¶38 C62→¶39 C63→¶40 C64→¶41 C65→¶42 C66→¶42 C67→¶43 C68→¶43 C69→¶43 C70→¶45 C71→¶46 C72→¶47 C73→¶47 C74→¶22 C75→¶28 C76→¶43 C77→¶12 C78→¶27 C79→¶37 C80→¶45 C81→¶46 C82→¶47 C83→¶12 C84→¶12 C85→¶12 C86→¶26 -->

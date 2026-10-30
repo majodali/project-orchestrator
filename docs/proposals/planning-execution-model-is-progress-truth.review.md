@@ -1,6 +1,6 @@
 # Review record: a declared planning/execution model is the source of progress truth
 
-Status: open (count 1, round 5 running)
+Status: open (count 1, round 6 running)
 
 <!-- K-007 contract: Status transitions open → closed (the count's
      verdict recorded and the fixes confirmed). This file is the
@@ -307,4 +307,64 @@ place of "It"; then 0 missing, 0 stale. Prose 2,494 words by tool.
 Brief changes for round 5: round 4's declined finding 4 added to the declined list.
 
 ## Round 5, 2026-10-30
+
+Stranger: a fresh instance at the frugal tier (task T086). Prose about
+2,500 words by the stranger's hand count (2,494 by tool at the round's
+start); 82 claims; 10 findings.
+
+Restatement: matched the IR on the problem, the terms, the change, the
+authorities, the open entries and the asks. One mismatch, attributed by
+the stranger to its own restatement: the condition "under K-003 as
+released" dropped from the double-record claim (C6); sentence relied
+on: "A project that keeps a planning/execution model beside a Backlog
+under K-003 as released records what is done and what is next twice."
+
+Mismatches: C6 (own).
+
+Step-6 passage (the evidencing instance among the four kinds of
+evidence, the slice): the stranger's restatement did not cover it, so
+no match is recorded; the fix stays `awaiting restatement`.
+
+Findings by rule: SP-01 1 (F2); SP-04 2 (F3, F4); SP-09 1 (F7); SP-18
+2 (F8, F9); SP-25 1 (F10); SP-26 2 (F5, F6); restatement mismatch 1
+(F1). Undefined terms: verification evidence and the model's two
+components; Project model at first use; and, noted without a finding,
+definition-by-citation form and types. Contradiction 1: "switches its
+Backlog to a rendering" against open entries staying the Backlog's own
+content (F10).
+
+Verdict: not readable. Blocking: F1, F3, F4, F10.
+
+Accepted and fixed, in the IR then the prose: F2 to F10 (9 of 10; F1
+is the stranger's own). The contradiction: C80 and The ask now name
+the two renderings, the implementation map and the list of what is
+next, in place of "its Backlog". The model's two components defined
+(C84); Project model linked at first use; C77 split (C83); C35 joined
+to C34 by "So" with a relation; the limit sentence merged with its
+reason; the slice's sentences reordered; node P3-N008 named as G6's
+actor with its trigger (C49); the migration note's trigger stated
+(C69).
+
+Declined: none.
+
+Confirmation: 9 of 9 fixes hold. Not held: none. Declines accepted: 0
+of 0. New defects: 7 (N1 and N2 two sentences over 25 words; N3 the
+plan model undefined; N4 the five-entry count twice; N5 the trigger
+twice in the migration note; N6 the lower bound's premise lost with
+the cut mention sentence; N7 C84 decided with no evidence).
+
+Re-fixes before round 6, in the IR then the prose: N1 and N2 (both
+sentences split); N3 (the plan model defined in place as the project's
+nodes with their stages and edges); N4 ("one entry per part"); N5
+("then" carries the trigger); N6 (C86 added, stating the premise, with
+R19 to it); N7 (C84 cites E2, the vocabulary entry; the amendment's
+reach split out as C85, proposed).
+
+## Before round 6
+
+Claims check (the round 5 prose as base): 3 changed claims, each
+carried by a sentence; 0 missing, 0 stale. Prose 2,543 words by tool.
+Brief changes for round 6: none beyond the declined list already carried.
+
+## Round 6, 2026-10-30
 
