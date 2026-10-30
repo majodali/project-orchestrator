@@ -2895,14 +2895,14 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   is nothing to reconcile but handles and progress notes. Pointer:
   [plan of P2-N005](plans/p2-n005-task-pull-loop.md), decision 9.
 - [ ] **Service chunk 2 — owner questions and the plan view** (node
-  P2-N003) — When: planned 2026-10-30 (T075); plan gate crossed
-  2026-10-30, defaults 1 to 10 adopted. Status: planned; the
-  specification (T093) carries the web view child at full depth and
-  the queue child at outcome depth; splits into the web view's first version (the
-  plan tree from commits, drilling to node and task, read-only) and the
-  owner question queue (after the pilot); ten decisions staged; the
-  earlier "live updates" struck by the owner on 2026-10-29. Pointer:
-  [plan](plans/p2-n003-owner-questions-and-plan-view.md).
+  P2-N003) — When: planned 2026-10-30 (T075), plan gate crossed
+  2026-10-30 with defaults 1 to 10; specification drafted 2026-10-30
+  (T093). Status: planned; the specification awaits its gate, with
+  decisions 11 to 15 and three terms staged; it carries the web view's
+  first version at full criteria depth (V1 to V30, tasks E1 to E3 and
+  an owner demonstration) and the owner question queue at outcome
+  depth. Pointer:
+  [specification](specs/p2-n003-owner-questions-and-plan-view.md).
 - [ ] **Drill from the web view to code and test results** — When:
   2026-10-30, planning P2-N003 (T075). Status: open; waits for the
   plan-model amendment on where each node's verification evidence
