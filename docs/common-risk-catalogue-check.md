@@ -1335,6 +1335,101 @@ an encounter of CR-005. The methodology's Classification is also outside the
 five sources.
 
 
+## Citations: the Class lines
+
+Task E3 wrote every *Class* line of the Risk register before it ran the
+check, so that the run reads complete citations (criterion B7). This
+section records the register re-read, the test applied to each entry and
+the lines written.
+
+### The register re-read
+
+Task E3 read `docs/open-risks.md` whole at commit `0aefb00`, the head of
+branch `catalogue-sweep` at its dispatch. The register holds the 17
+entries R1 to R17 that pass 1 read at `bd4fc8d`. It holds no entry added
+since, so pass 1 gains no row. One entry text changed in between. Node
+P3-N014 (task T072) appended a sentence to R14's *Status* on 2026-10-30
+that names the landing of R14's mitigation. The sentence adds no failure.
+
+### The citation test
+
+An entry carries a *Class* line for a class when one of two things holds.
+
+- The sweep recorded the entry as the source of a row that admits the
+  class, merges into it, or merges with exposure into it.
+- The entry's existing text states the class's failure as its own subject.
+
+The clause is written from the entry's words and is never widened to cover
+a pair (criterion B16). A pair that needs a wider clause is an omission at
+step 3 (decision 3 of the plan of node P3-N011). An entry that names a
+class's failure only to hand it to a Backlog entry carries no line for it.
+
+### The lines written
+
+Nine lines stand in the register. R12 and R13 carry the two that node
+P3-N010 wrote. Task E3 wrote seven more. No entry instantiates two
+classes, so no entry carries two lines.
+
+| Entry | Class | Basis | Clause, from the entry's text |
+|---|---|---|---|
+| R5 register and reality divergence | CR-005 | RR-18 names R5's second clause as a source of the generalization | A register goes stale, and dispatch decisions run on fiction. The source is the work, not a document, so this is the weaker fit of the two sources of CR-005. |
+| R9 surface-dependent plugin loading | CR-001 | RR-19, merge with exposure | Plugin loading is documented for local terminal sessions and not for the web. The first web demo found the plugin absent, and in four trials on two surfaces it was never observed loading. |
+| R10 the service as a second source of truth | CR-005 | RR-18 names R10's failure as the other source | Live state in the service can drift from the registers in git, and decisions could then be made against the projection. The exercise of 2026-09-07 produced no divergence. |
+| R12 service outage stops work | CR-001 | P3-N010 | The "does not wait" case ran where the egress proxy answered at once. |
+| R13 runtime assumption moves to `node` | CR-001 | P3-N010, kept by the owner at the gate | On a surface with an older or absent Node the checker cannot run, and the loss is silent unless something looks. |
+| R14 dependency search | CR-002 | RR-14, admission | Task T027 searched a public registry and found a package published days earlier by a new single-package maintainer. The role declined it. |
+| R15 reference documentation | CR-003 | RR-15, admission | Task T030 fetched an AWS page whose *See also* block told the reader to run an agent-toolkit command. The role declined it. |
+| R16 a provider's error names the wrong layer | CR-004 | RR-16 and RR-25, admission | The preflight's verdict line asserted a trust-policy mismatch for every failure in which the subject matched, and the provider's error text named a layer that was not at fault. |
+| R17 the harness's guidance against the fallback rule | CR-006 | RR-27, admission | The harness notice told the session not to conclude that access does not exist, against the no-retry rule, and the document stating the rule was absent from the branch under test. |
+
+### Entries considered for a class and not cited
+
+Every entry was put to every class. The table lists each entry that carries
+no line, or that was considered for a second class. R4, R6 and R8 are
+omitted from it: no class states a failure of theirs.
+
+| Entry | Class considered | Why no line |
+|---|---|---|
+| R1, R2, R3 | CR-001 to CR-012 | Each states a failure of this project's dispatch loop, fan-out or liveness. Pass 1 rejected them on ET-1, and no catalogue class states them. R3's unrecorded answer is the reverse of CR-012, a record that is missing and not early. |
+| R7 billing misroute | none | The billing class is deferred and has no catalogue ID. |
+| R9 | CR-010 | Trial 1 found that cloud sessions give subagents no Agent tool. Pass 1 (RR-20) and pass 3 (BC-04) rejected the harness gap on ET-2, and no pass merged it into CR-010. The entry records the Orchestrator stopping correctly. The owner may decide the other way. |
+| R10 | CR-001 | The divergence exercise ran against the deployed service. That is the class's mitigation working, not an instance. |
+| R11 MCP surface constraints | CR-010 | The entry states transport limits and an unverified push channel for a design to configure around. It records no task that depended on an unchecked fact, and CR-010's reaches line names criteria, briefs, workflows and plans, not transport design. |
+| R12 | CR-011, CR-004 | R12 names between-deploy breakage only to hand it to the monitoring Backlog entry, which is that failure's subject. Pass 1 rejected R12's observability sub-findings on ET-1 (RR-23, RR-24). |
+| R15 | CR-002 | R15 calls itself R14's sibling. CR-002 states an adopted package and CR-003 an instruction followed, and one encounter does not evidence the other. |
+| R16 | CR-001 | Node P3-N010 ruled that the audience typo counted at CR-001's fourth encounter is not the entry's subject. The entry's subject is the diagnostic. |
+| R17 | CR-003 | The notice is the harness's own guidance and not content fetched from outside. Pass 1 treats it as CR-006 only. |
+
+R5 and R10 are cited as instances of CR-005 although pass 1 rejected their
+stated forms on ET-1. The generalization is the class, and the stated forms
+are its sources (RR-18). The convention *merge with exposure* cites R9 and R13 for CR-001.
+
+### The preamble
+
+The preamble of the register read "carries one *Class* line", which reads as
+one line per entry. Task E3 amended that sentence to "carries one *Class*
+line per class it instantiates" and "The line" to "Each line" (criterion I7).
+The preamble still names the field without citing a class by ID, so the
+command in *Steps* never lists it as a hit.
+
+### Sources that moved after the passes
+
+The passes stand at the commits they name (criterion B14). Between the commit
+`089b79c` that passes 3 to 5 read and `0aefb00`, the Backlog changed by 109 insertions and 26
+deletions, the Cost log gained the rows T076 to T081, and two plans (P3-N008, P3-N015) were written.
+Task E3 scanned those additions for a failure as a source states it. It found
+three, none an admission, and records them as delta rows.
+
+| Label | Candidate as its source states it | Outcome |
+|---|---|---|
+| DL-01 | Cost log row T076 and the Backlog entry "The P3-N005 plan places R16's preflight in this repository": the plan of node P3-N005 names this repository where the preflight ran in the service repository | Merge, CR-005, encounter 2026-10-30 (task T076). The catalogue does not yet list it. |
+| DL-02 | Row T076 and the Backlog entry "The entry 'two open entries for P3-N001, one of them stale' can close": the entry says a sketch entry stands open, and that entry is checked | Merge, CR-005, same investigation as DL-01. Adds an instance, no encounter. |
+| DL-03 | Rows T077, T078 and T081: located findings on this project's Project model instance and on a draft proposal | Reject, ET-1. Each needs this project's model or its proposal pipeline. |
+
+The catalogue's table for CR-005 holds 21 encounters and gains a 22nd when
+DL-01 is added. Task E3 did not edit the catalogue. The Orchestrator may carry
+DL-01 into it.
+
 ## Parts enumeration
 
 The enumeration is committed with the check so a reader can dispute a
@@ -1342,17 +1437,30 @@ part's presence or absence. It was drawn on 2026-10-30 from this
 repository at commit `d1c3659`. Each part names its source. A part
 added later is added with its date and source.
 
+Task E3 of node P3-N011 brought it current on 2026-10-30. It read this
+repository at commit `0aefb00`, the head of branch `catalogue-sweep` at
+E3's dispatch. It read the service repository's Backlog at commit
+`58e6819`, which is the service's `main` (decision 5 of the plan of node
+P3-N011). Parts PT-27 to PT-31 are the additions, and each names the date
+and source it was added with. The rows drawn at `d1c3659` are unchanged.
+
 ### Rules
 
 - Every checked Backlog entry is read wherever it sits. At commit
   `d1c3659` there are 51: 20 under *Completed* and 31 under *Upcoming*.
   The plan counted 47 when it was written. Four entries were closed
   after that.
+- At commit `0aefb00` there are 68: 20 under *Completed* and 48 under
+  *Upcoming*. The 17 added since `d1c3659` are BE-52 to BE-68. E2 counted
+  47 under *Upcoming* at `089b79c`. BE-62 was checked after that.
 - By this Backlog's convention a finished child stays under *Upcoming*
   until its parent is `done`, so a read of the Completed section alone
   drops most of the service's work.
-- The Plan register has 23 `done` nodes. A node and a Backlog entry
-  that describe the same work are one part.
+- The Plan register has 23 `done` nodes at `d1c3659` and 27 at
+  `0aefb00`. The four added since are P3-N006, P3-N010, P3-N013 and
+  P3-N014, all done on 2026-10-30. P1-N014 was `done` at `d1c3659` and is
+  already part PT-12. A node and a Backlog entry that describe the same
+  work are one part.
 - An <a id="def-aggregate-node"></a>aggregate node is an interior
   `done` node whose children are all enumerated. It adds no part of its
   own. Three nodes are aggregates: P1-N009 (plugin tooling on the
@@ -1370,13 +1478,15 @@ added later is added with its date and source.
 
 ### Parts
 
-There are 30 parts: 20 from nodes, 6 from checked entries that name no
-node, and 4 standing artifact classes.
+There are 35 parts: 24 from nodes, 7 from checked entries that name no
+node, and 4 standing artifact classes. At `d1c3659` there were 30. Task E3
+added five: PT-27 to PT-30 from the four nodes done since, and PT-31 from
+the service repository's Backlog.
 
 | Part | Name | Source | Checked entries | Repository |
 |---|---|---|---|---|
 | PT-01 | Founding plan and bootstrap | P1-N002 (bootstrap and founding plan) | BE-01, BE-02 | C |
-| PT-02 | Process specification, `docs/process/` | P1-N003 (process specification v1) | BE-03, BE-04, BE-10, BE-11 | C |
+| PT-02 | Process specification, `docs/process/` | P1-N003 (process specification v1) | BE-03, BE-04, BE-10, BE-11, BE-63, BE-65 | C |
 | PT-03 | Role definitions, `docs/process/roles.md` | P1-N004 (role definitions v1) | BE-05, BE-09 | C |
 | PT-04 | Orchestrator plugin and its self-hosted enrolment, including the SessionStart billing hook | P1-N005 (plugin v1 with self-hosted trial) | BE-08 | C |
 | PT-05 | Risk register, observability specification and run journal | no node | BE-07 | C |
@@ -1386,23 +1496,28 @@ node, and 4 standing artifact classes.
 | PT-09 | Conformance corpus, `run_corpus` and the vendoring generator | P1-N011 (the travelling package) | BE-29 | C |
 | PT-10 | Form checker on the shared unit | P1-N012 (the form checker on the shared unit) | BE-31, BE-32 | C |
 | PT-11 | Cutover: `sync_agents` port, moved invocation sites, retirement of the Python scripts | P1-N013 (the cutover) | BE-33, BE-43, BE-44, BE-46, BE-47 | C |
-| PT-12 | Role contracts in `.claude/agents/` and their generated copy | P1-N014 (role contracts adopt the methodology's conduct rules) | BE-35 | C |
+| PT-12 | Role contracts in `.claude/agents/` and their generated copy | P1-N014 (role contracts adopt the methodology's conduct rules) | BE-35, BE-64 | C |
 | PT-13 | Methodology amendment proposals for delegated work | P1-N015 (methodology amendments for delegated work) | BE-18, BE-34 | C |
 | PT-14 | Classification, version pin and `CLAUDE.md` binding block | no node | BE-06, BE-17, BE-19, BE-21 | C |
 | PT-15 | Communication-pipeline roles in `roles.md` and `dispatch.md` | no node | BE-20 | C |
 | PT-16 | Orchestration-service plan and breakdown | no node (P2-N001 is `broken-down`) | BE-15, BE-16 | C |
 | PT-17 | Comprehension-and-implementation plan sketch | no node (P3-N001 is not `done`) | BE-42 | C |
-| PT-18 | Service repository bootstrap | P2-N007 (service repository bootstrap) | BE-23, BE-25 | S |
-| PT-19 | Reachability slice: MCP server, Lambda handler, API Gateway binding, SAM template, deploy script | P2-N008 (reachability slice) | BE-24 | S |
-| PT-20 | Plan-state read: register parser, `plan_read` tool, GitHub register fetcher | P2-N009 (plan-state read) | BE-26 | S |
-| PT-21 | Plan-state update with the advisory lease: lease backends, write tools, vendored grammar unit | P2-N010 (plan-state update with the advisory lease) | BE-45, BE-48 | S |
-| PT-22 | Degrade-to-git-only rule, enlistment documentation and the R12 exercise | P2-N011 (degrade to git-only, and enlistment documentation) | BE-49, BE-50 | C |
+| PT-18 | Service repository bootstrap | P2-N007 (service repository bootstrap) | BE-23, BE-25, SE-01 | S |
+| PT-19 | Reachability slice: MCP server, Lambda handler, API Gateway binding, SAM template, deploy script | P2-N008 (reachability slice) | BE-24, SE-02, SE-03, SE-07 | S |
+| PT-20 | Plan-state read: register parser, `plan_read` tool, GitHub register fetcher | P2-N009 (plan-state read) | BE-26, SE-04, SE-08 | S |
+| PT-21 | Plan-state update with the advisory lease: lease backends, write tools, vendored grammar unit | P2-N010 (plan-state update with the advisory lease) | BE-45, BE-48, BE-68, SE-05, SE-06, SE-09, SE-22 | S |
+| PT-22 | Degrade-to-git-only rule, enlistment documentation and the R12 exercise | P2-N011 (degrade to git-only, and enlistment documentation) | BE-49, BE-50, SE-20 | C, see note 2 |
 | PT-23 | Alias assumptions finding | P2-N013 (alias assumptions verified against AWS documentation) | BE-37 | S, see note 1 |
-| PT-24 | Pull-request checks workflow | P2-N014 (pull-request checks that cannot deploy) | BE-38, BE-51 | S |
-| PT-25 | Alias-aware lease-table selection and the template resources it needs | P2-N015 (alias-aware lease-table selection) | BE-39 | S |
-| PT-26 | Deploy, smoke and promote workflow, OIDC preflight and deploy-role policy | P2-N016 (deploy, smoke and promote on merge to main) | BE-40, BE-51 | S |
+| PT-24 | Pull-request checks workflow | P2-N014 (pull-request checks that cannot deploy) | BE-38, BE-51, SE-14, SE-21 | S |
+| PT-25 | Alias-aware lease-table selection and the template resources it needs | P2-N015 (alias-aware lease-table selection) | BE-39, SE-12 | S |
+| PT-26 | Deploy, smoke and promote workflow, OIDC preflight and deploy-role policy | P2-N016 (deploy, smoke and promote on merge to main) | BE-40, BE-51, SE-13, SE-15 to SE-19, SE-21, SE-23 | S |
+| PT-27 | Project model slice: `docs/project-model.md` and the slice record `docs/project-model-slice-record.md` | P3-N006 (the thin end-to-end slice), done 2026-10-30, task T054. Added by E3. | BE-52 | C |
+| PT-28 | Common risk catalogue, `docs/proposals/common-risk-catalogue.md`, and its check document | P3-N010 (one class, carried end to end), done 2026-10-30, task T055. Added by E3. | BE-53 | C |
+| PT-29 | Stop-predicate record, `docs/findings/p3-n005-stop-predicates.md` | P3-N013 (the four stop conditions, decidable), done 2026-10-30, tasks T056 and T059 to T067. Added by E3. | BE-54 | C |
+| PT-30 | Sequence mode: `dispatch.md`'s *Sequence mode* section, the member's result record, the six contracts' conditions, `form-check-core.ts` and a corpus fixture | P3-N014 (the loop runs sequence mode), done 2026-10-30, task T072. Added by E3. | BE-55 to BE-61, BE-66, BE-67 | C |
+| PT-31 | Service Classification, `CLAUDE.md` binding block and methodology migrations of the service repository | no node. Added by E3 under decision 5, from the service Backlog entries SE-10 and SE-11 (2026-08-31 and 2026-09-02). | SE-10, SE-11 | S |
 | SA-1 | Plan register, Backlog and Cost log as documents | standing artifact class | none | C |
-| SA-2 | Plans, specifications and proposals | standing artifact class | none | C |
+| SA-2 | Plans, specifications and proposals | standing artifact class | BE-62 | C |
 | SA-3 | The deployed service's live surface: production endpoint, production lease table, aliases | standing artifact class | none | S |
 | SA-4 | The sessions' execution surfaces: cloud web session and local terminal, with their network policy and environment variables | standing artifact class | BE-41 | C |
 
@@ -1412,10 +1527,16 @@ absent from the service repository's `main` at commit `58e6819`. That
 checkout is shallow, so this document cannot say whether the file was
 ever merged.
 
+Note 2. The service repository's `docs/mcp-enlistment.md` and its template
+belong to the same node as PT-22 (SE-20). They are text. Step 1 reads the
+Classification of the repository that holds them, which admits every header
+of the catalogue except that of CR-011, and CR-011 does not reach text.
+
 ### Checked Backlog entries and their parts
 
 Each checked entry is labelled BE-nn in file order. The column *Line*
-is the entry's first line at commit `d1c3659`.
+is the entry's first line at commit `d1c3659`. For BE-52 to BE-68, which
+were added after it, *Line* is the first line at commit `0aefb00`.
 
 | Label | Entry | Line | Section | Part |
 |---|---|---|---|---|
@@ -1470,10 +1591,76 @@ is the entry's first line at commit `d1c3659`.
 | BE-49 | Chunk-1 child: degrade to git-only, and enlistment documentation | 2562 | Upcoming | PT-22 |
 | BE-50 | Service enlistment section in the process spec | 2620 | Upcoming | PT-22 |
 | BE-51 | CI for project-orchestrator-service | 2662 | Upcoming | PT-24, PT-26 |
+| BE-52 | The thin end-to-end slice: five resources through the project model and both renderings (node P3-N006) | 438 | Upcoming | PT-27 |
+| BE-53 | One risk class carried end to end (node P3-N010, child A of P3-N003) | 523 | Upcoming | PT-28 |
+| BE-54 | W-001's four stop conditions as decidable predicates, with two blind readings and the relation table (node P3-N013) | 566 | Upcoming | PT-29 |
+| BE-55 | A result names no repository for a ref of another repository | 604 | Upcoming | PT-30 |
+| BE-56 | Predicate 2's naming forms in the normative text | 609 | Upcoming | PT-30 |
+| BE-57 | Predicate 3's override forms and gate headings | 626 | Upcoming | PT-30 |
+| BE-58 | A member's documents when its register line links the parent's specification | 631 | Upcoming | PT-30 |
+| BE-59 | Predicate 2's W-002 flag verbs | 636 | Upcoming | PT-30 |
+| BE-60 | A grant "up to" a gate in the ratification record | 641 | Upcoming | PT-30 |
+| BE-61 | Predicate 1's normative text and negated failure words | 645 | Upcoming | PT-30 |
+| BE-62 | A home in the model for open findings that are not nodes | 734 | Upcoming | SA-2, see note 3 |
+| BE-63 | Ratify or strike the slice's seven terms | 746 | Upcoming | PT-02, see note 3 |
+| BE-64 | Two nodes edit the same six role contracts | 801 | Upcoming | PT-12 |
+| BE-65 | A plan document has no declared place for RU-016's repository-reach declaration | 1120 | Upcoming | PT-02, see note 3 |
+| BE-66 | R14's contract wording | 1938 | Upcoming | PT-30 |
+| BE-67 | Bare methodology identifiers in the six contracts | 1943 | Upcoming | PT-30 |
+| BE-68 | `plan_lease_release` fails against real DynamoDB: `token` is a reserved keyword | 2283 | Upcoming | PT-21 |
 
-Node mapping. The 20 non-aggregate `done` nodes map to parts as the
-*Source* column shows. The three aggregates map to their children. Every
-`done` node of the Plan register at commit `d1c3659` appears once.
+Note 3. Three of the new entries deliver an artifact that an existing part
+already holds. BE-62 closed on the K-003 proposal, a proposal document, so it
+joins SA-2. BE-63 closed on the type specification
+`docs/process/project-model.md`, and BE-65 on `docs/process/plan-model.md`.
+Both are files of `docs/process/`, so both join PT-02. Node P3-N007 wrote
+all three and is not `done`, so it adds no part of its own. The other entries
+of the new rows join the part of their node, or of the node that landed them.
+The Backlog entry of P3-N014 itself is still unchecked at `0aefb00` while
+the Plan register holds the node `done`. PT-30's source is the register, and
+the unchecked entry is a located finding for the Orchestrator.
+
+### Checked entries of the service repository's Backlog
+
+Decision 5 of the plan of node P3-N011 adds this table. It reads the
+service repository's `docs/backlog.md` at commit `58e6819`, which holds 23
+checked entries. Each is labelled SE-nn in file order. The column *Line* is
+the entry's first line there. An entry becomes a part only when it delivers
+an artifact no existing part holds. One does: SE-10 and SE-11 deliver the
+service's Classification and binding block as migrated, which no node part
+holds, and which this repository holds as PT-14 for its own copies. They form
+PT-31. The other 21 entries join the part of their node.
+
+| Label | Entry | Line | Part |
+|---|---|---|---|
+| SE-01 | Methodology scaffolding and project skeleton (node P2-N007) | 15 | PT-18 |
+| SE-02 | Reachability slice (node P2-N008) | 33 | PT-19 |
+| SE-03 | Rework: fix the deployed 404 | 82 | PT-19 |
+| SE-04 | Plan-state read (node P2-N009) | 133 | PT-20 |
+| SE-05 | Plan-state update with the advisory lease (node P2-N010) | 227 | PT-21 |
+| SE-06 | Rework: fix the lease-release reserved-word defect | 319 | PT-21 |
+| SE-07 | Rework: fix the ESM/CJS bundle outage | 374 | PT-19 |
+| SE-08 | `sam validate --lint` / `sam build` for the GitHub App wiring | 461 | PT-20 |
+| SE-09 | `sam validate --lint` / `sam build` for the `LeaseTable` addition | 471 | PT-21 |
+| SE-10 | Migrated to methodology v1.4.0 | 480 | PT-31 |
+| SE-11 | Migrated to methodology 1.5.0 | 498 | PT-31 |
+| SE-12 | Alias-aware lease-table selection, failing closed | 514 | PT-25 |
+| SE-13 | Deploy prerequisites cleared: the deploy role's IAM policy and the `GITHUB_`-variable naming fix | 628 | PT-26 |
+| SE-14 | Pull-request checks that cannot deploy | 629 | PT-24 |
+| SE-15 | The `push`-triggered deploy, smoke and promote workflow, and the on-demand OIDC preflight | 670 | PT-26 |
+| SE-16 | G6: record the first green run's numbers | 671 | PT-26 |
+| SE-17 | Fix: CI's first deploy blocked on `cloudformation:CreateChangeSet` | 673 | PT-26 |
+| SE-18 | Two defects from the first real pipeline run: the preprod Function URL's 403, and `live` unsafely pinnable to `$LATEST` | 674 | PT-26 |
+| SE-19 | G5 demonstration: a deliberately failing smoke check, once | 676 | PT-26 |
+| SE-20 | Degrade to git-only, and enlistment documentation (node P2-N011) | 678 | PT-22, see note 2 |
+| SE-21 | Deploy-on-merge CI for this repository | 690 | PT-24, PT-26 |
+| SE-22 | A full end-to-end write-path exercise against the deployed service | 703 | PT-21 |
+| SE-23 | A repository variable for the deploy role's ARN | 718 | PT-26 |
+
+Node mapping. The 24 non-aggregate `done` nodes map to parts as the
+*Source* column shows: 20 from `d1c3659` and the four added by E3. The
+three aggregates map to their children. Every `done` node of the Plan
+register at commit `0aefb00` appears once.
 
 ## Run record, 2026-10-30
 
