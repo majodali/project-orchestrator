@@ -305,11 +305,11 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 ### P2-N005 The task-pull loop (chunk 4)
 
-- Stage: identified, 2026-08-26. No plan yet.
+- Stage: planned, 2026-10-30 (task T073). Gated on the owner's review of its plan.
 - Outcome: A session asks the service for its next task and claims the task, so no other session takes it. The session then reports progress and completion. When the service is down, a session claims a task by creating a git branch named after the task.
 - Depends on: P2-N002 (service skeleton and plan state), which is done. The register marks P2-N005 independent of P2-N003 and P2-N004.
 - Needed by: P2-N006.
-- Documents: [service plan, chunk 4](plans/orchestration-service.md#chunk-4--the-task-pull-loop).
+- Documents: [plan](plans/p2-n005-task-pull-loop.md), [service plan, chunk 4](plans/orchestration-service.md#chunk-4--the-task-pull-loop).
 
 ### P2-N006 Migration and pilot (chunk 5)
 
@@ -514,7 +514,6 @@ A node is actionable when every recorded dependency of its next stage is met.
 
 Planning now, dispatched on 2026-10-30 after the owner's scope grant:
 
-- P2-N005 (the task-pull loop), task T073: the next service chunk the owner chose on 2026-10-29.
 - P1-N016 (process spec maintenance), task T074. Its executing stage waits on P3-N009.
 
 Actionable, not yet dispatched:
@@ -528,6 +527,7 @@ Executing now, dispatched after the owner's second plan gates of 2026-10-30:
 
 Gated on the owner:
 
+- P2-N005 (the task-pull loop): the owner's review of its plan, thirteen decisions and four terms.
 - P2-N003 (owner questions and the plan view): the owner's review of its plan, ten decisions.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
@@ -553,7 +553,6 @@ No plan yet, in register order:
 - P1-N006 (pilot on a real project)
 - P1-N007 (cost reporting and close-out)
 - P2-N004 (topics and coordination)
-- P2-N005 (the task-pull loop)
 - P2-N006 (migration and pilot)
 - P3-N008 and P3-N009 (the comprehension model's later children)
 - P3-N004 (reversibility)

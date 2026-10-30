@@ -2765,10 +2765,14 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   project topics for status and cross-session coordination, including
   who is blocked on what; channels-push availability on the web
   surface verified here (R11), with pull as the fallback.
-- [ ] **Service chunk 4 — the task-pull loop** (node P2-N005) — a
-  session asks the service for the next task in its role and confirms
-  progress; the write lease in anger. The standing substitute for
-  server-side spawning.
+- [ ] **Service chunk 4 — the task-pull loop** (node P2-N005) — When:
+  planned 2026-10-30 (T073). Status: planned, gated on the owner's
+  review; every offer, claim and result lives in git (task files, claim
+  branches, result files), the service reads git and says what to push;
+  an interior node with four children (a platform spike, the loop in
+  git alone, role-aware identity, the task tools); thirteen decisions
+  staged, four terms for ratification. Pointer:
+  [plan](plans/p2-n005-task-pull-loop.md).
 - [ ] **Service chunk 5 — migration and pilot** (node P2-N006) — move
   this repo's orchestration onto the service, then run the deferred
   portfolio pilot through it on methodology-tools, which the owner
