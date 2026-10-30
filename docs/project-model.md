@@ -95,10 +95,11 @@ record](project-model-slice-record.md) holds it.
   [form_check.ts](../plugin/scripts/form_check.ts); [Backlog, entry for
   P1-N012](backlog.md); [Risk register](open-risks.md), R13 (the
   tooling's runtime assumption moves from python3 to node))
-- **state:** built (derived from the stages of the nodes on the
-  created-by and modified-by lines: the creating nodes done, P3-N007
-  done, P3-N009 identified; from [Plan register](plan-register.md);
-  [Project model type](process/project-model.md), State derivation)
+- **state:** built, changing (derived from the stages of the nodes on
+  the created-by and modified-by lines: the creating nodes done, P3-N007
+  done, P3-N009 identified, P2-N021 executing; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
 - **spec:** [Plugin tooling on the portfolio stack,
   specification](specs/p1-n009-plugin-tooling-portfolio-stack.md) (node
   specification, closed; from [Backlog, entry for P1-N009](backlog.md))
@@ -119,7 +120,15 @@ record](project-model-slice-record.md) holds it.
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies) · P3-N009 (Sibling ordering retired; from [specification
   of P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at
-  this breakdown)
+  this breakdown) ·
+  P2-N021 (The web view's first version; task E2 (T095) moved the Cost
+  log and journal parsing out of the core into the shared unit; from
+  [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
 - **used-by:** P1-N008 (mtool checker extension-point proposal; its
   criterion E5 (checks clean) requires the checker to pass; from
   [specification of
@@ -1376,3 +1385,50 @@ record](project-model-slice-record.md) holds it.
 - **used-by:** P2-N020 (The task tools; from [specification of
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
   breakdown)
+
+## cost-log-and-journal-grammar
+
+- **is:** The shared unit that parses Cost log rows and run journal
+  lines, `plugin/scripts/lib/cost-log-and-journal.ts`, imported by the
+  form checker's core and vendored to the service (from [specification
+  of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges
+  stated at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
+- **state:** building (derived from the created-by line, where P2-N021
+  is executing; the modified-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
+- **spec:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
+- **risks:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
+- **created-by:** P2-N021 (The web view's first version; task E2 (T095),
+  majodali/project-orchestrator commit 3259736, its pull request not yet
+  merged; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
+- **modified-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
+- **used-by:** not yet derived (from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
+  at this breakdown; [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))

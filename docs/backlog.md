@@ -2820,7 +2820,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   an immediate-class scope expansion
   ([P1-N009 plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
   decision 3). Checked on 2026-10-29 (task T051), after it had stayed
-  open.
+  open. Evidence that the check does not run on its own: the service's
+  copy lagged the corpus from `6401311` until `c600a40` (T095).
 - [x] **P2-N002's live criteria renamed at the P1-N009 cutover
   (decision 14, option (a), the default)** — `docs/plans/p2-n002-service-skeleton.md`
   criterion 9 and `docs/specs/p2-n002-service-skeleton.md` criterion
@@ -2931,8 +2932,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   the T008 precedent, its pull request #18 open on
   majodali/project-orchestrator-service (commit `bf8f1b5`), every
   criterion met but V19 and V22, owed as deploy evidence, and
-  `sam validate --lint`, which the pull request's check runs; E2, the
-  node and task pages, is executing; a leaf, run as execute tasks E1 to E3
+  `sam validate --lint`, which the pull request's check runs; E2 (T095),
+  the node and task pages, returned needs-judgment on W-002 (E1's
+  `test/viewDeployWiring.test.ts` widened to admit E2's two route keys;
+  the owner rules on keeping it, restructuring it or dropping the
+  routes) and blocked on V22, every other criterion met, with pull
+  requests open in both repositories; a leaf, run as execute tasks E1 to E3
   against criteria V1 to V30, then the owner demonstration; no plan or
   specify task (plan decision 2); E3's wait on P3-N007 is met.
   Pointer:
@@ -2969,6 +2974,52 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   #18's check. Pointer: [specification of P2-N003, Child 1's
   verification
   criteria](specs/p2-n003-owner-questions-and-plan-view.md#child-1s-verification-criteria).
+- [ ] **The consumer typecheck does not cover the shared Cost log and
+  journal unit** — When: 2026-10-30, T095. Status: open; add
+  `plugin/scripts/lib/cost-log-and-journal.ts` to
+  `tsconfig.consumer.json`, as the register grammar unit is. Pointer:
+  [tsconfig.consumer.json](../tsconfig.consumer.json).
+- [ ] **`npm run lint` fails on `main` over a file outside every
+  tsconfig project** — When: 2026-10-30, T095. Status: open;
+  `docs/findings/p3-n005-stop-predicates/prepass.ts` lies outside every
+  project the lint configuration names. Pointer: [the P3-N013
+  record](findings/p3-n005-stop-predicates.md).
+- [ ] **Register lines put a note and their links behind two em
+  dashes** — When: 2026-10-30, T095. Status: open; the grammar takes
+  everything after the first " — " as the annotation and splits links
+  on " · ", so a line such as P2-N021's, "— <note> — spec: <path>",
+  reads its link with the note in its label. The gate commit wrote the
+  lines of P2-N021 and P2-N022 verbatim from the specification, and the
+  lines of P3-N007, P3-N008, P1-N016 and P2-N018 to P2-N020 share the
+  shape. Decide the grammar, or rewrite the lines. Pointer: [Plan
+  register type](process/plan-register.md#location-and-shape),
+  `plugin/scripts/lib/plan-register.ts`.
+- [ ] **A web-view node page fails whole when one of its reads fails**
+  — When: 2026-10-30, T095. Status: open; decide whether the page
+  degrades per field, showing the failing read in that field, or stays
+  as it is. Pointer: [specification of P2-N003, The node
+  page](specs/p2-n003-owner-questions-and-plan-view.md#the-node-page).
+- [ ] **A stale comment in the service's `test/viewSignIn.test.ts`** —
+  When: 2026-10-30, T095 (located finding). Status: open; left by E2
+  under W-002, for the owner's ruling or the next task that may change
+  that test. Pointer: majodali/project-orchestrator-service commit
+  `d6a40b5`.
+- [ ] **No CI check catches the service's vendored copy drifting from
+  the shared unit** — When: 2026-10-30, T095 (located finding). Status:
+  open; at `bf8f1b5` the service's vendored copy was out of sync under
+  RU-012 (how two repositories share one unit of code), lagging the
+  corpus from commit `6401311` of this repository until the service's
+  `c600a40`, and no pull-request check ran
+  `sync_shared_unit.ts --check`. Pointer: the entry *Service-side
+  adoption of the shared register grammar*.
+- [x] **Three display choices of P2-N021's task E2, confirmed** — When:
+  2026-10-30, T095. Status: done; the Orchestrator confirmed them within
+  the specification's latitude, and the owner may overrule: the
+  Resources field shows a placeholder until E3; the Outcome field shows
+  the plan's Markdown as text with its links unrendered (V10); unparsed
+  lines are noted by line number. Pointer: [specification of P2-N003,
+  The node
+  page](specs/p2-n003-owner-questions-and-plan-view.md#the-node-page).
 - [ ] **The service's deploy workflow calls its smoke test three
   checks** — When: 2026-10-30, T094 (located finding). Status: open;
   the comment "Smoke test (G3) — three checks" in
