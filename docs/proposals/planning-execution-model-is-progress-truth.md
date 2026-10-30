@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: under review (round 9, fixes applied, 2026-10-30)
+Status: under review (round 10, the limit, 2026-10-30)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →
@@ -235,12 +235,12 @@ Under the amendment, an open
 entry that names no
 [node](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node)
 stays in the Backlog's upcoming section as the Backlog's own content.
-Such an entry is upcoming work the Backlog records. It is not part of
-what is next until a node's plan takes it in. An open
-Backlog entry joins the rendered [list of what is
+Such an entry is upcoming work the Backlog records. A node's plan
+takes an entry in when the plan lists the entry as work the node does.
+The entry is not part of what is next until a node's plan takes it in.
+An open Backlog entry joins the rendered [list of what is
 next](#def-list-of-what-is-next) when it becomes a node, or when a
-node's plan takes it in. A node's plan takes an entry in when the plan
-names the entry as work the node does. Entering each small
+node's plan takes it in. Entering each small
 finding as a node would add planning ceremony that the finding does not
 need.
 

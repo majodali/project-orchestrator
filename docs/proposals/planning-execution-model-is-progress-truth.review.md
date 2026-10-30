@@ -1,6 +1,6 @@
 # Review record: a declared planning/execution model is the source of progress truth
 
-Status: open (count 1, round 9 running)
+Status: open (count 1, round 10 running, the limit)
 
 <!-- K-007 contract: Status transitions open → closed (the count's
      verdict recorded and the fixes confirmed). This file is the
@@ -597,4 +597,23 @@ because round 7's instance asked for the ask first and confirmed that
 order; the section is ordered by addressee, the maintainers then the
 owner, and the gate sentence states its timing ("Before the proposal is
 carried").
+
+Confirmation: 4 of 4 fixes hold (F5 with a placement defect). Declines
+accepted: 1 of 1. New defects: 2 (N1 "names" in two directions; N2 the
+definition of "takes in" after its first use).
+
+Re-fixes before round 10, in the IR then the prose: N1 ("lists the
+entry", C93); N2 (the definition moved before the first use).
+
+## Before round 10
+
+Round 10 is the limit. Under step 7 at the limit, the reasoning role
+fixes the final round's findings in the IR and then in the prose, the
+final round's instance confirms each fix other than a step-6 fix, and
+each finding is marked confirmed or unfixed. Whatever the verdict, the
+count ends at round 10 and the text is a meta-review subject.
+
+Claims check (the round 9 prose as base): 0 missing, 0 stale; prose 2686 words by tool.
+
+## Round 10, 2026-10-30, the limit
 
