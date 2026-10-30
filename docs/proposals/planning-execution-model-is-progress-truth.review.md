@@ -559,7 +559,7 @@ part of what is next until a node's plan takes it in).
 
 ## Before round 9
 
-Claims check (the round 8 prose as base): 0 missing, 0 stale; prose 2674 words by tool. Brief changes for
+Claims check (the round 8 prose as base): 0 missing, 1 stale (C38, shortened to the sentence the prose kept, an artefact); prose 2674 words by tool. Brief changes for
 round 9: round 8's declined finding 6 added to the declined list.
 
 ## Round 9, 2026-10-30
