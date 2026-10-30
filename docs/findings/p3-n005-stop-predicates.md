@@ -204,9 +204,10 @@ sections. The located findings and open questions the result reports.
 1. *Status.* The status token is anything other than exactly `done`
    (plan decision 6). `needs-judgment` and `blocked` both stop, and so
    does a compound token such as `blocked-on-O3`. The status token is
-   the first word of the `result-received` note, after an optional
-   leading word "status", ending at the first space, comma, period or
-   colon. An item with no `result-received` event has no status (fails
+   the run of letters, digits and hyphens that opens the
+   `result-received` note, after an optional leading word "status". Any
+   other character ends it, so "done;" and "done." both give `done`.
+   An item with no `result-received` event has no status (fails
    closed).
 2. *An unadopted gate decision.* A numbered entry in a *Decisions for
    the gate* section of a member's document is unadopted unless both
