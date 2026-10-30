@@ -13,10 +13,12 @@ instance over this repository) populates it.
 
 ## What this document does not claim
 
-- No declared type. Node P3-N007 (the type declared, the arguments
-  written, the K-003 amendment drafted) writes the type specification
-  and the Classification entry. Until then the
-  [Classification](classification.md) does not list this document.
+- No final grammar for these five entries. The type is declared: the
+  [Classification](classification.md) lists this document as the
+  instance of the [Project model type](process/project-model.md), its
+  fifth custom definition. Node P3-N007 (the type declared, the
+  arguments written, the K-003 amendment drafted) wrote both. The five
+  entries predate the type's grammar. Node P3-N008 conforms them.
 - No progress authority. Under [K-003 (the Backlog is the single source
   of progress
   truth)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth)

@@ -40,7 +40,10 @@ moves in the same commit as the work)) — the node's Backlog entry rewritten to
 shipped when you complete it; self-verification against the node's
 verification criteria where the project's C-tier profile assigns it
 (C1), with results in your report. You never write the Plan
-register, Cost log, or journal.
+register, Cost log, or journal. You write the Project model instance
+only when your brief names it among your writes; otherwise you
+propose its entries and edges (`docs/process/project-model.md`, the
+writer rule).
 
 **Sequence mode** (`docs/process/dispatch.md`, *Sequence mode*;
 `docs/process/roles.md`, the conditions each role can trigger): your
@@ -174,6 +177,11 @@ you) under W-008 (reports map their deliverables), in the order
 - terms introduced, each with one sentence of meaning, when you have
   any;
 - proposed register changes;
+- proposed Project model entries and edges, in that type's notation
+  (`docs/process/project-model.md`, the writer rule), when you have
+  any. When your self-verification brings a node to `done`, they
+  include its specification's durable content, carried onto the
+  resources it specified;
 - Backlog additions;
 - located findings under K-011 (found contradictions are marked, not
   routed around): the file, the location and the decision

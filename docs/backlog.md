@@ -397,7 +397,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   kind moves from child D to child B. Gate crossed 2026-10-29:
   defaults adopted, decision 13 option (a) no deviation, the one term
   ratified; children P3-N006 to P3-N009 entered (RU-020). P3-N006 done
-  2026-10-30. Next: P3-N007's planning.
+  2026-10-30. P3-N007's first execute task (T070) landed the type
+  2026-10-30. Next: P3-N007's amendment.
 
 - [ ] **P3-N005 specified, 2026-10-29 (T045)** — sequence mode's
   specification stands at
@@ -453,12 +454,22 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   per-entry links.
 - [ ] **The type declared, the arguments written, the K-003 amendment
   drafted** (node P3-N007, child B of P3-N002) — When: planned
-  2026-10-30 (T057); specified at the gate of 2026-10-30, defaults 1
-  to 12 adopted and eight terms ratified. Status: specified, execute
-  next; a leaf run as E1 (the type and the design arguments) then E2 (the
-  amendment IR first, the proposal, stranger rounds, owner gate);
-  twelve decisions staged, among them a new dependency rule for `uses`
-  edges and eight terms for ratification. Pointer: [plan](plans/p3-n007-type-declared-amendment-drafted.md).
+  2026-10-30 (T057); specified at the gate of 2026-10-30; E1 executed
+  2026-10-30 (T070). Status: executing; E1 landed the type
+  specification, the Classification's fifth custom definition, the
+  writer rule, the Dependencies section as the place edges are first
+  written, the `Applied:` retention reason and the `edge-recorded`
+  event kind; E2, the amendment IR first, is next. Pointer:
+  [plan](plans/p3-n007-type-declared-amendment-drafted.md),
+  [type specification](process/project-model.md).
+- [ ] **P3-N009's rules gain a cycle check over derived dependencies**
+  — When: 2026-10-30, planning P3-N007. Status: open, for P3-N009; the
+  after qualifier lets a planner write a cycle. Pointer:
+  [type specification](process/project-model.md#node-to-node-dependency).
+- [ ] **Revisit the `risks:` relation when P3-N003's reaches line
+  lands** — When: 2026-10-30, planning P3-N007 (slice finding 10).
+  Status: open; the slice's rule is kept until then. Pointer:
+  [type specification](process/project-model.md#risks).
 - [ ] **P3-N008 identified, 2026-10-29** — the instance over this
   repository, with G6's renderings compared against the Backlog (spec
   child C). Depends on P3-N007.
@@ -654,10 +665,11 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   When: 2026-10-30, T054. Status: open; the list names T039, T043 and
   T055, while the plans of P3-N003, P3-N005, P3-N006, P3-N010 and
   P3-N013 cite the ruling at planning. Pointer: [rulings.md](rulings.md).
-- [ ] **Ratify or strike the slice's seven terms** — When: 2026-10-30,
-  T054. Status: open, for the owner: facet, held edge, own status,
-  formerly line, standing append, node specification, process
-  specification. Pointer: [slice record](project-model-slice-record.md).
+- [x] **Ratify or strike the slice's seven terms** — When: 2026-10-30,
+  T054; closed 2026-10-30 (T070). Status: done; the owner ratified the
+  seven and standing resource at P3-N007's plan gate, and the type
+  specification is their definition site. Pointer: [type
+  specification](process/project-model.md#defined-terms).
 - [ ] **The service repository cites a findings file its main does not hold** —
   When: 2026-10-30, T055 (located finding). Status: open; the service's
   Backlog and runbook cite `docs/findings/alias-assumptions.md`, absent
@@ -683,7 +695,10 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   resources are flat by that plan's decision 2, and a hierarchy may
   become necessary later to support complex validations over
   resources. Nothing to do now; a future discussion, recorded so the
-  flat decision is read as deliberate rather than final.
+  flat decision is read as deliberate rather than final. Containment
+  joins it: a part inside another part, such as a file in a
+  repository, is not modelled (slice record finding 11, P3-N007's
+  plan; [slice record](project-model-slice-record.md), section 7).
 
 - [ ] **P3-N002 and P1-N016 both reach `dispatch.md`'s selection
   rule** — found 2026-09-17 planning P3-N002. That node's child D must
@@ -703,10 +718,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 
 - [x] **Two nodes edit the same six role contracts** — When: found
   2026-09-17 planning P3-N005, ordered by the owner 2026-10-29; closed
-  2026-10-30 by P3-N014 (T072). Status: done; P1-N014's edits landed
-  first (T047, commit `7521066`), and P3-N014 read the contracts as
-  they stood at its branch base, commit `bd4fc8d`, unchanged since
-  `7521066`. Pointer: [P1-N014 specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the binding section.
+  2026-10-30. Status: done; P1-N014's edits landed first (T047, commit
+  `7521066`); P3-N007's E1 (T070) edited four contracts for the Project
+  model's writer rule and P3-N014 (T072) edited all six for sequence
+  mode, each from branch base `bd4fc8d`, and the Orchestrator merged
+  both on 2026-10-30 keeping both sets of additions. Pointer:
+  [P1-N014 specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the binding section.
 
 - [ ] **Retiring the Ruling register's `Applied:` field** — the option
   P3-N002's decision 5 declines by default, kept live here. A ruling is
@@ -1020,9 +1037,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   Left for the owner to sequence rather than done here, because
   rewriting another entry's history is not this task's work.
 
-- [ ] **A plan document has no declared place for RU-016's
-  repository-reach declaration** — found 2026-09-17 specifying
-  P3-N001. RU-016 puts the declaration "in the node's plan", and
+- [x] **A plan document has no declared place for RU-016's
+  repository-reach declaration** — closed 2026-10-30 by P3-N007's E1
+  (T070): [plan-model](process/plan-model.md), the node lifecycle,
+  names a plan's *Dependencies* section as the single place a node's
+  repository reach and edges are first written. Found 2026-09-17
+  specifying P3-N001. RU-016 puts the declaration "in the node's plan", and
   P2-N012's plan carried a *Dependencies* section that did it. The
   comprehension plan carries none, though its whole driver is another
   repository, so the specification had to make the declaration

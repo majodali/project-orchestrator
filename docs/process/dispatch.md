@@ -266,12 +266,19 @@ order:
 
 A role's own fields sit between items 4 and 5, named in its contract
 ([roles.md](roles.md)). They are attributable to the role, never to
-drift. This contract fixes three of them for any role that produces
+drift. This contract fixes four of them for any role that produces
 them:
 
 - Proposed register changes (new children from a breakdown, a stage
   transition, a backward transition with its reason) — proposed, not
   written; the Orchestrator is the register's single writer.
+- Proposed [Project model](project-model.md) entries and edges, in
+  that type's notation. They are proposed, not written. The
+  Orchestrator is the model's single writer and records them in the
+  acceptance commit, with one `edge-recorded` journal event per edge.
+  A task whose brief names the model's instance among its writes is
+  the stated case of the type's [writer
+  rule](project-model.md#the-writer-rule).
 - Backlog additions for everything identified and not executed
   (owner ruling 1: at any time, from any unit of work).
 - An intermediate representation (IR) beside the prose, or instead

@@ -120,6 +120,11 @@ you) under W-008 (reports map their deliverables), in the order
 - terms introduced, each with one sentence of meaning, when you have
   any;
 - proposed register changes (stage transition or backward transition);
+- proposed Project model entries and edges, in that type's notation,
+  when you have any: for a node reaching `done`, the durable content
+  of its specification carried onto the resources it specified
+  (`docs/process/project-model.md`, specifications and the
+  specification lifecycle);
 - located findings under K-011 (found contradictions are marked, not
   routed around): the file, the location and the decision
   contradicted for each, or "none";

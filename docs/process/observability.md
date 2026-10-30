@@ -1,6 +1,13 @@
 # Observability — the run journal
 
 Part of the [orchestration process specification](README.md).
+
+Reader: RD-4 (a fresh agent session) in the methodology's
+[reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers):
+the Orchestrator, which writes the journal, and any session that
+reads it. The reader knows the [process specification's](README.md)
+defined terms.
+
 In the mature state, gates, project documents, and registers are the
 observability surface. For troubleshooting and optimization they are
 not enough: they record outcomes, not operation. The **run journal**
@@ -56,7 +63,9 @@ Event kinds (v1, extendable by spec change): `dispatched` ·
 `backward-transition` · `packet-widened` · `precedent-applied` (a
 [Ruling register](rulings.md) match deciding a staged question) ·
 `gate-opened` · `gate-crossed` · `sequence-ratified` ·
-`sequence-stopped`.
+`sequence-stopped` · `edge-recorded` (an
+[edge](project-model.md#def-edge) transcribed into the Project model
+instance).
 
 The two sequence kinds record a ratified sequence
 ([dispatch.md](dispatch.md#sequence-mode)). Both names were ratified
@@ -73,6 +82,29 @@ at node P3-N014's gate of 2026-10-30.
   modes, human-gated), or the step-4 stop: "empty actionable set",
   "blocked task" or "scope exhausted". The note then carries the
   stopping member's asks verbatim.
+
+An `edge-recorded` event records one edge. Its fields:
+
+- `node`: the edge's node.
+- `task`: the task whose acceptance commit records the edge, or `null`
+  when a gate records it.
+- `note`: the edge in the [Project model](project-model.md)'s
+  notation, then `; from ` and the record that states it, such as
+  `P3-N007 uses project-model; from docs/specs/p3-n002-comprehension-model.md, Edges stated at this breakdown`.
+- `ref`: `null`, or the commit of the record when it is pinned.
+
+Two further events of the Project model have no kind yet. Each is a
+recorded gap with a home.
+
+- An edge invalidated by a superseded ruling belongs to node P3-N004
+  (reversibility, and the measurement that says whether it pays).
+- A part's state change belongs to node P2-N003 (owner questions and
+  the plan view). A part's state is derived from Plan register stages,
+  and this journal already records every stage change. The web view
+  decides whether it needs an event of its own.
+
+The gaps `unblocked` and risk-opened stay with node P1-N016 (process
+spec maintenance).
 
 ## Write and read rules
 

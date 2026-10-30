@@ -74,6 +74,7 @@ const EVENTS = new Set([
   "gate-crossed",
   "sequence-ratified",
   "sequence-stopped",
+  "edge-recorded",
 ]);
 const TASK_TERMINAL = new Set(["accepted", "blocked", "stale"]);
 const TASK_RE = /^T\d{3,}$/;
