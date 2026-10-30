@@ -1883,6 +1883,16 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   When: 2026-10-29, P1-N014 decision 10. Status: open; the two roles'
   duties sit in roles.md, with no `.claude/agents/` contract until the
   pipeline clauses settle. Pointer: [roles.md](process/roles.md).
+- [ ] **The Reviewer (stranger) duties follow branch point v1.9** —
+  When: 2026-10-30, the owner adopted the recommended changes of
+  communication-pipeline evaluation cases 010 and 011 (the own-mismatch
+  rule for the verdict, `relied on` entries on `Mismatches:` lines,
+  the signals script run before each round from round 2 and before
+  the verdict, `awaiting restatement` marked on a re-fix, the claims
+  check on fixed prose before confirmation, every SP-02 warning
+  cleared before round 1). Status: open; roles.md's stranger clauses
+  and the Reviewer contract, when written, take the v1.9 steps. Lands
+  with the entry above. Pointer: [roles.md](process/roles.md).
 - [ ] **An override toward an option with no drafted affected-location
   text** — When: 2026-10-29, T047 finding. Status: open; dispatch.md
   does not route the case where placing the text needs judgment.
