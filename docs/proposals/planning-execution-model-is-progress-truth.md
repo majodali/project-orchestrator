@@ -91,8 +91,8 @@ Classification declares a planning/execution model, that model is the
 referent instead, and the Backlog's implementation map and list of what
 is next are renderings of it."
 
-The appended sentence is an exception to the two referent sentences
-before it. Where it applies, K-003's sentences "The Backlog is the
+The appended sentence is an exception to the two referent clauses
+before it. Where it applies, K-003's clauses "The Backlog is the
 referent for what is done and what is next" and "no other document may
 claim that role" both yield to it. How a
 Classification declares a model is stated under [*How a Classification
@@ -106,7 +106,7 @@ reads K-003 unchanged. The amendment leaves K-003's sentence on
 stage designations unchanged. The amendment says nothing about the
 verification evidence of each
 [node](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/README.md#def-node),
-the record of whether the node's work holds.
+the record of whether what the node built works.
 A planning/execution model has two components: the plan model, the
 project's nodes with their stages and edges, and that verification
 evidence. The amendment reaches the plan model only.
@@ -293,7 +293,9 @@ the rows read from the Plan register agreed with the state the entries
 recorded. The slice record rendered the list of what is next in a narrower form,
 per part: the open nodes with an edge to the part. Each of the five
 lists held no open item, because the slice's plan had held back the
-edges from open nodes to the five parts. The full instance renders that form over the whole model.
+edges from open nodes to the five parts. The full instance renders the list of what is next over the whole
+model, in the form stated under [*What the model is authoritative
+for*](#what-the-model-is-authoritative-for).
 
 The comparison of the renderings with the Backlog listed eleven
 differences. It left none unexplained. Of the eleven differences,

@@ -2,7 +2,7 @@
 
 Reader: RD-4 (a fresh agent session) reading K-003 and the proposal beside this IR; the maintainers of majodali/methodology adjudicate the amendment, and the project-orchestrator owner gates the proposal before it is carried.
 Purpose: document. The proposal to amend K-003 (the Backlog is the single source of progress truth) in place by one conditional sentence, so that a project whose Classification declares a planning/execution model takes that model as its referent for what is done and what is next.
-Status: draft (rendered by the reasoning role on 2026-10-30; round 7; round 6 not readable, 6 of 6 findings fixed, the step-6 passage matched on restatement; round 5 not readable, 9 of 10 findings fixed, all held at confirmation, 7 new defects fixed; round 4 not readable, 13 of 14 findings fixed and 1 re-fixed after confirmation, 1 declined, one step-6 structural fix awaiting restatement; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 88 claims; 2 unratified terms)
+Status: draft (rendered by the reasoning role on 2026-10-30; round 7; round 6 not readable, 6 of 6 findings fixed and 1 re-fixed after confirmation, the step-6 passage matched on restatement; round 5 not readable, 9 of 10 findings fixed, all held at confirmation, 7 new defects fixed; round 4 not readable, 13 of 14 findings fixed and 1 re-fixed after confirmation, 1 declined, one step-6 structural fix awaiting restatement; round 3 not readable, 15 of 16 findings fixed and 1 re-fixed after confirmation, 1 declined; round 2 not readable, 18 of 19 findings fixed and 1 re-fixed after confirmation, 1 declined; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 88 claims; 2 unratified terms)
 Source: RU-021 (the planning/execution model is the source of progress truth), owner, 2026-10-29; decisions 10 to 13 of the P3-N002 specification's gate record of 2026-10-29; decisions 4 to 6 of the P3-N007 plan, adopted on 2026-10-30; the Project model slice at commit 86a1330.
 Normative: yes
 Footprint: docs/proposals/planning-execution-model-is-progress-truth.md; docs/backlog.md
@@ -73,7 +73,7 @@ C10. A project whose Classification declares no planning/execution model reads K
 
 C11. The amendment leaves K-003's sentence on Workflow stage designations unchanged. [decided: owner, 2026-10-29]
 
-C12. The amendment says nothing about the verification evidence of each node, the record of whether the node's work holds. [decided: owner, 2026-10-29]
+C12. The amendment says nothing about the verification evidence of each node, the record of whether what the node built works. [decided: owner, 2026-10-29]
 
 C84. A planning/execution model has two components: the plan model, the project's nodes with their stages and edges, and the verification evidence of each node. evidence: E2. [decided: owner, 2026-10-28]
 
@@ -89,9 +89,9 @@ C15. K-003's Motivated-by line gains a citation of the evidencing instance, the 
 
 C16. The amendment changes no other part of K-003. [proposed: this IR]
 
-C77. The appended sentence is an exception to the two referent sentences before it. [proposed: this IR]
+C77. The appended sentence is an exception to the two referent clauses before it. [proposed: this IR]
 
-C83. Where the exception applies, K-003's sentences "The Backlog is the referent for what is done and what is next" and "no other document may claim that role" both yield to it. [proposed: this IR]
+C83. Where the exception applies, K-003's clauses "The Backlog is the referent for what is done and what is next" and "no other document may claim that role" both yield to it. [proposed: this IR]
 
 C17. A condition on a Classification declaration lets the rule apply mechanically, project by project, as RU-021 (the planning/execution model is the source of progress truth) directs. evidence: E12. [decided: owner, 2026-10-29]
 

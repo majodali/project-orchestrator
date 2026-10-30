@@ -409,3 +409,25 @@ C87; C49 with two clauses); all four were corrected before the
 confirmation request: C86 and C87 reworded, C78 joined by "beside",
 C49 split (C88 added).
 
+Confirmation: 5 of 6 fixes hold. Not held: 3 ("that form" now pointed
+at the per-part form). Declines accepted: 0 of 0. New defects: 3 (1 the
+referent of "that form"; 2 the gloss of verification evidence naming a
+node's work while the later use names a part; 3 "sentences" for what
+K-003 joins as clauses). The stranger also records an open residual
+that is the owner's: the quoted rule text keeps "no other document may
+claim that role" unconditioned while the commentary says it yields.
+
+Re-fixes before round 7, in the IR then the prose: 3 and 1 (the full
+instance renders the list over the whole model in the form stated
+under *What the model is authoritative for*); 2 (verification evidence
+glossed as the record of whether what the node built works, C12); 3
+("clauses", C77 and C83).
+
+## Before round 7
+
+Claims check (the round 6 prose as base): 8 changed claims, 0 missing;
+C49 reported stale because its claim was shortened to the sentence the
+prose already carried, an artefact as before. Prose 2587 words by tool.
+
+## Round 7, 2026-10-30
+
