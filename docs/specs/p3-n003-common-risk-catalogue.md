@@ -169,13 +169,18 @@ decision 4). It has three inputs.
 - This repository's Risk register, `docs/open-risks.md`, at a named
   commit.
 - The **parts enumeration**: the committed list of parts of this
-  project, drawn from the Backlog's Completed section, the Plan
-  register's `done` nodes, and a stated list of standing artifact
-  classes (plan decision 3).
+  project, drawn from the Backlog's checked entries wherever they sit
+  (refined at P3-N010's gate, 2026-10-30, from "the Completed section";
+  see the gate record), the Plan register's `done` nodes, and a stated
+  list of standing artifact classes (plan decision 3).
 
 A run has three steps.
 
 1. **Project applicability.** For each class, the run evaluates the
+   applicability header against the Classification of the repository
+   that holds each part (refined at P3-N010's gate, 2026-10-30; see the
+   gate record). Before the refinement this step read one Classification:
+   the run evaluates the
    applicability header against this project's
    [Classification](../classification.md). A class whose header does
    not admit this project is recorded as not applicable, and step 2

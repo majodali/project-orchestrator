@@ -489,9 +489,16 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   plugin as never observed loading, and no committed record shows the
   hook running. Pointer:
   [omission list](common-risk-catalogue-check.md#omission-list).
-- [ ] **P3-N011 identified, 2026-10-29** — the sweep, the rest of the
-  catalogue and the omission list in the check document (spec child
-  B). Depends on P3-N010.
+- [ ] **The sweep, the rest of the catalogue, and the omission list**
+  (node P3-N011, child B of P3-N003) — When: planned 2026-10-30 (T058).
+  Status: planned, gated on the owner's review; a leaf run as three
+  tasks (E1 the Risk register, rulings and plans; E2 the Backlog and
+  Cost log; E3 citations, full-scope check, negative control), five
+  decisions staged. Pointer: [plan](plans/p3-n011-sweep-and-omission-list.md).
+- [ ] **A leaf may need several execute tasks, and plan-model.md says
+  one session** — When: 2026-10-30, planning P3-N011. Status: open, for
+  P1-N016; three leaves now run as fixed task sequences (P2-N016,
+  P3-N013, P3-N011). Pointer: [plan of P3-N011](plans/p3-n011-sweep-and-omission-list.md).
 - [ ] **P3-N012 identified, 2026-10-29** — the Article 8 proposal for
   `docs/registers/common-risk-catalogue.md` upstream, written IR first
   and reviewed, delivered under RU-015 and RU-022 (spec child C).

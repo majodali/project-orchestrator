@@ -379,11 +379,11 @@ The children of P3-N003, a strict chain in their [specification](specs/p3-n003-c
   - Needed by: P3-N011.
   - Documents: [plan](plans/p3-n010-one-class-end-to-end.md), [specification](specs/p3-n003-common-risk-catalogue.md#child-a-one-class-carried-end-to-end).
 - P3-N011 The sweep, the rest of the catalogue, and the omission list
-  - Stage: identified, 2026-10-29. No plan yet.
+  - Stage: planned, 2026-10-30 (task T058). Gated on the owner's review of its plan.
   - Outcome: The sweep reads five sources, named by the parent specification's [criterion B1](specs/p3-n003-common-risk-catalogue.md#verification-criteria): the Risk register, the Backlog's two sections, the Cost log's notes and the Ruling register. Every candidate class is admitted, merged, rejected or deferred, on the record. Risk entries cite their classes. The list of uncovered parts is ready for the owner.
   - Depends on: P3-N010.
   - Needed by: P3-N012.
-  - Documents: the parent's [specification, child B](specs/p3-n003-common-risk-catalogue.md#child-b-the-sweep-the-rest-of-the-catalogue-and-the-omission-list).
+  - Documents: [plan](plans/p3-n011-sweep-and-omission-list.md), the parent's specification, child B.
 - P3-N012 The Article 8 proposal, written IR first and reviewed
   - Stage: identified, 2026-10-29. No plan yet.
   - Outcome: The catalogue and a cover note become an amendment proposal under the methodology's Article 8 (amendments, versions, and migration). Both are written as IRs first and judged readable by a [stranger](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-stranger) reviewer. The owner carries the proposal upstream, under RU-002. The node carries nothing upstream.
@@ -527,6 +527,7 @@ The Orchestrator proposes P2-N005 first, by the owner's order, and asks the owne
 
 Gated on the owner:
 
+- P3-N011 (the sweep, the rest of the catalogue, and the omission list): the owner's review of its plan.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:
@@ -534,7 +535,6 @@ Waiting:
 - P3-N007 (the Project model definition and the amendment): planning dispatched 2026-10-30 (task T057), after P3-N006 closed.
 - P3-N008 (the instance): waits on P3-N007.
 - P3-N009 (sibling ordering retired): waits on P3-N008.
-- P3-N011 (the sweep): planning dispatched 2026-10-30 (task T058), after P3-N010 closed.
 - P3-N012 (the Article 8 proposal): waits on P3-N011.
 - P3-N014 (the loop runs sequence mode): waits on P3-N013.
 - P3-N015 (the demonstration): waits on P3-N014.
