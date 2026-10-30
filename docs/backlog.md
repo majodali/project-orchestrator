@@ -2170,25 +2170,13 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   expensive attention rather than stopped work, and none earns its
   cost at this traffic volume. Revisit if the service ever becomes
   something work stops without.
-- [ ] **`plan_lease_release` fails against real DynamoDB: `token` is
+- [x] **`plan_lease_release` fails against real DynamoDB: `token` is
   a reserved keyword** — surfaced by the chunk 1 gate demonstration
-  itself, on the first call ever made against the production table.
-  `plan_confirm` succeeded — it fetched the pushed commit, checked the
-  register carried the edit, and reported the transition confirmed —
-  and then failed to release the lease:
-  `Invalid ConditionExpression: Attribute name is a reserved keyword;
-  reserved keyword: token`. The cause is one line:
-  `dynamoLeaseBackend.ts` writes `ConditionExpression: "token = :token"`,
-  and DynamoDB reserves `token`, so it needs an
-  `ExpressionAttributeNames` alias. `acquireLease`'s expression uses
-  only `pk` and `expiresAt`, which is why acquire worked and release
-  did not. **Why 124 tests missed it**: every test runs the in-memory
-  lease backend, so no test has ever sent a condition expression to
-  DynamoDB. The class of gap is the same one the ESM bundle defect
-  had — a check that cannot fail in the environment where the code
-  actually runs. The TTL contained it exactly as designed: the lease
-  self-released at expiry and the register was never at risk, because
-  the service holds no write credential.
+  on 2026-09-01; fixed the same day at task T027 by aliasing the
+  attribute (`#token`) in `src/planRegister/dynamoLeaseBackend.ts`,
+  and exercised since by the deploy smoke test's lease acquire-and-
+  release cycle (P2-N016). Closed 2026-10-30 on P2-N005's planning
+  finding; the row had stayed open after the fix.
 - [ ] **Q-004 makes the test-environment decision reversible at C2**
   — today's choice of a preprod alias over a second stack was taken
   on this service's economics: one consumer, no authoritative state,
