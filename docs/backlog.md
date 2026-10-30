@@ -2906,15 +2906,13 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   who is blocked on what; channels-push availability on the web
   surface verified here (R11), with pull as the fallback.
 - [ ] **Service chunk 4 — the task-pull loop** (node P2-N005) — When:
-  planned 2026-10-30 (T073); plan gate crossed 2026-10-30, defaults 1
-  to 13 adopted and four terms ratified (task file, claim branch,
-  result file, session handle). Status: planned; the specification
-  (T092) carries the children at breakdown depth; every offer, claim and result lives in git (task files, claim
-  branches, result files), the service reads git and says what to push;
-  an interior node with four children (a platform spike, the loop in
-  git alone, role-aware identity, the task tools); thirteen decisions
-  staged, four terms for ratification. Pointer:
-  [plan](plans/p2-n005-task-pull-loop.md).
+  planned 2026-10-30 (T073), plan gate crossed 2026-10-30 (defaults 1 to
+  13, four terms ratified), specification written 2026-10-30 (T092).
+  Status: planned; the specification is `draft`, gated on the owner's
+  review, with children A to D at breakdown depth, decisions 14 to 22
+  and three terms for ratification. Pointer:
+  [plan](plans/p2-n005-task-pull-loop.md) ·
+  [specification](specs/p2-n005-task-pull-loop.md).
 - [ ] **A form check for task files, claim branches and result files**
   — When: 2026-10-30, planning P2-N005 (T073). Status: open, for
   P1-N016 (process spec maintenance); today a verifier checks the
