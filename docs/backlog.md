@@ -506,11 +506,14 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   [omission list](common-risk-catalogue-check.md#omission-list).
 - [ ] **The sweep, the rest of the catalogue, and the omission list**
   (node P3-N011, child B of P3-N003) — When: planned 2026-10-30 (T058);
-  specified at the gate of 2026-10-30, defaults 1 to 5 adopted.
-  Status: specified, execute next; a leaf run as three
-  tasks (E1 the Risk register, rulings and plans; E2 the Backlog and
-  Cost log; E3 citations, full-scope check, negative control), five
-  decisions staged. Pointer: [plan](plans/p3-n011-sweep-and-omission-list.md).
+  specified at the gate of 2026-10-30, defaults 1 to 5 adopted; task E1
+  (T071) delivered 2026-10-30. Status: executing; a leaf run as three
+  tasks. E1 recorded passes 1 and 2 (43 candidates found, 7 classes
+  admitted as CR-002 to CR-008, 3 candidates deferred). E2 is next, the
+  Backlog and Cost log passes; E3 follows with citations, the full-scope
+  check and the negative control. Pointer:
+  [plan](plans/p3-n011-sweep-and-omission-list.md),
+  [sweep record](common-risk-catalogue-check.md#sweep-record-the-five-passes).
 - [ ] **A leaf may need several execute tasks, and plan-model.md says
   one session** — When: 2026-10-30, planning P3-N011. Status: open, for
   P1-N016; three leaves now run as fixed task sequences (P2-N016,
