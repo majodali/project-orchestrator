@@ -30,11 +30,11 @@ A stop predicate names the artifact and the field it reads, and it
 yields stop or continue without a fresh judgment. The record also
 states the corpus the two readings apply the predicates to.
 
-This commit holds the predicate text and the corpus statement only.
-It is the [predicate commit](../plans/p3-n013-stop-conditions-decidable.md#e1-write-sample-and-fix-the-predicates)
-both readings start from. The revision log, the hard-case sample's
-verdicts, the mechanical pre-pass and the relation table are added by a
-later commit that neither reading contains.
+The predicate text and the corpus statement were committed alone, in
+the [predicate commit](../plans/p3-n013-stop-conditions-decidable.md#e1-write-sample-and-fix-the-predicates)
+`d843457` that both readings start from. The revision log, the
+hard-case sample's verdicts, the mechanical pre-pass and the relation
+table were added by a later commit that neither reading contains.
 
 ## How a reading applies the predicates
 
@@ -470,12 +470,182 @@ finds the phrase only in rule text: role contracts and proposals.
 - Seven items have a journal note that paraphrases asks: T047 to T053.
   A paraphrase is not the Asks part (predicate 4, *The artifact*).
 
-## Still to come
+## Revision log
 
-- The revision log from draft 0, the hard-case sample's verdicts, the
-  mechanical pre-pass and the relation table: the commit after this
-  one.
-- The agreement result: the comparison task, after both readings.
+Draft 0 was written from criteria I1 to I4, parent decisions 10 and 11
+and plan decisions 4 to 6. It was not committed. Its clauses are quoted
+below as they read when the hard-case sample was scored. Draft 1 is
+commit `309ed24`. Draft 2 is commit `d843457`, the predicate commit
+both readings start from. Every revision below was recorded before
+either reading was dispatched (criterion A4).
+
+The sample's verdicts at draft 2 are in
+[sample-verdicts.md](p3-n005-stop-predicates/sample-verdicts.md).
+
+| Revision | Draft 0 read | Sample item and outcome at draft 0 | Draft 1 reads |
+|---|---|---|---|
+| R1 | Predicate 1 read "the check outcomes recorded in the item's `result-received` note, its `accepted` note and its Cost log row". | T017: its form-check outcome is in its `needs-judgment` event, which draft 0 did not read. Stop, failed closed, with the form check counted as unrecorded. | Any note of the item: every journal event with its task ID, and its Cost log row. |
+| R2 | Predicate 1 stopped on "a `check-failed` event recording a failed check". | T025: its `check-failed` note records a brief defect, not a check. Whether it records a failed check is a judgment. Not decidable. | Stop on any `check-failed` event, "whatever its note says". |
+| R3 | Predicate 1 read "the outcome the result records for each named check", with no wording list. | T032 and T008: "self-verified per the C1 profile" and "locally verified" could each be read as a pass or as no outcome. Not decidable. | The pass list, the failure list and the no-outcome list. "self-verified" alone records no outcome. |
+| R4 | No rule for a note stating two outcomes, or for a failure made on purpose. | T025: "the regression test was broken deliberately ... and failed with the exact production error, then passed once restored". Not decidable. | The last outcome a note states stands. A deliberate failure that is restored is not a failure. Between two notes, the failure stands. |
+| R5 | Predicate 2's second set was "the repository each recorded ref belongs to". | T025 and T032: their refs do not resolve here, and nothing committed says which repository holds them. Not decidable without a judgment. | A ref that does not resolve here takes the repository a note names from a stated list. With none named, the repository is unknown, and predicate 2 fails closed. T025 then yields continue and T032 stop. |
+| R6 | "A `packet-widened` event is an element of no set." | T025: its notes also report a search ("The role searched, found none"), which is not a `packet-widened` event. | A `packet-widened` event, "and every read or search a note reports", is in no set. |
+| R7 | Predicate 3 stopped "on any status other than `done`, read from the `result-received` note". | T010: the note reads "status blocked-on-O3 with all locally reachable criteria claimed met". Where the status ends was not stated. The verdict was stop on every reading, but the field was not defined. | A status token, with a stated start and end. |
+| R8 | Predicate 3 had two tests: the status, and an unadopted gate decision. | T038: its placement contradicted criterion I9 of its own specification, marked under K-011 and routed to the owner. Draft 0 stopped it only because it has no `result-received` event: the right verdict for the wrong reason. | A third test: a located finding against a member document stops. The test for an open question (criterion I5) is numbered fourth. |
+
+**Draft 1 to draft 2.** One revision, found by running the mechanical
+pre-pass after commit `309ed24` and before either reading was
+dispatched.
+
+| Revision | Draft 1 read | What exposed it | Draft 2 reads |
+|---|---|---|---|
+| R9 | The status token ends "at the first space, comma, period or colon". | The pre-pass gave the token `done;` for the 20 notes that open "status done; ...", T025 among them. Under draft 1, predicate 3 stopped all 20. | The token is the opening run of letters, digits and hyphens. |
+
+## The mechanical pre-pass
+
+[prepass.ts](p3-n005-stop-predicates/prepass.ts) scores the structured
+fields of the journal and the Cost log at the cut-off: the status
+token, the `check-failed` and `needs-judgment` events, the refs and the
+recorded node. It decides only what a field decides and leaves every
+wording match to the readings, so it is not a third reading
+(criterion A6). Its output is
+[prepass-output.md](p3-n005-stop-predicates/prepass-output.md). Re-run
+it from the repository root with
+`node docs/findings/p3-n005-stop-predicates/prepass.ts d1c3659`. It
+is not part of `plugin/`, and the form check does not run it.
+
+At the cut-off it reports 53 items and 0 exclusions. Predicate 1 stops
+on a `check-failed` event for 3 items. Predicate 2 stops on a missing
+node for 2 items. Predicate 3's status test stops 16 items, 12 of them
+by failing closed for want of a `result-received` event. Predicate 4
+stops all 53 by failing closed.
+
+## The relation table
+
+The parent specification's criterion I10 (the relation to the
+meta-review signals is closed) and child A's criterion A10 ask how
+W-001's four conditions relate to the four meta-review signals of the
+methodology's IR specification, and to its limit of ten rounds. The
+parent specification's table was a hypothesis. This table is the
+result of testing it.
+
+### The text related
+
+**Provenance.** The pinned text: methodology tag v1.6.0, commit
+`3e34829`, 2026-10-28, `docs/intermediate-representation.md`, section
+*Meta-review*. The Orchestrator quoted it in this task's packet on
+2026-10-30 (plan decision 3). This task re-verified it against the tag
+on 2026-10-30; it matches, apart from the link markup and line breaks
+removed below. The later text: methodology `main` at commit `195eba9`,
+unreleased, as the Orchestrator quoted it on 2026-10-30. Only its three
+reworded sentences are quoted; the packet states that the rest is
+unchanged in substance. The parent specification's decision 9 names
+the rewording as commit `350f75f`, 2026-10-29. This record relates the
+text quoted at `195eba9`, and does not establish whether `350f75f`
+reads the same.
+
+The pinned v1.6.0 text, quoted verbatim:
+
+> A meta-review signal is one of four conditions in a review record. A
+> text is a meta-review subject when its count reaches the limit or its
+> review record shows a meta-review signal. The first signal: in two or
+> more rounds of the count, a fix did not reach the prose or was not
+> confirmed. The second signal: a finding declined in an earlier round
+> was raised again, or a restatement mismatch recurred on one passage.
+> The third signal: the prose grew across the count by more than one
+> tenth of its round-1 word count. The fourth signal: after round 3, a
+> stranger found a contradiction in a passage an earlier round's fix
+> touched. At the end of a count, the reasoning role checks the four
+> signals against the review record. The reasoning role writes
+> `Meta-review: pending` when the text is a subject and
+> `Meta-review: not indicated` otherwise, naming the signals checked.
+> The owner may dispatch a meta-review of any text. The reasoning role
+> asks the owner, in the report that delivers a meta-review subject, to
+> dispatch its meta-review.
+
+The limit, from the same file's section *Stranger rounds* at v1.6.0:
+"The limit is ten rounds." and "At the limit the reasoning role does
+not deliver the text before the owner's decision."
+
+The three sentences reworded at `195eba9`, quoted verbatim:
+
+> The second signal: a finding declined in an earlier round was raised
+> again. The second signal also fires when a restatement mismatch
+> recurred on one passage.
+
+> The third signal: at the count's end, words per IR claim exceed round
+> 1's words per claim by more than one tenth.
+
+> The fourth signal: in round 3 or later, a stranger found a
+> contradiction in a passage an earlier round's fix touched.
+
+### How the two sides are evaluated
+
+| Side | When it is evaluated | What it reads | What it causes |
+|---|---|---|---|
+| W-001's four conditions (predicates 1 to 4 above) | Per chunk, when the chunk lands | The task result and the records of its landing | Stops the loop: the agent stops, summarizes and waits |
+| The four meta-review signals | At the end of a count of stranger rounds | The review record of one text | Flags the text: `Meta-review: pending`, and the delivering report asks the owner to dispatch a meta-review |
+| The limit of ten rounds | After each round, when the count reaches ten | The round count in the review record | Holds the text: it is not delivered before the owner decides delivery, rework or withdrawal; the text is also a meta-review subject |
+| `dispatch.md`'s bounded-attempts rule | Per round-trip on one node and stage, at acceptance | The Orchestrator's count of consecutive unsuccessful round-trips | Blocks the pair after the second consecutive failure and escalates to the owner with the history |
+| `dispatch.md`'s scope budget | Per task, against the grant | The task count or token total spent | Stops the loop on exhaustion, like any other stop condition |
+
+### The rows
+
+| Row | Signal or limit (v1.6.0) | Counterpart | The difference | The rewording at `195eba9` |
+|---|---|---|---|---|
+| 1 | "in two or more rounds of the count, a fix did not reach the prose or was not confirmed" | `dispatch.md`'s bounded-attempts rule, and W-001 condition 1 (a failed check) where a check covers the claimed change | Condition 1 stops at the first failure a check sees, inside one chunk. Bounded attempts blocks after two consecutive failed round-trips on one pair; the signal counts any two rounds of a count. No rule sees a result that claims a change its commits lack unless a check covers that change. | Unchanged. The row stands. |
+| 2 | "a finding declined in an earlier round was raised again, or a restatement mismatch recurred on one passage" | Partial. The declined-finding half: `dispatch.md`'s bounded-attempts rule, through "the same `needs-judgment` question returning". The restatement half: **no counterpart** | Bounded attempts counts a role's question to the owner coming back. The signal counts a reviewer re-raising a finding the author declined. No W-001 condition and no `dispatch.md` rule reads a restatement. | The two triggers become two sentences ("also fires when"). Same triggers; the row stands. |
+| 3 | "the prose grew across the count by more than one tenth of its round-1 word count" | **No counterpart** | A scope budget is the nearest rule. It bounds what a grant may spend, fixed before the work. It does not measure how one deliverable grows across attempts. W-001 has no size condition. | The signal now reads words per IR claim, not the total word count, so growth from added claims no longer fires it. A budget is further still from a density measure. No counterpart; the row stands. |
+| 4 | "after round 3, a stranger found a contradiction in a passage an earlier round's fix touched" | W-001 condition 1 (a failed check), where a check covers the regression; otherwise none | Condition 1 fires on the first occurrence in any chunk, and does not know which earlier change caused it. The signal fires only past a round threshold, and only on a passage an earlier fix touched. Task T015's `check-failed` event is a case: the suite went red because of an earlier task's acceptance commit, and a later chunk's check caught it. | "In round 3 or later" moves the threshold one round earlier. Condition 1 has no round threshold, so the row stands. |
+| 5 | The limit of ten rounds: "a text is a meta-review subject when its count reaches the limit" | `dispatch.md`'s bounded-attempts rule; and W-001 condition 3 (a chunk needing the owner's decision) when the limit is reached inside a chunk | Both bound attempts on one deliverable and end in the owner's decision with the history. Bounded attempts stops at two consecutive failures, the limit at ten rounds. At the limit the owner decides delivery, rework or withdrawal, so a chunk whose review reached the limit needs the owner's decision: predicate 3 stops it when the result returns `needs-judgment`. | Not reworded. The row stands. |
+
+**How the hypothesis fared.**
+
+- Row 1 is confirmed, and gains the bounded-attempts rule as the
+  nearer counterpart for the recurrence the signal counts.
+- Row 2 is confirmed for its declined-finding half. Its restatement
+  half has no counterpart, which the hypothesis did not say.
+- Row 3 changes from "partial: a scope budget" to **no counterpart**. A
+  budget bounds spend, not the growth of one text.
+- Row 4 is confirmed.
+- Row 5 changes. The hypothesis named the end of the ratified chunk
+  list and a scope budget. Both bound a sequence: the number of
+  distinct chunks, and the total spend. Neither bounds repeated
+  attempts on one deliverable, which is what the limit bounds. The
+  bounded-attempts rule does, and W-001 condition 3 carries the
+  owner's decision at the limit.
+
+**The structural reading, tested.** The hypothesis read W-001's four
+conditions as asking whether a chunk needs the human now, and the
+signals as asking whether a loop converges. The table confirms it. The
+conditions are evaluated per chunk, read a task result, and stop the
+loop. The signals are evaluated at the end of a count, read a review
+record, and flag a text. W-001 has no condition for non-convergence
+across chunks.
+
+One correction. A fired signal does reach a running sequence by one
+path. The pinned text requires the report that delivers a meta-review
+subject to ask the owner to dispatch the meta-review. When a chunk's
+own stranger rounds produce a subject, the chunk's result carries that
+ask, and predicate 4 stops the sequence. That path covers
+non-convergence inside one chunk's review only. Nothing covers
+non-convergence across chunks, such as successive chunks reworking the
+same passage, or a sequence whose results grow while its checks pass.
+In this project, the Orchestrator also reports a meta-review subject to
+the communication-pipeline project ([roles.md](../process/roles.md),
+*Reviewer (stranger)*). That is the signal applied as written, not a
+counterpart.
+
+**The "no counterpart" rows.** Row 3 and the restatement half of row 2
+have no counterpart. Each needs a Backlog entry (parent decision 14)
+and an answer in node P3-N016's determination (criterion D2). This
+task proposes the two entries in its result; the comparison task
+writes them with the readings' additions.
+
+## The agreement result
+
+Still to come. The comparison task writes it after both readings: the
+agreement over all items, and over the items whose input existed.
 
 ## References
 
