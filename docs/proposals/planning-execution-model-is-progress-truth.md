@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: under review (round 1, fixes applied, 2026-10-30)
+Status: under review (round 2, 2026-10-30)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →
@@ -38,11 +38,11 @@ amendments, or reject it.
 
 ## The problem
 
-K-003 makes the
+The referent is the record a reader consults for what is done and
+what is next. K-003 makes the
 [Backlog](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth)
-the referent for what is done and what is next. The referent is the
-record a reader consults for what is done and what is next. K-003
-forbids any other document to claim the role of that referent.
+that referent. K-003 forbids any other document to claim the role of
+that referent.
 
 This proposal defines two terms.
 
@@ -54,7 +54,8 @@ This proposal defines two terms.
   and drops no claim the procedure says it carries.
 
 On 2026-10-28 the
-[owner](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner)
+[owner](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner),
+the one person who owns the methodology and project-orchestrator alike,
 decided that each project's [planning/execution
 model](https://github.com/majodali/methodology/blob/350f75f0a11b326eb1f536f172359b1cc8a9cb1e/docs/vocabulary.md#def-planning-execution-model)
 is the primary source of progress and status truth. The owner also
@@ -97,10 +98,11 @@ planning/execution model.
 The amendment keeps K-003's title, so links to the rule's anchor keep
 resolving. The title stays true for every project whose
 Classification declares no planning/execution model. K-003's
-Motivated-by line gains a citation of the evidencing instance, the
-Project model slice described under [*The evidencing
-instance*](#the-evidencing-instance), at [commit
-`86a1330`](https://github.com/majodali/project-orchestrator/blob/86a13308f70574abc0223ddb4f044b7e43ca1eb6/docs/project-model-slice-record.md).
+Motivated-by line gains a citation of the evidencing instance: the
+slice, the first five entries of the project-orchestrator Project
+model, at [commit
+`86a1330`](https://github.com/majodali/project-orchestrator/blob/86a13308f70574abc0223ddb4f044b7e43ca1eb6/docs/project-model-slice-record.md),
+described under [*The evidencing instance*](#the-evidencing-instance).
 The amendment changes no other part of K-003.
 
 A condition on a Classification declaration lets the rule apply
@@ -160,8 +162,9 @@ Article 4's declaration-accuracy duty — a mirror, not a duplication
 `3e34829`, on 2026-10-30, and checked unchanged against `main` at commit
 `195eba9` on 2026-10-30. This line also covers the IR beside this file.
 The [owner](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner),
-who carries the proposal upstream under RU-002 (upstream output is
-hand-carried), re-verifies the quote against upstream `main` before
+who carries the proposal upstream under [RU-002 (upstream output is
+hand-carried)](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/rulings.md),
+re-verifies the quote against upstream `main` before
 carrying it. The quote may have moved.
 
 ## What the model is authoritative for
@@ -188,9 +191,10 @@ The model is not authoritative for whether a part works. The model
 is not authoritative for which node starts next among the nodes free to
 start. That choice also depends on the scope and budget the
 [owner](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner)
-approves. The amendment claims no authority for three further lines
+approves. The amendment claims no authority for three further items
 the model carries for each part: the part's description, its links to
-specifications and its links to Risk register entries.
+specifications and its links to entries of the project's [Risk
+register](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/open-risks.md).
 
 A term-by-term cross-check ties each authority in this section to a
 named section of the [Project model type
@@ -215,9 +219,8 @@ Backlog](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b7
 named no node. The count takes one entry to be a checkbox line plus the
 lines that follow it up to the next entry or heading. The count takes
 an entry as open when the entry's checkbox is unchecked. The count
-takes an entry as naming a node when the entry's text holds a node
-identifier, of the form P3-N007 (the project-orchestrator node that
-drafted this proposal). Because a mere mention of a node identifier counts as
+takes an entry as naming a node when its text holds a node identifier
+such as P3-N007, the node that drafted this proposal. Because a mere mention of a node identifier counts as
 naming the node, 31 is a lower bound on the open entries that no node
 holds.
 
@@ -239,13 +242,14 @@ outside the amendment.
 
 ## The evidencing instance
 
-The evidencing instance is the [Project
-model](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md)
-of the project-orchestrator repository, in the slice pinned at commit
-`86a1330`. The slice is the model's first five entries, built by node
-P3-N006 (the thin end-to-end slice) and recorded in the [slice
+The slice is the first five entries of the project-orchestrator
+[Project
+model](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md),
+built by node P3-N006 (the thin end-to-end slice) and recorded in the
+[slice
 record](https://github.com/majodali/project-orchestrator/blob/86a13308f70574abc0223ddb4f044b7e43ca1eb6/docs/project-model-slice-record.md).
-The slice holds five entries, one per
+The evidencing instance is that slice, pinned at commit `86a1330`. The
+slice holds five entries, one per
 [part](https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md#def-resource),
 derived from documents the repository already held.
 
@@ -253,9 +257,8 @@ From the five entries and the [Plan
 register](https://github.com/majodali/project-orchestrator/blob/198768a21da88d3b702563ae0a26a6dacfcace26/docs/process/plan-register.md)
 alone, the slice rendered five implementation-map rows. Every stage
 the rows read from the Plan register agreed with the state the entries
-recorded. The slice's list of what is next held no open item.
-The slice's plan had held back the edges from open nodes to the five
-parts.
+recorded. The slice's plan had held back the edges from open nodes to
+the five parts, so the slice's list of what is next held no open item.
 
 The comparison of the renderings with the Backlog listed eleven
 differences and left none unexplained. Of the eleven differences,
@@ -355,9 +358,8 @@ accept it with amendments, or reject it.
   instance.
 
 The proposal also asks the
-[owner](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner),
-at node P3-N007's verifying gate, to ratify or strike the two terms it
-defines: [list of what is next](#def-list-of-what-is-next) and
+[owner](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner)
+to ratify or strike the two terms it defines: [list of what is next](#def-list-of-what-is-next) and
 [rendering](#def-rendering).
 
 <!-- render map: C1→¶7 C2→¶7 C3→¶11 C4→¶11 C5→¶11 C6→¶12 C7→¶12 C8→¶13 C9→¶13 C10→¶14 C11→¶14 C12→¶14 C13→¶15 C14→¶15 C15→¶15 C16→¶15 C17→¶16 C18→¶20 C19→¶20 C20→¶20 C21→¶21 C22→¶21 C23→¶22 C24→¶22 C25→¶22 C26→¶23 C27→¶24 C28→¶24 C29→¶24 C30→¶24 C31→¶25 C32→¶25 C33→¶25 C34→¶25 C35→¶25 C36→¶26 C37→¶26 C38→¶26 C39→¶26 C40→¶26 C41→¶27 C42→¶27 C43→¶28 C44→¶28 C45→¶28 C46→¶29 C47→¶29 C48→¶29 C49→¶30 C50→¶30 C51→¶31 C52→¶31 C53→¶31 C54→¶32 C55→¶32 C56→¶32 C57→¶34 C58→¶35 C59→¶36 C60→¶37 C61→¶38 C62→¶39 C63→¶40 C64→¶41 C65→¶42 C66→¶42 C67→¶43 C68→¶43 C69→¶43 C70→¶45 C71→¶46 C72→¶47 C73→¶47 C74→¶22 C75→¶28 C76→¶43 -->

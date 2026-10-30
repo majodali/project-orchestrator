@@ -2,7 +2,7 @@
 
 Reader: RD-4 (a fresh agent session) reading K-003 and the proposal beside this IR; the maintainers of majodali/methodology adjudicate the amendment, and the project-orchestrator owner gates the proposal before it is carried.
 Purpose: document. The proposal to amend K-003 (the Backlog is the single source of progress truth) in place by one conditional sentence, so that a project whose Classification declares a planning/execution model takes that model as its referent for what is done and what is next.
-Status: draft (rendered by the reasoning role on 2026-10-30; round 1, 20 of 23 findings fixed, 3 declined; 76 claims; 2 unratified terms)
+Status: draft (rendered by the reasoning role on 2026-10-30; round 2; round 1 not readable, 20 of 23 findings fixed and 5 re-fixed after confirmation, 3 declined; 76 claims; 2 unratified terms)
 Source: RU-021 (the planning/execution model is the source of progress truth), owner, 2026-10-29; decisions 10 to 13 of the P3-N002 specification's gate record of 2026-10-29; decisions 4 to 6 of the P3-N007 plan, adopted on 2026-10-30; the Project model slice at commit 86a1330.
 Normative: yes
 Footprint: docs/proposals/planning-execution-model-is-progress-truth.md; docs/backlog.md
@@ -37,7 +37,7 @@ T12. Release register: the methodology's register of amendments and releases, in
 
 T13. Part: a component, document, ruling or repository of a project that nodes create, modify or use, which the Project model type specification calls a resource. defined-at: https://github.com/majodali/project-orchestrator/blob/38138c9b952ad995fc2e16725768564ae79a6571/docs/process/project-model.md#def-resource [decided: owner, 2026-10-29]
 
-T14. Owner: the human owner of the methodology and of its portfolio projects, who adjudicates amendments. defined-at: https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner [decided: methodology v1.6.0, vocabulary]
+T14. Owner: the one human who owns the methodology and its portfolio projects, project-orchestrator among them, and who adjudicates amendments. defined-at: https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-human-owner [decided: methodology v1.6.0, vocabulary]
 
 T15. Referent: the record a reader consults for what is done and what is next, the role K-003 gives the Backlog. defined-at: https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth [decided: methodology v1.6.0, K-003]
 
@@ -101,7 +101,7 @@ C24. The model is not authoritative for which node starts next among the nodes f
 
 C74. The choice of which node starts next also depends on the scope and budget the owner approves. evidence: E6. [proposed: this IR]
 
-C25. The amendment claims no authority for three further lines the model carries for each part: the part's description, its links to specifications and its links to Risk register entries. evidence: E7. [proposed: this IR]
+C25. The amendment claims no authority for three further items the model carries for each part: the part's description, its links to specifications and its links to entries of the project's Risk register. evidence: E7. [proposed: this IR]
 
 C26. A term-by-term cross-check found each authority in this section stated by a named section of the Project model type specification. evidence: E7. [proposed: this IR]
 
@@ -121,7 +121,7 @@ C32. The count takes one entry to be a checkbox line plus the lines that follow 
 
 C33. The count takes an entry as open when the entry's checkbox is unchecked. [proposed: this IR]
 
-C34. The count takes an entry as naming a node when the entry's text holds a node identifier, of the form P3-N007 (the project-orchestrator node that drafted this proposal). [proposed: this IR]
+C34. The count takes an entry as naming a node when its text holds a node identifier such as P3-N007, the node that drafted this proposal. [proposed: this IR]
 
 C35. Because a mere mention of a node identifier counts as naming the node, 31 is a lower bound on the open entries that no node holds. [proposed: this IR]
 

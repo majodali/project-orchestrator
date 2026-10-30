@@ -1,6 +1,6 @@
 # Review record: a declared planning/execution model is the source of progress truth
 
-Status: open (count 1, round 1 running)
+Status: open (count 1, round 2 running)
 
 <!-- K-007 contract: Status transitions open → closed (the count's
      verdict recorded and the fixes confirmed). This file is the
@@ -76,4 +76,37 @@ After the fixes: `mtool ir check` 0 violations, 0 warnings, 2
 unratified terms; `mtool style` on the prose 0 violations, the same two
 SP-02 warnings inside the quote; roundtrip 76 of 76 claims mapped.
 Claims 76 after the fixes.
+
+Confirmation: 15 of 20 fixes hold. Not held: 1, 2, 10, 14, 16.
+Declines accepted: 2 of 3 (finding 4's decline not accepted by the
+stranger; the decline stands, with its reason carried into round 2's
+brief). New defects: 6 (N1 a 27-word sentence and a gate condition A3
+does not state; N2 "Risk register" and "lines" undefined; N3 the count
+sentence at 29 words; N4 the causal link of C45 to C75 lost; N5 "the
+owner" read as two roles; N6 RU-002 unlinked).
+
+Re-fixes before round 2, in the IR then the prose: 1 (the gate
+condition cut; 17 words), 2 (the definition of referent moved ahead of
+its first use), 10 and N2 ("items" for "lines"; the project's Risk
+register linked), 14 and N3 (the count sentence at 24 words; C34
+reworded), 16 (the slice defined at its first use in *The change* and
+at the head of *The evidencing instance*), N4 (C75 and C45 joined by
+"so", the form the brief exempts), N5 (the owner stated once as the one
+person who owns the methodology and project-orchestrator alike; T14
+reworded), N6 (RU-002 linked at first use). Checks after the re-fixes:
+`mtool ir check` 0 violations, 0 warnings; `mtool style` 0 violations;
+roundtrip 76 of 76.
+
+## Before round 2
+
+Claims check (`scripts/claims-check.mjs`, the round 1 prose as base):
+13 changed claims (C15, C22, C24, C25, C29, C32, C34, C45, C58, C69
+changed; C74, C75, C76 new), each carried by a sentence; 0 missing, 0
+stale. The signals script does not apply before round 2 of a count
+with one round recorded; it runs from round 2's `Mismatches:` line on.
+
+Brief changes for round 2: the declined findings 4, 15 and 18 with
+their reasons; the forms added for round 1 unchanged.
+
+## Round 2, 2026-10-30
 
