@@ -155,7 +155,7 @@ spec. First entries land at the pending P1-N008 gate.
   the original owner-names-it rule was protecting. Supersedes
   `dispatch.md`'s "cross-repo reach is scope" only in *who* grants,
   not in *whether* it must be declared. Source: owner decision at the
-  P2-N012 gate, 2026-09-01. Applied: T039, T043, T055, T071, T073, T075, T080.
+  P2-N012 gate, 2026-09-01. Applied: T039, T043, T055, T071, T073, T075, T080, T083.
 
 - RU-017 [active] scope/project — When a node's whole driver is
   another portfolio project, is that project's adoption part of the

@@ -379,7 +379,7 @@ The children of P3-N003, a strict chain in their [specification](specs/p3-n003-c
   - Needed by: P3-N011.
   - Documents: [plan](plans/p3-n010-one-class-end-to-end.md), [specification](specs/p3-n003-common-risk-catalogue.md#child-a-one-class-carried-end-to-end).
 - P3-N011 The sweep, the rest of the catalogue, and the omission list
-  - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day). E1 is done (task T071): passes 1 and 2 recorded, classes CR-002 to CR-008 admitted, three candidates deferred. E2 (task T080) runs passes 3 to 5.
+  - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day). E1 and E2 are done (tasks T071 and T080): all five passes recorded, 128 candidates found, classes CR-002 to CR-012 admitted, six deferred. E3 (task T083) writes the citations, brings the parts current, runs the check at full scope with the omission list and the negative control.
   - Outcome: The sweep reads five sources, named by the parent specification's [criterion B1](specs/p3-n003-common-risk-catalogue.md#verification-criteria): the Risk register, the Backlog's two sections, the Cost log's notes and the Ruling register. Every candidate class is admitted, merged, rejected or deferred, on the record. Risk entries cite their classes. The list of uncovered parts is ready for the owner.
   - Depends on: P3-N010.
   - Needed by: P3-N012.
@@ -519,7 +519,7 @@ Actionable, not yet dispatched:
 Executing now, dispatched after the owner's second plan gates of 2026-10-30:
 
 - P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): E1 done (task T070, the type specification `docs/process/project-model.md`); E2, the K-003 amendment IR first, task T078.
-- P3-N011 (the sweep, the rest of the catalogue, and the omission list): E1 done (task T071, passes 1 and 2, CR-002 to CR-008); E2, the Backlog and Cost log passes, task T080; E3 follows.
+- P3-N011 (the sweep, the rest of the catalogue, and the omission list): E1 and E2 done (tasks T071 and T080, the five passes, CR-002 to CR-012); E3, the citations, the full run and the omission list, task T083.
 
 Gated on the owner:
 
