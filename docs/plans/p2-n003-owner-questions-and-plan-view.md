@@ -1,6 +1,6 @@
 # The owner sees the plan in a browser, and answers gate decisions there
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -525,6 +525,20 @@ question without a gate entry.
     status (vision claim C10), and only the owner can judge that it
     serves. **Affected locations:** none beyond decision 1's chunk 2
     text.
+
+## Gate record, 2026-10-30
+
+The owner accepted this plan with defaults 1 to 10 ("go with defaults
+on all decisions"). The plan introduces no term. The drafted texts of
+decision 1 were placed by the Orchestrator at this crossing: the three
+corrections to the service plan (the opening outcome paragraph, the
+design sketch's UI bullet, the body of chunk 2). The register note on
+P2-N006 was already in place from 2026-10-29. The four Backlog
+additions were entered. Under decision 2 the node stays `planned` and a
+specification task follows; its document carries child 1 at full
+criteria depth and child 2 at outcome depth, and the two children are
+entered at the specification gate (RU-020). Next: the specification,
+task T093.
 
 ## Proposed register changes
 

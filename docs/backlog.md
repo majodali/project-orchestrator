@@ -2895,12 +2895,33 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   is nothing to reconcile but handles and progress notes. Pointer:
   [plan of P2-N005](plans/p2-n005-task-pull-loop.md), decision 9.
 - [ ] **Service chunk 2 — owner questions and the plan view** (node
-  P2-N003) — When: planned 2026-10-30 (T075). Status: planned, gated
-  on the owner's review; splits into the web view's first version (the
+  P2-N003) — When: planned 2026-10-30 (T075); plan gate crossed
+  2026-10-30, defaults 1 to 10 adopted. Status: planned; the
+  specification (T093) carries the web view child at full depth and
+  the queue child at outcome depth; splits into the web view's first version (the
   plan tree from commits, drilling to node and task, read-only) and the
   owner question queue (after the pilot); ten decisions staged; the
   earlier "live updates" struck by the owner on 2026-10-29. Pointer:
   [plan](plans/p2-n003-owner-questions-and-plan-view.md).
+- [ ] **Drill from the web view to code and test results** — When:
+  2026-10-30, planning P2-N003 (T075). Status: open; waits for the
+  plan-model amendment on where each node's verification evidence
+  lands, after the pilot. Pointer: [plan of
+  P2-N003](plans/p2-n003-owner-questions-and-plan-view.md#what-this-node-does-not-cover).
+- [ ] **Sign-in to the web view by GitHub account** — When:
+  2026-10-30, planning P2-N003 (T075). Status: open; replaces the
+  view's token when a second person needs the view, beside the OAuth
+  entry. Pointer: [plan of
+  P2-N003](plans/p2-n003-owner-questions-and-plan-view.md#how-it-is-authenticated-a-separate-read-only-token).
+- [ ] **The model's two renderings as shared code** — When:
+  2026-10-30, planning P2-N003 (T075). Status: open; the view renders
+  them in the service, and RU-012 asks for one copy once this
+  repository renders its Backlog by script. Pointer: [plan of
+  P2-N003](plans/p2-n003-owner-questions-and-plan-view.md#what-it-shows-three-pages).
+- [ ] **Whether the web view replaces `docs/plan.md`** — When:
+  2026-10-30, planning P2-N003 (T075). Status: open; decided at child
+  1's demonstration, against `docs/plan.md`'s own retirement
+  condition. Pointer: [plan.md](plan.md).
 - [ ] **Service chunk 3 — topics and coordination** (node P2-N004) —
   project topics for status and cross-session coordination, including
   who is blocked on what; channels-push availability on the web

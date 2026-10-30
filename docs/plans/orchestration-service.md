@@ -9,7 +9,7 @@ Status: active
 Outcome under development: a project-orchestration service that Claude
 Code sessions in any environment call over MCP — holding live project
 state, carrying coordination between sessions, queueing owner
-questions, and publishing a plan view that updates as work happens —
+questions, and publishing a web view of the plan, read from commits —
 so that orchestrated development is coordinated and observable without
 leaving the surfaces the owner already uses.
 
@@ -102,9 +102,9 @@ To be elaborated per chunk; recorded here as current intent.
   the UI, where the owner answers asynchronously — the answering
   session picks them up on its next pull.
 - **The UI** is a separate consumer of the service: the plan
-  hierarchy, drillable to node, task, and journal event; the queue of
-  questions awaiting the owner; live agent status per enlisted
-  session. Updated as sessions publish, not by polling git.
+  hierarchy, drillable to node and task, read from commits only; and,
+  after the pilot, the queue of questions awaiting the owner. Live
+  status per enlisted session belongs to topics (owner, 2026-10-29).
 - **The process spec is unchanged in substance.** Roles, the node
   lifecycle, packets, gates, rulings, and the cost log all carry over;
   the service changes where coordination state lives and how the owner
@@ -127,10 +127,15 @@ Gate: the owner sees a session read and update real plan state.
 
 ### Chunk 2 — Owner questions and the plan view
 
-The question queue (elicitation for immediate class, queue plus UI for
-gate batches) and the first UI: plan hierarchy with drill-down, the
-waiting-questions list, live updates.
-Gate: the owner answers a real gate decision from the UI.
+Node P2-N003, split at its planning into two children (owner,
+2026-10-29; [plan](p2-n003-owner-questions-and-plan-view.md)). The web
+view's first version comes first: read-only, read from commits only,
+drilling to node and task, in parallel with the task-pull loop and
+before the pilot. The owner question queue follows the pilot: gate
+decisions answered in the web view and picked up through the task-pull
+loop, and immediate-class questions by elicitation.
+Gate: the owner answers a real gate decision from the web view. The web
+view's first version ends at its own owner demonstration.
 
 ### Chunk 3 — Topics and coordination
 

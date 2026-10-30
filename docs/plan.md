@@ -289,7 +289,7 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 ### P2-N003 Owner questions and the plan view (chunk 2)
 
-- Stage: planned, 2026-10-30 (task T075). Gated on the owner's review of its plan, which splits it into two children.
+- Stage: planned, 2026-10-30 (task T075); plan gate crossed 2026-10-30 with defaults 1 to 10. The specification (task T093) is being written; it carries the web view child at full criteria depth and the queue child at outcome depth, and both enter the register at its gate.
 - Outcome: The service plan gives this chunk an owner question queue and a first view of the plan. P2-N003 stays one node until its planning splits it into two children. One child is the first version of the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view), read-only and drilling down to node and task. The second child is the owner question queue.
 - Depends on: nothing for its own planning, which performs the split. After the split, the web view child waits on P3-N006 (the thin end-to-end slice). The queue child waits on P2-N006 (migration and pilot).
 - Needed by: P2-N006, which needs the web view child only.
@@ -519,13 +519,13 @@ Actionable, not yet dispatched:
 Specifying now, after the owner's gate of 2026-10-30:
 
 - P2-N005 (the task-pull loop): the specification, task T092; children A to D (the platform facts, the loop in git alone, role-aware identity, the task tools) enter at its gate.
+- P2-N003 (owner questions and the plan view): the specification, task T093; the web view's first version and the owner question queue enter at its gate.
 
 Executing now, dispatched after the owner's second plan gates of 2026-10-30:
 
 
 Gated on the owner:
 
-- P2-N003 (owner questions and the plan view): the owner's review of its plan, ten decisions.
 - P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
 - P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
