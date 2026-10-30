@@ -1,6 +1,6 @@
 # Review record: a declared planning/execution model is the source of progress truth
 
-Status: open (count 1, round 8 running)
+Status: open (count 1, round 9 running)
 
 <!-- K-007 contract: Status transitions open → closed (the count's
      verdict recorded and the fixes confirmed). This file is the
@@ -540,4 +540,27 @@ Declined: 6 (SP-26, "The entry is the Backlog's own content"), because
 the phrase is the owner's decision wording (P3-N007 decision 4, C27);
 instead the two sentences are merged into one of 25 words that keeps
 the phrase.
+
+Confirmation: 5 of 5 fixes hold, 4 in part (the amendment-case use of
+"upcoming section" still without a stated meaning). Declines accepted:
+1 of 1. Tensions: (c) resolved; (a) partly, (b) still a tension of low
+severity. New defects: 3 (1 the merged sentence at 30 words; 2 the
+referent's extent and "which"; 3 "says nothing about the verification
+evidence" against "not read for that role").
+
+Re-fixes before round 9, in the IR then the prose: 4 (the upcoming
+section defined as a thing in T5, not tied to the released rule); N1
+(the merged sentence split, the pronoun named); N2, N3 and (a) (C12
+reads "does not reach the verification evidence"; C85 reduced to "What
+is done and what is next are read from the model's plan model"; the
+sentence on evidence not read for the role cut); (b) (C92 added,
+inferred: such an entry is upcoming work the Backlog records and not
+part of what is next until a node's plan takes it in).
+
+## Before round 9
+
+Claims check (the round 8 prose as base): 0 missing, 0 stale; prose 2674 words by tool. Brief changes for
+round 9: round 8's declined finding 6 added to the declined list.
+
+## Round 9, 2026-10-30
 
