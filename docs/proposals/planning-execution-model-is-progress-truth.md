@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: draft
+Status: under review (round 1, 2026-10-30)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →

@@ -729,11 +729,14 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   the owner could not follow them, which is why `docs/plan.md` exists;
   one pass rewrites them to the rules without changing decisions.
   Pointer: [plan.md](plan.md), [P-rules](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md).
-- [ ] **A home in the model for open findings that are not nodes** —
-  When: 2026-10-30, T054 (slice record finding 4). Status: open; seven
-  open Backlog entries are not nodes and have no place in the model's
-  edges; an `identified` node or an `open:` line would hold them.
-  Pointer: [slice record](project-model-slice-record.md), section 7.
+- [x] **A home in the model for open findings that are not nodes** —
+  When: 2026-10-30, T054 (slice record finding 4); closed 2026-10-30
+  at the acceptance of T078. Status: closed; P3-N007 decision 4 holds
+  that an open entry naming no node is the Backlog's own content, and
+  the K-003 proposal states that answer in its section *Open Backlog
+  entries that name no node* (31 of 139 open entries at `198768a`).
+  Pointer: [proposal](proposals/planning-execution-model-is-progress-truth.md),
+  [slice record](project-model-slice-record.md), section 7.
 - [ ] **Reconcile RU-016's Applied list with the plans that cite it** —
   When: 2026-10-30, T054. Status: open; the list names T039, T043 and
   T055, while the plans of P3-N003, P3-N005, P3-N006, P3-N010 and

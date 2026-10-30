@@ -2,7 +2,7 @@
 
 Reader: RD-4 (a fresh agent session) reading K-003 and the proposal beside this IR; the maintainers of majodali/methodology adjudicate the amendment, and the project-orchestrator owner gates the proposal before it is carried.
 Purpose: document. The proposal to amend K-003 (the Backlog is the single source of progress truth) in place by one conditional sentence, so that a project whose Classification declares a planning/execution model takes that model as its referent for what is done and what is next.
-Status: draft (rendered by the reasoning role on 2026-10-30; no stranger round yet; 73 claims; 2 unratified terms)
+Status: draft (rendered by the reasoning role on 2026-10-30; round 1; 73 claims; 2 unratified terms)
 Source: RU-021 (the planning/execution model is the source of progress truth), owner, 2026-10-29; decisions 10 to 13 of the P3-N002 specification's gate record of 2026-10-29; decisions 4 to 6 of the P3-N007 plan, adopted on 2026-10-30; the Project model slice at commit 86a1330.
 Normative: yes
 Footprint: docs/proposals/planning-execution-model-is-progress-truth.md; docs/backlog.md
