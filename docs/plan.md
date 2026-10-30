@@ -422,11 +422,11 @@ The children of P3-N005, a strict chain in their [specification](specs/p3-n005-s
   - Needed by: P3-N015.
   - Documents: [plan](plans/p3-n014-loop-runs-sequence-mode.md), the parent's specification, child B.
 - P3-N015 The demonstration: a ratified sequence lands two chunks and stops on asks
-  - Stage: identified, 2026-10-29. No plan yet.
-  - Outcome: An owner-approved run lands at least two chunks with no gate between them. A result carrying asks then stops the run.
-  - Depends on: P3-N014.
+  - Stage: planned, 2026-10-30 (task T076). Gated on the owner's review of the plan, seven decisions, and on the owner's explicit ratification of the sequence in words that say so.
+  - Outcome: The owner ratifies one sequence of four members, each an open Backlog item of this repository: the process specification's methodology links retargeted to the pin, anchors on the Risk register entries, the cover note for the checker extension-point proposal, and a test that runs the plugin tools as child processes. The first two land with no gate between them. The third carries an ask of the owner and stops the sequence. The fourth is ratified and never dispatched by the sequence. Two blind readings apply the four stop predicates to the run's results.
+  - Depends on: P3-N014, which is done.
   - Needed by: P3-N016.
-  - Documents: the parent's [specification, child C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks).
+  - Documents: [plan](plans/p3-n015-sequence-demonstration.md), the parent's [specification, child C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks).
 - P3-N016 The determination on W-001 (two delivery modes, human-gated), and the artifact or the argument
   - Stage: identified, 2026-10-29. No plan yet.
   - Outcome: The decision is recorded, as an amendment proposal or as an argument that the sequence mode needs no change.
@@ -526,6 +526,7 @@ Gated on the owner:
 - P2-N005 (the task-pull loop): the owner's review of its plan, thirteen decisions and four terms.
 - P2-N003 (owner questions and the plan view): the owner's review of its plan, ten decisions.
 - P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
+- P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:
@@ -533,7 +534,6 @@ Waiting:
 - P3-N008 (the instance): planning dispatched 2026-10-30 (task T079) after P3-N007's E1 was accepted; its execution waits on P3-N007.
 - P3-N009 (sibling ordering retired): waits on P3-N008.
 - P3-N012 (the Article 8 proposal): waits on P3-N011.
-- P3-N015 (the demonstration): planning dispatched 2026-10-30 (task T076), after P3-N014 closed.
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.
 - P2-N003 (owner questions and the plan view), after its split: the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view) child waits on P3-N006. The queue child waits on P2-N006.
@@ -553,7 +553,7 @@ No plan yet, in register order:
 - P3-N008 and P3-N009 (the comprehension model's later children)
 - P3-N004 (reversibility)
 - P3-N012 (the risk catalogue's last child)
-- P3-N015 and P3-N016 (sequence mode's later children)
+- P3-N016 (sequence mode's last child)
 
 ## Where the detail is: the documents this plan summarizes
 

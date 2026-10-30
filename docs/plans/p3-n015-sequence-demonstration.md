@@ -75,8 +75,8 @@ any member leaves the tree clean. Each premise was re-read at commit
 | M4 | The plugin tools are tested the way they run | "No committed test runs the plugin tools the way they run" (2026-10-30, T055) | Ratified after M3, so the stop on M3's asks withholds a dispatch (decision 2) |
 
 The work is real in each case. M1 fixes eleven stale citations in the
-normative process specification. M2 gives the web view of node
-P2-N003 (owner questions and the plan view) per-entry links. M3
+normative process specification. M2 lets the web view of node
+P2-N003 (owner questions and the plan view) link to each entry. M3
 unblocks a delivery the Backlog has held since 2026-08-26. M4 closes
 an omission node P3-N010 (one class, carried end to end) found against
 the common risk catalogue's CR-001 (a check that cannot fail in the
@@ -400,8 +400,7 @@ This plan opens its own sequence at 1.
 Precedents checked against the [Ruling register](../rulings.md).
 Exact matches decide silently: RU-002 (M3's delivery is the owner's),
 RU-015 (M3's quote form), RU-016 (the repository reach), and RU-009 and
-RU-010 (work reaches `main` by a pull request the owner merges; a
-member's branch merges into the design branch without one). RU-020 (an
+RU-010 (work reaches `main` by a pull request the owner merges). RU-020 (an
 interior node whose specification reaches breakdown depth needs no
 separate `break down` task) is a near match for decision 3. RU-019 (a
 measurement criterion may be satisfied by an unfavourable result) was
@@ -413,7 +412,7 @@ RU-018 raises nothing, since nothing is dispatched in parallel.
 1. Members 1 to 3, and their order.
    **Default**: M1, then M2, then M3, as *The members* states.
    **Rationale**: each meets C1; M1 and M2 are mechanical edits checked
-   by commands, so C2 holds; M3's work exists to be carried, and only
+   by commands, so C2 is expected to hold; M3's work exists to be carried, and only
    the owner carries (C3).
    **Affected locations**: none.
 2. A fourth member after the one planned to stop the sequence.
@@ -425,13 +424,14 @@ RU-018 raises nothing, since nothing is dispatched in parallel.
    work, which is what W-001's condition is for.
    **Affected locations**: one active document.
    - [Specification of P3-N005](../specs/p3-n005-sequence-mode.md),
-     *Child C*, criterion C3. Replace the sentence "C3. The last member
-     is chosen because its work genuinely produces an ask the owner can
-     act on at once." with: "C3. The member planned to stop the
+     *Child C*, criterion C3. Replace the bullet beginning "C3. The
+     last member is chosen" with: "C3. The member planned to stop the
      sequence is chosen because its work genuinely produces an ask the
-     owner can act on at once. One ratified member may follow it, so
-     that the stop withholds a dispatch (plan of node P3-N015, decision
-     2)."
+     owner can act on at once. A hand-carry ask under RU-002 is the
+     natural candidate. An ask written into a result to trip the
+     predicate fails this criterion. One ratified member may follow it,
+     so that the stop withholds a dispatch (plan of node P3-N015,
+     decision 2)."
 3. How P3-N015 and its members move through stages.
    **Default**: no separate specify or break-down task. At this gate
    P3-N015 moves `planned` → `specified` → `broken-down`. Its
@@ -452,10 +452,9 @@ RU-018 raises nothing, since nothing is dispatched in parallel.
    sequence only when its words say so, such as "sequence ratified as
    drafted". A go-ahead that adopts defaults without saying so leaves
    the sequence unratified. On ratification the Orchestrator places
-   this record here, with the issued IDs, and commits it:
+   this record here, under the heading "Sequence ratified, <date>",
+   with the issued IDs, and commits it:
 
-   > ## Sequence ratified, <date>
-   >
    > - **Members**, in dispatch order: <M1's ID> `execute`; <M2's ID>
    >   `execute`; <M3's ID> `execute`; <M4's ID> `execute`.
    > - **Budget**: 4 tasks.
@@ -465,8 +464,9 @@ RU-018 raises nothing, since nothing is dispatched in parallel.
 
    **Rationale**: W-001 requires the approval of a sequence to be
    explicit; a default adopted by silence is not; one task per member
-   bounds the run if the record were misread; documents-only members
-   in this repository carry no risk the four predicates do not catch.
+   bounds the run if the record were misread; members that change
+   documents or add one test, in this repository alone, carry no risk
+   the four predicates do not catch.
    **Affected locations**: none.
 5. Other dispatches while the sequence runs.
    **Default**: the first member is dispatched only when no other task
@@ -494,8 +494,8 @@ RU-018 raises nothing, since nothing is dispatched in parallel.
    stops it. Between the first such sequence and a second, the owner
    may ratify a fresh one. It re-runs no landed member, and its
    members are chosen by C1's rule. After the second, P3-N015 becomes
-   `blocked` and escalates to the owner with both journal windows,
-   under `dispatch.md`'s bounded-attempts rule.
+   `blocked` and escalates to the owner with both sequences' journal
+   events, under `dispatch.md`'s bounded-attempts rule.
    **Rationale**: the parent's decision 15 counts only an early stop,
    and a sequence that never stops on asks misses G1 as surely.
    **Affected locations**: one active document.

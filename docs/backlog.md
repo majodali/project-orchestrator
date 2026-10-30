@@ -646,9 +646,40 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   When: 2026-10-30, planning P3-N014. Status: open, for P1-N016's packet
   work; about 250 lines added to dispatch.md, read at every startup.
   Pointer: [plan of P3-N014](plans/p3-n014-loop-runs-sequence-mode.md).
-- [ ] **P3-N015 identified, 2026-10-29** — the demonstration: a
+- [ ] **P3-N015 planned, 2026-10-30 (T076)** — the demonstration: a
   ratified sequence lands two chunks and stops on asks (spec child C;
-  decisions 13 and 15). Depends on P3-N014.
+  decisions 13 and 15). Status: planned, gated on the owner's review
+  (seven decisions) and the explicit ratification of a sequence of
+  four members, each an open entry of this Backlog: the methodology
+  links retargeted to the pin, anchors on the Risk register entries,
+  the checker extension-point cover note, the plugin tools tested as
+  child processes. Pointer:
+  [plan](plans/p3-n015-sequence-demonstration.md).
+- [ ] **Whether a task outside a ratified sequence may be dispatched
+  while it runs** — When: 2026-10-30, planning P3-N015. Status: open,
+  for P1-N016 and as evidence for P3-N016; *Sequence mode* is silent,
+  and decision 5 of this plan answers it for one run. Pointer:
+  [plan of P3-N015](plans/p3-n015-sequence-demonstration.md), decision 5.
+- [ ] **Whether a go-ahead that adopts defaults ratifies a sequence**
+  — When: 2026-10-30, planning P3-N015. Status: open, for P1-N016 and as
+  evidence for P3-N016; W-001 requires explicit approval, while
+  `dispatch.md`'s *Gates* lets one go-ahead adopt every default.
+  Pointer: [plan of P3-N015](plans/p3-n015-sequence-demonstration.md),
+  decision 4.
+- [ ] **The P3-N005 plan places R16's preflight in this repository**
+  — When: 2026-10-30, planning P3-N015 (T076 finding). Status: open;
+  the plan's *The demonstration (G6)* lists R16's preflight wording
+  among "owned Backlog findings in this repository", but the preflight
+  ran in majodali/project-orchestrator-service (R16 in
+  [open-risks.md](open-risks.md); the P3-N011 plan's candidates
+  table). One sentence to correct in the plan at its next edit.
+  Pointer: [plan of P3-N005](plans/p3-n005-stop-conditions-decidable.md).
+- [ ] **The entry "two open entries for P3-N001, one of them stale"
+  can close** — When: 2026-10-30, planning P3-N015 (T076 finding).
+  Status: open; that entry says the sketch entry "still stands open",
+  but the sketch entry is checked and P3-N005's criterion C4 records
+  it as discharged. Close it at the next Backlog pass. Pointer: this
+  Backlog, the entry named.
 - [ ] **P3-N016 identified, 2026-10-29** — the determination on W-001
   with the residue table, and the artifact or the argument (spec child
   D). Depends on P3-N015.
