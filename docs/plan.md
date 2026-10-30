@@ -344,7 +344,7 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
   - Needed by: P3-N007, and the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view) child of P2-N003.
   - Documents: [plan](plans/p3-n006-thin-end-to-end-slice.md), [specification](specs/p3-n002-comprehension-model.md#child-a-the-thin-end-to-end-slice-five-real-parts-all-the-way-through).
 - P3-N007 The type declared, the arguments written, the K-003 (the Backlog is the single source of progress truth) amendment drafted
-  - Stage: planned, 2026-10-30 (task T057). Gated on the owner's review of its plan.
+  - Stage: specified, 2026-10-30, at the owner's plan gate. The parent specification's child B section is the specification (gate decision).
   - Outcome: The Project model is defined in `docs/process/` and declared in the [Classification](classification.md). The design arguments are written down, such as who may write the model and where a node's edges are first recorded. P3-N007 drafts the amendment to K-003 (the Backlog is the single source of progress truth), as an IR first. Under the amendment, a project that declares a [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes that model as its progress record. The rule changes only when the methodology releases the amendment, after the owner carries it upstream.
   - Depends on: P3-N006.
   - Needed by: P3-N008.
@@ -379,7 +379,7 @@ The children of P3-N003, a strict chain in their [specification](specs/p3-n003-c
   - Needed by: P3-N011.
   - Documents: [plan](plans/p3-n010-one-class-end-to-end.md), [specification](specs/p3-n003-common-risk-catalogue.md#child-a-one-class-carried-end-to-end).
 - P3-N011 The sweep, the rest of the catalogue, and the omission list
-  - Stage: planned, 2026-10-30 (task T058). Gated on the owner's review of its plan.
+  - Stage: specified, 2026-10-30, at the owner's plan gate. The parent specification's child B section is the specification (gate decision).
   - Outcome: The sweep reads five sources, named by the parent specification's [criterion B1](specs/p3-n003-common-risk-catalogue.md#verification-criteria): the Risk register, the Backlog's two sections, the Cost log's notes and the Ruling register. Every candidate class is admitted, merged, rejected or deferred, on the record. Risk entries cite their classes. The list of uncovered parts is ready for the owner.
   - Depends on: P3-N010.
   - Needed by: P3-N012.
@@ -416,7 +416,7 @@ The children of P3-N005, a strict chain in their [specification](specs/p3-n005-s
   - Needed by: P3-N014.
   - Documents: [plan](plans/p3-n013-stop-conditions-decidable.md), [specification](specs/p3-n005-sequence-mode.md#child-a-the-four-stop-conditions-decidable-evidenced-and-related-to-the-meta-review-signals).
 - P3-N014 The loop runs sequence mode, and the roles meet the conditions without looking
-  - Stage: planned, 2026-10-30 (task T068). Gated on the owner's review of its plan.
+  - Stage: specified, 2026-10-30, at the owner's plan gate. The parent specification's child B section is the specification (gate decision).
   - Outcome: [dispatch.md](process/dispatch.md) gains a sequence-mode section. Each role contract lists the stop conditions that role can trigger. The run journal records when the owner approves a run and when a run stops.
   - Depends on: P3-N013, and the executing stage of P1-N014, which is done.
   - Needed by: P3-N015.
@@ -519,16 +519,16 @@ Actionable now, all at the planning stage:
 - P2-N003 (owner questions and the plan view): the planning that splits it. Its children's later stages wait as listed below.
 - P1-N007 (cost reporting and close-out). Its executing stage waits on P1-N006.
 
-Executing now, dispatched after the owner's plan gates of 2026-10-30:
+Actionable now, at the executing stage, after the owner's second plan gates of 2026-10-30:
 
+- P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): E1 then E2.
+- P3-N011 (the sweep, the rest of the catalogue, and the omission list): E1 to E3.
+- P3-N014 (the loop runs sequence mode): one execute task.
 
 The Orchestrator proposes P2-N005 first, by the owner's order, and asks the owner for scope before dispatching any of the four.
 
 Gated on the owner:
 
-- P3-N014 (the loop runs sequence mode, and the roles meet the conditions without looking): the owner's review of its plan.
-- P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): the owner's review of its plan.
-- P3-N011 (the sweep, the rest of the catalogue, and the omission list): the owner's review of its plan.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:

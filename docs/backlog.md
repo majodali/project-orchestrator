@@ -453,8 +453,9 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   per-entry links.
 - [ ] **The type declared, the arguments written, the K-003 amendment
   drafted** (node P3-N007, child B of P3-N002) — When: planned
-  2026-10-30 (T057). Status: planned, gated on the owner's review; a
-  leaf run as E1 (the type and the design arguments) then E2 (the
+  2026-10-30 (T057); specified at the gate of 2026-10-30, defaults 1
+  to 12 adopted and eight terms ratified. Status: specified, execute
+  next; a leaf run as E1 (the type and the design arguments) then E2 (the
   amendment IR first, the proposal, stranger rounds, owner gate);
   twelve decisions staged, among them a new dependency rule for `uses`
   edges and eight terms for ratification. Pointer: [plan](plans/p3-n007-type-declared-amendment-drafted.md).
@@ -493,8 +494,9 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   hook running. Pointer:
   [omission list](common-risk-catalogue-check.md#omission-list).
 - [ ] **The sweep, the rest of the catalogue, and the omission list**
-  (node P3-N011, child B of P3-N003) — When: planned 2026-10-30 (T058).
-  Status: planned, gated on the owner's review; a leaf run as three
+  (node P3-N011, child B of P3-N003) — When: planned 2026-10-30 (T058);
+  specified at the gate of 2026-10-30, defaults 1 to 5 adopted.
+  Status: specified, execute next; a leaf run as three
   tasks (E1 the Risk register, rulings and plans; E2 the Backlog and
   Cost log; E3 citations, full-scope check, negative control), five
   decisions staged. Pointer: [plan](plans/p3-n011-sweep-and-omission-list.md).
@@ -605,7 +607,9 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, blindness outside the commit graph.
 - [ ] **The loop runs sequence mode, and the roles meet the conditions
   without looking** (node P3-N014, child B of P3-N005) — When: planned
-  2026-10-30 (T068). Status: planned, gated on the owner's review; a
+  2026-10-30 (T068); specified at the gate of 2026-10-30, defaults 1 to
+  11 adopted and two event kinds ratified. Status: specified, execute
+  next; a
   leaf run as one execute task; the predicate text copied byte for
   byte into dispatch.md, the member's result record holding every
   predicate input, two journal event kinds; eleven decisions staged.
