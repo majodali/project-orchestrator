@@ -2897,12 +2897,24 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 - [ ] **Service chunk 2 — owner questions and the plan view** (node
   P2-N003) — When: planned 2026-10-30 (T075), plan gate crossed
   2026-10-30 with defaults 1 to 10; specification drafted 2026-10-30
-  (T093). Status: planned; the specification awaits its gate, with
-  decisions 11 to 15 and three terms staged; it carries the web view's
-  first version at full criteria depth (V1 to V30, tasks E1 to E3 and
-  an owner demonstration) and the owner question queue at outcome
-  depth. Pointer:
+  (T093), specification gate crossed 2026-10-30 with defaults 11 to 15
+  and three terms ratified. Status: broken-down into P2-N021 and
+  P2-N022 (RU-020); the specification is `active`; the node verifies
+  against its criteria I1 to I10 after both children are done. Pointer:
   [specification](specs/p2-n003-owner-questions-and-plan-view.md).
+- [ ] **P2-N021 identified, 2026-10-30: the web view's first version**
+  — When: 2026-10-30, at P2-N003's specification gate. Status:
+  identified; a leaf, run as execute tasks E1 to E3 against criteria V1
+  to V30, then the owner demonstration; no plan or specify task (plan
+  decision 2); E3 waits on P3-N007 done. Pointer:
+  [specification of P2-N003, child
+  1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
+- [ ] **P2-N022 identified, 2026-10-30: the owner question queue** —
+  When: 2026-10-30, at P2-N003's specification gate. Status:
+  identified; specified at outcome depth, with its own plan and specify
+  tasks after P2-N006; depends on P2-N021 and P2-N005. Pointer:
+  [specification of P2-N003, child
+  2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue).
 - [ ] **Waits per task under the node-to-node dependency rule** — When:
   2026-10-30, specifying P2-N003 (T093). Status: open; the type's rule
   is per node, while P2-N003's plan decision 8 is per task; a register

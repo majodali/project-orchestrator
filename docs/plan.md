@@ -14,7 +14,7 @@ Status: active
 
 This [document](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-document) renders the [Plan register](plan-register.md) by hand.
 Each node's outcome comes from the node's [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan) and [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification).
-The rendering reads the register as it stands after the owner's plan gates of 2026-10-30.
+The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gate of P2-N003.
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
@@ -289,11 +289,26 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 ### P2-N003 Owner questions and the plan view (chunk 2)
 
-- Stage: specified, 2026-10-30 (task T093), gated on the owner's review of the specification: decisions 11 to 15 and three terms. The specification carries the web view's first version at full depth (criteria V1 to V30, tasks E1 to E3 and the owner demonstration) and the owner question queue at outcome depth; both enter the register at its gate as P2-N021 and P2-N022.
-- Outcome: The service plan gives this chunk an owner question queue and a first view of the plan. P2-N003 stays one node until its planning splits it into two children. One child is the first version of the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view), read-only and drilling down to node and task. The second child is the owner question queue.
-- Depends on: nothing for its own planning, which performs the split. After the split, the web view child waits on P3-N006 (the thin end-to-end slice). The queue child waits on P2-N006 (migration and pilot).
-- Needed by: P2-N006, which needs the web view child only.
-- Documents: [plan](plans/p2-n003-owner-questions-and-plan-view.md), [service plan, chunk 2](plans/orchestration-service.md#chunk-2--owner-questions-and-the-plan-view).
+- Stage: broken-down, 2026-10-30, at the owner's specification gate: decisions 11 to 15 adopted, the terms view token, view cookie and not computable ratified, the two children entered (RU-020).
+- Outcome: The owner sees this project's plan in a browser on any device, and later answers gate decisions there. One child is the first version of the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view), read-only and drilling down to node and task. The second child is the owner question queue. Git still holds every fact the view shows and every answer the owner gives.
+- Depends on: nothing beyond its children.
+- Needed by: P2-N006, which needs P2-N021 only.
+- Documents: [plan](plans/p2-n003-owner-questions-and-plan-view.md), [specification](specs/p2-n003-owner-questions-and-plan-view.md), [service plan, chunk 2](plans/orchestration-service.md#chunk-2--owner-questions-and-the-plan-view).
+
+The children of P2-N003, in their [specification](specs/p2-n003-owner-questions-and-plan-view.md#register-action-proposed-with-this-specification)'s order:
+
+- P2-N021 The web view's first version: the plan tree from commits, drilling to node and task
+  - Stage: identified, 2026-10-30. No plan or specify task: the parent's specification carries it at full criteria depth (plan decision 2).
+  - Outcome: In a browser on any device, the owner sees the plan tree of this repository at a named commit. Each node shows its stage, outcome and dependencies, beside what is next. The owner drills from a node to its tasks. Every fact shown comes from that commit. The work runs as three execute tasks, E1 to E3, and ends at an owner demonstration.
+  - Depends on: P3-N006, which is done, and P3-N007 for its third task, E3. Its tasks E1 and E2 wait on nothing. The register marks it independent of P2-N005 and P2-N004.
+  - Needed by: P2-N006 and P2-N022.
+  - Documents: the parent's [specification, child 1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
+- P2-N022 The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop
+  - Stage: identified, 2026-10-30. No plan yet.
+  - Outcome: A gate decision the Orchestrator raises waits in the queue. The owner answers it in the web view. The session that pulls its next task picks up the answer and commits it to git.
+  - Depends on: P2-N021 and P2-N005. It follows P2-N006 by the owner's ordering of 2026-10-29.
+  - Needed by: nothing.
+  - Documents: the parent's [specification, child 2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue).
 
 ### P2-N004 Topics and coordination (chunk 3)
 
@@ -308,15 +323,15 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 - Stage: specified, 2026-10-30 (task T092), gated on the owner's review of the specification: decisions 14 to 22 and three terms. The specification carries the four children at breakdown depth with criteria A1 to A10, B1 to B12, C1 to C11 and D1 to D12; they enter the register at its gate as P2-N017 to P2-N020.
 - Outcome: A session asks the service for its next task and claims the task, so no other session takes it. The session then reports progress and completion. When the service is down, a session claims a task by creating a git branch named after the task.
 - Depends on: P2-N002 (service skeleton and plan state), which is done. The register marks P2-N005 independent of P2-N003 and P2-N004.
-- Needed by: P2-N006.
+- Needed by: P2-N006 and P2-N022.
 - Documents: [plan](plans/p2-n005-task-pull-loop.md), [service plan, chunk 4](plans/orchestration-service.md#chunk-4--the-task-pull-loop).
 
 ### P2-N006 Migration and pilot (chunk 5)
 
 - Stage: identified, 2026-08-26. No plan yet.
 - Outcome: The orchestration of majodali/project-orchestrator moves onto the service. Then the pilot runs on methodology-tools through the service. The owner chose methodology-tools on 2026-10-29. The pilot records its costs and lessons.
-- Depends on: P2-N005, the web view child of P2-N003, and P1-N014, which is done.
-- Needed by: P1-N006, P2-N004, and the queue child of P2-N003.
+- Depends on: P2-N005, P2-N021 (the web view's first version), and P1-N014, which is done.
+- Needed by: P1-N006, P2-N004, and P2-N022 (the owner question queue).
 - Documents: [service plan, chunk 5](plans/orchestration-service.md#chunk-5--migration-and-pilot).
 
 ## P3-N001 Project comprehension and continuous implementation
@@ -341,13 +356,13 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
   - Stage: done, 2026-10-30 (task T054).
   - Outcome: Shipped `docs/project-model.md`, five real parts through every facet, and the slice record with fifty measured paths, both renderings compared with the Backlog, and fourteen findings for P3-N007.
   - Depends on: nothing.
-  - Needed by: P3-N007, and the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view) child of P2-N003.
+  - Needed by: P3-N007, and P2-N021, the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view)'s first version.
   - Documents: [plan](plans/p3-n006-thin-end-to-end-slice.md), [specification](specs/p3-n002-comprehension-model.md#child-a-the-thin-end-to-end-slice-five-real-parts-all-the-way-through).
 - P3-N007 The type declared, the arguments written, the K-003 (the Backlog is the single source of progress truth) amendment drafted
   - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day). E1 is done (task T070, the type specification). The fifty edges E1 held were transcribed into the Project model instance by task T077. E2 is done (task T078): the K-003 proposal and its IR, `docs/proposals/planning-execution-model-is-progress-truth.md`. Its ten stranger rounds (tasks T081 to T091) ran to the limit without a readable verdict; the final round's fixes are confirmed and the record carries Meta-review: pending. The node is verifying, gated on your review of the proposal under RU-005, ten terms, and a meta-review of the count.
   - Outcome: The Project model is defined in `docs/process/` and declared in the [Classification](classification.md). The design arguments are written down, such as who may write the model and where a node's edges are first recorded. P3-N007 drafts the amendment to K-003 (the Backlog is the single source of progress truth), as an IR first. Under the amendment, a project that declares a [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes that model as its progress record. The rule changes only when the methodology releases the amendment, after the owner carries it upstream.
   - Depends on: P3-N006.
-  - Needed by: P3-N008.
+  - Needed by: P3-N008, and the third task of P2-N021 (the web view's first version).
   - Documents: [plan](plans/p3-n007-type-declared-amendment-drafted.md), the parent's specification, child B.
 - P3-N008 The instance, over this repository
   - Stage: planned, 2026-10-30 (task T079). Gated on the owner's review of the plan, six decisions.
@@ -436,18 +451,19 @@ The children of P3-N005, a strict chain in their [specification](specs/p3-n005-s
 
 ## How the lines depend on each other
 
-Four waits cross between the lines of the [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan). The first two are met, the last two are open.
+Five waits cross between the lines of the [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan). The first three are met, the last two are open.
 
 - P3-N014 (the loop runs sequence mode) waits on the executing stage of P1-N014 (role contracts adopt the conduct rules), which is done.
 - P2-N006 (migration and pilot) waits on P1-N014, which is done.
-- The [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view)'s first version, a future child of P2-N003 (owner questions and the plan view), waits on P3-N006 (the thin end-to-end slice).
+- P2-N021, the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view)'s first version, waits on P3-N006 (the thin end-to-end slice), which is done.
+- The third task of P2-N021, E3, waits on P3-N007 (the type declared, the K-003 amendment drafted).
 - The executing stage of P1-N016 (process spec maintenance) waits on P3-N009 (sibling ordering retired).
 
 One piece of work moved between lines: P2-N006 took over the pilot of P1-N006 (pilot on a real project), and P1-N006 stays in line P1 as a node with no work of its own.
 
 Inside each line the open nodes form chains, listed here from first to last.
 
-- Line P2: P2-N005 (the task-pull loop) and the web view child of P2-N003 come before P2-N006. P2-N004 (topics and coordination) and the queue child of P2-N003 come after P2-N006.
+- Line P2: P2-N005 (the task-pull loop) and P2-N021 (the web view's first version) come before P2-N006. P2-N004 (topics and coordination) and P2-N022 (the owner question queue) come after P2-N006. P2-N022 also waits on P2-N021 and P2-N005.
 - Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out).
 - Line P3, the comprehension model: P3-N006, then P3-N007, then P3-N008, then P3-N009. P3-N004 (reversibility) waits on the whole of P3-N002.
 - Line P3, the risk catalogue: P3-N010, then P3-N011, then P3-N012.
@@ -456,7 +472,7 @@ Inside each line the open nodes form chains, listed here from first to last.
 The diagram shows every node that is not done.
 An arrow runs from a node to the node that waits on it.
 A box around nodes is their parent.
-P2-N003's two future children are drawn as separate nodes inside its box, because each has its own wait.
+P2-N003's two children, P2-N021 and P2-N022, are drawn inside its box, because each has its own wait.
 
 ```mermaid
 graph LR
@@ -467,8 +483,8 @@ graph LR
   end
   subgraph P2N001["P2-N001 orchestration service"]
     subgraph P2N003["P2-N003 owner questions and plan view"]
-      P2N003V["web view, first version (future child)"]
-      P2N003Q["owner question queue (future child)"]
+      P2N021["P2-N021 web view, first version"]
+      P2N022["P2-N022 owner question queue"]
     end
     P2N004["P2-N004 topics and coordination"]
     P2N005["P2-N005 task-pull loop"]
@@ -498,9 +514,12 @@ graph LR
   P3N010 --> P3N011 --> P3N012
   P3N013 --> P3N014 --> P3N015 --> P3N016
   P3N002 --> P3N004
-  P3N006 --> P2N003V
-  P2N003V --> P2N006
-  P2N006 --> P2N003Q
+  P3N006 --> P2N021
+  P3N007 -->|task E3| P2N021
+  P2N021 --> P2N006
+  P2N006 --> P2N022
+  P2N021 --> P2N022
+  P2N005 --> P2N022
   P2N005 --> P2N006
   P2N006 --> P2N004
   P2N006 --> P1N006
@@ -515,6 +534,7 @@ A node is actionable when every recorded dependency of its next stage is met.
 Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
+- P2-N021 (the web view's first version): execute task E1, the thin end-to-end slice. Its merge waits on the owner actions O-view-1 to O-view-3.
 
 Specifying now, after the owner's gate of 2026-10-30:
 
@@ -528,7 +548,6 @@ Gated on the owner:
 - P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
 - P2-N005 (the task-pull loop): specified; your review of the specification, decisions 14 to 22 (decision 15 changes how a claim is released, with drafted corrections to the plan) and three terms (pull run, offering branch, claim commit); the four children enter at that gate.
-- P2-N003 (owner questions and the plan view): specified; your review of the specification, decisions 11 to 15 and three terms (view token, view cookie, not computable); the two children enter at that gate.
 - P3-N007 (the type declared, the arguments written, the K-003 amendment drafted): verifying; your review of the K-003 proposal under RU-005 (approve for carrying, amend or return), ten terms, the open points of its record, and a meta-review of its count.
 - P3-N011 (the sweep, the rest of the catalogue, and the omission list): verifying; the owner's rulings on the omission list (56 items), the three weaker Class lines, the scope arguments and closed entries, and the terms citation test and delta row.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
@@ -540,12 +559,13 @@ Waiting:
 - P3-N012 (the Article 8 proposal): waits on P3-N011.
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.
-- P2-N003 (owner questions and the plan view), after its split: the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view) child waits on P3-N006. The queue child waits on P2-N006.
-- P2-N006 (migration and pilot): waits on P2-N005 and the web view child of P2-N003.
+- P2-N021 (the web view's first version): its task E3 waits on P3-N007. Its tasks E1 and E2 wait on nothing.
+- P2-N022 (the owner question queue): waits on P2-N021 and P2-N005, and follows P2-N006.
+- P2-N006 (migration and pilot): waits on P2-N005 and P2-N021.
 - P2-N004 (topics and coordination): its executing stage waits on P2-N006.
 - P1-N006 (pilot on a real project): waits on P2-N006.
 - P1-N007 (cost reporting and close-out): its executing stage waits on P1-N006.
-- P3-N002, P3-N003 and P3-N005: each waits on its children.
+- P2-N003, P3-N002, P3-N003 and P3-N005: each waits on its children.
 - P1-N001, P2-N001 and P3-N001: each waits on its open children.
 
 No plan yet, in register order:
@@ -553,6 +573,7 @@ No plan yet, in register order:
 - P1-N006 (pilot on a real project)
 - P1-N007 (cost reporting and close-out)
 - P2-N004 (topics and coordination)
+- P2-N022 (the owner question queue)
 - P2-N006 (migration and pilot)
 - P3-N009 (sibling ordering retired)
 - P3-N004 (reversibility)

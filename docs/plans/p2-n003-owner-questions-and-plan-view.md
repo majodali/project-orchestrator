@@ -129,8 +129,11 @@ attempt at this view. They carry its five node fields in its order.
   node's tasks.
   - Stage carries a date where the run journal records one, labelled
     as from the journal, which is telemetry.
-  - Outcome is the first paragraph of the plan's *Outcome* section, or
-    "no plan yet".
+  - Outcome is the first paragraph of the *Outcome* section of the
+    plan the node's register line links. Where the line links no plan,
+    the field reads "no plan linked", and the documents field shows
+    the nearest ancestor's links (decision 14 of the
+    [specification](../specs/p2-n003-owner-questions-and-plan-view.md#decisions-for-the-gate)).
   - Depends on and needed by come from the register's notes. Once the
     instance records a node's edges, they also come from the edges, by
     the dependency rule of P3-N007 decision 3.
@@ -516,7 +519,11 @@ question without a gate entry.
    Where the procedure says "not computable", the view says so.
    **Rationale:** the owner chose to specify the view against the
    model, and a second rule would be a second definition of what is
-   next. **Affected locations:** none.
+   next. **Affected locations:** none. (Refined at the specification
+   gate by decision 11 of the
+   [specification](../specs/p2-n003-owner-questions-and-plan-view.md#decisions-for-the-gate).
+   The type's procedure names no "not computable" case. That
+   decision lists the three cases where the procedure cannot finish.)
 
 10. Whether child 1 ends at an owner demonstration. **Default:** yes.
     The owner opens the view on a phone, picks a node, drills to one

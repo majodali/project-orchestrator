@@ -1,6 +1,6 @@
 # The owner sees the plan in a browser, and answers gate decisions there: specification
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -895,6 +895,32 @@ question silently. No ruling reaches the five below.
     answerable from repository content, run logs and HTTPS calls.
     P2-N002 and P2-N012 were verified the same way. **Affected
     locations:** none.
+
+## Gate record, 2026-10-30
+
+The owner accepted this specification and the breakdown on 2026-10-30
+("P2-N003 plan and all decision defaults approved and new terms
+ratified"), with defaults 11 to 15 adopted. The owner ratified the three
+terms this document introduces: *view token*, *view cookie* and *not
+computable*. The drafted texts of decisions 11 and 14 were placed in
+the [plan](../plans/p2-n003-owner-questions-and-plan-view.md), and the
+drafted text of decision 12 in
+[observability.md](../process/observability.md), *Events*. Decisions 13
+and 15 state no affected location. RU-020 (an interior node whose
+specification carries its children needs no separate break-down task)
+applied. The two children were entered `identified`, with their Backlog
+entries: P2-N021 (the web view's first version) and P2-N022 (the owner
+question queue). In the same act the node moved `specified` →
+`broken-down`. P2-N005's specification was still at its gate, so the IDs
+P2-N017 to P2-N020 stay reserved for its children and the proposed IDs
+hold. The edges under *Edges stated at this breakdown* were transcribed
+into the [Project model instance](../project-model.md), the edge
+`task-pull-loop` under the slug `task-tools` that P2-N005's
+specification names, with `task-pull-loop` kept as its alias. Decisions
+11 to 15 were judged node-scope, so no ruling was captured. The owner
+actions keep their names O-view-1 to O-view-5 until P2-N005's
+specification fixes its own numbers. Next: P2-N021's first execute
+task, E1, the thin end-to-end slice.
 
 ## References
 
