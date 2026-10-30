@@ -41,10 +41,13 @@ of the specification are the authority.
 The procedure is the one the specification defines under
 [the class-to-instance check](specs/p3-n003-common-risk-catalogue.md#the-class-to-instance-check)
 and [the negative control](specs/p3-n003-common-risk-catalogue.md#the-negative-control).
-Two refinements apply, both adopted at the gate of 2026-10-30. They are
-decision 2 (which Classification step 1 reads) and decision 3 (which
-Backlog entries the parts enumeration reads) of the plan of node
-P3-N010. Each is marked below.
+Four refinements apply, all adopted at the plan gates of 2026-10-30.
+Two are decision 2 (which Classification step 1 reads) and decision 3
+(which Backlog entries the parts enumeration reads) of the plan of node
+P3-N010. Their markers name the decision alone. Two are decision 3
+(what a covering entry's *Class* clause states) and decision 5 (whether
+the service repository's Backlog is read) of the plan of node P3-N011.
+Their markers name the node. Each is marked below.
 
 ### Inputs
 
@@ -66,6 +69,11 @@ ID, and a stated list of standing artifact classes.
 *Refinement, decision 3.* The specification reads the Backlog's
 Completed section only.
 
+The checked entries of the service repository's Backlog are read too,
+at the commit the run names. A service entry becomes a part only when
+it delivers an artifact no existing part holds. *Refinement, decision
+5 of the plan of node P3-N011.*
+
 ### Steps
 
 1. *Project applicability.* For each class and each repository that
@@ -81,7 +89,11 @@ Completed section only.
 3. *Coverage.* For each pair recorded `applies`, the run looks for a
    covering entry: a Risk register entry that cites the class and names
    the part, or names a scope the run argues contains the part. A pair
-   with a covering entry records that entry's ID.
+   with a covering entry records that entry's ID. A covering entry's
+   *Class* clause also states the exposure that the pair's step 2
+   argument names. A pair whose argument names an exposure the clause
+   does not state is an omission, and its item names that exposure.
+   *Refinement, decision 3 of the plan of node P3-N011.*
 
 How a run reads the Risk register for step 3: the command
 `grep -n 'CR-' docs/open-risks.md` lists every line that cites a

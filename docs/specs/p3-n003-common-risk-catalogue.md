@@ -169,10 +169,11 @@ decision 4). It has three inputs.
 - This repository's Risk register, `docs/open-risks.md`, at a named
   commit.
 - The **parts enumeration**: the committed list of parts of this
-  project, drawn from the Backlog's checked entries wherever they sit
-  (refined at P3-N010's gate, 2026-10-30, from "the Completed section";
-  see the gate record), the Plan register's `done` nodes, and a stated
-  list of standing artifact classes (plan decision 3).
+  project, drawn from every checked entry of this repository's Backlog
+  and of the service repository's Backlog, wherever it sits, the Plan
+  register's `done` nodes, and a stated list of standing artifact
+  classes (plan decision 3, refined at the gates of nodes P3-N010 and
+  P3-N011).
 
 A run has three steps.
 
@@ -193,7 +194,11 @@ A run has three steps.
 3. **Coverage.** For each pair recorded `applies`, the run looks for a
    **covering entry**: a Risk register entry that cites the class and
    names the part, or names a scope the run argues contains the part.
-   A pair with a covering entry records that entry's ID.
+   A pair with a covering entry records that entry's ID. Refined at the
+   gate of node P3-N011 (its plan's decision 3): a covering entry's
+   *Class* clause also states the exposure that the pair's step 2
+   argument names. A pair whose argument names an exposure the clause
+   does not state is an omission, and its item names that exposure.
 
 An **omission** is a pair recorded `applies` that has no covering
 entry. The run's output is the **omission list**. Each item names the
@@ -412,9 +417,8 @@ Named so their absence is not read as oversight.
 **The plan's three children stand**, in a strict chain: child A, then
 child B, then child C. The node is **interior**. Writing the criteria
 exposed no missing child and no wrong cut. Child B is still the largest
-child. If its own preparation finds the sweep exceeds one session, it
-is broken down by seam, and that cut is recorded as a technical-structure
-cut (plan, *Leaf or interior*).
+child. Its plan keeps it a leaf and runs it as three execute tasks in a
+fixed order, split by source (plan of node P3-N011, decision 1).
 
 Writing the criteria exposed three things the plan left implicit. Each
 is now in a child's criteria.
@@ -713,6 +717,14 @@ repository's Classification becomes a fourth input to the run record;
 the parts enumeration reads every checked Backlog entry wherever it
 sits, not only the Completed section. Criterion I4 is read with this
 refinement.
+
+Refinement at P3-N011's plan gate, 2026-10-30, placed by task T069.
+The owner adopted that plan's decisions there, three of them with
+drafted text for this document. Child B stays a leaf, run as three
+execute tasks split by source. A covering entry's *Class* clause also
+states the exposure the pair's step 2 argument names. The parts
+enumeration also reads the checked entries of the service repository's
+Backlog.
 
 ## References
 
