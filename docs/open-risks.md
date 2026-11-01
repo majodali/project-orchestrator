@@ -422,6 +422,22 @@ and name, then says in one clause how the entry instantiates it. The
   against the project's no-retry rule, and the document stating the rule
   was absent from the branch under test.
 
+- **R18 — The view cookie is a standing read credential for the whole
+  plan.** The web view's sign-in exchanges the view token for a signed
+  cookie, and the cookie then reads every page of this repository's
+  plan on the owner's devices for its lifetime. A lost or shared
+  device carries that read access with it. *Mitigation*: the cookie is
+  `HttpOnly`, `Secure`, `SameSite=Strict` and scoped to `Path=/view`;
+  it lives 30 days; its key is derived from the view token, so
+  rotating the token signs every device out; the MCP endpoint refuses
+  both the token and the cookie, so the cookie reaches no write tool
+  ([specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md),
+  *Sign-in*, decision 13). Rotation stores the token under a new dated
+  secret name, so CloudFormation resolves the new value. *Status*:
+  open; recorded 2026-10-30, proposed at P2-N003's specification
+  (T093) and by P2-N021's task E1 (T094), which built the cookie in
+  majodali/project-orchestrator-service commit `bf8f1b5`.
+
 Unexpected interplay is by nature not enumerable in advance: the
 pilot (plan chunk 5) treats every failure it hits as a candidate
 entry here, and the semantic-audit questions in

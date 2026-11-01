@@ -93,15 +93,17 @@ An `edge-recorded` event records one edge. Its fields:
   `P3-N007 uses project-model; from docs/specs/p3-n002-comprehension-model.md, Edges stated at this breakdown`.
 - `ref`: `null`, or the commit of the record when it is pinned.
 
-Two further events of the Project model have no kind yet. Each is a
-recorded gap with a home.
+Two further events of the Project model have no kind. The first is a
+recorded gap with a home. The second needs no kind.
 
 - An edge invalidated by a superseded ruling belongs to node P3-N004
   (reversibility, and the measurement that says whether it pays).
-- A part's state change belongs to node P2-N003 (owner questions and
-  the plan view). A part's state is derived from Plan register stages,
-  and this journal already records every stage change. The web view
-  decides whether it needs an event of its own.
+- A part's state change has no event kind, by decision 12 of the
+  [specification of P2-N003 (owner questions and the plan
+  view)](../specs/p2-n003-owner-questions-and-plan-view.md#decisions-for-the-gate).
+  A part's state is derived from Plan register stages, and this
+  journal already records every stage change. The web view derives a
+  part's state when it renders a page.
 
 The gaps `unblocked` and risk-opened stay with node P1-N016 (process
 spec maintenance).

@@ -16,13 +16,13 @@ spec. First entries land at the pending P1-N008 gate.
   it; cross-repo scope is granted only explicitly. Rationale: no
   scope expansion for a delivery a human can make. Source: P1-N008
   gate (decision 2, default adopted), 2026-08-26. Applied: T020,
-  T039.
+  T039; the P3-N007 verifying gate, 2026-10-30.
 - RU-003 [active] completion/process — Does a node targeting an
   external party complete at the artifact or at upstream
   disposition? Ruling: at the artifact. Rationale: external
   acceptance is not ours to verify. Source: P1-N008 gate
   (decision 3, default adopted), 2026-08-26. Applied: T004, T020,
-  T039.
+  T039; the P3-N007 verifying gate, 2026-10-30.
 - RU-004 [active] completion/node — Full reference implementation or
   conformance sketch for the extension-point proposal? Ruling:
   sketch only. Rationale: the contract is still under discussion.
@@ -155,7 +155,7 @@ spec. First entries land at the pending P1-N008 gate.
   the original owner-names-it rule was protecting. Supersedes
   `dispatch.md`'s "cross-repo reach is scope" only in *who* grants,
   not in *whether* it must be declared. Source: owner decision at the
-  P2-N012 gate, 2026-09-01. Applied: T039, T043, T055, T071, T073, T075, T080, T083.
+  P2-N012 gate, 2026-09-01. Applied: T039, T043, T055, T071, T073, T075, T080, T083, T094, T095.
 
 - RU-017 [active] scope/project — When a node's whole driver is
   another portfolio project, is that project's adoption part of the
@@ -205,7 +205,8 @@ spec. First entries land at the pending P1-N008 gate.
   has just approved spends tokens to produce nothing. A specification
   that does *not* reach that depth still gets the task. Source:
   P3-N001 gate (decision 8, default adopted), 2026-09-17. Applied: the
-  P3-N002, P3-N003 and P3-N005 specification gates, 2026-10-29.
+  P3-N002, P3-N003 and P3-N005 specification gates, 2026-10-29; the
+  P2-N003 and P2-N005 specification gates, 2026-10-30.
 
 - RU-021 [active] knowledge/project — Which document is the source of
   progress truth in an orchestrated project? Ruling: the

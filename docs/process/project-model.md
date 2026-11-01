@@ -129,6 +129,17 @@ model replaces no part of the register or of the plan documents.
   edge line, saying why the line is incomplete.
 - <a id="def-date-note"></a>**Date note**: a note on a node item or a
   gate item that dates the node's arrival at `done`.
+- <a id="def-rendering"></a>**Rendering**: a text produced from a
+  source by a stated procedure. The rendering adds no claim the source
+  lacks. It drops no claim the procedure says it carries. The owner
+  ratified the term on 2026-10-30, from the [K-003
+  proposal's IR](../proposals/planning-execution-model-is-progress-truth.ir.md).
+- <a id="def-list-of-what-is-next"></a>**List of what is next**: the
+  answer a project's records give to what is next. Under K-003 (the
+  Backlog is the single source of progress truth) as released at 1.6.0
+  it is the Backlog's upcoming section. The model renders it by [the
+  procedure below](#the-list-of-what-is-next), one item per node not
+  `done`. The owner ratified the term on 2026-10-30, from the same IR.
 
 ## The instance: one file, a preamble, then entries
 

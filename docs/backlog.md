@@ -398,7 +398,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   defaults adopted, decision 13 option (a) no deviation, the one term
   ratified; children P3-N006 to P3-N009 entered (RU-020). P3-N006 done
   2026-10-30. P3-N007's first execute task (T070) landed the type
-  2026-10-30. Next: P3-N007's amendment.
+  2026-10-30. P3-N007 done 2026-10-30 at its verifying gate. Next:
+  P3-N008's plan gate.
 
 - [ ] **P3-N005 specified, 2026-10-29 (T045)** — sequence mode's
   specification stands at
@@ -452,16 +453,35 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   found 2026-10-29 planning P3-N006: links to a risk or a ruling land
   at the top of the document; the web view (P2-N003) will want
   per-entry links.
-- [ ] **The type declared, the arguments written, the K-003 amendment
+- [x] **The type declared, the arguments written, the K-003 amendment
   drafted** (node P3-N007, child B of P3-N002) — When: planned
   2026-10-30 (T057); specified at the gate of 2026-10-30; E1 executed
-  2026-10-30 (T070). Status: executing; E1 landed the type
-  specification, the Classification's fifth custom definition, the
-  writer rule, the Dependencies section as the place edges are first
-  written, the `Applied:` retention reason and the `edge-recorded`
-  event kind; E2, the amendment IR first, is next. Pointer:
-  [plan](plans/p3-n007-type-declared-amendment-drafted.md),
-  [type specification](process/project-model.md).
+  2026-10-30 (T070), E2 (T078), stranger rounds T081 to T091; done
+  2026-10-30 at the owner's verifying gate. Status: done. Shipped the
+  Project model type specification with its grammar, dependency rule,
+  renderings and writer rule; the Classification's fifth custom
+  definition; the `edge-recorded` event kind; and the K-003 proposal
+  with its IR and review record, approved for carrying as it stands
+  after count 1 closed at the limit. Ten terms ratified; the
+  meta-review of the count was delivered as communication-pipeline
+  evaluation case 013. The node completes at the artifact (RU-003).
+  Pointer: [plan](plans/p3-n007-type-declared-amendment-drafted.md),
+  [type specification](process/project-model.md),
+  [proposal](proposals/planning-execution-model-is-progress-truth.md).
+- [ ] **Upstream disposition of the K-003 amendment proposal** — When:
+  2026-10-30, at P3-N007's verifying gate. Status: open; the owner
+  carries the proposal and its IR to majodali/methodology under RU-002
+  and RU-015, re-verifying the quote of K-003 against upstream `main`
+  first, and fills the Release-register entry's pull-request link; the
+  maintainers accept, amend or reject it. Pointer:
+  [proposal](proposals/planning-execution-model-is-progress-truth.md).
+- [x] **Set the K-003 review record's Meta-review line when case 013 is
+  delivered** — When: 2026-10-30, at P3-N007's verifying gate; closed
+  2026-10-30. Status: done; the line reads `Meta-review: delivered`
+  with the date and a link to communication-pipeline evaluation case
+  013 on that repository's `main`, whose merge (pull request #26) is
+  pending. Pointer:
+  [review record](proposals/planning-execution-model-is-progress-truth.review.md).
 - [ ] **P3-N009's rules gain a cycle check over derived dependencies**
   — When: 2026-10-30, planning P3-N007. Status: open, for P3-N009; the
   after qualifier lets a planner write a cycle. Pointer:
@@ -475,7 +495,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   child C). Status: planned, gated on the owner's review (six
   decisions); a leaf run as three execute tasks, the parts and their
   entries, the edges, then the headers, the measurement and the
-  renderings. Its executing stage depends on P3-N007. Pointer:
+  renderings. Its executing stage depended on P3-N007, done
+  2026-10-30. Pointer:
   [plan](plans/p3-n008-instance-over-this-repository.md).
 - [ ] **P3-N009's rules check that no heading's find matches two
   entries** — When: 2026-10-30, planning P3-N008 (T079). Status: open,
@@ -516,8 +537,9 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   the checks that replace it (spec child D). Depends on P3-N008.
 - [ ] **Switch this repository's Backlog to a rendering of the
   planning/execution model** — when the K-003 amendment P3-N007
-  drafts is released and pinned (P3-N002 decision 13, option (a), owner
-  2026-10-29). Paired with a rendering tool for the Backlog's two
+  drafted is released and pinned (P3-N002 decision 13, option (a), owner
+  2026-10-29). The owner approved the amendment for carrying on
+  2026-10-30; it awaits its release upstream. Paired with a rendering tool for the Backlog's two
   remaining jobs, the implementation map and the list of what is next.
   At the switch, `docs/plan.md` is superseded (P3-N008 decision 5).
 - [x] **One risk class carried end to end (node P3-N010, child A of P3-N003)** —
@@ -2798,7 +2820,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   an immediate-class scope expansion
   ([P1-N009 plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
   decision 3). Checked on 2026-10-29 (task T051), after it had stayed
-  open.
+  open. Evidence that the check does not run on its own: the service's
+  copy lagged the corpus from `6401311` until `c600a40` (T095).
 - [x] **P2-N002's live criteria renamed at the P1-N009 cutover
   (decision 14, option (a), the default)** — `docs/plans/p2-n002-service-skeleton.md`
   criterion 9 and `docs/specs/p2-n002-service-skeleton.md` criterion
@@ -2897,24 +2920,128 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 - [ ] **Service chunk 2 — owner questions and the plan view** (node
   P2-N003) — When: planned 2026-10-30 (T075), plan gate crossed
   2026-10-30 with defaults 1 to 10; specification drafted 2026-10-30
-  (T093). Status: planned; the specification awaits its gate, with
-  decisions 11 to 15 and three terms staged; it carries the web view's
-  first version at full criteria depth (V1 to V30, tasks E1 to E3 and
-  an owner demonstration) and the owner question queue at outcome
-  depth. Pointer:
+  (T093), specification gate crossed 2026-10-30 with defaults 11 to 15
+  and three terms ratified. Status: broken-down into P2-N021 and
+  P2-N022 (RU-020); the specification is `active`; the node verifies
+  against its criteria I1 to I10 after both children are done. Pointer:
   [specification](specs/p2-n003-owner-questions-and-plan-view.md).
+- [ ] **P2-N021 identified, 2026-10-30: the web view's first version**
+  — When: 2026-10-30, at P2-N003's specification gate; E1 dispatched
+  2026-10-30 (T094), accepted 2026-10-30; E2 dispatched 2026-10-30
+  (T095). Status: executing; E1 returned blocked and was accepted under
+  the T008 precedent, its pull request #18 open on
+  majodali/project-orchestrator-service (commit `bf8f1b5`), every
+  criterion met but V19 and V22, owed as deploy evidence, and
+  `sam validate --lint`, which the pull request's check runs; E2 (T095),
+  the node and task pages, returned needs-judgment on W-002 (E1's
+  `test/viewDeployWiring.test.ts` widened to admit E2's two route keys;
+  the owner rules on keeping it, restructuring it or dropping the
+  routes) and blocked on V22, every other criterion met, with pull
+  requests open in both repositories; a leaf, run as execute tasks E1 to E3
+  against criteria V1 to V30, then the owner demonstration; no plan or
+  specify task (plan decision 2); E3's wait on P3-N007 is met.
+  Pointer:
+  [specification of P2-N003, child
+  1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
+- [ ] **P2-N022 identified, 2026-10-30: the owner question queue** —
+  When: 2026-10-30, at P2-N003's specification gate. Status:
+  identified; specified at outcome depth, with its own plan and specify
+  tasks after P2-N006; depends on P2-N021 and P2-N005. Pointer:
+  [specification of P2-N003, child
+  2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue).
 - [ ] **Waits per task under the node-to-node dependency rule** — When:
   2026-10-30, specifying P2-N003 (T093). Status: open; the type's rule
   is per node, while P2-N003's plan decision 8 is per task; a register
   note carries the split until P3-N009 decides how a task-level wait is
   recorded. Pointer:
   [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#edges-stated-at-this-breakdown).
-- [ ] **Record the view cookie as a risk** — When: 2026-10-30,
-  specifying P2-N003 (T093). Status: open; a proposed R18: the view
+- [x] **Record the view cookie as a risk** — When: 2026-10-30,
+  specifying P2-N003 (T093); closed 2026-10-30, entered as R18 at T094's
+  result. Status: done; R18: the view
   cookie is a standing read credential for the whole plan on the
   owner's devices, mitigated by its attributes, a 30-day lifetime and
   revocation by token rotation (decision 13). Pointer:
+  [Risk register, R18](open-risks.md),
   [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#risks).
+- [ ] **E1's deploy evidence: the smoke-test run log and the latency
+  figures, recorded after the deploy that follows O-view-1 to
+  O-view-4** — When: 2026-10-30, at T094's acceptance. Status: open,
+  for the Orchestrator after the owner's actions; V19 needs the first
+  deploy's run log with the smoke test's fourth check passing against
+  the preprod Function URL, and V22 needs the cold and warm latency of
+  the sign-in and tree pages recorded in the service's
+  `docs/runbook.md`; `sam validate --lint` is read from pull request
+  #18's check. Pointer: [specification of P2-N003, Child 1's
+  verification
+  criteria](specs/p2-n003-owner-questions-and-plan-view.md#child-1s-verification-criteria).
+- [ ] **The consumer typecheck does not cover the shared Cost log and
+  journal unit** — When: 2026-10-30, T095. Status: open; add
+  `plugin/scripts/lib/cost-log-and-journal.ts` to
+  `tsconfig.consumer.json`, as the register grammar unit is. Pointer:
+  [tsconfig.consumer.json](../tsconfig.consumer.json).
+- [ ] **`npm run lint` fails on `main` over a file outside every
+  tsconfig project** — When: 2026-10-30, T095. Status: open;
+  `docs/findings/p3-n005-stop-predicates/prepass.ts` lies outside every
+  project the lint configuration names. Pointer: [the P3-N013
+  record](findings/p3-n005-stop-predicates.md).
+- [ ] **Register lines put a note and their links behind two em
+  dashes** — When: 2026-10-30, T095. Status: open; the grammar takes
+  everything after the first " — " as the annotation and splits links
+  on " · ", so a line such as P2-N021's, "— <note> — spec: <path>",
+  reads its link with the note in its label. The gate commit wrote the
+  lines of P2-N021 and P2-N022 verbatim from the specification, and the
+  lines of P3-N007, P3-N008, P1-N016 and P2-N018 to P2-N020 share the
+  shape. Decide the grammar, or rewrite the lines. Pointer: [Plan
+  register type](process/plan-register.md#location-and-shape),
+  `plugin/scripts/lib/plan-register.ts`.
+- [ ] **A web-view node page fails whole when one of its reads fails**
+  — When: 2026-10-30, T095. Status: open; decide whether the page
+  degrades per field, showing the failing read in that field, or stays
+  as it is. Pointer: [specification of P2-N003, The node
+  page](specs/p2-n003-owner-questions-and-plan-view.md#the-node-page).
+- [ ] **A stale comment in the service's `test/viewSignIn.test.ts`** —
+  When: 2026-10-30, T095 (located finding). Status: open; left by E2
+  under W-002, for the owner's ruling or the next task that may change
+  that test. Pointer: majodali/project-orchestrator-service commit
+  `d6a40b5`.
+- [ ] **No CI check catches the service's vendored copy drifting from
+  the shared unit** — When: 2026-10-30, T095 (located finding). Status:
+  open; at `bf8f1b5` the service's vendored copy was out of sync under
+  RU-012 (how two repositories share one unit of code), lagging the
+  corpus from commit `6401311` of this repository until the service's
+  `c600a40`, and no pull-request check ran
+  `sync_shared_unit.ts --check`. Pointer: the entry *Service-side
+  adoption of the shared register grammar*.
+- [x] **Three display choices of P2-N021's task E2, confirmed** — When:
+  2026-10-30, T095. Status: done; the Orchestrator confirmed them within
+  the specification's latitude, and the owner may overrule: the
+  Resources field shows a placeholder until E3; the Outcome field shows
+  the plan's Markdown as text with its links unrendered (V10); unparsed
+  lines are noted by line number. Pointer: [specification of P2-N003,
+  The node
+  page](specs/p2-n003-owner-questions-and-plan-view.md#the-node-page).
+- [ ] **The service's deploy workflow calls its smoke test three
+  checks** — When: 2026-10-30, T094 (located finding). Status: open;
+  the comment "Smoke test (G3) — three checks" in
+  `.github/workflows/deploy.yml` of majodali/project-orchestrator-service
+  is stale after E1's fourth check, and the file lies outside the
+  child's reach but for its `env:` mapping. Pointer: the service's
+  `.github/workflows/deploy.yml`.
+- [ ] **`scripts/deploy.sh` warns on an unset view-token secret name**
+  — When: 2026-10-30, T094 (located finding). Status: open; the service's
+  deploy script warns rather than fails when `VIEW_TOKEN_SECRET_NAME` is
+  unset, so the existing test `test/deployScriptLivePinning.test.ts`
+  passes unchanged (V29); a hard failure needs the W-002 discussion with
+  the owner. Pointer: majodali/project-orchestrator-service commit
+  `bf8f1b5`.
+- [x] **Two readings of P2-N021's criteria, confirmed** — When:
+  2026-10-30, T094 (located findings). Status: done; the Orchestrator
+  confirmed both: a page with no SHA names "none, the ref did not
+  resolve" and carries the Backlog limit line unlinked (V2, V13); the
+  rotation runbook stores the view token under a new dated secret name,
+  because CloudFormation resolves a dynamic reference only when the
+  resource changes (V21). Pointer: [specification of P2-N003, child
+  1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
 - [ ] **The task page reads P2-N005's task files** — When: 2026-10-30,
   specifying P2-N003 (T093). Status: open, after P2-N005; once task,
   claim and result files exist in git, the task page can show them
@@ -2945,12 +3072,45 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   surface verified here (R11), with pull as the fallback.
 - [ ] **Service chunk 4 — the task-pull loop** (node P2-N005) — When:
   planned 2026-10-30 (T073), plan gate crossed 2026-10-30 (defaults 1 to
-  13, four terms ratified), specification written 2026-10-30 (T092).
-  Status: planned; the specification is `draft`, gated on the owner's
-  review, with children A to D at breakdown depth, decisions 14 to 22
-  and three terms for ratification. Pointer:
+  13, four terms ratified), specification written 2026-10-30 (T092),
+  specification gate crossed 2026-10-30 (defaults 14 to 22, three terms
+  ratified). Status: broken-down into P2-N017 to P2-N020 (RU-020); the
+  specification is `active`; the node verifies against its criteria I1
+  to I16 after its children are done. Pointer:
   [plan](plans/p2-n005-task-pull-loop.md) ·
   [specification](specs/p2-n005-task-pull-loop.md).
+- [ ] **P2-N017 identified, 2026-10-30: the platform facts, verified**
+  — When: 2026-10-30, at P2-N005's specification gate. Status:
+  identified; execute against criteria A1 to A10, with owner action
+  O11 for the local surface; no other child starts until its finding
+  is committed. Pointer:
+  [specification of P2-N005, child
+  A](specs/p2-n005-task-pull-loop.md#child-a-the-platform-facts-verified).
+- [ ] **P2-N018 identified, 2026-10-30: the loop in git alone** — When:
+  2026-10-30, at P2-N005's specification gate. Status: identified;
+  execute against criteria B1 to B12; depends on P2-N017. Pointer:
+  [specification of P2-N005, child
+  B](specs/p2-n005-task-pull-loop.md#child-b-the-loop-in-git-alone).
+- [ ] **P2-N019 identified, 2026-10-30: role-aware identity** — When:
+  2026-10-30, at P2-N005's specification gate. Status: identified;
+  execute against criteria C1 to C11, with owner action O12; depends
+  on P2-N017, independent of P2-N018 (RU-018). Pointer:
+  [specification of P2-N005, child
+  C](specs/p2-n005-task-pull-loop.md#child-c-role-aware-identity).
+- [ ] **P2-N020 identified, 2026-10-30: the task tools** — When:
+  2026-10-30, at P2-N005's specification gate. Status: identified;
+  execute against criteria D1 to D12, with owner action O13; depends
+  on P2-N018 and P2-N019. Pointer:
+  [specification of P2-N005, child
+  D](specs/p2-n005-task-pull-loop.md#child-d-the-task-tools).
+- [ ] **P3-N014's modifies edges on `dispatch-rules` and
+  `role-contracts` are held** — When: 2026-10-30, transcribing P2-N005's
+  breakdown edges. Status: open; P2-N018's uses edges name P3-N014 in
+  an after qualifier, and checker rule 6 needs P3-N014's modifies edge
+  on each resource; P3-N014 is done, so no wait is affected; for
+  P3-N008's second execute task, from P3-N014's done records. Pointer:
+  [Project model type, the rules a checker
+  applies](process/project-model.md#the-rules-a-checker-applies-to-the-instance).
 - [ ] **A `claimed` journal event kind** — When: 2026-10-30,
   specifying P2-N005 (T092, decision 14 defers it). Status: open, for
   the web view of P2-N003 (owner questions and the plan view) to read a
@@ -2973,8 +3133,9 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   open; the plan was accepted twenty seconds before the Project model
   type was declared, so it predates the rule that a plan's Dependencies
   section first writes the node's edges; the specification states the
-  children's edges. For the Orchestrator at the specification gate, or
-  P3-N008's second execute task. Pointer:
+  children's edges, which the Orchestrator transcribed at the
+  specification gate of 2026-10-30; the node's own edges remain
+  unwritten, for P3-N008's second execute task. Pointer:
   [plan of P2-N005](plans/p2-n005-task-pull-loop.md), *Dependencies*.
 - [ ] **A form check for task files, claim branches and result files**
   — When: 2026-10-30, planning P2-N005 (T073). Status: open, for

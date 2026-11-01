@@ -1,6 +1,6 @@
 # A declared planning/execution model is the source of progress truth
 
-Status: draft (count 1 closed at the limit on 2026-10-30, round 10 not readable, the final round's fixes confirmed; awaiting the owner's gate at node P3-N007's verifying stage)
+Status: draft (approved for carrying by the project-orchestrator owner at node P3-N007's verifying gate on 2026-10-30, under RU-005, its terms ratified; count 1 closed at the limit on 2026-10-30, round 10 not readable, the final round's fixes confirmed; the owner carries it upstream under RU-002)
 
 <!-- K-007 contract: Status transitions draft → delivered (hand-carried
      into an upstream issue or pull request, text unchanged) →
