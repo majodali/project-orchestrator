@@ -568,9 +568,11 @@ record](project-model-slice-record.md) holds it.
   Dependencies) · P3-N009 (Sibling ordering retired; from [specification
   of P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at
   this breakdown)
-- **used-by:** not yet derived (from [specification of
-  P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
-  breakdown)
+- **used-by:** P2-N021 (The web view's first version; task E3 (T096)
+  reads the node lifecycle for the list of what is next; proposed in
+  T096's result and recorded before its acceptance, on the
+  Orchestrator's direction; from [Backlog, entry for
+  P2-N021](backlog.md))
 
 ## plan-register-type
 
@@ -1038,8 +1040,10 @@ record](project-model-slice-record.md) holds it.
   credential for the whole plan; from [Risk register](open-risks.md))
 - **created-by:** P2-N021 (The web view's first version; task E1 (T094)
   built the sign-in routes and the tree page in
-  majodali/project-orchestrator-service commit bf8f1b5, and E2 (T095) the
-  node and task pages, both merged 2026-11-01; from [specification of
+  majodali/project-orchestrator-service commit bf8f1b5, and E2 (T095)
+  the node and task pages, both merged 2026-11-01; task E3 (T096) added
+  the renderings and the edges in commit a6684fb, not yet merged; from
+  [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown; [Backlog, entry for P2-N021](backlog.md))
 - **modified-by:** P2-N022 (The owner question queue; its answering
@@ -1060,23 +1064,29 @@ record](project-model-slice-record.md) holds it.
   is executing; the modified-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
-- **spec:** not yet derived (from [specification of
-  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
-  at this breakdown)
+- **spec:** [Project model type](process/project-model.md) (process
+  specification, the entry grammar; from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012)
 - **risks:** not yet derived (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **created-by:** P2-N021 (The web view's first version; under decision
-  7 the edge becomes a uses edge if P3-N009 has written the parser when
-  task E3 starts; from [specification of
+- **created-by:** P2-N021 (The web view's first version; task E3 (T096)
+  wrote it in majodali/project-orchestrator commit 12c8ada, its pull
+  request not yet merged; P3-N009 had written none, so under decision 7
+  the edge stays a creating edge; from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
-  at this breakdown)
+  at this breakdown; [Backlog, entry for P2-N021](backlog.md))
 - **modified-by:** not yet derived (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **used-by:** not yet derived (from [specification of
-  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
-  at this breakdown)
+- **used-by:** outside: the repository
+  majodali/project-orchestrator-service (a consuming repository; it
+  holds a vendored copy, written by the generator in its commit 82c9bfa;
+  from [specification of
+  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
+  parser and shared parsing, under RU-012; [Backlog, entry for
+  P2-N021](backlog.md))
 
 ## project-orchestrator-service-repo
 

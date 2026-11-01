@@ -2939,7 +2939,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   (a) on 2026-11-01, the widened test stands, and E2 was accepted the
   same day; E1 and E2 are merged to the service's `main` (pull requests
   #18 and #19) and the shared unit to this repository's `main` (pull
-  request #18); E3 (T096), the model, dispatched 2026-11-01; a leaf, run as execute tasks E1 to E3
+  request #18); E3 (T096), the model, dispatched 2026-11-01, returned
+  needs-judgment on W-002 (six assertions in E1's and E2's tests
+  changed to admit the instance's read and to replace the Resources
+  placeholder) and blocked on V22, V24 to V29 met, pull requests open in
+  both repositories; next, once E3 is accepted and deployed, P2-N021
+  moves to `verifying` for the owner demonstration (V30); a leaf, run as execute tasks E1 to E3
   against criteria V1 to V30, then the owner demonstration; no plan or
   specify task (plan decision 2); E3's wait on P3-N007 is met.
   Pointer:
@@ -2972,13 +2977,43 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   after the owner's actions; V19 needs the first deploy's run log with
   the smoke test's fourth check passing against the preprod Function
   URL, and V22 needs the cold and warm latency of the sign-in and tree
-  pages (E1) and of the node and task pages (E2) recorded in the
-  service's `docs/runbook.md`; `sam validate --lint` is read from pull
+  pages (E1), of the node and task pages (E2), and of the tree page
+  with its renderings and the node page with its edges and resources
+  (E3, from T096's result) recorded in the service's `docs/runbook.md`; `sam validate --lint` is read from pull
   request #18's check. E1 and E2 merged to the service's `main` on
   2026-11-01 (pull requests #18 and #19); the merge deploys only when
   O-view-1 to O-view-3 are done. Pointer: [specification of P2-N003, Child 1's
   verification
   criteria](specs/p2-n003-owner-questions-and-plan-view.md#child-1s-verification-criteria).
+- [ ] **Which source of an item is its date note's source** — When:
+  2026-11-01, T096. Status: open; the Project model type says a date
+  note's source is among the item's sources but not which one; the web
+  view reads the Cost log, plan or specification source, else all of
+  them. Pointer: [Project model type, the entry
+  grammar](process/project-model.md#what-each-lines-items-hold).
+- [ ] **The instance's title and the entry `project-model` share one
+  GitHub anchor** — When: 2026-11-01, T096 (located finding). Status:
+  open; `# Project model` and `## project-model` both slug to
+  `#project-model`, so the view links the entry as `#project-model-1`;
+  a rename of either, for P3-N008, removes the clash. Pointer:
+  [instance](project-model.md).
+- [x] **Four readings of the Project model type's procedures,
+  confirmed** — When: 2026-11-01, T096 (located findings 2 to 5).
+  Status: done; the Orchestrator confirmed each, for P3-N009's checker
+  rules and the type's next edit: a date note's source is the Cost log,
+  plan or specification source, else all sources; decision 11's case
+  (c) belongs to the implementation map and cannot arise in the list of
+  what is next; a parse error stops only the items whose procedure
+  reads that line, and RU-016's created-by departure reads as a node
+  item until P3-N008 conforms it; a node absent from the register
+  counts as `done` in the list, as in state derivation. Pointer:
+  [Project model type, the two
+  renderings](process/project-model.md#the-two-renderings).
+- [ ] **The service runbook says pages "arrive with task E2"** — When:
+  2026-11-01, T096 (located finding). Status: open; a stale line in
+  majodali/project-orchestrator-service `docs/runbook.md`, the
+  service's to correct. Pointer: majodali/project-orchestrator-service
+  commit `a6684fb`.
 - [ ] **The consumer typecheck does not cover the shared Cost log and
   journal unit** — When: 2026-10-30, T095. Status: open; add
   `plugin/scripts/lib/cost-log-and-journal.ts` to
