@@ -2934,10 +2934,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   criterion met but V19 and V22, owed as deploy evidence, and
   `sam validate --lint`, which the pull request's check runs; E2 (T095),
   the node and task pages, returned needs-judgment on W-002 (E1's
-  `test/viewDeployWiring.test.ts` widened to admit E2's two route keys;
-  the owner rules on keeping it, restructuring it or dropping the
-  routes) and blocked on V22, every other criterion met, with pull
-  requests open in both repositories; a leaf, run as execute tasks E1 to E3
+  `test/viewDeployWiring.test.ts` widened to admit E2's two route keys)
+  and blocked on V22, every other criterion met; the owner ruled option
+  (a) on 2026-11-01, the widened test stands, and E2 was accepted the
+  same day; E1 and E2 are merged to the service's `main` (pull requests
+  #18 and #19) and the shared unit to this repository's `main` (pull
+  request #18); E3 (T096), the model, dispatched 2026-11-01; a leaf, run as execute tasks E1 to E3
   against criteria V1 to V30, then the owner demonstration; no plan or
   specify task (plan decision 2); E3's wait on P3-N007 is met.
   Pointer:
@@ -2965,13 +2967,16 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#risks).
 - [ ] **E1's deploy evidence: the smoke-test run log and the latency
   figures, recorded after the deploy that follows O-view-1 to
-  O-view-4** — When: 2026-10-30, at T094's acceptance. Status: open,
-  for the Orchestrator after the owner's actions; V19 needs the first
-  deploy's run log with the smoke test's fourth check passing against
-  the preprod Function URL, and V22 needs the cold and warm latency of
-  the sign-in and tree pages recorded in the service's
-  `docs/runbook.md`; `sam validate --lint` is read from pull request
-  #18's check. Pointer: [specification of P2-N003, Child 1's
+  O-view-4** — When: 2026-10-30, at T094's acceptance; widened
+  2026-11-01 at T095's acceptance. Status: open, for the Orchestrator
+  after the owner's actions; V19 needs the first deploy's run log with
+  the smoke test's fourth check passing against the preprod Function
+  URL, and V22 needs the cold and warm latency of the sign-in and tree
+  pages (E1) and of the node and task pages (E2) recorded in the
+  service's `docs/runbook.md`; `sam validate --lint` is read from pull
+  request #18's check. E1 and E2 merged to the service's `main` on
+  2026-11-01 (pull requests #18 and #19); the merge deploys only when
+  O-view-1 to O-view-3 are done. Pointer: [specification of P2-N003, Child 1's
   verification
   criteria](specs/p2-n003-owner-questions-and-plan-view.md#child-1s-verification-criteria).
 - [ ] **The consumer typecheck does not cover the shared Cost log and
@@ -3001,8 +3006,9 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   page](specs/p2-n003-owner-questions-and-plan-view.md#the-node-page).
 - [ ] **A stale comment in the service's `test/viewSignIn.test.ts`** —
   When: 2026-10-30, T095 (located finding). Status: open; left by E2
-  under W-002, for the owner's ruling or the next task that may change
-  that test. Pointer: majodali/project-orchestrator-service commit
+  under W-002; the owner's ruling of 2026-11-01 covered
+  `test/viewDeployWiring.test.ts` only, so this comment waits for a
+  task that may change that test, with the owner's W-002 say. Pointer: majodali/project-orchestrator-service commit
   `d6a40b5`.
 - [ ] **No CI check catches the service's vendored copy drifting from
   the shared unit** — When: 2026-10-30, T095 (located finding). Status:

@@ -1038,8 +1038,8 @@ record](project-model-slice-record.md) holds it.
   credential for the whole plan; from [Risk register](open-risks.md))
 - **created-by:** P2-N021 (The web view's first version; task E1 (T094)
   built the sign-in routes and the tree page in
-  majodali/project-orchestrator-service commit bf8f1b5, its pull request
-  not yet merged; from [specification of
+  majodali/project-orchestrator-service commit bf8f1b5, and E2 (T095) the
+  node and task pages, both merged 2026-11-01; from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown; [Backlog, entry for P2-N021](backlog.md))
 - **modified-by:** P2-N022 (The owner question queue; its answering
@@ -1415,9 +1415,9 @@ record](project-model-slice-record.md) holds it.
   parser and shared parsing, under RU-012; [Backlog, entry for
   P2-N021](backlog.md))
 - **created-by:** P2-N021 (The web view's first version; task E2 (T095),
-  majodali/project-orchestrator commit 3259736, its pull request not yet
-  merged; recorded at T095's result, before its acceptance, because the
-  specification already stated the edge; from [specification of
+  majodali/project-orchestrator commit 3259736, merged 2026-11-01 by its
+  pull request #18; recorded at T095's result, before its acceptance,
+  because the specification already stated the edge; from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown; [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
