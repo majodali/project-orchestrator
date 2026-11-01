@@ -34,10 +34,14 @@
  * that decides what a parsed stage *means* is exactly what D5 keeps
  * out of the shared unit and leaves with the checker; form_check.py
  * itself kept `INTERIOR_OK`/`NEED_BACKLOG_REF` beside its own `STAGES`
- * set the same way. `TASK_RE` and `EVENTS` are a different vocabulary
- * again (Cost-log task IDs, docs/process/cost-log.md; run-journal event
- * kinds, docs/process/observability.md) — outside the Plan-register
- * grammar D1 governs entirely.
+ * set the same way. The Cost log task ID, the Cost log row split and
+ * the run journal's event kinds are a different vocabulary again
+ * (docs/process/cost-log.md; docs/process/observability.md), outside
+ * the Plan-register grammar D1 governs entirely. Since node P2-N021
+ * (the web view's first version, task E2) they live in the shared unit
+ * ./cost-log-and-journal.ts, which the web view also reads (RU-012,
+ * how two repositories share one unit of code). This file keeps the
+ * findings and their wording.
  */
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
@@ -48,6 +52,15 @@ import {
   type PlanNode,
   type RegisterParseResult,
 } from "./plan-register.ts";
+import {
+  COST_LOG_CELL_COUNT,
+  TASK_ID,
+  costLogTableRows,
+  journalLines,
+  type JournalEvent,
+} from "./cost-log-and-journal.ts";
+
+export type { JournalEvent };
 
 // ---- Policy sets (not vocabulary — see the module doc comment) ------
 
@@ -59,25 +72,7 @@ const NEED_BACKLOG_REF = new Set([
   "executing",
   "verifying",
 ]);
-const EVENTS = new Set([
-  "dispatched",
-  "result-received",
-  "accepted",
-  "check-failed",
-  "needs-judgment",
-  "blocked",
-  "stale",
-  "backward-transition",
-  "packet-widened",
-  "precedent-applied",
-  "gate-opened",
-  "gate-crossed",
-  "sequence-ratified",
-  "sequence-stopped",
-  "edge-recorded",
-]);
 const TASK_TERMINAL = new Set(["accepted", "blocked", "stale"]);
-const TASK_RE = /^T\d{3,}$/;
 
 // ---- Python-compatible formatting helpers ----------------------------
 //
@@ -273,38 +268,26 @@ function checkBacklogRefs(
 function parseCostLog(costLogPath: string, find: FindFn): string[] {
   const tasks: string[] = [];
   if (!existsSync(costLogPath)) return tasks;
-  const rows = readFileSync(costLogPath, "utf-8")
-    .split(/\r\n|\n/)
-    .filter((l) => l.startsWith("|"));
-  for (let i = 0; i < rows.length; i++) {
-    const row = rows[i]!;
-    const cells = row
-      .trim()
-      .replace(/^\|+/, "")
-      .replace(/\|+$/, "")
-      .split("|")
-      .map((c) => c.trim());
-    if (i === 0) continue; // header row
-    const joined = cells.join("");
-    if ([...joined].every((ch) => ch === "-" || ch === " " || ch === ":")) {
-      continue; // separator row (also matches an all-empty row)
-    }
-    if (cells.length !== 9) {
+  const text = readFileSync(costLogPath, "utf-8");
+  for (const row of costLogTableRows(text)) {
+    if (row.kind !== "data") continue; // header and separator rows
+    const cells = row.cells;
+    if (cells.length !== COST_LOG_CELL_COUNT) {
       find(
         "violation",
         "costlog-form",
         costLogPath,
-        `row ${i + 1}: ${cells.length} cells, expected 9`,
+        `row ${row.position}: ${cells.length} cells, expected ${COST_LOG_CELL_COUNT}`,
       );
       continue;
     }
     const task = cells[1]!;
-    if (!TASK_RE.test(task)) {
+    if (!TASK_ID.test(task)) {
       find(
         "violation",
         "costlog-form",
         costLogPath,
-        `row ${i + 1}: malformed task ID ${pyRepr(task)}`,
+        `row ${row.position}: malformed task ID ${pyRepr(task)}`,
       );
       continue;
     }
@@ -337,50 +320,39 @@ function parseCostLog(costLogPath: string, find: FindFn): string[] {
 
 // ---- Journal ---------------------------------------------------------------
 
-export interface JournalEvent {
-  [key: string]: unknown;
-}
-
 function parseJournal(journalPath: string, find: FindFn): JournalEvent[] {
   const events: JournalEvent[] = [];
   if (!existsSync(journalPath)) return events;
-  const lines = readFileSync(journalPath, "utf-8").split(/\r\n|\n/);
-  for (let i = 0; i < lines.length; i++) {
-    const lineno = i + 1;
-    const line = lines[i]!;
-    if (line.trim() === "") continue;
-    let e: JournalEvent;
-    try {
-      e = JSON.parse(line) as JournalEvent;
-    } catch (exc) {
-      const msg = exc instanceof Error ? exc.message : String(exc);
-      find(
-        "violation",
-        "journal-form",
-        journalPath,
-        `line ${lineno}: invalid JSON (${msg})`,
-      );
-      continue;
+  for (const entry of journalLines(readFileSync(journalPath, "utf-8"))) {
+    switch (entry.status) {
+      case "invalid-json":
+        find(
+          "violation",
+          "journal-form",
+          journalPath,
+          `line ${entry.line}: invalid JSON (${entry.error})`,
+        );
+        break;
+      case "missing-field":
+        find(
+          "violation",
+          "journal-form",
+          journalPath,
+          `line ${entry.line}: missing required field ts/event`,
+        );
+        break;
+      case "unknown-kind":
+        find(
+          "violation",
+          "journal-form",
+          journalPath,
+          `line ${entry.line}: unknown event kind ${pyRepr(String(entry.event["event"]))}`,
+        );
+        break;
+      case "event":
+        events.push(entry.event);
+        break;
     }
-    if (!("ts" in e) || !("event" in e)) {
-      find(
-        "violation",
-        "journal-form",
-        journalPath,
-        `line ${lineno}: missing required field ts/event`,
-      );
-      continue;
-    }
-    if (!EVENTS.has(String(e["event"]))) {
-      find(
-        "violation",
-        "journal-form",
-        journalPath,
-        `line ${lineno}: unknown event kind ${pyRepr(String(e["event"]))}`,
-      );
-      continue;
-    }
-    events.push(e);
   }
   return events;
 }
