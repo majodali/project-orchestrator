@@ -2943,10 +2943,10 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   needs-judgment on W-002 (six assertions in E1's and E2's tests
   changed to admit the instance's read and to replace the Resources
   placeholder) and blocked on V22, V24 to V29 met; the owner ruled
-  option (a) on 2026-11-02 and E3 was accepted the same day, its pull
-  requests open in both repositories; all three tasks are done, and the
-  node holds `[blocked]` on the deploy evidence; next, once that
-  evidence is recorded, P2-N021 moves to `verifying` for the owner
+  option (a) on 2026-11-02 and E3 was accepted the same day; its pull
+  requests are merged in both repositories; all three tasks are done;
+  V19 is met, and the node holds `[blocked]` on V22's figures from the
+  owner; next, once they are recorded, P2-N021 moves to `verifying` for the owner
   demonstration (V30); a leaf, run as execute tasks E1 to E3
   against criteria V1 to V30, then the owner demonstration; no plan or
   specify task (plan decision 2); E3's wait on P3-N007 is met.
@@ -2976,19 +2976,31 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 - [ ] **E1's deploy evidence: the smoke-test run log and the latency
   figures, recorded after the deploy that follows O-view-1 to
   O-view-4** — When: 2026-10-30, at T094's acceptance; widened
-  2026-11-01 at T095's acceptance. Status: open, for the Orchestrator
-  after the owner's actions; V19 needs the first deploy's run log with
-  the smoke test's fourth check passing against the preprod Function
-  URL, and V22 needs the cold and warm latency of the sign-in and tree
-  pages (E1), of the node and task pages (E2), and of the tree page
-  with its renderings and the node page with its edges and resources
-  (E3, accepted 2026-11-02) recorded in the service's `docs/runbook.md`; `sam validate --lint` is read from pull
-  request #18's check. E1 and E2 merged to the service's `main` on
-  2026-11-01 (pull requests #18 and #19); E3's pull requests are open;
-  the merges deploy only when O-view-1 to O-view-3 are done. This row
-  is P2-N021's hold: when it closes, the hold clears and the node moves
-  to `verifying`. Pointer: [specification of P2-N003, Child 1's
-  verification
+  2026-11-01 at T095's acceptance. Status: open on V22 alone. V19 is
+  met. The owner performed O-view-1 to
+  O-view-3 on 2026-11-02. E3's pull requests are merged: #20 on the
+  service, at `22fa51d`, and #20 here, at `5bc3fb8`. The Orchestrator
+  re-ran the service's deploy workflow at `22fa51d`,
+  [run 41507069450](https://github.com/majodali/project-orchestrator-service/actions/runs/41507069450)
+  ([job log](https://github.com/majodali/project-orchestrator-service/actions/runs/41507069450/job/125603673248)).
+  The first two attempts failed at `sam deploy` on the empty
+  `ViewTokenSecretName` parameter, as the service's runbook predicts
+  before O-view-3. Attempt 3 passed on 2026-11-02. It ran from
+  `22:50:51` to `22:53:12` UTC. Its fourth smoke check passed against the preprod
+  Function URL: `OK — /view returned 200 at commit
+  5bc3fb8deebd2a341fa85ec5591f125506ca3527.` That SHA is this
+  repository's `main`, the tree the view read. The promote step logged
+  `live now points at version 8 (promoted from 7).` V22 is open. The
+  owner measures it, since no session holds the view token. The
+  figures fill the five rows of the service runbook's table under
+  *Latency of the view's pages (V22)*. Three rows time the tree, the
+  node page and the task page. Two time the tree and the node page with
+  E3's additions. Each is timed cold and warm against `live`. The sign-in page, which
+  E1 adds, has no row there. The Orchestrator records the figures when
+  they arrive. `sam validate --lint` is read from pull request #18's
+  check. This row is P2-N021's hold: when it closes, the hold clears
+  and the node moves to `verifying`. Pointer:
+  [specification of P2-N003, Child 1's verification
   criteria](specs/p2-n003-owner-questions-and-plan-view.md#child-1s-verification-criteria).
 - [ ] **Which source of an item is its date note's source** — When:
   2026-11-01, T096. Status: open; the Project model type says a date
