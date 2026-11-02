@@ -2942,9 +2942,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   request #18); E3 (T096), the model, dispatched 2026-11-01, returned
   needs-judgment on W-002 (six assertions in E1's and E2's tests
   changed to admit the instance's read and to replace the Resources
-  placeholder) and blocked on V22, V24 to V29 met, pull requests open in
-  both repositories; next, once E3 is accepted and deployed, P2-N021
-  moves to `verifying` for the owner demonstration (V30); a leaf, run as execute tasks E1 to E3
+  placeholder) and blocked on V22, V24 to V29 met; the owner ruled
+  option (a) on 2026-11-02 and E3 was accepted the same day, its pull
+  requests open in both repositories; all three tasks are done, and the
+  node holds `[blocked]` on the deploy evidence; next, once that
+  evidence is recorded, P2-N021 moves to `verifying` for the owner
+  demonstration (V30); a leaf, run as execute tasks E1 to E3
   against criteria V1 to V30, then the owner demonstration; no plan or
   specify task (plan decision 2); E3's wait on P3-N007 is met.
   Pointer:
@@ -2979,10 +2982,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   URL, and V22 needs the cold and warm latency of the sign-in and tree
   pages (E1), of the node and task pages (E2), and of the tree page
   with its renderings and the node page with its edges and resources
-  (E3, from T096's result) recorded in the service's `docs/runbook.md`; `sam validate --lint` is read from pull
+  (E3, accepted 2026-11-02) recorded in the service's `docs/runbook.md`; `sam validate --lint` is read from pull
   request #18's check. E1 and E2 merged to the service's `main` on
-  2026-11-01 (pull requests #18 and #19); the merge deploys only when
-  O-view-1 to O-view-3 are done. Pointer: [specification of P2-N003, Child 1's
+  2026-11-01 (pull requests #18 and #19); E3's pull requests are open;
+  the merges deploy only when O-view-1 to O-view-3 are done. This row
+  is P2-N021's hold: when it closes, the hold clears and the node moves
+  to `verifying`. Pointer: [specification of P2-N003, Child 1's
   verification
   criteria](specs/p2-n003-owner-questions-and-plan-view.md#child-1s-verification-criteria).
 - [ ] **Which source of an item is its date note's source** — When:

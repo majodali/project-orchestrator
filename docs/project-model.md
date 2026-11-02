@@ -571,8 +571,8 @@ record](project-model-slice-record.md) holds it.
 - **used-by:** P2-N021 (The web view's first version; task E3 (T096)
   reads the node lifecycle for the list of what is next; proposed in
   T096's result and recorded before its acceptance, on the
-  Orchestrator's direction; from [Backlog, entry for
-  P2-N021](backlog.md))
+  Orchestrator's direction; T096 accepted 2026-11-02; from [Backlog,
+  entry for P2-N021](backlog.md))
 
 ## plan-register-type
 
