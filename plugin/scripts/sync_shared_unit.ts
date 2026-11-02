@@ -15,6 +15,9 @@
  *   - plugin/scripts/lib/cost-log-and-journal.ts (the Cost log row and
  *     run-journal line grammar, shared with the service's web view —
  *     node P2-N021, task E2; added to the set, nothing removed)
+ *   - plugin/scripts/lib/project-model.ts (the parser of the Project
+ *     model instance, which the service's web view renders — node
+ *     P2-N021, task E3, decision 7; added to the set, nothing removed)
  *   - plugin/scripts/lib/corpus/            (manifest, README,
  *     fixtures/, expectations/ — everything under it, recursively)
  *
@@ -86,7 +89,8 @@ const GENERATED_MD =
   "grammar and lifecycle-stage-vocabulary unit; `corpus/`, the " +
   "conformance corpus it travels with (spec T3); and " +
   "`cost-log-and-journal.ts`, the Cost log row and run-journal line " +
-  "grammar (P2-N021, task E2).\n\n" +
+  "grammar (P2-N021, task E2); and `project-model.ts`, the parser of " +
+  "the Project model instance (P2-N021, task E3).\n\n" +
   "`.ts` and `.md` files under this tree carry their own " +
   '"generated — do not edit here" comment; `.json`/`.jsonl` fixture ' +
   "and expectation files have no comment syntax to carry one in, so " +
@@ -109,6 +113,10 @@ function travellingSet(
   entries.push({
     rel: "cost-log-and-journal.ts",
     abs: path.join(libDir, "cost-log-and-journal.ts"),
+  });
+  entries.push({
+    rel: "project-model.ts",
+    abs: path.join(libDir, "project-model.ts"),
   });
 
   const corpusDir = path.join(libDir, "corpus");

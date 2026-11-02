@@ -3020,9 +3020,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   service's to correct. Pointer: majodali/project-orchestrator-service
   commit `a6684fb`.
 - [ ] **The consumer typecheck does not cover the shared Cost log and
-  journal unit** — When: 2026-10-30, T095. Status: open; add
-  `plugin/scripts/lib/cost-log-and-journal.ts` to
-  `tsconfig.consumer.json`, as the register grammar unit is. Pointer:
+  journal unit, or the Project model parser** — When: 2026-10-30, T095;
+  widened 2026-11-01, T096. Status: open; add
+  `plugin/scripts/lib/cost-log-and-journal.ts` and
+  `plugin/scripts/lib/project-model.ts` to `tsconfig.consumer.json`, as
+  the register grammar unit is. The service's build compiles both
+  vendored copies under the consumer's settings meanwhile. Pointer:
   [tsconfig.consumer.json](../tsconfig.consumer.json).
 - [ ] **`npm run lint` fails on `main` over a file outside every
   tsconfig project** — When: 2026-10-30, T095. Status: open;
