@@ -2928,7 +2928,7 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 - [ ] **P2-N021 identified, 2026-10-30: the web view's first version**
   — When: 2026-10-30, at P2-N003's specification gate; E1 dispatched
   2026-10-30 (T094), accepted 2026-10-30; E2 dispatched 2026-10-30
-  (T095). Status: executing; E1 returned blocked and was accepted under
+  (T095). Status: verifying; E1 returned blocked and was accepted under
   the T008 precedent, its pull request #18 open on
   majodali/project-orchestrator-service (commit `bf8f1b5`), every
   criterion met but V19 and V22, owed as deploy evidence, and
@@ -2945,9 +2945,10 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   placeholder) and blocked on V22, V24 to V29 met; the owner ruled
   option (a) on 2026-11-02 and E3 was accepted the same day; its pull
   requests are merged in both repositories; all three tasks are done;
-  V19 is met, and the node holds `[blocked]` on V22's figures from the
-  owner; next, once they are recorded, P2-N021 moves to `verifying` for the owner
-  demonstration (V30); a leaf, run as execute tasks E1 to E3
+  V19 is met; V22's figures were recorded in the service's runbook on
+  2026-11-03, and P2-N021 moved to `verifying` the same day, gated on
+  the owner demonstration (V30) and the decision on *Whether the web
+  view replaces `docs/plan.md`*; a leaf, run as execute tasks E1 to E3
   against criteria V1 to V30, then the owner demonstration; no plan or
   specify task (plan decision 2); E3's wait on P3-N007 is met.
   Pointer:
@@ -2973,11 +2974,11 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   revocation by token rotation (decision 13). Pointer:
   [Risk register, R18](open-risks.md),
   [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#risks).
-- [ ] **E1's deploy evidence: the smoke-test run log and the latency
+- [x] **E1's deploy evidence: the smoke-test run log and the latency
   figures, recorded after the deploy that follows O-view-1 to
   O-view-4** — When: 2026-10-30, at T094's acceptance; widened
-  2026-11-01 at T095's acceptance. Status: open on V22 alone. V19 is
-  met. The owner performed O-view-1 to
+  2026-11-01 at T095's acceptance; closed 2026-11-03. Status: done. V19
+  and V22 are met. The owner performed O-view-1 to
   O-view-3 on 2026-11-02. E3's pull requests are merged: #20 on the
   service, at `22fa51d`, and #20 here, at `5bc3fb8`. The Orchestrator
   re-ran the service's deploy workflow at `22fa51d`,
@@ -2990,18 +2991,23 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   Function URL: `OK — /view returned 200 at commit
   5bc3fb8deebd2a341fa85ec5591f125506ca3527.` That SHA is this
   repository's `main`, the tree the view read. The promote step logged
-  `live now points at version 8 (promoted from 7).` V22 is open. The
-  owner measures it, since no session holds the view token. The
-  figures fill the five rows of the service runbook's table under
-  *Latency of the view's pages (V22)*. Three rows time the tree, the
-  node page and the task page. Two time the tree and the node page with
-  E3's additions. Each is timed cold and warm against `live`. The sign-in page, which
-  E1 adds, has no row there. The Orchestrator records the figures when
-  they arrive. `sam validate --lint` is read from pull request #18's
-  check. This row is P2-N021's hold: when it closes, the hold clears
-  and the node moves to `verifying`. Pointer:
+  `live now points at version 8 (promoted from 7).` V22 is recorded.
+  The owner measured it on 2026-11-03 against `live` at version 8,
+  since no session holds the view token. The service runbook's table
+  under *Latency of the view's pages (V22)* has six rows. The task
+  page and the two E3 rows (the tree and the node page with E3's
+  additions) carry cold and warm figures. The E1 tree row and the E2
+  node page row are marked not measurable: `live` reached E3's version
+  before any measurement. The sign-in page's row, which E1 adds, is not
+  yet measured. The owner times it at the demonstration (V30).
+  The figures are recorded on the service's branch
+  `p2-n021-v22-latency`. `sam validate --lint` is read from pull
+  request #18's check. This row was P2-N021's hold. With it closed, the
+  node moved to `verifying`. Pointer:
   [specification of P2-N003, Child 1's verification
-  criteria](specs/p2-n003-owner-questions-and-plan-view.md#child-1s-verification-criteria).
+  criteria](specs/p2-n003-owner-questions-and-plan-view.md#child-1s-verification-criteria);
+  [service runbook, Latency of the view's pages
+  (V22)](https://github.com/majodali/project-orchestrator-service/blob/main/docs/runbook.md#latency-of-the-views-pages-v22).
 - [ ] **Which source of an item is its date note's source** — When:
   2026-11-01, T096. Status: open; the Project model type says a date
   note's source is among the item's sources but not which one; the web
