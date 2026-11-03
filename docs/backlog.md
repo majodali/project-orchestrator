@@ -608,6 +608,10 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   one session** — When: 2026-10-30, planning P3-N011. Status: open, for
   P1-N016; five leaves now run as fixed task sequences (P2-N016,
   P3-N013, P3-N011, P3-N007, P3-N008). Pointer: [plan of P3-N011](plans/p3-n011-sweep-and-omission-list.md).
+- [ ] **An owner-attended task spans Orchestrator sessions** — When:
+  2026-11-03, opening P2-N023. Status: open, for P1-N016; the
+  session-end rule in `observability.md` journals such a task `stale`.
+  Pointer: [plan of P2-N023](plans/p2-n023-web-view-ux-refinement.md#recording).
 - [ ] **P3-N012 identified, 2026-10-29** — the Article 8 proposal for
   `docs/registers/common-risk-catalogue.md` upstream, written IR first
   and reviewed, delivered under RU-015 and RU-022 (spec child C).
@@ -3151,12 +3155,13 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   "The web view is showing promise, but is not ready to replace
   docs/plan.md - we need to do some UX refinement first."
   `docs/plan.md` stays the hand rendering. Pointer: [plan.md](plan.md).
-- [ ] **UX refinement of the web view** — When: 2026-11-03, the
-  owner's decision at P2-N021's demonstration (V30). Status: open, for
-  the owner to list the refinements wanted before the view can replace
-  `docs/plan.md`; P2-N022 is the next web-view node. Pointer:
-  [service runbook, The web view (node
-  P2-N021)](https://github.com/majodali/project-orchestrator-service/blob/main/docs/runbook.md#the-web-view-node-p2-n021).
+- [ ] **UX refinement of the web view** (node P2-N023) — When:
+  2026-11-03, the owner's decision at P2-N021's demonstration (V30);
+  P2-N023 adopted and T097 dispatched the same day. Status: executing,
+  the node's running list. Shipped: none yet. Open: iteration 1, the
+  preview mode and the screenshot script. Pointer:
+  [plan](plans/p2-n023-web-view-ux-refinement.md) ·
+  [brief](https://github.com/majodali/project-orchestrator-service/blob/main/docs/web-view-ux-brief.md).
 - [ ] **Service chunk 3 — topics and coordination** (node P2-N004) —
   project topics for status and cross-session coordination, including
   who is blocked on what; channels-push availability on the web
