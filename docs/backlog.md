@@ -788,10 +788,13 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   planning P3-N014. Status: open, for P1-N016; ratification before the
   first dispatch, serial dispatch, a stop after an owner-addressed ask,
   all checked by hand today. Pointer: [plan of P3-N014](plans/p3-n014-loop-runs-sequence-mode.md).
-- [ ] **The predicate text enlarges the Orchestrator's startup set** —
-  When: 2026-10-30, planning P3-N014. Status: open, for P1-N016's packet
-  work; about 250 lines added to dispatch.md, read at every startup.
-  Pointer: [plan of P3-N014](plans/p3-n014-loop-runs-sequence-mode.md).
+- [x] **The predicate text enlarges the Orchestrator's startup set** —
+  When: 2026-10-30, planning P3-N014; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done;
+  the startup working set is the Plan register and `dispatch.md` up to
+  *Sequence mode*, read with *Sequence mode* when a sequence is
+  ratified or running and with Backlog entries by node ID; the same
+  set stands in the Orchestrator contract and the `orchestrate` skill
+  (P1-N016 plan, decision 9). Pointer: [dispatch.md](process/dispatch.md#the-loop).
 - [ ] **P3-N015 planned, 2026-10-30 (T076)** — the demonstration: a
   ratified sequence lands two chunks and stops on asks (spec child C;
   decisions 13 and 15). Status: planned, gated on the owner's review
@@ -878,11 +881,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   task ID, so a later reading of the predicates sees its opening
   condition; the copied predicate text is unchanged. Pointer:
   [dispatch.md](process/dispatch.md#the-members-result-record).
-- [ ] **The Orchestrator's Serves line omits three things it writes** —
-  When: 2026-10-30, T070. Status: open, for P1-N016; roles.md's
-  Orchestrator *Serves* line names neither the journal, the Ruling
-  register nor the Project model. Noted 2026-11-03: not in the inventory of P1-N016's plan; E1 already
-  edits the *Serves* line. Pointer: [roles.md](process/roles.md).
+- [x] **The Orchestrator's Serves line omits three things it writes** —
+  When: 2026-10-30, T070; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; the *Serves*
+  line names the run journal, the Ruling register and the Project model
+  instance, the Backlog and Risk register under parallel dispatch, and
+  the task branch's merge and deletion. Pointer:
+  [roles.md](process/roles.md#orchestrator).
 - [ ] **Hierarchical resources, for complex resource validations** —
   owner note at the P3-N002 gate, 2026-10-29: the comprehension model's
   resources are flat by that plan's decision 2, and a hierarchy may
@@ -1015,28 +1019,17 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   change to I8 is proposed; this exists so the verifier is not left
   guessing.
 
-- [ ] **Parallel dispatch collides with the single-Backlog write, and
-  nothing says so** — found 2026-09-17 dispatching three plan tasks
-  concurrently after [RU-018](rulings.md). Every role is told to write
-  its own Backlog additions in the same commit as its work (W-003,
-  founding ruling 1). Two roles running at once both read
-  `docs/backlog.md`, both append, and the second write silently drops
-  the first — a lost-update race on the file the methodology calls the
-  single source of progress truth, with no error and no check that
-  would notice. `dispatch.md` permits parallel dispatch and says
-  nothing about it; the form checker cannot see it. Worked around for
-  this round by having the parallel roles return their Backlog
-  entries in the task result and the Orchestrator write them at
-  acceptance, which is a deviation from the write-it-yourself rule
-  recorded here rather than absorbed. The real fix is a stated rule —
-  either the Orchestrator owns the Backlog whenever dispatch is
-  parallel, or roles write to per-task fragments the Orchestrator
-  merges. Bound for P1-N016, and it is also live input for P3-N005,
-  which makes this project's loop run sequences, and for P3-N002,
-  whose model has the same single-writer question. The serial rule
-  (2026-10-30, P3-N014, T072): inside a ratified sequence, dispatch is
-  serial ([dispatch.md](process/dispatch.md#sequence-mode), *Sequence
-  mode*, the run); the general rule stays with P1-N016.
+- [x] **Parallel dispatch collides with the single-Backlog write, and
+  nothing says so** — When: 2026-09-17, dispatching three plan tasks
+  concurrently after RU-018 (an independent child is not queued behind
+  a sibling); landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; while tasks run
+  concurrently no brief names the Backlog or the Risk register among
+  the role's writes, each role returns its additions in its result,
+  and the Orchestrator writes them in the serial acceptance commit
+  (P1-N016 plan, decision 5); the Planner and Implementer contracts say so, and
+  inside a ratified sequence dispatch is serial. Pointer:
+  [dispatch.md](process/dispatch.md#the-loop), *The shared registers
+  under parallel dispatch*.
 
 - [ ] **The comprehension model** (node P3-N002, chunk 1 of P3-N001,
   `identified` 2026-09-17) — the model itself, defined as an extension
