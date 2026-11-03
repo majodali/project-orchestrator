@@ -518,6 +518,15 @@ service repository unless they name this one.
   chain A, B, C, D in the type's table. Each of decision 11's three
   cases renders as not computable, naming its input.
 
+  (Noted 2026-11-03 by node P2-N023, after P2-N021 reached `done`. The
+  criteria V25 and V26 stand as written and were met at `done`. The
+  tree page now answers them differently, from iteration 2, the
+  service's pull request #25. The implementation map's rows sit inside
+  the tree. The list of what is next is gone, and its procedures feed
+  the tree's status. The Orchestrator ruled it on 2026-11-03: [plan of
+  P2-N023](../plans/p2-n023-web-view-ux-refinement.md#decisions),
+  decision 10.)
+
 #### Bounds, hygiene and monotonicity
 
 - **V27. The navigation bound, per view.** From the tree page, each of
@@ -526,6 +535,12 @@ service repository unless they name this one.
   steps, a link click counting as one. Measured for every fifth entry
   in file order, after E3. Before E3, the criterion is recorded as not
   yet applicable.
+
+  (Noted 2026-11-03 by node P2-N023. The bound counts link clicks.
+  Opening a fold in the tree page is not a step. The Orchestrator
+  confirmed it on 2026-11-03: [plan of
+  P2-N023](../plans/p2-n023-web-view-ux-refinement.md#decisions),
+  decision 11.)
 - **V28. No secret anywhere.** Neither repository holds the view token,
   the cookie key or any other credential, in any commit of the
   child's branches. Test fixtures use the literal word `fake`. Checked
@@ -605,6 +620,15 @@ questions reach the asking session by MCP elicitation.
 - P2-N006 (migration and pilot): child 2 follows it by the owner's
   ordering of 2026-10-29, not by a resource it uses. The register note
   carries that order.
+
+(Noted 2026-11-03, by the owner's decision of that day. The owner
+lifted the ordering of 2026-10-29: child 2 no longer follows P2-N006.
+Its plan task, T101, was dispatched that day. It still depends on
+child 1, `done` 2026-11-03. It depends on P2-N005 for its final slice
+only, and its first two slices do not wait on P2-N005. The opening
+list, this section's first paragraph and *What the edges leave out*
+state the old ordering. They stand as the gate passed them, and this
+note supersedes them. The register note carries the lifting.)
 
 **What its planning decides.** Its plan answers each of these, and its
 specification turns them into criteria.

@@ -14,7 +14,8 @@ Status: active
 
 This [document](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-document) renders the [Plan register](plan-register.md) by hand.
 Each node's outcome comes from the node's [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan) and [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification).
-The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gates of P2-N003 and P2-N005 and the verifying gate of P3-N007.
+The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gates of P2-N003 and P2-N005 and the verifying gate of P3-N007, and after the owner's verifying gate of P2-N021 and adoption of P2-N023 on 2026-11-03.
+It also reads the owner's decision of 2026-11-03 on P2-N022 and P2-N017, and the owner's verifying gate of P3-N011 that day.
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
@@ -289,7 +290,7 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 ### P2-N003 Owner questions and the plan view (chunk 2)
 
-- Stage: broken-down, 2026-10-30, at the owner's specification gate: decisions 11 to 15 adopted, the terms view token, view cookie and not computable ratified, the two children entered (RU-020).
+- Stage: broken-down, 2026-10-30, at the owner's specification gate: decisions 11 to 15 adopted, the terms view token, view cookie and not computable ratified, the two children entered (RU-020). The owner added a third child, P2-N023, on 2026-11-03.
 - Outcome: The owner sees this project's plan in a browser on any device, and later answers gate decisions there. One child is the first version of the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view), read-only and drilling down to node and task. The second child is the owner question queue. Git still holds every fact the view shows and every answer the owner gives.
 - Depends on: nothing beyond its children.
 - Needed by: P2-N006, which needs P2-N021 only.
@@ -298,17 +299,23 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 The children of P2-N003, in their [specification](specs/p2-n003-owner-questions-and-plan-view.md#register-action-proposed-with-this-specification)'s order:
 
 - P2-N021 The web view's first version: the plan tree from commits, drilling to node and task
-  - Stage: verifying since 2026-11-03. Executing from 2026-10-30, when task E1 (T094), the thin end-to-end slice, was dispatched. E1 returned blocked and was accepted the same day; its deploy evidence for V19 and V22 follows the deploy after owner actions O-view-1 to O-view-3. Task E2 (T095), the node and task pages, was accepted on 2026-11-01 after the owner ruled its W-002 escalation, option (a). E1 and E2 are merged to the service's `main`. Task E3 (T096), the model, was accepted on 2026-11-02 after the owner ruled its W-002 escalation, option (a). All three tasks are done, and E3's pull requests are merged in both repositories. The owner performed O-view-1 to O-view-3 on 2026-11-02. The deploy that followed met V19: its smoke test's fourth check passed against the preprod Function URL, and `live` was promoted. V22's figures, measured by the owner, were recorded in the service's runbook on 2026-11-03. P2-N021 then moved `executing` → `verifying`. The verifying gate waits on the owner demonstration (V30) and the Backlog decision "Whether the web view replaces `docs/plan.md`". The sign-in page's latency is not yet measured, and the owner times it at the demonstration. No plan or specify task: the parent's specification carries it at full criteria depth (plan decision 2).
-  - Outcome: In a browser on any device, the owner sees the plan tree of this repository at a named commit. Each node shows its stage, outcome and dependencies, beside what is next. The owner drills from a node to its tasks. Every fact shown comes from that commit. The work runs as three execute tasks, E1 to E3, and ends at an owner demonstration.
+  - Stage: done, 2026-11-03, at the owner's verifying gate. Executing from 2026-10-30, when task E1 (T094), the thin end-to-end slice, was dispatched. Tasks E1 to E3 (T094 to T096) were accepted between 2026-10-30 and 2026-11-02, E2 and E3 after the owner ruled their escalations under W-002 (existing tests are signals, not obstacles), option (a). The deploy after owner actions O-view-1 to O-view-3 met V19, and the owner's figures met V22 on 2026-11-03. The node moved `executing` → `verifying` that day. The owner then gave the demonstration (V30), on an Android phone in the DuckDuckGo browser. Sign-in and navigation worked, including the links to the git documents and pages. The page named commit `5bc3fb8`, this repository's `main` at the time. The owner checked three facts against git at that commit, and each verified. They were P3-N011's register line, task T083's Cost log row, and task T083's last journal event. The sign-in page's latency was not timed. The owner decided that the web view does not replace this document yet: UX refinement comes first, recorded as an open Backlog entry. No plan or specify task: the parent's specification carries it at full criteria depth (plan decision 2).
+  - Outcome: Shipped the web view's first version in majodali/project-orchestrator-service. The owner signs in with the view token and sees the plan tree of this repository at a named commit. Each node shows its stage, outcome and dependencies, beside what is next. The owner drills from a node to its tasks. Every fact shown comes from that commit. This repository gained the shared Cost log and journal unit and the Project model parser.
   - Depends on: P3-N006 and, for its third task E3, P3-N007. Both are done. The register marks it independent of P2-N005 and P2-N004.
   - Needed by: P2-N006 and P2-N022.
   - Documents: the parent's [specification, child 1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
 - P2-N022 The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop
-  - Stage: identified, 2026-10-30. No plan yet.
+  - Stage: identified, 2026-10-30. No plan yet. Its plan task, T101, was dispatched on 2026-11-03, to the owner's planning gate.
   - Outcome: A gate decision the Orchestrator raises waits in the queue. The owner answers it in the web view. The session that pulls its next task picks up the answer and commits it to git.
-  - Depends on: P2-N021 and P2-N005. It follows P2-N006 by the owner's ordering of 2026-10-29.
+  - Depends on: P2-N021, which is done, and P2-N005 for its final slice only. On 2026-11-03 the owner lifted the ordering of 2026-10-29 that put it after P2-N006.
   - Needed by: nothing.
   - Documents: the parent's [specification, child 2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue).
+- P2-N023 Web view UX refinement
+  - Stage: executing, 2026-11-03. The owner adopted the node's plan that day, after V30, and the node moved from identified to executing at that adoption. The owner-attended session on majodali/project-orchestrator-service has finished three iterations, T097 to T099. Task T100 is iteration 4. Each iteration gets its own task, dispatched when the previous one is accepted.
+  - Outcome: The web view's pages read and feel well enough on a phone for the owner to decide that the view replaces this document. The work runs as one small pull request per iteration, at most ten. It adds no data source and no route without a decision recorded in the node.
+  - Depends on: P2-N021, which is done. The register marks it independent of P2-N022.
+  - Needed by: nothing.
+  - Documents: [plan](plans/p2-n023-web-view-ux-refinement.md).
 
 ### P2-N004 Topics and coordination (chunk 3)
 
@@ -326,10 +333,10 @@ The children of P2-N003, in their [specification](specs/p2-n003-owner-questions-
 - Needed by: P2-N006 and P2-N022.
 - Documents: [plan](plans/p2-n005-task-pull-loop.md), [specification](specs/p2-n005-task-pull-loop.md), [service plan, chunk 4](plans/orchestration-service.md#chunk-4--the-task-pull-loop).
 
-The children of P2-N005, in their [specification](specs/p2-n005-task-pull-loop.md#the-breakdown)'s order. Each goes to execute with no plan or specify task of its own:
+The children of P2-N005, in their [specification](specs/p2-n005-task-pull-loop.md#the-breakdown)'s order. Each goes to execute with no plan or specify task of its own, except P2-N017, which the owner sent to planning on 2026-11-03:
 
 - P2-N017 The platform facts, verified
-  - Stage: identified, 2026-10-30.
+  - Stage: identified, 2026-10-30. Its plan task, T102, was dispatched on 2026-11-03, to the owner's planning gate.
   - Outcome: A committed finding records five facts from real sessions, each answered yes or no with its evidence. The facts include whether a session can push a claim branch, whether git refuses a second claim, and whether a session can delete a claim branch.
   - Depends on: nothing. No other child starts until its finding is committed. Owner action O11 supplies the facts from the owner's local surface.
   - Needed by: P2-N018, P2-N019 and P2-N020.
@@ -357,8 +364,8 @@ The children of P2-N005, in their [specification](specs/p2-n005-task-pull-loop.m
 
 - Stage: identified, 2026-08-26. No plan yet.
 - Outcome: The orchestration of majodali/project-orchestrator moves onto the service. Then the pilot runs on methodology-tools through the service. The owner chose methodology-tools on 2026-10-29. The pilot records its costs and lessons.
-- Depends on: P2-N005, P2-N021 (the web view's first version), and P1-N014, which is done.
-- Needed by: P1-N006, P2-N004, and P2-N022 (the owner question queue).
+- Depends on: P2-N005, and P2-N021 (the web view's first version) and P1-N014, which are done.
+- Needed by: P1-N006 and P2-N004.
 - Documents: [service plan, chunk 5](plans/orchestration-service.md#chunk-5--migration-and-pilot).
 
 ## P3-N001 Project comprehension and continuous implementation
@@ -421,15 +428,15 @@ The children of P3-N003, a strict chain in their [specification](specs/p3-n003-c
   - Needed by: P3-N011.
   - Documents: [plan](plans/p3-n010-one-class-end-to-end.md), [specification](specs/p3-n003-common-risk-catalogue.md#child-a-one-class-carried-end-to-end).
 - P3-N011 The sweep, the rest of the catalogue, and the omission list
-  - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day). All three tasks are done (T071, T080, T083): the five passes recorded, 128 candidates found, classes CR-002 to CR-012 admitted, six deferred; nine Class lines on the Risk register; 35 parts; the check run over 12 classes and 35 parts, 82 applicable pairs, 26 covered, 56 omissions (11 accepted with a reason, 45 routed to 18 Backlog entries); the negative control on CR-003 returned its pair. The node is verifying, gated on your rulings on the omission list, three weaker Class lines (R5, R9, R10), the scope arguments and closed entries; it reaches done at that gate.
-  - Outcome: The sweep reads five sources, named by the parent specification's [criterion B1](specs/p3-n003-common-risk-catalogue.md#verification-criteria): the Risk register, the Backlog's two sections, the Cost log's notes and the Ruling register. Every candidate class is admitted, merged, rejected or deferred, on the record. Risk entries cite their classes. The list of uncovered parts is ready for the owner.
+  - Stage: done, 2026-11-03, at the owner's verifying gate. Executing from 2026-10-30, with the parent specification's child B section as the specification. Tasks E1 to E3 (T071, T080, T083) were accepted on 2026-10-30 and 2026-10-31, and the node moved to verifying. The owner adopted every default ruling at the gate. All 56 dispositions of the omission list stand. The weaker Class lines of R5, R9 and R10 stand. The scope arguments covering 11 pairs are accepted. Coverage by the closed entry R9 stands, and the entries considered and not cited are confirmed. The terms citation test and delta row are ratified. The reading of ET-2 goes to the gate of P3-N003.
+  - Outcome: Shipped the sweep of the five sources that the parent specification's [criterion B1](specs/p3-n003-common-risk-catalogue.md#verification-criteria) names: 128 candidates, classes CR-002 to CR-012 admitted, six deferred. The catalogue holds twelve classes. The Risk register carries nine Class lines. The check ran over 12 classes and 35 parts: 82 applicable pairs, 26 covered and 56 omissions, 11 accepted with a reason and 45 routed to 18 Backlog entries. The negative control on CR-003 returned its pair.
   - Depends on: P3-N010.
   - Needed by: P3-N012.
   - Documents: [plan](plans/p3-n011-sweep-and-omission-list.md), the parent's specification, child B.
 - P3-N012 The Article 8 proposal, written IR first and reviewed
-  - Stage: identified, 2026-10-29. No plan yet.
+  - Stage: identified, 2026-10-29. No plan yet. Its planning can start: P3-N011 is done.
   - Outcome: The catalogue and a cover note become an amendment proposal under the methodology's Article 8 (amendments, versions, and migration). Both are written as IRs first and judged readable by a [stranger](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-stranger) reviewer. The owner carries the proposal upstream, under RU-002. The node carries nothing upstream.
-  - Depends on: P3-N011.
+  - Depends on: P3-N011, which is done.
   - Needed by: nothing.
   - Documents: the parent's [specification, child C](specs/p3-n003-common-risk-catalogue.md#child-c-the-article-8-proposal-written-ir-first-and-reviewed).
 
@@ -491,16 +498,16 @@ One piece of work moved between lines: P2-N006 took over the pilot of P1-N006 (p
 Inside each line the open nodes form chains, listed here from first to last.
 
 - Line P2, the task-pull loop: P2-N017, then P2-N018 and P2-N019, independent of each other, then P2-N020.
-- Line P2: P2-N005 (the task-pull loop) and P2-N021 (the web view's first version) come before P2-N006. P2-N004 (topics and coordination) and P2-N022 (the owner question queue) come after P2-N006. P2-N022 also waits on P2-N021 and P2-N005.
+- Line P2: P2-N005 (the task-pull loop) comes before P2-N006. P2-N021 (the web view's first version) is done. P2-N023 (web view UX refinement) runs beside the chain and blocks nothing. P2-N004 (topics and coordination) comes after P2-N006. P2-N022 (the owner question queue) waits on P2-N005 for its final slice only.
 - Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out).
 - Line P3, the comprehension model: P3-N008, then P3-N009. P3-N006 and P3-N007 are done. P3-N004 (reversibility) waits on the whole of P3-N002.
-- Line P3, the risk catalogue: P3-N010, then P3-N011, then P3-N012.
+- Line P3, the risk catalogue: P3-N012. P3-N010 and P3-N011 are done.
 - Line P3, sequence mode: P3-N013, then P3-N014, then P3-N015, then P3-N016.
 
 The diagram shows every node that is not done.
 An arrow runs from a node to the node that waits on it.
 A box around nodes is their parent.
-P2-N003's two children, P2-N021 and P2-N022, are drawn inside its box, because each has its own wait.
+P2-N003's open children, P2-N022 and P2-N023, are drawn inside its box. P2-N022 has its own wait, and P2-N023 has none.
 
 ```mermaid
 graph LR
@@ -511,8 +518,8 @@ graph LR
   end
   subgraph P2N001["P2-N001 orchestration service"]
     subgraph P2N003["P2-N003 owner questions and plan view"]
-      P2N021["P2-N021 web view, first version"]
       P2N022["P2-N022 owner question queue"]
+      P2N023["P2-N023 web view UX refinement"]
     end
     P2N004["P2-N004 topics and coordination"]
     subgraph P2N005["P2-N005 task-pull loop"]
@@ -525,13 +532,10 @@ graph LR
   end
   subgraph P3N001["P3-N001 comprehension and continuous implementation"]
     subgraph P3N002["P3-N002 comprehension model"]
-      P3N006["P3-N006 thin slice"]
       P3N008["P3-N008 instance"]
       P3N009["P3-N009 sibling ordering retired"]
     end
     subgraph P3N003["P3-N003 common risk catalogue"]
-      P3N010["P3-N010 one class end to end"]
-      P3N011["P3-N011 sweep and omission list"]
       P3N012["P3-N012 Article 8 proposal"]
     end
     P3N004["P3-N004 reversibility"]
@@ -543,13 +547,8 @@ graph LR
     end
   end
   P3N008 --> P3N009
-  P3N010 --> P3N011 --> P3N012
   P3N013 --> P3N014 --> P3N015 --> P3N016
   P3N002 --> P3N004
-  P3N006 --> P2N021
-  P2N021 --> P2N006
-  P2N006 --> P2N022
-  P2N021 --> P2N022
   P2N017 --> P2N018 --> P2N020
   P2N017 --> P2N019 --> P2N020
   P2N020 --> P2N022
@@ -567,32 +566,33 @@ A node is actionable when every recorded dependency of its next stage is met.
 Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
-- P2-N017 (the platform facts, verified): execute. Its local-surface facts wait on owner action O11.
+- P3-N012 (the Article 8 proposal): planning. P3-N011 is done.
 
-Specifying now, after the owner's gate of 2026-10-30:
+Planning now, dispatched on 2026-11-03 after the owner's decision:
 
+- P2-N022 (the owner question queue), task T101.
+- P2-N017 (the platform facts, verified), task T102. Its execute stage follows the owner's planning gate, and its local-surface facts wait on owner action O11.
 
-Executing now, dispatched after the owner's second plan gates of 2026-10-30:
+Executing now:
+
+- P2-N023 (web view UX refinement): executing from 2026-11-03, the owner-attended session. Three iterations are accepted, and task T100 is open.
 
 Gated on the owner:
 
-- P2-N021 (the web view's first version): verifying; the owner demonstration (V30), and the decision on whether the web view replaces `docs/plan.md`. Tasks E1 to E3 are done, and V19 and V22 are met. The sign-in page's latency is timed at the demonstration.
 - P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
 - P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
-- P3-N011 (the sweep, the rest of the catalogue, and the omission list): verifying; the owner's rulings on the omission list (56 items), the three weaker Class lines, the scope arguments and closed entries, and the terms citation test and delta row.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:
 
 - P3-N009 (sibling ordering retired): waits on P3-N008.
-- P3-N012 (the Article 8 proposal): waits on P3-N011.
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.
 - P2-N018 (the loop in git alone) and P2-N019 (role-aware identity): each waits on P2-N017.
 - P2-N020 (the task tools): waits on P2-N018 and P2-N019.
-- P2-N022 (the owner question queue): waits on P2-N021 and P2-N005, and follows P2-N006.
-- P2-N006 (migration and pilot): waits on P2-N005 and P2-N021.
+- P2-N022 (the owner question queue): its final slice waits on P2-N005.
+- P2-N006 (migration and pilot): waits on P2-N005.
 - P2-N004 (topics and coordination): its executing stage waits on P2-N006.
 - P1-N006 (pilot on a real project): waits on P2-N006.
 - P1-N007 (cost reporting and close-out): its executing stage waits on P1-N006.

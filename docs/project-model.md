@@ -46,7 +46,9 @@ instance over this repository) populates it.
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), and
   P2-N017 to P2-N020 in the [specification of
   P2-N005](specs/p2-n005-task-pull-loop.md), each in its section *Edges
-  stated at this breakdown*. Edges that other
+  stated at this breakdown*. The entries also hold P2-N023's edges, from
+  the *Dependencies* section of the [plan of
+  P2-N023](plans/p2-n023-web-view-ux-refinement.md). Edges that other
   records state are still held. An item reading `not yet derived`
   marks a facet no record has filled yet. Each `state:` line reads what
   the edges the entries hold give.
@@ -95,9 +97,9 @@ record](project-model-slice-record.md) holds it.
   [form_check.ts](../plugin/scripts/form_check.ts); [Backlog, entry for
   P1-N012](backlog.md); [Risk register](open-risks.md), R13 (the
   tooling's runtime assumption moves from python3 to node))
-- **state:** built, changing (derived from the stages of the nodes on
-  the created-by and modified-by lines: the creating nodes done, P3-N007
-  done, P3-N009 identified, P2-N021 executing; from [Plan
+- **state:** built (derived from the stages of the nodes on the
+  created-by and modified-by lines: the creating nodes done, P3-N007
+  done, P3-N009 identified, P2-N021 done; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** [Plugin tooling on the portfolio stack,
@@ -200,9 +202,9 @@ record](project-model-slice-record.md) holds it.
   imports `parseRegister` and `STAGES`; from [Backlog, entry for
   P1-N012](backlog.md)) · P2-N010 (Plan-state update; the service
   repository adopted the grammar by vendoring; from [Backlog, entry for
-  the service-side adoption](backlog.md)) · the repository
-  majodali/project-orchestrator-service (outside the Plan register: a
-  consuming repository; it holds a vendored copy in
+  the service-side adoption](backlog.md)) · outside: the repository
+  majodali/project-orchestrator-service (a consuming repository; it
+  holds a vendored copy in
   `src/planRegister/vendored/`, kept in step by
   `plugin/scripts/sync_shared_unit.ts --check`; from [Backlog, entry for
   the service-side adoption](backlog.md); [RU-012 (how two repositories
@@ -226,7 +228,7 @@ record](project-model-slice-record.md) holds it.
   created-by and modified-by lines, all done; from [Plan
   register](plan-register.md))
 - **spec:** [Observability](process/observability.md) (process
-  specification) (from [Classification](classification.md), the Run
+  specification; from [Classification](classification.md), the Run
   journal definition)
 - **risks:** none (the [Risk register](open-risks.md) has no entry that
   names the journal as at risk; from [Risk register](open-risks.md))
@@ -260,7 +262,7 @@ record](project-model-slice-record.md) holds it.
   line, done; from [Plan register](plan-register.md)) · own status
   active (from [Ruling register](rulings.md))
 - **spec:** [Ruling register type](process/rulings.md) (process
-  specification, the entry shape and the lifecycle of a ruling) (from
+  specification; the entry shape and the lifecycle of a ruling; from
   [Classification](classification.md), the Ruling register definition)
 - **risks:** none (the [Risk register](open-risks.md) has no entry that
   names the ruling; from [Risk register](open-risks.md))
@@ -331,8 +333,8 @@ record](project-model-slice-record.md) holds it.
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
   breakdown) · P2-N018 (The loop in git alone; from [specification of
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
-  breakdown) · no record before RU-016 (2026-09-01) names the
-  repository a node wrote, so this list is partial (from [Ruling
+  breakdown) · partial: no record before RU-016 (2026-09-01) names the
+  repository a node wrote (from [Ruling
   register](rulings.md), RU-016 (repository reach))
 - **used-by:** P2-N009 (Plan-state read; reads this repository's Plan
   register at a pinned commit; from [plan of
@@ -1029,10 +1031,11 @@ record](project-model-slice-record.md) holds it.
   majodali/project-orchestrator-service (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **state:** building (derived from the created-by line, where P2-N021
-  is executing; the modified-by line, where P2-N022 is identified, does
-  not change the value; from [Plan register](plan-register.md); [Project
-  model type](process/project-model.md), State derivation)
+- **state:** built, changing (derived from the modified-by line, where
+  P2-N023 is executing; the created-by line, where P2-N021 is done, and
+  P2-N022, identified, do not change the value; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
@@ -1049,10 +1052,14 @@ record](project-model-slice-record.md) holds it.
 - **modified-by:** P2-N022 (The owner question queue; its answering
   action; from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
-  at this breakdown)
+  at this breakdown) ·
+  P2-N023 (Web view UX refinement; how the pages read and feel; from [plan of
+  P2-N023](plans/p2-n023-web-view-ux-refinement.md), Dependencies)
 - **used-by:** P2-N022 (The owner question queue; from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
-  at this breakdown)
+  at this breakdown) ·
+  P2-N023 (Web view UX refinement; from [plan of
+  P2-N023](plans/p2-n023-web-view-ux-refinement.md), Dependencies)
 
 ## project-model-parser
 
@@ -1060,8 +1067,8 @@ record](project-model-slice-record.md) holds it.
   `plugin/scripts/lib/`, vendored to the service (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **state:** building (derived from the created-by line, where P2-N021
-  is executing; the modified-by line reads not yet derived; from [Plan
+- **state:** built (derived from the created-by line, where P2-N021
+  is done; the modified-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** [Project model type](process/project-model.md) (process
@@ -1120,7 +1127,9 @@ record](project-model-slice-record.md) holds it.
   stated at this breakdown) ·
   P2-N020 (The task tools; its repository reach, write; from
   [specification of P2-N005](specs/p2-n005-task-pull-loop.md), Edges
-  stated at this breakdown)
+  stated at this breakdown) ·
+  P2-N023 (Web view UX refinement; its repository reach, write; from [plan of
+  P2-N023](plans/p2-n023-web-view-ux-refinement.md), Dependencies)
 - **used-by:** not yet derived (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
@@ -1131,8 +1140,8 @@ record](project-model-slice-record.md) holds it.
   `plugin/scripts/sync_shared_unit.ts` (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **state:** built, changing (derived from the modified-by line, where
-  P2-N021 is executing; the created-by line reads not yet derived; from
+- **state:** built (derived from the modified-by line, where P2-N021
+  is done; the created-by line reads not yet derived; from
   [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -1408,8 +1417,8 @@ record](project-model-slice-record.md) holds it.
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
   parser and shared parsing, under RU-012; [Backlog, entry for
   P2-N021](backlog.md))
-- **state:** building (derived from the created-by line, where P2-N021
-  is executing; the modified-by line reads not yet derived; from [Plan
+- **state:** built (derived from the created-by line, where P2-N021
+  is done; the modified-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of

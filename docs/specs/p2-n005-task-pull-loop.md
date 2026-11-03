@@ -1336,6 +1336,13 @@ to O13 this document gives them. Decisions 14 to 22 were judged
 node-scope, so no ruling was captured. Next: P2-N017's execute, the
 platform facts.
 
+(Noted 2026-11-03, by the owner's decision of that day. This record
+sends P2-N017 to execute with no plan or specify task of its own. The
+owner sent P2-N017 to planning that day, and its plan task, T102, was
+dispatched to the owner's planning gate. The record stands as the gate passed it, and this note
+supersedes its next step for P2-N017. The register note carries the
+change.)
+
 ## References
 
 - [p2-n005-task-pull-loop](../plans/p2-n005-task-pull-loop.md): this

@@ -428,7 +428,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   G6, I1 to I10 and P1 to P6, three children in a chain, decisions 10
   to 16 staged with defaults, and ten terms ratified at the gate of
   2026-10-29, all defaults adopted; children P3-N010 to P3-N012
-  entered (RU-020). P3-N010 done 2026-10-30. Next: P3-N011's planning.
+  entered (RU-020). P3-N010 done 2026-10-30; P3-N011 done 2026-11-03.
+  Next: P3-N012's planning.
   Carried from the task: the Risk register shares the Backlog's
   lost-update hazard under parallel dispatch (child B's citations);
   the parent plan's "four instances" of the execution-environment class
@@ -496,7 +497,14 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   decisions); a leaf run as three execute tasks, the parts and their
   entries, the edges, then the headers, the measurement and the
   renderings. Its executing stage depended on P3-N007, done
-  2026-10-30. Pointer:
+  2026-10-30. Noted 2026-11-03: four lines of the slice's entries now
+  parse, fixed by the Orchestrator at the acceptance of T099 (P2-N023).
+  The service's pull request #26 reported them. The used-by line of
+  `plan-register-grammar` carries an outside item. The spec lines of
+  `run-journal` and `RU-016` carry the kind as the first note. The
+  modified-by line of `project-orchestrator-repo` closes with a partial
+  item. The parser reports 0 errors over 42 entries. The type's other
+  differences stay for this node. Pointer:
   [plan](plans/p3-n008-instance-over-this-repository.md).
 - [ ] **P3-N009's rules check that no heading's find matches two
   entries** — When: 2026-10-30, planning P3-N008 (T079). Status: open,
@@ -586,21 +594,29 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   brief names each tool the task needs, and the Orchestrator checks it
   before dispatch. Pointer:
   [omission list](common-risk-catalogue-check.md#full-run-the-omission-list).
-- [ ] **The sweep, the rest of the catalogue, and the omission list**
+- [x] **The sweep, the rest of the catalogue, and the omission list**
   (node P3-N011, child B of P3-N003) — When: planned 2026-10-30 (T058);
   specified at the gate of 2026-10-30, defaults 1 to 5 adopted; tasks E1
-  (T071), E2 (T080) and E3 (T083) delivered 2026-10-30. Status:
-  executed, awaiting the Orchestrator's acceptance; a leaf run as three
-  tasks. E1 recorded passes 1 and 2 (43 candidates found, 7 classes
-  admitted as CR-002 to CR-008, 3 candidates deferred). E2 recorded
-  passes 3 to 5 (85 candidates found, four classes admitted as CR-009 to
-  CR-012, three more deferred). E3 wrote seven *Class* lines (R5, R9,
-  R10, R14, R15, R16, R17), brought the enumeration to 35 parts, and ran
-  all twelve classes: 82 pairs apply, 26 are covered, and 56 are
+  (T071), E2 (T080) and E3 (T083) delivered and accepted 2026-10-30 to
+  2026-10-31; done 2026-11-03 at the owner's verifying gate. Status:
+  done; a leaf run as three tasks. Shipped five sweep passes in the
+  [check document](common-risk-catalogue-check.md): 128 candidates
+  found, eleven classes admitted as CR-002 to CR-012, six deferred. The
+  [catalogue](proposals/common-risk-catalogue.md) holds twelve classes.
+  The Risk register carries nine *Class* lines, seven of them new (R5,
+  R9, R10, R14, R15, R16, R17). The enumeration holds 35 parts. The
+  full-scope run found 82 applicable pairs, 26 covered and 56
   omissions, 11 accepted and 45 routed to 18 Backlog entries, two of
   them added. The negative control on CR-003 against PT-23 returned its
-  pair. Self-verified against B1 to B18; the owner's decisions on the
-  weaker *Class* lines and the scope arguments remain. Pointer:
+  pair. Self-verified against B1 to B18. The owner's rulings of
+  2026-11-03, all at the defaults: every disposition of the omission
+  list stands; the weaker *Class* lines of R5, R9 and R10 stand; the
+  scope arguments covering 11 pairs are accepted; coverage by the
+  closed entry R9 stands; the entries considered and not cited are
+  confirmed; the terms *citation test* and *delta row* are ratified.
+  Open outside this gate: the reading of ET-2, for the gate of P3-N003;
+  the term *aggregate node*; the encounters DL-01 (CR-005, task T076)
+  and CR-010 at task T083, not yet in the catalogue. Pointer:
   [plan](plans/p3-n011-sweep-and-omission-list.md),
   [omission list](common-risk-catalogue-check.md#full-run-the-omission-list),
   [verification](common-risk-catalogue-check.md#verification-of-node-p3-n011).
@@ -608,10 +624,14 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   one session** — When: 2026-10-30, planning P3-N011. Status: open, for
   P1-N016; five leaves now run as fixed task sequences (P2-N016,
   P3-N013, P3-N011, P3-N007, P3-N008). Pointer: [plan of P3-N011](plans/p3-n011-sweep-and-omission-list.md).
+- [ ] **An owner-attended task spans Orchestrator sessions** — When:
+  2026-11-03, opening P2-N023. Status: open, for P1-N016; the
+  session-end rule in `observability.md` journals such a task `stale`.
+  Pointer: [plan of P2-N023](plans/p2-n023-web-view-ux-refinement.md#recording).
 - [ ] **P3-N012 identified, 2026-10-29** — the Article 8 proposal for
   `docs/registers/common-risk-catalogue.md` upstream, written IR first
   and reviewed, delivered under RU-015 and RU-022 (spec child C).
-  Depends on P3-N011.
+  Depends on P3-N011, done 2026-11-03.
 - [x] **W-001's four stop conditions as decidable predicates, with
   two blind readings and the relation table** (node P3-N013) — When:
   done 2026-10-30, tasks T056 and T059 to T067 (E1, three rounds of
@@ -2939,41 +2959,50 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   (T093), specification gate crossed 2026-10-30 with defaults 11 to 15
   and three terms ratified. Status: broken-down into P2-N021 and
   P2-N022 (RU-020); the specification is `active`; the node verifies
-  against its criteria I1 to I10 after both children are done. Pointer:
+  against its criteria I1 to I10 after both children are done. P2-N021
+  done 2026-11-03. Next: P2-N022, its plan task T101 dispatched
+  2026-11-03. Pointer:
   [specification](specs/p2-n003-owner-questions-and-plan-view.md).
-- [ ] **P2-N021 identified, 2026-10-30: the web view's first version**
-  — When: 2026-10-30, at P2-N003's specification gate; E1 dispatched
-  2026-10-30 (T094), accepted 2026-10-30; E2 dispatched 2026-10-30
-  (T095). Status: verifying; E1 returned blocked and was accepted under
-  the T008 precedent, its pull request #18 open on
-  majodali/project-orchestrator-service (commit `bf8f1b5`), every
-  criterion met but V19 and V22, owed as deploy evidence, and
-  `sam validate --lint`, which the pull request's check runs; E2 (T095),
-  the node and task pages, returned needs-judgment on W-002 (E1's
-  `test/viewDeployWiring.test.ts` widened to admit E2's two route keys)
-  and blocked on V22, every other criterion met; the owner ruled option
-  (a) on 2026-11-01, the widened test stands, and E2 was accepted the
-  same day; E1 and E2 are merged to the service's `main` (pull requests
-  #18 and #19) and the shared unit to this repository's `main` (pull
-  request #18); E3 (T096), the model, dispatched 2026-11-01, returned
-  needs-judgment on W-002 (six assertions in E1's and E2's tests
-  changed to admit the instance's read and to replace the Resources
-  placeholder) and blocked on V22, V24 to V29 met; the owner ruled
-  option (a) on 2026-11-02 and E3 was accepted the same day; its pull
-  requests are merged in both repositories; all three tasks are done;
-  V19 is met; V22's figures were recorded in the service's runbook on
-  2026-11-03, and P2-N021 moved to `verifying` the same day, gated on
-  the owner demonstration (V30) and the decision on *Whether the web
-  view replaces `docs/plan.md`*; a leaf, run as execute tasks E1 to E3
-  against criteria V1 to V30, then the owner demonstration; no plan or
-  specify task (plan decision 2); E3's wait on P3-N007 is met.
+- [x] **P2-N021 done, 2026-11-03: the web view's first version** —
+  When: identified at P2-N003's specification gate; tasks E1 to E3
+  (T094 to T096) accepted by 2026-11-02; done at the owner's
+  demonstration (V30). Status: done. Shipped the `/view` routes of
+  majodali/project-orchestrator-service. They give sign-in by the view
+  token, the plan tree at a named commit, the node page, the task page,
+  and the model's two renderings. Shipped in this repository the shared
+  Cost log and journal unit and the Project model parser. Both owner
+  rulings on W-002 chose option (a). V19 and V22 are met, as the
+  deploy-evidence entry records. The sign-in page's latency row stays
+  not measured. V30, 2026-11-03: the owner signed in on an Android
+  phone, in the DuckDuckGo browser. Sign-in and navigation worked,
+  including the links to the git documents and pages. The page named
+  `5bc3fb8`, this repository's `main` at the time. The owner checked
+  three facts against git at that SHA, and each verified. First, P3-N011's
+  register line reads `verifying`, gated on the owner's rulings, and
+  depends on P3-N010. Second, task T083's Cost log row is dated
+  2026-10-30, stage execute, role implementer. Third, task T083's last
+  journal event is `accepted`, at 2026-10-31T05:25:00Z, with ref
+  `107e62e`. The owner decided that the view does not replace
+  `docs/plan.md` yet (the entry *Whether the web view replaces
+  `docs/plan.md`*). Noted 2026-11-03, after `done`. P2-N023 changed
+  the tree page in the service's pull request #25. The page now answers
+  V25 and V26 differently. The implementation map's rows sit inside the
+  tree. The list of what is next is gone, and its procedures feed the
+  tree's status. V27 counts link clicks. Opening a fold is not a step.
+  The Orchestrator ruled both (plan of P2-N023, decisions 10 and 11).
   Pointer:
   [specification of P2-N003, child
-  1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
+  1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version);
+  [service runbook, The web view (node
+  P2-N021)](https://github.com/majodali/project-orchestrator-service/blob/main/docs/runbook.md#the-web-view-node-p2-n021).
 - [ ] **P2-N022 identified, 2026-10-30: the owner question queue** —
   When: 2026-10-30, at P2-N003's specification gate. Status:
-  identified; specified at outcome depth, with its own plan and specify
-  tasks after P2-N006; depends on P2-N021 and P2-N005. Pointer:
+  identified; specified at outcome depth. Its plan and specify tasks
+  were to follow P2-N006. The owner lifted that ordering on
+  2026-11-03. Plan task T101 dispatched 2026-11-03, output
+  `docs/plans/p2-n022-owner-question-queue.md`, to the owner's planning
+  gate. Depends on P2-N021, done 2026-11-03, and on P2-N005 for its
+  final slice only. Pointer:
   [specification of P2-N003, child
   2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue).
 - [ ] **Waits per task under the node-to-node dependency rule** — When:
@@ -3145,10 +3174,27 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   them in the service, and RU-012 asks for one copy once this
   repository renders its Backlog by script. Pointer: [plan of
   P2-N003](plans/p2-n003-owner-questions-and-plan-view.md#what-it-shows-three-pages).
-- [ ] **Whether the web view replaces `docs/plan.md`** — When:
-  2026-10-30, planning P2-N003 (T075). Status: open; decided at child
-  1's demonstration, against `docs/plan.md`'s own retirement
-  condition. Pointer: [plan.md](plan.md).
+- [x] **Whether the web view replaces `docs/plan.md`** — When:
+  2026-10-30, planning P2-N003 (T075); decided 2026-11-03, at P2-N021's
+  demonstration (V30). Status: done. The view does not replace
+  `docs/plan.md` yet; UX refinement comes first. The owner's words:
+  "The web view is showing promise, but is not ready to replace
+  docs/plan.md - we need to do some UX refinement first."
+  `docs/plan.md` stays the hand rendering. Pointer: [plan.md](plan.md).
+- [ ] **UX refinement of the web view** (node P2-N023) — When:
+  2026-11-03, the owner's decision at P2-N021's demonstration (V30);
+  P2-N023 adopted and T097 dispatched the same day. Status: executing,
+  the node's running list. Three of ten iterations are done. Each
+  merged in majodali/project-orchestrator-service and deployed green.
+  Iteration 1 (T097, pull requests #23 and #24): the preview mode from
+  fixtures, local sign-in and the screenshot script. Iteration 2 (T098,
+  pull request #25): polished pages, a dark palette, and a foldable
+  tree. Each subtree shows a status, and resources sit inside the tree.
+  Iteration 3 (T099, pull request #26): the node page's tasks as a
+  table, a Gated line, and a Problems section. Open: iteration 4
+  (T100). Pointer:
+  [plan](plans/p2-n023-web-view-ux-refinement.md) ·
+  [brief](https://github.com/majodali/project-orchestrator-service/blob/main/docs/web-view-ux-brief.md).
 - [ ] **Service chunk 3 — topics and coordination** (node P2-N004) —
   project topics for status and cross-session coordination, including
   who is blocked on what; channels-push availability on the web
@@ -3164,9 +3210,11 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   [specification](specs/p2-n005-task-pull-loop.md).
 - [ ] **P2-N017 identified, 2026-10-30: the platform facts, verified**
   — When: 2026-10-30, at P2-N005's specification gate. Status:
-  identified; execute against criteria A1 to A10, with owner action
-  O11 for the local surface; no other child starts until its finding
-  is committed. Pointer:
+  identified; plan task T102 dispatched 2026-11-03 at the owner's
+  decision, output `docs/plans/p2-n017-platform-facts.md`, to the
+  owner's planning gate. Then execute against criteria A1 to A10, with
+  owner action O11 for the local surface. No other child starts until
+  its finding is committed. Pointer:
   [specification of P2-N005, child
   A](specs/p2-n005-task-pull-loop.md#child-a-the-platform-facts-verified).
 - [ ] **P2-N018 identified, 2026-10-30: the loop in git alone** — When:
