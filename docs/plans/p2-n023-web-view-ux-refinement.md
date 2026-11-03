@@ -43,15 +43,18 @@ The Orchestrator dispatches no role session for this node.
 Each iteration runs in four steps:
 
 1. The session makes one branch and one small pull request to the
-   service's `main`.
+   service's `main`. The pull request's title carries `ux-NN`, the
+   iteration's number. The branch name is free (decision 9).
 2. The owner merges it. The push to `main` deploys the service.
 3. The owner checks the pages on the phone.
 4. The Orchestrator records the merged iteration (see *Recording*).
 
 **Iteration 1 is tooling.** It adds a preview mode to the local server,
 backed by fixtures, and a Playwright script that takes screenshots.
-Every later pull request carries before and after screenshots at phone
-width.
+Each iteration commits its three "after" screenshots at phone width
+under `docs/ux-shots/ux-NN/` in the service repository. The previous
+iteration's "after" screenshots are the next one's "before" (decision
+8, pending the owner).
 
 **Stop rule.** The loop stops at the first of two events: the owner
 decides that the view replaces `docs/plan.md`, or iteration 10 merges.
@@ -60,12 +63,18 @@ decides that the view replaces `docs/plan.md`, or iteration 10 merges.
 
 - **Repository reach.** Under RU-016 (the Planner declares the
   repository access a node needs), the node writes to
-  majodali/project-orchestrator-service, limited to: `src/view/**`; `src/localServer.ts`; `test/view*.test.ts`
-  and their fixtures; `scripts/`, for the tooling; the `package.json`
-  scripts and dev dependencies; the README's "HTTP routes" and "Trying
-  it locally" sections; the runbook's web-view section; the service's
-  `docs/backlog.md`. Nothing in this repository. The repository is in
-  this project's permanent scope, so no owner question arises.
+  majodali/project-orchestrator-service. Nothing in this repository.
+  The repository is in this project's permanent scope, so no owner
+  question arises. The reach is limited to these paths:
+  - `src/view/**`, which holds the tooling's TypeScript in
+    `src/view/preview/` (decision 7);
+  - `src/localServer.ts`;
+  - `test/view*.test.ts` and their fixtures;
+  - `docs/ux-shots/**`, the committed screenshots (decision 8);
+  - the `package.json` scripts and dev dependencies;
+  - the README's "HTTP routes" and "Trying it locally" sections;
+  - the runbook's web-view section;
+  - the service's `docs/backlog.md`.
 - **P2-N023 modifies** `web-view` and
   `project-orchestrator-service-repo`.
 - **P2-N023 uses** `web-view`.
@@ -113,7 +122,11 @@ not obstacles) requires it.
 ## Decisions
 
 Decisions 1 to 4 were adopted by the owner on 2026-11-03, after V30.
-The Orchestrator set decisions 5 and 6 on 2026-11-03.
+The Orchestrator set decisions 5 and 6 on 2026-11-03. The last three
+decisions answer the asks in the service's pull request #23 (T097).
+The Orchestrator set decisions 7 and 9. Decision 8 is the
+Orchestrator's proposal to the owner, adopted by the owner's default
+unless the owner says otherwise.
 
 1. The node runs as an owner-attended loop in a separate session on the
    service repository. The Orchestrator records results from merged
@@ -128,18 +141,39 @@ The Orchestrator set decisions 5 and 6 on 2026-11-03.
 6. The recording rule above: one task number per iteration, and the
    next iteration's task dispatched in the pass that accepts the
    previous one. The Orchestrator set this on 2026-11-03.
+7. Tooling placement. The tooling's TypeScript lives in
+   `src/view/preview/`, inside the reach `src/view/**`. The tooling does
+   not live in `scripts/`: the service's `tsconfig.eslint.json` excludes
+   `scripts/`, and that file is outside the reach. `scripts/` leaves
+   the reach. Set by the Orchestrator on 2026-11-03.
+8. Screenshots. Pending: adopted by the owner's default unless the
+   owner says otherwise. Each iteration commits its three "after"
+   screenshots at phone width, as PNG files, under
+   `docs/ux-shots/ux-NN/` in the service repository. The previous
+   iteration's "after" screenshots are the next one's "before". The
+   desktop screenshots and the "before" screenshots stay local. The
+   reach gains `docs/ux-shots/**`. The reason: the session cannot
+   attach images to a pull request body, and `shots/` is gitignored.
+   Proposed by the Orchestrator on 2026-11-03.
+9. Branch names. The pull request's title carries `ux-NN`. The branch
+   name is free. The owner's session pushes to the branch its harness
+   binds (`claude/...`). The result core in
+   [dispatch.md](../process/dispatch.md#def-result-core) already
+   accepts a branch that the execution surface mandates. Set by the
+   Orchestrator on 2026-11-03.
 
 Decision 5 was ratified by the Orchestrator under the P3-N010
-precedent. The owner sees it with the node.
+precedent. The owner saw it on 2026-11-03 and let it stand.
 
 ## Terms for the owner
 
-Proposed here, for the owner to ratify or strike at the next gate:
+The owner ratified both terms on 2026-11-03. Each definition below is
+the term's definition site.
 
-- **owner-attended session**: a Claude Code session the owner drives
+- <a id="def-owner-attended-session"></a>**owner-attended session**: a Claude Code session the owner drives
   directly, outside the Orchestrator's dispatch; the Orchestrator
   records its results from merged pull requests.
-- **preview mode**: a mode of the service's local server that serves
+- <a id="def-preview-mode"></a>**preview mode**: a mode of the service's local server that serves
   the view's pages from fixtures, so screenshots need no live data.
 
 ## Gate record, 2026-11-03
