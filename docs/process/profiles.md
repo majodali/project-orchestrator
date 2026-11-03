@@ -25,6 +25,12 @@ runs on top.
 | Human gates | kickoff only | chunk gates (owner-designated nodes) | chunk gates + `verifying` of root-level nodes | as C2 |
 | Cost log | optional | required | required | required |
 
+> Superseded by decision 8 of the
+> [plan of node P1-N016](../plans/p1-n016-process-spec-maintenance.md)
+> (process spec maintenance) for the Breakdown row's
+> "single-session size", adopted at that plan's gate. Read that
+> decision until the node's execute reworks the row.
+
 Notes:
 
 - **C0** is deliberately thin: the methodology puts only the

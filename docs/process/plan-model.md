@@ -9,6 +9,12 @@ the [process specification's](README.md) defined terms.
 
 ## The hierarchy
 
+> Superseded by decision 8 of the
+> [plan of node P1-N016](../plans/p1-n016-process-spec-maintenance.md)
+> (process spec maintenance), a leaf runs as one task or a fixed
+> sequence of tasks, adopted at that plan's gate. Read that decision
+> for what a leaf is until the node's execute reworks this paragraph.
+
 A managed project's plan is a tree of **nodes**. The root node is the
 project's current major outcome (typically one per active plan
 document) — typically a comprehensive collection of definitions,
