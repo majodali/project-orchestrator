@@ -15,7 +15,7 @@ Status: active
 This [document](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-document) renders the [Plan register](plan-register.md) by hand.
 Each node's outcome comes from the node's [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan) and [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification).
 The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gates of P2-N003 and P2-N005 and the verifying gate of P3-N007, and after the owner's verifying gate of P2-N021 and adoption of P2-N023 on 2026-11-03.
-It also reads the owner's decision of 2026-11-03 on P2-N022 and P2-N017.
+It also reads the owner's decision of 2026-11-03 on P2-N022 and P2-N017, and the owner's verifying gate of P3-N011 that day.
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
@@ -428,15 +428,15 @@ The children of P3-N003, a strict chain in their [specification](specs/p3-n003-c
   - Needed by: P3-N011.
   - Documents: [plan](plans/p3-n010-one-class-end-to-end.md), [specification](specs/p3-n003-common-risk-catalogue.md#child-a-one-class-carried-end-to-end).
 - P3-N011 The sweep, the rest of the catalogue, and the omission list
-  - Stage: executing since 2026-10-30. The parent specification's child B section is the specification (gate decision of the same day). All three tasks are done (T071, T080, T083): the five passes recorded, 128 candidates found, classes CR-002 to CR-012 admitted, six deferred; nine Class lines on the Risk register; 35 parts; the check run over 12 classes and 35 parts, 82 applicable pairs, 26 covered, 56 omissions (11 accepted with a reason, 45 routed to 18 Backlog entries); the negative control on CR-003 returned its pair. The node is verifying, gated on your rulings on the omission list, three weaker Class lines (R5, R9, R10), the scope arguments and closed entries; it reaches done at that gate.
-  - Outcome: The sweep reads five sources, named by the parent specification's [criterion B1](specs/p3-n003-common-risk-catalogue.md#verification-criteria): the Risk register, the Backlog's two sections, the Cost log's notes and the Ruling register. Every candidate class is admitted, merged, rejected or deferred, on the record. Risk entries cite their classes. The list of uncovered parts is ready for the owner.
+  - Stage: done, 2026-11-03, at the owner's verifying gate. Executing from 2026-10-30, with the parent specification's child B section as the specification. Tasks E1 to E3 (T071, T080, T083) were accepted on 2026-10-30 and 2026-10-31, and the node moved to verifying. The owner adopted every default ruling at the gate. All 56 dispositions of the omission list stand. The weaker Class lines of R5, R9 and R10 stand. The scope arguments covering 11 pairs are accepted. Coverage by the closed entry R9 stands, and the entries considered and not cited are confirmed. The terms citation test and delta row are ratified. The reading of ET-2 goes to the gate of P3-N003.
+  - Outcome: Shipped the sweep of the five sources that the parent specification's [criterion B1](specs/p3-n003-common-risk-catalogue.md#verification-criteria) names: 128 candidates, classes CR-002 to CR-012 admitted, six deferred. The catalogue holds twelve classes. The Risk register carries nine Class lines. The check ran over 12 classes and 35 parts: 82 applicable pairs, 26 covered and 56 omissions, 11 accepted with a reason and 45 routed to 18 Backlog entries. The negative control on CR-003 returned its pair.
   - Depends on: P3-N010.
   - Needed by: P3-N012.
   - Documents: [plan](plans/p3-n011-sweep-and-omission-list.md), the parent's specification, child B.
 - P3-N012 The Article 8 proposal, written IR first and reviewed
-  - Stage: identified, 2026-10-29. No plan yet.
+  - Stage: identified, 2026-10-29. No plan yet. Its planning can start: P3-N011 is done.
   - Outcome: The catalogue and a cover note become an amendment proposal under the methodology's Article 8 (amendments, versions, and migration). Both are written as IRs first and judged readable by a [stranger](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-stranger) reviewer. The owner carries the proposal upstream, under RU-002. The node carries nothing upstream.
-  - Depends on: P3-N011.
+  - Depends on: P3-N011, which is done.
   - Needed by: nothing.
   - Documents: the parent's [specification, child C](specs/p3-n003-common-risk-catalogue.md#child-c-the-article-8-proposal-written-ir-first-and-reviewed).
 
@@ -501,7 +501,7 @@ Inside each line the open nodes form chains, listed here from first to last.
 - Line P2: P2-N005 (the task-pull loop) comes before P2-N006. P2-N021 (the web view's first version) is done. P2-N023 (web view UX refinement) runs beside the chain and blocks nothing. P2-N004 (topics and coordination) comes after P2-N006. P2-N022 (the owner question queue) waits on P2-N005 for its final slice only.
 - Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out).
 - Line P3, the comprehension model: P3-N008, then P3-N009. P3-N006 and P3-N007 are done. P3-N004 (reversibility) waits on the whole of P3-N002.
-- Line P3, the risk catalogue: P3-N010, then P3-N011, then P3-N012.
+- Line P3, the risk catalogue: P3-N012. P3-N010 and P3-N011 are done.
 - Line P3, sequence mode: P3-N013, then P3-N014, then P3-N015, then P3-N016.
 
 The diagram shows every node that is not done.
@@ -536,8 +536,6 @@ graph LR
       P3N009["P3-N009 sibling ordering retired"]
     end
     subgraph P3N003["P3-N003 common risk catalogue"]
-      P3N010["P3-N010 one class end to end"]
-      P3N011["P3-N011 sweep and omission list"]
       P3N012["P3-N012 Article 8 proposal"]
     end
     P3N004["P3-N004 reversibility"]
@@ -549,7 +547,6 @@ graph LR
     end
   end
   P3N008 --> P3N009
-  P3N010 --> P3N011 --> P3N012
   P3N013 --> P3N014 --> P3N015 --> P3N016
   P3N002 --> P3N004
   P2N017 --> P2N018 --> P2N020
@@ -569,6 +566,7 @@ A node is actionable when every recorded dependency of its next stage is met.
 Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
+- P3-N012 (the Article 8 proposal): planning. P3-N011 is done.
 
 Planning now, dispatched on 2026-11-03 after the owner's decision:
 
@@ -584,13 +582,11 @@ Gated on the owner:
 - P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
 - P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
-- P3-N011 (the sweep, the rest of the catalogue, and the omission list): verifying; the owner's rulings on the omission list (56 items), the three weaker Class lines, the scope arguments and closed entries, and the terms citation test and delta row.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:
 
 - P3-N009 (sibling ordering retired): waits on P3-N008.
-- P3-N012 (the Article 8 proposal): waits on P3-N011.
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.
 - P2-N018 (the loop in git alone) and P2-N019 (role-aware identity): each waits on P2-N017.

@@ -428,7 +428,8 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   G6, I1 to I10 and P1 to P6, three children in a chain, decisions 10
   to 16 staged with defaults, and ten terms ratified at the gate of
   2026-10-29, all defaults adopted; children P3-N010 to P3-N012
-  entered (RU-020). P3-N010 done 2026-10-30. Next: P3-N011's planning.
+  entered (RU-020). P3-N010 done 2026-10-30; P3-N011 done 2026-11-03.
+  Next: P3-N012's planning.
   Carried from the task: the Risk register shares the Backlog's
   lost-update hazard under parallel dispatch (child B's citations);
   the parent plan's "four instances" of the execution-environment class
@@ -593,21 +594,29 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   brief names each tool the task needs, and the Orchestrator checks it
   before dispatch. Pointer:
   [omission list](common-risk-catalogue-check.md#full-run-the-omission-list).
-- [ ] **The sweep, the rest of the catalogue, and the omission list**
+- [x] **The sweep, the rest of the catalogue, and the omission list**
   (node P3-N011, child B of P3-N003) — When: planned 2026-10-30 (T058);
   specified at the gate of 2026-10-30, defaults 1 to 5 adopted; tasks E1
-  (T071), E2 (T080) and E3 (T083) delivered 2026-10-30. Status:
-  executed, awaiting the Orchestrator's acceptance; a leaf run as three
-  tasks. E1 recorded passes 1 and 2 (43 candidates found, 7 classes
-  admitted as CR-002 to CR-008, 3 candidates deferred). E2 recorded
-  passes 3 to 5 (85 candidates found, four classes admitted as CR-009 to
-  CR-012, three more deferred). E3 wrote seven *Class* lines (R5, R9,
-  R10, R14, R15, R16, R17), brought the enumeration to 35 parts, and ran
-  all twelve classes: 82 pairs apply, 26 are covered, and 56 are
+  (T071), E2 (T080) and E3 (T083) delivered and accepted 2026-10-30 to
+  2026-10-31; done 2026-11-03 at the owner's verifying gate. Status:
+  done; a leaf run as three tasks. Shipped five sweep passes in the
+  [check document](common-risk-catalogue-check.md): 128 candidates
+  found, eleven classes admitted as CR-002 to CR-012, six deferred. The
+  [catalogue](proposals/common-risk-catalogue.md) holds twelve classes.
+  The Risk register carries nine *Class* lines, seven of them new (R5,
+  R9, R10, R14, R15, R16, R17). The enumeration holds 35 parts. The
+  full-scope run found 82 applicable pairs, 26 covered and 56
   omissions, 11 accepted and 45 routed to 18 Backlog entries, two of
   them added. The negative control on CR-003 against PT-23 returned its
-  pair. Self-verified against B1 to B18; the owner's decisions on the
-  weaker *Class* lines and the scope arguments remain. Pointer:
+  pair. Self-verified against B1 to B18. The owner's rulings of
+  2026-11-03, all at the defaults: every disposition of the omission
+  list stands; the weaker *Class* lines of R5, R9 and R10 stand; the
+  scope arguments covering 11 pairs are accepted; coverage by the
+  closed entry R9 stands; the entries considered and not cited are
+  confirmed; the terms *citation test* and *delta row* are ratified.
+  Open outside this gate: the reading of ET-2, for the gate of P3-N003;
+  the term *aggregate node*; the encounters DL-01 (CR-005, task T076)
+  and CR-010 at task T083, not yet in the catalogue. Pointer:
   [plan](plans/p3-n011-sweep-and-omission-list.md),
   [omission list](common-risk-catalogue-check.md#full-run-the-omission-list),
   [verification](common-risk-catalogue-check.md#verification-of-node-p3-n011).
@@ -622,7 +631,7 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 - [ ] **P3-N012 identified, 2026-10-29** — the Article 8 proposal for
   `docs/registers/common-risk-catalogue.md` upstream, written IR first
   and reviewed, delivered under RU-015 and RU-022 (spec child C).
-  Depends on P3-N011.
+  Depends on P3-N011, done 2026-11-03.
 - [x] **W-001's four stop conditions as decidable predicates, with
   two blind readings and the relation table** (node P3-N013) — When:
   done 2026-10-30, tasks T056 and T059 to T067 (E1, three rounds of

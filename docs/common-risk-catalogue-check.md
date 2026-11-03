@@ -41,7 +41,7 @@ under its [plan](plans/p3-n011-sweep-and-omission-list.md).
 | Run record, 2026-10-30, full scope | Task E3's run of all twelve classes over all 35 parts: inputs, steps 1 to 3, the omission list of 56 items and its dispositions. |
 | Negative-control record, 2026-10-30, full scope | The control on CR-003 against PT-23 and the pair that returned. |
 | Shape findings | What in the entry shape the check could not read, and what changed. |
-| Verification of node P3-N011 | Criteria B1 to B18 and the three adopted decisions, with the owner's open decisions and the carry-overs. |
+| Verification of node P3-N011 | Criteria B1 to B18 and the three adopted decisions, the owner's rulings of 2026-11-03 and the carry-overs. |
 
 ## The check procedure
 
@@ -1376,9 +1376,9 @@ classes, so no entry carries two lines.
 
 | Entry | Class | Basis | Clause, from the entry's text |
 |---|---|---|---|
-| R5 register and reality divergence | CR-005 | RR-18 names R5's second clause as a source of the generalization | A register goes stale, and dispatch decisions run on fiction. The source is the work, not a document, so this is the weaker fit of the two sources of CR-005. |
-| R9 surface-dependent plugin loading | CR-001 | RR-19, merge with exposure | Plugin loading is documented for local terminal sessions and not for the web. The first web demo found the plugin absent, and in four trials on two surfaces it was never observed loading. |
-| R10 the service as a second source of truth | CR-005 | RR-18 names R10's failure as the other source | Live state in the service can drift from the registers in git, and decisions could then be made against the projection. The exercise of 2026-09-07 produced no divergence. |
+| R5 register and reality divergence | CR-005 | RR-18 names R5's second clause as a source of the generalization; kept by the owner at the gate, 2026-11-03 | A register goes stale, and dispatch decisions run on fiction. The source is the work, not a document, so this is the weaker fit of the two sources of CR-005. |
+| R9 surface-dependent plugin loading | CR-001 | RR-19, merge with exposure; kept by the owner at the gate, 2026-11-03 | Plugin loading is documented for local terminal sessions and not for the web. The first web demo found the plugin absent, and in four trials on two surfaces it was never observed loading. |
+| R10 the service as a second source of truth | CR-005 | RR-18 names R10's failure as the other source; kept by the owner at the gate, 2026-11-03 | Live state in the service can drift from the registers in git, and decisions could then be made against the projection. The exercise of 2026-09-07 produced no divergence. |
 | R12 service outage stops work | CR-001 | P3-N010 | The "does not wait" case ran where the egress proxy answered at once. |
 | R13 runtime assumption moves to `node` | CR-001 | P3-N010, kept by the owner at the gate | On a surface with an older or absent Node the checker cannot run, and the loss is silent unless something looks. |
 | R14 dependency search | CR-002 | RR-14, admission | Task T027 searched a public registry and found a package published days earlier by a new single-package maintainer. The role declined it. |
@@ -1407,6 +1407,10 @@ omitted from it: no class states a failure of theirs.
 R5 and R10 are cited as instances of CR-005 although pass 1 rejected their
 stated forms on ET-1. The generalization is the class, and the stated forms
 are its sources (RR-18). The convention *merge with exposure* cites R9 and R13 for CR-001.
+
+(Confirmed 2026-11-03 by the owner at the verifying gate of node P3-N011.
+The table stands at its defaults, and no entry gains a line. R9 carries
+no CR-010 line.)
 
 ### The preamble
 
@@ -2199,6 +2203,9 @@ Nothing is mitigated here. 11 items are accepted with a reason, and 45 are
 routed to 18 Backlog entries, 16 open before this task and 2 added with this
 record.
 
+(Ruled 2026-11-03 by the owner at the verifying gate of node P3-N011.
+Every disposition below stands as recorded.)
+
 | Item | Part | Class | Exposure | Disposition |
 |---|---|---|---|---|
 | OM-01 | PT-08 | CR-001 | no committed test runs the tool as `node plugin/scripts/<tool>.ts` | Routed to the Backlog: "No committed test runs the plugin tools the way they run". |
@@ -2392,6 +2399,9 @@ delivered text.
     run applies no entry test, so this reading did not change a result of
     the run. It decides rows RR-09, RR-17, RR-20, RR-22, CL-05, CL-06 and
     CL-10, and it awaits the owner's ruling.
+    (Noted 2026-11-03. The verifying gate of node P3-N011 did not rule
+    this reading. It goes to the gate of node P3-N003, as the
+    Orchestrator's acceptance of task E1 recorded.)
 11. (S3) ET-3 asks for an encounter in "this repository", and several
     encounters happened in the service repository. The sweep reads the
     artifact that resolves here as the record. The header rule of finding 4
@@ -2416,12 +2426,18 @@ delivered text.
     and the exposure remains. The definition of a covering entry could require
     an open entry, or the item could record the covering entry's status.
     Striking R9's line would restore the omission.
+    (Ruled 2026-11-03 by the owner at the verifying gate of node P3-N011.
+    R9's line stands, the definition of a covering entry is unchanged,
+    and the question stays in the Backlog entry above.)
 16. Scope arguments decide 11 of the 26 covered pairs. The covered pairs of
     CR-002 (6 of 7) and CR-003 (3 of 4) rest on the scope of R14 and R15,
     which state what a role does and name no part. The full run argued them
     in the open, and a reader can dispute each. A stricter rule, that a
     covering entry must name the part, would turn 11 pairs into omissions. The
     choice between the two rules is the owner's.
+    (Ruled 2026-11-03 by the owner at the verifying gate of node P3-N011.
+    The scope arguments are accepted, and a covering entry need not name
+    the part.)
 17. A class whose mitigation sits in the role contracts finds no omission.
     CR-002 and CR-003 produced 11 covered pairs and none uncovered, because
     one register entry for each states a behaviour of roles. The check cannot
@@ -2492,6 +2508,15 @@ rules.
   "Ratify or strike the term aggregate node").
 - The two terms task E3 introduces (*citation test* and *delta row*) await
   the owner.
+
+(Ruled 2026-11-03 by the owner at the verifying gate of node P3-N011, at
+the defaults. The three weaker *Class* lines stand, so B16 and B7 stand as recorded. The scope
+arguments are accepted, so the 11 pairs stay covered. The two terms are
+ratified, with their definition sites in the [plan of node
+P3-N011](plans/p3-n011-sweep-and-omission-list.md#terms-this-node-introduces).
+Two items of this list stay open, because the gate did not rule them:
+the reading of ET-2, for the gate of node P3-N003, and the term
+*aggregate node*, in its own Backlog entry.)
 
 **B12, the carry-overs of node P3-N010, now complete.**
 

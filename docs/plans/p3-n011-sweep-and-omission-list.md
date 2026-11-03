@@ -1,6 +1,6 @@
 # The sweep, the rest of the catalogue, and the omission list
 
-Status: active
+Status: closed → Backlog entry (node P3-N011 done 2026-11-03 at the owner's verifying gate; see the Backlog entry "The sweep, the rest of the catalogue, and the omission list")
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -296,6 +296,10 @@ Numbered per [dispatch](../process/dispatch.md)'s owner-decision
 economics. The owner's go-ahead adopts every default not overridden by
 number. This plan opens its own sequence at 1.
 
+The owner adopted decisions 1 to 5 at their defaults on 2026-10-30
+(*Gate record, 2026-10-30*). The rulings of the verifying gate,
+2026-11-03, are in *Gate record, 2026-11-03, at verifying*.
+
 Precedents checked against the [Ruling register](../rulings.md).
 RU-016 is an exact match for the repository reach and decides it
 silently. RU-018 is the authority for independence from P3-N002.
@@ -422,6 +426,61 @@ header is `[C1+]`, and R13 keeps its CR-001 citation. Read-only reach
 to majodali/project-orchestrator-service and majodali/methodology at
 v1.6.0 is granted at dispatch (RU-016). Next: E1, the Risk register,
 rulings and plans sweep.
+
+## Gate record, 2026-11-03, at verifying
+
+The owner crossed this node's `verifying` gate on 2026-11-03. The
+owner's words: "A7 common risk catalog verified - go with default
+ruling." The go-ahead
+adopts the default of every ruling the gate held.
+
+- The omission list of the full-scope run stands as recorded. All 56
+  dispositions stand: 11 accepted with a reason, and 45 routed to 18
+  Backlog entries.
+- The three weaker *Class* lines stand. R5 and R10 cite CR-005 (a copy
+  or description disagrees with its source, unseen). R9 cites CR-001.
+- The scope arguments that cover 11 pairs are accepted (finding 16). A
+  covering entry need not name the part.
+- Coverage by a closed entry stands (finding 15). R9 covers PT-04 (the
+  SessionStart billing check). The
+  open question stays in the Backlog entry "Whether R7's SessionStart
+  billing check fires on each surface".
+- The section *Entries considered for a class and not cited* is
+  confirmed. No entry gains a line.
+- The two terms task E3 introduced are ratified. Their definitions are
+  below.
+
+The node moved `verifying` → `done`. The plan closes to its Backlog
+entry. P3-N012 (the Article 8 proposal) no longer waits on this node.
+
+Three points stay open, because this gate did not rule them. The
+reading of ET-2 in two parts (findings 10 and 12) goes to the gate of
+P3-N003. The term *aggregate node* keeps its own Backlog entry. Two
+encounters in the check document are not yet in the catalogue. Delta
+row DL-01 is a CR-005 encounter of task T076. Finding 21 is a CR-010
+(a task depends on a fact about its environment that nobody checked)
+encounter of task T083.
+
+## Terms this node introduces
+
+The owner ratified both terms on 2026-11-03. Each definition below is
+the term's definition site.
+
+- <a id="def-citation-test"></a>**citation test**: the rule that
+  decides whether a Risk register entry carries a *Class* line for a
+  class. The entry carries the line when one of two things holds.
+  First, the sweep recorded the entry as the source of a row that
+  admits the class, merges into it, or merges with exposure into it.
+  Second, the entry's text states the class's failure as its own
+  subject. The [check
+  document](../common-risk-catalogue-check.md#the-citation-test) applies
+  the test.
+- <a id="def-delta-row"></a>**delta row**: a candidate row for a
+  failure that a source recorded after the pass that read the source.
+  A delta row is labelled `DL-nn`, and the pass stays at its commit.
+  The [check
+  document](../common-risk-catalogue-check.md#sources-that-moved-after-the-passes)
+  holds three delta rows.
 
 ## References
 
