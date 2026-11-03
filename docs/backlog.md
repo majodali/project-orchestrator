@@ -641,6 +641,22 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   When: 2026-10-30, P3-N013's relation table (T056). Status: open;
   nothing reads a recurring restatement mismatch; evidence for
   P3-N016 (criterion D2). Pointer: [record](findings/p3-n005-stop-predicates.md), *The rows*, row 2.
+- [ ] **The Reviewer (stranger) contract takes the pipeline's
+  review-record line forms** — When: 2026-11-02, the owner's adoption of
+  communication-pipeline evaluation case 013's change 5, placed here by
+  case 015's change 6. Status: open; waits for communication-pipeline
+  branch point v1.11, which fixes the forms. Four forms land. The
+  [confirmation](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-confirmation)
+  line keeps its fixed form on one line, with its detail on the lines
+  after it. A per-round table gives prose words and IR claims. The
+  claims-check line stands in the entry of the round whose fixes it
+  checks. The record names each round's stranger model. Evidence:
+  the K-003 count's record, whose ten confirmation lines the signals
+  script parsed none of (case 013, observation 2). Pointer: [case
+  013](https://github.com/majodali/communication-pipeline/blob/main/eval/cases/013-meta-review-k003-proposal-count-1-2026-10-30.md),
+  [roles.md, Reviewer (stranger)](process/roles.md#reviewer-stranger),
+  [the K-003 review
+  record](proposals/planning-execution-model-is-progress-truth.review.md).
 - [ ] **No stop condition covers non-convergence across chunks** —
   When: 2026-10-30, P3-N013's relation table (T056). Status: open;
   successive chunks reworking one passage stop nothing; evidence for
