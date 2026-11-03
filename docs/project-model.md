@@ -95,9 +95,9 @@ record](project-model-slice-record.md) holds it.
   [form_check.ts](../plugin/scripts/form_check.ts); [Backlog, entry for
   P1-N012](backlog.md); [Risk register](open-risks.md), R13 (the
   tooling's runtime assumption moves from python3 to node))
-- **state:** built, changing (derived from the stages of the nodes on
-  the created-by and modified-by lines: the creating nodes done, P3-N007
-  done, P3-N009 identified, P2-N021 executing; from [Plan
+- **state:** built (derived from the stages of the nodes on the
+  created-by and modified-by lines: the creating nodes done, P3-N007
+  done, P3-N009 identified, P2-N021 done; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** [Plugin tooling on the portfolio stack,
@@ -1029,8 +1029,8 @@ record](project-model-slice-record.md) holds it.
   majodali/project-orchestrator-service (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **state:** building (derived from the created-by line, where P2-N021
-  is executing; the modified-by line, where P2-N022 is identified, does
+- **state:** built (derived from the created-by line, where P2-N021
+  is done; the modified-by line, where P2-N022 is identified, does
   not change the value; from [Plan register](plan-register.md); [Project
   model type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -1060,8 +1060,8 @@ record](project-model-slice-record.md) holds it.
   `plugin/scripts/lib/`, vendored to the service (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **state:** building (derived from the created-by line, where P2-N021
-  is executing; the modified-by line reads not yet derived; from [Plan
+- **state:** built (derived from the created-by line, where P2-N021
+  is done; the modified-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** [Project model type](process/project-model.md) (process
@@ -1131,8 +1131,8 @@ record](project-model-slice-record.md) holds it.
   `plugin/scripts/sync_shared_unit.ts` (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **state:** built, changing (derived from the modified-by line, where
-  P2-N021 is executing; the created-by line reads not yet derived; from
+- **state:** built (derived from the modified-by line, where P2-N021
+  is done; the created-by line reads not yet derived; from
   [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -1408,8 +1408,8 @@ record](project-model-slice-record.md) holds it.
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
   parser and shared parsing, under RU-012; [Backlog, entry for
   P2-N021](backlog.md))
-- **state:** building (derived from the created-by line, where P2-N021
-  is executing; the modified-by line reads not yet derived; from [Plan
+- **state:** built (derived from the created-by line, where P2-N021
+  is done; the modified-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
