@@ -46,7 +46,9 @@ instance over this repository) populates it.
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), and
   P2-N017 to P2-N020 in the [specification of
   P2-N005](specs/p2-n005-task-pull-loop.md), each in its section *Edges
-  stated at this breakdown*. Edges that other
+  stated at this breakdown*. The entries also hold P2-N023's edges, from
+  the *Dependencies* section of the [plan of
+  P2-N023](plans/p2-n023-web-view-ux-refinement.md). Edges that other
   records state are still held. An item reading `not yet derived`
   marks a facet no record has filled yet. Each `state:` line reads what
   the edges the entries hold give.
@@ -1029,10 +1031,11 @@ record](project-model-slice-record.md) holds it.
   majodali/project-orchestrator-service (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
-- **state:** built (derived from the created-by line, where P2-N021
-  is done; the modified-by line, where P2-N022 is identified, does
-  not change the value; from [Plan register](plan-register.md); [Project
-  model type](process/project-model.md), State derivation)
+- **state:** built, changing (derived from the modified-by line, where
+  P2-N023 is executing; the created-by line, where P2-N021 is done, and
+  P2-N022, identified, do not change the value; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
@@ -1049,10 +1052,14 @@ record](project-model-slice-record.md) holds it.
 - **modified-by:** P2-N022 (The owner question queue; its answering
   action; from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
-  at this breakdown)
+  at this breakdown) ·
+  P2-N023 (Web view UX refinement; how the pages read and feel; from [plan of
+  P2-N023](plans/p2-n023-web-view-ux-refinement.md), Dependencies)
 - **used-by:** P2-N022 (The owner question queue; from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
-  at this breakdown)
+  at this breakdown) ·
+  P2-N023 (Web view UX refinement; from [plan of
+  P2-N023](plans/p2-n023-web-view-ux-refinement.md), Dependencies)
 
 ## project-model-parser
 
@@ -1120,7 +1127,9 @@ record](project-model-slice-record.md) holds it.
   stated at this breakdown) ·
   P2-N020 (The task tools; its repository reach, write; from
   [specification of P2-N005](specs/p2-n005-task-pull-loop.md), Edges
-  stated at this breakdown)
+  stated at this breakdown) ·
+  P2-N023 (Web view UX refinement; its repository reach, write; from [plan of
+  P2-N023](plans/p2-n023-web-view-ux-refinement.md), Dependencies)
 - **used-by:** not yet derived (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)

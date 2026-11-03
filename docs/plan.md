@@ -14,7 +14,7 @@ Status: active
 
 This [document](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-document) renders the [Plan register](plan-register.md) by hand.
 Each node's outcome comes from the node's [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan) and [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification).
-The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gates of P2-N003 and P2-N005 and the verifying gate of P3-N007, and after the owner's verifying gate of P2-N021 on 2026-11-03.
+The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gates of P2-N003 and P2-N005 and the verifying gate of P3-N007, and after the owner's verifying gate of P2-N021 and adoption of P2-N023 on 2026-11-03.
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
@@ -289,7 +289,7 @@ The children of P2-N012, in their [specification](specs/p2-n012-deploy-from-ci-o
 
 ### P2-N003 Owner questions and the plan view (chunk 2)
 
-- Stage: broken-down, 2026-10-30, at the owner's specification gate: decisions 11 to 15 adopted, the terms view token, view cookie and not computable ratified, the two children entered (RU-020).
+- Stage: broken-down, 2026-10-30, at the owner's specification gate: decisions 11 to 15 adopted, the terms view token, view cookie and not computable ratified, the two children entered (RU-020). The owner added a third child, P2-N023, on 2026-11-03.
 - Outcome: The owner sees this project's plan in a browser on any device, and later answers gate decisions there. One child is the first version of the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view), read-only and drilling down to node and task. The second child is the owner question queue. Git still holds every fact the view shows and every answer the owner gives.
 - Depends on: nothing beyond its children.
 - Needed by: P2-N006, which needs P2-N021 only.
@@ -309,6 +309,12 @@ The children of P2-N003, in their [specification](specs/p2-n003-owner-questions-
   - Depends on: P2-N021, which is done, and P2-N005. It follows P2-N006 by the owner's ordering of 2026-10-29.
   - Needed by: nothing.
   - Documents: the parent's [specification, child 2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue).
+- P2-N023 Web view UX refinement
+  - Stage: executing, 2026-11-03. The owner adopted the node's plan that day, after V30, and the node moved from identified to executing at that adoption. Task T097 is iteration 1 of the owner-attended session on majodali/project-orchestrator-service: the preview mode and the screenshot script. Each later iteration gets its own task, dispatched when the previous one is accepted.
+  - Outcome: The web view's pages read and feel well enough on a phone for the owner to decide that the view replaces this document. The work runs as one small pull request per iteration, at most ten. It adds no data source and no route without a decision recorded in the node.
+  - Depends on: P2-N021, which is done. The register marks it independent of P2-N022.
+  - Needed by: nothing.
+  - Documents: [plan](plans/p2-n023-web-view-ux-refinement.md).
 
 ### P2-N004 Topics and coordination (chunk 3)
 
@@ -491,7 +497,7 @@ One piece of work moved between lines: P2-N006 took over the pilot of P1-N006 (p
 Inside each line the open nodes form chains, listed here from first to last.
 
 - Line P2, the task-pull loop: P2-N017, then P2-N018 and P2-N019, independent of each other, then P2-N020.
-- Line P2: P2-N005 (the task-pull loop) comes before P2-N006. P2-N021 (the web view's first version) is done. P2-N004 (topics and coordination) and P2-N022 (the owner question queue) come after P2-N006. P2-N022 also waits on P2-N005.
+- Line P2: P2-N005 (the task-pull loop) comes before P2-N006. P2-N021 (the web view's first version) is done. P2-N023 (web view UX refinement) runs beside the chain and blocks nothing. P2-N004 (topics and coordination) and P2-N022 (the owner question queue) come after P2-N006. P2-N022 also waits on P2-N005.
 - Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out).
 - Line P3, the comprehension model: P3-N008, then P3-N009. P3-N006 and P3-N007 are done. P3-N004 (reversibility) waits on the whole of P3-N002.
 - Line P3, the risk catalogue: P3-N010, then P3-N011, then P3-N012.
@@ -500,7 +506,7 @@ Inside each line the open nodes form chains, listed here from first to last.
 The diagram shows every node that is not done.
 An arrow runs from a node to the node that waits on it.
 A box around nodes is their parent.
-P2-N003's open child, P2-N022, is drawn inside its box, because it has its own wait.
+P2-N003's open children, P2-N022 and P2-N023, are drawn inside its box. P2-N022 has its own wait, and P2-N023 has none.
 
 ```mermaid
 graph LR
@@ -512,6 +518,7 @@ graph LR
   subgraph P2N001["P2-N001 orchestration service"]
     subgraph P2N003["P2-N003 owner questions and plan view"]
       P2N022["P2-N022 owner question queue"]
+      P2N023["P2-N023 web view UX refinement"]
     end
     P2N004["P2-N004 topics and coordination"]
     subgraph P2N005["P2-N005 task-pull loop"]
@@ -567,7 +574,9 @@ Actionable, not yet dispatched:
 Specifying now, after the owner's gate of 2026-10-30:
 
 
-Executing now, dispatched after the owner's second plan gates of 2026-10-30:
+Executing now:
+
+- P2-N023 (web view UX refinement): executing from 2026-11-03, task T097, the owner-attended session; iteration 1 first.
 
 Gated on the owner:
 

@@ -45,6 +45,9 @@ At `done`, both children are `done`:
   session picks each answer up through the [task-pull
   loop](orchestration-service.md#standing-constraints) and commits it
   to git.
+- A third child, P2-N023, added by the owner on 2026-11-03, refines the
+  web view's pages until the view can replace `docs/plan.md`
+  ([plan](p2-n023-web-view-ux-refinement.md)).
 
 The service plan's chunk gate stands for the node: the owner answers a
 real gate decision from the web view.
