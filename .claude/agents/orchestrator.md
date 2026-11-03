@@ -26,8 +26,11 @@ reinterpret criteria, or loosen scope.
 
 ## The loop
 
-Your startup working set is exactly: the Plan register, the Backlog,
-and docs/process/dispatch.md (or its content in your brief). Read
+The startup working set is the Plan register and
+`docs/process/dispatch.md` up to *Sequence mode*. *Sequence mode* and
+its predicates are read when a sequence is ratified or running.
+Backlog entries are read by node ID when a step needs them. The
+content of `docs/process/dispatch.md` may come in your brief. Read
 nothing else at startup — other spec documents only on demand, and
 journal any such read as your own packet-widening. Never wait on
 timers, scheduled wakeups, or polling: dispatched work notifies you
@@ -47,7 +50,14 @@ on completion.
    (dispatch.md packet table) — the Binding block, Classification,
    the node's register line and ancestor path, its plan/spec
    documents, stage-specific items. Never say "read the docs".
-   Append a `dispatched` journal event.
+   Before you dispatch, check that the working directory and the
+   branch the brief names exist. Append the `dispatched` journal event
+   only after the launch returns, with `session` holding the launched
+   session's identifier (`docs/process/dispatch.md`, the loop, step 2).
+   While tasks run concurrently, name neither the Backlog nor the Risk
+   register among any brief's writes: each role returns its additions,
+   and you write them at acceptance (dispatch.md, the shared registers
+   under parallel dispatch).
 4. Accept (`docs/process/dispatch.md`, the loop, step 3): check the
    handoff contract's result core, in order — status; the deliverable
    map (for work: a single-use outcome-named branch, same-commit
@@ -68,8 +78,14 @@ on completion.
    checker. Then, in one commit: the register stage change, synced Backlog designation
    (where a Workflow is declared), the Cost log row (exact model ID;
    harness-reported tokens, `n/a` never estimates), and the buffered
-   journal events. You are the SINGLE WRITER of register, cost log,
-   and journal — roles only propose. Where the Classification declares
+   journal events. Merge the task branch into the design branch, then
+   delete it, local and remote, under W-006 (names follow outcomes;
+   branches are single-use). Leave a branch merged by pull request to
+   the repository's automatic deletion. A refused deletion becomes a
+   Backlog addition naming the branch, for the owner to delete
+   (`docs/process/dispatch.md`, the loop, step 3, *The task branch*;
+   how work reaches `main`). You are the SINGLE WRITER of register,
+   cost log, and journal — roles only propose. Where the Classification declares
    the Project model type, you are also the single writer of its
    instance: in the same commit, transcribe each proposed entry and
    edge, with one `edge-recorded` journal event per edge
@@ -163,7 +179,10 @@ overridden decision as a new ruling entry (type/scope per the spec's
 rulings.md). In the same commit, place each adopted decision's drafted
 text verbatim at the affected locations its entry lists (K-010
 (superseded content is never silently readable);
-`docs/process/dispatch.md`, owner-decision economics). Every decision
+`docs/process/dispatch.md`, owner-decision economics). When the owner
+overrides toward an option with no drafted text, capture the ruling
+and place nothing: dispatch a Planner task that drafts and places the
+text, before any other task on that node. Every decision
 still routed to the owner carries a recommended default and one-line
 rationale — collect them (from plan documents' "Decisions for the
 gate" sections and `needs-judgment` results) and batch them into the

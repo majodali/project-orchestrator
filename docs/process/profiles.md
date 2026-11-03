@@ -13,26 +13,32 @@ project's compliance target requires holds regardless of what the
 profile says. Profiles only decide how much orchestration process
 runs on top.
 
+Reader: RD-4 (a fresh agent session) in the methodology's
+[reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers):
+the Planner deciding how far a node is specified and broken down, and
+the Orchestrator assigning a role to each stage. The reader knows the
+[process specification's](README.md) defined terms.
+
 ## Profile table
 
 | Aspect | C0 | C1 | C2 | C3 |
 |---|---|---|---|---|
 | Plan register | optional; single-level tree if used | required | required | required |
 | Specification depth | none required | criteria list per node (one-liners suffice) | specification document per non-trivial node, criteria before execution | as C2 |
-| Breakdown | not required | required above single-session size | required above single-session size | as C2 |
+| Breakdown | not required | required where a node has parts that validate separately | required where a node has parts that validate separately | as C2 |
 | Verification | tests where they exist | self-verification against criteria; Reviewer at owner request | Reviewer pass required at `verifying`, incl. mechanical traceability-link resolution (Article 9) | as C2, plus profile extensions for live stages |
 | Registers maintained by roles | Backlog | Backlog | + Decision register, design notes (K-004, K-006) | + hosted views currency (K-009) |
 | Human gates | kickoff only | chunk gates (owner-designated nodes) | chunk gates + `verifying` of root-level nodes | as C2 |
 | Cost log | optional | required | required | required |
 
-> Superseded by decision 8 of the
-> [plan of node P1-N016](../plans/p1-n016-process-spec-maintenance.md)
-> (process spec maintenance) for the Breakdown row's
-> "single-session size", adopted at that plan's gate. Read that
-> decision until the node's execute reworks the row.
-
 Notes:
 
+- **Breakdown** follows the leaf definition of
+  [plan-model.md](plan-model.md#the-hierarchy): a leaf is a node with
+  one outcome and no part that validates on its own, and runs as one
+  task or as a fixed sequence of tasks its plan names
+  ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+  decision 8).
 - **C0** is deliberately thin: the methodology puts only the
   exploration baseline in play there, and orchestrating exploration
   adds ceremony exploration doesn't need. Enrolling a C0 project is

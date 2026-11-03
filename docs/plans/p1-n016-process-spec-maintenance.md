@@ -333,6 +333,13 @@ specification.
 - V14. `node plugin/scripts/sync_agents.ts --check`,
   `node plugin/scripts/form_check.ts`, `npm test`, `npm run typecheck`
   and `npm run lint` are clean at each task's commit.
+  Ruling, 2026-11-03, by the owner at E1's acceptance (ask A25): for
+  this node, V14's lint clause reads "no lint error in a file the task
+  writes". `npm run lint` fails at this node's branch base over
+  `docs/findings/p3-n005-stop-predicates/prepass.ts`, a file outside
+  both tasks' writes. The Backlog row "`npm run lint` fails on `main`
+  over a file outside every tsconfig project" holds that failure. E1
+  (T103) meets V14 under this reading.
 - V15. No supersession marker placed at this node's gate stands at
   `done`.
 
@@ -681,21 +688,25 @@ execute tasks* lists.
 ## Terms this node introduces
 
 The owner ratified all five names on 2026-11-03 (decision 16). Each
-definition below is the term's definition site until E2 writes
-`docs/vocabulary.md`. Under decision 12, that file's row then becomes
-the definition site, and this anchor links it.
+definition below was the term's definition site until E2 wrote
+[`docs/vocabulary.md`](../vocabulary.md). Under decision 12, that
+file's row is now the definition site, and each anchor below links it.
 
 - <a id="def-sequencing"></a>**sequencing**: a type in the Ruling
-  register's taxonomy, for rulings on dispatch order and concurrency.
+  register's taxonomy, for rulings on dispatch order and concurrency
+  ([vocabulary row](../vocabulary.md#def-sequencing)).
 - <a id="def-stack"></a>**stack**: a type in the Ruling register's
-  taxonomy, for rulings on languages, runtimes and code sharing.
+  taxonomy, for rulings on languages, runtimes and code sharing
+  ([vocabulary row](../vocabulary.md#def-stack)).
 - <a id="def-knowledge"></a>**knowledge**: a type in the Ruling
-  register's taxonomy, for rulings on which document holds which truth.
+  register's taxonomy, for rulings on which document holds which truth
+  ([vocabulary row](../vocabulary.md#def-knowledge)).
 - <a id="def-unblocked"></a>**unblocked**: a run journal event kind
-  recording that a hold was released. Its note names what released it.
+  recording that a hold was released. Its note names what released it
+  ([vocabulary row](../vocabulary.md#def-unblocked)).
 - <a id="def-risk-opened"></a>**risk-opened**: a run journal event
   kind recording that a Risk register entry was opened. Its note names
-  the entry.
+  the entry ([vocabulary row](../vocabulary.md#def-risk-opened)).
 
 ## References
 
