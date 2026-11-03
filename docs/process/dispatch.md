@@ -14,12 +14,16 @@ assumes the methodology at this project's pinned version, 1.6.0
 ## The loop
 
 **The Orchestrator's own working set is minimal** (trial-3 finding:
-a ~30-minute orientation phase dwarfed a 10-minute loop): the Plan
-register, the Backlog, and this document — nothing else at startup;
-other spec documents on demand, and any read beyond the set is the
-Orchestrator's own packet-widening, journaled like a role's. The
-Orchestrator never waits on timers or polls: dispatched work
-notifies on completion.
+a ~30-minute orientation phase dwarfed a 10-minute loop). The startup
+working set is the Plan register and `docs/process/dispatch.md` up to
+*Sequence mode*. *Sequence mode* and its predicates are read when a
+sequence is ratified or running. Backlog entries are read by node ID
+when a step needs them. Other spec documents are read on demand. Any
+read beyond the set is the Orchestrator's own packet-widening,
+journaled like a role's
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+decision 9). The Orchestrator never waits on timers or polls:
+dispatched work notifies on completion.
 
 Given a current [Plan register](plan-register.md), Backlog, and the
 project's [profile](profiles.md), the Orchestrator repeatedly:
@@ -35,6 +39,12 @@ project's [profile](profiles.md), the Orchestrator repeatedly:
    order (depth-first, document order) — deterministic, no judgment.
 2. **Dispatches** a task: the (node, stage) pair, the role the
    profile assigns to that stage, and the assembled context packet.
+   Before dispatch, the Orchestrator checks that the working directory
+   and the branch the brief names exist. It journals the `dispatched`
+   event only after the launch returns, with `session` holding the
+   launched session's identifier
+   ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+   decision 14).
 3. **Accepts** the result: verifies the handoff contract below was
    met and the [form checks](auditing.md) pass, records the stage
    change in the register (and synced Backlog designation) and the
@@ -46,6 +56,22 @@ project's [profile](profiles.md), the Orchestrator repeatedly:
    Backlog addition in the acceptance commit, unless the next task in
    scope acts on that file. That task's brief then carries the finding
    instead.
+
+   **The task branch.** In the acceptance step the Orchestrator merges
+   the task branch into the design branch
+   ([How work reaches `main`](#how-work-reaches-main)), then deletes the
+   task branch, local and remote
+   ([W-006 (names follow outcomes; branches are single-use)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-006--names-follow-outcomes-branches-are-single-use)).
+   A branch merged by pull request is left to the repository's
+   automatic deletion of merged branches. A session that made a branch
+   that will never merge deletes it before it returns. A refused
+   deletion becomes a Backlog addition naming the branch, for the owner
+   to delete. The refusal of 2026-09-16, `HTTP 403` on
+   `git push --delete`, is recorded, and its cause is untested. Task
+   branches are pushed to the remote because a container restart in
+   the middle of a session once cost work that only the container held
+   ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+   decision 4).
 4. **Stops** at a gate, on an empty actionable set, on a blocked
    task, or on exhausting approved scope — and summarizes to the
    owner (W-001: deliver, summarize, stop).
@@ -62,6 +88,38 @@ Acceptance stays serial regardless (the single-writer rule), and the
 dependency default above still gates `execute` on earlier siblings
 `done` unless the plan records otherwise. Inside a ratified sequence,
 dispatch is serial ([Sequence mode](#sequence-mode), the run).
+
+**The shared registers under parallel dispatch.** While tasks run
+concurrently, no brief names the Backlog or the Risk register among
+the role's writes. Each role returns its Backlog and Risk register
+additions in its result, and the Orchestrator writes them in the
+acceptance commit, which is serial. A brief's writes bound the role
+([specification of P1-N014 (role contracts adopt the methodology's conduct rules)](../specs/p1-n014-role-contracts-adopt-conduct-rules.md),
+decision 13), so two roles never append to one register at once
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+decision 5).
+
+## How work reaches `main`
+
+Work reaches `main` in two steps.
+
+1. At acceptance, the Orchestrator merges a role's task branch into the
+   design branch: the branch accepted work is integrated on before it
+   reaches `main` (the loop, step 3). That merge is internal
+   integration and takes no pull request, because the owner reviews
+   the work at the gate.
+2. The design branch reaches `main` by pull request. The orchestrating
+   session opens it; the owner reviews and merges it. In a managed
+   project's work repository this is
+   [RU-009 (completed work reaches `main` by pull request)](../rulings.md).
+   In this coordinating repository it is
+   [RU-010 (this repository reaches `main` the same way)](../rulings.md).
+
+A branch merged by pull request is left to the repository's automatic
+deletion of merged branches (the loop, step 3). This section promotes
+both rulings into the specification
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+decision 10); both rulings stay `active`.
 
 ## The orchestration service (optional accelerator)
 
@@ -149,6 +207,14 @@ batches, against stated defaults.
   locations and drafts the text. At gate crossing the Orchestrator
   places the adopted option's drafted text verbatim, in the commit
   that captures the ruling.
+- **An override toward an option with no drafted text.** When the
+  owner overrides a decision toward an option whose entry carries no
+  drafted text, the Orchestrator captures the ruling and places
+  nothing. It dispatches a Planner task that drafts and places the
+  text, before any other task on that node. Drafting is judgment, so
+  the Orchestrator never drafts the text
+  ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+  decision 6).
 - **Decisions batch at the gate.** The gate summary lists them
   numbered, defaults stated; the owner's go-ahead adopts every
   default not explicitly overridden by number. One decision per
@@ -168,11 +234,32 @@ batches, against stated defaults.
   additional repositories, read or write. Each exercise of a
   pre-authorization is recorded in the journal. A pre-cleared
   decision stops being a decision.
-- **Cross-repo reach is scope.** Approved scope is single-repo by
-  default; a repository beyond the project's own MUST be named in
-  the grant before any role touches it. A needed-but-unreachable
-  repo is recorded (Backlog, or `blocked` where it stops the node)
-  — never worked around.
+- **Cross-repo reach is scope, declared in the plan.** Approved scope
+  is this repository alone by default. The Planner declares the
+  repositories a node's work needs in the node's plan; the
+  Orchestrator grants the reach and records the grant; the owner is
+  asked only when a repository is new to the project
+  ([RU-016 (the Planner declares the repository access a node needs)](../rulings.md)).
+  A repository new to the project is approved-scope expansion, of the
+  immediate class, and the owner names it in the grant before any role
+  touches it. Under the same ruling, this project's approved scope
+  permanently includes majodali/project-orchestrator-service. A node
+  that writes a repository its plan never named is out of scope. A
+  needed-but-unreachable repo is recorded (Backlog, or `blocked`
+  where it stops the node) — never worked around. (Corrected
+  2026-11-03 by node P1-N016 (process spec maintenance) under its
+  decision 10. The bullet said every repository beyond the project's
+  own must be named in the owner's grant. RU-016 superseded that in
+  who grants, not in whether the reach is declared.)
+- **Upstream output is hand-carried.** Output bound for a repository
+  outside the approved scope reaches it by the owner's hand; scope
+  across repositories is granted only explicitly
+  ([RU-002 (the owner hand-carries upstream output)](../rulings.md)).
+  The delivery is final normative text, with the current upstream text
+  quoted verbatim beside it and a provenance line naming the version,
+  the commit and the date the quote was taken, and an instruction to
+  re-verify before the change is carried. It is never a patch file
+  ([RU-015 (upstream delivery form)](../rulings.md)).
 
 ## The handoff contract
 
@@ -181,14 +268,19 @@ task returns a fixed shape.
 
 **Task brief** (assembled by the Orchestrator):
 
-1. Project identity: the Binding block and Classification.
+1. Project identity: the Binding block and Classification of each
+   repository the task works in. A role working in another repository
+   receives that repository's `CLAUDE.md`.
 2. The node: its register line, its ancestors' one-line path, and its
    plan/specification documents.
 3. Stage-specific inputs per the packet table below.
 4. The role's charge for this stage and the expected outputs,
    including which documents the role updates in its work commit
-   (W-003) and the explicit note that decisions above the role's
-   authority return `needs-judgment`.
+   (W-003 (documentation moves in the same commit as the work)) and
+   the explicit note that decisions above the role's authority return
+   `needs-judgment`. A task whose evidence must be blind gets a private
+   scratch directory in its brief. It writes nothing outside that
+   directory and its branch.
 
 **Task result** (returned by the role). Every task result is a report
 to a [delegating agent](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-delegation),
@@ -330,11 +422,25 @@ The packet is what is pushed; the repository stays readable, and a
 role MAY pull more when its task genuinely needs it, but a packet
 that routinely proves insufficient is a spec defect to fix here.
 
-| Stage | Packet beyond the base (base = brief items 1–2, plus the project's Backlog, whole) |
+**The base**, in every packet
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+decision 9):
+
+- Brief items 1 and 2. Item 1 gives the Binding block and
+  Classification of each repository the task works in.
+- The Backlog entries that name the node, its ancestors or its
+  children, and the entries routed to it, found by node ID. A node
+  whose subject is the Backlog takes the Backlog whole.
+- Each methodology text the packet names, given by its link at the
+  pinned tag. A role that cannot read the tag gets the text quoted in
+  its brief, under the provenance line of
+  [RU-015 (upstream delivery form)](../rulings.md).
+
+| Stage | Packet beyond the base |
 |---|---|
-| plan | Parent's plan and specification documents, whole; sibling one-liners with stages; the process spec's profiles.md and dispatch.md's owner-decision-economics section; the Ruling register |
-| specify | The node's plan and the parent's specification, whole documents; the process spec's profiles.md and plan-model.md; the Ruling register |
-| break down | The node's specification; profile's leaf-size guidance |
+| plan | Parent's plan and specification documents, whole; sibling one-liners with stages; the process spec's [README.md](README.md), [profiles.md](profiles.md), [auditing.md](auditing.md) and dispatch.md's owner-decision-economics section; the methodology's [prose rules](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md) and the methodology rule files the parent's documents cite; the [Ruling register](../rulings.md). A node whose subject is the process specification or the registers also takes [roles.md](roles.md), the role contracts in `.claude/agents/`, the [Risk register](../open-risks.md) and the run journal, `orchestration/journal.jsonl`. A node whose design constrains code takes the code paths its parent's documents or its Backlog entry name |
+| specify | The node's plan and the parent's specification, whole documents; for a root node, the parent's items are empty by construction; the process spec's [README.md](README.md), [profiles.md](profiles.md) and [plan-model.md](plan-model.md); the [Ruling register](../rulings.md). The plan row's clause for a node whose subject is the process specification or the registers applies |
+| break down | The node's plan and specification; profile's leaf-size guidance |
 | execute | The node's specification; design notes and code paths it names; repository metadata (git log/branch/remote) where the work cites real history |
 | verify | The node's specification and criteria; the work's diff; test output |
 
@@ -557,11 +663,16 @@ Orchestrator's own form-check run. No note of a member's task states a
 predicate verdict. Such a note would put a predicate's own words
 beside the check names the predicate matches. The one exception is
 the `sequence-stopped` event, whose note opens with the condition that
-stopped the sequence.
+stopped the sequence. That event carries the stopping member's task
+ID, so its note is a note of that task: a later reading of the
+predicates sees its opening condition (*The item's notes*, below).
 
-Outside a sequence, the `result-received` note keeps its present form.
-The record form was tried once outside a sequence, on node P3-N014's
-execute task (P3-N005 specification, criterion B4).
+Outside a sequence, the `result-received` note carries the result's
+Asks part, part 7 above, verbatim
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+decision 15). The record form was tried once outside a sequence, on
+the execute task of node P3-N014 (the loop runs sequence mode)
+(specification of P3-N005 (sequence mode), criterion B4).
 
 ### The service
 

@@ -376,6 +376,9 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   RU-022 captured from decision 11, node renamed "Role contracts adopt
   the methodology's conduct rules". Executed 2026-10-29 (T047); the
   node's row is the entry of that name, below.
+  Noted 2026-11-03: the `CLAUDE.md` item landed in `dispatch.md`'s
+  brief item 1 and packet base (P1-N016 (process spec maintenance),
+  task E1, T103).
 - [x] **Migrated to methodology 1.6.0** (2026-10-28, PR #11) — the pin
   and the amended W-008 bootstrap block with its fourth part, Terms
   introduced; no other migration note. Recorded late, at T046's
@@ -419,6 +422,10 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   stops on the human's (decision 11); stop signals inside a stream have
   no home in this project yet (child A's relation table names
   candidates, decision 14 keeps them out of this node).
+  Noted 2026-11-03: outside a sequence, the `result-received` note now
+  carries the result's Asks part verbatim (`dispatch.md`, P1-N016
+  (process spec maintenance), task E1, T103); `observability.md`'s half
+  is E2's.
 
 - [ ] **P3-N003 specified, 2026-10-29 (T044)** — the common risk
   catalogue's specification stands at
@@ -513,18 +520,19 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   [plan of P3-N008](plans/p3-n008-instance-over-this-repository.md),
   decision 6.
 - [ ] **A new plan or specification links the instance in its header** —
-  When: 2026-10-30, planning P3-N008 (T079). Status: open, for P3-N009
-  (a checker rule) or P1-N016 (the Planner contract); condition (i)
-  holds after E3 only while every new starting point carries the line.
-  Noted 2026-11-03: not in the inventory of P1-N016's plan; the Planner contract is among E1's writes.
-  Pointer: [plan of P3-N008](plans/p3-n008-instance-over-this-repository.md),
+  When: 2026-10-30, planning P3-N008 (T079); considered 2026-11-03 by
+  P1-N016 (process spec maintenance), task E1 (T103), and not landed.
+  Status: open, for P3-N008's E3 or P3-N009 (a checker rule); the header
+  line is a rule of P3-N008's plan, which is `draft` and ungated, so the
+  Planner contract has no adopted rule to carry. Pointer:
+  [plan of P3-N008](plans/p3-n008-instance-over-this-repository.md),
   *The navigation measure, extended from fifty paths to the instance*.
 - [ ] **No trigger keeps an entry's `is:`, `spec:` and `risks:` lines
-  current** — When: 2026-10-30, planning P3-N008 (T079). Status: open,
-  for P1-N016; edges reach the instance at plan acceptance, but a new
-  Risk register entry or a changed process document reaches no entry
-  unless a task result proposes it. Noted 2026-11-03: not in the inventory of P1-N016's plan; 
-  `dispatch.md`'s acceptance step is among E1's writes. Pointer:
+  current** — When: 2026-10-30, planning P3-N008 (T079); considered
+  2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103), and
+  not landed. Status: open, for P3-N008; the trigger is a duty no gate
+  has adopted, for the instance P3-N008's `draft` plan builds, so
+  `dispatch.md`'s step 3 has no adopted rule to carry. Pointer:
   [plan of P3-N008](plans/p3-n008-instance-over-this-repository.md),
   *Entries at scale, under the writer rule*.
 - [ ] **`docs/plan.md`'s dependency fields follow P3-N009's rule** — When:
@@ -653,9 +661,13 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   2026-10-29 planning P3-N013: `plan-model.md`'s leaf definition
   assumes one session, while P3-N013's two blind readings need
   separate sessions. For P1-N016.
-- [ ] **No committed source of a pinned methodology text for a role
-  without git** — found 2026-10-29 planning P3-N013: the packet table
-  names no route to text at a pinned tag. For P1-N016.
+- [x] **No committed source of a pinned methodology text for a role
+  without git** — When: 2026-10-29, planning P3-N013; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103).
+  Status: done; the packet base gives each methodology text by its link
+  at the pinned tag, and quotes it in the brief, under the provenance
+  line of RU-015 (upstream delivery form), for a role that cannot read
+  the tag (P1-N016 plan, decision 9). Pointer:
+  [dispatch.md](process/dispatch.md#context-packets).
 - [ ] **W-001's stop conditions do not name a `blocked` chunk** —
   found 2026-10-29 planning P3-N013; evidence for P3-N016's
   determination.
@@ -744,16 +756,17 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   Status: open; "break down" and "verify" are not `plan-model.md`
   stage words, and some gate events carry a task ID; for P1-N016,
   `observability.md`. Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, the hard points.
-- [ ] **A blind task's scratch directory is shared** — When: 2026-10-30,
-  P3-N013 E4 round 3 (T067). Status: open; reading 1's round 3
-  verdicts sat in the session's shared scratch directory when reading
-  2 ran, and T065 left `/gates.py` outside every repository; for
-  P1-N016, a private scratch directory per blind task. Pointer: [record](findings/p3-n005-stop-predicates.md),
-  *Round 3*, blindness outside the commit graph.
-- [ ] **Dispatch checks that the task's worktree exists** — When: 2026-10-30,
-  T066's false start. Status: open; T066 was dispatched before its
-  worktree existed; `dispatch.md` names no such check; for P1-N016.
-  Pointer: [record](findings/p3-n005-stop-predicates.md), *Round 3*, blindness outside the commit graph.
+- [x] **A blind task's scratch directory is shared** — When:
+  2026-10-30, P3-N013 E4 round 3 (T067); landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done;
+  brief item 4 gives a task whose evidence must be blind a private
+  scratch directory, and the task writes nothing outside that
+  directory and its branch. Pointer:
+  [dispatch.md](process/dispatch.md#the-handoff-contract), task brief.
+- [x] **Dispatch checks that the task's worktree exists** — When:
+  2026-10-30, T066's false start; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; before
+  dispatch the Orchestrator checks that the working directory and the
+  branch the brief names exist. Pointer:
+  [dispatch.md](process/dispatch.md#the-loop), step 2.
 - [x] **The loop runs sequence mode, and the roles meet the conditions
   without looking** (node P3-N014, child B of P3-N005) — When: planned
   and specified 2026-10-30 (T068, gate of 2026-10-30); executed
@@ -789,19 +802,19 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   child processes. Pointer:
   [plan](plans/p3-n015-sequence-demonstration.md).
 - [ ] **Whether a task outside a ratified sequence may be dispatched
-  while it runs** — When: 2026-10-30, planning P3-N015. Status: open,
-  for P1-N016 and as evidence for P3-N016; *Sequence mode* is silent,
-  and decision 5 of this plan answers it for one run. Noted 2026-11-03: not in the inventory of P1-N016's plan; 
-  `dispatch.md` is among E1's writes, outside the copied predicate
-  text. Pointer:
+  while it runs** — When: 2026-10-30, planning P3-N015; considered
+  2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103).
+  Status: open, for an owner decision and as evidence for P3-N016; E1
+  returned it `needs-judgment` with a recommended default, and P3-N015's
+  decision 5 answers it for one run. Pointer:
   [plan of P3-N015](plans/p3-n015-sequence-demonstration.md), decision 5.
 - [ ] **Whether a go-ahead that adopts defaults ratifies a sequence**
-  — When: 2026-10-30, planning P3-N015. Status: open, for P1-N016 and as
-  evidence for P3-N016; W-001 requires explicit approval, while
-  `dispatch.md`'s *Gates* lets one go-ahead adopt every default.
-  Noted 2026-11-03: not in the inventory of P1-N016's plan; `dispatch.md` is among
-  E1's writes. Pointer: [plan of P3-N015](plans/p3-n015-sequence-demonstration.md),
-  decision 4.
+  — When: 2026-10-30, planning P3-N015; considered 2026-11-03 by
+  P1-N016 (process spec maintenance), task E1 (T103). Status: open, for
+  an owner decision and as evidence for P3-N016; E1 returned it
+  `needs-judgment` with a recommended default, and P3-N015's decision 4
+  answers it for one run. Pointer:
+  [plan of P3-N015](plans/p3-n015-sequence-demonstration.md), decision 4.
 - [ ] **The P3-N005 plan places R16's preflight in this repository**
   — When: 2026-10-30, planning P3-N015 (T076 finding). Status: open;
   the plan's *The demonstration (G6)* lists R16's preflight wording
@@ -859,12 +872,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   PT-11). Status: open; a test invoking `node plugin/scripts/<tool>.ts`
   would close it. Pointer: [check document](common-risk-catalogue-check.md),
   omission list.
-- [ ] **A `sequence-stopped` note is a note of the stopping member's task**
-  — When: 2026-10-30, T072. Status: open, for P1-N016; the event
-  carries the member's task ID, so its opening condition is a note a
-  later reading of the predicates would see. Noted 2026-11-03: not in the inventory of P1-N016's plan; 
-  `dispatch.md` is among E1's writes, outside the copied predicate
-  text. Pointer: [dispatch.md](process/dispatch.md), Sequence mode.
+- [x] **A `sequence-stopped` note is a note of the stopping member's task**
+  — When: 2026-10-30, T072; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; *The member's
+  result record* states that the event carries the stopping member's
+  task ID, so a later reading of the predicates sees its opening
+  condition; the copied predicate text is unchanged. Pointer:
+  [dispatch.md](process/dispatch.md#the-members-result-record).
 - [ ] **The Orchestrator's Serves line omits three things it writes** —
   When: 2026-10-30, T070. Status: open, for P1-N016; roles.md's
   Orchestrator *Serves* line names neither the journal, the Ruling
@@ -1232,30 +1245,16 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   plan carries when a node reaches beyond its own repository, or the
   checker looks for it. Belongs with node P1-N016's process-spec pass.
 
-- [ ] **The `specify`-stage packet row has no clause for a top-level
-  node, and no registers** — found 2026-09-17 on T039. The row reads
-  "the node's plan and the parent's specification, whole documents",
-  and P3-N001 has no parent, so the second item is empty by
-  construction rather than by defect; the table does not say so, which
-  leaves the role deciding whether its packet is short. Separately,
-  the task needed this repository's own registers — the Plan register,
-  Risk register, Cost log, run journal and the four register type
-  specs — because the node's plan is a review *of* them, and the
-  Orchestrator declared that widening at dispatch rather than letting
-  it be discovered. Both are small: a root-node clause, and a note
-  that a node whose subject is the registers takes them in its packet.
-  Third and fourth packet-table observations bound for P1-N016's
-  single considered change. **Two more from the 2026-09-17 parallel
-  round.** T042: a `plan`-stage task whose node changes the process
-  spec again needed the Risk register, the run journal and the agent
-  contracts — the third task to need the same additions, and the
-  Orchestrator pre-declared them, which is the point: the row still
-  does not name them. T040: a `plan`-stage task whose design constrains
-  the form checker and the travelling package had to read
-  `plugin/scripts/lib/` to check its own central claim, and the row has
-  no line for the code a node's design constrains. Filed here rather
-  than as separate entries, since P1-N016 makes one considered change
-  to this table.
+- [x] **The `specify`-stage packet row has no clause for a top-level
+  node, and no registers** — When: 2026-09-17, T039, with T040 and T042
+  the same day; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; the specify row says a
+  root node's parent items are empty by construction; the plan row
+  gives a node whose subject is the process specification or the
+  registers `roles.md`, the role contracts, the Risk register and the
+  run journal, and gives a node whose design constrains code the code
+  paths its parent's documents or its Backlog entry name; the specify
+  row takes the same clause (P1-N016 plan, decision 9). Pointer:
+  [dispatch.md](process/dispatch.md#context-packets).
 
 - [ ] **"Asks" in a report means only what the reader can act on now**
   — owner clarification 2026-09-17, refining W-008's three-part report
@@ -2066,10 +2065,12 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   cleared before round 1). Status: open; roles.md's stranger clauses
   and the Reviewer contract, when written, take the v1.9 steps. Lands
   with the entry above. Pointer: [roles.md](process/roles.md).
-- [ ] **An override toward an option with no drafted affected-location
-  text** — When: 2026-10-29, T047 finding. Status: open; dispatch.md
-  does not route the case where placing the text needs judgment.
-  Pointer: [dispatch.md](process/dispatch.md), owner-decision economics.
+- [x] **An override toward an option with no drafted affected-location
+  text** — When: 2026-10-29, T047 finding; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status:
+  done; the Orchestrator captures the ruling, places nothing, and
+  dispatches a Planner task that drafts and places the text before any
+  other task on that node (P1-N016 plan, decision 6). Pointer:
+  [dispatch.md](process/dispatch.md#owner-decision-economics).
 - [ ] **A project vocabulary for ratified terms** — When: 2026-10-29,
   T047 and T052 findings. Status: open; the twenty-one terms ratified
   on 2026-10-29 and "result core" have spec anchors as definition
@@ -2400,14 +2401,11 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   So the decision has a scheduled review point rather than being
   permanent, and whoever revisits it should start from Q-004's text
   rather than re-deriving the argument.
-- [ ] **The `plan`-stage packet carries no rule corpus** — T028
-  needed the methodology's rules to establish what declaring a
-  Workflow actually costs, which is the load-bearing claim of a
-  decision that changes a Classification. The packet gave it the
-  vocabulary and the release register but not the rules. This is the
-  fourth packet-table observation and the second naming a structural
-  gap rather than a one-off; it belongs with the others in node
-  P1-N016's single considered change to `dispatch.md`'s table.
+- [x] **The `plan`-stage packet carries no rule corpus** — When:
+  T028; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; the plan row names the
+  methodology's prose rules and the methodology rule files the
+  parent's documents cite (P1-N016 plan, decision 9). Pointer:
+  [dispatch.md](process/dispatch.md#context-packets).
 - [ ] **A criterion only the owner can evidence has no recorded form**
   (identified at P2-N012's specify stage, 2026-09-01) — the node's
   criterion that the deploy role's trust policy restricts the OIDC
@@ -2476,21 +2474,14 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   variable that looks like a credential is not evidence of access, and
   the cost of finding out was one authorized call.
 - [ ] **A journalled dispatch is not evidence that a task was
-  dispatched** — found 2026-09-02, by the Orchestrator making the
-  mistake. T034's `dispatched` event was written to the journal and
-  committed, and the owner was told the task was running, before the
-  role was actually launched; the launch had simply been skipped. The
-  form checker cannot catch this — a `dispatched` event with no
-  terminal event is indistinguishable from a task legitimately still
-  in flight, which is why the `liveness` rule reads it as healthy.
-  What is missing is a second signal: an agent identifier, or a
-  `result-received` event that only a real return can produce,
-  recorded against the dispatch so that a journalled-but-never-run
-  task is detectable rather than merely regrettable. Cheap version:
-  the journal's `dispatched` event carries the dispatched agent's ID,
-  and the checker warns on a dispatch older than a session with
-  neither a terminal event nor an ID. Belongs with P1-N016's
-  process-spec pass.
+  dispatched** — When: 2026-09-02, the Orchestrator's skipped launch of
+  T034; `dispatch.md`'s half landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: open; step 2
+  journals `dispatched` only after the launch returns, with `session`
+  holding the launched session's identifier (P1-N016 plan, decision 14);
+  `observability.md`'s half is E2's, and the checker's warning is in the
+  row "Form-check rules from the process-spec pass" (P1-N016 plan, decision 11).
+  Pointer: [dispatch.md](process/dispatch.md#the-loop), step 2;
+  [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), inventory row 23.
 - [ ] **A session cannot tell a missing service from an unreachable
   one** — found 2026-09-07 in the R12 credential case. The observable
   state a session works in is identical whether the service is
@@ -2580,27 +2571,14 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   changed after this entry was written; read the P3-N001 entry for
   them, not this one.
 
-- [ ] **The Orchestrator cannot delete a remote branch** — found
-  2026-09-16 cleaning up the gate's scratch branches. `git push
-  --delete` returns `HTTP 403` and the agent proxy records no relay
-  failure, so the refusal is GitHub's, not the network's. W-006 makes
-  branches single-use and deleted after merge, and both repositories
-  auto-delete *merged* head branches — but a scratch branch that is
-  never merged has no automatic path, and the role that created it
-  cannot remove it. Three are stranded now: `i1-equivalence-check`,
-  `r12-exercise-dead-endpoint`, `r12-exercise-unset-credential`, each
-  saying in its own commit message that it should be deleted. Likely
-  cause to check first: a branch ruleset's **Restrict deletions**
-  rule, which is enabled by default and may target more than `main`.
-  The process needs to say who deletes an unmerged branch, since the
-  answer is evidently not the session that made it.
-  Noted 2026-11-03: the three branches are gone. `git ls-remote
-  --heads` lists none of them in majodali/project-orchestrator or in
-  majodali/project-orchestrator-service. The planner of T102 observed
-  it, and the Orchestrator checked it again. This record does not say
-  who deleted them. The row stays open. The Orchestrator still cannot
-  delete a remote branch, and the process still does not say who
-  deletes an unmerged one.
+- [x] **The Orchestrator cannot delete a remote branch** — When:
+  2026-09-16, cleaning up the gate's scratch branches; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103).
+  Status: done; step 3 names the deleter of a branch that never merges,
+  the session that made it, before it returns, and a refused deletion
+  becomes a Backlog addition naming the branch, for the owner to delete
+  (P1-N016 plan, decision 4). The `HTTP 403` of 2026-09-16 stays recorded, its cause
+  untested. Pointer: [dispatch.md](process/dispatch.md#the-loop), step
+  3, *The task branch*.
 - [ ] **A Backlog entry describing another repository goes stale
   silently** — found 2026-09-01 when T031 checked `eslint.config.js`
   and found the gap this Backlog still claimed was open, closed six
@@ -2656,56 +2634,27 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   travels. Pointer: [plan of
   P1-N016](plans/p1-n016-process-spec-maintenance.md), *Dependencies*.
 - [ ] **Process spec maintenance: branch lifecycle, PR citation,
-  packet table** (node P1-N016) — When: planned 2026-10-30 (T074);
-  specified 2026-11-03 at the owner's plan gate. Status: specified;
-  all seventeen decisions adopted at their defaults and the five names
-  ratified; the plan's criteria are the specification (decision 2); a
-  leaf run as execute tasks E1 then E2; next, E1. The plan inventories
-  thirty-five routed rows. Pointer:
-  [plan](plans/p1-n016-process-spec-maintenance.md). The original
-  entry follows: three queued corrections to
-  `docs/process/`, opened as one node on 2026-09-01 because the
-  specification is this project's product and three edits in passing
-  is how a specification rots. **(i) The branch lifecycle has no
-  mechanism.** W-006 requires a single-use branch to be deleted after
-  merge; `dispatch.md` and `roles.md` say work lands on such a branch
-  and neither says who deletes it or when. Ten merged branches
-  survived until the owner cleared them. The Orchestrator performs
-  the merge, so deletion belongs in `dispatch.md`'s acceptance step,
-  alongside recording the register and the Cost log — and the reason
-  role branches are pushed at all (a container restart mid-session
-  already cost work once) belongs there too, so the push does not
-  read as waste. **(ii) The specification never mentions pull
-  requests.** [RU-009](rulings.md) and [RU-010](rulings.md) carry the
-  whole practice of reaching `main` by PR; per P1-N014's decision 1
-  the spec cites them rather than leaving the rule in the register
-  alone. Note the boundary the rulings do not cover and the spec
-  should: a role branch merging into the design branch is internal
-  integration and takes no PR, because the gate is where the owner
-  reviews. **(iii) The `plan`-stage packet row is wrong.** It omits
-  `docs/process/README.md`, which three consecutive tasks had to
-  widen for, and the break-down row omits the node's plan, where the
-  child sketch a breakdown tests actually lives.
-- [ ] **`docs/process/README.md` is the packet gap, three times
-  running** — T019 widened to it for the subordination clause, T020
-  widened to it for the *Defined terms* section, and the earlier
-  observation named it alongside `auditing.md`. Three instances is
-  no longer a pattern to watch; it is a packet-table row that is
-  wrong. Fix it with the break-down row's missing plan document in
-  one considered change to `dispatch.md`'s table, since both are
-  specification changes reviewed as such.
-- [ ] **The `plan`-stage packet omits two process documents it keeps
-  needing** — T019 widened its packet to `docs/process/README.md`
-  (the subordination clause) and `docs/process/auditing.md` (the
-  semantic Auditor's gate pass and the spec-is-right rule), and
-  judged both structural rather than one-off: a plan-stage packet
-  that omits them will produce the same widening whenever a node
-  touches the process specification itself. That is now the second
-  packet-table observation on this project, after the break-down
-  row's missing plan document. Neither is urgent, and the table is
-  the context-frugality contract, so changing it is a specification
-  change reviewed as such — worth doing once, with both instances as
-  evidence, rather than twice in a hurry.
+  packet table** (node P1-N016) — When: opened 2026-09-01; planned
+  2026-10-30 (T074); specified 2026-11-03 at the owner's plan gate; E1
+  executed 2026-11-03 (T103). Status: executing; a leaf run as E1 then
+  E2, all seventeen decisions adopted at their defaults and the five
+  names ratified. E1 landed the entry's three parts in `dispatch.md`:
+  (i) who deletes a task branch, and why task branches are pushed, in
+  step 3; (ii) how work reaches `main`, promoting RU-009 (completed work
+  reaches `main` by pull request) and RU-010 (this repository reaches
+  `main` the same way); (iii) the packet table and the startup working
+  set. Two routed rows wait on an owner decision. Next: E2. Pointer:
+  [plan](plans/p1-n016-process-spec-maintenance.md), [dispatch.md](process/dispatch.md).
+- [x] **`docs/process/README.md` is the packet gap, three times
+  running** — When: T019 and T020; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; the
+  plan and specify rows of the packet table name
+  `docs/process/README.md`, and the break-down row names the node's
+  plan (P1-N016 plan, decision 9). Pointer:
+  [dispatch.md](process/dispatch.md#context-packets).
+- [x] **The `plan`-stage packet omits two process documents it keeps
+  needing** — When: T019; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; the plan row
+  names `docs/process/README.md` and `auditing.md` (P1-N016 plan, decision 9).
+  Pointer: [dispatch.md](process/dispatch.md#context-packets).
 - [ ] **Upstream proposal for `mtool`: no source file may read as
   binary to grep** — owner direction, 2026-08-30, prompted by the
   NUL-byte finding below and by the owner having hit the same
