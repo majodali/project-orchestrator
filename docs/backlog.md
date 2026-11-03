@@ -2579,6 +2579,13 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   rule, which is enabled by default and may target more than `main`.
   The process needs to say who deletes an unmerged branch, since the
   answer is evidently not the session that made it.
+  Noted 2026-11-03: the three branches are gone. `git ls-remote
+  --heads` lists none of them in majodali/project-orchestrator or in
+  majodali/project-orchestrator-service. The planner of T102 observed
+  it, and the Orchestrator checked it again. This record does not say
+  who deleted them. The row stays open. The Orchestrator still cannot
+  delete a remote branch, and the process still does not say who
+  deletes an unmerged one.
 - [ ] **A Backlog entry describing another repository goes stale
   silently** — found 2026-09-01 when T031 checked `eslint.config.js`
   and found the gap this Backlog still claimed was open, closed six
