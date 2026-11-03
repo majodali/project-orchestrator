@@ -232,6 +232,36 @@ spec. First entries land at the pending P1-N008 gate.
   specification gate (decision 11, default adopted), 2026-10-29.
   Applied: —
 
+- RU-023 [active] sequencing/process — May a task outside a ratified
+  sequence be dispatched while the sequence runs? Options seen: (A)
+  from `sequence-ratified` to `sequence-stopped` no task outside the
+  members is dispatched, and the first member is dispatched only when
+  no other task is in flight; (B) a task outside the members may run
+  alongside, under `dispatch.md`'s *Parallel dispatch*, when a
+  gate-approved plan records it as independent. Ruling: option A, as
+  an interim rule. It holds until the stop predicates read the journal
+  by member task; the Backlog row "Lift RU-023 from interim" holds the
+  lifting. Placed at the end of `dispatch.md`, *Sequence mode*, *The
+  run*. Rationale: the predicates and the owner's audit read the
+  journal between ratification and stop, and a concurrent writer would
+  bring back the Backlog race. *Type note:* type sequencing, entered in
+  the taxonomy by P1-N016's E2. Source: owner decision at the
+  acceptance of T103 (P1-N016, task E1), ask A23, in the words "A23 go
+  with A as interim", 2026-11-03. Applied: —
+
+- RU-024 [active] sequencing/process — Does a go-ahead that adopts
+  defaults ratify a sequence? Options seen: (A) a go-ahead ratifies a
+  sequence only when its words say so; (B) a ratification entry staged
+  with the default "ratify" is adopted by the go-ahead like any other
+  default. Ruling: option A. Placed in `dispatch.md`, *Sequence mode*,
+  *Ratification*, and after the bullet "Decisions batch at the gate"
+  of *Owner-decision economics*. Rationale: W-001 (two delivery modes,
+  human-gated) says "The approval is still explicit". *Type note:*
+  type sequencing, entered in the taxonomy by P1-N016's E2. Source:
+  owner decision at the acceptance of T103 (P1-N016, task E1), ask
+  A24, default adopted, in the words "A24 and A25 defaults too",
+  2026-11-03. Applied: —
+
 Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
 the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events

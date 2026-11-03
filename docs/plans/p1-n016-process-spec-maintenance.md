@@ -333,12 +333,13 @@ specification.
 - V14. `node plugin/scripts/sync_agents.ts --check`,
   `node plugin/scripts/form_check.ts`, `npm test`, `npm run typecheck`
   and `npm run lint` are clean at each task's commit.
-  Found contradiction, 2026-11-03, by task E1 (T103), not resolved
-  here: `npm run lint` fails at this node's branch base over
+  Ruling, 2026-11-03, by the owner at E1's acceptance (ask A25): for
+  this node, V14's lint clause reads "no lint error in a file the task
+  writes". `npm run lint` fails at this node's branch base over
   `docs/findings/p3-n005-stop-predicates/prepass.ts`, a file outside
   both tasks' writes. The Backlog row "`npm run lint` fails on `main`
-  over a file outside every tsconfig project" holds the failure. How
-  V14 reads for this node is the owner's decision at E1's acceptance.
+  over a file outside every tsconfig project" holds that failure. E1
+  (T103) meets V14 under this reading.
 - V15. No supersession marker placed at this node's gate stands at
   `done`.
 

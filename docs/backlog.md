@@ -804,20 +804,30 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   the checker extension-point cover note, the plugin tools tested as
   child processes. Pointer:
   [plan](plans/p3-n015-sequence-demonstration.md).
-- [ ] **Whether a task outside a ratified sequence may be dispatched
-  while it runs** — When: 2026-10-30, planning P3-N015; considered
-  2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103).
-  Status: open, for an owner decision and as evidence for P3-N016; E1
-  returned it `needs-judgment` with a recommended default, and P3-N015's
-  decision 5 answers it for one run. Pointer:
-  [plan of P3-N015](plans/p3-n015-sequence-demonstration.md), decision 5.
-- [ ] **Whether a go-ahead that adopts defaults ratifies a sequence**
-  — When: 2026-10-30, planning P3-N015; considered 2026-11-03 by
-  P1-N016 (process spec maintenance), task E1 (T103). Status: open, for
-  an owner decision and as evidence for P3-N016; E1 returned it
-  `needs-judgment` with a recommended default, and P3-N015's decision 4
-  answers it for one run. Pointer:
-  [plan of P3-N015](plans/p3-n015-sequence-demonstration.md), decision 4.
+- [x] **Whether a task outside a ratified sequence may be dispatched
+  while it runs** — When: 2026-10-30, planning P3-N015; landed
+  2026-11-03 at the acceptance of P1-N016 (process spec maintenance),
+  task E1 (T103). Status: done; the owner chose option A as an interim
+  rule, entered as RU-023 (no task outside a ratified sequence runs
+  while it runs, interim); E1's drafted text stands at the end of
+  `dispatch.md`, *Sequence mode*, *The run*; the row "Lift RU-023 from
+  interim" holds the lifting. Pointer:
+  [dispatch.md](process/dispatch.md#the-run), [rulings.md](rulings.md).
+- [ ] **Lift RU-023 from interim: let a task a gate-approved plan
+  records as independent run alongside a ratified sequence once the
+  predicates read the journal by member task** — When: 2026-11-03,
+  acceptance of T103. Status: open, for P3-N016. Pointer:
+  [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md),
+  [dispatch.md, *The run*](process/dispatch.md#the-run).
+- [x] **Whether a go-ahead that adopts defaults ratifies a sequence**
+  — When: 2026-10-30, planning P3-N015; landed 2026-11-03 at the
+  acceptance of P1-N016 (process spec maintenance), task E1 (T103).
+  Status: done; the owner chose option A, entered as RU-024 (a go-ahead
+  that adopts defaults ratifies no sequence); E1's two drafted texts
+  stand in `dispatch.md`, at the end of *Sequence mode*,
+  *Ratification*, first paragraph, and after the bullet "Decisions
+  batch at the gate" of *Owner-decision economics*. Pointer:
+  [dispatch.md](process/dispatch.md#ratification), [rulings.md](rulings.md).
 - [ ] **The P3-N005 plan places R16's preflight in this repository**
   — When: 2026-10-30, planning P3-N015 (T076 finding). Status: open;
   the plan's *The demonstration (G6)* lists R16's preflight wording
@@ -2636,7 +2646,9 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   step 3; (ii) how work reaches `main`, promoting RU-009 (completed work
   reaches `main` by pull request) and RU-010 (this repository reaches
   `main` the same way); (iii) the packet table and the startup working
-  set. Two routed rows wait on an owner decision. Next: E2. Pointer:
+  set. Two routed rows wait on an owner decision. Next: E2.
+  Noted 2026-11-03: E1 accepted under the owner's rulings A23 to A25;
+  E2 next. Pointer:
   [plan](plans/p1-n016-process-spec-maintenance.md), [dispatch.md](process/dispatch.md).
 - [x] **`docs/process/README.md` is the packet gap, three times
   running** — When: T019 and T020; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; the
@@ -3077,7 +3089,10 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 - [ ] **`npm run lint` fails on `main` over a file outside every
   tsconfig project** — When: 2026-10-30, T095. Status: open;
   `docs/findings/p3-n005-stop-predicates/prepass.ts` lies outside every
-  project the lint configuration names. Pointer: [the P3-N013
+  project the lint configuration names. Noted 2026-11-03: the owner
+  ruled at the acceptance of T103 (ask A25) that criterion V14 of
+  P1-N016's plan reads, for that node, as "no lint error in a file the
+  task writes"; the failure stands here. Pointer: [the P3-N013
   record](findings/p3-n005-stop-predicates.md).
 - [ ] **Register lines put a note and their links behind two em
   dashes** — When: 2026-10-30, T095. Status: open; the grammar takes

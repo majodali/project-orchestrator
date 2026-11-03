@@ -218,7 +218,8 @@ batches, against stated defaults.
 - **Decisions batch at the gate.** The gate summary lists them
   numbered, defaults stated; the owner's go-ahead adopts every
   default not explicitly overridden by number. One decision per
-  gate, not N.
+  gate, not N. The adoption of defaults never ratifies a sequence
+  ([Sequence mode](#ratification)).
 - **Only four classes interrupt the loop** (the *immediate class*):
   approved-scope expansion — additional repositories included;
   changes to existing test conditions (W-002); deviations from this
@@ -558,7 +559,10 @@ it. Each member runs as one or more tasks of the loop.
 Only the owner ratifies a sequence, at a gate. The Orchestrator never
 ratifies, extends or infers a sequence, from register order or from
 anything else. A delegating agent carries the owner's ratification to
-the roles it dispatches. It never creates one.
+the roles it dispatches. It never creates one. A go-ahead that adopts
+defaults ratifies no sequence: the owner's words state the
+ratification, such as "sequence ratified as drafted" (W-001 (two
+delivery modes, human-gated)).
 
 The ratification record is a section headed "Sequence ratified,
 <date>" in the document of the node whose gate ratified it. It holds
@@ -588,7 +592,12 @@ task at a time. A task is dispatched only after the previous task's
 not apply inside a sequence. No gate opens between members: while the
 sequence runs, the Orchestrator journals no `gate-opened` or
 `gate-crossed` event for a member. Each task is dispatched, served and
-accepted as the loop's four steps state.
+accepted as the loop's four steps state. The first member is
+dispatched only when no other task is in flight. No task outside the
+members is dispatched until the sequence stops. This is the rule
+under RU-023 (no task outside a ratified sequence runs while it runs,
+interim) until the stop predicates read the journal by member task;
+the Backlog row "Lift RU-023 from interim" holds the lifting.
 
 ### Landing
 
