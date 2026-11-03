@@ -496,7 +496,14 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   decisions); a leaf run as three execute tasks, the parts and their
   entries, the edges, then the headers, the measurement and the
   renderings. Its executing stage depended on P3-N007, done
-  2026-10-30. Pointer:
+  2026-10-30. Noted 2026-11-03: four lines of the slice's entries now
+  parse, fixed by the Orchestrator at the acceptance of T099 (P2-N023).
+  The service's pull request #26 reported them. The used-by line of
+  `plan-register-grammar` carries an outside item. The spec lines of
+  `run-journal` and `RU-016` carry the kind as the first note. The
+  modified-by line of `project-orchestrator-repo` closes with a partial
+  item. The parser reports 0 errors over 42 entries. The type's other
+  differences stay for this node. Pointer:
   [plan](plans/p3-n008-instance-over-this-repository.md).
 - [ ] **P3-N009's rules check that no heading's find matches two
   entries** — When: 2026-10-30, planning P3-N008 (T079). Status: open,
@@ -2967,7 +2974,13 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   journal event is `accepted`, at 2026-10-31T05:25:00Z, with ref
   `107e62e`. The owner decided that the view does not replace
   `docs/plan.md` yet (the entry *Whether the web view replaces
-  `docs/plan.md`*). Pointer:
+  `docs/plan.md`*). Noted 2026-11-03, after `done`. P2-N023 changed
+  the tree page in the service's pull request #25. The page now answers
+  V25 and V26 differently. The implementation map's rows sit inside the
+  tree. The list of what is next is gone, and its procedures feed the
+  tree's status. V27 counts link clicks. Opening a fold is not a step.
+  The Orchestrator ruled both (plan of P2-N023, decisions 10 and 11).
+  Pointer:
   [specification of P2-N003, child
   1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version);
   [service runbook, The web view (node
@@ -3158,8 +3171,15 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 - [ ] **UX refinement of the web view** (node P2-N023) — When:
   2026-11-03, the owner's decision at P2-N021's demonstration (V30);
   P2-N023 adopted and T097 dispatched the same day. Status: executing,
-  the node's running list. Shipped: none yet. Open: iteration 1, the
-  preview mode and the screenshot script. Pointer:
+  the node's running list. Three of ten iterations are done. Each
+  merged in majodali/project-orchestrator-service and deployed green.
+  Iteration 1 (T097, pull requests #23 and #24): the preview mode from
+  fixtures, local sign-in and the screenshot script. Iteration 2 (T098,
+  pull request #25): polished pages, a dark palette, and a foldable
+  tree. Each subtree shows a status, and resources sit inside the tree.
+  Iteration 3 (T099, pull request #26): the node page's tasks as a
+  table, a Gated line, and a Problems section. Open: iteration 4
+  (T100). Pointer:
   [plan](plans/p2-n023-web-view-ux-refinement.md) ·
   [brief](https://github.com/majodali/project-orchestrator-service/blob/main/docs/web-view-ux-brief.md).
 - [ ] **Service chunk 3 — topics and coordination** (node P2-N004) —

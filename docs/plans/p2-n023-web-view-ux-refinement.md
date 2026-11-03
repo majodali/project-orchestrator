@@ -51,10 +51,10 @@ Each iteration runs in four steps:
 
 **Iteration 1 is tooling.** It adds a preview mode to the local server,
 backed by fixtures, and a Playwright script that takes screenshots.
-Each iteration commits its three "after" screenshots at phone width
-under `docs/ux-shots/ux-NN/` in the service repository. The previous
-iteration's "after" screenshots are the next one's "before" (decision
-8, pending the owner).
+Each iteration commits its six "after" screenshots, at phone and
+desktop width, under `src/view/preview/shots/` in the service
+repository. The previous iteration's "after" screenshots are the next
+one's "before" (decision 8, amended).
 
 **Stop rule.** The loop stops at the first of two events: the owner
 decides that the view replaces `docs/plan.md`, or iteration 10 merges.
@@ -70,7 +70,8 @@ decides that the view replaces `docs/plan.md`, or iteration 10 merges.
     `src/view/preview/` (decision 7);
   - `src/localServer.ts`;
   - `test/view*.test.ts` and their fixtures;
-  - `docs/ux-shots/**`, the committed screenshots (decision 8);
+  - the committed screenshots, in `src/view/preview/shots/`, inside
+    `src/view/**` (decision 8, amended);
   - the `package.json` scripts and dev dependencies;
   - the README's "HTTP routes" and "Trying it locally" sections;
   - the runbook's web-view section;
@@ -113,6 +114,20 @@ For each merged iteration the Orchestrator records, in one pass:
 
 So the node always has an open dispatched task while it executes.
 
+## Iterations
+
+Three of ten iterations are done, as of 2026-11-03.
+
+| Iteration | Task | The service's pull requests |
+|---|---|---|
+| 1 | T097 | #23, #24 |
+| 2 | T098 | #25 |
+| 3 | T099 | #26 |
+| 4, open | T100 | none yet |
+
+The Backlog row "UX refinement of the web view" lists what each
+shipped.
+
 ## Monotonicity
 
 **No planned non-monotonicity.** A change to an existing view test
@@ -122,11 +137,13 @@ not obstacles) requires it.
 ## Decisions
 
 Decisions 1 to 4 were adopted by the owner on 2026-11-03, after V30.
-The Orchestrator set decisions 5 and 6 on 2026-11-03. The last three
-decisions answer the asks in the service's pull request #23 (T097).
-The Orchestrator set decisions 7 and 9. Decision 8 is the
+The Orchestrator set decisions 5 and 6 on 2026-11-03. The three
+decisions after them answer the asks in the service's pull request #23
+(T097). The Orchestrator set decisions 7 and 9. Decision 8 is the
 Orchestrator's proposal to the owner, adopted by the owner's default
-unless the owner says otherwise.
+unless the owner says otherwise. The Orchestrator amended it,
+answering pull request #24 (T097). The last two decisions answer the
+asks in pull request #25 (T098). The Orchestrator set them on 2026-11-03.
 
 1. The node runs as an owner-attended loop in a separate session on the
    service repository. The Orchestrator records results from merged
@@ -146,21 +163,35 @@ unless the owner says otherwise.
    not live in `scripts/`: the service's `tsconfig.eslint.json` excludes
    `scripts/`, and that file is outside the reach. `scripts/` leaves
    the reach. Set by the Orchestrator on 2026-11-03.
-8. Screenshots. Pending: adopted by the owner's default unless the
-   owner says otherwise. Each iteration commits its three "after"
-   screenshots at phone width, as PNG files, under
-   `docs/ux-shots/ux-NN/` in the service repository. The previous
-   iteration's "after" screenshots are the next one's "before". The
-   desktop screenshots and the "before" screenshots stay local. The
-   reach gains `docs/ux-shots/**`. The reason: the session cannot
-   attach images to a pull request body, and `shots/` is gitignored.
-   Proposed by the Orchestrator on 2026-11-03.
+8. Screenshots, as amended. Adopted by the owner's default unless the
+   owner says otherwise. Each iteration commits its six "after"
+   screenshots, at phone and desktop width, as PNG files, under
+   `src/view/preview/shots/` in the service repository. The previous
+   iteration's "after" screenshots are the next one's "before", so no
+   "before" set is committed. The reason: the session cannot attach
+   images to a pull request body. Proposed by the Orchestrator on
+   2026-11-03. The Orchestrator amended it later that day, answering
+   ask 1 of pull request #24. The decision said three at phone width
+   under `docs/ux-shots/ux-NN/`. The session already produces both
+   widths in `src/view/preview/shots/`. That path is inside the reach
+   `src/view/**`, so `docs/ux-shots/**` leaves the reach.
 9. Branch names. The pull request's title carries `ux-NN`. The branch
    name is free. The owner's session pushes to the branch its harness
    binds (`claude/...`). The result core in
    [dispatch.md](../process/dispatch.md#def-result-core) already
    accepts a branch that the execution surface mandates. Set by the
    Orchestrator on 2026-11-03.
+10. The tree page answers P2-N021's criteria V25 and V26 differently,
+    from iteration 2. The implementation map's rows sit inside the tree.
+    The list of what is next is gone, and its procedures feed the
+    tree's status. The criteria stand as written: they were met at
+    P2-N021's `done`. A dated note after V26 in the [specification of
+    P2-N003](../specs/p2-n003-owner-questions-and-plan-view.md#the-model)
+    and the Backlog row of P2-N021 record the change. Set by the
+    Orchestrator on 2026-11-03, answering ask 1 of pull request #25.
+11. V27's navigation bound counts link clicks. Opening a fold is not a
+    step. Set by the Orchestrator on 2026-11-03, answering ask 2 of
+    pull request #25.
 
 Decision 5 was ratified by the Orchestrator under the P3-N010
 precedent. The owner saw it on 2026-11-03 and let it stand.

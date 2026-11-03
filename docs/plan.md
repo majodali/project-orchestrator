@@ -310,7 +310,7 @@ The children of P2-N003, in their [specification](specs/p2-n003-owner-questions-
   - Needed by: nothing.
   - Documents: the parent's [specification, child 2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue).
 - P2-N023 Web view UX refinement
-  - Stage: executing, 2026-11-03. The owner adopted the node's plan that day, after V30, and the node moved from identified to executing at that adoption. Task T097 is iteration 1 of the owner-attended session on majodali/project-orchestrator-service: the preview mode and the screenshot script. Each later iteration gets its own task, dispatched when the previous one is accepted.
+  - Stage: executing, 2026-11-03. The owner adopted the node's plan that day, after V30, and the node moved from identified to executing at that adoption. The owner-attended session on majodali/project-orchestrator-service has finished three iterations, T097 to T099. Task T100 is iteration 4. Each iteration gets its own task, dispatched when the previous one is accepted.
   - Outcome: The web view's pages read and feel well enough on a phone for the owner to decide that the view replaces this document. The work runs as one small pull request per iteration, at most ten. It adds no data source and no route without a decision recorded in the node.
   - Depends on: P2-N021, which is done. The register marks it independent of P2-N022.
   - Needed by: nothing.
@@ -576,7 +576,7 @@ Specifying now, after the owner's gate of 2026-10-30:
 
 Executing now:
 
-- P2-N023 (web view UX refinement): executing from 2026-11-03, task T097, the owner-attended session; iteration 1 first.
+- P2-N023 (web view UX refinement): executing from 2026-11-03, the owner-attended session. Three iterations are accepted, and task T100 is open.
 
 Gated on the owner:
 

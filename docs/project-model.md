@@ -202,9 +202,9 @@ record](project-model-slice-record.md) holds it.
   imports `parseRegister` and `STAGES`; from [Backlog, entry for
   P1-N012](backlog.md)) · P2-N010 (Plan-state update; the service
   repository adopted the grammar by vendoring; from [Backlog, entry for
-  the service-side adoption](backlog.md)) · the repository
-  majodali/project-orchestrator-service (outside the Plan register: a
-  consuming repository; it holds a vendored copy in
+  the service-side adoption](backlog.md)) · outside: the repository
+  majodali/project-orchestrator-service (a consuming repository; it
+  holds a vendored copy in
   `src/planRegister/vendored/`, kept in step by
   `plugin/scripts/sync_shared_unit.ts --check`; from [Backlog, entry for
   the service-side adoption](backlog.md); [RU-012 (how two repositories
@@ -228,7 +228,7 @@ record](project-model-slice-record.md) holds it.
   created-by and modified-by lines, all done; from [Plan
   register](plan-register.md))
 - **spec:** [Observability](process/observability.md) (process
-  specification) (from [Classification](classification.md), the Run
+  specification; from [Classification](classification.md), the Run
   journal definition)
 - **risks:** none (the [Risk register](open-risks.md) has no entry that
   names the journal as at risk; from [Risk register](open-risks.md))
@@ -262,7 +262,7 @@ record](project-model-slice-record.md) holds it.
   line, done; from [Plan register](plan-register.md)) · own status
   active (from [Ruling register](rulings.md))
 - **spec:** [Ruling register type](process/rulings.md) (process
-  specification, the entry shape and the lifecycle of a ruling) (from
+  specification; the entry shape and the lifecycle of a ruling; from
   [Classification](classification.md), the Ruling register definition)
 - **risks:** none (the [Risk register](open-risks.md) has no entry that
   names the ruling; from [Risk register](open-risks.md))
@@ -333,8 +333,8 @@ record](project-model-slice-record.md) holds it.
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
   breakdown) · P2-N018 (The loop in git alone; from [specification of
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
-  breakdown) · no record before RU-016 (2026-09-01) names the
-  repository a node wrote, so this list is partial (from [Ruling
+  breakdown) · partial: no record before RU-016 (2026-09-01) names the
+  repository a node wrote (from [Ruling
   register](rulings.md), RU-016 (repository reach))
 - **used-by:** P2-N009 (Plan-state read; reads this repository's Plan
   register at a pinned commit; from [plan of
