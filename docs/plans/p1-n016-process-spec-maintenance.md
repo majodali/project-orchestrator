@@ -688,21 +688,25 @@ execute tasks* lists.
 ## Terms this node introduces
 
 The owner ratified all five names on 2026-11-03 (decision 16). Each
-definition below is the term's definition site until E2 writes
-`docs/vocabulary.md`. Under decision 12, that file's row then becomes
-the definition site, and this anchor links it.
+definition below was the term's definition site until E2 wrote
+[`docs/vocabulary.md`](../vocabulary.md). Under decision 12, that
+file's row is now the definition site, and each anchor below links it.
 
 - <a id="def-sequencing"></a>**sequencing**: a type in the Ruling
-  register's taxonomy, for rulings on dispatch order and concurrency.
+  register's taxonomy, for rulings on dispatch order and concurrency
+  ([vocabulary row](../vocabulary.md#def-sequencing)).
 - <a id="def-stack"></a>**stack**: a type in the Ruling register's
-  taxonomy, for rulings on languages, runtimes and code sharing.
+  taxonomy, for rulings on languages, runtimes and code sharing
+  ([vocabulary row](../vocabulary.md#def-stack)).
 - <a id="def-knowledge"></a>**knowledge**: a type in the Ruling
-  register's taxonomy, for rulings on which document holds which truth.
+  register's taxonomy, for rulings on which document holds which truth
+  ([vocabulary row](../vocabulary.md#def-knowledge)).
 - <a id="def-unblocked"></a>**unblocked**: a run journal event kind
-  recording that a hold was released. Its note names what released it.
+  recording that a hold was released. Its note names what released it
+  ([vocabulary row](../vocabulary.md#def-unblocked)).
 - <a id="def-risk-opened"></a>**risk-opened**: a run journal event
   kind recording that a Risk register entry was opened. Its note names
-  the entry.
+  the entry ([vocabulary row](../vocabulary.md#def-risk-opened)).
 
 ## References
 

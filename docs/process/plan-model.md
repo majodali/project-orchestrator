@@ -9,20 +9,17 @@ the [process specification's](README.md) defined terms.
 
 ## The hierarchy
 
-> Superseded by decision 8 of the
-> [plan of node P1-N016](../plans/p1-n016-process-spec-maintenance.md)
-> (process spec maintenance), a leaf runs as one task or a fixed
-> sequence of tasks, adopted at that plan's gate. Read that decision
-> for what a leaf is until the node's execute reworks this paragraph.
-
 A managed project's plan is a tree of **nodes**. The root node is the
 project's current major outcome (typically one per active plan
 document) — typically a comprehensive collection of definitions,
 features, technical requirements, and other facets, not a single
-statement. Interior nodes are decompositions; leaf nodes are units of
-work executable in a single role session. Depth is not fixed — nodes
-are broken down until their children are leaf-sized, and no further
-(no empty ceremony).
+statement. Interior nodes are decompositions. A **leaf** is a node
+with one outcome and no part that validates on its own. It runs as one
+task, or as a fixed sequence of tasks its plan names. A task that needs
+an independent session, such as a blind reading, is one of those tasks
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+decision 8). Depth is not fixed — nodes are broken down until their
+children are leaves, and no further (no empty ceremony).
 
 The model is V-shaped in spirit: a node's **specification** is
 written on the way down, its **verification** runs on the way up
@@ -132,6 +129,27 @@ Rules:
   parent's specification or plan. A dependency stated anywhere else,
   such as in another plan's prose, is not a record. Links between
   plans keep only their navigation meaning.
+- A child that its parent's specification carries at criteria depth
+  gets a plan task and no specify task. Its plan gate moves it
+  `planned` → `specified`, with the parent's child section and the
+  plan's additions as its specification. The plan does not stage the
+  question
+  ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+  decision 7).
+- An interior node gets no separate `break down` task when its
+  specification already carries the children at the depth that task
+  would produce. The children are entered `identified`, with their
+  Backlog entries, at the specification gate, and the node moves
+  `specified` → `broken-down` in the same act. A specification that
+  does not reach that depth still gets the task (RU-020 (no separate
+  break-down task when the specification reaches breakdown depth),
+  [Ruling register](../rulings.md)). The rule above for a carried
+  child applies the same reasoning one stage earlier.
+- A node whose deliverable targets an external party, such as a
+  proposal to an upstream repository, completes at the artifact, not at
+  the party's disposition. External acceptance is not this project's
+  to verify (RU-003 (a node targeting an external party completes at
+  the artifact), [Ruling register](../rulings.md)).
 - Backward transitions (any stage → an earlier stage) are permitted
   and MUST record their reason. They are learning, not failure; the
   monotonic ideal bounds them, it does not forbid them.
@@ -158,6 +176,11 @@ no more. Owner ruling, 2026-08-24
   `done`, its entry is checked and rewritten to describe what
   actually shipped, in the same commit as the completing work
   (W-003).
+- A checked entry stays where it stands in the Backlog. A reader
+  looking for finished work reads every checked entry, wherever it
+  sits, and no entry moves when it is checked
+  ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+  decision 13).
 - A managed project SHOULD declare the node lifecycle's stage set as
   (part of) its methodology Workflow, so Backlog entries carry node
   stages as their stage designations and the two documents cannot

@@ -55,10 +55,28 @@ drill-down key into its transcript) · `ref` (commit SHA or PR when
 one exists) · `tokens_in`/`tokens_out` (where the event carries
 usage) · `note` (short free text). Absent fields are `null` or
 omitted. A `note` may be long when it carries a sequence member's
-result record ([dispatch.md](dispatch.md#sequence-mode)).
+result record ([dispatch.md](dispatch.md#sequence-mode)), or a
+result's Asks part.
+
+Three fields have fixed contents
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+decisions 14 and 15):
+
+- `stage` holds the task's stage as the
+  [packet table](dispatch.md#context-packets) names it: `plan`,
+  `specify`, `break down`, `execute` or `verify`.
+- `task` is `null` on a gate event, `gate-opened` or `gate-crossed`.
+- `session` on a `dispatched` event holds the launched session's
+  identifier. The Orchestrator writes the event only after the launch
+  returns ([dispatch.md](dispatch.md#the-loop), step 2).
+
+Every `result-received` note carries the result's status and its Asks
+part verbatim, or the part's stated empty form, inside a sequence and
+outside one ([dispatch.md](dispatch.md#sequence-mode), the member's
+result record).
 
 Event kinds (v1, extendable by spec change): `dispatched` ·
-`result-received` (with the task's returned status) · `accepted` ·
+`result-received` (with the task's returned status and Asks part) · `accepted` ·
 `check-failed` · `needs-judgment` · `blocked` · `stale` ·
 `backward-transition` · `packet-widened` · `precedent-applied` (a
 [Ruling register](rulings.md) match deciding a staged question) ·
@@ -105,8 +123,26 @@ recorded gap with a home. The second needs no kind.
   journal already records every stage change. The web view derives a
   part's state when it renders a page.
 
-The gaps `unblocked` and risk-opened stay with node P1-N016 (process
-spec maintenance).
+The kinds [`unblocked`](../vocabulary.md#def-unblocked) and
+[`risk-opened`](../vocabulary.md#def-risk-opened) were ratified at the
+plan gate of node P1-N016 (process spec maintenance) on 2026-11-03
+(its plan's decisions 14 and 16). They enter the list above in the
+same commit as the form checker's set. The Backlog row "The run
+journal can record a block but not its release" holds that change.
+
+**Review of the vocabulary, 2026-11-03** (node P1-N016, task E2,
+T104). The same Backlog row asked what else a node does that the
+journal cannot say. The review read each step of
+[the loop](dispatch.md#the-loop) and each register the Orchestrator
+writes. Besides the release of a block and the opening of a Risk
+register entry, it found three acts with no kind of their own:
+
+- A ruling captured or superseded at a gate. Only the `gate-crossed`
+  note can carry it. A Backlog row holds the gap.
+- A task's claim in a [pull run](../vocabulary.md#def-pull-run). The
+  Backlog row "A `claimed` journal
+  event kind" holds it.
+- An edge invalidated by a superseded ruling, as above.
 
 ## Write and read rules
 
