@@ -2939,41 +2939,40 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   (T093), specification gate crossed 2026-10-30 with defaults 11 to 15
   and three terms ratified. Status: broken-down into P2-N021 and
   P2-N022 (RU-020); the specification is `active`; the node verifies
-  against its criteria I1 to I10 after both children are done. Pointer:
+  against its criteria I1 to I10 after both children are done. P2-N021
+  done 2026-11-03. Next: P2-N022, after P2-N006. Pointer:
   [specification](specs/p2-n003-owner-questions-and-plan-view.md).
-- [ ] **P2-N021 identified, 2026-10-30: the web view's first version**
-  — When: 2026-10-30, at P2-N003's specification gate; E1 dispatched
-  2026-10-30 (T094), accepted 2026-10-30; E2 dispatched 2026-10-30
-  (T095). Status: verifying; E1 returned blocked and was accepted under
-  the T008 precedent, its pull request #18 open on
-  majodali/project-orchestrator-service (commit `bf8f1b5`), every
-  criterion met but V19 and V22, owed as deploy evidence, and
-  `sam validate --lint`, which the pull request's check runs; E2 (T095),
-  the node and task pages, returned needs-judgment on W-002 (E1's
-  `test/viewDeployWiring.test.ts` widened to admit E2's two route keys)
-  and blocked on V22, every other criterion met; the owner ruled option
-  (a) on 2026-11-01, the widened test stands, and E2 was accepted the
-  same day; E1 and E2 are merged to the service's `main` (pull requests
-  #18 and #19) and the shared unit to this repository's `main` (pull
-  request #18); E3 (T096), the model, dispatched 2026-11-01, returned
-  needs-judgment on W-002 (six assertions in E1's and E2's tests
-  changed to admit the instance's read and to replace the Resources
-  placeholder) and blocked on V22, V24 to V29 met; the owner ruled
-  option (a) on 2026-11-02 and E3 was accepted the same day; its pull
-  requests are merged in both repositories; all three tasks are done;
-  V19 is met; V22's figures were recorded in the service's runbook on
-  2026-11-03, and P2-N021 moved to `verifying` the same day, gated on
-  the owner demonstration (V30) and the decision on *Whether the web
-  view replaces `docs/plan.md`*; a leaf, run as execute tasks E1 to E3
-  against criteria V1 to V30, then the owner demonstration; no plan or
-  specify task (plan decision 2); E3's wait on P3-N007 is met.
-  Pointer:
+- [x] **P2-N021 done, 2026-11-03: the web view's first version** —
+  When: identified at P2-N003's specification gate; tasks E1 to E3
+  (T094 to T096) accepted by 2026-11-02; done at the owner's
+  demonstration (V30). Status: done. Shipped the `/view` routes of
+  majodali/project-orchestrator-service. They give sign-in by the view
+  token, the plan tree at a named commit, the node page, the task page,
+  and the model's two renderings. Shipped in this repository the shared
+  Cost log and journal unit and the Project model parser. Both owner
+  rulings on W-002 chose option (a). V19 and V22 are met, as the
+  deploy-evidence entry records. The sign-in page's latency row stays
+  not measured. V30, 2026-11-03: the owner signed in on an Android
+  phone, in the DuckDuckGo browser. Sign-in and navigation worked,
+  including the links to the git documents and pages. The page named
+  `5bc3fb8`, this repository's `main` at the time. The owner checked
+  three facts against git at that SHA, and each verified. First, P3-N011's
+  register line reads `verifying`, gated on the owner's rulings, and
+  depends on P3-N010. Second, task T083's Cost log row is dated
+  2026-10-30, stage execute, role implementer. Third, task T083's last
+  journal event is `accepted`, at 2026-10-31T05:25:00Z, with ref
+  `107e62e`. The owner decided that the view does not replace
+  `docs/plan.md` yet (the entry *Whether the web view replaces
+  `docs/plan.md`*). Pointer:
   [specification of P2-N003, child
-  1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
+  1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version);
+  [service runbook, The web view (node
+  P2-N021)](https://github.com/majodali/project-orchestrator-service/blob/main/docs/runbook.md#the-web-view-node-p2-n021).
 - [ ] **P2-N022 identified, 2026-10-30: the owner question queue** —
   When: 2026-10-30, at P2-N003's specification gate. Status:
   identified; specified at outcome depth, with its own plan and specify
-  tasks after P2-N006; depends on P2-N021 and P2-N005. Pointer:
+  tasks after P2-N006; depends on P2-N021, done 2026-11-03, and
+  P2-N005. Pointer:
   [specification of P2-N003, child
   2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue).
 - [ ] **Waits per task under the node-to-node dependency rule** — When:
@@ -3145,10 +3144,19 @@ below). Correcting one fact in an earlier entry does not rewrite it.
   them in the service, and RU-012 asks for one copy once this
   repository renders its Backlog by script. Pointer: [plan of
   P2-N003](plans/p2-n003-owner-questions-and-plan-view.md#what-it-shows-three-pages).
-- [ ] **Whether the web view replaces `docs/plan.md`** — When:
-  2026-10-30, planning P2-N003 (T075). Status: open; decided at child
-  1's demonstration, against `docs/plan.md`'s own retirement
-  condition. Pointer: [plan.md](plan.md).
+- [x] **Whether the web view replaces `docs/plan.md`** — When:
+  2026-10-30, planning P2-N003 (T075); decided 2026-11-03, at P2-N021's
+  demonstration (V30). Status: done. The view does not replace
+  `docs/plan.md` yet; UX refinement comes first. The owner's words:
+  "The web view is showing promise, but is not ready to replace
+  docs/plan.md - we need to do some UX refinement first."
+  `docs/plan.md` stays the hand rendering. Pointer: [plan.md](plan.md).
+- [ ] **UX refinement of the web view** — When: 2026-11-03, the
+  owner's decision at P2-N021's demonstration (V30). Status: open, for
+  the owner to list the refinements wanted before the view can replace
+  `docs/plan.md`; P2-N022 is the next web-view node. Pointer:
+  [service runbook, The web view (node
+  P2-N021)](https://github.com/majodali/project-orchestrator-service/blob/main/docs/runbook.md#the-web-view-node-p2-n021).
 - [ ] **Service chunk 3 — topics and coordination** (node P2-N004) —
   project topics for status and cross-session coordination, including
   who is blocked on what; channels-push availability on the web
