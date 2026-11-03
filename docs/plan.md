@@ -182,7 +182,7 @@ The children of P1-N009, in their chain order:
 
 ### P1-N016 Process spec maintenance: branch lifecycle, PR citation, packet table
 
-- Stage: specified, 2026-11-03, at the owner's plan gate. The owner adopted all seventeen decisions at their defaults and ratified the five names. Under decision 2 the plan's criteria V1 to V15 and decisions 4 to 16 are the specification. Next: execute task E1, then E2.
+- Stage: executing, 2026-11-03. The owner crossed the plan gate that day, adopting all seventeen decisions at their defaults and ratifying the five names. Under decision 2 the plan's criteria V1 to V15 and decisions 4 to 16 are the specification. Execute task E1 (T103, an Implementer task at the standard tier) is dispatched on branch p1-n016-e1; it writes `dispatch.md`, `roles.md`, the three role contracts and the orchestrate skill. E2 follows E1's acceptance.
 - Outcome: Every Backlog row routed to this node, thirty-five in all, is landed in the process specification or closed with a stated reason. `dispatch.md` says who deletes a task branch and when, and how work reaches `main` by pull request. The packet table carries every observation recorded against it. `plan-model.md` says what a leaf is when its work takes several tasks. `observability.md` can record a block's release and a new risk. The project gains a vocabulary file. Each process-scope ruling flagged for promotion is promoted or declined.
 - Depends on: nothing for planning. Its executing stage waits on the acceptance of E1, the first execute task of P3-N007 (the type declared), which edits the same process documents. That wait is met: P3-N007 is done. P1-N016 does not wait on P3-N009 (sibling ordering retired) ([plan](plans/p1-n016-process-spec-maintenance.md), decision 3).
 - Needed by: P1-N001.
@@ -566,7 +566,7 @@ Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
 - P3-N012 (the Article 8 proposal): planning. P3-N011 is done.
-- P1-N016 (process spec maintenance): execute task E1, an Implementer task at the standard tier. The owner crossed its plan gate on 2026-11-03.
+- P1-N016 (process spec maintenance): executing. E1 (T103) dispatched on 2026-11-03; E2 waits on E1's acceptance.
 
 Planning now, dispatched on 2026-11-03 after the owner's decision:
 
