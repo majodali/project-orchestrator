@@ -2118,7 +2118,7 @@ decision 13).
   maintenance), task E2 (T104). Status: open, for the owner's ruling on
   T104's result; decision 12 of P1-N016's plan has each passage that
   first defined a term link its row, and only P1-N016's five anchors
-  do, because the other passages lie in nine documents outside E2's
+  do, because the other passages lie in twelve documents outside E2's
   writes. Pointer: [vocabulary](vocabulary.md),
   [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), decision 12.
 - [ ] **Methodology citations in the process spec point at the
