@@ -15,6 +15,7 @@ Status: active
 This [document](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-document) renders the [Plan register](plan-register.md) by hand.
 Each node's outcome comes from the node's [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan) and [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification).
 The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gates of P2-N003 and P2-N005 and the verifying gate of P3-N007, and after the owner's verifying gate of P2-N021 and adoption of P2-N023 on 2026-11-03.
+It also reads the owner's decision of 2026-11-03 on P2-N022 and P2-N017.
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
@@ -304,9 +305,9 @@ The children of P2-N003, in their [specification](specs/p2-n003-owner-questions-
   - Needed by: P2-N006 and P2-N022.
   - Documents: the parent's [specification, child 1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
 - P2-N022 The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop
-  - Stage: identified, 2026-10-30. No plan yet.
+  - Stage: identified, 2026-10-30. No plan yet. Its plan task, T101, was dispatched on 2026-11-03, to the owner's planning gate.
   - Outcome: A gate decision the Orchestrator raises waits in the queue. The owner answers it in the web view. The session that pulls its next task picks up the answer and commits it to git.
-  - Depends on: P2-N021, which is done, and P2-N005. It follows P2-N006 by the owner's ordering of 2026-10-29.
+  - Depends on: P2-N021, which is done, and P2-N005 for its final slice only. On 2026-11-03 the owner lifted the ordering of 2026-10-29 that put it after P2-N006.
   - Needed by: nothing.
   - Documents: the parent's [specification, child 2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue).
 - P2-N023 Web view UX refinement
@@ -332,10 +333,10 @@ The children of P2-N003, in their [specification](specs/p2-n003-owner-questions-
 - Needed by: P2-N006 and P2-N022.
 - Documents: [plan](plans/p2-n005-task-pull-loop.md), [specification](specs/p2-n005-task-pull-loop.md), [service plan, chunk 4](plans/orchestration-service.md#chunk-4--the-task-pull-loop).
 
-The children of P2-N005, in their [specification](specs/p2-n005-task-pull-loop.md#the-breakdown)'s order. Each goes to execute with no plan or specify task of its own:
+The children of P2-N005, in their [specification](specs/p2-n005-task-pull-loop.md#the-breakdown)'s order. Each goes to execute with no plan or specify task of its own, except P2-N017, which the owner sent to planning on 2026-11-03:
 
 - P2-N017 The platform facts, verified
-  - Stage: identified, 2026-10-30.
+  - Stage: identified, 2026-10-30. Its plan task, T102, was dispatched on 2026-11-03, to the owner's planning gate.
   - Outcome: A committed finding records five facts from real sessions, each answered yes or no with its evidence. The facts include whether a session can push a claim branch, whether git refuses a second claim, and whether a session can delete a claim branch.
   - Depends on: nothing. No other child starts until its finding is committed. Owner action O11 supplies the facts from the owner's local surface.
   - Needed by: P2-N018, P2-N019 and P2-N020.
@@ -364,7 +365,7 @@ The children of P2-N005, in their [specification](specs/p2-n005-task-pull-loop.m
 - Stage: identified, 2026-08-26. No plan yet.
 - Outcome: The orchestration of majodali/project-orchestrator moves onto the service. Then the pilot runs on methodology-tools through the service. The owner chose methodology-tools on 2026-10-29. The pilot records its costs and lessons.
 - Depends on: P2-N005, and P2-N021 (the web view's first version) and P1-N014, which are done.
-- Needed by: P1-N006, P2-N004, and P2-N022 (the owner question queue).
+- Needed by: P1-N006 and P2-N004.
 - Documents: [service plan, chunk 5](plans/orchestration-service.md#chunk-5--migration-and-pilot).
 
 ## P3-N001 Project comprehension and continuous implementation
@@ -497,7 +498,7 @@ One piece of work moved between lines: P2-N006 took over the pilot of P1-N006 (p
 Inside each line the open nodes form chains, listed here from first to last.
 
 - Line P2, the task-pull loop: P2-N017, then P2-N018 and P2-N019, independent of each other, then P2-N020.
-- Line P2: P2-N005 (the task-pull loop) comes before P2-N006. P2-N021 (the web view's first version) is done. P2-N023 (web view UX refinement) runs beside the chain and blocks nothing. P2-N004 (topics and coordination) and P2-N022 (the owner question queue) come after P2-N006. P2-N022 also waits on P2-N005.
+- Line P2: P2-N005 (the task-pull loop) comes before P2-N006. P2-N021 (the web view's first version) is done. P2-N023 (web view UX refinement) runs beside the chain and blocks nothing. P2-N004 (topics and coordination) comes after P2-N006. P2-N022 (the owner question queue) waits on P2-N005 for its final slice only.
 - Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out).
 - Line P3, the comprehension model: P3-N008, then P3-N009. P3-N006 and P3-N007 are done. P3-N004 (reversibility) waits on the whole of P3-N002.
 - Line P3, the risk catalogue: P3-N010, then P3-N011, then P3-N012.
@@ -551,7 +552,6 @@ graph LR
   P3N010 --> P3N011 --> P3N012
   P3N013 --> P3N014 --> P3N015 --> P3N016
   P3N002 --> P3N004
-  P2N006 --> P2N022
   P2N017 --> P2N018 --> P2N020
   P2N017 --> P2N019 --> P2N020
   P2N020 --> P2N022
@@ -569,10 +569,11 @@ A node is actionable when every recorded dependency of its next stage is met.
 Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
-- P2-N017 (the platform facts, verified): execute. Its local-surface facts wait on owner action O11.
 
-Specifying now, after the owner's gate of 2026-10-30:
+Planning now, dispatched on 2026-11-03 after the owner's decision:
 
+- P2-N022 (the owner question queue), task T101.
+- P2-N017 (the platform facts, verified), task T102. Its execute stage follows the owner's planning gate, and its local-surface facts wait on owner action O11.
 
 Executing now:
 
@@ -594,7 +595,7 @@ Waiting:
 - P3-N004 (reversibility): waits on P3-N002.
 - P2-N018 (the loop in git alone) and P2-N019 (role-aware identity): each waits on P2-N017.
 - P2-N020 (the task tools): waits on P2-N018 and P2-N019.
-- P2-N022 (the owner question queue): waits on P2-N005, and follows P2-N006.
+- P2-N022 (the owner question queue): its final slice waits on P2-N005.
 - P2-N006 (migration and pilot): waits on P2-N005.
 - P2-N004 (topics and coordination): its executing stage waits on P2-N006.
 - P1-N006 (pilot on a real project): waits on P2-N006.

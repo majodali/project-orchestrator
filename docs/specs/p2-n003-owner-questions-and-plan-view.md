@@ -621,6 +621,15 @@ questions reach the asking session by MCP elicitation.
   ordering of 2026-10-29, not by a resource it uses. The register note
   carries that order.
 
+(Noted 2026-11-03, by the owner's decision of that day. The owner
+lifted the ordering of 2026-10-29: child 2 no longer follows P2-N006.
+Its plan task, T101, was dispatched that day. It still depends on
+child 1, `done` 2026-11-03. It depends on P2-N005 for its final slice
+only, and its first two slices do not wait on P2-N005. The opening
+list, this section's first paragraph and *What the edges leave out*
+state the old ordering. They stand as the gate passed them, and this
+note supersedes them. The register note carries the lifting.)
+
 **What its planning decides.** Its plan answers each of these, and its
 specification turns them into criteria.
 
