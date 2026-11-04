@@ -595,6 +595,19 @@ defaults ratifies no sequence) require.
 Next: the ratification record, then P3-N017's execute task, once T100
 and T104 have landed.
 
+## Sequence ratified, 2026-11-04
+
+> - **Members**, in dispatch order: P3-N017 `execute`; P3-N018
+>   `execute`; P3-N019 `execute`; P3-N020 `execute`.
+> - **Budget**: 4 tasks.
+> - **Pre-authorizations**: none.
+> - **Additional repositories**: none.
+> - **Accepted risks**: none.
+
+The owner's words: "A9 P3-N015 plan - go with all defaults. The
+recommended sequence M1-M4 is ratified." The first member's dispatch
+waits under decision 5 until no other task is in flight.
+
 ## References
 
 - [p3-n005-sequence-mode](p3-n005-sequence-mode.md) and its
