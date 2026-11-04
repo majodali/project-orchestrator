@@ -824,15 +824,41 @@ decision 13).
   ratified or running and with Backlog entries by node ID; the same
   set stands in the Orchestrator contract and the `orchestrate` skill
   (P1-N016 plan, decision 9). Pointer: [dispatch.md](process/dispatch.md#the-loop).
-- [ ] **P3-N015 planned, 2026-10-30 (T076)** — the demonstration: a
-  ratified sequence lands two chunks and stops on asks (spec child C;
-  decisions 13 and 15). Status: planned, gated on the owner's review
-  (seven decisions) and the explicit ratification of a sequence of
-  four members, each an open entry of this Backlog: the methodology
-  links retargeted to the pin, anchors on the Risk register entries,
-  the checker extension-point cover note, the plugin tools tested as
-  child processes. Pointer:
-  [plan](plans/p3-n015-sequence-demonstration.md).
+- [ ] **The demonstration: a ratified sequence lands two chunks and
+  stops on asks** (node P3-N015, child C of P3-N005) — When: planned
+  2026-10-30 (T076); plan gate crossed 2026-11-04, decisions 1 to 7 at
+  their defaults, the sequence ratified in the owner's words. Status:
+  broken-down into P3-N017 to P3-N020 (decision 3); specified by the
+  parent's *Child C* with the plan's criteria; the plan is `active`;
+  the first member is dispatched only when no other task is in flight
+  (decision 5). Pointer:
+  [plan](plans/p3-n015-sequence-demonstration.md) ·
+  [specification, child
+  C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks).
+- [ ] **P3-N017 specified, 2026-11-04: the process specification cites
+  the methodology at its pin** — When: 2026-11-04, at P3-N015's plan
+  gate. Status: specified; member 1 of the ratified sequence, ratified
+  for `execute`; discharges the row "Methodology citations in the
+  process spec point at the superseded pin". Pointer:
+  [plan of P3-N015, M1](plans/p3-n015-sequence-demonstration.md#m1-the-process-specification-cites-the-methodology-at-its-pin).
+- [ ] **P3-N018 specified, 2026-11-04: Risk register entries can be
+  linked one by one** — When: 2026-11-04, at P3-N015's plan gate.
+  Status: specified; member 2 of the ratified sequence, ratified for
+  `execute`; discharges the Risk register half of the row "Risk
+  register and Ruling register entries have no anchors". Pointer:
+  [plan of P3-N015, M2](plans/p3-n015-sequence-demonstration.md#m2-risk-register-entries-can-be-linked-one-by-one).
+- [ ] **P3-N019 specified, 2026-11-04: the checker extension-point
+  proposal is ready to carry** — When: 2026-11-04, at P3-N015's plan
+  gate. Status: specified; member 3 of the ratified sequence, ratified
+  for `execute`; prepares the row "Deliver the extension-point proposal
+  upstream" for the owner's carrying. Pointer:
+  [plan of P3-N015, M3](plans/p3-n015-sequence-demonstration.md#m3-the-checker-extension-point-proposal-is-ready-to-carry).
+- [ ] **P3-N020 specified, 2026-11-04: the plugin tools are tested the
+  way they run** — When: 2026-11-04, at P3-N015's plan gate. Status:
+  specified; member 4 of the ratified sequence, ratified for
+  `execute`; discharges the row "No committed test runs the plugin
+  tools the way they run". Pointer:
+  [plan of P3-N015, M4](plans/p3-n015-sequence-demonstration.md#m4-the-plugin-tools-are-tested-the-way-they-run).
 - [x] **Whether a task outside a ratified sequence may be dispatched
   while it runs** — When: 2026-10-30, planning P3-N015; landed
   2026-11-03 at the acceptance of P1-N016 (process spec maintenance),

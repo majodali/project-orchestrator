@@ -51,7 +51,12 @@ instance over this repository) populates it.
   P2-N023](plans/p2-n023-web-view-ux-refinement.md). The entries also
   hold seventeen of P1-N016's edges, from the *Dependencies* section of
   the [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md),
-  transcribed at its plan gate of 2026-11-03. Edges that other records
+  transcribed at its plan gate of 2026-11-03. The entries also hold
+  thirteen edges of P3-N015 and its children P3-N017 to P3-N020, from
+  the *Dependencies* and *Repository reach* sections and the member
+  sections of the [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), transcribed at its
+  plan gate of 2026-11-04. Edges that other records
   state are still held. An item reading `not yet derived`
   marks a facet no record has filled yet. Each `state:` line reads what
   the edges the entries hold give.
@@ -294,7 +299,10 @@ record](project-model-slice-record.md) holds it.
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown) ·
   P1-N016 (Process spec maintenance; from [plan of
-  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies) ·
+  P3-N015 (The demonstration; its repository reach is declared under
+  the ruling; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), Repository reach)
 
 ## project-orchestrator-repo
 
@@ -338,7 +346,9 @@ record](project-model-slice-record.md) holds it.
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
   breakdown) · P2-N018 (The loop in git alone; from [specification of
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
-  breakdown) · partial: no record before RU-016 (2026-09-01) names the
+  breakdown) · P3-N015 (The demonstration; its repository reach,
+  write; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), Repository reach) · partial: no record before RU-016 (2026-09-01) names the
   repository a node wrote (from [Ruling
   register](rulings.md), RU-016 (repository reach))
 - **used-by:** P2-N009 (Plan-state read; reads this repository's Plan
@@ -554,7 +564,9 @@ record](project-model-slice-record.md) holds it.
   qualifier is the record's; no record yet states P3-N014's modifies
   edge on this resource, a Backlog entry holds it; from [specification
   of P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
-  breakdown)
+  breakdown) ·
+  P3-N015 (The demonstration; its run applies *Sequence mode*; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), Dependencies)
 
 ## plan-model-spec
 
@@ -564,7 +576,7 @@ record](project-model-slice-record.md) holds it.
   breakdown, the slugs used)
 - **state:** built (derived from the modified-by line, where P3-N007 is
   done and P3-N009 identified, and P1-N016
-  is specified; the created-by line reads not yet
+  and P3-N017 are specified; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -583,7 +595,10 @@ record](project-model-slice-record.md) holds it.
   of P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at
   this breakdown) ·
   P1-N016 (Process spec maintenance; from [plan of
-  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies) ·
+  P3-N017 (The process specification cites the methodology at its pin;
+  its link targets and link text; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), M1)
 - **used-by:** P2-N021 (The web view's first version; task E3 (T096)
   reads the node lifecycle for the list of what is next; proposed in
   T096's result and recorded before its acceptance, on the
@@ -597,7 +612,7 @@ record](project-model-slice-record.md) holds it.
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
 - **state:** built (derived from the modified-by line, where P3-N009 is
-  identified; the created-by line reads not yet derived; from [Plan
+  identified and P3-N017 is specified; the created-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -611,7 +626,10 @@ record](project-model-slice-record.md) holds it.
   breakdown)
 - **modified-by:** P3-N009 (Sibling ordering retired; from
   [specification of P3-N002](specs/p3-n002-comprehension-model.md),
-  Edges stated at this breakdown)
+  Edges stated at this breakdown) ·
+  P3-N017 (The process specification cites the methodology at its pin;
+  its link targets and link text; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), M1)
 - **used-by:** not yet derived (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown)
@@ -696,7 +714,19 @@ record](project-model-slice-record.md) holds it.
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
   breakdown) ·
   P1-N016 (Process spec maintenance; from [plan of
-  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies) ·
+  P3-N017 (The process specification cites the methodology at its pin;
+  its Backlog row; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), M1) ·
+  P3-N018 (Risk register entries can be linked one by one; its Backlog
+  row; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), M2) ·
+  P3-N019 (The checker extension-point proposal is ready to carry; its
+  Backlog row; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), M3) ·
+  P3-N020 (The plugin tools are tested the way they run; its Backlog
+  row; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), M4)
 - **used-by:** P3-N006 (The thin end-to-end slice; a document the slice
   derives from; from [plan of
   P3-N006](plans/p3-n006-thin-end-to-end-slice.md), Dependencies) ·
@@ -846,17 +876,21 @@ record](project-model-slice-record.md) holds it.
 - **is:** The Risk register, `docs/open-risks.md` (from [plan of
   P3-N006](plans/p3-n006-thin-end-to-end-slice.md), Dependencies)
 - **state:** built (derived by row 4 of the table: no creating or
-  counted modifying node; the created-by and modified-by lines read not
-  yet derived; from [Project model type](process/project-model.md),
-  State derivation)
+  counted modifying node; P3-N017 and P3-N018 on the modified-by line
+  are specified; the created-by line reads not yet derived; from [Plan
+  register](plan-register.md); [Project model
+  type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
   P3-N006](plans/p3-n006-thin-end-to-end-slice.md), Dependencies)
 - **risks:** not yet derived (from [plan of
   P3-N006](plans/p3-n006-thin-end-to-end-slice.md), Dependencies)
 - **created-by:** not yet derived (from [plan of
   P3-N006](plans/p3-n006-thin-end-to-end-slice.md), Dependencies)
-- **modified-by:** not yet derived (from [plan of
-  P3-N006](plans/p3-n006-thin-end-to-end-slice.md), Dependencies)
+- **modified-by:** P3-N017 (The process specification cites the
+  methodology at its pin; its link targets and link text; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), M1) ·
+  P3-N018 (Risk register entries can be linked one by one; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), M2)
 - **used-by:** P3-N006 (The thin end-to-end slice; a document the slice
   derives from; from [plan of
   P3-N006](plans/p3-n006-thin-end-to-end-slice.md), Dependencies)
@@ -887,7 +921,7 @@ record](project-model-slice-record.md) holds it.
   [plan of P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
 - **state:** built (derived from the modified-by line, where P3-N007 is
-  done and P1-N016 is specified; the created-by line reads not yet
+  done and P1-N016 and P3-N017 are specified; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
@@ -904,7 +938,10 @@ record](project-model-slice-record.md) holds it.
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies) ·
   P1-N016 (Process spec maintenance; from [plan of
-  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies) ·
+  P3-N017 (The process specification cites the methodology at its pin;
+  its link targets and link text; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), M1)
 - **used-by:** not yet derived (from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
@@ -1391,7 +1428,7 @@ record](project-model-slice-record.md) holds it.
   stated at this breakdown)
 - **state:** built (derived by row 4 of the table: no creating or
   counted modifying node; P2-N018 on the modified-by line is identified
-  and P1-N016 is specified;
+  and P1-N016 and P3-N017 are specified;
   the created-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
@@ -1408,7 +1445,10 @@ record](project-model-slice-record.md) holds it.
   of P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
   breakdown) ·
   P1-N016 (Process spec maintenance; from [plan of
-  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies) ·
+  P3-N017 (The process specification cites the methodology at its pin;
+  its link targets and link text; from [plan of
+  P3-N015](plans/p3-n015-sequence-demonstration.md), M1)
 - **used-by:** P2-N019 (Role-aware identity; from [specification of
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
   breakdown)
