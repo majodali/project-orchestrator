@@ -764,7 +764,10 @@ recorded edges. The form checker gains the model's rules.
   P3-N002 (RU-018)" annotations, now that absence of an edge says the
   same thing.
 - D3. D's amendment of the selection rule is the one that lands.
-  Node P1-N016 rebases on it. The Backlog collision entry is closed.
+  Node P1-N016 (process spec maintenance) edits neither the selection
+  rule nor the statements of D1, so it does not wait on D
+  ([plan of P1-N016](../plans/p1-n016-process-spec-maintenance.md),
+  decision 3). D closes the Backlog collision entry.
 - D4. The search of I2 is run and recorded, with its terms.
 - D5. New form-check rules: every node ID in the instance resolves in
   the Plan register; every edge names a defined resource or an alias;

@@ -15,11 +15,11 @@ Status: active
 This [document](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-document) renders the [Plan register](plan-register.md) by hand.
 Each node's outcome comes from the node's [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan) and [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification).
 The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gates of P2-N003 and P2-N005 and the verifying gate of P3-N007, and after the owner's verifying gate of P2-N021 and adoption of P2-N023 on 2026-11-03.
-It also reads the owner's decision of 2026-11-03 on P2-N022 and P2-N017, and the owner's verifying gate of P3-N011 that day.
+It also reads the owner's decision of 2026-11-03 on P2-N022 and P2-N017, the owner's verifying gate of P3-N011 that day, and the owner's plan gate of P1-N016 that day.
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
-Today the [Backlog](backlog.md) holds the implementation map (its [Completed](backlog.md#completed) section) and the list of what is next (its [Upcoming](backlog.md#upcoming) section).
+Today the [Backlog](backlog.md) holds the implementation map (its checked entries, wherever they sit) and the list of what is next (its open entries).
 K-003 (the Backlog is the single source of progress truth) requires that at 1.6.0.
 On 2026-10-29 the owner decided that the [planning/execution model](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-planning-execution-model) takes over the implementation map and the list of what is next.
 The decision is RU-021 (the planning/execution model is the source of progress truth), in the [Ruling register](rulings.md).
@@ -182,9 +182,9 @@ The children of P1-N009, in their chain order:
 
 ### P1-N016 Process spec maintenance: branch lifecycle, PR citation, packet table
 
-- Stage: planned, 2026-10-30 (task T074). Gated on the owner's review of the plan: seventeen decisions and five names.
+- Stage: executing, 2026-11-03. The owner crossed the plan gate that day, adopting all seventeen decisions at their defaults and ratifying the five names. Under decision 2 the plan's criteria V1 to V15 and decisions 4 to 16 are the specification. Execute task E1 (T103, an Implementer task at the standard tier) is dispatched on branch p1-n016-e1; it writes `dispatch.md`, `roles.md`, the three role contracts and the orchestrate skill. E2 follows E1's acceptance.
 - Outcome: Every Backlog row routed to this node, thirty-five in all, is landed in the process specification or closed with a stated reason. `dispatch.md` says who deletes a task branch and when, and how work reaches `main` by pull request. The packet table carries every observation recorded against it. `plan-model.md` says what a leaf is when its work takes several tasks. `observability.md` can record a block's release and a new risk. The project gains a vocabulary file. Each process-scope ruling flagged for promotion is promoted or declined.
-- Depends on: P3-N007's first execute task, which is done. The recorded wait of its executing stage on P3-N009 (sibling ordering retired) stands until the gate; the plan's decision 3 proposes to remove it, because the node edits no text P3-N009 owns.
+- Depends on: nothing for planning. Its executing stage waits on the acceptance of E1, the first execute task of P3-N007 (the type declared), which edits the same process documents. That wait is met: P3-N007 is done. P1-N016 does not wait on P3-N009 (sibling ordering retired) ([plan](plans/p1-n016-process-spec-maintenance.md), decision 3).
 - Needed by: P1-N001.
 - Documents: [plan](plans/p1-n016-process-spec-maintenance.md).
 
@@ -408,7 +408,7 @@ The children of P3-N002, a strict chain in their [specification](specs/p3-n002-c
   - Stage: identified, 2026-10-29. No plan yet.
   - Outcome: Four statements that make list order mean dependency order are rewritten, in `plan-register.md`, `plan-model.md`, `dispatch.md` and the [Plan register](plan-register.md)'s header. Afterwards [dispatch.md](process/dispatch.md) starts a node only when the nodes that create the parts it uses, and the modifying nodes its edges name, are done. The form checker gains checks on the Project model, for example that every edge names a known part.
   - Depends on: P3-N008.
-  - Needed by: P1-N016, whose executing stage builds on the new dispatch rule.
+  - Needed by: nothing. P1-N016 (process spec maintenance) leaves the selection rule to this node and does not wait on it.
   - Documents: the parent's [specification, child D](specs/p3-n002-comprehension-model.md#child-d-sibling-ordering-retired-and-the-checks-that-replace-it).
 
 ### P3-N003 The common risk catalogue (chunk 2)
@@ -485,13 +485,13 @@ The children of P3-N005, a strict chain in their [specification](specs/p3-n005-s
 
 ## How the lines depend on each other
 
-Five waits cross between the lines of the [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan). The first four are met, the last is open.
+Five waits cross between the lines of the [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan). All five are met.
 
 - P3-N014 (the loop runs sequence mode) waits on the executing stage of P1-N014 (role contracts adopt the conduct rules), which is done.
 - P2-N006 (migration and pilot) waits on P1-N014, which is done.
 - P2-N021, the [web view](https://github.com/majodali/methodology/blob/main/docs/vocabulary.md#def-web-view)'s first version, waits on P3-N006 (the thin end-to-end slice), which is done.
 - The third task of P2-N021, E3, waits on P3-N007 (the type declared, the K-003 amendment drafted), which is done.
-- The executing stage of P1-N016 (process spec maintenance) waits on P3-N009 (sibling ordering retired).
+- The executing stage of P1-N016 (process spec maintenance) waits on E1, the first execute task of P3-N007 (the type declared), which is done.
 
 One piece of work moved between lines: P2-N006 took over the pilot of P1-N006 (pilot on a real project), and P1-N006 stays in line P1 as a node with no work of its own.
 
@@ -499,7 +499,7 @@ Inside each line the open nodes form chains, listed here from first to last.
 
 - Line P2, the task-pull loop: P2-N017, then P2-N018 and P2-N019, independent of each other, then P2-N020.
 - Line P2: P2-N005 (the task-pull loop) comes before P2-N006. P2-N021 (the web view's first version) is done. P2-N023 (web view UX refinement) runs beside the chain and blocks nothing. P2-N004 (topics and coordination) comes after P2-N006. P2-N022 (the owner question queue) waits on P2-N005 for its final slice only.
-- Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out).
+- Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out). P1-N016 (process spec maintenance) waits on no open node.
 - Line P3, the comprehension model: P3-N008, then P3-N009. P3-N006 and P3-N007 are done. P3-N004 (reversibility) waits on the whole of P3-N002.
 - Line P3, the risk catalogue: P3-N012. P3-N010 and P3-N011 are done.
 - Line P3, sequence mode: P3-N013, then P3-N014, then P3-N015, then P3-N016.
@@ -556,7 +556,6 @@ graph LR
   P2N006 --> P2N004
   P2N006 --> P1N006
   P1N006 --> P1N007
-  P3N009 --> P1N016
 ```
 
 ## What is next: actionable, gated, waiting, and unplanned nodes
@@ -567,6 +566,7 @@ Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
 - P3-N012 (the Article 8 proposal): planning. P3-N011 is done.
+- P1-N016 (process spec maintenance): executing. E1 (T103) dispatched on 2026-11-03; E2 waits on E1's acceptance.
 
 Planning now, dispatched on 2026-11-03 after the owner's decision:
 
@@ -579,7 +579,6 @@ Executing now:
 
 Gated on the owner:
 
-- P1-N016 (process spec maintenance): the owner's review of its plan, seventeen decisions and five names. Its executing stage's recorded wait on P3-N009 is decision 3 of that review.
 - P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
