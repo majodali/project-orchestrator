@@ -56,6 +56,8 @@ export const JOURNAL_EVENT_KINDS: ReadonlySet<string> = new Set([
   "sequence-ratified",
   "sequence-stopped",
   "edge-recorded",
+  "unblocked",
+  "risk-opened",
 ]);
 
 // ---- Cost log -------------------------------------------------------------

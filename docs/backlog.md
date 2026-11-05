@@ -2508,21 +2508,24 @@ decision 13).
   its own node when the owner wants it; it is a change to the plan
   model, not a tweak. Until then, sibling order remains the
   convention and a departure is an owner decision, as this one was.
-- [ ] **The run journal can record a block but not its release** —
+- [x] **The run journal can record a block but not its release** —
   When: 2026-09-01, unblocking node P2-N013 (alias assumptions verified
   against AWS documentation), with the opening of R15
   (reference documentation is an instruction channel) at T030 the same
   day; the review of the vocabulary recorded 2026-11-03
-  by P1-N016 (process spec maintenance), task E2 (T104). Status: open;
-  the kinds `unblocked` and `risk-opened` are ratified (P1-N016 plan,
-  decisions 14 and 16) and wait on the owner's ruling under W-002
-  (existing tests are signals, not obstacles), because the test "knows
-  the fifteen event kinds of the observability specification" in
-  `test/cost-log-and-journal.test.ts` lists the set exactly; they then
-  land in `observability.md` and `JOURNAL_EVENT_KINDS` in
-  `plugin/scripts/lib/cost-log-and-journal.ts` together, and travel to
-  majodali/project-orchestrator-service. Pointer:
-  [observability.md](process/observability.md#events), the review.
+  by P1-N016 (process spec maintenance), task E2 (T104); landed
+  2026-11-05 at the acceptance of T104. Status: done; the kinds
+  `unblocked` and `risk-opened` (P1-N016 plan, decisions 14 and 16)
+  are in `observability.md`'s kind list, each with its definition, and
+  in `JOURNAL_EVENT_KINDS` in
+  `plugin/scripts/lib/cost-log-and-journal.ts`;
+  `test/journal-unblocked-risk-opened.test.ts` reads a journal using
+  both; the test "knows the seventeen event kinds of the observability
+  specification" changed under the owner's W-002 (existing tests are
+  signals, not obstacles) clearance, ruling A26 of 2026-11-05; the unit
+  travels to majodali/project-orchestrator-service by
+  `node plugin/scripts/sync_shared_unit.ts`. Pointer:
+  [observability.md](process/observability.md#events).
 - [ ] **The run journal records no ruling's capture** — When:
   2026-11-03, the review of the journal vocabulary by P1-N016 (process
   spec maintenance), task E2 (T104). Status: open; a ruling captured

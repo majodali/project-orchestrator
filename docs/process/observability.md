@@ -83,7 +83,7 @@ Event kinds (v1, extendable by spec change): `dispatched` ·
 `gate-opened` · `gate-crossed` · `sequence-ratified` ·
 `sequence-stopped` · `edge-recorded` (an
 [edge](project-model.md#def-edge) transcribed into the Project model
-instance).
+instance) · `unblocked` · `risk-opened`.
 
 The two sequence kinds record a ratified sequence
 ([dispatch.md](dispatch.md#sequence-mode)). Both names were ratified
@@ -123,15 +123,26 @@ recorded gap with a home. The second needs no kind.
   journal already records every stage change. The web view derives a
   part's state when it renders a page.
 
-The kinds [`unblocked`](../vocabulary.md#def-unblocked) and
-[`risk-opened`](../vocabulary.md#def-risk-opened) were ratified at the
-plan gate of node P1-N016 (process spec maintenance) on 2026-11-03
-(its plan's decisions 14 and 16). They enter the list above in the
-same commit as the form checker's set. The Backlog row "The run
-journal can record a block but not its release" holds that change.
+The kinds `unblocked` and `risk-opened` were ratified at the plan gate
+of node P1-N016 (process spec maintenance) on 2026-11-03 (its plan's
+decisions 14 and 16). Their rows in the [vocabulary](../vocabulary.md)
+are their definition sites.
+
+- [`unblocked`](../vocabulary.md#def-unblocked): a hold was released.
+  Its `note` names what released it.
+- [`risk-opened`](../vocabulary.md#def-risk-opened): a Risk register
+  entry was opened. Its `note` names the entry.
+
+Both entered the list above on 2026-11-05, at the acceptance of that
+node's task E2 (T104), in the same commit as `JOURNAL_EVENT_KINDS` in
+`plugin/scripts/lib/cost-log-and-journal.ts`, the set the form checker
+reads. The owner's ruling at that acceptance cleared the one change to
+the existing test that lists the set, under W-002 (existing tests are
+signals, not obstacles).
 
 **Review of the vocabulary, 2026-11-03** (node P1-N016, task E2,
-T104). The same Backlog row asked what else a node does that the
+T104). The Backlog row "The run journal can record a block but not
+its release" asked what else a node does that the
 journal cannot say. The review read each step of
 [the loop](dispatch.md#the-loop) and each register the Orchestrator
 writes. Besides the release of a block and the opening of a Risk

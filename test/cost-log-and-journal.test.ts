@@ -119,7 +119,7 @@ describe("the run journal's line grammar", () => {
     );
   });
 
-  it("knows the fifteen event kinds of the observability specification", () => {
+  it("knows the seventeen event kinds of the observability specification", () => {
     expect([...JOURNAL_EVENT_KINDS].sort()).toEqual(
       [
         "accepted",
@@ -134,9 +134,11 @@ describe("the run journal's line grammar", () => {
         "packet-widened",
         "precedent-applied",
         "result-received",
+        "risk-opened",
         "sequence-ratified",
         "sequence-stopped",
         "stale",
+        "unblocked",
       ].sort(),
     );
   });
