@@ -824,15 +824,41 @@ decision 13).
   ratified or running and with Backlog entries by node ID; the same
   set stands in the Orchestrator contract and the `orchestrate` skill
   (P1-N016 plan, decision 9). Pointer: [dispatch.md](process/dispatch.md#the-loop).
-- [ ] **P3-N015 planned, 2026-10-30 (T076)** — the demonstration: a
-  ratified sequence lands two chunks and stops on asks (spec child C;
-  decisions 13 and 15). Status: planned, gated on the owner's review
-  (seven decisions) and the explicit ratification of a sequence of
-  four members, each an open entry of this Backlog: the methodology
-  links retargeted to the pin, anchors on the Risk register entries,
-  the checker extension-point cover note, the plugin tools tested as
-  child processes. Pointer:
-  [plan](plans/p3-n015-sequence-demonstration.md).
+- [ ] **The demonstration: a ratified sequence lands two chunks and
+  stops on asks** (node P3-N015, child C of P3-N005) — When: planned
+  2026-10-30 (T076); plan gate crossed 2026-11-04, decisions 1 to 7 at
+  their defaults, the sequence ratified in the owner's words. Status:
+  broken-down into P3-N017 to P3-N020 (decision 3); specified by the
+  parent's *Child C* with the plan's criteria; the plan is `active`;
+  the first member is dispatched only when no other task is in flight
+  (decision 5). Pointer:
+  [plan](plans/p3-n015-sequence-demonstration.md) ·
+  [specification, child
+  C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks).
+- [ ] **P3-N017 specified, 2026-11-04: the process specification cites
+  the methodology at its pin** — When: 2026-11-04, at P3-N015's plan
+  gate. Status: specified; member 1 of the ratified sequence, ratified
+  for `execute`; discharges the row "Methodology citations in the
+  process spec point at the superseded pin". Pointer:
+  [plan of P3-N015, M1](plans/p3-n015-sequence-demonstration.md#m1-the-process-specification-cites-the-methodology-at-its-pin).
+- [ ] **P3-N018 specified, 2026-11-04: Risk register entries can be
+  linked one by one** — When: 2026-11-04, at P3-N015's plan gate.
+  Status: specified; member 2 of the ratified sequence, ratified for
+  `execute`; discharges the Risk register half of the row "Risk
+  register and Ruling register entries have no anchors". Pointer:
+  [plan of P3-N015, M2](plans/p3-n015-sequence-demonstration.md#m2-risk-register-entries-can-be-linked-one-by-one).
+- [ ] **P3-N019 specified, 2026-11-04: the checker extension-point
+  proposal is ready to carry** — When: 2026-11-04, at P3-N015's plan
+  gate. Status: specified; member 3 of the ratified sequence, ratified
+  for `execute`; prepares the row "Deliver the extension-point proposal
+  upstream" for the owner's carrying. Pointer:
+  [plan of P3-N015, M3](plans/p3-n015-sequence-demonstration.md#m3-the-checker-extension-point-proposal-is-ready-to-carry).
+- [ ] **P3-N020 specified, 2026-11-04: the plugin tools are tested the
+  way they run** — When: 2026-11-04, at P3-N015's plan gate. Status:
+  specified; member 4 of the ratified sequence, ratified for
+  `execute`; discharges the row "No committed test runs the plugin
+  tools the way they run". Pointer:
+  [plan of P3-N015, M4](plans/p3-n015-sequence-demonstration.md#m4-the-plugin-tools-are-tested-the-way-they-run).
 - [x] **Whether a task outside a ratified sequence may be dispatched
   while it runs** — When: 2026-10-30, planning P3-N015; landed
   2026-11-03 at the acceptance of P1-N016 (process spec maintenance),
@@ -2119,7 +2145,10 @@ decision 13).
   T104's result; decision 12 of P1-N016's plan has each passage that
   first defined a term link its row, and only P1-N016's five anchors
   do, because the other passages lie in twelve documents outside E2's
-  writes. Pointer: [vocabulary](vocabulary.md),
+  writes. Noted 2026-11-05: the owner ruled (ask A27, option A) that a
+  later task with the twelve documents among its writes adds the
+  back-links; this row stays open until then, and decision 12 is met
+  for P1-N016's own anchors. Pointer: [vocabulary](vocabulary.md),
   [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), decision 12.
 - [ ] **Methodology citations in the process spec point at the
   superseded pin** — identified 2026-08-31 while planning P1-N014,
@@ -2482,21 +2511,24 @@ decision 13).
   its own node when the owner wants it; it is a change to the plan
   model, not a tweak. Until then, sibling order remains the
   convention and a departure is an owner decision, as this one was.
-- [ ] **The run journal can record a block but not its release** —
+- [x] **The run journal can record a block but not its release** —
   When: 2026-09-01, unblocking node P2-N013 (alias assumptions verified
   against AWS documentation), with the opening of R15
   (reference documentation is an instruction channel) at T030 the same
   day; the review of the vocabulary recorded 2026-11-03
-  by P1-N016 (process spec maintenance), task E2 (T104). Status: open;
-  the kinds `unblocked` and `risk-opened` are ratified (P1-N016 plan,
-  decisions 14 and 16) and wait on the owner's ruling under W-002
-  (existing tests are signals, not obstacles), because the test "knows
-  the fifteen event kinds of the observability specification" in
-  `test/cost-log-and-journal.test.ts` lists the set exactly; they then
-  land in `observability.md` and `JOURNAL_EVENT_KINDS` in
-  `plugin/scripts/lib/cost-log-and-journal.ts` together, and travel to
-  majodali/project-orchestrator-service. Pointer:
-  [observability.md](process/observability.md#events), the review.
+  by P1-N016 (process spec maintenance), task E2 (T104); landed
+  2026-11-05 at the acceptance of T104. Status: done; the kinds
+  `unblocked` and `risk-opened` (P1-N016 plan, decisions 14 and 16)
+  are in `observability.md`'s kind list, each with its definition, and
+  in `JOURNAL_EVENT_KINDS` in
+  `plugin/scripts/lib/cost-log-and-journal.ts`;
+  `test/journal-unblocked-risk-opened.test.ts` reads a journal using
+  both; the test "knows the seventeen event kinds of the observability
+  specification" changed under the owner's W-002 (existing tests are
+  signals, not obstacles) clearance, ruling A26 of 2026-11-05; the unit
+  travels to majodali/project-orchestrator-service by
+  `node plugin/scripts/sync_shared_unit.ts`. Pointer:
+  [observability.md](process/observability.md#events).
 - [ ] **The run journal records no ruling's capture** — When:
   2026-11-03, the review of the journal vocabulary by P1-N016 (process
   spec maintenance), task E2 (T104). Status: open; a ruling captured
@@ -2670,24 +2702,27 @@ decision 13).
   now", so where it enters the register is open. Pointer:
   [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md),
   decision 11.
-- [ ] **P1-N016's E2 changes a vendored unit** — When: 2026-11-03, at
-  P1-N016's plan gate. Status: open, for E2's brief; the event kinds
-  `unblocked` and `risk-opened` go into `JOURNAL_EVENT_KINDS` in
-  `plugin/scripts/lib/cost-log-and-journal.ts`, which
-  `node plugin/scripts/sync_shared_unit.ts` vendors to
-  majodali/project-orchestrator-service; the plan's reach says nothing
-  travels. Noted 2026-11-03: E2 (T104) left the unit unchanged, because
-  the kinds wait on the owner's W-002 ruling (the row "The run journal
-  can record a block but not its release"); the service's vendored copy
-  is in sync with this repository. Pointer: [plan of
+- [x] **P1-N016's E2 changes a vendored unit** — When: 2026-11-03, at
+  P1-N016's plan gate; landed 2026-11-05 at the acceptance of P1-N016's
+  task E2 (T104). Status: done; the event kinds `unblocked` and
+  `risk-opened` are in `JOURNAL_EVENT_KINDS` in
+  `plugin/scripts/lib/cost-log-and-journal.ts`, and
+  `node plugin/scripts/sync_shared_unit.ts` vendored the unit to
+  majodali/project-orchestrator-service 8dcb62b, on branch
+  `p1-n016-e2-vendored`; `--check` reports the copy in sync. Noted
+  2026-11-03: E2 (T104) left the unit unchanged, because the kinds
+  waited on the owner's W-002 ruling (the row "The run journal can
+  record a block but not its release"). Pointer: [plan of
   P1-N016](plans/p1-n016-process-spec-maintenance.md), *Dependencies*.
 - [ ] **Process spec maintenance: branch lifecycle, PR citation,
   packet table** (node P1-N016) — When: opened 2026-09-01; planned
   2026-10-30 (T074); specified 2026-11-03 at the owner's plan gate; E1
   executed 2026-11-03 (T103), accepted under the owner's rulings A23 to
-  A25; E2 executed 2026-11-03 (T104). Status: executing; a leaf run as
-  E1 then E2, all seventeen decisions adopted at their defaults and the
-  five names ratified. E1 landed the entry's three parts in
+  A25; E2 executed 2026-11-03 (T104), accepted 2026-11-05 under the
+  owner's rulings A26 to A28, every criterion met. Status: verifying,
+  for the owner's verifying gate; a leaf run as E1 then E2, all
+  seventeen decisions adopted at their defaults and the five names
+  ratified. E1 landed the entry's three parts in
   `dispatch.md`: (i) who deletes a task branch, and why task branches
   are pushed, in step 3; (ii) how work reaches `main`, promoting RU-009
   (completed work reaches `main` by pull request) and RU-010 (this
@@ -2697,9 +2732,14 @@ decision 13).
   Breakdown row in `profiles.md`, the journal's field contents in
   `observability.md`, RU-013 and the held form-check rules in
   `auditing.md`, three ruling types, the `plugin/skills/` prose class,
-  `docs/vocabulary.md` and the Backlog header. The two journal kinds
-  wait on an owner ruling under W-002 (existing tests are signals, not
-  obstacles). Next: that ruling, then the kinds. Pointer:
+  `docs/vocabulary.md` and the Backlog header. The acceptance of E2
+  landed the journal kinds `unblocked` and `risk-opened` under the
+  owner's W-002 (existing tests are signals, not obstacles) clearance,
+  re-vendored them to majodali/project-orchestrator-service 8dcb62b,
+  and added the owner-attended rule to `dispatch.md`'s step 2. Next:
+  the owner's verifying gate; the owner verifies that
+  `docs/vocabulary.md` holds the ratified terms and that the two kinds
+  appear in the service's copy. Pointer:
   [plan](plans/p1-n016-process-spec-maintenance.md), [dispatch.md](process/dispatch.md).
 - [x] **`docs/process/README.md` is the packet gap, three times
   running** — When: T019 and T020; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; the

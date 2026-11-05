@@ -16,6 +16,8 @@ This [document](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabul
 Each node's outcome comes from the node's [plan](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-plan) and [specification](https://github.com/majodali/methodology/blob/v1.6.0/docs/vocabulary.md#def-specification).
 The rendering reads the register as it stands after the owner's gates of 2026-10-30, including the specification gates of P2-N003 and P2-N005 and the verifying gate of P3-N007, and after the owner's verifying gate of P2-N021 and adoption of P2-N023 on 2026-11-03.
 It also reads the owner's decision of 2026-11-03 on P2-N022 and P2-N017, the owner's verifying gate of P3-N011 that day, and the owner's plan gate of P1-N016 that day.
+It also reads the owner's plan gate of P3-N015 on 2026-11-04, which ratified that node's sequence.
+It also reads the owner's rulings of 2026-11-05 at the acceptance of P1-N016's task E2.
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
@@ -182,7 +184,7 @@ The children of P1-N009, in their chain order:
 
 ### P1-N016 Process spec maintenance: branch lifecycle, PR citation, packet table
 
-- Stage: executing, 2026-11-03. The owner crossed the plan gate that day, adopting all seventeen decisions at their defaults and ratifying the five names. Under decision 2 the plan's criteria V1 to V15 and decisions 4 to 16 are the specification. Execute task E1 (T103, an Implementer task at the standard tier) ran on branch p1-n016-e1; it wrote `dispatch.md`, `roles.md`, the three role contracts and the orchestrate skill. E1 was accepted on 2026-11-03 under the owner's rulings A23 to A25. E2 is next. E2 (T104) dispatched on 2026-11-03 after E1's acceptance.
+- Stage: verifying, 2026-11-05, gated on the owner. The owner crossed the plan gate on 2026-11-03, adopting all seventeen decisions at their defaults and ratifying the five names. Under decision 2 the plan's criteria V1 to V15 and decisions 4 to 16 are the specification. Execute task E1 (T103, an Implementer task at the standard tier) ran on branch p1-n016-e1; it wrote `dispatch.md`, `roles.md`, the three role contracts and the orchestrate skill. E1 was accepted on 2026-11-03 under the owner's rulings A23 to A25. E2 (T104) was dispatched on 2026-11-03 and accepted on 2026-11-05 under the owner's rulings A26 to A28. Every criterion is met ([plan](plans/p1-n016-process-spec-maintenance.md), *Verification record*). At the verifying gate the owner verifies that `docs/vocabulary.md` holds the ratified terms and that the journal kinds `unblocked` and `risk-opened` appear in the service's copy.
 - Outcome: Every Backlog row routed to this node, thirty-five in all, is landed in the process specification or closed with a stated reason. `dispatch.md` says who deletes a task branch and when, and how work reaches `main` by pull request. The packet table carries every observation recorded against it. `plan-model.md` says what a leaf is when its work takes several tasks. `observability.md` can record a block's release and a new risk. The project gains a vocabulary file. Each process-scope ruling flagged for promotion is promoted or declined.
 - Depends on: nothing for planning. Its executing stage waits on the acceptance of E1, the first execute task of P3-N007 (the type declared), which edits the same process documents. That wait is met: P3-N007 is done. P1-N016 does not wait on P3-N009 (sibling ordering retired) ([plan](plans/p1-n016-process-spec-maintenance.md), decision 3).
 - Needed by: P1-N001.
@@ -471,17 +473,44 @@ The children of P3-N005, a strict chain in their [specification](specs/p3-n005-s
   - Needed by: P3-N015.
   - Documents: [plan](plans/p3-n014-loop-runs-sequence-mode.md), the parent's specification, child B.
 - P3-N015 The demonstration: a ratified sequence lands two chunks and stops on asks
-  - Stage: planned, 2026-10-30 (task T076). Gated on the owner's review of the plan, seven decisions, and on the owner's explicit ratification of the sequence in words that say so.
+  - Stage: broken-down, 2026-11-04. The owner crossed the plan gate that day, adopting decisions 1 to 7 at their defaults and ratifying the sequence in words that say so. Under decision 3 the node moved planned → specified → broken-down at the gate, and its four children were entered. The first child is dispatched only when no other task is in flight (decision 5).
   - Outcome: The owner ratifies one sequence of four members, each an open Backlog item of this repository: the process specification's methodology links retargeted to the pin, anchors on the Risk register entries, the cover note for the checker extension-point proposal, and a test that runs the plugin tools as child processes. The first two land with no gate between them. The third carries an ask of the owner and stops the sequence. The fourth is ratified and never dispatched by the sequence. Two blind readings apply the four stop predicates to the run's results.
   - Depends on: P3-N014, which is done.
   - Needed by: P3-N016.
-  - Documents: [plan](plans/p3-n015-sequence-demonstration.md), the parent's [specification, child C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks).
+  - Documents: [plan](plans/p3-n015-sequence-demonstration.md); specification: the parent's [specification, child C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks), with the plan's criteria (decision 3).
 - P3-N016 The determination on W-001 (two delivery modes, human-gated), and the artifact or the argument
   - Stage: identified, 2026-10-29. No plan yet.
   - Outcome: The decision is recorded, as an amendment proposal or as an argument that the sequence mode needs no change.
   - Depends on: P3-N015.
   - Needed by: nothing.
   - Documents: the parent's [specification, child D](specs/p3-n005-sequence-mode.md#child-d-the-determination-on-w-001-and-the-artifact-or-the-argument).
+
+The children of P3-N015, in the order of the sequence the owner ratified on 2026-11-04. They are mutually independent. The sequence dispatches them one at a time, in this order ([dispatch.md](process/dispatch.md#the-run), the run).
+
+- P3-N017 The process specification cites the methodology at its pin
+  - Stage: specified, 2026-11-04, at P3-N015's plan gate.
+  - Outcome: The process specification's links to the methodology target tag v1.6.0, the pin, instead of v1.3.0, and each names its identifier with its name.
+  - Depends on: P3-N015's gate only, which is crossed.
+  - Needed by: P3-N015.
+  - Documents: the [plan of P3-N015, M1](plans/p3-n015-sequence-demonstration.md#m1-the-process-specification-cites-the-methodology-at-its-pin).
+- P3-N018 Risk register entries can be linked one by one
+  - Stage: specified, 2026-11-04, at P3-N015's plan gate.
+  - Outcome: Each [Risk register](open-risks.md) entry carries an anchor, so a link can land on it.
+  - Depends on: P3-N015's gate only, which is crossed.
+  - Needed by: P3-N015.
+  - Documents: the [plan of P3-N015, M2](plans/p3-n015-sequence-demonstration.md#m2-risk-register-entries-can-be-linked-one-by-one).
+- P3-N019 The checker extension-point proposal is ready to carry
+  - Stage: specified, 2026-11-04, at P3-N015's plan gate.
+  - Outcome: A cover note for the checker extension-point proposal states what changed since 2026-08-26, and its result asks the owner to carry the proposal or to hold it.
+  - Depends on: P3-N015's gate only, which is crossed.
+  - Needed by: P3-N015.
+  - Documents: the [plan of P3-N015, M3](plans/p3-n015-sequence-demonstration.md#m3-the-checker-extension-point-proposal-is-ready-to-carry).
+- P3-N020 The plugin tools are tested the way they run
+  - Stage: specified, 2026-11-04, at P3-N015's plan gate.
+  - Outcome: A committed test runs three plugin tools as child processes, the way the roles and the hooks run them.
+  - Depends on: P3-N015's gate only, which is crossed.
+  - Needed by: P3-N015.
+  - Documents: the [plan of P3-N015, M4](plans/p3-n015-sequence-demonstration.md#m4-the-plugin-tools-are-tested-the-way-they-run).
 
 ## How the lines depend on each other
 
@@ -502,7 +531,7 @@ Inside each line the open nodes form chains, listed here from first to last.
 - Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out). P1-N016 (process spec maintenance) waits on no open node.
 - Line P3, the comprehension model: P3-N008, then P3-N009. P3-N006 and P3-N007 are done. P3-N004 (reversibility) waits on the whole of P3-N002.
 - Line P3, the risk catalogue: P3-N012. P3-N010 and P3-N011 are done.
-- Line P3, sequence mode: P3-N013, then P3-N014, then P3-N015, then P3-N016.
+- Line P3, sequence mode: P3-N013, then P3-N014, then P3-N015, then P3-N016. P3-N015's children run as its ratified sequence: P3-N017, then P3-N018, then P3-N019, then P3-N020.
 
 The diagram shows every node that is not done.
 An arrow runs from a node to the node that waits on it.
@@ -542,7 +571,12 @@ graph LR
     subgraph P3N005["P3-N005 sequence mode"]
       P3N013["P3-N013 stop conditions decidable"]
       P3N014["P3-N014 loop runs sequence mode"]
-      P3N015["P3-N015 demonstration"]
+      subgraph P3N015["P3-N015 demonstration"]
+        P3N017["P3-N017 citations at the pin"]
+        P3N018["P3-N018 Risk register anchors"]
+        P3N019["P3-N019 proposal ready to carry"]
+        P3N020["P3-N020 plugin tools tested as run"]
+      end
       P3N016["P3-N016 determination on W-001"]
     end
   end
@@ -561,12 +595,13 @@ graph LR
 ## What is next: actionable, gated, waiting, and unplanned nodes
 
 A node is actionable when every recorded dependency of its next stage is met.
+From the first member's dispatch until P3-N015's sequence stops, no task outside the sequence is dispatched ([plan of P3-N015](plans/p3-n015-sequence-demonstration.md), decision 5; RU-023).
 
 Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
 - P3-N012 (the Article 8 proposal): planning. P3-N011 is done.
-- P1-N016 (process spec maintenance): executing. E1 (T103) accepted on 2026-11-03; E2 (T104) dispatched the same day on the same branch, with a service branch for the vendored unit.
+- P3-N017 (citations at the pin): execute, the first member of P3-N015's ratified sequence. It is dispatched only when no other task is in flight (decision 5). T100 is in flight now.
 
 Planning now, dispatched on 2026-11-03 after the owner's decision:
 
@@ -579,13 +614,14 @@ Executing now:
 
 Gated on the owner:
 
-- P3-N015 (the demonstration): the owner's review of its plan, seven decisions, and the explicit ratification of the sequence of four members.
+- P1-N016 (process spec maintenance): the owner's verifying gate. The owner verifies that `docs/vocabulary.md` holds the ratified terms and that the two journal kinds appear in the service's copy.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 
 Waiting:
 
 - P3-N009 (sibling ordering retired): waits on P3-N008.
+- P3-N018, P3-N019 and P3-N020 (members 2 to 4 of P3-N015's sequence): each waits on the acceptance of the member before it ([dispatch.md](process/dispatch.md#the-run), the run).
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.
 - P2-N018 (the loop in git alone) and P2-N019 (role-aware identity): each waits on P2-N017.
@@ -595,7 +631,7 @@ Waiting:
 - P2-N004 (topics and coordination): its executing stage waits on P2-N006.
 - P1-N006 (pilot on a real project): waits on P2-N006.
 - P1-N007 (cost reporting and close-out): its executing stage waits on P1-N006.
-- P2-N003, P2-N005, P3-N002, P3-N003 and P3-N005: each waits on its children.
+- P2-N003, P2-N005, P3-N002, P3-N003, P3-N005 and P3-N015: each waits on its children.
 - P1-N001, P2-N001 and P3-N001: each waits on its open children.
 
 No plan yet, in register order:

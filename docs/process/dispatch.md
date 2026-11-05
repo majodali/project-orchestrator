@@ -44,7 +44,12 @@ project's [profile](profiles.md), the Orchestrator repeatedly:
    event only after the launch returns, with `session` holding the
    launched session's identifier
    ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
-   decision 14).
+   decision 14). An owner-attended task, which the Orchestrator does
+   not launch, is journaled `dispatched` when its brief is handed
+   over, with `session` `null`, as the
+   [plan of node P2-N023 (web view UX refinement)](../plans/p2-n023-web-view-ux-refinement.md)
+   states in *Recording*. (Added 2026-11-05 at the acceptance of T104,
+   under the owner's ruling.)
 3. **Accepts** the result: verifies the handoff contract below was
    met and the [form checks](auditing.md) pass, records the stage
    change in the register (and synced Backlog designation) and the

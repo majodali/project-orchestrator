@@ -1,6 +1,6 @@
 # The demonstration: a ratified sequence lands two chunks and stops on asks
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -506,6 +506,10 @@ RU-018 raises nothing, since nothing is dispatched in parallel.
      toward decision 15's bound too (plan of node P3-N015, decision
      7)."
 
+The owner adopted decisions 1 to 7 at their defaults on 2026-11-04,
+and ratified the sequence in words that say so (*Gate record,
+2026-11-04*).
+
 ## Backlog additions
 
 - [ ] **Whether a task outside a ratified sequence may be dispatched
@@ -519,6 +523,90 @@ RU-018 raises nothing, since nothing is dispatched in parallel.
   `dispatch.md`'s *Gates* lets one go-ahead adopt every default.
   Pointer: [plan of P3-N015](plans/p3-n015-sequence-demonstration.md),
   decision 4.
+
+## Gate record, 2026-11-04
+
+The owner crossed this node's plan gate on 2026-11-04. The owner's
+words: "A9 P3-N015 plan - go with all defaults. The recommended
+sequence M1-M4 is ratified." The go-ahead adopts decisions 1 to 7 at
+their defaults. Its second sentence ratifies the sequence in words
+that say so, as decision 4 and RU-024 (a go-ahead that adopts
+defaults ratifies no sequence) require.
+
+- Under decision 1 the members are M1, then M2, then M3, as *The
+  members* states. Under decision 2, M4 follows M3.
+- Under decision 3, P3-N015 moved `planned` → `specified` →
+  `broken-down` at this gate. Its specification is the parent's
+  [*Child C*](../specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks)
+  with this plan's criteria. No specify or break-down task runs.
+- Under decision 3 the four members are entered in the Plan register
+  and move `identified` → `specified` in the same act. Each is
+  specified by its section of this plan, and each register line links
+  this plan:
+  - M1 is P3-N017, specified by *M1. The process specification cites
+    the methodology at its pin*;
+  - M2 is P3-N018, specified by *M2. Risk register entries can be
+    linked one by one*;
+  - M3 is P3-N019, specified by *M3. The checker extension-point
+    proposal is ready to carry*;
+  - M4 is P3-N020, specified by *M4. The plugin tools are tested the
+    way they run*.
+  Each has a Backlog row. Each is ratified for `execute` alone.
+- Under decisions 2 and 7 the Orchestrator placed the drafted texts in
+  the [specification of P3-N005](../specs/p3-n005-sequence-mode.md),
+  *Child C*, criteria C3 and C8, verbatim.
+- Under decision 4 the ratification record follows, in *Sequence
+  ratified, 2026-11-04*, in its own commit after this one.
+- Under decision 5 the first member is dispatched only when no other
+  task is in flight (RU-023, no task outside a ratified sequence runs
+  while it runs, interim). Two tasks are in flight at this record:
+  T100, P2-N023's iteration 4, owner-attended, with no result yet; and
+  T104, P1-N016's E2, whose result was received on 2026-11-03 and
+  whose acceptance waits on the owner's rulings A26 to A28. No member
+  is dispatched in this record.
+- Decisions 6 and 7 govern the run and its bound. They change no
+  register state now.
+- The two *Backlog additions* already stand closed. Both rows were
+  checked on 2026-11-03, at the acceptance of P1-N016's E1 (T103), by
+  RU-023 and RU-024. This gate adds no row for them.
+- Edges: thirteen edges are transcribed into the [Project
+  model](../project-model.md), read from *Dependencies*, *Repository
+  reach* and the members' writes. This plan writes its writes as
+  paths, not as the type's edge items, so each path was matched to the
+  slug whose `is:` line names it. Transcribed: P3-N015 uses
+  `dispatch-rules`, modifies `project-orchestrator-repo` and uses
+  `RU-016`; P3-N017 modifies `ruling-register-type`, `roles-spec`,
+  `plan-model-spec`, `plan-register-type`, `risk-register` and
+  `backlog`; P3-N018 modifies `risk-register` and `backlog`; P3-N019
+  and P3-N020 each modify `backlog`. Eight are held, because no slug
+  names the resource yet and node P3-N008 (the instance) issues them:
+  P3-N017's
+  `modifies` edges on `docs/process/README.md`,
+  `docs/process/profiles.md` and `docs/process/auditing.md`;
+  P3-N019's `creates` edge on
+  `docs/proposals/mtool-custom-type-checker-cover-note.md`; P3-N020's
+  `creates` edge on `test/plugin-tools-run.test.ts`; P3-N015's
+  `modifies` edge on `docs/findings/p3-n005-stop-predicates.md` and
+  its directory; and the `uses` edges of P3-N017 and P3-N019 on
+  majodali/methodology. Not transcribed: P3-N015's `modifies` edge on
+  `dispatch-rules`, which holds only if criterion I6's revision route
+  is taken.
+
+Next: the ratification record, then P3-N017's execute task, once T100
+and T104 have landed.
+
+## Sequence ratified, 2026-11-04
+
+> - **Members**, in dispatch order: P3-N017 `execute`; P3-N018
+>   `execute`; P3-N019 `execute`; P3-N020 `execute`.
+> - **Budget**: 4 tasks.
+> - **Pre-authorizations**: none.
+> - **Additional repositories**: none.
+> - **Accepted risks**: none.
+
+The owner's words: "A9 P3-N015 plan - go with all defaults. The
+recommended sequence M1-M4 is ratified." The first member's dispatch
+waits under decision 5 until no other task is in flight.
 
 ## References
 

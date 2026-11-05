@@ -267,6 +267,32 @@ the register's first live exercise, and the reason `form_check.py`
 now cross-checks Applied lists against `precedent-applied` events
 (the lists were not maintained on the first run).
 
-Promotion flags: RU-002, RU-003, RU-011, RU-012, RU-013, RU-014,
-RU-015, RU-016, RU-018 and RU-020 are process-scope — flagged for the
-next design pass on this spec (rulings.md promotion rule).
+Promotion flags: RU-018 (a child is not queued behind a sibling it
+does not depend on) is process-scope and stays flagged, left to node
+P3-N009 (sibling ordering retired), which retires sibling ordering
+(rulings.md promotion rule). Promoted 2026-11-03 by node P1-N016
+(process spec maintenance), task E1 (T103), into
+`docs/process/dispatch.md`: RU-002 (the owner hand-carries upstream
+output) and RU-015 (upstream delivery form), *Owner-decision
+economics*, the upstream bullet; RU-016 (the Planner declares the
+repository access a node needs), *Owner-decision economics*, the
+cross-repository bullet; RU-009 (completed work reaches `main` by pull
+request) and RU-010 (this repository reaches `main` the same way),
+*How work reaches `main`*. Promoted 2026-11-03 by node P1-N016, task
+E2 (T104): RU-003 (a node targeting an external party completes at the
+artifact) and RU-020 (no separate break-down task when the
+specification reaches breakdown depth), into
+`docs/process/plan-model.md`, the node lifecycle's rules; RU-013 (a
+tool with an unmet runtime floor exits loudly), into
+`docs/process/auditing.md`, *Form checks*. Each stays `active`.
+Declined 2026-11-03 by node P1-N016 (its plan's decision 10): RU-006
+(when a new capability gets its own repository), RU-008 (the language
+and runtime of new services), RU-011 (the language of repo-local
+tooling) and RU-012 (how two repositories share one unit of code),
+because they are portfolio architecture and stack choices, not
+orchestration process; RU-014 (a port retires the comparison test),
+because it was applied once, by the port that prompted it. RU-022
+(corpus-bound documents are written IR first), RU-023 (no task outside
+a ratified sequence while it runs, interim) and RU-024 (a go-ahead
+that adopts defaults ratifies no sequence) are already stated in
+`docs/process/dispatch.md`.

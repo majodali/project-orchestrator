@@ -20,7 +20,7 @@ honestly; chunks 1–3 completed before this register existed.
     - P1-N013 [done] The cutover: sync_agents ported, every invocation site moved, the Python retired
   - P1-N014 [done] Role contracts adopt the methodology's conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md · spec: specs/p1-n014-role-contracts-adopt-conduct-rules.md
   - P1-N015 [done] Methodology amendments for delegated, multi-agent work — plan: plans/p1-n015-methodology-amendments-delegated-work.md · spec: specs/p1-n015-methodology-amendments-delegated-work.md
-  - P1-N016 [specified] Process spec maintenance: branch lifecycle, PR citation, packet table — plan gate crossed 2026-11-03, the plan's criteria are its specification (decision 2); does not wait on P3-N009 (decision 3); next, execute task E1 — plan: plans/p1-n016-process-spec-maintenance.md
+  - P1-N016 [verifying] [gated: owner review at verifying, that docs/vocabulary.md holds the ratified terms and the two journal kinds are in the service's copy] Process spec maintenance: branch lifecycle, PR citation, packet table — plan gate crossed 2026-11-03, the plan's criteria are its specification (decision 2); does not wait on P3-N009 (decision 3); E1 (T103) accepted 2026-11-03, E2 (T104) accepted 2026-11-05 under the owner's rulings A26 to A28 — plan: plans/p1-n016-process-spec-maintenance.md
   - P1-N006 [identified] Pilot on a real project (chunk 5) — superseded in place by P2-N006; kept until the founding plan closes out
   - P1-N007 [identified] Cost reporting v1 and close-out (chunk 6)
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
@@ -60,5 +60,9 @@ honestly; chunks 1–3 completed before this register existed.
   - P3-N005 [broken-down] Sequence mode: run W-001's pre-ratified mode, and determine whether it needs specialising (chunk 4) — independent of P3-N002 (RU-018) — plan: plans/p3-n005-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
     - P3-N013 [done] The four stop conditions, decidable, evidenced, and related to the meta-review signals — plan: plans/p3-n013-stop-conditions-decidable.md · spec: specs/p3-n005-sequence-mode.md
     - P3-N014 [done] The loop runs sequence mode, and the roles meet the conditions without looking — depends on P3-N013 and on P1-N014's execute — plan: plans/p3-n014-loop-runs-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
-    - P3-N015 [planned] [gated: owner review of the plan and explicit ratification of the sequence] The demonstration: a ratified sequence lands two chunks and stops on asks — depends on P3-N014 — plan: plans/p3-n015-sequence-demonstration.md · spec: specs/p3-n005-sequence-mode.md
+    - P3-N015 [broken-down] The demonstration: a ratified sequence lands two chunks and stops on asks — depends on P3-N014 — plan gate crossed 2026-11-04, decisions 1 to 7 at their defaults; specified by the parent's Child C with the plan's criteria (decision 3); its children run as a ratified sequence, in this order; the first is dispatched only when no other task is in flight (decision 5) — plan: plans/p3-n015-sequence-demonstration.md · spec: specs/p3-n005-sequence-mode.md
+      - P3-N017 [specified] The process specification cites the methodology at its pin — plan: plans/p3-n015-sequence-demonstration.md
+      - P3-N018 [specified] Risk register entries can be linked one by one — plan: plans/p3-n015-sequence-demonstration.md
+      - P3-N019 [specified] The checker extension-point proposal is ready to carry — plan: plans/p3-n015-sequence-demonstration.md
+      - P3-N020 [specified] The plugin tools are tested the way they run — plan: plans/p3-n015-sequence-demonstration.md
     - P3-N016 [identified] The determination on W-001, and the artifact or the argument — depends on P3-N015
