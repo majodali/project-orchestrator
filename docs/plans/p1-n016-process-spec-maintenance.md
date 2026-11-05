@@ -350,6 +350,11 @@ Decisions 4 to 16, once adopted, are criteria too.
 No planned non-monotonicity. The `EVENTS` set gains two entries and one
 test is added. No rule, test or corpus expectation is rewritten.
 
+Exception, 2026-11-05: the owner pre-cleared one change to the test
+"knows the fifteen event kinds of the observability specification"
+(ruling A26, under W-002), so that the two kinds could enter the set.
+The record is in *Acceptance of E2, 2026-11-05*.
+
 ## Decisions for the gate
 
 Numbered per [dispatch.md](../process/dispatch.md)'s owner-decision

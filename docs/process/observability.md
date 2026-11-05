@@ -68,7 +68,11 @@ decisions 14 and 15):
 - `task` is `null` on a gate event, `gate-opened` or `gate-crossed`.
 - `session` on a `dispatched` event holds the launched session's
   identifier. The Orchestrator writes the event only after the launch
-  returns ([dispatch.md](dispatch.md#the-loop), step 2).
+  returns ([dispatch.md](dispatch.md#the-loop), step 2). For an
+  owner-attended task, which the Orchestrator does not launch, the
+  event is written at hand-over and `session` is `null`, as step 2
+  states. (Added 2026-11-05 at the acceptance of T104, under the
+  owner's ruling.)
 
 Every `result-received` note carries the result's status and its Asks
 part verbatim, or the part's stated empty form, inside a sequence and
