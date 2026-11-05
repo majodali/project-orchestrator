@@ -20,7 +20,7 @@ honestly; chunks 1–3 completed before this register existed.
     - P1-N013 [done] The cutover: sync_agents ported, every invocation site moved, the Python retired
   - P1-N014 [done] Role contracts adopt the methodology's conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md · spec: specs/p1-n014-role-contracts-adopt-conduct-rules.md
   - P1-N015 [done] Methodology amendments for delegated, multi-agent work — plan: plans/p1-n015-methodology-amendments-delegated-work.md · spec: specs/p1-n015-methodology-amendments-delegated-work.md
-  - P1-N016 [executing] Process spec maintenance: branch lifecycle, PR citation, packet table — plan gate crossed 2026-11-03, the plan's criteria are its specification (decision 2); does not wait on P3-N009 (decision 3); E1 (T103) accepted 2026-11-03, E2 (T104) result received, acceptance pending the owner's rulings — plan: plans/p1-n016-process-spec-maintenance.md
+  - P1-N016 [verifying] [gated: owner review at verifying, that docs/vocabulary.md holds the ratified terms and the two journal kinds are in the service's copy] Process spec maintenance: branch lifecycle, PR citation, packet table — plan gate crossed 2026-11-03, the plan's criteria are its specification (decision 2); does not wait on P3-N009 (decision 3); E1 (T103) accepted 2026-11-03, E2 (T104) accepted 2026-11-05 under the owner's rulings A26 to A28 — plan: plans/p1-n016-process-spec-maintenance.md
   - P1-N006 [identified] Pilot on a real project (chunk 5) — superseded in place by P2-N006; kept until the founding plan closes out
   - P1-N007 [identified] Cost reporting v1 and close-out (chunk 6)
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md

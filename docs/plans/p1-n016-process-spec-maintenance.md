@@ -685,6 +685,80 @@ Next: E1, an Implementer task at the standard tier, the execute stage.
 It writes `dispatch.md` and the places that restate it, as *Two
 execute tasks* lists.
 
+## Acceptance of E2, 2026-11-05
+
+The Orchestrator accepted E2 (T104) on 2026-11-05 under the owner's
+rulings on its three asks. The owner's words: "A26 to A28 go with
+defaults."
+
+- A26, decision (a) of E2's result, option A. The owner pre-cleared
+  one change to the existing test "knows the fifteen event kinds of the
+  observability specification" in `test/cost-log-and-journal.test.ts`,
+  under W-002 (existing tests are signals, not obstacles). Its title
+  became "seventeen", and its expected list gained `risk-opened` and
+  `unblocked`. Nothing else in the test changed. This clearance is the
+  one exception to *Monotonicity*'s "no test is rewritten". The kinds
+  entered `JOURNAL_EVENT_KINDS` in
+  `plugin/scripts/lib/cost-log-and-journal.ts`, the set that holds the
+  plan's `EVENTS` since P2-N021's task E2 moved it. They entered
+  `observability.md`'s list with their definitions. The new test
+  `test/journal-unblocked-risk-opened.test.ts` reads a journal using
+  both. The unit was re-vendored to majodali/project-orchestrator-service
+  8dcb62b.
+- A27, decision (b), option A. A later task with the twelve documents
+  among its writes adds their back-links. The Backlog row "The first
+  definitions of ratified terms do not link their vocabulary rows"
+  stays open for it. Decision 12 is met for this node's own anchors.
+- A28, E2's located finding 1, option A. `dispatch.md`, *The loop*,
+  step 2, gained one sentence: an owner-attended task, which the
+  Orchestrator does not launch, is journaled `dispatched` when its
+  brief is handed over, with `session` `null`, as the
+  [plan of P2-N023](p2-n023-web-view-ux-refinement.md) states in
+  *Recording*.
+
+With these, V1 and V7 are met, and so are decisions 12, 14 and 16.
+The node moved `executing` → `verifying`, for the owner's verifying
+gate.
+
+## Verification record
+
+Each criterion is met, by E2's self-verification at 5a94f10 (V2 to V6
+and V8 to V15) plus the acceptance commits of 2026-11-05 (V1 and V7).
+
+- V1: met. Inventory row 21's Backlog row, "The run journal can
+  record a block but not its release", is closed at the acceptance.
+  E1 and E2 landed or closed every other row.
+- V2: met.
+- V3: met.
+- V4: met.
+- V5: met.
+- V6: met.
+- V7: met. `observability.md` states decisions 14 and 15.
+  `JOURNAL_EVENT_KINDS` holds `unblocked` and `risk-opened`.
+  `test/journal-unblocked-risk-opened.test.ts` passes.
+  `node plugin/scripts/run_corpus.ts` reports every fixture matching
+  its recorded expectation.
+- V8: met.
+- V9: met.
+- V10: met.
+- V11: met. The *Promotion flags* line E2 proposed is in the
+  [Ruling register](../rulings.md).
+- V12: met. The acceptance leaves `dispatch.md` unchanged from *How a
+  reading applies the predicates* to the end of *Predicate 4*, and
+  leaves step 1 unchanged.
+- V13: met.
+- V14: met, under the owner's reading of 2026-11-03 (ask A25). At the
+  acceptance, `npm run lint` fails only over
+  `docs/findings/p3-n005-stop-predicates/prepass.ts`.
+- V15: met.
+- Decisions 4 to 16: met.
+
+At the verifying gate the owner verifies two things: that
+[`docs/vocabulary.md`](../vocabulary.md) holds the ratified terms, and
+that the kinds `unblocked` and `risk-opened` appear in the service's
+copy, `src/planRegister/vendored/cost-log-and-journal.ts` in
+majodali/project-orchestrator-service.
+
 ## Terms this node introduces
 
 The owner ratified all five names on 2026-11-03 (decision 16). Each

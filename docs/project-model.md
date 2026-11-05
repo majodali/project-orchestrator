@@ -502,7 +502,7 @@ record](project-model-slice-record.md) holds it.
   breakdown, the slugs used)
 - **state:** built, changing (derived by row 3 of the table, a modifying node in flight, from the modified-by line, where P3-N007 is
   done and P2-N018 is identified,
-  and P1-N016 is executing; the created-by line reads not yet
+  and P1-N016 is verifying; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -537,7 +537,7 @@ record](project-model-slice-record.md) holds it.
   breakdown, the slugs used)
 - **state:** built, changing (derived by row 3 of the table, a modifying node in flight, from the modified-by line, where P3-N007 is
   done and P3-N009 and P2-N018 are identified,
-  and P1-N016 is executing; the created-by line reads
+  and P1-N016 is verifying; the created-by line reads
   not yet derived; from [Plan register](plan-register.md); [Project
   model type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -575,7 +575,7 @@ record](project-model-slice-record.md) holds it.
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
 - **state:** built, changing (derived by row 3 of the table, a modifying node in flight, from the modified-by line, where P3-N007 is
-  done and P3-N009 identified, P1-N016 is executing
+  done and P3-N009 identified, P1-N016 is verifying
   and P3-N017 is specified; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
@@ -921,7 +921,7 @@ record](project-model-slice-record.md) holds it.
   [plan of P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
 - **state:** built, changing (derived by row 3 of the table, a modifying node in flight, from the modified-by line, where P3-N007 is
-  done and P1-N016 is executing and P3-N017 is specified; the created-by line reads not yet
+  done and P1-N016 is verifying and P3-N017 is specified; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
@@ -954,7 +954,7 @@ record](project-model-slice-record.md) holds it.
   Dependencies)
 - **state:** built, changing (derived by row 3 of the table, a modifying node in flight, from the modified-by line, where P3-N007 is
   done and P2-N018 is identified,
-  and P1-N016 is executing; the created-by line reads not yet
+  and P1-N016 is verifying; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
@@ -1428,7 +1428,7 @@ record](project-model-slice-record.md) holds it.
   stated at this breakdown)
 - **state:** built, changing (derived by row 3 of the table: a modifying node is
   in flight; P2-N018 on the modified-by line is identified
-  and P1-N016 is executing and P3-N017 is specified;
+  and P1-N016 is verifying and P3-N017 is specified;
   the created-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
@@ -1492,7 +1492,7 @@ record](project-model-slice-record.md) holds it.
 - **state:** built, changing (derived by row 3 of the table, a modifying
   node in flight: the created-by line, where P2-N021
   is done, and the modified-by line, where P1-N016 is
-  executing; from [Plan
+  verifying; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -1519,7 +1519,10 @@ record](project-model-slice-record.md) holds it.
 - **modified-by:** P1-N016 (Process spec maintenance; the event kinds `unblocked` and
   `risk-opened`, which the plan places in the `EVENTS` set of
   `plugin/scripts/lib/form-check-core.ts`; P2-N021's task E2 moved
-  that set here as `JOURNAL_EVENT_KINDS`; from [plan of
+  that set here as `JOURNAL_EVENT_KINDS`; realized 2026-11-05 at the
+  acceptance of task E2 (T104), majodali/project-orchestrator commit
+  8dca031, vendored as majodali/project-orchestrator-service commit
+  8dcb62b; from [plan of
   P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies;
   [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), Gate
   record, 2026-11-03)
