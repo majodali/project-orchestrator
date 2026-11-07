@@ -1521,8 +1521,8 @@ record](project-model-slice-record.md) holds it.
   `plugin/scripts/lib/form-check-core.ts`; P2-N021's task E2 moved
   that set here as `JOURNAL_EVENT_KINDS`; realized 2026-11-05 at the
   acceptance of task E2 (T104), majodali/project-orchestrator commit
-  8dca031, vendored as majodali/project-orchestrator-service commit
-  8dcb62b; from [plan of
+  ba2ef2c, vendored as majodali/project-orchestrator-service commit
+  a031c2e, merged by its pull request #27; from [plan of
   P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies;
   [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), Gate
   record, 2026-11-03)

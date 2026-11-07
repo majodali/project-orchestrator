@@ -2152,6 +2152,18 @@ decision 13).
   back-links; this row stays open until then, and decision 12 is met
   for P1-N016's own anchors. Pointer: [vocabulary](vocabulary.md),
   [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), decision 12.
+- [ ] **A verifying record opens with the owner's checks and cites
+  merged commits** — When: 2026-11-07, at the owner's review of A29.
+  Status: open, for the next process-spec maintenance pass (the
+  successor of P1-N016's); two rules: a verifying record opens with
+  the owner's checks, each linked to a line at a named commit on the
+  target repository's main, followed by the default; a record cites
+  the merged commit, not a branch commit. Owning document:
+  [plan-model.md](process/plan-model.md) or
+  [dispatch.md](process/dispatch.md#gates-v1), *Gates (v1)*. Pointer:
+  [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md#verification-record),
+  *Verification record*, the first record written this way.
 - [ ] **Methodology citations in the process spec point at the
   superseded pin** — identified 2026-08-31 while planning P1-N014,
   not executed. Nine links under `docs/process/` and in
@@ -2710,8 +2722,8 @@ decision 13).
   `risk-opened` are in `JOURNAL_EVENT_KINDS` in
   `plugin/scripts/lib/cost-log-and-journal.ts`, and
   `node plugin/scripts/sync_shared_unit.ts` vendored the unit to
-  majodali/project-orchestrator-service 8dcb62b, on branch
-  `p1-n016-e2-vendored`; `--check` reports the copy in sync. Noted
+  majodali/project-orchestrator-service a031c2e, on branch
+  `p1-n016-e2-vendored`, merged by pull request #27; `--check` reports the copy in sync. Noted
   2026-11-03: E2 (T104) left the unit unchanged, because the kinds
   waited on the owner's W-002 ruling (the row "The run journal can
   record a block but not its release"). Pointer: [plan of
@@ -2737,8 +2749,8 @@ decision 13).
   `docs/vocabulary.md` and the Backlog header. The acceptance of E2
   landed the journal kinds `unblocked` and `risk-opened` under the
   owner's W-002 (existing tests are signals, not obstacles) clearance,
-  re-vendored them to majodali/project-orchestrator-service 8dcb62b,
-  and added the owner-attended rule to `dispatch.md`'s step 2. Next:
+  re-vendored them in majodali/project-orchestrator-service at
+  a031c2e, merged by pull request #27, and added the owner-attended rule to `dispatch.md`'s step 2. Next:
   the owner's verifying gate; the owner verifies that
   `docs/vocabulary.md` holds the ratified terms and that the two kinds
   appear in the service's copy. Pointer:
@@ -3297,9 +3309,24 @@ decision 13).
   P2-N023's loop. Status: open, routed to P2-N022 (the owner question
   queue) unless the owner routes it elsewhere; the issues are not yet
   enumerated, and the owner names them one ask at a time in the
-  Orchestrator's conversation. Pointer: [plan of
+  Orchestrator's conversation. Noted 2026-11-07: the first issue is
+  that the view reads main while the records of 2026-11-03 onward sit
+  on the unmerged chain of pull requests #26 to #28; merging the chain
+  resolves it. Pointer: [plan of
   P2-N023](plans/p2-n023-web-view-ux-refinement.md#loop-ended-2026-11-07),
   *Loop ended*.
+- [ ] **The node page links the plan's verification record and marks a
+  non-default ref** — When: 2026-11-07, at the owner's review of A29.
+  Status: open, for the service: the Gate field on the node page links
+  the plan's `#verification-record` heading when the plan has one (the
+  Outcome field already reads the plan); a page read at a non-default
+  `ref` says so. Routed to P2-N022 (the owner question queue) as part
+  of answering gates from the view, or to a later view iteration.
+  Pointer: the plan of P2-N022, not yet on this branch (T101's output
+  `docs/plans/p2-n022-owner-question-queue.md`), and its
+  [specification, child
+  2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue);
+  the owner's conversation of 2026-11-07, on A29.
 - [ ] **Service chunk 3 — topics and coordination** (node P2-N004) —
   project topics for status and cross-session coordination, including
   who is blocked on what; channels-push availability on the web

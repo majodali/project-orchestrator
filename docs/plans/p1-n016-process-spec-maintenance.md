@@ -708,8 +708,8 @@ defaults."
   plan's `EVENTS` since P2-N021's task E2 moved it. They entered
   `observability.md`'s list with their definitions. The new test
   `test/journal-unblocked-risk-opened.test.ts` reads a journal using
-  both. The unit was re-vendored to majodali/project-orchestrator-service
-  8dcb62b.
+  both. The unit was re-vendored in majodali/project-orchestrator-service
+  at a031c2e, merged by pull request #27.
 - A27, decision (b), option A. A later task with the twelve documents
   among its writes adds their back-links. The Backlog row "The first
   definitions of ratified terms do not link their vocabulary rows"
@@ -727,42 +727,42 @@ gate.
 
 ## Verification record
 
+At the verifying gate the owner verifies two things:
+
+- That [`docs/vocabulary.md`](../vocabulary.md#def-sequencing) holds
+  the ratified terms, at the anchors `def-sequencing`, `def-stack`,
+  `def-knowledge`, `def-unblocked` and `def-risk-opened`.
+- That the kinds `unblocked` and `risk-opened` appear in the service's
+  copy, at lines 62 and 63 of
+  `src/planRegister/vendored/cost-log-and-journal.ts` in
+  majodali/project-orchestrator-service at a031c2e, merged by its pull
+  request #27.
+
+Default: verified; P1-N016 moves `verifying` → `done`.
+
 Each criterion is met, by E2's self-verification at 5a94f10 (V2 to V6
 and V8 to V15) plus the acceptance commits of 2026-11-05 (V1 and V7).
 
 - V1: met. Inventory row 21's Backlog row, "The run journal can
   record a block but not its release", is closed at the acceptance.
   E1 and E2 landed or closed every other row.
-- V2: met.
-- V3: met.
-- V4: met.
-- V5: met.
-- V6: met.
+- V2 to V6, V8 to V10, V13 and V15: met, by E2's self-verification at
+  5a94f10.
 - V7: met. `observability.md` states decisions 14 and 15.
   `JOURNAL_EVENT_KINDS` holds `unblocked` and `risk-opened`.
   `test/journal-unblocked-risk-opened.test.ts` passes.
   `node plugin/scripts/run_corpus.ts` reports every fixture matching
   its recorded expectation.
-- V8: met.
-- V9: met.
-- V10: met.
 - V11: met. The *Promotion flags* line E2 proposed is in the
   [Ruling register](../rulings.md).
 - V12: met. The acceptance leaves `dispatch.md` unchanged from *How a
   reading applies the predicates* to the end of *Predicate 4*, and
   leaves step 1 unchanged.
-- V13: met.
 - V14: met, under the owner's reading of 2026-11-03 (ask A25). At the
   acceptance, `npm run lint` fails only over
   `docs/findings/p3-n005-stop-predicates/prepass.ts`.
-- V15: met.
-- Decisions 4 to 16: met.
-
-At the verifying gate the owner verifies two things: that
-[`docs/vocabulary.md`](../vocabulary.md) holds the ratified terms, and
-that the kinds `unblocked` and `risk-opened` appear in the service's
-copy, `src/planRegister/vendored/cost-log-and-journal.ts` in
-majodali/project-orchestrator-service.
+- Decisions 4 to 16: met. Decisions 1 to 3 and 17 are not criteria
+  (*Verification*, last line).
 
 ## Terms this node introduces
 
