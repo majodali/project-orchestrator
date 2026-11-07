@@ -835,11 +835,13 @@ decision 13).
   [plan](plans/p3-n015-sequence-demonstration.md) ·
   [specification, child
   C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks).
-- [ ] **P3-N017 specified, 2026-11-04: the process specification cites
-  the methodology at its pin** — When: 2026-11-04, at P3-N015's plan
-  gate. Status: specified; member 1 of the ratified sequence, ratified
-  for `execute`; discharges the row "Methodology citations in the
-  process spec point at the superseded pin". Pointer:
+- [x] **P3-N017: the process specification cites the methodology at
+  its pin** — When: 2026-11-07, T105, member 1 of the sequence ratified
+  2026-11-04. Status: done, self-verified against M1.1 to M1.4 and S1
+  to S3; eleven links in eight files moved from tag `v1.3.0` to
+  `v1.6.0`, each anchor present at `v1.6.0` and each identifier named;
+  every cited claim holds at `v1.6.0`; discharges the row "Methodology
+  citations in the process spec point at the superseded pin". Pointer:
   [plan of P3-N015, M1](plans/p3-n015-sequence-demonstration.md#m1-the-process-specification-cites-the-methodology-at-its-pin).
 - [ ] **P3-N018 specified, 2026-11-04: Risk register entries can be
   linked one by one** — When: 2026-11-04, at P3-N015's plan gate.

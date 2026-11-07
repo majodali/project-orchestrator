@@ -8,7 +8,7 @@ this project's pinned version, 1.6.0
 [process specification](process/README.md).
 
 Adopted when the pressure appeared
-([methodology K-005](https://github.com/majodali/methodology/blob/v1.3.0/docs/rules/knowledge.md#k-005--companion-registers-when-pressure-appears-never-before)):
+([methodology K-005 (companion registers when pressure appears, never before)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-005--companion-registers-when-pressure-appears-never-before)):
 the owner's 2026-08-24 review asked how orchestration process
 failures — unintended behaviors from unexpected interplay between
 roles — are detected. Entries carry ID, description, mitigation, and
