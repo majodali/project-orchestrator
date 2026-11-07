@@ -21,7 +21,7 @@ An entry that instantiates a class in the
 and name, then says in one clause how the entry instantiates it. The
 [check document](common-risk-catalogue-check.md) reads these lines.
 
-- **R1 — Dispatch oscillation.** A loop between roles that never
+- <a id="r1"></a>**R1 — Dispatch oscillation.** A loop between roles that never
   converges: verify↔execute ping-pong (Reviewer rejects, Implementer
   resubmits, repeat), or the same `needs-judgment` question bouncing
   repeatedly. *Mitigation*: bounded attempts
@@ -31,21 +31,21 @@ and name, then says in one clause how the entry instantiates it. The
   [run journal](process/observability.md) as repeated event
   sequences. *Status*: open; mitigation spec'd, checker/journal land
   in plan chunk 4.
-- **R2 — Runaway fan-out.** Breakdown inflates the tree, or repeated
+- <a id="r2"></a>**R2 — Runaway fan-out.** Breakdown inflates the tree, or repeated
   backward transitions cycle a subtree, consuming budget without
   converging. *Mitigation*: approved scope is the hard boundary; the
   owner MAY attach a task or token budget to a scope grant
   (dispatch.md gates), and exhaustion stops the loop; per-node
   backward-transition counts are journal-visible. *Status*: open;
   mitigation spec'd.
-- **R3 — Orphaned work.** A node neither progressing nor visibly
+- <a id="r3"></a>**R3 — Orphaned work.** A node neither progressing nor visibly
   stuck — a `needs-judgment` answered in chat but never recorded, a
   blocked node silently forgotten. *Mitigation*: the liveness
   invariant ([auditing.md](process/auditing.md)) — every non-terminal
   node is actionable, in-flight, blocked-with-reason, or gated;
   gate/stop summaries enumerate all of them (dispatch.md, no silent
   drops). *Status*: open; mitigation spec'd.
-- **R4 — Role overreach.** A role decides above its authority without
+- <a id="r4"></a>**R4 — Role overreach.** A role decides above its authority without
   routing: an Implementer alters a test condition, a Planner
   self-authorizes non-monotonicity, an Orchestrator "fixes" content.
   *Mitigation*: exhaustive decides-lists
@@ -53,7 +53,7 @@ and name, then says in one clause how the entry instantiates it. The
   the diff at verify (unauthorized test-condition changes fail
   verification); semantic audits spot-check judgment classification.
   *Status*: open; mitigation spec'd.
-- **R5 — Register/reality divergence.** A session dies mid-task or a
+- <a id="r5"></a>**R5 — Register/reality divergence.** A session dies mid-task or a
   register goes stale, and dispatch decisions run on fiction.
   *Mitigation*: form checks before every dispatch and acceptance;
   tasks unresolved at session end are recorded `stale` in the journal
@@ -63,7 +63,7 @@ and name, then says in one clause how the entry instantiates it. The
   unseen)](proposals/common-risk-catalogue.md#cr-005) — the entry's
   second clause: a register goes stale, and dispatch decisions run on
   fiction.
-- **R6 — Packet-insufficiency spiral.** Context packets routinely too
+- <a id="r6"></a>**R6 — Packet-insufficiency spiral.** Context packets routinely too
   small; roles wander the repository, costing tokens and risking
   stale reads. *Mitigation*: widenings are recorded (Cost log notes;
   `packet-widened` journal events); recurrence is a spec defect in
@@ -72,12 +72,12 @@ and name, then says in one clause how the entry instantiates it. The
   (trial 1: plan/specify parent documents; trial 2: the process
   spec's profiles.md and plan-model.md routed to those stages) — the
   loop works; watch for further recurrence.
-- **R7 — Billing misroute.** An execution environment with
+- <a id="r7"></a>**R7 — Billing misroute.** An execution environment with
   `ANTHROPIC_API_KEY` set silently bills API credits despite the
   subscription. *Mitigation*: the environment MUST-check (founding
   plan, standing constraint 2), implemented as a session-start check
   in the plugin (chunk 4). *Status*: open; check pending plugin.
-- **R8 — Compounding bad plan.** A flawed breakdown propagates
+- <a id="r8"></a>**R8 — Compounding bad plan.** A flawed breakdown propagates
   through a subtree before ascent-side verification catches it.
   *Mitigation*: iterative descent verifies parents against their own
   criteria on ascent; broad breakdowns SHOULD lead with a thin
@@ -85,7 +85,7 @@ and name, then says in one clause how the entry instantiates it. The
   structural errors surface before fan-out compounds them. *Status*:
   open; mitigation spec'd.
 
-- **R9 — Surface-dependent plugin loading.** Whether checked-in
+- <a id="r9"></a>**R9 — Surface-dependent plugin loading.** Whether checked-in
   marketplace/plugin settings take effect is documented for local
   terminal sessions but not for Claude Code on the Web, and the
   first web demo attempt found the plugin absent (`/plugin` is
@@ -123,7 +123,7 @@ and name, then says in one clause how the entry instantiates it. The
   and that across four trials on two surfaces the plugin was never
   observed loading.
 
-- **R10 — The service becomes a second source of truth.** Live state
+- <a id="r10"></a>**R10 — The service becomes a second source of truth.** Live state
   in the service drifts from the registers in git, and decisions get
   made against the projection. *Mitigation*: git is authoritative by
   constraint ([orchestration-service](plans/orchestration-service.md),
@@ -150,7 +150,7 @@ and name, then says in one clause how the entry instantiates it. The
   that live state in the service can drift from the registers in git and
   that decisions could then be made against the projection. The exercise
   of 2026-09-07 produced no divergence.
-- **R11 — MCP surface constraints.** The transport imposes limits that
+- <a id="r11"></a>**R11 — MCP surface constraints.** The transport imposes limits that
   a naive design would trip: a 5-second default tool-call timeout
   (configurable per server), auto-backgrounding of calls past two
   minutes, elicitation dialogs that block rather than background, no
@@ -161,7 +161,7 @@ and name, then says in one clause how the entry instantiates it. The
   the queue for everything else; verify channels before any design
   depends on push, with topics degrading to pull otherwise. *Status*:
   open; verification due in chunk 3.
-- **R12 — Service outage stops work.** A coordination plane that
+- <a id="r12"></a>**R12 — Service outage stops work.** A coordination plane that
   becomes a dependency turns its own downtime into a work stoppage.
   *Mitigation*: degrade-to-git-only is a standing constraint
   (constraint 3) — sessions fall back to the v1 process, which is
@@ -285,7 +285,7 @@ and name, then says in one clause how the entry instantiates it. The
   code runs in)](proposals/common-risk-catalogue.md#cr-001) — the
   exercise's "does not wait" case ran where the egress proxy answered at
   once, so it could not exercise waiting.
-- **R13 — The tooling's runtime assumption moves from `python3` to
+- <a id="r13"></a>**R13 — The tooling's runtime assumption moves from `python3` to
   `node`.** The form checker is the loop's own guard: the Orchestrator
   runs it before every dispatch selection and at every acceptance. The
   TypeScript rewrite (P1-N009, ruling RU-011) replaces a `python3`
@@ -306,7 +306,7 @@ and name, then says in one clause how the entry instantiates it. The
   code runs in)](proposals/common-risk-catalogue.md#cr-001) — on a
   surface with an older or absent Node the checker cannot run, and the
   loss is silent unless something looks.
-- **R14 — Dependency search is an attack surface when agents shop for
+- <a id="r14"></a>**R14 — Dependency search is an attack surface when agents shop for
   packages.** A dispatched role solving a niche problem searches a
   public registry, and a package matching the need precisely is the
   path of least resistance. Task T027 hit this directly: looking for
@@ -334,7 +334,7 @@ and name, then says in one clause how the entry instantiates it. The
   searched a public registry for a DynamoDB reserved-word list and found
   a package published days earlier by a new single-package maintainer.
   The role declined it.
-- **R15 — Reference documentation is an instruction channel into a
+- <a id="r15"></a>**R15 — Reference documentation is an instruction channel into a
   dispatched role.** A role sent to read documentation fetches pages
   chosen by the task, and prose on those pages reaches the model as
   ordinary context. Task T030 hit this: AWS's own Lambda alias page
@@ -360,7 +360,7 @@ and name, then says in one clause how the entry instantiates it. The
   agent)](proposals/common-risk-catalogue.md#cr-003) — task T030 fetched
   an AWS documentation page whose *See also* block told the reader to
   run an agent-toolkit command. The role declined it.
-- **R16 — A cloud provider's error names the wrong layer, and a
+- <a id="r16"></a>**R16 — A cloud provider's error names the wrong layer, and a
   diagnostic that models one failure mode makes it worse.** Proving
   OIDC took three runs on 2026-09-04, against two independent defects
   and one misleading tool. AWS returned `InvalidIdentityToken`, "the
@@ -390,7 +390,7 @@ and name, then says in one clause how the entry instantiates it. The
   verdict line asserted a trust-policy mismatch for every failure in
   which the subject matched, and AWS's error text named a layer that was
   not at fault.
-- **R17 — The harness's own guidance pushes against the fallback
+- <a id="r17"></a>**R17 — The harness's own guidance pushes against the fallback
   rule.** The R12 exercise's credential case, 2026-09-07, surfaced
   this from inside a real session. When the enlisted server failed to
   connect, the notice the session received did not merely report the
@@ -422,7 +422,7 @@ and name, then says in one clause how the entry instantiates it. The
   against the project's no-retry rule, and the document stating the rule
   was absent from the branch under test.
 
-- **R18 — The view cookie is a standing read credential for the whole
+- <a id="r18"></a>**R18 — The view cookie is a standing read credential for the whole
   plan.** The web view's sign-in exchanges the view token for a signed
   cookie, and the cookie then reads every page of this repository's
   plan on the owner's devices for its lifetime. A lost or shared

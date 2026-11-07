@@ -844,11 +844,14 @@ decision 13).
   every cited claim holds at `v1.6.0`; discharges the row "Methodology
   citations in the process spec point at the superseded pin". Pointer:
   [plan of P3-N015, M1](plans/p3-n015-sequence-demonstration.md#m1-the-process-specification-cites-the-methodology-at-its-pin).
-- [ ] **P3-N018 specified, 2026-11-04: Risk register entries can be
-  linked one by one** — When: 2026-11-04, at P3-N015's plan gate.
-  Status: specified; member 2 of the ratified sequence, ratified for
-  `execute`; discharges the Risk register half of the row "Risk
-  register and Ruling register entries have no anchors". Pointer:
+- [x] **P3-N018: Risk register entries can be linked one by one** —
+  When: 2026-11-07, T106, member 2 of the sequence ratified 2026-11-04.
+  Status: done, self-verified against M2.1 to M2.5 and S1 to S3; each
+  of the eighteen entries R1 to R18 of the Risk register carries an
+  anchor `<a id="r<N>"></a>` before its bold ID, and no other text
+  changed; discharges the Risk register half of the row "Risk register
+  and Ruling register entries have no anchors", whose Ruling register
+  half stays open for the Orchestrator. Pointer:
   [plan of P3-N015, M2](plans/p3-n015-sequence-demonstration.md#m2-risk-register-entries-can-be-linked-one-by-one).
 - [ ] **P3-N019 specified, 2026-11-04: the checker extension-point
   proposal is ready to carry** — When: 2026-11-04, at P3-N015's plan
