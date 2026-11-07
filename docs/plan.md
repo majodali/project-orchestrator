@@ -495,7 +495,7 @@ The children of P3-N015, in the order of the sequence the owner ratified on 2026
   - Needed by: P3-N015.
   - Documents: the [plan of P3-N015, M1](plans/p3-n015-sequence-demonstration.md#m1-the-process-specification-cites-the-methodology-at-its-pin).
 - P3-N018 Risk register entries can be linked one by one
-  - Stage: executing, 2026-11-07. T106 dispatched as member 2 of the ratified sequence after T105's landing. Specified 2026-11-04 at P3-N015's plan gate.
+  - Stage: done, 2026-11-07. T106 accepted as member 2 of the ratified sequence; commit 47aac88 on branch p3-n017-m1. Specified 2026-11-04 at P3-N015's plan gate.
   - Outcome: Each [Risk register](open-risks.md) entry carries an anchor, so a link can land on it.
   - Depends on: P3-N015's gate only, which is crossed.
   - Needed by: P3-N015.
@@ -602,7 +602,7 @@ Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
 - P3-N012 (the Article 8 proposal): planning. P3-N011 is done.
-- P3-N018 (Risk register anchors): executing, T106 dispatched 2026-11-07 as member 2 of P3-N015's ratified sequence, after T105's landing. Until the sequence stops, no task outside its members is dispatched (RU-023).
+- P3-N019 (proposal ready to carry): next, to be dispatched by the Orchestrator as member 3 of P3-N015's ratified sequence after T106's landing on 2026-11-07. Until the sequence stops, no task outside its members is dispatched (RU-023).
 
 Planning now, dispatched on 2026-11-03 after the owner's decision:
 
@@ -623,7 +623,7 @@ Gated on the owner:
 Waiting:
 
 - P3-N009 (sibling ordering retired): waits on P3-N008.
-- P3-N019 and P3-N020 (members 3 and 4 of P3-N015's sequence): each waits on the acceptance of the member before it ([dispatch.md](process/dispatch.md#the-run), the run).
+- P3-N020 (member 4 of P3-N015's sequence): waits on the acceptance of the member before it ([dispatch.md](process/dispatch.md#the-run), the run).
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.
 - P2-N018 (the loop in git alone) and P2-N019 (role-aware identity): each waits on P2-N017.

@@ -469,7 +469,10 @@ decision 13).
 - [ ] **Risk register and Ruling register entries have no anchors** —
   found 2026-10-29 planning P3-N006: links to a risk or a ruling land
   at the top of the document; the web view (P2-N003) will want
-  per-entry links.
+  per-entry links. 2026-11-07: the Risk register half is discharged by
+  47aac88 (P3-N018, T106), eighteen anchors, R1 to R18; the Ruling
+  register half stays open for the Orchestrator, the register's single
+  writer (M2.5).
 - [x] **The type declared, the arguments written, the K-003 amendment
   drafted** (node P3-N007, child B of P3-N002) — When: planned
   2026-10-30 (T057); specified at the gate of 2026-10-30; E1 executed
@@ -832,7 +835,8 @@ decision 13).
   parent's *Child C* with the plan's criteria; the plan is `active`;
   the first member is dispatched only when no other task is in flight
   (decision 5). M1 (P3-N017, T105) landed 2026-11-07; the four
-  predicates read continue. Pointer:
+  predicates read continue. M2 (P3-N018, T106) landed 2026-11-07; the
+  four predicates read continue. Pointer:
   [plan](plans/p3-n015-sequence-demonstration.md) ·
   [specification, child
   C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks).

@@ -876,8 +876,8 @@ record](project-model-slice-record.md) holds it.
 - **is:** The Risk register, `docs/open-risks.md` (from [plan of
   P3-N006](plans/p3-n006-thin-end-to-end-slice.md), Dependencies)
 - **state:** built (derived by row 4 of the table: no creating or
-  counted modifying node; on the modified-by line P3-N017 is done and
-  P3-N018 is specified; the created-by line reads not yet derived; from [Plan
+  counted modifying node; on the modified-by line P3-N017 and P3-N018
+  are done; the created-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
