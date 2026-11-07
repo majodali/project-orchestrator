@@ -857,11 +857,16 @@ decision 13).
   and Ruling register entries have no anchors", whose Ruling register
   half stays open for the Orchestrator. Pointer:
   [plan of P3-N015, M2](plans/p3-n015-sequence-demonstration.md#m2-risk-register-entries-can-be-linked-one-by-one).
-- [ ] **P3-N019 specified, 2026-11-04: the checker extension-point
-  proposal is ready to carry** — When: 2026-11-04, at P3-N015's plan
-  gate. Status: specified; member 3 of the ratified sequence, ratified
-  for `execute`; prepares the row "Deliver the extension-point proposal
-  upstream" for the owner's carrying. Pointer:
+- [x] **P3-N019: the checker extension-point proposal is ready to
+  carry** — When: 2026-11-07, T107, member 3 of the sequence ratified
+  2026-11-04. Status: done, self-verified against M3.1 to M3.6 and S1
+  to S3; the cover note's covering message names seven changes since
+  2026-08-26 with pointers, the TypeScript port and the pin move among
+  them; Article 7 is quoted at `v1.3.0` and `v1.6.0` under the provenance
+  line of RU-015 (upstream delivery form), and the two texts are identical; the proposal is
+  unchanged; prepares the row "Deliver the extension-point proposal
+  upstream" for the owner's carrying, which stays open. Pointer:
+  [cover note](proposals/mtool-custom-type-checker-cover-note.md) ·
   [plan of P3-N015, M3](plans/p3-n015-sequence-demonstration.md#m3-the-checker-extension-point-proposal-is-ready-to-carry).
 - [ ] **P3-N020 specified, 2026-11-04: the plugin tools are tested the
   way they run** — When: 2026-11-04, at P3-N015's plan gate. Status:
