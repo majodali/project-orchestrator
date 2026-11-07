@@ -836,7 +836,9 @@ decision 13).
   the first member is dispatched only when no other task is in flight
   (decision 5). M1 (P3-N017, T105) landed 2026-11-07; the four
   predicates read continue. M2 (P3-N018, T106) landed 2026-11-07; the
-  four predicates read continue. Pointer:
+  four predicates read continue. M3 (P3-N019, T107) landed 2026-11-08;
+  predicate 4 read stop on its owner-addressed ask; sequence stopped;
+  stop summary in the plan. Pointer:
   [plan](plans/p3-n015-sequence-demonstration.md) ·
   [specification, child
   C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks).
@@ -872,7 +874,8 @@ decision 13).
   way they run** — When: 2026-11-04, at P3-N015's plan gate. Status:
   specified; member 4 of the ratified sequence, ratified for
   `execute`; discharges the row "No committed test runs the plugin
-  tools the way they run". Pointer:
+  tools the way they run". 2026-11-08: withheld by the stop of the
+  sequence at M3; ratified, not dispatched. Pointer:
   [plan of P3-N015, M4](plans/p3-n015-sequence-demonstration.md#m4-the-plugin-tools-are-tested-the-way-they-run).
 - [x] **Whether a task outside a ratified sequence may be dispatched
   while it runs** — When: 2026-10-30, planning P3-N015; landed
@@ -3515,7 +3518,10 @@ decision 13).
   follows the rewrite, say so in the covering message rather than
   editing the artifact ([P1-N009
   plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
-  decision 8).
+  decision 8). 2026-11-08: the cover note,
+  [mtool-custom-type-checker-cover-note.md](proposals/mtool-custom-type-checker-cover-note.md),
+  is ready at 41ddcc4 (P3-N019, T107); the owner's carry is asked in
+  the [stop summary](plans/p3-n015-sequence-demonstration.md#sequence-stopped-2026-11-08).
 - [ ] **Adopt the checker extension point once it lands** — when
   `mtool` ships the capability: adapt the form checker (Python
   today, TypeScript after P1-N009) to the accepted

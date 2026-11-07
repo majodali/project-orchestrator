@@ -474,7 +474,7 @@ The children of P3-N005, a strict chain in their [specification](specs/p3-n005-s
   - Needed by: P3-N015.
   - Documents: [plan](plans/p3-n014-loop-runs-sequence-mode.md), the parent's specification, child B.
 - P3-N015 The demonstration: a ratified sequence lands two chunks and stops on asks
-  - Stage: broken-down, 2026-11-04. The owner crossed the plan gate that day, adopting decisions 1 to 7 at their defaults and ratifying the sequence in words that say so. Under decision 3 the node moved planned → specified → broken-down at the gate, and its four children were entered. The first child is dispatched only when no other task is in flight (decision 5).
+  - Stage: broken-down, 2026-11-04. The owner crossed the plan gate that day, adopting decisions 1 to 7 at their defaults and ratifying the sequence in words that say so. Under decision 3 the node moved planned → specified → broken-down at the gate, and its four children were entered. The first child is dispatched only when no other task is in flight (decision 5). The sequence stopped on 2026-11-08 at M3 (P3-N019, T107) on condition 4; the stop summary is in the [plan](plans/p3-n015-sequence-demonstration.md#sequence-stopped-2026-11-08).
   - Outcome: The owner ratifies one sequence of four members, each an open Backlog item of this repository: the process specification's methodology links retargeted to the pin, anchors on the Risk register entries, the cover note for the checker extension-point proposal, and a test that runs the plugin tools as child processes. The first two land with no gate between them. The third carries an ask of the owner and stops the sequence. The fourth is ratified and never dispatched by the sequence. Two blind readings apply the four stop predicates to the run's results.
   - Depends on: P3-N014, which is done.
   - Needed by: P3-N016.
@@ -501,13 +501,13 @@ The children of P3-N015, in the order of the sequence the owner ratified on 2026
   - Needed by: P3-N015.
   - Documents: the [plan of P3-N015, M2](plans/p3-n015-sequence-demonstration.md#m2-risk-register-entries-can-be-linked-one-by-one).
 - P3-N019 The checker extension-point proposal is ready to carry
-  - Stage: executing, 2026-11-07. T107 dispatched as member 3 of the ratified sequence after T106's landing. Specified 2026-11-04 at P3-N015's plan gate.
+  - Stage: done, 2026-11-08. T107 accepted as member 3 of the ratified sequence; commit 41ddcc4 on branch p3-n017-m1. Specified 2026-11-04 at P3-N015's plan gate.
   - Outcome: A cover note for the checker extension-point proposal states what changed since 2026-08-26, and its result asks the owner to carry the proposal or to hold it.
   - Depends on: P3-N015's gate only, which is crossed.
   - Needed by: P3-N015.
   - Documents: the [plan of P3-N015, M3](plans/p3-n015-sequence-demonstration.md#m3-the-checker-extension-point-proposal-is-ready-to-carry).
 - P3-N020 The plugin tools are tested the way they run
-  - Stage: specified, 2026-11-04, at P3-N015's plan gate.
+  - Stage: specified, 2026-11-04, at P3-N015's plan gate. Ratified, withheld by the stop.
   - Outcome: A committed test runs three plugin tools as child processes, the way the roles and the hooks run them.
   - Depends on: P3-N015's gate only, which is crossed.
   - Needed by: P3-N015.
@@ -596,13 +596,15 @@ graph LR
 ## What is next: actionable, gated, waiting, and unplanned nodes
 
 A node is actionable when every recorded dependency of its next stage is met.
-From the first member's dispatch until P3-N015's sequence stops, no task outside the sequence is dispatched ([plan of P3-N015](plans/p3-n015-sequence-demonstration.md), decision 5; RU-023).
+P3-N015's sequence stopped on 2026-11-08 at M3 (P3-N019, T107) on condition 4, the owner-addressed carrying ask.
+Nothing is dispatched until the owner answers the [stop summary](plans/p3-n015-sequence-demonstration.md#sequence-stopped-2026-11-08) ([dispatch.md](process/dispatch.md#stop-summarize-wait)).
+Then the default grant of the plan's *After the stop* follows: M4's execute under the per-chunk gate, readings 1 and 2, and the task that compares them.
+RU-023 no longer holds a dispatch, since the sequence has stopped.
 
 Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
 - P3-N012 (the Article 8 proposal): planning. P3-N011 is done.
-- P3-N019 (proposal ready to carry): executing, T107 dispatched 2026-11-07 as member 3 of P3-N015's ratified sequence, after T106's landing. Its result is expected to carry the owner's hand-carry ask (M3.6), which stops the sequence (condition 4). Until the sequence stops, no task outside its members is dispatched (RU-023).
 
 Planning now, dispatched on 2026-11-03 after the owner's decision:
 
@@ -619,11 +621,12 @@ Gated on the owner:
 - P1-N016 (process spec maintenance): the owner's verifying gate. The owner verifies that `docs/vocabulary.md` holds the ratified terms and that the two journal kinds appear in the service's copy.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
+- P3-N015 (the demonstration): the owner's answer to the stop summary of 2026-11-08, whose ask is to carry the extension-point proposal or hold it. Its readings are gated.
+- P3-N020 (member 4 of P3-N015's sequence): ratified, withheld by the stop, not dispatched. Its execute waits on the owner's answer, under the per-chunk gate.
 
 Waiting:
 
 - P3-N009 (sibling ordering retired): waits on P3-N008.
-- P3-N020 (member 4 of P3-N015's sequence): waits on the acceptance of the member before it ([dispatch.md](process/dispatch.md#the-run), the run).
 - P3-N016 (the determination): waits on P3-N015.
 - P3-N004 (reversibility): waits on P3-N002.
 - P2-N018 (the loop in git alone) and P2-N019 (role-aware identity): each waits on P2-N017.
@@ -633,7 +636,7 @@ Waiting:
 - P2-N004 (topics and coordination): its executing stage waits on P2-N006.
 - P1-N006 (pilot on a real project): waits on P2-N006.
 - P1-N007 (cost reporting and close-out): its executing stage waits on P1-N006.
-- P2-N003, P2-N005, P3-N002, P3-N003, P3-N005 and P3-N015: each waits on its children.
+- P2-N003, P2-N005, P3-N002, P3-N003 and P3-N005: each waits on its children.
 - P1-N001, P2-N001 and P3-N001: each waits on its open children.
 
 No plan yet, in register order:
