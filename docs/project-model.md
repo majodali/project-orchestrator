@@ -1522,7 +1522,7 @@ record](project-model-slice-record.md) holds it.
   that set here as `JOURNAL_EVENT_KINDS`; realized 2026-11-05 at the
   acceptance of task E2 (T104), majodali/project-orchestrator commit
   8dca031, vendored as majodali/project-orchestrator-service commit
-  8dcb62b; from [plan of
+  a031c2e, merged by its pull request #27; from [plan of
   P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies;
   [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), Gate
   record, 2026-11-03)
