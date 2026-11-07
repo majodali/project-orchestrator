@@ -501,7 +501,7 @@ The children of P3-N015, in the order of the sequence the owner ratified on 2026
   - Needed by: P3-N015.
   - Documents: the [plan of P3-N015, M2](plans/p3-n015-sequence-demonstration.md#m2-risk-register-entries-can-be-linked-one-by-one).
 - P3-N019 The checker extension-point proposal is ready to carry
-  - Stage: specified, 2026-11-04, at P3-N015's plan gate.
+  - Stage: executing, 2026-11-07. T107 dispatched as member 3 of the ratified sequence after T106's landing. Specified 2026-11-04 at P3-N015's plan gate.
   - Outcome: A cover note for the checker extension-point proposal states what changed since 2026-08-26, and its result asks the owner to carry the proposal or to hold it.
   - Depends on: P3-N015's gate only, which is crossed.
   - Needed by: P3-N015.
@@ -602,7 +602,7 @@ Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
 - P3-N012 (the Article 8 proposal): planning. P3-N011 is done.
-- P3-N019 (proposal ready to carry): next, to be dispatched by the Orchestrator as member 3 of P3-N015's ratified sequence after T106's landing on 2026-11-07. Until the sequence stops, no task outside its members is dispatched (RU-023).
+- P3-N019 (proposal ready to carry): executing, T107 dispatched 2026-11-07 as member 3 of P3-N015's ratified sequence, after T106's landing. Its result is expected to carry the owner's hand-carry ask (M3.6), which stops the sequence (condition 4). Until the sequence stops, no task outside its members is dispatched (RU-023).
 
 Planning now, dispatched on 2026-11-03 after the owner's decision:
 
