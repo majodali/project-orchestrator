@@ -831,7 +831,8 @@ decision 13).
   broken-down into P3-N017 to P3-N020 (decision 3); specified by the
   parent's *Child C* with the plan's criteria; the plan is `active`;
   the first member is dispatched only when no other task is in flight
-  (decision 5). Pointer:
+  (decision 5). M1 (P3-N017, T105) landed 2026-11-07; the four
+  predicates read continue. Pointer:
   [plan](plans/p3-n015-sequence-demonstration.md) ·
   [specification, child
   C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks).
@@ -2164,16 +2165,15 @@ decision 13).
   [plan of
   P1-N016](plans/p1-n016-process-spec-maintenance.md#verification-record),
   *Verification record*, the first record written this way.
-- [ ] **Methodology citations in the process spec point at the
-  superseded pin** — identified 2026-08-31 while planning P1-N014,
-  not executed. Nine links under `docs/process/` and in
-  [open-risks.md](open-risks.md) target the `v1.3.0` tag; the pin has
-  been 1.4.0 since 2026-08-30. Stale rather than false: each claim
-  they support still stands at the current pin. Editorial pass,
-  retargeting the links and giving each identifier its name (P-004 —
-  citations carry names). Reasoning:
-  [p1-n014 plan](plans/p1-n014-role-contracts-adopt-v140-rules.md),
-  contradictions section.
+- [x] **Methodology citations in the process spec point at the
+  superseded pin** — When: identified 2026-08-31 while planning
+  P1-N014; landed 2026-11-07 by P3-N017 (the process specification
+  cites the methodology at its pin), task T105, commit ee5f2d0.
+  Status: done; eleven links in eight files, not nine, moved from tag
+  `v1.3.0` to `v1.6.0`, the pin, not 1.4.0; each identifier named
+  under P-004 (citations carry names); every cited claim holds at
+  `v1.6.0`. Pointer:
+  [plan of P3-N015, M1](plans/p3-n015-sequence-demonstration.md#m1-the-process-specification-cites-the-methodology-at-its-pin).
 - [ ] **Editorial pass over the Backlog to the declared row shape** —
   identified 2026-08-31 while planning P1-N014, not executed. Depends
   on decision 8 of that plan being adopted, which declares the shape
