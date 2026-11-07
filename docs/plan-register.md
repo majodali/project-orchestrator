@@ -61,7 +61,7 @@ honestly; chunks 1–3 completed before this register existed.
     - P3-N013 [done] The four stop conditions, decidable, evidenced, and related to the meta-review signals — plan: plans/p3-n013-stop-conditions-decidable.md · spec: specs/p3-n005-sequence-mode.md
     - P3-N014 [done] The loop runs sequence mode, and the roles meet the conditions without looking — depends on P3-N013 and on P1-N014's execute — plan: plans/p3-n014-loop-runs-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
     - P3-N015 [broken-down] The demonstration: a ratified sequence lands two chunks and stops on asks — depends on P3-N014 — plan gate crossed 2026-11-04, decisions 1 to 7 at their defaults; specified by the parent's Child C with the plan's criteria (decision 3); its children run as a ratified sequence, in this order; the first is dispatched only when no other task is in flight (decision 5) — plan: plans/p3-n015-sequence-demonstration.md · spec: specs/p3-n005-sequence-mode.md
-      - P3-N017 [specified] The process specification cites the methodology at its pin — plan: plans/p3-n015-sequence-demonstration.md
+      - P3-N017 [executing] The process specification cites the methodology at its pin — T105 dispatched 2026-11-07, member 1 of the ratified sequence — plan: plans/p3-n015-sequence-demonstration.md
       - P3-N018 [specified] Risk register entries can be linked one by one — plan: plans/p3-n015-sequence-demonstration.md
       - P3-N019 [specified] The checker extension-point proposal is ready to carry — plan: plans/p3-n015-sequence-demonstration.md
       - P3-N020 [specified] The plugin tools are tested the way they run — plan: plans/p3-n015-sequence-demonstration.md

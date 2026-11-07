@@ -489,7 +489,7 @@ The children of P3-N005, a strict chain in their [specification](specs/p3-n005-s
 The children of P3-N015, in the order of the sequence the owner ratified on 2026-11-04. They are mutually independent. The sequence dispatches them one at a time, in this order ([dispatch.md](process/dispatch.md#the-run), the run).
 
 - P3-N017 The process specification cites the methodology at its pin
-  - Stage: specified, 2026-11-04, at P3-N015's plan gate.
+  - Stage: executing, 2026-11-07. T105 dispatched as the first member of the ratified sequence, on branch p3-n017-m1. Specified 2026-11-04 at P3-N015's plan gate.
   - Outcome: The process specification's links to the methodology target tag v1.6.0, the pin, instead of v1.3.0, and each names its identifier with its name.
   - Depends on: P3-N015's gate only, which is crossed.
   - Needed by: P3-N015.
@@ -602,7 +602,7 @@ Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
 - P3-N012 (the Article 8 proposal): planning. P3-N011 is done.
-- P3-N017 (citations at the pin): execute, the first member of P3-N015's ratified sequence. It is dispatched only when no other task is in flight (decision 5). No task is in flight now, so it can be dispatched.
+- P3-N017 (citations at the pin): executing, T105 dispatched 2026-11-07 as the first member of P3-N015's ratified sequence. Decision 5 held: no task was in flight. The Orchestrator reads "in flight" as dispatched with no result received; T101 and T102, whose results are received and whose acceptance waits on the owner's gates A20 and A21, write nothing more and did not hold the dispatch. Until the sequence stops, no task outside its members is dispatched (RU-023).
 
 Planning now, dispatched on 2026-11-03 after the owner's decision:
 
