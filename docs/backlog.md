@@ -3273,18 +3273,31 @@ decision 13).
   `docs/plan.md` stays the hand rendering. Pointer: [plan.md](plan.md).
 - [ ] **UX refinement of the web view** (node P2-N023) — When:
   2026-11-03, the owner's decision at P2-N021's demonstration (V30);
-  P2-N023 adopted and T097 dispatched the same day. Status: executing,
-  the node's running list. Three of ten iterations are done. Each
+  P2-N023 adopted and T097 dispatched the same day. Status: verifying,
+  at the owner's gate on U1 (A30); the node's running list. Three of
+  ten iterations are done. Each
   merged in majodali/project-orchestrator-service and deployed green.
   Iteration 1 (T097, pull requests #23 and #24): the preview mode from
   fixtures, local sign-in and the screenshot script. Iteration 2 (T098,
   pull request #25): polished pages, a dark palette, and a foldable
   tree. Each subtree shows a status, and resources sit inside the tree.
   Iteration 3 (T099, pull request #26): the node page's tasks as a
-  table, a Gated line, and a Problems section. Open: iteration 4
-  (T100). Pointer:
+  table, a Gated line, and a Problems section. The loop ended on
+  2026-11-07, at iteration 4 (T100), which shipped nothing. The owner's
+  words: "All UX work has been completed and merged, so I'm not sure
+  if there's a need for another iteration. There are some issues with
+  the data the view is built on - we'll need to address those here."
+  Pointer:
   [plan](plans/p2-n023-web-view-ux-refinement.md) ·
   [brief](https://github.com/majodali/project-orchestrator-service/blob/main/docs/web-view-ux-brief.md).
+- [ ] **The web view's data has issues the owner saw after the UX
+  loop** — When: 2026-11-07, the owner's words at the end of
+  P2-N023's loop. Status: open, routed to P2-N022 (the owner question
+  queue) unless the owner routes it elsewhere; the issues are not yet
+  enumerated, and the owner names them one ask at a time in the
+  Orchestrator's conversation. Pointer: [plan of
+  P2-N023](plans/p2-n023-web-view-ux-refinement.md#loop-ended-2026-11-07),
+  *Loop ended*.
 - [ ] **Service chunk 3 — topics and coordination** (node P2-N004) —
   project topics for status and cross-session coordination, including
   who is blocked on what; channels-push availability on the web

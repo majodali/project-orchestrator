@@ -116,17 +116,36 @@ So the node always has an open dispatched task while it executes.
 
 ## Iterations
 
-Three of ten iterations are done, as of 2026-11-03.
+Three of ten iterations are done, as of 2026-11-03. The owner ended the loop after three, on 2026-11-07.
 
 | Iteration | Task | The service's pull requests |
 |---|---|---|
 | 1 | T097 | #23, #24 |
 | 2 | T098 | #25 |
 | 3 | T099 | #26 |
-| 4, open | T100 | none yet |
+| 4, closed | T100 | none: the owner ended the loop on 2026-11-07 |
 
 The Backlog row "UX refinement of the web view" lists what each
 shipped.
+
+## Loop ended, 2026-11-07
+
+The owner ended the loop after three iterations. The owner's words, on
+2026-11-07: "All UX work has been completed and merged, so I'm not sure
+if there's a need for another iteration. There are some issues with the
+data the view is built on - we'll need to address those here."
+
+Iteration 4 (T100) opened no pull request, so it shipped nothing. The
+node moved `executing` → `verifying`. Neither leg of U1 is met as
+written: the owner has not decided that the view replaces
+`docs/plan.md`, and ten iterations have not ended.
+
+At the verifying gate the owner decides whether P2-N023 closes on those
+words (ask A30). The default: the loop ends at three iterations on the
+owner's decision, and U1 is read as met by that decision. The data
+issues the owner named become the Backlog row "The web view's data has
+issues the owner saw after the UX loop", routed to P2-N022 (the owner
+question queue), whose plan is at its gate as A21.
 
 ## Monotonicity
 

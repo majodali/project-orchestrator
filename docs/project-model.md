@@ -1098,7 +1098,7 @@ record](project-model-slice-record.md) holds it.
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown)
 - **state:** built, changing (derived from the modified-by line, where
-  P2-N023 is executing; the created-by line, where P2-N021 is done, and
+  P2-N023 is verifying; the created-by line, where P2-N021 is done, and
   P2-N022, identified, do not change the value; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)

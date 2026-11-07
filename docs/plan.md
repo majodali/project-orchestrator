@@ -18,6 +18,7 @@ The rendering reads the register as it stands after the owner's gates of 2026-10
 It also reads the owner's decision of 2026-11-03 on P2-N022 and P2-N017, the owner's verifying gate of P3-N011 that day, and the owner's plan gate of P1-N016 that day.
 It also reads the owner's plan gate of P3-N015 on 2026-11-04, which ratified that node's sequence.
 It also reads the owner's rulings of 2026-11-05 at the acceptance of P1-N016's task E2.
+It also reads the owner's words of 2026-11-07, which ended P2-N023's loop after three iterations.
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
@@ -313,7 +314,7 @@ The children of P2-N003, in their [specification](specs/p2-n003-owner-questions-
   - Needed by: nothing.
   - Documents: the parent's [specification, child 2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue).
 - P2-N023 Web view UX refinement
-  - Stage: executing, 2026-11-03. The owner adopted the node's plan that day, after V30, and the node moved from identified to executing at that adoption. The owner-attended session on majodali/project-orchestrator-service has finished three iterations, T097 to T099. Task T100 is iteration 4. Each iteration gets its own task, dispatched when the previous one is accepted.
+  - Stage: verifying, 2026-11-07, gated on the owner. The owner adopted the node's plan on 2026-11-03, after V30, and the node moved from identified to executing at that adoption. The owner-attended session on majodali/project-orchestrator-service finished three iterations, T097 to T099. On 2026-11-07 the owner ended the loop after three. Task T100, iteration 4, shipped nothing. At the verifying gate the owner decides whether the node closes on those words (A30) ([plan](plans/p2-n023-web-view-ux-refinement.md), *Loop ended, 2026-11-07*).
   - Outcome: The web view's pages read and feel well enough on a phone for the owner to decide that the view replaces this document. The work runs as one small pull request per iteration, at most ten. It adds no data source and no route without a decision recorded in the node.
   - Depends on: P2-N021, which is done. The register marks it independent of P2-N022.
   - Needed by: nothing.
@@ -601,7 +602,7 @@ Actionable, not yet dispatched:
 
 - P1-N007 (cost reporting and close-out): planning. Its executing stage waits on P1-N006.
 - P3-N012 (the Article 8 proposal): planning. P3-N011 is done.
-- P3-N017 (citations at the pin): execute, the first member of P3-N015's ratified sequence. It is dispatched only when no other task is in flight (decision 5). T100 is in flight now.
+- P3-N017 (citations at the pin): execute, the first member of P3-N015's ratified sequence. It is dispatched only when no other task is in flight (decision 5). No task is in flight now, so it can be dispatched.
 
 Planning now, dispatched on 2026-11-03 after the owner's decision:
 
@@ -610,10 +611,11 @@ Planning now, dispatched on 2026-11-03 after the owner's decision:
 
 Executing now:
 
-- P2-N023 (web view UX refinement): executing from 2026-11-03, the owner-attended session. Three iterations are accepted, and task T100 is open.
+- None.
 
 Gated on the owner:
 
+- P2-N023 (web view UX refinement): the owner's verifying gate on U1 (A30). The owner ended the loop after three iterations on 2026-11-07. The default reads U1 as met by that decision.
 - P1-N016 (process spec maintenance): the owner's verifying gate. The owner verifies that `docs/vocabulary.md` holds the ratified terms and that the two journal kinds appear in the service's copy.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
