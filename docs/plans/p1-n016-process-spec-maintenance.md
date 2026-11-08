@@ -1,6 +1,6 @@
 # Process spec maintenance: branch lifecycle, PR citation, packet table
 
-Status: draft
+Status: active
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -259,6 +259,17 @@ texts it cites, and writes nothing there.
 adds no corpus fixture, so nothing travels to the service repository
 ([RU-012 (one canonical copy, vendored by a generator)](../rulings.md)).
 
+> Found at the gate, 2026-11-03: the event kinds no longer sit in
+> `plugin/scripts/lib/form-check-core.ts`. Node P2-N021 (the web
+> view's first version), task E2, moved them to the set
+> `JOURNAL_EVENT_KINDS` in `plugin/scripts/lib/cost-log-and-journal.ts`.
+> `node plugin/scripts/sync_shared_unit.ts` vendors that file to
+> majodali/project-orchestrator-service. So E2's two kinds travel to
+> the service repository, and the statement above that nothing travels
+> does not hold for E2. The `modifies` edge is recorded on
+> `cost-log-and-journal-grammar`, not on `form-checker`. E2's brief
+> carries the changed file and its reach (*Gate record, 2026-11-03*).
+
 ## Leaf or interior
 
 Leaf, run as the two tasks above (decision 1).
@@ -337,6 +348,9 @@ test is added. No rule, test or corpus expectation is rewritten.
 Numbered per [dispatch.md](../process/dispatch.md)'s owner-decision
 economics. The owner's go-ahead adopts every default not overridden by
 number. This plan opens its own sequence at 1.
+
+The owner adopted decisions 1 to 17 at their defaults on 2026-11-03,
+and ratified the five names of decision 16 (*Gate record, 2026-11-03*).
 
 **Precedents checked against the [Ruling register](../rulings.md).**
 RU-016 is an exact match for the repository reach and decides it
@@ -601,6 +615,87 @@ dispositions every ruling the promote step flags.
   `done`". Pointer:
   [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), *What
   this node leaves alone*.
+
+## Gate record, 2026-11-03
+
+The owner crossed this node's plan gate on 2026-11-03. The owner's
+words: "A8: P1-N016 plan gate - all decisions defaults approved, all
+terms ratified." The go-ahead adopts decisions 1 to 17 at their
+defaults.
+
+- Under decision 2 the node moved `planned` → `specified` at this
+  gate. Criteria V1 to V15 and decisions 4 to 16 are its
+  specification. No specify task runs.
+- Under decision 1 the node is a leaf, run as E1 then E2 on one branch.
+  Neither task is dispatched in this record.
+- Under decision 3 the node does not wait on P3-N009. Its execute waits
+  only on the acceptance of P3-N007's E1, which is met: P3-N007 is
+  `done`. The Orchestrator placed decision 3's drafted texts in the
+  specification of P3-N002, criterion D3, and in the Backlog entry "P3-N002
+  and P1-N016 both reach `dispatch.md`'s selection rule", verbatim. In
+  `docs/plan.md` the texts were placed in substance, because their
+  targets had changed since 2026-10-30. The node's *Depends on* line
+  now says the wait is met. The waits section counts it met. The
+  diagram draws no arrow for it, because the diagram shows open nodes
+  only. The *Planning now* item no longer exists.
+- Under decision 8 the two supersession markers are placed in
+  `docs/process/plan-model.md` and `docs/process/profiles.md`. E2
+  removes them when it reworks the two passages (V15).
+- Under decision 13 the opening sentence of `docs/plan.md` is placed
+  verbatim.
+- The five names of decision 16 are ratified. Their definitions are in
+  *Terms this node introduces*, below.
+- The two Backlog additions are entered, or kept where one already
+  stood. The node's Backlog entry is rewritten to `specified`.
+- Found contradiction, not resolved here. Decision 11 says the new
+  node is "identified now". The Backlog addition says it is "a node to
+  identify after P3-N009". This record enters no register node, because
+  the plan names neither its parent nor its identifier. The Backlog row
+  holds it until the Orchestrator or the owner places it.
+- Found at the gate: the event kinds moved to a vendored unit (the
+  marker under *Dependencies*). E2's writes include
+  `plugin/scripts/lib/cost-log-and-journal.ts` and a re-vendoring to
+  majodali/project-orchestrator-service. A Backlog row holds this for
+  E2's brief.
+- Eight Backlog rows routed to this node are not in the inventory.
+  One asks for a form check for task files, claim branches and result
+  files. Under decision 11 this node adds no form-check rule, so that
+  row goes to the row "Form-check rules from the process-spec pass".
+  This gate does not disposition the remaining seven rows. Each carries a dated
+  note naming the task whose writes include its owning document. The
+  Orchestrator names each one in that task's brief, or routes it
+  elsewhere.
+- Edges: seventeen of the edges under *Dependencies* are transcribed
+  into the [Project model](../project-model.md). Five stay held: the
+  `modifies` edges on `docs/process/README.md`, `profiles.md`,
+  `auditing.md` and `plugin/skills/orchestrate/SKILL.md`, and the
+  `creates` edge on `docs/vocabulary.md`. No slug names those
+  resources yet, and node P3-N008 (the instance) issues them. Four
+  entries are opened for the transcription, one per ruling with none
+  yet: RU-009, RU-010, RU-013 and RU-020.
+
+Next: E1, an Implementer task at the standard tier, the execute stage.
+It writes `dispatch.md` and the places that restate it, as *Two
+execute tasks* lists.
+
+## Terms this node introduces
+
+The owner ratified all five names on 2026-11-03 (decision 16). Each
+definition below is the term's definition site until E2 writes
+`docs/vocabulary.md`. Under decision 12, that file's row then becomes
+the definition site, and this anchor links it.
+
+- <a id="def-sequencing"></a>**sequencing**: a type in the Ruling
+  register's taxonomy, for rulings on dispatch order and concurrency.
+- <a id="def-stack"></a>**stack**: a type in the Ruling register's
+  taxonomy, for rulings on languages, runtimes and code sharing.
+- <a id="def-knowledge"></a>**knowledge**: a type in the Ruling
+  register's taxonomy, for rulings on which document holds which truth.
+- <a id="def-unblocked"></a>**unblocked**: a run journal event kind
+  recording that a hold was released. Its note names what released it.
+- <a id="def-risk-opened"></a>**risk-opened**: a run journal event
+  kind recording that a Risk register entry was opened. Its note names
+  the entry.
 
 ## References
 

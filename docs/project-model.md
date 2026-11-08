@@ -48,8 +48,11 @@ instance over this repository) populates it.
   P2-N005](specs/p2-n005-task-pull-loop.md), each in its section *Edges
   stated at this breakdown*. The entries also hold P2-N023's edges, from
   the *Dependencies* section of the [plan of
-  P2-N023](plans/p2-n023-web-view-ux-refinement.md). Edges that other
-  records state are still held. An item reading `not yet derived`
+  P2-N023](plans/p2-n023-web-view-ux-refinement.md). The entries also
+  hold seventeen of P1-N016's edges, from the *Dependencies* section of
+  the [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md),
+  transcribed at its plan gate of 2026-11-03. Edges that other records
+  state are still held. An item reading `not yet derived`
   marks a facet no record has filled yet. Each `state:` line reads what
   the edges the entries hold give.
 
@@ -289,7 +292,9 @@ record](project-model-slice-record.md) holds it.
   Dependencies) ·
   P2-N021 (The web view's first version; from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
-  at this breakdown)
+  at this breakdown) ·
+  P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
 
 ## project-orchestrator-repo
 
@@ -486,7 +491,8 @@ record](project-model-slice-record.md) holds it.
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
 - **state:** built (derived from the modified-by line, where P3-N007 is
-  done and P2-N018 is identified; the created-by line reads not yet
+  done and P2-N018 is identified,
+  and P1-N016 is specified; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -506,7 +512,9 @@ record](project-model-slice-record.md) holds it.
   Dependencies) ·
   P2-N018 (The loop in git alone; from [specification of
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
-  breakdown)
+  breakdown) ·
+  P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
 - **used-by:** not yet derived (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown)
@@ -518,7 +526,8 @@ record](project-model-slice-record.md) holds it.
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
 - **state:** built (derived from the modified-by line, where P3-N007 is
-  done and P3-N009 and P2-N018 are identified; the created-by line reads
+  done and P3-N009 and P2-N018 are identified,
+  and P1-N016 is specified; the created-by line reads
   not yet derived; from [Plan register](plan-register.md); [Project
   model type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -538,7 +547,9 @@ record](project-model-slice-record.md) holds it.
   this breakdown) ·
   P2-N018 (The loop in git alone; from [specification of
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
-  breakdown)
+  breakdown) ·
+  P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
 - **used-by:** P2-N018 after P3-N014 (The loop in git alone; the after
   qualifier is the record's; no record yet states P3-N014's modifies
   edge on this resource, a Backlog entry holds it; from [specification
@@ -552,7 +563,8 @@ record](project-model-slice-record.md) holds it.
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
 - **state:** built (derived from the modified-by line, where P3-N007 is
-  done and P3-N009 identified; the created-by line reads not yet
+  done and P3-N009 identified, and P1-N016
+  is specified; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -569,7 +581,9 @@ record](project-model-slice-record.md) holds it.
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies) · P3-N009 (Sibling ordering retired; from [specification
   of P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at
-  this breakdown)
+  this breakdown) ·
+  P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
 - **used-by:** P2-N021 (The web view's first version; task E3 (T096)
   reads the node lifecycle for the list of what is next; proposed in
   T096's result and recorded before its acceptance, on the
@@ -680,7 +694,9 @@ record](project-model-slice-record.md) holds it.
   breakdown) ·
   P2-N018 (The loop in git alone; from [specification of
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
-  breakdown)
+  breakdown) ·
+  P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
 - **used-by:** P3-N006 (The thin end-to-end slice; a document the slice
   derives from; from [plan of
   P3-N006](plans/p3-n006-thin-end-to-end-slice.md), Dependencies) ·
@@ -716,7 +732,9 @@ record](project-model-slice-record.md) holds it.
   from [specification of P3-N002](specs/p3-n002-comprehension-model.md),
   Edges stated at this breakdown; [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
-  Dependencies)
+  Dependencies) ·
+  P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
 
 ## RU-018 (a child is not queued behind a sibling it does not depend on)
 
@@ -869,8 +887,8 @@ record](project-model-slice-record.md) holds it.
   [plan of P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
 - **state:** built (derived from the modified-by line, where P3-N007 is
-  done; the created-by line reads not yet derived; from [Plan
-  register](plan-register.md); [Project model
+  done and P1-N016 is specified; the created-by line reads not yet
+  derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
@@ -884,7 +902,9 @@ record](project-model-slice-record.md) holds it.
 - **modified-by:** P3-N007 (The type declared, the K-003 amendment
   drafted; criterion B7; from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
-  Dependencies)
+  Dependencies) ·
+  P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
 - **used-by:** not yet derived (from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
@@ -896,7 +916,8 @@ record](project-model-slice-record.md) holds it.
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
 - **state:** built (derived from the modified-by line, where P3-N007 is
-  done and P2-N018 is identified; the created-by line reads not yet
+  done and P2-N018 is identified,
+  and P1-N016 is specified; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
@@ -914,7 +935,9 @@ record](project-model-slice-record.md) holds it.
   Dependencies) ·
   P2-N018 (The loop in git alone; from [specification of
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
-  breakdown)
+  breakdown) ·
+  P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
 - **used-by:** P2-N018 after P3-N014 (The loop in git alone; the after
   qualifier is the record's; no record yet states P3-N014's modifies
   edge on this resource, a Backlog entry holds it; from [specification
@@ -945,7 +968,9 @@ record](project-model-slice-record.md) holds it.
 - **used-by:** P3-N007 (The type declared, the K-003 amendment drafted;
   from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
-  Dependencies)
+  Dependencies) ·
+  P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
 
 ## RU-003 (a node completes at the artifact)
 
@@ -971,7 +996,9 @@ record](project-model-slice-record.md) holds it.
 - **used-by:** P3-N007 (The type declared, the K-003 amendment drafted;
   from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
-  Dependencies)
+  Dependencies) ·
+  P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
 
 ## RU-005 (proposal-class nodes gate at verifying)
 
@@ -1023,7 +1050,9 @@ record](project-model-slice-record.md) holds it.
 - **used-by:** P3-N007 (The type declared, the K-003 amendment drafted;
   from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
-  Dependencies)
+  Dependencies) ·
+  P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
 
 ## web-view
 
@@ -1361,7 +1390,8 @@ record](project-model-slice-record.md) holds it.
   [specification of P2-N005](specs/p2-n005-task-pull-loop.md), Edges
   stated at this breakdown)
 - **state:** built (derived by row 4 of the table: no creating or
-  counted modifying node; P2-N018 on the modified-by line is identified;
+  counted modifying node; P2-N018 on the modified-by line is identified
+  and P1-N016 is specified;
   the created-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
@@ -1376,7 +1406,9 @@ record](project-model-slice-record.md) holds it.
   breakdown)
 - **modified-by:** P2-N018 (The loop in git alone; from [specification
   of P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
-  breakdown)
+  breakdown) ·
+  P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
 - **used-by:** P2-N019 (Role-aware identity; from [specification of
   P2-N005](specs/p2-n005-task-pull-loop.md), Edges stated at this
   breakdown)
@@ -1418,7 +1450,8 @@ record](project-model-slice-record.md) holds it.
   parser and shared parsing, under RU-012; [Backlog, entry for
   P2-N021](backlog.md))
 - **state:** built (derived from the created-by line, where P2-N021
-  is done; the modified-by line reads not yet derived; from [Plan
+  is done, and the modified-by line, where P1-N016 is
+  specified; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -1442,15 +1475,92 @@ record](project-model-slice-record.md) holds it.
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
   parser and shared parsing, under RU-012; [Backlog, entry for
   P2-N021](backlog.md))
-- **modified-by:** not yet derived (from [specification of
-  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
-  at this breakdown; [specification of
-  P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
-  parser and shared parsing, under RU-012; [Backlog, entry for
-  P2-N021](backlog.md))
+- **modified-by:** P1-N016 (Process spec maintenance; the event kinds `unblocked` and
+  `risk-opened`, which the plan places in the `EVENTS` set of
+  `plugin/scripts/lib/form-check-core.ts`; P2-N021's task E2 moved
+  that set here as `JOURNAL_EVENT_KINDS`; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies;
+  [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), Gate
+  record, 2026-11-03)
 - **used-by:** not yet derived (from [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), Edges stated
   at this breakdown; [specification of
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
   parser and shared parsing, under RU-012; [Backlog, entry for
   P2-N021](backlog.md))
+
+## RU-009 (completed work reaches main by pull request)
+
+- **is:** A ruling (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **state:** built (derived by row 4 of the table: no creating or
+  counted modifying node; the created-by and modified-by lines read not
+  yet derived; from [Project model type](process/project-model.md),
+  State derivation)
+- **spec:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **risks:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **created-by:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **modified-by:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **used-by:** P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+
+## RU-010 (this repository reaches main the same way)
+
+- **is:** A ruling (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **state:** built (derived by row 4 of the table: no creating or
+  counted modifying node; the created-by and modified-by lines read not
+  yet derived; from [Project model type](process/project-model.md),
+  State derivation)
+- **spec:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **risks:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **created-by:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **modified-by:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **used-by:** P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+
+## RU-013 (a tool with an unmet runtime floor exits loudly)
+
+- **is:** A ruling (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **state:** built (derived by row 4 of the table: no creating or
+  counted modifying node; the created-by and modified-by lines read not
+  yet derived; from [Project model type](process/project-model.md),
+  State derivation)
+- **spec:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **risks:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **created-by:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **modified-by:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **used-by:** P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+
+## RU-020 (no separate break-down task when the specification reaches breakdown depth)
+
+- **is:** A ruling (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **state:** built (derived by row 4 of the table: no creating or
+  counted modifying node; the created-by and modified-by lines read not
+  yet derived; from [Project model type](process/project-model.md),
+  State derivation)
+- **spec:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **risks:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **created-by:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **modified-by:** not yet derived (from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
+- **used-by:** P1-N016 (Process spec maintenance; from [plan of
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), Dependencies)
