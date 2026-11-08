@@ -47,6 +47,24 @@ and these run on every changed day. The v1 invariant list:
   `accepted` event; a journal telling less than the registers is a
   finding.
 
+Three rules are not in this list yet: a plan's or specification's
+Status against its node's stage; a `dispatched` event with no terminal
+event and no session identifier; and a sequence's journal. A node
+after P3-N009 (sibling ordering retired) writes them into this list and
+the checker together, so that this list names no rule the checker does
+not run
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+decision 11). The Backlog row "Form-check rules from the process-spec
+pass" holds them until then.
+
+**The checker preflights its runtime.** Where the runtime it needs is
+missing or too old, it exits non-zero, naming what it required and
+what it found. It never degrades quietly and never skips a check it
+exists to perform. The loud exit blocks dispatch, which is the correct
+outcome (RU-013 (a tool with an unmet runtime floor exits loudly),
+[Ruling register](../rulings.md)). The rule holds for every tool this
+project ships with a runtime floor.
+
 **The checker ships with this project** as a built artifact of plan
 chunk 4: the spec lives here, so the machinery mechanizing it lives
 here, derivative of these documents (Article 3 — where checker and

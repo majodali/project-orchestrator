@@ -14,10 +14,12 @@ Run one orchestration session per the process spec
    `node "${CLAUDE_PLUGIN_ROOT}/scripts/form_check.ts"` (Node
    >=22.18.0, or >=23.6.0 on the 23.x line)
 
-   Never proceed past a failing check. Startup reads are exactly the
-   Plan register, the Backlog, and `docs/process/dispatch.md` —
-   trial 3 spent ~30 minutes on an 18-file orientation before a
-   10-minute loop; do not repeat that. Never wait on timers,
+   Never proceed past a failing check. The startup working set is
+   the Plan register and `docs/process/dispatch.md` up to *Sequence
+   mode*. *Sequence mode* and its predicates are read when a sequence
+   is ratified or running. Backlog entries are read by node ID when a
+   step needs them. Trial 3 spent ~30 minutes on an 18-file
+   orientation before a 10-minute loop; do not repeat that. Never wait on timers,
    scheduled wakeups, or sleep — dispatched agents notify on
    completion.
 

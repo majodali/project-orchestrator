@@ -45,6 +45,17 @@ only when your brief names it among your writes; otherwise you
 propose its entries and edges (`docs/process/project-model.md`, the
 writer rule).
 
+**Branches** (`docs/process/dispatch.md`, the loop, step 3, *The
+task branch*): a branch you made that will never merge, you delete
+before you return. If the deletion is refused, say so in your result
+and name the branch as a Backlog addition, for the owner to delete.
+
+**Shared registers under parallel dispatch** (`docs/process/dispatch.md`,
+the loop): while tasks run concurrently, your brief names neither the
+Backlog nor the Risk register among your writes. Return your Backlog
+and Risk register additions, your node's entry rewrite included, in
+your result; the Orchestrator writes them at acceptance.
+
 **Sequence mode** (`docs/process/dispatch.md`, *Sequence mode*;
 `docs/process/roles.md`, the conditions each role can trigger): your
 task may be a member of a sequence the owner ratified. Before the

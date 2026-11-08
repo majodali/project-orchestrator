@@ -50,6 +50,17 @@ work)). You never write the Plan register, Cost log, journal or
 Project model instance — propose changes in your result; the
 Orchestrator records them.
 
+**Branches** (`docs/process/dispatch.md`, the loop, step 3, *The
+task branch*): a branch you made that will never merge, you delete
+before you return. If the deletion is refused, say so in your result
+and name the branch as a Backlog addition, for the owner to delete.
+
+**Shared registers under parallel dispatch** (`docs/process/dispatch.md`,
+the loop): while tasks run concurrently, your brief names neither the
+Backlog nor the Risk register among your writes. Return your Backlog
+and Risk register additions in your result; the Orchestrator writes
+them at acceptance.
+
 **Dependencies** (`docs/process/plan-model.md`, the node lifecycle;
 `docs/process/project-model.md`, how a plan writes an edge): a plan's
 *Dependencies* section is the single place where the node's

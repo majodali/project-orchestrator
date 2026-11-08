@@ -148,9 +148,18 @@ a listed kind is above the role's authority and returns
 
 Refines *Agent (session)*. Tier: **frugal**.
 
-- **Serves**: the dispatch loop; single writer of the Plan register
-  and Cost log; context-packet assembly; form-check runs at dispatch
-  and acceptance ([auditing.md](auditing.md)); gate summaries;
+- **Serves**: the dispatch loop; single writer of the Plan register,
+  the Cost log, the run journal ([observability.md](observability.md)),
+  the [Ruling register](../rulings.md) and, where the Classification
+  declares the type, the Project model instance
+  ([project-model.md](project-model.md), the writer rule); writer of
+  the Backlog and the Risk register while tasks run concurrently, from
+  the additions each result returns ([dispatch.md](dispatch.md), the
+  shared registers under parallel dispatch); context-packet assembly;
+  form-check runs at dispatch and acceptance
+  ([auditing.md](auditing.md)); merging each task branch into the
+  design branch and deleting it at acceptance
+  ([dispatch.md](dispatch.md), the loop, step 3); gate summaries;
   placing, at gate crossing, each adopted decision's drafted text
   verbatim at its affected locations ([dispatch.md](dispatch.md),
   owner-decision economics).

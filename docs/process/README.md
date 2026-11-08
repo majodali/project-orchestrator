@@ -37,6 +37,12 @@ are defined below.
   has authorized for dispatch at a gate; the boundary of autonomous
   orchestration ([dispatch.md](dispatch.md)).
 
+Each term a gate record of this project shows ratified has one row in
+the project's [vocabulary](../vocabulary.md). The row is the term's
+definition site
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+decision 12).
+
 ## Documents
 
 Reading order for a session learning the process:
@@ -105,4 +111,8 @@ what binds it.
   only.
 - Role contracts in `.claude/agents/` and their mirrors in
   `plugin/agents/` are bound as briefs are.
+- Skill files under `plugin/skills/` are bound as briefs are, like
+  role contracts
+  ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+  inventory row 27).
 - The run journal and code, code comments included, are exempt.

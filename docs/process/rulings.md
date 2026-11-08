@@ -26,11 +26,18 @@ single writer.
 
 Every ruling carries a **type** and a **scope**:
 
-- **Type** (initial taxonomy; extending it is a spec change):
+- **Type** (extending the taxonomy is a spec change):
   `handoff` (delivery channels, branches, PRs) · `tier` (model and
   tier designations) · `completion` (what done means for a node
   class) · `scope` (boundaries, cross-repo reach) · `verification`
-  (depth and form of criteria) · `comms` (reporting and formats).
+  (depth and form of criteria) · `comms` (reporting and formats) ·
+  [`sequencing`](../vocabulary.md#def-sequencing) (dispatch order and
+  concurrency) · [`stack`](../vocabulary.md#def-stack) (languages,
+  runtimes and code sharing) ·
+  [`knowledge`](../vocabulary.md#def-knowledge) (which document holds
+  which truth). The last three entered on 2026-11-03
+  ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+  decision 16).
 - **Scope**: `node` (this node only — rarely worth recording) ·
   `project` · `process` (would apply to any managed project — spec
   territory by definition).
