@@ -2743,33 +2743,38 @@ decision 13).
   waited on the owner's W-002 ruling (the row "The run journal can
   record a block but not its release"). Pointer: [plan of
   P1-N016](plans/p1-n016-process-spec-maintenance.md), *Dependencies*.
-- [ ] **Process spec maintenance: branch lifecycle, PR citation,
+- [x] **Process spec maintenance: branch lifecycle, PR citation,
   packet table** (node P1-N016) — When: opened 2026-09-01; planned
   2026-10-30 (T074); specified 2026-11-03 at the owner's plan gate; E1
-  executed 2026-11-03 (T103), accepted under the owner's rulings A23 to
-  A25; E2 executed 2026-11-03 (T104), accepted 2026-11-05 under the
-  owner's rulings A26 to A28, every criterion met. Status: verifying,
-  for the owner's verifying gate; a leaf run as E1 then E2, all
-  seventeen decisions adopted at their defaults and the five names
-  ratified. E1 landed the entry's three parts in
-  `dispatch.md`: (i) who deletes a task branch, and why task branches
-  are pushed, in step 3; (ii) how work reaches `main`, promoting RU-009
-  (completed work reaches `main` by pull request) and RU-010 (this
-  repository reaches `main` the same way); (iii) the packet table and
-  the startup working set. E2 landed the leaf definition, the
-  rule for a carried child, RU-003 and RU-020 in `plan-model.md`, the
-  Breakdown row in `profiles.md`, the journal's field contents in
-  `observability.md`, RU-013 and the held form-check rules in
-  `auditing.md`, three ruling types, the `plugin/skills/` prose class,
-  `docs/vocabulary.md` and the Backlog header. The acceptance of E2
-  landed the journal kinds `unblocked` and `risk-opened` under the
-  owner's W-002 (existing tests are signals, not obstacles) clearance,
-  re-vendored them in majodali/project-orchestrator-service at
-  a031c2e, merged by pull request #27, and added the owner-attended rule to `dispatch.md`'s step 2. Next:
-  the owner's verifying gate; the owner verifies that
-  `docs/vocabulary.md` holds the ratified terms and that the two kinds
-  appear in the service's copy. Pointer:
-  [plan](plans/p1-n016-process-spec-maintenance.md), [dispatch.md](process/dispatch.md).
+  (T103) executed and accepted 2026-11-03 under the owner's rulings
+  A23 to A25; E2 (T104) executed 2026-11-03, accepted 2026-11-05 under
+  the owner's rulings A26 to A28; done 2026-11-08 at the owner's
+  verifying gate (A29). Status: done; a leaf run as E1 then E2, all
+  seventeen decisions adopted at their defaults. Shipped: E1 landed in
+  `dispatch.md` who deletes a task branch and why task branches are
+  pushed (step 3), how work reaches `main` by pull request, and the
+  packet table with the startup working set; it also wrote `roles.md`,
+  the three role contracts and the orchestrate skill. E2 landed the
+  leaf definition, the rule for a carried child, RU-003 and RU-020 in
+  `plan-model.md`, the Breakdown row in `profiles.md`, the journal's
+  field contents in `observability.md`, RU-013 and the held form-check
+  rules in `auditing.md`, three ruling types, the `plugin/skills/`
+  prose class, the vocabulary file
+  [`docs/vocabulary.md`](vocabulary.md) and the Backlog header. The
+  five terms ratified 2026-11-03: *sequencing*, *stack*, *knowledge*,
+  *unblocked*, *risk-opened*. The acceptance of E2 landed the journal
+  kinds `unblocked` and `risk-opened` in `observability.md` and
+  `JOURNAL_EVENT_KINDS` (ba2ef2c), re-vendored them in
+  majodali/project-orchestrator-service at a031c2e, merged by pull
+  request #27, and added the owner-attended rule to `dispatch.md`'s
+  step 2. Rulings promoted: RU-002, RU-015, RU-016, RU-009 and RU-010
+  into `dispatch.md`; RU-003 and RU-020 into `plan-model.md`; RU-013
+  into `auditing.md`. Declined: RU-006, RU-008, RU-011, RU-012 and
+  RU-014. RU-018 is left to P3-N009. Open for later passes: the rows
+  "The first definitions of ratified terms do not link their vocabulary
+  rows" and "Form-check rules from the process-spec pass". Pointer:
+  [plan](plans/p1-n016-process-spec-maintenance.md), [dispatch.md](process/dispatch.md),
+  [Ruling register](rulings.md).
 - [x] **`docs/process/README.md` is the packet gap, three times
   running** — When: T019 and T020; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; the
   plan and specify rows of the packet table name

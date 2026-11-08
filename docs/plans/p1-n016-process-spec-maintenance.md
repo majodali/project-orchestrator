@@ -1,6 +1,6 @@
 # Process spec maintenance: branch lifecycle, PR citation, packet table
 
-Status: active
+Status: closed → Backlog entry (node P1-N016 done 2026-11-08 at the owner's verifying gate; see the Backlog entry "Process spec maintenance: branch lifecycle, PR citation, packet table")
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a
@@ -763,6 +763,38 @@ and V8 to V15) plus the acceptance commits of 2026-11-05 (V1 and V7).
   `docs/findings/p3-n005-stop-predicates/prepass.ts`.
 - Decisions 4 to 16: met. Decisions 1 to 3 and 17 are not criteria
   (*Verification*, last line).
+
+## Verifying gate crossed, 2026-11-08
+
+The owner crossed this node's `verifying` gate on 2026-11-08. The
+owner's words: "A29 verified - go ahead with default". The go-ahead
+adopts the default of the *Verification record*.
+
+- The first check is verified. [`docs/vocabulary.md`](../vocabulary.md)
+  holds the five ratified terms, at the anchors `def-sequencing`,
+  `def-stack`, `def-knowledge`, `def-unblocked` and `def-risk-opened`.
+- The second check is verified. The kinds `unblocked` and
+  `risk-opened` appear in
+  `src/planRegister/vendored/cost-log-and-journal.ts` in
+  majodali/project-orchestrator-service at a031c2e, merged by its pull
+  request #27.
+
+The node moved `verifying` → `done`. The plan closes to its Backlog
+entry.
+
+Correction of two commit identifiers. The run journal's `accepted`
+event for T104 of 2026-11-05 cites 8dca031 and 8dcb62b. The
+`gate-opened` event of the same time cites 8dcb62b. Both commits were
+rebuilt before the push: 8dca031 as ba2ef2c in this repository, and
+8dcb62b as a031c2e in majodali/project-orchestrator-service. The
+journal is append-only, so this record and the `gate-crossed` event of
+2026-11-08 carry the correction.
+
+Two Backlog rows stay open for later passes: "The first definitions of
+ratified terms do not link their vocabulary rows" (decision 12's
+back-links, under A27) and "Form-check rules from the process-spec
+pass" (decision 11). The five held edges under *Gate record,
+2026-11-03* stay held; node P3-N008 (the instance) issues their slugs.
 
 ## Terms this node introduces
 

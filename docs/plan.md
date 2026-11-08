@@ -19,6 +19,7 @@ It also reads the owner's decision of 2026-11-03 on P2-N022 and P2-N017, the own
 It also reads the owner's plan gate of P3-N015 on 2026-11-04, which ratified that node's sequence.
 It also reads the owner's rulings of 2026-11-05 at the acceptance of P1-N016's task E2.
 It also reads the owner's words of 2026-11-07, which ended P2-N023's loop after three iterations.
+It also reads the owner's verifying gate of P1-N016 on 2026-11-08.
 Where this document and the register disagree, the register wins.
 
 Today the Plan register holds the node tree and the stages.
@@ -185,7 +186,7 @@ The children of P1-N009, in their chain order:
 
 ### P1-N016 Process spec maintenance: branch lifecycle, PR citation, packet table
 
-- Stage: verifying, 2026-11-05, gated on the owner. The owner crossed the plan gate on 2026-11-03, adopting all seventeen decisions at their defaults and ratifying the five names. Under decision 2 the plan's criteria V1 to V15 and decisions 4 to 16 are the specification. Execute task E1 (T103, an Implementer task at the standard tier) ran on branch p1-n016-e1; it wrote `dispatch.md`, `roles.md`, the three role contracts and the orchestrate skill. E1 was accepted on 2026-11-03 under the owner's rulings A23 to A25. E2 (T104) was dispatched on 2026-11-03 and accepted on 2026-11-05 under the owner's rulings A26 to A28. Every criterion is met ([plan](plans/p1-n016-process-spec-maintenance.md), *Verification record*). At the verifying gate the owner verifies that `docs/vocabulary.md` holds the ratified terms and that the journal kinds `unblocked` and `risk-opened` appear in the service's copy.
+- Stage: done, 2026-11-08, at the owner's verifying gate. The owner crossed the plan gate on 2026-11-03, adopting all seventeen decisions at their defaults and ratifying the five names. Under decision 2 the plan's criteria V1 to V15 and decisions 4 to 16 are the specification. Execute task E1 (T103, an Implementer task at the standard tier) ran on branch p1-n016-e1; it wrote `dispatch.md`, `roles.md`, the three role contracts and the orchestrate skill. E1 was accepted on 2026-11-03 under the owner's rulings A23 to A25. E2 (T104) was dispatched on 2026-11-03 and accepted on 2026-11-05 under the owner's rulings A26 to A28. Every criterion is met ([plan](plans/p1-n016-process-spec-maintenance.md), *Verification record*). On 2026-11-08 the owner verified that `docs/vocabulary.md` holds the ratified terms and that the journal kinds `unblocked` and `risk-opened` appear in the service's copy ([plan](plans/p1-n016-process-spec-maintenance.md), *Verifying gate crossed, 2026-11-08*).
 - Outcome: Every Backlog row routed to this node, thirty-five in all, is landed in the process specification or closed with a stated reason. `dispatch.md` says who deletes a task branch and when, and how work reaches `main` by pull request. The packet table carries every observation recorded against it. `plan-model.md` says what a leaf is when its work takes several tasks. `observability.md` can record a block's release and a new risk. The project gains a vocabulary file. Each process-scope ruling flagged for promotion is promoted or declined.
 - Depends on: nothing for planning. Its executing stage waits on the acceptance of E1, the first execute task of P3-N007 (the type declared), which edits the same process documents. That wait is met: P3-N007 is done. P1-N016 does not wait on P3-N009 (sibling ordering retired) ([plan](plans/p1-n016-process-spec-maintenance.md), decision 3).
 - Needed by: P1-N001.
@@ -529,7 +530,7 @@ Inside each line the open nodes form chains, listed here from first to last.
 
 - Line P2, the task-pull loop: P2-N017, then P2-N018 and P2-N019, independent of each other, then P2-N020.
 - Line P2: P2-N005 (the task-pull loop) comes before P2-N006. P2-N021 (the web view's first version) is done. P2-N023 (web view UX refinement) runs beside the chain and blocks nothing. P2-N004 (topics and coordination) comes after P2-N006. P2-N022 (the owner question queue) waits on P2-N005 for its final slice only.
-- Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out). P1-N016 (process spec maintenance) waits on no open node.
+- Line P1: P1-N006 comes before P1-N007 (cost reporting and close-out). P1-N016 (process spec maintenance) is done.
 - Line P3, the comprehension model: P3-N008, then P3-N009. P3-N006 and P3-N007 are done. P3-N004 (reversibility) waits on the whole of P3-N002.
 - Line P3, the risk catalogue: P3-N012. P3-N010 and P3-N011 are done.
 - Line P3, sequence mode: P3-N013, then P3-N014, then P3-N015, then P3-N016. P3-N015's children run as its ratified sequence: P3-N017, then P3-N018, then P3-N019, then P3-N020.
@@ -542,7 +543,6 @@ P2-N003's open children, P2-N022 and P2-N023, are drawn inside its box. P2-N022 
 ```mermaid
 graph LR
   subgraph P1N001["P1-N001 Orchestrator v1"]
-    P1N016["P1-N016 process spec maintenance"]
     P1N006["P1-N006 pilot on a real project"]
     P1N007["P1-N007 cost reporting and close-out"]
   end
@@ -618,7 +618,6 @@ Executing now:
 Gated on the owner:
 
 - P2-N023 (web view UX refinement): the owner's verifying gate on U1 (A30). The owner ended the loop after three iterations on 2026-11-07. The default reads U1 as met by that decision.
-- P1-N016 (process spec maintenance): the owner's verifying gate. The owner verifies that `docs/vocabulary.md` holds the ratified terms and that the two journal kinds appear in the service's copy.
 - P3-N008 (the instance): the owner's review of its plan, six decisions.
 - P2-N004 (topics and coordination): the owner's call to start it, after P2-N006, on a shown need.
 - P3-N015 (the demonstration): the owner's answer to the stop summary of 2026-11-08, whose ask is to carry the extension-point proposal or hold it. Its readings are gated.

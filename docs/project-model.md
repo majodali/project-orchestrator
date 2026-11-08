@@ -500,9 +500,9 @@ record](project-model-slice-record.md) holds it.
   `docs/process/observability.md` (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
-- **state:** built, changing (derived by row 3 of the table, a modifying node in flight, from the modified-by line, where P3-N007 is
+- **state:** built (derived by row 4 of the table, no modifying node in flight, from the modified-by line, where P3-N007 is
   done and P2-N018 is identified,
-  and P1-N016 is verifying; the created-by line reads not yet
+  and P1-N016 is done; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -535,9 +535,9 @@ record](project-model-slice-record.md) holds it.
   (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
-- **state:** built, changing (derived by row 3 of the table, a modifying node in flight, from the modified-by line, where P3-N007 is
+- **state:** built (derived by row 4 of the table, no modifying node in flight, from the modified-by line, where P3-N007 is
   done and P3-N009 and P2-N018 are identified,
-  and P1-N016 is verifying; the created-by line reads
+  and P1-N016 is done; the created-by line reads
   not yet derived; from [Plan register](plan-register.md); [Project
   model type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
@@ -574,8 +574,8 @@ record](project-model-slice-record.md) holds it.
   (from [specification of
   P3-N002](specs/p3-n002-comprehension-model.md), Edges stated at this
   breakdown, the slugs used)
-- **state:** built, changing (derived by row 3 of the table, a modifying node in flight, from the modified-by line, where P3-N007 is
-  done and P3-N009 identified, P1-N016 is verifying
+- **state:** built (derived by row 4 of the table, no modifying node in flight, from the modified-by line, where P3-N007 is
+  done and P3-N009 identified, P1-N016 is done
   and P3-N017 is done; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
@@ -920,8 +920,8 @@ record](project-model-slice-record.md) holds it.
 - **is:** The Ruling register type spec, `docs/process/rulings.md` (from
   [plan of P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
-- **state:** built, changing (derived by row 3 of the table, a modifying node in flight, from the modified-by line, where P3-N007 is
-  done and P1-N016 is verifying and P3-N017 is done; the created-by line reads not yet
+- **state:** built (derived by row 4 of the table, no modifying node in flight, from the modified-by line, where P3-N007 is
+  done and P1-N016 is done and P3-N017 is done; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
@@ -952,9 +952,9 @@ record](project-model-slice-record.md) holds it.
   (from [plan of
   P3-N007](plans/p3-n007-type-declared-amendment-drafted.md),
   Dependencies)
-- **state:** built, changing (derived by row 3 of the table, a modifying node in flight, from the modified-by line, where P3-N007 is
+- **state:** built (derived by row 4 of the table, no modifying node in flight, from the modified-by line, where P3-N007 is
   done and P2-N018 is identified,
-  and P1-N016 is verifying; the created-by line reads not yet
+  and P1-N016 is done; the created-by line reads not yet
   derived; from [Plan register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [plan of
@@ -1426,9 +1426,9 @@ record](project-model-slice-record.md) holds it.
 - **is:** The roles process document, `docs/process/roles.md` (from
   [specification of P2-N005](specs/p2-n005-task-pull-loop.md), Edges
   stated at this breakdown)
-- **state:** built, changing (derived by row 3 of the table: a modifying node is
+- **state:** built (derived by row 4 of the table: no modifying node is
   in flight; P2-N018 on the modified-by line is identified
-  and P1-N016 is verifying and P3-N017 is done;
+  and P1-N016 is done and P3-N017 is done;
   the created-by line reads not yet derived; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
@@ -1489,10 +1489,10 @@ record](project-model-slice-record.md) holds it.
   P2-N003](specs/p2-n003-owner-questions-and-plan-view.md), The model
   parser and shared parsing, under RU-012; [Backlog, entry for
   P2-N021](backlog.md))
-- **state:** built, changing (derived by row 3 of the table, a modifying
-  node in flight: the created-by line, where P2-N021
+- **state:** built (derived by row 4 of the table, no creating or
+  modifying node in flight: the created-by line, where P2-N021
   is done, and the modified-by line, where P1-N016 is
-  verifying; from [Plan
+  done; from [Plan
   register](plan-register.md); [Project model
   type](process/project-model.md), State derivation)
 - **spec:** not yet derived (from [specification of
