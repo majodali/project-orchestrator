@@ -7,8 +7,8 @@ every decision path correctly, decisions are classified as they
 occur, staged questions are reviewed against project history, and
 recurring patterns are promoted — the methodology's own
 earn-your-keep amendment mechanism
-([Article 6](https://github.com/majodali/methodology/blob/v1.3.0/docs/constitution.md#article-6--inclusion-every-rule-earns-its-keep),
-[Article 8](https://github.com/majodali/methodology/blob/v1.3.0/docs/constitution.md#article-8--amendments-versions-and-migration)),
+([Article 6 (inclusion: every rule earns its keep)](https://github.com/majodali/methodology/blob/v1.6.0/docs/constitution.md#article-6--inclusion-every-rule-earns-its-keep),
+[Article 8 (amendments, versions, and migration)](https://github.com/majodali/methodology/blob/v1.6.0/docs/constitution.md#article-8--amendments-versions-and-migration)),
 applied one level down.
 
 Reader: RD-4 (a fresh agent session) in the methodology's

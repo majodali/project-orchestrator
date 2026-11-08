@@ -469,7 +469,10 @@ decision 13).
 - [ ] **Risk register and Ruling register entries have no anchors** —
   found 2026-10-29 planning P3-N006: links to a risk or a ruling land
   at the top of the document; the web view (P2-N003) will want
-  per-entry links.
+  per-entry links. 2026-11-07: the Risk register half is discharged by
+  47aac88 (P3-N018, T106), eighteen anchors, R1 to R18; the Ruling
+  register half stays open for the Orchestrator, the register's single
+  writer (M2.5).
 - [x] **The type declared, the arguments written, the K-003 amendment
   drafted** (node P3-N007, child B of P3-N002) — When: planned
   2026-10-30 (T057); specified at the gate of 2026-10-30; E1 executed
@@ -831,33 +834,48 @@ decision 13).
   broken-down into P3-N017 to P3-N020 (decision 3); specified by the
   parent's *Child C* with the plan's criteria; the plan is `active`;
   the first member is dispatched only when no other task is in flight
-  (decision 5). Pointer:
+  (decision 5). M1 (P3-N017, T105) landed 2026-11-07; the four
+  predicates read continue. M2 (P3-N018, T106) landed 2026-11-07; the
+  four predicates read continue. M3 (P3-N019, T107) landed 2026-11-08;
+  predicate 4 read stop on its owner-addressed ask; sequence stopped;
+  stop summary in the plan. Pointer:
   [plan](plans/p3-n015-sequence-demonstration.md) ·
   [specification, child
   C](specs/p3-n005-sequence-mode.md#child-c-the-demonstration-a-ratified-sequence-lands-two-chunks-and-stops-on-asks).
-- [ ] **P3-N017 specified, 2026-11-04: the process specification cites
-  the methodology at its pin** — When: 2026-11-04, at P3-N015's plan
-  gate. Status: specified; member 1 of the ratified sequence, ratified
-  for `execute`; discharges the row "Methodology citations in the
-  process spec point at the superseded pin". Pointer:
+- [x] **P3-N017: the process specification cites the methodology at
+  its pin** — When: 2026-11-07, T105, member 1 of the sequence ratified
+  2026-11-04. Status: done, self-verified against M1.1 to M1.4 and S1
+  to S3; eleven links in eight files moved from tag `v1.3.0` to
+  `v1.6.0`, each anchor present at `v1.6.0` and each identifier named;
+  every cited claim holds at `v1.6.0`; discharges the row "Methodology
+  citations in the process spec point at the superseded pin". Pointer:
   [plan of P3-N015, M1](plans/p3-n015-sequence-demonstration.md#m1-the-process-specification-cites-the-methodology-at-its-pin).
-- [ ] **P3-N018 specified, 2026-11-04: Risk register entries can be
-  linked one by one** — When: 2026-11-04, at P3-N015's plan gate.
-  Status: specified; member 2 of the ratified sequence, ratified for
-  `execute`; discharges the Risk register half of the row "Risk
-  register and Ruling register entries have no anchors". Pointer:
+- [x] **P3-N018: Risk register entries can be linked one by one** —
+  When: 2026-11-07, T106, member 2 of the sequence ratified 2026-11-04.
+  Status: done, self-verified against M2.1 to M2.5 and S1 to S3; each
+  of the eighteen entries R1 to R18 of the Risk register carries an
+  anchor `<a id="r<N>"></a>` before its bold ID, and no other text
+  changed; discharges the Risk register half of the row "Risk register
+  and Ruling register entries have no anchors", whose Ruling register
+  half stays open for the Orchestrator. Pointer:
   [plan of P3-N015, M2](plans/p3-n015-sequence-demonstration.md#m2-risk-register-entries-can-be-linked-one-by-one).
-- [ ] **P3-N019 specified, 2026-11-04: the checker extension-point
-  proposal is ready to carry** — When: 2026-11-04, at P3-N015's plan
-  gate. Status: specified; member 3 of the ratified sequence, ratified
-  for `execute`; prepares the row "Deliver the extension-point proposal
-  upstream" for the owner's carrying. Pointer:
+- [x] **P3-N019: the checker extension-point proposal is ready to
+  carry** — When: 2026-11-07, T107, member 3 of the sequence ratified
+  2026-11-04. Status: done, self-verified against M3.1 to M3.6 and S1
+  to S3; the cover note's covering message names seven changes since
+  2026-08-26 with pointers, the TypeScript port and the pin move among
+  them; Article 7 is quoted at `v1.3.0` and `v1.6.0` under the provenance
+  line of RU-015 (upstream delivery form), and the two texts are identical; the proposal is
+  unchanged; prepares the row "Deliver the extension-point proposal
+  upstream" for the owner's carrying, which stays open. Pointer:
+  [cover note](proposals/mtool-custom-type-checker-cover-note.md) ·
   [plan of P3-N015, M3](plans/p3-n015-sequence-demonstration.md#m3-the-checker-extension-point-proposal-is-ready-to-carry).
 - [ ] **P3-N020 specified, 2026-11-04: the plugin tools are tested the
   way they run** — When: 2026-11-04, at P3-N015's plan gate. Status:
   specified; member 4 of the ratified sequence, ratified for
   `execute`; discharges the row "No committed test runs the plugin
-  tools the way they run". Pointer:
+  tools the way they run". 2026-11-08: withheld by the stop of the
+  sequence at M3; ratified, not dispatched. Pointer:
   [plan of P3-N015, M4](plans/p3-n015-sequence-demonstration.md#m4-the-plugin-tools-are-tested-the-way-they-run).
 - [x] **Whether a task outside a ratified sequence may be dispatched
   while it runs** — When: 2026-10-30, planning P3-N015; landed
@@ -2162,16 +2180,15 @@ decision 13).
   [plan of
   P1-N016](plans/p1-n016-process-spec-maintenance.md#verification-record),
   *Verification record*, the first record written this way.
-- [ ] **Methodology citations in the process spec point at the
-  superseded pin** — identified 2026-08-31 while planning P1-N014,
-  not executed. Nine links under `docs/process/` and in
-  [open-risks.md](open-risks.md) target the `v1.3.0` tag; the pin has
-  been 1.4.0 since 2026-08-30. Stale rather than false: each claim
-  they support still stands at the current pin. Editorial pass,
-  retargeting the links and giving each identifier its name (P-004 —
-  citations carry names). Reasoning:
-  [p1-n014 plan](plans/p1-n014-role-contracts-adopt-v140-rules.md),
-  contradictions section.
+- [x] **Methodology citations in the process spec point at the
+  superseded pin** — When: identified 2026-08-31 while planning
+  P1-N014; landed 2026-11-07 by P3-N017 (the process specification
+  cites the methodology at its pin), task T105, commit ee5f2d0.
+  Status: done; eleven links in eight files, not nine, moved from tag
+  `v1.3.0` to `v1.6.0`, the pin, not 1.4.0; each identifier named
+  under P-004 (citations carry names); every cited claim holds at
+  `v1.6.0`. Pointer:
+  [plan of P3-N015, M1](plans/p3-n015-sequence-demonstration.md#m1-the-process-specification-cites-the-methodology-at-its-pin).
 - [ ] **Editorial pass over the Backlog to the declared row shape** —
   identified 2026-08-31 while planning P1-N014, not executed. Depends
   on decision 8 of that plan being adopted, which declares the shape
@@ -2726,33 +2743,38 @@ decision 13).
   waited on the owner's W-002 ruling (the row "The run journal can
   record a block but not its release"). Pointer: [plan of
   P1-N016](plans/p1-n016-process-spec-maintenance.md), *Dependencies*.
-- [ ] **Process spec maintenance: branch lifecycle, PR citation,
+- [x] **Process spec maintenance: branch lifecycle, PR citation,
   packet table** (node P1-N016) — When: opened 2026-09-01; planned
   2026-10-30 (T074); specified 2026-11-03 at the owner's plan gate; E1
-  executed 2026-11-03 (T103), accepted under the owner's rulings A23 to
-  A25; E2 executed 2026-11-03 (T104), accepted 2026-11-05 under the
-  owner's rulings A26 to A28, every criterion met. Status: verifying,
-  for the owner's verifying gate; a leaf run as E1 then E2, all
-  seventeen decisions adopted at their defaults and the five names
-  ratified. E1 landed the entry's three parts in
-  `dispatch.md`: (i) who deletes a task branch, and why task branches
-  are pushed, in step 3; (ii) how work reaches `main`, promoting RU-009
-  (completed work reaches `main` by pull request) and RU-010 (this
-  repository reaches `main` the same way); (iii) the packet table and
-  the startup working set. E2 landed the leaf definition, the
-  rule for a carried child, RU-003 and RU-020 in `plan-model.md`, the
-  Breakdown row in `profiles.md`, the journal's field contents in
-  `observability.md`, RU-013 and the held form-check rules in
-  `auditing.md`, three ruling types, the `plugin/skills/` prose class,
-  `docs/vocabulary.md` and the Backlog header. The acceptance of E2
-  landed the journal kinds `unblocked` and `risk-opened` under the
-  owner's W-002 (existing tests are signals, not obstacles) clearance,
-  re-vendored them in majodali/project-orchestrator-service at
-  a031c2e, merged by pull request #27, and added the owner-attended rule to `dispatch.md`'s step 2. Next:
-  the owner's verifying gate; the owner verifies that
-  `docs/vocabulary.md` holds the ratified terms and that the two kinds
-  appear in the service's copy. Pointer:
-  [plan](plans/p1-n016-process-spec-maintenance.md), [dispatch.md](process/dispatch.md).
+  (T103) executed and accepted 2026-11-03 under the owner's rulings
+  A23 to A25; E2 (T104) executed 2026-11-03, accepted 2026-11-05 under
+  the owner's rulings A26 to A28; done 2026-11-08 at the owner's
+  verifying gate (A29). Status: done; a leaf run as E1 then E2, all
+  seventeen decisions adopted at their defaults. Shipped: E1 landed in
+  `dispatch.md` who deletes a task branch and why task branches are
+  pushed (step 3), how work reaches `main` by pull request, and the
+  packet table with the startup working set; it also wrote `roles.md`,
+  the three role contracts and the orchestrate skill. E2 landed the
+  leaf definition, the rule for a carried child, RU-003 and RU-020 in
+  `plan-model.md`, the Breakdown row in `profiles.md`, the journal's
+  field contents in `observability.md`, RU-013 and the held form-check
+  rules in `auditing.md`, three ruling types, the `plugin/skills/`
+  prose class, the vocabulary file
+  [`docs/vocabulary.md`](vocabulary.md) and the Backlog header. The
+  five terms ratified 2026-11-03: *sequencing*, *stack*, *knowledge*,
+  *unblocked*, *risk-opened*. The acceptance of E2 landed the journal
+  kinds `unblocked` and `risk-opened` in `observability.md` and
+  `JOURNAL_EVENT_KINDS` (ba2ef2c), re-vendored them in
+  majodali/project-orchestrator-service at a031c2e, merged by pull
+  request #27, and added the owner-attended rule to `dispatch.md`'s
+  step 2. Rulings promoted: RU-002, RU-015, RU-016, RU-009 and RU-010
+  into `dispatch.md`; RU-003 and RU-020 into `plan-model.md`; RU-013
+  into `auditing.md`. Declined: RU-006, RU-008, RU-011, RU-012 and
+  RU-014. RU-018 is left to P3-N009. Open for later passes: the rows
+  "The first definitions of ratified terms do not link their vocabulary
+  rows" and "Form-check rules from the process-spec pass". Pointer:
+  [plan](plans/p1-n016-process-spec-maintenance.md), [dispatch.md](process/dispatch.md),
+  [Ruling register](rulings.md).
 - [x] **`docs/process/README.md` is the packet gap, three times
   running** — When: T019 and T020; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; the
   plan and specify rows of the packet table name
@@ -3501,7 +3523,10 @@ decision 13).
   follows the rewrite, say so in the covering message rather than
   editing the artifact ([P1-N009
   plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
-  decision 8).
+  decision 8). 2026-11-08: the cover note,
+  [mtool-custom-type-checker-cover-note.md](proposals/mtool-custom-type-checker-cover-note.md),
+  is ready at 41ddcc4 (P3-N019, T107); the owner's carry is asked in
+  the [stop summary](plans/p3-n015-sequence-demonstration.md#sequence-stopped-2026-11-08).
 - [ ] **Adopt the checker extension point once it lands** — when
   `mtool` ships the capability: adapt the form checker (Python
   today, TypeScript after P1-N009) to the accepted

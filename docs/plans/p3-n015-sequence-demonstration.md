@@ -608,6 +608,44 @@ The owner's words: "A9 P3-N015 plan - go with all defaults. The
 recommended sequence M1-M4 is ratified." The first member's dispatch
 waits under decision 5 until no other task is in flight.
 
+## Sequence stopped, 2026-11-08
+
+The sequence stopped at M3 (P3-N019, T107) on condition 4. T107 landed
+at 2026-11-08T00:30:00Z: its work is accepted, and M3's Asks part
+carries one owner-addressed ask. The `sequence-stopped` event of that
+time carries the ask verbatim
+([dispatch.md](../process/dispatch.md#stop-summarize-wait), stop,
+summarize, wait).
+
+```
+STOP P3-N015 sequence of 2026-11-04 — stopped at M3 on condition 4: carry the extension-point proposal, or hold it
+Asks       (M3's Asks part, verbatim from its result record):
+  1. To the owner: carry `docs/proposals/mtool-custom-type-checker.md`
+     with its cover note, `docs/proposals/mtool-custom-type-checker-cover-note.md`,
+     to majodali/methodology-tools as an issue, as the note's *How to
+     carry it* section describes, or say hold. After carrying, give the
+     Orchestrator the issue's link.
+Covered:   the four members and their criteria, as ratified on 2026-11-04
+Changed:   P3-N017 (M1) executing → done; P3-N018 (M2) executing → done;
+           P3-N019 (M3) executing → done
+  Detail: the result-received notes of T105, T106 and T107 in
+          orchestration/journal.jsonl, at 2026-11-07T22:00:00Z,
+          2026-11-07T23:00:00Z and 2026-11-08T00:30:00Z
+Terms:     No terms introduced
+Open:      P3-N020 (M4) gated (ratified, not dispatched); P3-N015's
+           readings gated
+Costs:     3 tasks (T105, T106, T107); tokens n/a; tier standard;
+           dispatched to result-received in the journal: T105 60 min,
+           T106 30 min, T107 60 min (the Cost log's result times give
+           45, 20 and 40 min)
+```
+
+Nothing is dispatched until the owner answers this summary. The
+default next grant is the one *After the stop* names, outside any
+sequence: M4's execute under the per-chunk gate; reading 1 at the
+frugal tier and reading 2 at the advanced tier; and the Implementer
+task that compares the readings. Each waits on the owner's answer.
+
 ## References
 
 - [p3-n005-sequence-mode](p3-n005-sequence-mode.md) and its
