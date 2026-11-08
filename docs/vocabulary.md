@@ -87,11 +87,11 @@ grouped by that document, in order of ratification.
 | <a id="def-delta-row"></a>delta row | A candidate row, labelled `DL-nn`, for a failure that a source recorded after the pass that read the source. | [plan of P3-N011](plans/p3-n011-sweep-and-omission-list.md#def-delta-row), gate of 2026-11-03 |
 | <a id="def-owner-attended-session"></a>owner-attended session | A Claude Code session the owner drives directly, outside the Orchestrator's dispatch, whose results the Orchestrator records from merged pull requests. | [plan of P2-N023](plans/p2-n023-web-view-ux-refinement.md#def-owner-attended-session), 2026-11-03 |
 | <a id="def-preview-mode"></a>preview mode | A mode of the service's local server that serves the view's pages from fixtures, so screenshots need no live data. | [plan of P2-N023](plans/p2-n023-web-view-ux-refinement.md#def-preview-mode), 2026-11-03 |
-| <a id="def-sequencing"></a>`sequencing` | A type in the Ruling register's taxonomy, for rulings on dispatch order and concurrency. | [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md#def-sequencing), gate of 2026-11-03 |
-| <a id="def-stack"></a>`stack` | A type in the Ruling register's taxonomy, for rulings on languages, runtimes and code sharing. | [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md#def-stack), gate of 2026-11-03 |
-| <a id="def-knowledge"></a>`knowledge` | A type in the Ruling register's taxonomy, for rulings on which document holds which truth. | [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md#def-knowledge), gate of 2026-11-03 |
-| <a id="def-unblocked"></a>`unblocked` | A run journal event kind recording that a hold was released, whose note names what released it. | [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md#def-unblocked), gate of 2026-11-03 |
-| <a id="def-risk-opened"></a>`risk-opened` | A run journal event kind recording that a Risk register entry was opened, whose note names the entry. | [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md#def-risk-opened), gate of 2026-11-03 |
+| <a id="def-sequencing"></a>`sequencing` | A type in [the Ruling register's taxonomy](process/rulings.md#classification), for rulings on dispatch order and concurrency. | [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md#def-sequencing), gate of 2026-11-03 |
+| <a id="def-stack"></a>`stack` | A type in [the Ruling register's taxonomy](process/rulings.md#classification), for rulings on languages, runtimes and code sharing. | [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md#def-stack), gate of 2026-11-03 |
+| <a id="def-knowledge"></a>`knowledge` | A type in [the Ruling register's taxonomy](process/rulings.md#classification), for rulings on which document holds which truth. | [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md#def-knowledge), gate of 2026-11-03 |
+| <a id="def-unblocked"></a>`unblocked` | A run journal event kind that records the release of a hold and names in its note what released it. | [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md#def-unblocked), gate of 2026-11-03 |
+| <a id="def-risk-opened"></a>`risk-opened` | A run journal event kind that records the opening of a Risk register entry and names in its note the entry. | [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md#def-risk-opened), gate of 2026-11-03 |
 
 ## Not listed
 

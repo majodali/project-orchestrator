@@ -474,10 +474,12 @@ what is validated, and the payload is incidental.
 - C2. The first two members are chosen so that their results
   introduce no term and stage no decision. Finding 2 is the reason: a
   term introduced forces a ratification ask, which stops the sequence.
-- C3. The last member is chosen because its work genuinely produces an
-  ask the owner can act on at once. A hand-carry ask under RU-002 is
-  the natural candidate. An ask written into a result to trip the
-  predicate fails this criterion.
+- C3. The member planned to stop the sequence is chosen because its
+  work genuinely produces an ask the owner can act on at once. A
+  hand-carry ask under RU-002 is the natural candidate. An ask written
+  into a result to trip the predicate fails this criterion. One
+  ratified member may follow it, so that the stop withholds a dispatch
+  (plan of node P3-N015, decision 2).
 - C4. Each candidate's Backlog premise is re-read before selection.
   One plan candidate is already discharged: the stale P3-N001 sketch
   entry is now checked and marked superseded.
@@ -487,7 +489,9 @@ what is validated, and the payload is incidental.
   decision 12.
 - C7. The run's results are scored for all four conditions by child
   A's two-reading method. The verdicts join child A's record.
-- C8. An early stop follows decision 15.
+- C8. An early stop follows decision 15. A sequence that ends without
+  a stop on an owner-addressed ask counts toward decision 15's bound
+  too (plan of node P3-N015, decision 7).
 - C9. The register and Backlog are current in the same commits
   throughout.
 
@@ -632,6 +636,12 @@ The owner adopted decisions 4 and 9 of the [plan of
 P3-N014](../plans/p3-n014-loop-runs-sequence-mode.md) there. Criterion
 B4 states what the audit record holds. It also states that the record
 form is tried once, on P3-N014's execute task.
+
+Corrections at P3-N015's plan gate, 2026-11-04. The owner adopted
+decisions 2 and 7 of the [plan of
+P3-N015](../plans/p3-n015-sequence-demonstration.md) there, with every
+other default. Criteria C3 and C8 of *Child C* carry their drafted
+texts, verbatim.
 
 ## References
 
