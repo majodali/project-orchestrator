@@ -144,17 +144,17 @@ Estimate: two to three sessions.
 Goal: the view, in a desktop browser, answers the owner's four
 questions without the Backlog.
 
-- [ ] The tree page reads `state.json`. Each row: title, status badge,
+- [x] The tree page reads `state.json`. Each row: title, status badge,
       one-line outcome; identifier small and secondary. Fold as today.
-- [ ] A "Waiting on you" section at the top: open decisions with their
+- [x] A "Waiting on you" section at the top: open decisions with their
       default, and gated nodes.
-- [ ] A "Next" section: actionable nodes in order.
-- [ ] The node page: outcome, stage, what it waits on, what waits on
+- [x] A "Next" section: actionable nodes in order.
+- [x] The node page: outcome, stage, what it waits on, what waits on
       it, its tasks with pull request links, its decisions, links to
       plan and spec. No criteria labels, no rulings.
-- [ ] Remove the Markdown parsers from the view path. Keep the
+- [x] Remove the Markdown parsers from the view path. Keep the
       problems section for anything `check` would flag.
-- [ ] Screenshots before and after at desktop width in the pull
+- [x] Screenshots before and after at desktop width in the pull
       request, with the existing screenshot tooling. The phone-width
       shots and the no-horizontal-scroll check are dropped.
 
@@ -460,7 +460,12 @@ orientation test result.
   the rebuild. From here the state file is edited directly, or by the
   service's tools from milestone 3; `orchestration/import-overrides.json`
   is the record of the import's hand corrections and is not reapplied.
-- M2: not started.
+- M2: built 2026-11-09, pending the owner's one-minute test in the
+  deployed view (service pull request 30). Every page reads
+  `orchestration/state.json` at one commit; the Markdown parsers left
+  the view; desktop layout; screenshots at 1440 wide in the pull
+  request. Acceptance recorded when the owner has answered the four
+  questions in the view.
 - M3: not started.
 - M4: not started.
 - M5: not started.
