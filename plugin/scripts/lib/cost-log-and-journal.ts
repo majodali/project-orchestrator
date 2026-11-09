@@ -7,7 +7,8 @@
  * Two readers use it: this repository's form checker
  * (./form-check-core.ts), and the web view in
  * majodali/project-orchestrator-service, which receives a vendored
- * copy from ../sync_shared_unit.ts. Before this file, the form
+ * copy from the retired generator ../sync_shared_unit.ts; since the
+ * rebuild's milestone 1 the service owns its copy. Before this file, the form
  * checker's core carried the row split and the event vocabulary
  * inline; the view needs the same split and the same vocabulary, so
  * the logic moved here instead of being copied (the specification of

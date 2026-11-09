@@ -1,0 +1,38 @@
+name: Checks
+
+# The checks a pull request and main must pass (the rebuild plan,
+# docs/plans/rebuild.md, milestone 1): the plugin's tests, the plugin's
+# form checker over the rendered register, and `plan-state check` over
+# orchestration/state.json. `plan-state` comes from the service
+# repository's package, pinned by commit in package.json.
+
+"on":
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Tests, form check, state check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      - name: Set up Node.js
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Tests
+        run: npm test
+      - name: Form check
+        run: node plugin/scripts/form_check.ts
+      - name: State check
+        run: npm run check
+      - name: Lint and format
+        run: npm run lint && npm run format

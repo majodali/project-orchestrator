@@ -7,7 +7,8 @@
  * Canonical here, beside ./plan-register.ts and
  * ./cost-log-and-journal.ts. The web view in
  * majodali/project-orchestrator-service reads a vendored copy, which
- * ../sync_shared_unit.ts writes. P3-N009 (sibling ordering retired, and
+ * the retired generator ../sync_shared_unit.ts wrote; since the rebuild's
+ * milestone 1 the service owns its copy. P3-N009 (sibling ordering retired, and
  * the checks that replace it) imports this file when it adds the
  * instance's rules to the form checker.
  *

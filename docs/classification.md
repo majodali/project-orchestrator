@@ -67,6 +67,14 @@ form, v1.3.0) at self-hosted enrollment, 2026-08-25:
   1.6.0, the Backlog stays the referent for what is done and what is
   next. Added on 2026-10-30 by node P3-N007 (the type declared, the
   arguments written, the K-003 amendment drafted).
+- **State file** (artifact) — cites the schema
+  [`src/model/schema.ts`](https://github.com/majodali/project-orchestrator-service/blob/main/src/model/schema.ts)
+  of majodali/project-orchestrator-service, schema version 0, which is
+  the type's definition; instance: `orchestration/state.json`. Holds
+  the nodes, tasks and decisions of this project. The progress truth
+  during the rebuild, under the K-003 deviation above. The Plan
+  register and `docs/plan.md` are renderings of it. Added 2026-11-09
+  at the rebuild's milestone 1 ([plan](plans/rebuild.md)).
 
 Sandbox designation, 2026-11-09 (methodology Article 7): the Plan
 register, Cost log, Ruling register and Project model instances above

@@ -11,7 +11,7 @@ rule mapping a verifier reads to confirm coverage.
 
 ## What travels, and how
 
-`sync_shared_unit.ts` copies this whole directory — `manifest.ts`,
+The retired generator `sync_shared_unit.ts` used to copy this whole directory (the service repository owns its copy since the rebuild's milestone 1) — `manifest.ts`,
 `README.md`, `fixtures/`, `expectations/` — alongside the canonical
 grammar unit (`../plan-register.ts`) to a consumer (spec T3). Nothing
 under this directory performs I/O or exports a parser; the fixtures

@@ -1,0 +1,129 @@
+{
+  "nodes": {
+    "P1-N001": {
+      "title": "Orchestrator v1: the process specification and the Claude Code plugin",
+      "outcome": "A process specification and a Claude Code plugin run role-based agent sessions through the methodology on managed projects, at the least cost that does the job."
+    },
+    "P1-N002": {
+      "title": "The repository bootstrapped and the founding plan written",
+      "outcome": "The repository exists, is enrolled under the methodology, and holds the founding plan with its six chunks."
+    },
+    "P1-N003": {
+      "title": "The orchestration process specification, version 1",
+      "outcome": "The process specification under docs/process/ states the plan model, the Plan register, the dispatch loop, the roles, the profiles, the Cost log, auditing and observability."
+    },
+    "P1-N004": {
+      "title": "The role contracts written, version 1",
+      "outcome": "Six role contracts under .claude/agents/, each bound to a model tier, with the Orchestrator as single writer of the registers."
+    },
+    "P1-N005": {
+      "title": "The plugin built and tried on this repository",
+      "outcome": "The Claude Code plugin with the orchestrate and enroll skills, the form checker and the billing hook, tried in four trials on this repository."
+    },
+    "P1-N006": {
+      "title": "The pilot on a real project, superseded by the service's migration and pilot"
+    },
+    "P1-N007": {
+      "title": "Cost reporting and the founding plan's close-out"
+    },
+    "P1-N008": {
+      "outcome": "A decision-ready proposal to methodology-tools for one generic capability: a checker that a project declares beside its custom type and that mtool audit form runs."
+    },
+    "P1-N009": {
+      "outcome": "The plugin's tooling runs on the portfolio's declared stack, Node and TypeScript, and the Plan register grammar has one implementation that both repositories share."
+    },
+    "P1-N010": {
+      "outcome": "The plugin's tooling runs on Node, and the Plan register grammar has one TypeScript implementation, proven by the journal_tail port."
+    },
+    "P1-N011": {
+      "outcome": "A conformance corpus of fixtures with recorded expectations, and a generator that vendors the shared grammar unit into the service repository."
+    },
+    "P1-N012": {
+      "outcome": "The form checker ported to TypeScript on the shared grammar unit, reproducing the Python checker's findings one for one."
+    },
+    "P1-N013": {
+      "outcome": "The Python scripts retired, sync_agents ported, and every invocation site moved to the TypeScript tools."
+    },
+    "P2-N001": {
+      "title": "Orchestration service: the MCP service and the web view",
+      "outcome": "A service that Claude Code sessions call over MCP for plan state, coordination and owner questions, with a web view of the plan, and git as the only source of truth."
+    },
+    "P2-N002": {
+      "title": "The service skeleton, and plan state read and updated through it",
+      "outcome": "A deployed MCP service reads and validates the Plan register through a GitHub App, and a session updates plan state under an advisory lease."
+    },
+    "P2-N007": {
+      "title": "The service repository bootstrapped and classified",
+      "outcome": "The service repository exists with its Classification, its Node toolchain, its README and its Backlog."
+    },
+    "P2-N008": {
+      "outcome": "A deployed MCP server on Lambda answers service_identity over HTTP with bearer-token auth, enlisted from a checked-in .mcp.json."
+    },
+    "P2-N009": {
+      "title": "Plan-state read through the GitHub App",
+      "outcome": "plan_read returns the coordinating repository's Plan register at a named ref through an installed GitHub App, with the commit SHA on every answer."
+    },
+    "P2-N010": {
+      "outcome": "A session moves a node through a legal stage transition: it takes the lease, receives the exact edit, commits it, and the service confirms the commit carries it."
+    },
+    "P2-N011": {
+      "outcome": "A session works with the service unreachable, and the enlistment documentation says how a repository enlists."
+    },
+    "P2-N012": {
+      "outcome": "A merge to main in the service repository deploys the service, proves it against a real endpoint, and only then promotes it, with a red workflow on failure."
+    },
+    "P2-N013": {
+      "outcome": "The Lambda alias assumptions the deploy relies on are verified against AWS documentation and recorded."
+    },
+    "P2-N014": {
+      "outcome": "Pull-request checks build, lint and test without any deploy credential."
+    },
+    "P2-N015": {
+      "outcome": "The lease table is selected by the invoked alias, and an unknown alias fails closed."
+    },
+    "P2-N016": {
+      "outcome": "A merge to main deploys a version to the preprod alias, smoke-tests it, and promotes live only on a pass."
+    },
+    "P2-N004": {
+      "title": "Topics for coordination between enlisted sessions"
+    },
+    "P2-N005": {
+      "title": "The task-pull loop: sessions claim tasks from the service"
+    },
+    "P2-N006": {
+      "title": "This repository migrates onto the service, then the pilot runs on methodology-tools"
+    },
+    "P2-N019": {
+      "title": "Role-aware session identity for the service"
+    },
+    "P2-N020": {
+      "title": "The task tools of the service"
+    },
+    "P2-N021": {
+      "outcome": "A signed-in owner sees the plan tree at one commit and drills to node and task pages, with the Project model's renderings beside them."
+    },
+    "P3-N001": {
+      "outcome": "A model of each part of a project and what depends on it, plus the safeguards for longer runs of work without owner review."
+    },
+    "P3-N002": {
+      "title": "The comprehension model: resources, edges and renderings"
+    },
+    "P3-N003": {
+      "outcome": "A catalogue of recurring risk classes, each carried from one instance to a check that reads the Risk register's class lines."
+    },
+    "P3-N005": {
+      "title": "Sequence mode: the loop runs W-001's pre-ratified mode"
+    },
+    "P3-N020": {
+      "after": ["P3-N019"]
+    }
+  },
+  "tasks": {
+    "T101": {
+      "summary": "The plan of P2-N022 delivered; merged by pull request 25 on 2026-11-09; its gate was not crossed before the freeze."
+    },
+    "T102": {
+      "summary": "The plan of P2-N017 delivered; merged by pull request 24 on 2026-11-09; its gate was not crossed before the freeze."
+    }
+  }
+}

@@ -46,6 +46,10 @@ and minimizing model and context cost.
 
 ## Build / run / test
 
+`npm ci` then `npm run check` — `plan-state check` over
+`orchestration/state.json`, the state file (schema, invariants, the
+renderings current). `npm run render` rewrites `docs/plan-register.md`
+and `docs/plan.md` from it; never edit those two by hand.
 `node plugin/scripts/form_check.ts` — orchestration form checks (must
 pass clean). Requires Node >=22.18.0 (>=23.6.0 on the 23.x line,
 RU-013): the tool preflights this itself and exits non-zero, naming
@@ -60,11 +64,11 @@ under `plugin/` is the built artifact implementing it (installable
 via this repo's marketplace file). **`.claude/agents/` holds the
 primary role agents** — the path that loads on every surface; the
 plugin's copies are generated from them with
-`node plugin/scripts/sync_agents.ts`. This repo is itself
-enrolled: docs/plan-register.md, docs/cost-log.md,
-orchestration/journal.jsonl. To orchestrate without the plugin's
-skills, follow docs/process/dispatch.md with owner-approved scope,
-dispatching the `.claude/agents/` roles. The founding plan is
+`node plugin/scripts/sync_agents.ts`. During the rebuild
+(docs/plans/rebuild.md) the progress truth is `orchestration/state.json`;
+docs/plan-register.md and docs/plan.md are rendered from it, and the
+Backlog, Cost log, Ruling register and Project model are frozen. The
+dispatch loop is suspended. The founding plan is
 docs/plans/orchestrator-v1.md.
 
 ## Conventions

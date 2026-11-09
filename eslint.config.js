@@ -16,7 +16,9 @@ import eslintConfigPrettier from "eslint-config-prettier";
 
 export default tseslint.config(
   {
-    ignores: ["node_modules/**", "coverage/**"],
+    // docs/findings holds a committed artifact script outside
+    // tsconfig.json; it is a record, not a source file.
+    ignores: ["node_modules/**", "coverage/**", "docs/**"],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,

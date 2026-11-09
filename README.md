@@ -26,6 +26,12 @@ Constitution, Article 3).
   process specification (v1)
 - [plugin/](plugin/README.md) — the Claude Code plugin implementing
   it (`/plugin marketplace add majodali/project-orchestrator`)
-- [docs/backlog.md](docs/backlog.md) — what is done and what is next
+- [docs/plan.md](docs/plan.md) — the plan as a person reads it:
+  what waits on the owner, what is ready, every node with its
+  outcome. Rendered from `orchestration/state.json`, the state file
+  that is the progress truth during the rebuild
+  ([docs/plans/rebuild.md](docs/plans/rebuild.md))
+- [docs/backlog.md](docs/backlog.md) — frozen 2026-11-09; becomes a
+  rendering of the state file at the rebuild's milestone 6
 - [docs/plans/orchestrator-v1.md](docs/plans/orchestrator-v1.md) — the
   founding plan

@@ -59,7 +59,10 @@ to design around).
    says what the thing delivers. "The cutover" or "Child C" is not a
    title; "The Python checker retired and every caller moved to the
    TypeScript one" is. The import at milestone 1 lists every title
-   that fails this test for rewriting.
+   that fails this test for rewriting. A title is read in the context
+   of its parent and siblings, so the view and the renderings always
+   show a node in its tree; context does more for a title than added
+   detail (owner, 2026-11-09).
 5. Reports to the owner use W-008's four parts and lead with the asks.
    No gate summaries, no numbered decision batches, no term
    ratification ceremonies. A new term gets a row in
@@ -75,20 +78,20 @@ to design around).
 
 Goal: stop the old loop cleanly and make the state honest.
 
-- [ ] Record the deviations in `docs/classification.md` of both
+- [x] Record the deviations in `docs/classification.md` of both
       repositories: K-003 (progress truth is `orchestration/state.json`
       and this plan), and the custom definitions Plan register, Cost
       log, Ruling register and Project model marked `in-progress`.
-- [ ] Add a status line at the top of `docs/plan.md`,
+- [x] Add a status line at the top of `docs/plan.md`,
       `docs/plan-register.md`, `docs/cost-log.md`, `docs/rulings.md`,
       `docs/project-model.md` and `docs/backlog.md`: frozen on the date,
       superseded by this plan for the rebuild, to become renderings.
-- [ ] Fix the Binding block in the service repository's `CLAUDE.md`
+- [x] Fix the Binding block in the service repository's `CLAUDE.md`
       (it names 1.5.0; the Classification pins 1.6.0).
-- [ ] Disable the plugin's `orchestrate` skill entry point with a
+- [x] Disable the plugin's `orchestrate` skill entry point with a
       one-line notice pointing here. Keep the form checker runnable.
-- [ ] Merge or close every open branch in both repositories.
-- [ ] The owner approves this plan and ratifies milestones 1 to 6 as
+- [x] Merge or close every open branch in both repositories.
+- [x] The owner approves this plan and ratifies milestones 1 to 6 as
       one sequence. Status here goes `active`.
 
 Acceptance: both repositories are green, no branch but `main` is
@@ -106,9 +109,9 @@ registers without loss.
 Where: the service repository, package `src/model/`, published for the
 plugin to consume.
 
-- [ ] Define the schema (version 0) with `zod`, as sketched under
+- [x] Define the schema (version 0) with `zod`, as sketched under
       *The data model*. Nodes, tasks, decisions.
-- [ ] Write `import-registers`: reads `docs/plan-register.md`,
+- [x] Write `import-registers`: reads `docs/plan-register.md`,
       `docs/cost-log.md`, `docs/rulings.md`, `orchestration/journal.jsonl`
       and the gate records in `docs/plans/*.md`, and writes
       `orchestration/state.json`. Every node gets a title from the
@@ -116,18 +119,18 @@ plugin to consume.
       A node with no outcome sentence is listed for the owner to write
       one. A node whose title does not say what it delivers is listed
       for rewriting, with a proposed title.
-- [ ] Write `check`: schema validation and the invariants listed under
+- [x] Write `check`: schema validation and the invariants listed under
       *The invariants*. Exit non-zero on a violation. Preflights the
       Node version, as the form checker does.
-- [ ] Write `render`: `state.json` to `docs/plan-register.md` and to
+- [x] Write `render`: `state.json` to `docs/plan-register.md` and to
       `docs/plan.md` (title, outcome, stage, dependencies, open
       decisions per node). The rendered files carry a generated-file
       header. `check` fails when a rendering differs from `render`'s
       output.
-- [ ] Commit `orchestration/state.json` and the renderings to this
+- [x] Commit `orchestration/state.json` and the renderings to this
       repository. Retire the vendoring generator; the plugin depends on
-      the service repository's package by git tag.
-- [ ] CI in both repositories runs `check`.
+      the service repository's package by commit (`package.json`).
+- [x] CI in both repositories runs `check`.
 
 Acceptance: `check` passes on this repository; the rendered register
 lists the same 59 nodes with the same stages as before; the import
@@ -371,7 +374,9 @@ serves when one exists.
 | Methodology changes hand-carried, six migrations in ten weeks | Pin frozen at 1.6.0; one batch of proposals at milestone 6 |
 
 Later, not in this plan: a push webhook so the view updates without a
-reload, and a remote MCP connector for surfaces without a clone.
+reload; a remote MCP connector for surfaces without a clone; and
+formally verifiable outcomes, which wait for an outcome model that
+allows formal verification (owner, 2026-11-09).
 
 ## What happens to existing documents
 
@@ -435,13 +440,26 @@ file's decisions, not an edit here.
 One line per milestone when it ends: date, pull requests, the
 orientation test result.
 
-- M0: started 2026-11-09. The owner accepted the decisions and
-  ratified the sequence. Deviations recorded, documents frozen, the
-  Binding block fixed, the skill suspended, on the branches
-  `claude/relaxed-meitner-6i6cbh` of both repositories. Open: merge
-  those branches; delete the six merged branches the owner's hand
-  holds (listed in the pull requests); the orientation test.
-- M1: not started.
+- M0: done 2026-11-09. Deviations recorded, documents frozen, the
+  Binding blocks fixed, the skill suspended (pull requests 30 of this
+  repository and 28 of the service). The owner deleted the six merged
+  branches, turned on branch protection and auto-merge, accepted the
+  decisions and ratified the sequence.
+- M1: done 2026-11-09, pending the owner's review of
+  `orchestration/import-record.md` and the proposals in
+  `orchestration/import-overrides.json` (pull requests 31 of this
+  repository and 29 of the service). The rendered register carries the
+  same 59 nodes and stages as the frozen one. Orientation test: passed.
+  A fresh session read the README, `docs/plan.md` and this plan, three
+  files, and stated what is done, what is next and what waits on the
+  owner correctly. It noted two misleading rows for milestone 6: P1-N006
+  shows as ready while its note says superseded, and P3-N020 shows as
+  ready while the sequence stop withholds it. The owner accepted the
+  import on 2026-11-09: titles and outcomes correct, the 22 open
+  decisions of P2-N017, P2-N022 and P3-N008 closed as superseded by
+  the rebuild. From here the state file is edited directly, or by the
+  service's tools from milestone 3; `orchestration/import-overrides.json`
+  is the record of the import's hand corrections and is not reapplied.
 - M2: not started.
 - M3: not started.
 - M4: not started.
