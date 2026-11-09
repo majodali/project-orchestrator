@@ -3,6 +3,11 @@ name: orchestrate
 description: Run an orchestration session on this methodology-managed project - gather owner-approved scope, spawn the frugal-tier orchestrator agent to run the dispatch loop, and relay its gate summary. Use when the owner asks to orchestrate, dispatch, or continue orchestrated work.
 ---
 
+**Suspended 2026-11-09.** The dispatch loop is paused for the rebuild
+(`docs/plans/rebuild.md`, milestone 0, in majodali/project-orchestrator).
+Do not run the steps below. Tell the owner the skill is suspended and
+point at that plan, then stop.
+
 Run one orchestration session per the process spec
 (majodali/project-orchestrator `docs/process/`).
 

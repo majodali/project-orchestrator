@@ -1,5 +1,7 @@
 # Backlog
 
+Status: frozen 2026-11-09 at this content, under [the rebuild plan](plans/rebuild.md), milestone 0, and the deviation from K-003 recorded in the [Classification](classification.md). Progress truth during the rebuild is the plan's checklists and, from milestone 1, `orchestration/state.json`. This file becomes a rendering at milestone 6.
+
 Project model: the five-resource slice is [project-model.md](project-model.md).
 
 Reader: RD-4 in the methodology's

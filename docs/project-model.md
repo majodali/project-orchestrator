@@ -1,5 +1,7 @@
 # Project model
 
+Status: parked 2026-11-09, under [the rebuild plan](plans/rebuild.md), milestone 0. Not populated further. Resources enter the state file only when a consumer needs them.
+
 Reader: RD-4 (a fresh agent session) in the methodology's [reader
 catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers). It assumes the methodology at this project's
 pinned version, 1.6.0 ([Classification](classification.md)), and the

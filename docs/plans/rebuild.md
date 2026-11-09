@@ -1,0 +1,449 @@
+# Rebuild: the orchestrator runs on a checked data model
+
+Status: active (the owner accepted the decisions and ratified the
+milestones on 2026-11-09)
+
+<!-- K-007 contract: Status transitions draft → active → closed →
+     Backlog entry. While active, the checklists below are this
+     project's progress record (deviation from K-003, recorded in
+     docs/classification.md at milestone 0). -->
+
+Reader: the owner, and any session doing the rebuild. The reader
+knows this repository's README and the
+[review of 2026-11-09](../reviews/2026-11-09-review-of-the-approach.md).
+Nothing else is assumed. This plan does not follow the orchestrator's
+own plan format on purpose.
+
+## Outcome
+
+At the end of this plan:
+
+- One file per managed project, `orchestration/state.json`, holds the
+  plan: nodes, tasks and decisions. A schema and a set of invariants
+  check it in CI and in the service. Markdown views of it are
+  generated, never hand-edited.
+- The service reads and writes that file through the GitHub App. Git
+  stays the only source of truth. The lease table and the three-call
+  confirm protocol are gone.
+- The web view shows, in a desktop browser, what is done, what is
+  next, what waits on the owner and which decisions are open, with
+  titles first and identifiers second. Every title says what the thing
+  delivers.
+- A session claims the next task and closes it through two tool calls.
+- This repository runs its remaining work through that loop. The
+  pilot on methodology-tools can start.
+
+The acceptance test for the whole plan: a fresh session given only the
+README states what is done, what is next and what waits on the owner
+within five minutes, and the owner confirms the statement from the
+view within one minute.
+
+Two things this plan does not optimize for, by the owner's decision
+of 2026-11-09: a phone layout (the view targets a desktop browser; a
+phone version is a later decision) and a git-only fallback for a
+service outage (an outage is a signal about the service, not a case
+to design around).
+
+## How we work during the rebuild
+
+1. Owner-attended sessions on one capable model. No role dispatch.
+2. One milestone at a time, in the order below. The owner ratifies the
+   sequence once (W-001's pre-ratified mode). A milestone stops the
+   sequence only when a decision below changes or a check fails.
+3. Small pull requests. CI runs tests, lint and the state checker.
+   Pull requests auto-merge on green. The owner reviews state in the
+   view and in this plan's checklists, not in merge queues.
+4. Documentation moves in the same pull request as the work (W-003).
+   A hand-written document is at most 300 lines.
+4a. Titles beside identifiers everywhere, by tooling, and a title
+   says what the thing delivers. "The cutover" or "Child C" is not a
+   title; "The Python checker retired and every caller moved to the
+   TypeScript one" is. The import at milestone 1 lists every title
+   that fails this test for rewriting.
+5. Reports to the owner use W-008's four parts and lead with the asks.
+   No gate summaries, no numbered decision batches, no term
+   ratification ceremonies. A new term gets a row in
+   `docs/vocabulary.md` in the same pull request.
+6. The methodology pin stays at 1.6.0. Nothing is proposed upstream
+   until milestone 6.
+7. Each milestone ends with the fresh-session orientation test and a
+   line in this plan recording the result.
+
+## Milestones
+
+### M0. Freeze and declare
+
+Goal: stop the old loop cleanly and make the state honest.
+
+- [ ] Record the deviations in `docs/classification.md` of both
+      repositories: K-003 (progress truth is `orchestration/state.json`
+      and this plan), and the custom definitions Plan register, Cost
+      log, Ruling register and Project model marked `in-progress`.
+- [ ] Add a status line at the top of `docs/plan.md`,
+      `docs/plan-register.md`, `docs/cost-log.md`, `docs/rulings.md`,
+      `docs/project-model.md` and `docs/backlog.md`: frozen on the date,
+      superseded by this plan for the rebuild, to become renderings.
+- [ ] Fix the Binding block in the service repository's `CLAUDE.md`
+      (it names 1.5.0; the Classification pins 1.6.0).
+- [ ] Disable the plugin's `orchestrate` skill entry point with a
+      one-line notice pointing here. Keep the form checker runnable.
+- [ ] Merge or close every open branch in both repositories.
+- [ ] The owner approves this plan and ratifies milestones 1 to 6 as
+      one sequence. Status here goes `active`.
+
+Acceptance: both repositories are green, no branch but `main` is
+open, and the frozen documents say so at their top.
+
+Owner actions: approve the plan; answer the decisions below.
+
+Estimate: one session.
+
+### M1. The state file and its checker
+
+Goal: the plan lives in one checked file, imported from the current
+registers without loss.
+
+Where: the service repository, package `src/model/`, published for the
+plugin to consume.
+
+- [ ] Define the schema (version 0) with `zod`, as sketched under
+      *The data model*. Nodes, tasks, decisions.
+- [ ] Write `import-registers`: reads `docs/plan-register.md`,
+      `docs/cost-log.md`, `docs/rulings.md`, `orchestration/journal.jsonl`
+      and the gate records in `docs/plans/*.md`, and writes
+      `orchestration/state.json`. Every node gets a title from the
+      register and an outcome sentence from its plan's Outcome section.
+      A node with no outcome sentence is listed for the owner to write
+      one. A node whose title does not say what it delivers is listed
+      for rewriting, with a proposed title.
+- [ ] Write `check`: schema validation and the invariants listed under
+      *The invariants*. Exit non-zero on a violation. Preflights the
+      Node version, as the form checker does.
+- [ ] Write `render`: `state.json` to `docs/plan-register.md` and to
+      `docs/plan.md` (title, outcome, stage, dependencies, open
+      decisions per node). The rendered files carry a generated-file
+      header. `check` fails when a rendering differs from `render`'s
+      output.
+- [ ] Commit `orchestration/state.json` and the renderings to this
+      repository. Retire the vendoring generator; the plugin depends on
+      the service repository's package by git tag.
+- [ ] CI in both repositories runs `check`.
+
+Acceptance: `check` passes on this repository; the rendered register
+lists the same 59 nodes with the same stages as before; the import
+record lists every node that lacked an outcome sentence or a
+descriptive title, and the owner has rewritten or accepted each.
+
+Estimate: two to three sessions.
+
+### M2. The view reads the state file
+
+Goal: the view, in a desktop browser, answers the owner's four
+questions without the Backlog.
+
+- [ ] The tree page reads `state.json`. Each row: title, status badge,
+      one-line outcome; identifier small and secondary. Fold as today.
+- [ ] A "Waiting on you" section at the top: open decisions with their
+      default, and gated nodes.
+- [ ] A "Next" section: actionable nodes in order.
+- [ ] The node page: outcome, stage, what it waits on, what waits on
+      it, its tasks with pull request links, its decisions, links to
+      plan and spec. No criteria labels, no rulings.
+- [ ] Remove the Markdown parsers from the view path. Keep the
+      problems section for anything `check` would flag.
+- [ ] Screenshots before and after at desktop width in the pull
+      request, with the existing screenshot tooling. The phone-width
+      shots and the no-horizontal-scroll check are dropped.
+
+Acceptance: the owner answers "what is done, what is next, what waits
+on me, which decisions are open" in the view in one minute. A fresh
+session passes the orientation test from the README.
+
+Estimate: two sessions.
+
+### M3. The service writes the state file
+
+Goal: one conditional commit replaces the lease, update and confirm
+protocol.
+
+- [ ] Owner action: grant the GitHub App `contents: write` on the
+      managed repositories.
+- [ ] The service writes only under a path allowlist:
+      `orchestration/state.json`, `orchestration/journal.jsonl` and the
+      rendered files. Enforced in code and tested.
+- [ ] Writes use the GitHub contents API with the current blob SHA. A
+      conflict re-reads and retries once, then reports. This is the
+      concurrency control; the DynamoDB lease table and its code are
+      removed.
+- [ ] Tools: `plan_read` (now the state file), `node_update` (stage,
+      hold, outcome, dependencies), `task_open`, `task_close`,
+      `decision_open`, `decision_close`. Each runs `check` on the
+      result before committing and refuses a violation.
+- [ ] Each service write appends a journal event with the commit SHA.
+- [ ] An unreachable service is reported to the owner as a service
+      defect, not worked around. No fallback path is built (owner,
+      2026-11-09). `check` and `render` stay runnable locally because
+      CI needs them, which is the only offline path.
+
+Acceptance: a session moves a real node through a stage with one tool
+call, the commit appears on `main`, the view shows it at the new SHA,
+and `check` passes in CI.
+
+Estimate: two to three sessions.
+
+### M4. Decisions in the view
+
+Goal: the owner answers open decisions in the view and git records
+each answer.
+
+- [ ] The "Waiting on you" section lets the signed-in owner choose an
+      option or accept the default, with a one-line note.
+- [ ] The service commits the answer through `decision_close`. No held
+      state outside git.
+- [ ] A session that opens a task reads the decisions closed since its
+      node was planned.
+
+Acceptance: the owner closes a real decision in the view and sees the
+commit.
+
+Estimate: one to two sessions.
+
+### M5. The task loop, minimal
+
+Goal: sessions pull work without an orchestrator session.
+
+- [ ] `task_next(role?)`: the first node in order whose dependencies
+      are done, whose stage admits the next step and which has no open
+      task. Returns the node, its outcome, its documents and the
+      closed decisions.
+- [ ] `task_open` is the claim. The service's conditional commit makes
+      it atomic. A task open longer than its time limit is closed as
+      stale by the next `task_next` call.
+- [ ] `task_close(status, pull request, summary)`: records the result,
+      moves the node when the status allows, and lists the asks the
+      summary carries as open decisions.
+- [ ] Stop conditions as code: a failed check, a changed scope (a node
+      edited outside the task), an open decision on the node, an ask in
+      the summary. Each returns the session to the owner.
+- [ ] This repository's remaining real work runs through the loop in
+      owner-attended sessions for one week.
+
+Acceptance: two sessions on different days move one node from
+`specified` to `done` through the tools, with the owner touching only
+the decisions.
+
+Estimate: two sessions.
+
+### M6. Re-plan, prune and hand back
+
+Goal: the repository reads as a project again and the methodology
+follow-ups are proposed once.
+
+- [ ] Re-plan the remaining nodes into the state file. Park the P3
+      line's open nodes under one node, "process research", with their
+      documents linked. Keep the service nodes that remain useful.
+- [ ] Shrink `docs/process/` to what the code enforces, plus one
+      "how we work" page of at most 200 lines. Move the rest to
+      `docs/archive/` with a status line each.
+- [ ] Rewrite the README: what this is, the view link, how a session
+      enlists, how to run the checks. At most 150 lines.
+- [ ] Generate the Backlog from the state file. Record the end of the
+      K-003 deviation when the methodology releases the amendment.
+- [ ] Propose upstream, in one batch with evidence: release of the
+      K-003 amendment; registers as data files with renderings;
+      bounded specification depth.
+- [ ] Start the pilot on methodology-tools: enlist it, import an
+      initial state file from its Backlog.
+
+Acceptance: the orientation test passes for both repositories; the
+word count under `docs/` is below 100,000 excluding `docs/archive/`.
+
+Estimate: two sessions.
+
+## The data model
+
+Version 0. One file, `orchestration/state.json`, in the managed
+repository. The schema is code in the service repository and is the
+type's definition for Classification purposes.
+
+```jsonc
+{
+  "schema": 0,
+  "project": "majodali/project-orchestrator",
+  "nodes": [
+    {
+      "id": "P2-N021",
+      "title": "The web view's first version",
+      "outcome": "A signed-in owner sees the plan tree and drills to node and task, read at one commit.",
+      "stage": "done",
+      "parent": "P2-N003",
+      "after": [],
+      "hold": null,
+      "docs": { "plan": null, "spec": "docs/specs/p2-n003-owner-questions-and-plan-view.md" },
+      "done": "2026-11-03"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T094",
+      "node": "P2-N021",
+      "step": "execute",
+      "status": "closed",
+      "opened": "2026-10-30T22:00:00Z",
+      "closed": "2026-11-01T00:12:46Z",
+      "pr": "majodali/project-orchestrator-service#18",
+      "model": "claude-sonnet-5",
+      "tokens": { "in": null, "out": null },
+      "summary": "The tree page behind sign-in, read at one SHA."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "D001",
+      "node": "P3-N008",
+      "question": "Does docs/plan.md stay the hand rendering until the Backlog becomes a rendering?",
+      "options": ["yes", "retire it now"],
+      "default": "yes",
+      "chosen": null,
+      "decided": null,
+      "rationale": "The renderings omit outcomes, which are most of the document.",
+      "standing": false
+    }
+  ]
+}
+```
+
+Field rules:
+
+- `stage` is one of `identified`, `planned`, `specified`,
+  `broken-down`, `executing`, `verifying`, `done`, `parked`. `parked`
+  is new: the node is kept and not planned.
+- `hold` is null or `{ "kind": "gated" | "blocked", "reason": "..." }`.
+- `after` lists node identifiers this node waits for. Sibling order
+  no longer implies dependency.
+- `outcome` is one sentence, at most 40 words. Required from `planned`
+  on.
+- `step` is `plan`, `specify`, `execute` or `verify`.
+- A decision with `standing: true` is a precedent (today's ruling). A
+  closed decision is never edited; a new decision supersedes it and
+  names it in `rationale`.
+- Resources, verification evidence and multi-project state are later
+  schema versions, added when the view or the loop needs them.
+
+## The invariants
+
+Checked by `check`, in the service and in CI. Each names the rule it
+serves when one exists.
+
+1. The file validates against the schema. Identifiers are unique and
+   never reused.
+2. Every `parent` and every `after` entry names an existing node.
+   Dependencies form no cycle.
+3. A node with children is `broken-down`, `verifying`, `done` or
+   `parked`. A child is never past its parent's reach: no `executing`
+   child under an `identified` parent.
+4. A node from `planned` on has a title and an outcome within the
+   length bound. A title is at least three words and is not an
+   identifier, a child letter or a chunk number. Whether it says what
+   the node delivers is judged at import and at the orientation test.
+5. A node not `done` and not `parked` is exactly one of: actionable
+   (dependencies done, no hold, no open task), in flight (an open
+   task), waiting (some dependency not done), gated, blocked.
+6. A task names an existing node. A node has at most one open task. A
+   closed task has a closing time and a pull request or a stated
+   reason for none.
+7. An open decision has a default. A closed decision has a choice and
+   a date. A decision names an existing node or `null` for a project
+   decision.
+8. Every path under `docs` in the file exists in the repository.
+9. The rendered Markdown files equal `render`'s output.
+
+## GitHub interaction changes
+
+| Today | After |
+|---|---|
+| The owner merges every pull request by hand | Branch protection requires the checks; auto-merge on green; the owner reviews state in the view |
+| The service never writes git; a session applies an edit and calls `plan_confirm`; a DynamoDB lease serializes writers | The service commits `state.json` through the contents API with the blob SHA as the concurrency check; the lease table is removed |
+| Shared parsing code vendored by a generator from the plugin into the service | One package in the service repository; the plugin depends on it by git tag |
+| Five Markdown registers written by hand and parsed back | One JSON file written by tools; Markdown rendered from it |
+| Task claims by branches and empty commits (as specified for the pull loop) | A task claim is one conditional commit by the service |
+| Owner answers held in the service until an Orchestrator commits them (as planned) | Each answer is a commit by the service at the time of answering |
+| Methodology changes hand-carried, six migrations in ten weeks | Pin frozen at 1.6.0; one batch of proposals at milestone 6 |
+
+Later, not in this plan: a push webhook so the view updates without a
+reload, and a remote MCP connector for surfaces without a clone.
+
+## What happens to existing documents
+
+- `docs/plan-register.md`, `docs/plan.md`, `docs/backlog.md`: frozen
+  at M0, generated from M1 (register and plan) and M6 (Backlog).
+- `docs/cost-log.md`, `docs/rulings.md`: frozen at M0, imported into
+  tasks and decisions at M1, moved to `docs/archive/` at M6.
+- `docs/project-model.md` and its type specification: parked at M0.
+  Resources enter the schema only when a consumer needs them.
+- `docs/process/`: untouched until M6, then shrunk to what the code
+  enforces plus one page.
+- `docs/plans/` and `docs/specs/`: kept as the record of each node.
+  Linked from the state file. New nodes get a criteria list of at most
+  20 items, not a specification document.
+- `orchestration/journal.jsonl`: kept. The service appends to it.
+
+## Decisions
+
+The owner accepted every default on 2026-11-09 and added decisions 9
+and 10. A later change to any of these is a new row in the state
+file's decisions, not an edit here.
+
+1. Pause the P3 line (comprehension model, risk catalogue, sequence
+   mode, reversibility) and park its open nodes. Default: yes.
+2. The service may write git under the path allowlist above. This
+   changes the service plan's standing constraint "the service never
+   writes git" and keeps "git is authoritative". Default: yes.
+3. The state file is JSON validated by a `zod` schema, at
+   `orchestration/state.json`. Default: yes. Alternative: YAML.
+4. The shared model code lives in the service repository and is
+   consumed by the plugin as a package. Vendoring is retired.
+   Default: yes.
+5. During the rebuild, pull requests auto-merge on green in both
+   repositories. Default: yes.
+6. The methodology pin stays at 1.6.0 with the deviations the review
+   lists, recorded at M0. Default: yes.
+7. Node identifiers stay as they are (`P2-N021`). Titles are shown
+   beside them everywhere. Default: keep.
+8. Milestones 1 to 6 run as one pre-ratified sequence. Default: yes.
+   Ratified 2026-11-09.
+9. The view targets a desktop browser. A phone layout is a later
+   decision, not a requirement of this plan. Owner, 2026-11-09.
+10. No git-only fallback for a service outage is built in this plan.
+    Owner, 2026-11-09.
+
+## Risks
+
+- The import loses facts that only prose carried. Mitigation: the
+  import record lists every node and ruling it could not map; the
+  frozen files stay readable in git history.
+- The GitHub App's write permission widens the service's blast
+  radius. Mitigation: the path allowlist, tested; the deploy role
+  unchanged; S1 classification unchanged.
+- The rebuild itself grows prose. Mitigation: the 300-line bound and
+  the word-count acceptance at M6.
+- The owner's time is still the limit. Mitigation: each milestone asks
+  one approval and the decisions above are the only decisions.
+
+## Progress record
+
+One line per milestone when it ends: date, pull requests, the
+orientation test result.
+
+- M0: started 2026-11-09. The owner accepted the decisions and
+  ratified the sequence. Deviations recorded, documents frozen, the
+  Binding block fixed, the skill suspended, on the branches
+  `claude/relaxed-meitner-6i6cbh` of both repositories. Open: merge
+  those branches; delete the six merged branches the owner's hand
+  holds (listed in the pull requests); the orientation test.
+- M1: not started.
+- M2: not started.
+- M3: not started.
+- M4: not started.
+- M5: not started.
+- M6: not started.

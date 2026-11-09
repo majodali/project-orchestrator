@@ -1,5 +1,7 @@
 # Cost log
 
+Status: frozen 2026-11-09 at this content, under [the rebuild plan](plans/rebuild.md), milestone 0. Its rows are imported into the state file's tasks at milestone 1; the file moves to `docs/archive/` at milestone 6. Three task IDs have no row: T017 returned `needs-judgment` and was redispatched as T018, so by the loop's rule it has no row; T101 and T102 (the plans of P2-N022 and P2-N017) had their results received on 2026-11-03 and their plans merged by pull requests 25 and 24 on 2026-11-09, and were never accepted through the loop before this freeze. The form checker's sequential-ID warning names these three.
+
 Instance of the *Cost log* type, defined by citation in the
 [Classification](classification.md)
 ([type spec](process/cost-log.md)). One row per accepted task,

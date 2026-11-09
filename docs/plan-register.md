@@ -1,5 +1,7 @@
 # Plan register
 
+Status: frozen 2026-11-09 at this content, under [the rebuild plan](plans/rebuild.md), milestone 0. Not hand-edited from this date. From milestone 1 this file is rendered from `orchestration/state.json`.
+
 Instance of the *Plan register* type, defined by citation in the
 [Classification](classification.md)
 ([type spec](process/plan-register.md)). Single writer: the
