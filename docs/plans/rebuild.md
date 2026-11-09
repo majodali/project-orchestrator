@@ -75,20 +75,20 @@ to design around).
 
 Goal: stop the old loop cleanly and make the state honest.
 
-- [ ] Record the deviations in `docs/classification.md` of both
+- [x] Record the deviations in `docs/classification.md` of both
       repositories: K-003 (progress truth is `orchestration/state.json`
       and this plan), and the custom definitions Plan register, Cost
       log, Ruling register and Project model marked `in-progress`.
-- [ ] Add a status line at the top of `docs/plan.md`,
+- [x] Add a status line at the top of `docs/plan.md`,
       `docs/plan-register.md`, `docs/cost-log.md`, `docs/rulings.md`,
       `docs/project-model.md` and `docs/backlog.md`: frozen on the date,
       superseded by this plan for the rebuild, to become renderings.
-- [ ] Fix the Binding block in the service repository's `CLAUDE.md`
+- [x] Fix the Binding block in the service repository's `CLAUDE.md`
       (it names 1.5.0; the Classification pins 1.6.0).
-- [ ] Disable the plugin's `orchestrate` skill entry point with a
+- [x] Disable the plugin's `orchestrate` skill entry point with a
       one-line notice pointing here. Keep the form checker runnable.
-- [ ] Merge or close every open branch in both repositories.
-- [ ] The owner approves this plan and ratifies milestones 1 to 6 as
+- [x] Merge or close every open branch in both repositories.
+- [x] The owner approves this plan and ratifies milestones 1 to 6 as
       one sequence. Status here goes `active`.
 
 Acceptance: both repositories are green, no branch but `main` is
@@ -435,19 +435,21 @@ file's decisions, not an edit here.
 One line per milestone when it ends: date, pull requests, the
 orientation test result.
 
-- M0: started 2026-11-09. The owner accepted the decisions and
-  ratified the sequence. Deviations recorded, documents frozen, the
-  Binding block fixed, the skill suspended, on the branches
-  `claude/relaxed-meitner-6i6cbh` of both repositories. Open: merge
-  those branches; delete the six merged branches the owner's hand
-  holds (listed in the pull requests); the orientation test.
+- M0: done 2026-11-09. Deviations recorded, documents frozen, the
+  Binding blocks fixed, the skill suspended (pull requests 30 of this
+  repository and 28 of the service). The owner deleted the six merged
+  branches, turned on branch protection and auto-merge, accepted the
+  decisions and ratified the sequence.
 - M1: done 2026-11-09, pending the owner's review of
-  `orchestration/import-record.md` (the proposed titles, outcomes and
-  dependencies in `orchestration/import-overrides.json`). Service:
-  `src/model/` with 26 tests; orchestrator: the state file, both
-  renderings, CI running `plan-state check`. The rendered register
-  carries the same 59 nodes and stages as the frozen one. The
-  orientation test: not yet run.
+  `orchestration/import-record.md` and the proposals in
+  `orchestration/import-overrides.json` (pull requests 31 of this
+  repository and 29 of the service). The rendered register carries the
+  same 59 nodes and stages as the frozen one. Orientation test: passed.
+  A fresh session read the README, `docs/plan.md` and this plan, three
+  files, and stated what is done, what is next and what waits on the
+  owner correctly. It noted two misleading rows for milestone 6: P1-N006
+  shows as ready while its note says superseded, and P3-N020 shows as
+  ready while the sequence stop withholds it.
 - M2: not started.
 - M3: not started.
 - M4: not started.
