@@ -1,11 +1,12 @@
 # Rebuild: the orchestrator runs on a checked data model
 
-Status: draft
+Status: active (the owner accepted the decisions and ratified the
+milestones on 2026-11-09)
 
-<!-- K-007 contract: Status transitions draft → active (at the owner's
-     go-ahead) → closed → Backlog entry. While active, the checklists
-     below are this project's progress record (deviation from K-003,
-     recorded in docs/classification.md at milestone 0). -->
+<!-- K-007 contract: Status transitions draft → active → closed →
+     Backlog entry. While active, the checklists below are this
+     project's progress record (deviation from K-003, recorded in
+     docs/classification.md at milestone 0). -->
 
 Reader: the owner, and any session doing the rebuild. The reader
 knows this repository's README and the
@@ -24,18 +25,24 @@ At the end of this plan:
 - The service reads and writes that file through the GitHub App. Git
   stays the only source of truth. The lease table and the three-call
   confirm protocol are gone.
-- The web view shows, on a phone, what is done, what is next, what
-  waits on the owner and which decisions are open, with titles first
-  and identifiers second.
-- A session claims the next task and closes it through two tool calls,
-  or edits the file and runs the checker when the service is down.
+- The web view shows, in a desktop browser, what is done, what is
+  next, what waits on the owner and which decisions are open, with
+  titles first and identifiers second. Every title says what the thing
+  delivers.
+- A session claims the next task and closes it through two tool calls.
 - This repository runs its remaining work through that loop. The
   pilot on methodology-tools can start.
 
 The acceptance test for the whole plan: a fresh session given only the
 README states what is done, what is next and what waits on the owner
 within five minutes, and the owner confirms the statement from the
-phone view within one minute.
+view within one minute.
+
+Two things this plan does not optimize for, by the owner's decision
+of 2026-11-09: a phone layout (the view targets a desktop browser; a
+phone version is a later decision) and a git-only fallback for a
+service outage (an outage is a signal about the service, not a case
+to design around).
 
 ## How we work during the rebuild
 
@@ -48,6 +55,11 @@ phone view within one minute.
    view and in this plan's checklists, not in merge queues.
 4. Documentation moves in the same pull request as the work (W-003).
    A hand-written document is at most 300 lines.
+4a. Titles beside identifiers everywhere, by tooling, and a title
+   says what the thing delivers. "The cutover" or "Child C" is not a
+   title; "The Python checker retired and every caller moved to the
+   TypeScript one" is. The import at milestone 1 lists every title
+   that fails this test for rewriting.
 5. Reports to the owner use W-008's four parts and lead with the asks.
    No gate summaries, no numbered decision batches, no term
    ratification ceremonies. A new term gets a row in
@@ -102,7 +114,8 @@ plugin to consume.
       `orchestration/state.json`. Every node gets a title from the
       register and an outcome sentence from its plan's Outcome section.
       A node with no outcome sentence is listed for the owner to write
-      one.
+      one. A node whose title does not say what it delivers is listed
+      for rewriting, with a proposed title.
 - [ ] Write `check`: schema validation and the invariants listed under
       *The invariants*. Exit non-zero on a violation. Preflights the
       Node version, as the form checker does.
@@ -118,14 +131,15 @@ plugin to consume.
 
 Acceptance: `check` passes on this repository; the rendered register
 lists the same 59 nodes with the same stages as before; the import
-record lists every node that lacked an outcome sentence.
+record lists every node that lacked an outcome sentence or a
+descriptive title, and the owner has rewritten or accepted each.
 
 Estimate: two to three sessions.
 
 ### M2. The view reads the state file
 
-Goal: the phone view answers the owner's four questions without the
-Backlog.
+Goal: the view, in a desktop browser, answers the owner's four
+questions without the Backlog.
 
 - [ ] The tree page reads `state.json`. Each row: title, status badge,
       one-line outcome; identifier small and secondary. Fold as today.
@@ -137,12 +151,13 @@ Backlog.
       plan and spec. No criteria labels, no rulings.
 - [ ] Remove the Markdown parsers from the view path. Keep the
       problems section for anything `check` would flag.
-- [ ] Screenshots before and after in the pull request, as the UX
-      brief already does.
+- [ ] Screenshots before and after at desktop width in the pull
+      request, with the existing screenshot tooling. The phone-width
+      shots and the no-horizontal-scroll check are dropped.
 
 Acceptance: the owner answers "what is done, what is next, what waits
-on me, which decisions are open" from the phone in one minute. A
-fresh session passes the orientation test from the README.
+on me, which decisions are open" in the view in one minute. A fresh
+session passes the orientation test from the README.
 
 Estimate: two sessions.
 
@@ -164,10 +179,11 @@ protocol.
       hold, outcome, dependencies), `task_open`, `task_close`,
       `decision_open`, `decision_close`. Each runs `check` on the
       result before committing and refuses a violation.
-- [ ] Fallback: with the service unreachable, a session edits
-      `state.json`, runs `check` and `render` locally and commits.
-      Documented in the README of both repositories in ten lines.
 - [ ] Each service write appends a journal event with the commit SHA.
+- [ ] An unreachable service is reported to the owner as a service
+      defect, not worked around. No fallback path is built (owner,
+      2026-11-09). `check` and `render` stay runnable locally because
+      CI needs them, which is the only offline path.
 
 Acceptance: a session moves a real node through a stage with one tool
 call, the commit appears on `main`, the view shows it at the new SHA,
@@ -177,7 +193,7 @@ Estimate: two to three sessions.
 
 ### M4. Decisions in the view
 
-Goal: the owner answers open decisions from the phone and git records
+Goal: the owner answers open decisions in the view and git records
 each answer.
 
 - [ ] The "Waiting on you" section lets the signed-in owner choose an
@@ -187,8 +203,8 @@ each answer.
 - [ ] A session that opens a task reads the decisions closed since its
       node was planned.
 
-Acceptance: the owner closes a real decision from the phone and sees
-the commit.
+Acceptance: the owner closes a real decision in the view and sees the
+commit.
 
 Estimate: one to two sessions.
 
@@ -327,7 +343,9 @@ serves when one exists.
    `parked`. A child is never past its parent's reach: no `executing`
    child under an `identified` parent.
 4. A node from `planned` on has a title and an outcome within the
-   length bound.
+   length bound. A title is at least three words and is not an
+   identifier, a child letter or a chunk number. Whether it says what
+   the node delivers is judged at import and at the orientation test.
 5. A node not `done` and not `parked` is exactly one of: actionable
    (dependencies done, no hold, no open task), in flight (an open
    task), waiting (some dependency not done), gated, blocked.
@@ -370,9 +388,11 @@ reload, and a remote MCP connector for surfaces without a clone.
   20 items, not a specification document.
 - `orchestration/journal.jsonl`: kept. The service appends to it.
 
-## Decisions for the owner
+## Decisions
 
-Defaults apply unless overridden.
+The owner accepted every default on 2026-11-09 and added decisions 9
+and 10. A later change to any of these is a new row in the state
+file's decisions, not an edit here.
 
 1. Pause the P3 line (comprehension model, risk catalogue, sequence
    mode, reversibility) and park its open nodes. Default: yes.
@@ -391,6 +411,11 @@ Defaults apply unless overridden.
 7. Node identifiers stay as they are (`P2-N021`). Titles are shown
    beside them everywhere. Default: keep.
 8. Milestones 1 to 6 run as one pre-ratified sequence. Default: yes.
+   Ratified 2026-11-09.
+9. The view targets a desktop browser. A phone layout is a later
+   decision, not a requirement of this plan. Owner, 2026-11-09.
+10. No git-only fallback for a service outage is built in this plan.
+    Owner, 2026-11-09.
 
 ## Risks
 
@@ -410,7 +435,12 @@ Defaults apply unless overridden.
 One line per milestone when it ends: date, pull requests, the
 orientation test result.
 
-- M0: not started.
+- M0: started 2026-11-09. The owner accepted the decisions and
+  ratified the sequence. Deviations recorded, documents frozen, the
+  Binding block fixed, the skill suspended, on the branches
+  `claude/relaxed-meitner-6i6cbh` of both repositories. Open: merge
+  those branches; delete the six merged branches the owner's hand
+  holds (listed in the pull requests); the orientation test.
 - M1: not started.
 - M2: not started.
 - M3: not started.

@@ -1,5 +1,7 @@
 # Ruling register
 
+Status: frozen 2026-11-09 at this content, under [the rebuild plan](plans/rebuild.md), milestone 0. Its rulings are imported into the state file's decisions at milestone 1; the file moves to `docs/archive/` at milestone 6.
+
 Instance of the *Ruling register* type, defined by citation in the
 [Classification](classification.md)
 ([type spec](process/rulings.md)). Single writer: the Orchestrator.

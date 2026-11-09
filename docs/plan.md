@@ -4,7 +4,7 @@ Reader: the [human owner](https://github.com/majodali/methodology/blob/v1.6.0/do
 Neither reader has the conversation history.
 Both know the methodology at this project's pinned version, 1.6.0 ([Classification](classification.md)), and can follow links.
 
-Status: active
+Status: frozen 2026-11-09 at this content, under [the rebuild plan](plans/rebuild.md), milestone 0. Superseded for the rebuild by that plan. From milestone 1 this file is rendered from `orchestration/state.json`.
 
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Anything unmarked here is a

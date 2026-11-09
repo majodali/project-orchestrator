@@ -206,7 +206,10 @@ Short term, from the first milestone:
   sentences of rationale, a link to the pull request. No drafted text
   for affected locations; the fix lands in the same pull request.
 - One pre-ratified milestone sequence. Each milestone ends with
-  something the owner can see on the phone.
+  something the owner can see in the view, in a desktop browser.
+- Titles say what the thing delivers. Showing a title beside an
+  identifier helps only when the title is descriptive; the import
+  flags the ones that are not.
 - Small pull requests, auto-merged on green. The owner reviews state
   in the view, not in merge queues.
 - A fresh-session orientation test at each milestone: a new session
