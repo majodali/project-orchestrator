@@ -8,31 +8,6 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D015 on The platform facts, verified (P2-N017): P2-N017's specification Default: the parent specification's Child A section, with no specify task.
-- D016 on The platform facts, verified (P2-N017): Where the cloud probes run Default: the Implementer runs as a subagent of the Orchestrator's cloud session.
-- D017 on The platform facts, verified (P2-N017): The scratch offering branch Default: named pull-probe-<date> in YYYY-MM-DD form, pushed by the Implementer, and counted among the probe branches.
-- D018 on The platform facts, verified (P2-N017): O11's order Default: the owner runs O11 at the gate.
-- D019 on The platform facts, verified (P2-N017): Simultaneous pushes Default: three trials of two simultaneous claim pushes from the cloud session, beyond A3.
-- D020 on The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop (P2-N022): Place the owner's reordering of 2026-11-03 Default: adopt the drafted texts below.
-- D021 on The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop (P2-N022): Leaf, one specify task, then three execute slices Default: a leaf
-- D022 on The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop (P2-N022): A Question register in git Default: (a) a new Document type, defined by citation: the type in docs/process/question-register.md, the instance in docs/question-register.md.
-- D023 on The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop (P2-N022): Where a held answer lives Default: (a) one item per question in the lease table of the alias that answered, keyed answer#<question ID>, with a 30-day time-to-live.
-- D024 on The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop (P2-N022): How the owner is authorized to answer Default: (a) the view cookie, with the same-origin and open-question checks of Who may answer.
-- D025 on The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop (P2-N022): Which question tools, and for whom Default: question_list, question_answers and question_confirm on the existing MCP endpoint.
-- D026 on The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop (P2-N022): How scheduling and delegation decisions ride the queue Default: as decisions of a gate's entry: the scope grant, with its pull-run line and pre-authorizations, is one decision whose default is the proposed grant.
-- D027 on The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop (P2-N022): Immediate-class questions Default: no elicitation in this node.
-- D028 on The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop (P2-N022): No new journal event kind Default: the register is the record.
-- D029 on The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop (P2-N022): The node's check, and who verifies Default: the gate of the check is the first gate the process owes after E3's deploy, in register order.
-- D030 on The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop (P2-N022): Ratify or strike three terms Default: ratify all three.
-- D031 on The instance, over this repository (P3-N008): P3-N008's specification Default: the parent specification's Child C section, with no specify task.
-- D032 on The instance, over this repository (P3-N008): Leaf, run as three execute tasks in a fixed order Default: E1, E2 and E3 as in Three execute tasks in a fixed order, each at the standard tier, each one commit.
-- D033 on The instance, over this repository (P3-N008): The service repository's parts are in the instance Default: the instance holds the parts the P2 line's nodes placed in majodali/project-orchestrator-service.
-- D034 on The instance, over this repository (P3-N008): Plan and specification documents enter the model as two resources Default: plan-documents covers every document under docs/plans/, and specification-documents every document under docs/specs/.
-- D035 on The instance, over this repository (P3-N008): docs/plan.md stays the hand rendering until the switch Default: docs/plan.md stays active and maintained by the Orchestrator.
-- D036 on The instance, over this repository (P3-N008): Every entry heading carries a name Default: the type's grammar makes a heading's name required.
-
 Gated nodes:
 
 - Web view UX refinement: an owner-attended loop on the service repository until the view can replace docs/plan.md, at most ten iterations (P2-N023): owner review at verifying, U1 on the owner's decision to end the loop at three iterations
@@ -172,7 +147,7 @@ Documents: [plan](plans/orchestration-service.md).
     Note: independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8)
   - **The owner question queue: gate decisions answered in the web view, picked up through the task-pull loop** (P2-N022, identified)
     The owner answers gates and asks on a phone, in the web view.
-    after P2-N005 · [plan](plans/p2-n022-owner-question-queue.md), [spec](specs/p2-n003-owner-questions-and-plan-view.md) · 11 open decisions
+    after P2-N005 · [plan](plans/p2-n022-owner-question-queue.md), [spec](specs/p2-n003-owner-questions-and-plan-view.md)
     Note: depends on P2-N021, done 2026-11-03, and on P2-N005 for its final slice only; no longer follows P2-N006 (owner, 2026-11-03)
   - **Web view UX refinement: an owner-attended loop on the service repository until the view can replace docs/plan.md, at most ten iterations** (P2-N023, verifying, gated: owner review at verifying, U1 on the owner's decision to end the loop at three iterations)
     At V30 the owner decided that the web view does not replace docs/plan.md yet.
@@ -187,7 +162,7 @@ Documents: [plan](plans/orchestration-service.md).
   Note: Chunk 4 of the parent plan; independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29)
   - **The platform facts, verified** (P2-N017, identified)
     A committed finding, docs/findings/p2-n005-platform-facts.md, answers five facts yes or no.
-    [plan](plans/p2-n017-platform-facts.md), [spec](specs/p2-n005-task-pull-loop.md) · 5 open decisions
+    [plan](plans/p2-n017-platform-facts.md), [spec](specs/p2-n005-task-pull-loop.md)
     Note: planned before execute (owner, 2026-11-03)
   - **The loop in git alone** (P2-N018, identified)
     after P2-N017 · [spec](specs/p2-n005-task-pull-loop.md)
@@ -223,7 +198,7 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
     Note: depends on P3-N006
   - **The instance, over this repository** (P3-N008, planned, gated: owner review of the plan)
     The instance describes every current part of the project.
-    after P3-N007 · [plan](plans/p3-n008-instance-over-this-repository.md), [spec](specs/p3-n002-comprehension-model.md) · 6 open decisions
+    after P3-N007 · [plan](plans/p3-n008-instance-over-this-repository.md), [spec](specs/p3-n002-comprehension-model.md)
     Note: depends on P3-N007 for its executing stage (P3-N007 decision 9), done 2026-10-30
   - **Sibling ordering retired, and the checks that replace it** (P3-N009, identified)
     after P3-N008
@@ -320,3 +295,25 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
 - D012 (2026-11-09): Milestones 1 to 6 run as one pre-ratified sequence Chosen: yes
 - D013 (2026-11-09): The view targets a desktop browser Chosen: as stated
 - D014 (2026-11-09): No git-only fallback for a service outage is built in this plan Chosen: as stated
+- D015 on P2-N017 (2026-11-09): P2-N017's specification Chosen: superseded by the rebuild: not answered
+- D016 on P2-N017 (2026-11-09): Where the cloud probes run Chosen: superseded by the rebuild: not answered
+- D017 on P2-N017 (2026-11-09): The scratch offering branch Chosen: superseded by the rebuild: not answered
+- D018 on P2-N017 (2026-11-09): O11's order Chosen: superseded by the rebuild: not answered
+- D019 on P2-N017 (2026-11-09): Simultaneous pushes Chosen: superseded by the rebuild: not answered
+- D020 on P2-N022 (2026-11-09): Place the owner's reordering of 2026-11-03 Chosen: superseded by the rebuild: not answered
+- D021 on P2-N022 (2026-11-09): Leaf, one specify task, then three execute slices Chosen: superseded by the rebuild: not answered
+- D022 on P2-N022 (2026-11-09): A Question register in git Chosen: superseded by the rebuild: not answered
+- D023 on P2-N022 (2026-11-09): Where a held answer lives Chosen: superseded by the rebuild: not answered
+- D024 on P2-N022 (2026-11-09): How the owner is authorized to answer Chosen: superseded by the rebuild: not answered
+- D025 on P2-N022 (2026-11-09): Which question tools, and for whom Chosen: superseded by the rebuild: not answered
+- D026 on P2-N022 (2026-11-09): How scheduling and delegation decisions ride the queue Chosen: superseded by the rebuild: not answered
+- D027 on P2-N022 (2026-11-09): Immediate-class questions Chosen: superseded by the rebuild: not answered
+- D028 on P2-N022 (2026-11-09): No new journal event kind Chosen: superseded by the rebuild: not answered
+- D029 on P2-N022 (2026-11-09): The node's check, and who verifies Chosen: superseded by the rebuild: not answered
+- D030 on P2-N022 (2026-11-09): Ratify or strike three terms Chosen: superseded by the rebuild: not answered
+- D031 on P3-N008 (2026-11-09): P3-N008's specification Chosen: superseded by the rebuild: not answered
+- D032 on P3-N008 (2026-11-09): Leaf, run as three execute tasks in a fixed order Chosen: superseded by the rebuild: not answered
+- D033 on P3-N008 (2026-11-09): The service repository's parts are in the instance Chosen: superseded by the rebuild: not answered
+- D034 on P3-N008 (2026-11-09): Plan and specification documents enter the model as two resources Chosen: superseded by the rebuild: not answered
+- D035 on P3-N008 (2026-11-09): docs/plan.md stays the hand rendering until the switch Chosen: superseded by the rebuild: not answered
+- D036 on P3-N008 (2026-11-09): Every entry heading carries a name Chosen: superseded by the rebuild: not answered

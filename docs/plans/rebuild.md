@@ -59,7 +59,10 @@ to design around).
    says what the thing delivers. "The cutover" or "Child C" is not a
    title; "The Python checker retired and every caller moved to the
    TypeScript one" is. The import at milestone 1 lists every title
-   that fails this test for rewriting.
+   that fails this test for rewriting. A title is read in the context
+   of its parent and siblings, so the view and the renderings always
+   show a node in its tree; context does more for a title than added
+   detail (owner, 2026-11-09).
 5. Reports to the owner use W-008's four parts and lead with the asks.
    No gate summaries, no numbered decision batches, no term
    ratification ceremonies. A new term gets a row in
@@ -371,7 +374,9 @@ serves when one exists.
 | Methodology changes hand-carried, six migrations in ten weeks | Pin frozen at 1.6.0; one batch of proposals at milestone 6 |
 
 Later, not in this plan: a push webhook so the view updates without a
-reload, and a remote MCP connector for surfaces without a clone.
+reload; a remote MCP connector for surfaces without a clone; and
+formally verifiable outcomes, which wait for an outcome model that
+allows formal verification (owner, 2026-11-09).
 
 ## What happens to existing documents
 
@@ -449,7 +454,12 @@ orientation test result.
   files, and stated what is done, what is next and what waits on the
   owner correctly. It noted two misleading rows for milestone 6: P1-N006
   shows as ready while its note says superseded, and P3-N020 shows as
-  ready while the sequence stop withholds it.
+  ready while the sequence stop withholds it. The owner accepted the
+  import on 2026-11-09: titles and outcomes correct, the 22 open
+  decisions of P2-N017, P2-N022 and P3-N008 closed as superseded by
+  the rebuild. From here the state file is edited directly, or by the
+  service's tools from milestone 3; `orchestration/import-overrides.json`
+  is the record of the import's hand corrections and is not reapplied.
 - M2: not started.
 - M3: not started.
 - M4: not started.
