@@ -161,12 +161,4 @@ describe("V23 — one copy of the logic", () => {
     expect(core).not.toContain('"result-received"');
     expect(core).not.toContain("JSON.parse");
   });
-
-  it("the generator vendors the unit", () => {
-    const generator = readFileSync(
-      path.join(LIB, "..", "sync_shared_unit.ts"),
-      "utf-8",
-    );
-    expect(generator).toContain('rel: "cost-log-and-journal.ts"');
-  });
 });

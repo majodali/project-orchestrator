@@ -106,9 +106,9 @@ registers without loss.
 Where: the service repository, package `src/model/`, published for the
 plugin to consume.
 
-- [ ] Define the schema (version 0) with `zod`, as sketched under
+- [x] Define the schema (version 0) with `zod`, as sketched under
       *The data model*. Nodes, tasks, decisions.
-- [ ] Write `import-registers`: reads `docs/plan-register.md`,
+- [x] Write `import-registers`: reads `docs/plan-register.md`,
       `docs/cost-log.md`, `docs/rulings.md`, `orchestration/journal.jsonl`
       and the gate records in `docs/plans/*.md`, and writes
       `orchestration/state.json`. Every node gets a title from the
@@ -116,18 +116,18 @@ plugin to consume.
       A node with no outcome sentence is listed for the owner to write
       one. A node whose title does not say what it delivers is listed
       for rewriting, with a proposed title.
-- [ ] Write `check`: schema validation and the invariants listed under
+- [x] Write `check`: schema validation and the invariants listed under
       *The invariants*. Exit non-zero on a violation. Preflights the
       Node version, as the form checker does.
-- [ ] Write `render`: `state.json` to `docs/plan-register.md` and to
+- [x] Write `render`: `state.json` to `docs/plan-register.md` and to
       `docs/plan.md` (title, outcome, stage, dependencies, open
       decisions per node). The rendered files carry a generated-file
       header. `check` fails when a rendering differs from `render`'s
       output.
-- [ ] Commit `orchestration/state.json` and the renderings to this
+- [x] Commit `orchestration/state.json` and the renderings to this
       repository. Retire the vendoring generator; the plugin depends on
-      the service repository's package by git tag.
-- [ ] CI in both repositories runs `check`.
+      the service repository's package by commit (`package.json`).
+- [x] CI in both repositories runs `check`.
 
 Acceptance: `check` passes on this repository; the rendered register
 lists the same 59 nodes with the same stages as before; the import
@@ -441,7 +441,13 @@ orientation test result.
   `claude/relaxed-meitner-6i6cbh` of both repositories. Open: merge
   those branches; delete the six merged branches the owner's hand
   holds (listed in the pull requests); the orientation test.
-- M1: not started.
+- M1: done 2026-11-09, pending the owner's review of
+  `orchestration/import-record.md` (the proposed titles, outcomes and
+  dependencies in `orchestration/import-overrides.json`). Service:
+  `src/model/` with 26 tests; orchestrator: the state file, both
+  renderings, CI running `plan-state check`. The rendered register
+  carries the same 59 nodes and stages as the frozen one. The
+  orientation test: not yet run.
 - M2: not started.
 - M3: not started.
 - M4: not started.

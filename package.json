@@ -13,7 +13,9 @@
     "lint": "eslint .",
     "format": "prettier --check .",
     "format:write": "prettier --write .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "check": "node node_modules/project-orchestrator-service/dist/model/cli.js check",
+    "render": "node node_modules/project-orchestrator-service/dist/model/cli.js render --write"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -21,6 +23,7 @@
     "eslint": "^10.9.1",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.6",
+    "project-orchestrator-service": "github:majodali/project-orchestrator-service#c5d5085ee4efabbd6138e51b96fcb33fd47d4e9b",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.68.0",
     "vitest": "^4.1.11"
