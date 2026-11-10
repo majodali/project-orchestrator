@@ -52,7 +52,11 @@ to design around).
    sequence only when a decision below changes or a check fails.
 3. Small pull requests. CI runs tests, lint and the state checker.
    Pull requests auto-merge on green. The owner reviews state in the
-   view and in this plan's checklists, not in merge queues.
+   view and in this plan's checklists, not in merge queues. The
+   session that opens a pull request subscribes to it at once, so that
+   check failures, comments and the merge reach it as events (owner,
+   2026-11-10); a deploy that a merge triggers is checked the same
+   way, by its run, before the milestone is reported done.
 4. Documentation moves in the same pull request as the work (W-003).
    A hand-written document is at most 300 lines.
 4a. Titles beside identifiers everywhere, by tooling, and a title
