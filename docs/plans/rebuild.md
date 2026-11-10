@@ -179,21 +179,30 @@ Estimate: two sessions.
 Goal: one conditional commit replaces the lease, update and confirm
 protocol.
 
-- [ ] Owner action: grant the GitHub App `contents: write` on the
-      managed repositories.
-- [ ] The service writes only under a path allowlist:
+- [x] Owner action: grant the GitHub App `contents: write` on the
+      managed repositories. Done 2026-11-10: the App is
+      `majodali-project-orchestrator`, with contents read and write.
+- [x] The service writes only under a path allowlist:
       `orchestration/state.json`, `orchestration/journal.jsonl` and the
-      rendered files. Enforced in code and tested.
-- [ ] Writes use the GitHub contents API with the current blob SHA. A
+      rendered files. Enforced in code and tested
+      (`src/model/store.ts`).
+- [x] Writes are one commit through the Git Data API, with the head
+      the state was read at as the parent and a fast-forward ref
+      update as the check (`src/planRegister/gitWriter.ts`). A
       conflict re-reads and retries once, then reports. This is the
-      concurrency control; the DynamoDB lease table and its code are
-      removed.
-- [ ] Tools: `plan_read` (now the state file), `node_update` (stage,
+      concurrency control; the DynamoDB lease tables and their code
+      are removed. (Written as the contents API with a blob SHA when
+      planned; the Git Data API writes the four files in one commit,
+      which the contents API cannot.)
+- [x] Tools: `plan_read` (now the state file), `node_update` (stage,
       hold, outcome, dependencies), `task_open`, `task_close`,
       `decision_open`, `decision_close`. Each runs `check` on the
-      result before committing and refuses a violation.
-- [ ] Each service write appends a journal event with the commit SHA.
-- [ ] An unreachable service is reported to the owner as a service
+      result before committing and refuses a violation
+      (`src/stateTools.ts`).
+- [x] Each service write appends a journal event, `state-written`,
+      whose `ref` is the commit the write was based on; the commit
+      that carries the line is the write itself.
+- [x] An unreachable service is reported to the owner as a service
       defect, not worked around. No fallback path is built (owner,
       2026-11-09). `check` and `render` stay runnable locally because
       CI needs them, which is the only offline path.
@@ -540,7 +549,12 @@ orientation test result.
   its milestones P4-N002 to P4-N008 as nodes, the pull requests so far
   as their tasks, and decisions 1 to 10 on the root. Milestone 3's
   node starts on approval, so it shows as waiting on the owner.
-- M3: not started.
+- M3: built 2026-11-10, service pull request 34, pending the owner's
+  merge, the deploy run, and the acceptance call: the owner moves
+  P4-N005 to executing with one `node_update` call from an enlisted
+  session, which is also that node's approval. The deploy deletes the
+  two DynamoDB tables; the deploy role keeps its table permissions
+  for that one run. Task T118 records the pull request.
 - M4: not started.
 - M5: not started.
 - M6: not started.
