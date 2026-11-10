@@ -59,14 +59,14 @@ to design around).
    way, by its run, before the milestone is reported done.
 4. Documentation moves in the same pull request as the work (W-003).
    A hand-written document is at most 300 lines.
-4a. Titles beside identifiers everywhere, by tooling, and a title
-   says what the thing delivers. "The cutover" or "Child C" is not a
-   title; "The Python checker retired and every caller moved to the
-   TypeScript one" is. The import at milestone 1 lists every title
-   that fails this test for rewriting. A title is read in the context
-   of its parent and siblings, so the view and the renderings always
-   show a node in its tree; context does more for a title than added
-   detail (owner, 2026-11-09).
+4a. Titles beside identifiers everywhere, by tooling. A title is read
+   in the context of its parent and siblings, so the view and the
+   renderings always show a node in its tree, and a title is a succinct
+   noun phrase in standard terms: "Task pull loop", "Platform
+   capability checks". Detail belongs in the outcome. "Child C" is not
+   a title, and the "<noun phrase>, <verb>" idiom ("The platform facts,
+   verified") is a review finding that the checker warns on (owner,
+   2026-11-09 and 2026-11-10).
 5. Reports to the owner use W-008's four parts and lead with the asks.
    No gate summaries, no numbered decision batches, no term
    ratification ceremonies. A new term gets a row in
@@ -208,8 +208,15 @@ Estimate: two to three sessions.
 Goal: the owner answers open decisions in the view and git records
 each answer.
 
-- [ ] The "Waiting on you" section lets the signed-in owner choose an
-      option or accept the default, with a one-line note.
+- [ ] The decisions under a node in the tree let the signed-in owner
+      choose an option or accept the default, with a one-line note.
+      This is how owner questions are handled in the view (owner,
+      2026-11-10): each is a decision on its node, answered where it
+      is shown.
+- [ ] The node lifecycle is visible and actable in the view: a node
+      waiting on the owner shows what the owner can do (approve its
+      start, accept its review, lift its hold), and the action is one
+      click that the service commits (owner, 2026-11-10).
 - [ ] The service commits the answer through `decision_close`. No held
       state outside git.
 - [ ] A session that opens a task reads the decisions closed since its
@@ -358,9 +365,10 @@ serves when one exists.
    `parked`. A child is never past its parent's reach: no `executing`
    child under an `identified` parent.
 4. A node from `planned` on has a title and an outcome within the
-   length bound. A title is at least three words and is not an
-   identifier, a child letter or a chunk number. Whether it says what
-   the node delivers is judged at import and at the orientation test.
+   length bound. A title is at least two words and is not an
+   identifier, a child letter or a chunk number; a title in the
+   "<noun phrase>, <verb>" idiom is a warning. Whether it names the
+   thing is judged at review and at the orientation test.
 5. A node not `done` and not `parked` is exactly one of: actionable
    (dependencies done, no hold, no open task), in flight (an open
    task), waiting (some dependency not done), gated, blocked.
@@ -372,6 +380,10 @@ serves when one exists.
    decision.
 8. Every path under `docs` in the file exists in the repository.
 9. The rendered Markdown files equal `render`'s output.
+10. Siblings stand after the siblings they depend on, a dependency
+    counting at the sibling level when any node in one subtree waits
+    for any node in another's. `render --write` puts the file in this
+    order; the order itself carries no meaning (decision 12).
 
 ## GitHub interaction changes
 
@@ -384,6 +396,12 @@ serves when one exists.
 | Task claims by branches and empty commits (as specified for the pull loop) | A task claim is one conditional commit by the service |
 | Owner answers held in the service until an Orchestrator commits them (as planned) | Each answer is a commit by the service at the time of answering |
 | Methodology changes hand-carried, six migrations in ten weeks | Pin frozen at 1.6.0; one batch of proposals at milestone 6 |
+
+View refinements kept for the end of the plan (owner, 2026-11-10):
+making salient points stand out in the tree, and showing a node's
+dependencies and dependents with highlights when it is selected, which
+needs the page to run script and so a decision on the view's
+no-script rule.
 
 Later, not in this plan: a push webhook so the view updates without a
 reload; a remote MCP connector for surfaces without a clone; and
@@ -440,6 +458,18 @@ file's decisions, not an edit here.
     else folded. "Ready" is not a category: a node starts automatically
     when its dependencies are done unless its `start` is `approve`, and
     then it waits on the owner. Owner, 2026-11-10.
+12. The plan shows only its latest version: an obsolete node is
+    removed from the state file, which git history keeps, rather than
+    kept as noise (P1-N006 and P1-N007 removed). Siblings are listed
+    in dependency order. Owner, 2026-11-10.
+13. Standard planning and execution actions, such as recording a
+    task's cost or closing out a node, are the orchestrator's own
+    functionality, recorded on the node's tasks and events, never
+    nodes of the plan. A review with a specific outcome gets a node
+    named for the outcome. Automated validation that must be visible
+    on failure becomes a hidden check node at milestone 5, shown only
+    when it fails or is selected. Owner, 2026-11-10, with the hidden
+    check node as the default to confirm.
 
 ## Risks
 
@@ -492,7 +522,11 @@ orientation test result.
   milestone 2 service to `live`. The owner's first look gave
   decision 11; the service's pull request 32 carries it, and this
   repository's state file gains the `start` field. The item-by-item
-  review of stale rows follows the acceptance.
+  review of stale rows follows the acceptance. Accepted 2026-11-10:
+  the owner sees what waits on them and the status of each line in the
+  view. The first review pass gave decisions 12 and 13, 53 titles
+  rewritten as succinct noun phrases, P1-N006 and P1-N007 removed,
+  P2-N023 closed as done, and siblings ordered by dependency.
 - M3: not started.
 - M4: not started.
 - M5: not started.
