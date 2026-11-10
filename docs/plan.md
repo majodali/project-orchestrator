@@ -11,6 +11,7 @@ its stage and its outcome. The state file holds the rest.
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
+- Service writes the state file (P4-N005): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
@@ -33,6 +34,7 @@ None.
 - Common risk catalogue (P3-N003) [broken-down]
 - Sequence mode (P3-N005) [broken-down]
 - Sequence mode demonstration (P3-N015) [broken-down]
+- Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 
 ## Waiting on a dependency
 
@@ -45,6 +47,9 @@ None.
 - Replacement of sibling ordering by recorded dependencies (P3-N009) [identified] — after Project model instance for this repository (P3-N008)
 - Reversibility and its measurement (P3-N004) [identified] — after Comprehension model (P3-N002)
 - Determination on W-001 sequence mode (P3-N016) [identified] — after Sequence mode demonstration (P3-N015)
+- Decisions answered in the view (P4-N006) [identified] — after Service writes the state file (P4-N005)
+- Minimal task loop (P4-N007) [identified] — after Decisions answered in the view (P4-N006)
+- Re-plan, prune and hand back (P4-N008) [identified] — after Minimal task loop (P4-N007)
 
 ## Blocked
 
@@ -248,6 +253,39 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
     after P3-N015
     Note: depends on P3-N015
 
+### Rebuild: the orchestrator runs on a checked data model (P4-N001)
+
+Stage: broken-down, in progress, its children carry the work.
+
+One checked state file per managed project is the progress truth, the service reads and writes it, the view shows it, and a minimal task loop runs on it.
+
+Documents: [plan](plans/rebuild.md).
+
+Note: Six milestones ratified as one sequence by the owner on 2026-11-09
+
+- **Freeze and declare** (P4-N002, done 2026-11-09)
+  The old loop is stopped cleanly: deviations recorded, registers frozen, the orchestrate skill suspended, the plan approved and its milestones ratified.
+  [plan](plans/rebuild.md)
+- **State file and checker** (P4-N003, done 2026-11-09)
+  The plan lives in orchestration/state.json, imported from the frozen registers, checked by plan-state in CI, and rendered to the Markdown register and plan.
+  after P4-N002 · [plan](plans/rebuild.md)
+- **View on the state file** (P4-N004, done 2026-11-10)
+  The web view renders the state file for a desktop browser: the hierarchy as the primary view, with what waits on the owner shown in context.
+  after P4-N003 · [plan](plans/rebuild.md)
+- **Service writes the state file** (P4-N005, identified)
+  One conditional commit through the GitHub App replaces the lease, update and confirm protocol; the lease table is removed.
+  after P4-N004 · [plan](plans/rebuild.md)
+  Note: Needs the owner's go-ahead and, first, contents: write for the GitHub App on this repository
+- **Decisions answered in the view** (P4-N006, identified)
+  The owner answers open decisions and acts on a node's lifecycle in the view, and the service commits each answer.
+  after P4-N005 · [plan](plans/rebuild.md)
+- **Minimal task loop** (P4-N007, identified)
+  A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.
+  after P4-N006 · [plan](plans/rebuild.md)
+- **Re-plan, prune and hand back** (P4-N008, identified)
+  The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.
+  after P4-N007 · [plan](plans/rebuild.md)
+
 ## Decisions taken
 
 - RU-001 on P1-N008 (2026-08-26, standing): Execute a proposal draft before its evidencing node closes? Chosen: yes.
@@ -278,16 +316,16 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
 - D002 on P2-N001 (2026-08-26): Chunk boundaries Chosen: as proposed above.
 - D003 on P2-N001 (2026-08-26): Promotion timing Chosen: promote project-orchestrator to C2 when chunk 5 begins, not before.
 - D004 on P2-N001 (2026-08-26): v1 plan disposition Chosen: keep orchestrator-v1 active through its chunk 4 close-out, with its chunk 6 runtime assumptions marked superseded by this plan.
-- D005 (2026-11-09): Pause the P3 line (comprehension model, risk catalogue, sequence mode, reversibility) and park its open nodes Chosen: yes
-- D006 (2026-11-09): The service may write git under the path allowlist above. This changes the service plan's standing constraint "the service never writes git" and keeps "git is authoritative" Chosen: yes
-- D007 (2026-11-09): The state file is JSON validated by a zod schema, at orchestration/state.json Chosen: yes
-- D008 (2026-11-09): The shared model code lives in the service repository and is consumed by the plugin as a package. Vendoring is retired Chosen: yes
-- D009 (2026-11-09): During the rebuild, pull requests auto-merge on green in both repositories Chosen: yes
-- D010 (2026-11-09): The methodology pin stays at 1.6.0 with the deviations the review lists, recorded at M0 Chosen: yes
-- D011 (2026-11-09): Node identifiers stay as they are (P2-N021). Titles are shown beside them everywhere Chosen: keep
-- D012 (2026-11-09): Milestones 1 to 6 run as one pre-ratified sequence Chosen: yes
-- D013 (2026-11-09): The view targets a desktop browser Chosen: as stated
-- D014 (2026-11-09): No git-only fallback for a service outage is built in this plan Chosen: as stated
+- D005 on P4-N001 (2026-11-09): Pause the P3 line (comprehension model, risk catalogue, sequence mode, reversibility) and park its open nodes Chosen: yes
+- D006 on P4-N001 (2026-11-09): The service may write git under the path allowlist above. This changes the service plan's standing constraint "the service never writes git" and keeps "git is authoritative" Chosen: yes
+- D007 on P4-N001 (2026-11-09): The state file is JSON validated by a zod schema, at orchestration/state.json Chosen: yes
+- D008 on P4-N001 (2026-11-09): The shared model code lives in the service repository and is consumed by the plugin as a package. Vendoring is retired Chosen: yes
+- D009 on P4-N001 (2026-11-09): During the rebuild, pull requests auto-merge on green in both repositories Chosen: yes
+- D010 on P4-N001 (2026-11-09): The methodology pin stays at 1.6.0 with the deviations the review lists, recorded at M0 Chosen: yes
+- D011 on P4-N001 (2026-11-09): Node identifiers stay as they are (P2-N021). Titles are shown beside them everywhere Chosen: keep
+- D012 on P4-N001 (2026-11-09): Milestones 1 to 6 run as one pre-ratified sequence Chosen: yes
+- D013 on P4-N001 (2026-11-09): The view targets a desktop browser Chosen: as stated
+- D014 on P4-N001 (2026-11-09): No git-only fallback for a service outage is built in this plan Chosen: as stated
 - D015 on P2-N017 (2026-11-09): P2-N017's specification Chosen: superseded by the rebuild: not answered
 - D016 on P2-N017 (2026-11-09): Where the cloud probes run Chosen: superseded by the rebuild: not answered
 - D017 on P2-N017 (2026-11-09): The scratch offering branch Chosen: superseded by the rebuild: not answered

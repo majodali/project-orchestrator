@@ -63,10 +63,11 @@ to design around).
    in the context of its parent and siblings, so the view and the
    renderings always show a node in its tree, and a title is a succinct
    noun phrase in standard terms: "Task pull loop", "Platform
-   capability checks". Detail belongs in the outcome. "Child C" is not
-   a title, and the "<noun phrase>, <verb>" idiom ("The platform facts,
-   verified") is a review finding that the checker warns on (owner,
-   2026-11-09 and 2026-11-10).
+   capability checks". Detail belongs in the outcome. The rule is one
+   question: does the title name the thing the node does or delivers?
+   "Child C" and "The platform facts, verified" fail it; the checker
+   warns on the second shape as one heuristic, and the review judges
+   the rest (owner, 2026-11-09 and 2026-11-10).
 5. Reports to the owner use W-008's four parts and lead with the asks.
    No gate summaries, no numbered decision batches, no term
    ratification ceremonies. A new term gets a row in
@@ -244,6 +245,13 @@ Goal: sessions pull work without an orchestrator session.
 - [ ] Stop conditions as code: a failed check, a changed scope (a node
       edited outside the task), an open decision on the node, an ask in
       the summary. Each returns the session to the owner.
+- [ ] The standard close-out actions specified and implemented as
+      orchestrator features, never plan nodes (decision 13): on
+      `task_close`, the task's cost, pull request and summary are
+      recorded; when a node's work is done, the node moves on and
+      carries its done date; verification runs as a hidden check node,
+      shown only when it fails or is selected. The specification is a
+      section of this plan, written before the code.
 - [ ] This repository's remaining real work runs through the loop in
       owner-attended sessions for one week.
 
@@ -468,8 +476,9 @@ file's decisions, not an edit here.
     nodes of the plan. A review with a specific outcome gets a node
     named for the outcome. Automated validation that must be visible
     on failure becomes a hidden check node at milestone 5, shown only
-    when it fails or is selected. Owner, 2026-11-10, with the hidden
-    check node as the default to confirm.
+    when it fails or is selected. Owner, 2026-11-10; the default
+    confirmed the same day. The close-out behaviours are specified as
+    orchestrator features at milestone 5.
 
 ## Risks
 
@@ -526,7 +535,11 @@ orientation test result.
   the owner sees what waits on them and the status of each line in the
   view. The first review pass gave decisions 12 and 13, 53 titles
   rewritten as succinct noun phrases, P1-N006 and P1-N007 removed,
-  P2-N023 closed as done, and siblings ordered by dependency.
+  P2-N023 closed as done, and siblings ordered by dependency. The
+  rebuild itself is in the state file since 2026-11-10: P4-N001 with
+  its milestones P4-N002 to P4-N008 as nodes, the pull requests so far
+  as their tasks, and decisions 1 to 10 on the root. Milestone 3's
+  node starts on approval, so it shows as waiting on the owner.
 - M3: not started.
 - M4: not started.
 - M5: not started.
