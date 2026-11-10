@@ -135,6 +135,7 @@ describe("the run journal's line grammar", () => {
         "precedent-applied",
         "result-received",
         "risk-opened",
+        "state-written",
         "sequence-ratified",
         "sequence-stopped",
         "stale",

@@ -11,7 +11,6 @@ its stage and its outcome. The state file holds the rest.
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
-- Service writes the state file (P4-N005): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
@@ -21,7 +20,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Service writes the state file (P4-N005) [identified] — T118
 
 ## In progress, children carry the work
 
@@ -275,7 +274,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Service writes the state file** (P4-N005, identified)
   One conditional commit through the GitHub App replaces the lease, update and confirm protocol; the lease table is removed.
   after P4-N004 · [plan](plans/rebuild.md)
-  Note: Needs the owner's go-ahead and, first, contents: write for the GitHub App on this repository
+  Note: Service pull request 34 carries the build; the owner's first node_update call, moving this node to executing, is the acceptance
 - **Decisions answered in the view** (P4-N006, identified)
   The owner answers open decisions and acts on a node's lifecycle in the view, and the service commits each answer.
   after P4-N005 · [plan](plans/rebuild.md)
