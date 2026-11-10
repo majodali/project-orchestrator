@@ -64,3 +64,11 @@ Dependencies are in the state file, not in sibling order.
       - P3-N019 [done] Checker extension-point proposal ready to carry — plan: plans/p3-n015-sequence-demonstration.md
       - P3-N020 [specified] Plugin tools tested as run — plan: plans/p3-n015-sequence-demonstration.md
     - P3-N016 [identified] Determination on W-001 sequence mode
+- P4-N001 [broken-down] Rebuild: the orchestrator runs on a checked data model — plan: plans/rebuild.md
+  - P4-N002 [done] Freeze and declare — plan: plans/rebuild.md
+  - P4-N003 [done] State file and checker — plan: plans/rebuild.md
+  - P4-N004 [done] View on the state file — plan: plans/rebuild.md
+  - P4-N005 [identified] Service writes the state file — plan: plans/rebuild.md
+  - P4-N006 [identified] Decisions answered in the view — plan: plans/rebuild.md
+  - P4-N007 [identified] Minimal task loop — plan: plans/rebuild.md
+  - P4-N008 [identified] Re-plan, prune and hand back — plan: plans/rebuild.md

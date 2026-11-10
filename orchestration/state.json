@@ -955,6 +955,146 @@
       },
       "done": null,
       "note": "depends on P3-N015"
+    },
+    {
+      "id": "P4-N001",
+      "title": "Rebuild: the orchestrator runs on a checked data model",
+      "outcome": "One checked state file per managed project is the progress truth, the service reads and writes it, the view shows it, and a minimal task loop runs on it.",
+      "stage": "broken-down",
+      "parent": null,
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": "Six milestones ratified as one sequence by the owner on 2026-11-09"
+    },
+    {
+      "id": "P4-N002",
+      "title": "Freeze and declare",
+      "outcome": "The old loop is stopped cleanly: deviations recorded, registers frozen, the orchestrate skill suspended, the plan approved and its milestones ratified.",
+      "stage": "done",
+      "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": "2026-11-09",
+      "note": null
+    },
+    {
+      "id": "P4-N003",
+      "title": "State file and checker",
+      "outcome": "The plan lives in orchestration/state.json, imported from the frozen registers, checked by plan-state in CI, and rendered to the Markdown register and plan.",
+      "stage": "done",
+      "parent": "P4-N001",
+      "after": [
+        "P4-N002"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": "2026-11-09",
+      "note": null
+    },
+    {
+      "id": "P4-N004",
+      "title": "View on the state file",
+      "outcome": "The web view renders the state file for a desktop browser: the hierarchy as the primary view, with what waits on the owner shown in context.",
+      "stage": "done",
+      "parent": "P4-N001",
+      "after": [
+        "P4-N003"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": "2026-11-10",
+      "note": null
+    },
+    {
+      "id": "P4-N005",
+      "title": "Service writes the state file",
+      "outcome": "One conditional commit through the GitHub App replaces the lease, update and confirm protocol; the lease table is removed.",
+      "stage": "identified",
+      "parent": "P4-N001",
+      "after": [
+        "P4-N004"
+      ],
+      "hold": null,
+      "start": "approve",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": "Needs the owner's go-ahead and, first, contents: write for the GitHub App on this repository"
+    },
+    {
+      "id": "P4-N006",
+      "title": "Decisions answered in the view",
+      "outcome": "The owner answers open decisions and acts on a node's lifecycle in the view, and the service commits each answer.",
+      "stage": "identified",
+      "parent": "P4-N001",
+      "after": [
+        "P4-N005"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
+      "id": "P4-N007",
+      "title": "Minimal task loop",
+      "outcome": "A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.",
+      "stage": "identified",
+      "parent": "P4-N001",
+      "after": [
+        "P4-N006"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
+      "id": "P4-N008",
+      "title": "Re-plan, prune and hand back",
+      "outcome": "The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.",
+      "stage": "identified",
+      "parent": "P4-N001",
+      "after": [
+        "P4-N007"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     }
   ],
   "tasks": [
@@ -2811,6 +2951,186 @@
       "pr": null,
       "summary": "The harness reported no usage; no input/output split.",
       "notes": "The harness reported no usage; no input/output split. Member 3 of the sequence ratified 2026-11-04. Dispatched 2026-11-07 23:30 UTC, result 2026-11-08 00:10 UTC (unattended). Commit 41ddcc4 in majodali/project-orchestrator, on branch p3-n017-m1, the same tree as the result's e0890bc: the cover note `docs/proposals/mtool-custom-type-checker-cover-note.md` written, naming seven changes since 2026-08-26 with pointers and quoting Article 7 at both tags; the proposal unchanged. Checks as M3 reported: the M3.4 git diff pass, form_check 0 violations, npm test pass, typecheck pass, format pass; M3.1 to M3.6 and S1 to S3 met. Packet widened read-only: five groups, listed in the result."
+    },
+    {
+      "id": "T108",
+      "node": "P4-N002",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-09T20:28:06Z",
+      "closed": "2026-11-09T20:30:55Z",
+      "ref": null,
+      "pr": "majodali/project-orchestrator#30",
+      "summary": "The review of the approach, the plan, the deviations, the freezes and the skill suspension.",
+      "notes": null
+    },
+    {
+      "id": "T109",
+      "node": "P4-N002",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-09T20:28:13Z",
+      "closed": "2026-11-09T20:30:43Z",
+      "ref": null,
+      "pr": "majodali/project-orchestrator-service#28",
+      "summary": "The K-003 deviation and the corrected Binding block in the service repository.",
+      "notes": null
+    },
+    {
+      "id": "T110",
+      "node": "P4-N003",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-09T20:51:42Z",
+      "closed": "2026-11-09T21:08:51Z",
+      "ref": null,
+      "pr": "majodali/project-orchestrator-service#29",
+      "summary": "The model package: schema, checker, renderer, importer and the plan-state CLI.",
+      "notes": null
+    },
+    {
+      "id": "T111",
+      "node": "P4-N003",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-09T20:51:58Z",
+      "closed": "2026-11-09T23:07:39Z",
+      "ref": null,
+      "pr": "majodali/project-orchestrator#31",
+      "summary": "The state file imported, the renderings, the CI check, the vendoring generator retired.",
+      "notes": null
+    },
+    {
+      "id": "T112",
+      "node": "P4-N003",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-10T03:16:26Z",
+      "closed": "2026-11-10T03:27:48Z",
+      "ref": null,
+      "pr": "majodali/project-orchestrator-service#31",
+      "summary": "The deploy fix: prepare builds only where tsc is installed.",
+      "notes": null
+    },
+    {
+      "id": "T113",
+      "node": "P4-N004",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-09T23:20:22Z",
+      "closed": "2026-11-10T03:09:18Z",
+      "ref": null,
+      "pr": "majodali/project-orchestrator-service#30",
+      "summary": "The view reads the state file; the Markdown parsers leave the view.",
+      "notes": null
+    },
+    {
+      "id": "T114",
+      "node": "P4-N004",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-09T23:20:40Z",
+      "closed": "2026-11-10T04:12:31Z",
+      "ref": null,
+      "pr": "majodali/project-orchestrator#32",
+      "summary": "The plan's record of milestone 2 and decision 11; the start field in the state file.",
+      "notes": null
+    },
+    {
+      "id": "T115",
+      "node": "P4-N004",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-10T04:08:59Z",
+      "closed": "2026-11-10T04:12:17Z",
+      "ref": null,
+      "pr": "majodali/project-orchestrator-service#32",
+      "summary": "The tree as the primary view, attention in context, start-when-ready.",
+      "notes": null
+    },
+    {
+      "id": "T116",
+      "node": "P4-N004",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-10T05:09:44Z",
+      "closed": "2026-11-10T05:59:02Z",
+      "ref": null,
+      "pr": "majodali/project-orchestrator-service#33",
+      "summary": "Siblings in dependency order, the title check, two-word titles.",
+      "notes": null
+    },
+    {
+      "id": "T117",
+      "node": "P4-N004",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-10T05:10:37Z",
+      "closed": "2026-11-10T17:56:52Z",
+      "ref": null,
+      "pr": "majodali/project-orchestrator#33",
+      "summary": "The owner's first review pass applied: titles, obsolete nodes removed, dependency order, decisions 12 and 13.",
+      "notes": null
     }
   ],
   "decisions": [
@@ -3158,7 +3478,7 @@
     },
     {
       "id": "D005",
-      "node": null,
+      "node": "P4-N001",
       "question": "Pause the P3 line (comprehension model, risk catalogue, sequence mode, reversibility) and park its open nodes",
       "options": [],
       "default": "yes",
@@ -3170,7 +3490,7 @@
     },
     {
       "id": "D006",
-      "node": null,
+      "node": "P4-N001",
       "question": "The service may write git under the path allowlist above. This changes the service plan's standing constraint \"the service never writes git\" and keeps \"git is authoritative\"",
       "options": [],
       "default": "yes",
@@ -3182,7 +3502,7 @@
     },
     {
       "id": "D007",
-      "node": null,
+      "node": "P4-N001",
       "question": "The state file is JSON validated by a zod schema, at orchestration/state.json",
       "options": [],
       "default": "yes",
@@ -3194,7 +3514,7 @@
     },
     {
       "id": "D008",
-      "node": null,
+      "node": "P4-N001",
       "question": "The shared model code lives in the service repository and is consumed by the plugin as a package. Vendoring is retired",
       "options": [],
       "default": "yes",
@@ -3206,7 +3526,7 @@
     },
     {
       "id": "D009",
-      "node": null,
+      "node": "P4-N001",
       "question": "During the rebuild, pull requests auto-merge on green in both repositories",
       "options": [],
       "default": "yes",
@@ -3218,7 +3538,7 @@
     },
     {
       "id": "D010",
-      "node": null,
+      "node": "P4-N001",
       "question": "The methodology pin stays at 1.6.0 with the deviations the review lists, recorded at M0",
       "options": [],
       "default": "yes",
@@ -3230,7 +3550,7 @@
     },
     {
       "id": "D011",
-      "node": null,
+      "node": "P4-N001",
       "question": "Node identifiers stay as they are (P2-N021). Titles are shown beside them everywhere",
       "options": [],
       "default": "keep",
@@ -3242,7 +3562,7 @@
     },
     {
       "id": "D012",
-      "node": null,
+      "node": "P4-N001",
       "question": "Milestones 1 to 6 run as one pre-ratified sequence",
       "options": [],
       "default": "yes",
@@ -3254,7 +3574,7 @@
     },
     {
       "id": "D013",
-      "node": null,
+      "node": "P4-N001",
       "question": "The view targets a desktop browser",
       "options": [],
       "default": null,
@@ -3266,7 +3586,7 @@
     },
     {
       "id": "D014",
-      "node": null,
+      "node": "P4-N001",
       "question": "No git-only fallback for a service outage is built in this plan",
       "options": [],
       "default": null,

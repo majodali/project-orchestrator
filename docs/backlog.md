@@ -1,6 +1,6 @@
 # Backlog
 
-Status: frozen 2026-11-09 at this content, under [the rebuild plan](plans/rebuild.md), milestone 0, and the deviation from K-003 recorded in the [Classification](classification.md). Progress truth during the rebuild is the plan's checklists and, from milestone 1, `orchestration/state.json`. This file becomes a rendering at milestone 6.
+Status: frozen 2026-11-09 at this content, under [the rebuild plan](plans/rebuild.md), milestone 0, and the deviation from K-003 recorded in the [Classification](classification.md). Progress truth during the rebuild is the plan's checklists and, from milestone 1, `orchestration/state.json`. This file becomes a rendering at milestone 6. One exception to the freeze: the pointer entry for the rebuild's own nodes, under Upcoming, added 2026-11-10 so that the plugin's form check, which requires a Backlog entry per open node, finds them.
 
 Project model: the five-resource slice is [project-model.md](project-model.md).
 
@@ -360,6 +360,11 @@ decision 13).
   day; a text over two rounds goes to the pipeline for meta-review.
 
 ## Upcoming
+
+- [ ] **The rebuild** (nodes P4-N001 to P4-N008: P4-N002, P4-N003,
+      P4-N004, P4-N005, P4-N006, P4-N007, P4-N008) — the plan and its
+      progress record are [docs/plans/rebuild.md](plans/rebuild.md);
+      the state file is the record. Added 2026-11-10.
 
 - [ ] **P1-N014 specified, 2026-10-29 (T046)** — the role contracts'
   specification stands at
