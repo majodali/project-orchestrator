@@ -465,7 +465,10 @@ orientation test result.
   `orchestration/state.json` at one commit; the Markdown parsers left
   the view; desktop layout; screenshots at 1440 wide in the pull
   request. Acceptance recorded when the owner has answered the four
-  questions in the view.
+  questions in the view. The deploys of milestones 1 and 2 failed in
+  `sam build`, because the `prepare` script of milestone 1 ran `tsc`
+  in SAM's production-only install; the service's pull request 31
+  fixes it, and `live` stayed on the pre-rebuild version meanwhile.
 - M3: not started.
 - M4: not started.
 - M5: not started.
