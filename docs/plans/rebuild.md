@@ -52,7 +52,11 @@ to design around).
    sequence only when a decision below changes or a check fails.
 3. Small pull requests. CI runs tests, lint and the state checker.
    Pull requests auto-merge on green. The owner reviews state in the
-   view and in this plan's checklists, not in merge queues.
+   view and in this plan's checklists, not in merge queues. The
+   session that opens a pull request subscribes to it at once, so that
+   check failures, comments and the merge reach it as events (owner,
+   2026-11-10); a deploy that a merge triggers is checked the same
+   way, by its run, before the milestone is reported done.
 4. Documentation moves in the same pull request as the work (W-003).
    A hand-written document is at most 300 lines.
 4a. Titles beside identifiers everywhere, by tooling, and a title
@@ -144,17 +148,22 @@ Estimate: two to three sessions.
 Goal: the view, in a desktop browser, answers the owner's four
 questions without the Backlog.
 
-- [ ] The tree page reads `state.json`. Each row: title, status badge,
+- [x] The tree page reads `state.json`. Each row: title, status badge,
       one-line outcome; identifier small and secondary. Fold as today.
-- [ ] A "Waiting on you" section at the top: open decisions with their
-      default, and gated nodes.
-- [ ] A "Next" section: actionable nodes in order.
-- [ ] The node page: outcome, stage, what it waits on, what waits on
+- [x] A "Waiting on you" section at the top: open decisions with their
+      default, and gated nodes. Replaced under decision 11 by attention
+      in context: highlighted rows, ancestor flags, decisions under
+      their node, the paths to them unfolded, and `?open=` for other
+      unfoldings.
+- [x] A "Next" section: actionable nodes in order. Dropped under
+      decision 11: a ready node starts automatically, or waits on the
+      owner when its `start` is `approve`.
+- [x] The node page: outcome, stage, what it waits on, what waits on
       it, its tasks with pull request links, its decisions, links to
       plan and spec. No criteria labels, no rulings.
-- [ ] Remove the Markdown parsers from the view path. Keep the
+- [x] Remove the Markdown parsers from the view path. Keep the
       problems section for anything `check` would flag.
-- [ ] Screenshots before and after at desktop width in the pull
+- [x] Screenshots before and after at desktop width in the pull
       request, with the existing screenshot tooling. The phone-width
       shots and the no-horizontal-scroll check are dropped.
 
@@ -324,6 +333,9 @@ Field rules:
 - `hold` is null or `{ "kind": "gated" | "blocked", "reason": "..." }`.
 - `after` lists node identifiers this node waits for. Sibling order
   no longer implies dependency.
+- `start` is `auto` (the default: the loop takes the node when its
+  dependencies are done) or `approve` (a ready node waits for the
+  owner's go-ahead and counts as waiting on the owner). Decision 11.
 - `outcome` is one sentence, at most 40 words. Required from `planned`
   on.
 - `step` is `plan`, `specify`, `execute` or `verify`.
@@ -421,6 +433,13 @@ file's decisions, not an edit here.
    decision, not a requirement of this plan. Owner, 2026-11-09.
 10. No git-only fallback for a service outage is built in this plan.
     Owner, 2026-11-09.
+11. The plan hierarchy is the view's primary view. What waits on the
+    owner shows in context: the node highlighted with its reason, every
+    ancestor flagged with the count below it, open decisions under their
+    node, and the paths to those nodes unfolded on load with everything
+    else folded. "Ready" is not a category: a node starts automatically
+    when its dependencies are done unless its `start` is `approve`, and
+    then it waits on the owner. Owner, 2026-11-10.
 
 ## Risks
 
@@ -460,7 +479,20 @@ orientation test result.
   the rebuild. From here the state file is edited directly, or by the
   service's tools from milestone 3; `orchestration/import-overrides.json`
   is the record of the import's hand corrections and is not reapplied.
-- M2: not started.
+- M2: built 2026-11-09, pending the owner's one-minute test in the
+  deployed view (service pull request 30). Every page reads
+  `orchestration/state.json` at one commit; the Markdown parsers left
+  the view; desktop layout; screenshots at 1440 wide in the pull
+  request. Acceptance recorded when the owner has answered the four
+  questions in the view. The deploys of milestones 1 and 2 failed in
+  `sam build`, because the `prepare` script of milestone 1 ran `tsc`
+  in SAM's production-only install; the service's pull request 31
+  fixed it, and `live` stayed on the pre-rebuild version meanwhile.
+  Deploy run 21 of 2026-11-10 built, smoke-tested and promoted the
+  milestone 2 service to `live`. The owner's first look gave
+  decision 11; the service's pull request 32 carries it, and this
+  repository's state file gains the `start` field. The item-by-item
+  review of stale rows follows the acceptance.
 - M3: not started.
 - M4: not started.
 - M5: not started.
