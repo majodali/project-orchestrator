@@ -20,7 +20,7 @@ Gated nodes:
 
 ## In flight
 
-- Service writes the state file (P4-N005) [identified] — T118
+- Service writes the state file (P4-N005) [executing] — T118
 
 ## In progress, children carry the work
 
@@ -271,7 +271,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **View on the state file** (P4-N004, done 2026-11-10)
   The web view renders the state file for a desktop browser: the hierarchy as the primary view, with what waits on the owner shown in context.
   after P4-N003 · [plan](plans/rebuild.md)
-- **Service writes the state file** (P4-N005, identified)
+- **Service writes the state file** (P4-N005, executing)
   One conditional commit through the GitHub App replaces the lease, update and confirm protocol; the lease table is removed.
   after P4-N004 · [plan](plans/rebuild.md)
   Note: Service pull request 34 carries the build; the owner's first node_update call, moving this node to executing, is the acceptance
