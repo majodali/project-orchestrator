@@ -472,7 +472,9 @@ orientation test result.
   questions in the view. The deploys of milestones 1 and 2 failed in
   `sam build`, because the `prepare` script of milestone 1 ran `tsc`
   in SAM's production-only install; the service's pull request 31
-  fixes it, and `live` stayed on the pre-rebuild version meanwhile.
+  fixed it, and `live` stayed on the pre-rebuild version meanwhile.
+  Deploy run 21 of 2026-11-10 built, smoke-tested and promoted the
+  milestone 2 service to `live`.
 - M3: not started.
 - M4: not started.
 - M5: not started.
