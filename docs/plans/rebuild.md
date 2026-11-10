@@ -151,8 +151,13 @@ questions without the Backlog.
 - [x] The tree page reads `state.json`. Each row: title, status badge,
       one-line outcome; identifier small and secondary. Fold as today.
 - [x] A "Waiting on you" section at the top: open decisions with their
-      default, and gated nodes.
-- [x] A "Next" section: actionable nodes in order.
+      default, and gated nodes. Replaced under decision 11 by attention
+      in context: highlighted rows, ancestor flags, decisions under
+      their node, the paths to them unfolded, and `?open=` for other
+      unfoldings.
+- [x] A "Next" section: actionable nodes in order. Dropped under
+      decision 11: a ready node starts automatically, or waits on the
+      owner when its `start` is `approve`.
 - [x] The node page: outcome, stage, what it waits on, what waits on
       it, its tasks with pull request links, its decisions, links to
       plan and spec. No criteria labels, no rulings.
@@ -328,6 +333,9 @@ Field rules:
 - `hold` is null or `{ "kind": "gated" | "blocked", "reason": "..." }`.
 - `after` lists node identifiers this node waits for. Sibling order
   no longer implies dependency.
+- `start` is `auto` (the default: the loop takes the node when its
+  dependencies are done) or `approve` (a ready node waits for the
+  owner's go-ahead and counts as waiting on the owner). Decision 11.
 - `outcome` is one sentence, at most 40 words. Required from `planned`
   on.
 - `step` is `plan`, `specify`, `execute` or `verify`.
@@ -425,6 +433,13 @@ file's decisions, not an edit here.
    decision, not a requirement of this plan. Owner, 2026-11-09.
 10. No git-only fallback for a service outage is built in this plan.
     Owner, 2026-11-09.
+11. The plan hierarchy is the view's primary view. What waits on the
+    owner shows in context: the node highlighted with its reason, every
+    ancestor flagged with the count below it, open decisions under their
+    node, and the paths to those nodes unfolded on load with everything
+    else folded. "Ready" is not a category: a node starts automatically
+    when its dependencies are done unless its `start` is `approve`, and
+    then it waits on the owner. Owner, 2026-11-10.
 
 ## Risks
 
@@ -474,7 +489,10 @@ orientation test result.
   in SAM's production-only install; the service's pull request 31
   fixed it, and `live` stayed on the pre-rebuild version meanwhile.
   Deploy run 21 of 2026-11-10 built, smoke-tested and promoted the
-  milestone 2 service to `live`.
+  milestone 2 service to `live`. The owner's first look gave
+  decision 11; the service's pull request 32 carries it, and this
+  repository's state file gains the `start` field. The item-by-item
+  review of stale rows follows the acceptance.
 - M3: not started.
 - M4: not started.
 - M5: not started.

@@ -13,7 +13,7 @@ Gated nodes:
 - Web view UX refinement: an owner-attended loop on the service repository until the view can replace docs/plan.md, at most ten iterations (P2-N023): owner review at verifying, U1 on the owner's decision to end the loop at three iterations
 - The instance, over this repository (P3-N008): owner review of the plan
 
-## Ready to start
+## Ready, starting automatically when the loop runs
 
 - The pilot on a real project, superseded by the service's migration and pilot (P1-N006) [identified]
 - Cost reporting and the founding plan's close-out (P1-N007) [identified]

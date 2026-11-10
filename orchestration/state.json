@@ -10,6 +10,7 @@
       "parent": null,
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestrator-v1.md",
         "spec": null
@@ -25,6 +26,7 @@
       "parent": "P1-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -40,6 +42,7 @@
       "parent": "P1-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -55,6 +58,7 @@
       "parent": "P1-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -70,6 +74,7 @@
       "parent": "P1-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -85,6 +90,7 @@
       "parent": "P1-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p1-n008-mtool-checker-extension-point.md",
         "spec": "docs/specs/p1-n008-mtool-checker-extension-point.md"
@@ -100,6 +106,7 @@
       "parent": "P1-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p1-n009-plugin-tooling-portfolio-stack.md",
         "spec": "docs/specs/p1-n009-plugin-tooling-portfolio-stack.md"
@@ -115,6 +122,7 @@
       "parent": "P1-N009",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -130,6 +138,7 @@
       "parent": "P1-N009",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -145,6 +154,7 @@
       "parent": "P1-N009",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -160,6 +170,7 @@
       "parent": "P1-N009",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -175,6 +186,7 @@
       "parent": "P1-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p1-n014-role-contracts-adopt-v140-rules.md",
         "spec": "docs/specs/p1-n014-role-contracts-adopt-conduct-rules.md"
@@ -190,6 +202,7 @@
       "parent": "P1-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p1-n015-methodology-amendments-delegated-work.md",
         "spec": "docs/specs/p1-n015-methodology-amendments-delegated-work.md"
@@ -205,6 +218,7 @@
       "parent": "P1-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p1-n016-process-spec-maintenance.md",
         "spec": null
@@ -220,6 +234,7 @@
       "parent": "P1-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -235,6 +250,7 @@
       "parent": "P1-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -250,6 +266,7 @@
       "parent": null,
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestration-service.md",
         "spec": null
@@ -265,6 +282,7 @@
       "parent": "P2-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p2-n002-service-skeleton.md",
         "spec": "docs/specs/p2-n002-service-skeleton.md"
@@ -280,6 +298,7 @@
       "parent": "P2-N002",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -295,6 +314,7 @@
       "parent": "P2-N002",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -310,6 +330,7 @@
       "parent": "P2-N002",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -325,6 +346,7 @@
       "parent": "P2-N002",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -340,6 +362,7 @@
       "parent": "P2-N002",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -355,6 +378,7 @@
       "parent": "P2-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p2-n012-deploy-from-ci-on-merge.md",
         "spec": "docs/specs/p2-n012-deploy-from-ci-on-merge.md"
@@ -370,6 +394,7 @@
       "parent": "P2-N012",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -385,6 +410,7 @@
       "parent": "P2-N012",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -400,6 +426,7 @@
       "parent": "P2-N012",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -415,6 +442,7 @@
       "parent": "P2-N012",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -430,6 +458,7 @@
       "parent": "P2-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p2-n003-owner-questions-and-plan-view.md",
         "spec": "docs/specs/p2-n003-owner-questions-and-plan-view.md"
@@ -445,6 +474,7 @@
       "parent": "P2-N003",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": "docs/specs/p2-n003-owner-questions-and-plan-view.md"
@@ -463,6 +493,7 @@
         "P2-N005"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p2-n022-owner-question-queue.md",
         "spec": "docs/specs/p2-n003-owner-questions-and-plan-view.md"
@@ -483,6 +514,7 @@
         "kind": "gated",
         "reason": "owner review at verifying, U1 on the owner's decision to end the loop at three iterations"
       },
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p2-n023-web-view-ux-refinement.md",
         "spec": null
@@ -500,6 +532,7 @@
         "P2-N006"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -515,6 +548,7 @@
       "parent": "P2-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p2-n005-task-pull-loop.md",
         "spec": "docs/specs/p2-n005-task-pull-loop.md"
@@ -530,6 +564,7 @@
       "parent": "P2-N005",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p2-n017-platform-facts.md",
         "spec": "docs/specs/p2-n005-task-pull-loop.md"
@@ -547,6 +582,7 @@
         "P2-N017"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": "docs/specs/p2-n005-task-pull-loop.md"
@@ -564,6 +600,7 @@
         "P2-N017"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": "docs/specs/p2-n005-task-pull-loop.md"
@@ -582,6 +619,7 @@
         "P2-N019"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": "docs/specs/p2-n005-task-pull-loop.md"
@@ -601,6 +639,7 @@
         "P2-N003"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -616,6 +655,7 @@
       "parent": null,
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/comprehension-and-continuous-implementation.md",
         "spec": "docs/specs/p3-n001-comprehension-and-continuous-implementation.md"
@@ -631,6 +671,7 @@
       "parent": "P3-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n002-comprehension-model.md",
         "spec": "docs/specs/p3-n002-comprehension-model.md"
@@ -646,6 +687,7 @@
       "parent": "P3-N002",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n006-thin-end-to-end-slice.md",
         "spec": "docs/specs/p3-n002-comprehension-model.md"
@@ -663,6 +705,7 @@
         "P3-N006"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n007-type-declared-amendment-drafted.md",
         "spec": "docs/specs/p3-n002-comprehension-model.md"
@@ -683,6 +726,7 @@
         "kind": "gated",
         "reason": "owner review of the plan"
       },
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n008-instance-over-this-repository.md",
         "spec": "docs/specs/p3-n002-comprehension-model.md"
@@ -700,6 +744,7 @@
         "P3-N008"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -715,6 +760,7 @@
       "parent": "P3-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n003-common-risk-catalogue.md",
         "spec": "docs/specs/p3-n003-common-risk-catalogue.md"
@@ -730,6 +776,7 @@
       "parent": "P3-N003",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n010-one-class-end-to-end.md",
         "spec": "docs/specs/p3-n003-common-risk-catalogue.md"
@@ -747,6 +794,7 @@
         "P3-N010"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n011-sweep-and-omission-list.md",
         "spec": "docs/specs/p3-n003-common-risk-catalogue.md"
@@ -764,6 +812,7 @@
         "P3-N011"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -781,6 +830,7 @@
         "P3-N002"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -796,6 +846,7 @@
       "parent": "P3-N001",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n005-sequence-mode.md",
         "spec": "docs/specs/p3-n005-sequence-mode.md"
@@ -811,6 +862,7 @@
       "parent": "P3-N005",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n013-stop-conditions-decidable.md",
         "spec": "docs/specs/p3-n005-sequence-mode.md"
@@ -829,6 +881,7 @@
         "P1-N014"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n014-loop-runs-sequence-mode.md",
         "spec": "docs/specs/p3-n005-sequence-mode.md"
@@ -846,6 +899,7 @@
         "P3-N014"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n015-sequence-demonstration.md",
         "spec": "docs/specs/p3-n005-sequence-mode.md"
@@ -861,6 +915,7 @@
       "parent": "P3-N015",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n015-sequence-demonstration.md",
         "spec": null
@@ -876,6 +931,7 @@
       "parent": "P3-N015",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n015-sequence-demonstration.md",
         "spec": null
@@ -891,6 +947,7 @@
       "parent": "P3-N015",
       "after": [],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n015-sequence-demonstration.md",
         "spec": null
@@ -908,6 +965,7 @@
         "P3-N019"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n015-sequence-demonstration.md",
         "spec": null
@@ -925,6 +983,7 @@
         "P3-N015"
       ],
       "hold": null,
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
