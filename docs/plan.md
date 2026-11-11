@@ -16,11 +16,10 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Article 8 amendment proposal (P3-N012) [identified]
-- Minimal task loop (P4-N007) [executing]
 
 ## In flight
 
-None.
+- Minimal task loop (P4-N007) [executing] — T121
 
 ## In progress, children carry the work
 

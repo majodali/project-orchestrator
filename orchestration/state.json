@@ -3369,6 +3369,25 @@
       "pr": "majodali/project-orchestrator-service#36",
       "summary": "task_next, the claim, the close-out and check nodes built and deployed; service pull request 36 merged 2026-11-11.",
       "notes": null
+    },
+    {
+      "id": "T121",
+      "node": "P4-N007",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-11T18:51:56Z",
+      "closed": null,
+      "base": "4751c6d5114584f67ad7632dc0c1e4deaba60c70",
+      "ref": null,
+      "pr": null,
+      "summary": "Fixes from the loop's first real use: merge at done, node_remove, pausing, session instructions; service pull request 37.",
+      "notes": null
     }
   ],
   "decisions": [
