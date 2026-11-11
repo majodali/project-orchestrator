@@ -10,7 +10,7 @@ its stage and its outcome. The state file holds the rest.
 
 Gated nodes:
 
-- Platform capability checks (P2-N017): Replanned 2026-11-11: all five platform facts are superseded — facts 1, 2, 3 and 5 by the service's conditional commit as the claim (P4-N005), fact 4 by task_next being pull-based (P4-N007). Nothing to build; disposition is the open decision on this node.
+- Platform capability checks (P2-N017): Replanned 2026-11-11: all five platform facts are superseded (facts 1, 2, 3 and 5 by the service's conditional commit as the claim, P4-N005; fact 4 by task_next being pull-based, P4-N007). Nothing to build. Owner decided at D062 to dispose of it with the P2-N005 subtree at P4-N008.
 - Project model instance for this repository (P3-N008): owner review of the plan
 
 ## Ready, starting automatically when the loop runs
@@ -135,7 +135,7 @@ Documents: [plan](plans/orchestration-service.md).
   A session asks the service for the next task in its role, claims it, reports progress, and reports completion.
   [plan](plans/p2-n005-task-pull-loop.md), [spec](specs/p2-n005-task-pull-loop.md)
   Note: Chunk 4 of the parent plan; independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29)
-  - **Platform capability checks** (P2-N017, identified, gated: Replanned 2026-11-11: all five platform facts are superseded — facts 1, 2, 3 and 5 by the service's conditional commit as the claim (P4-N005), fact 4 by task_next being pull-based (P4-N007). Nothing to build; disposition is the open decision on this node.)
+  - **Platform capability checks** (P2-N017, identified, gated: Replanned 2026-11-11: all five platform facts are superseded (facts 1, 2, 3 and 5 by the service's conditional commit as the claim, P4-N005; fact 4 by task_next being pull-based, P4-N007). Nothing to build. Owner decided at D062 to dispose of it with the P2-N005 subtree at P4-N008.)
     Nothing: the five platform facts this node was to answer are superseded by P4-N005 and P4-N007.
     [plan](plans/p2-n017-platform-facts.md), [spec](specs/p2-n005-task-pull-loop.md)
   - **Task claiming in git** (P2-N018, identified)

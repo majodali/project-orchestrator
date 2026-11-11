@@ -471,7 +471,7 @@
       "after": [],
       "hold": {
         "kind": "gated",
-        "reason": "Replanned 2026-11-11: all five platform facts are superseded — facts 1, 2, 3 and 5 by the service's conditional commit as the claim (P4-N005), fact 4 by task_next being pull-based (P4-N007). Nothing to build; disposition is the open decision on this node."
+        "reason": "Replanned 2026-11-11: all five platform facts are superseded (facts 1, 2, 3 and 5 by the service's conditional commit as the claim, P4-N005; fact 4 by task_next being pull-based, P4-N007). Nothing to build. Owner decided at D062 to dispose of it with the P2-N005 subtree at P4-N008."
       },
       "start": "auto",
       "docs": {
