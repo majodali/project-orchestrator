@@ -44,7 +44,7 @@ Dependencies are in the state file, not in sibling order.
     - P2-N023 [done] Web view UX refinement — plan: plans/p2-n023-web-view-ux-refinement.md
   - P2-N006 [identified] Migration onto the service and pilot on methodology-tools
   - P2-N004 [identified] Coordination between enlisted sessions
-- P3-N001 [broken-down] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
+- P3-N001 [broken-down] [blocked: Paused under the rebuild plan's decision 1 (D005) until milestone 6 re-plans the line] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
   - P3-N002 [broken-down] Comprehension model — plan: plans/p3-n002-comprehension-model.md · spec: specs/p3-n002-comprehension-model.md
     - P3-N006 [done] Thin end-to-end slice of the model — plan: plans/p3-n006-thin-end-to-end-slice.md · spec: specs/p3-n002-comprehension-model.md
     - P3-N007 [done] Project model type and K-003 amendment draft — plan: plans/p3-n007-type-declared-amendment-drafted.md · spec: specs/p3-n002-comprehension-model.md

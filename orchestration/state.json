@@ -660,7 +660,10 @@
       "stage": "broken-down",
       "parent": null,
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "Paused under the rebuild plan's decision 1 (D005) until milestone 6 re-plans the line"
+      },
       "start": "auto",
       "docs": {
         "plan": "docs/plans/comprehension-and-continuous-implementation.md",

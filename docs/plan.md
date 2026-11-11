@@ -16,7 +16,7 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- Article 8 amendment proposal (P3-N012) [identified]
+None.
 
 ## In flight
 
@@ -28,11 +28,6 @@ None.
 - Orchestration service (P2-N001) [broken-down]
 - Task pull loop (P2-N005) [broken-down]
 - Owner questions and the plan view (P2-N003) [broken-down]
-- Project comprehension and continuous implementation (P3-N001) [broken-down]
-- Comprehension model (P3-N002) [broken-down]
-- Common risk catalogue (P3-N003) [broken-down]
-- Sequence mode (P3-N005) [broken-down]
-- Sequence mode demonstration (P3-N015) [broken-down]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 
 ## Waiting on a dependency
@@ -43,14 +38,22 @@ None.
 - Owner question queue (P2-N022) [identified] — after Task pull loop (P2-N005)
 - Migration onto the service and pilot on methodology-tools (P2-N006) [identified] — after Task pull loop (P2-N005), Owner questions and the plan view (P2-N003)
 - Coordination between enlisted sessions (P2-N004) [identified] — after Migration onto the service and pilot on methodology-tools (P2-N006)
-- Replacement of sibling ordering by recorded dependencies (P3-N009) [identified] — after Project model instance for this repository (P3-N008)
-- Reversibility and its measurement (P3-N004) [identified] — after Comprehension model (P3-N002)
-- Determination on W-001 sequence mode (P3-N016) [identified] — after Sequence mode demonstration (P3-N015)
 - Re-plan, prune and hand back (P4-N008) [identified] — after Minimal task loop (P4-N007)
 
 ## Blocked
 
-None.
+- Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused under the rebuild plan's decision 1 (D005) until milestone 6 re-plans the line
+
+## Paused by a hold or a park above
+
+- Comprehension model (P3-N002) [broken-down] — under Project comprehension and continuous implementation (P3-N001)
+- Replacement of sibling ordering by recorded dependencies (P3-N009) [identified] — under Project comprehension and continuous implementation (P3-N001)
+- Common risk catalogue (P3-N003) [broken-down] — under Project comprehension and continuous implementation (P3-N001)
+- Article 8 amendment proposal (P3-N012) [identified] — under Project comprehension and continuous implementation (P3-N001)
+- Reversibility and its measurement (P3-N004) [identified] — under Project comprehension and continuous implementation (P3-N001)
+- Sequence mode (P3-N005) [broken-down] — under Project comprehension and continuous implementation (P3-N001)
+- Sequence mode demonstration (P3-N015) [broken-down] — under Project comprehension and continuous implementation (P3-N001)
+- Determination on W-001 sequence mode (P3-N016) [identified] — under Project comprehension and continuous implementation (P3-N001)
 
 ## The plan
 
@@ -173,7 +176,7 @@ Documents: [plan](plans/orchestration-service.md).
 
 ### Project comprehension and continuous implementation (P3-N001)
 
-Stage: broken-down, in progress, its children carry the work.
+Stage: broken-down, blocked.
 
 A model of each part of a project and what depends on it, plus the safeguards for longer runs of work without owner review.
 
