@@ -8,10 +8,6 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D062 on Platform capability checks (P2-N017): P2-N017's disposition: its five platform facts are superseded by the rebuilt loop. Dispose of it with the P2-N005 subtree at P4-N008, remove it now, or reshape it into a live claim-race check? Default: dispose at P4-N008
-
 Gated nodes:
 
 - Platform capability checks (P2-N017): Replanned 2026-11-11: all five platform facts are superseded — facts 1, 2, 3 and 5 by the service's conditional commit as the claim (P4-N005), fact 4 by task_next being pull-based (P4-N007). Nothing to build; disposition is the open decision on this node.
@@ -141,7 +137,7 @@ Documents: [plan](plans/orchestration-service.md).
   Note: Chunk 4 of the parent plan; independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29)
   - **Platform capability checks** (P2-N017, identified, gated: Replanned 2026-11-11: all five platform facts are superseded — facts 1, 2, 3 and 5 by the service's conditional commit as the claim (P4-N005), fact 4 by task_next being pull-based (P4-N007). Nothing to build; disposition is the open decision on this node.)
     Nothing: the five platform facts this node was to answer are superseded by P4-N005 and P4-N007.
-    [plan](plans/p2-n017-platform-facts.md), [spec](specs/p2-n005-task-pull-loop.md) · 1 open decision
+    [plan](plans/p2-n017-platform-facts.md), [spec](specs/p2-n005-task-pull-loop.md)
   - **Task claiming in git** (P2-N018, identified)
     after P2-N017 · [spec](specs/p2-n005-task-pull-loop.md)
     Note: depends on P2-N017
@@ -350,3 +346,4 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - D035 on P3-N008 (2026-11-09): docs/plan.md stays the hand rendering until the switch Chosen: superseded by the rebuild: not answered
 - D036 on P3-N008 (2026-11-09): Every entry heading carries a name Chosen: superseded by the rebuild: not answered
 - D061 on P4-N006 (2026-11-11): Does the view's write path stay as built: forms on the node page, one commit per answer, the three lifecycle actions? Chosen: yes, as built
+- D062 on P2-N017 (2026-11-11): P2-N017's disposition: its five platform facts are superseded by the rebuilt loop. Dispose of it with the P2-N005 subtree at P4-N008, remove it now, or reshape it into a live claim-race check? Chosen: dispose at P4-N008

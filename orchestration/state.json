@@ -4123,9 +4123,9 @@
         "reshape as a claim-race check"
       ],
       "default": "dispose at P4-N008",
-      "chosen": null,
-      "decided": null,
-      "rationale": "Facts 1, 2, 3 and 5 died with the claim branch when the service's conditional commit became the claim (P4-N005); fact 4 died with session-starts-session dispatch, since task_next is pull-based (P4-N007). P2-N005 and P2-N018 to P2-N020 are superseded the same way, and P2-N018 and P2-N019 name P2-N017 in their after lists, so one disposition at P4-N008 beats four edits now.",
+      "chosen": "dispose at P4-N008",
+      "decided": "2026-11-11",
+      "rationale": "Owner chose in conversation 2026-11-11: dispose of P2-N017 with the P2-N005 subtree at P4-N008.",
       "standing": false,
       "source": null
     }
