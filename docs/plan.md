@@ -10,13 +10,12 @@ its stage and its outcome. The state file holds the rest.
 
 Gated nodes:
 
-- Platform capability checks (P2-N017): Replanned 2026-11-11: all five platform facts are superseded (facts 1, 2, 3 and 5 by the service's conditional commit as the claim, P4-N005; fact 4 by task_next being pull-based, P4-N007). Nothing to build. Owner decided at D062 to dispose of it with the P2-N005 subtree at P4-N008.
 - Project model instance for this repository (P3-N008): owner review of the plan
 - Minimal task loop (P4-N007): The owner accepts milestone 5 after the week of real work through the loop: two sessions on different days move one node from specified to done
 
 ## Ready, starting automatically when the loop runs
 
-None.
+- Owner question queue (P2-N022) [identified]
 
 ## In flight
 
@@ -26,17 +25,12 @@ None.
 
 - Orchestrator v1: process specification and plugin (P1-N001) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
-- Task pull loop (P2-N005) [broken-down]
 - Owner questions and the plan view (P2-N003) [broken-down]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 
 ## Waiting on a dependency
 
-- Task claiming in git (P2-N018) [identified] — after Platform capability checks (P2-N017)
-- Role-aware session identity (P2-N019) [identified] — after Platform capability checks (P2-N017)
-- Task tools (P2-N020) [identified] — after Task claiming in git (P2-N018), Role-aware session identity (P2-N019)
-- Owner question queue (P2-N022) [identified] — after Task pull loop (P2-N005)
-- Migration onto the service and pilot on methodology-tools (P2-N006) [identified] — after Task pull loop (P2-N005), Owner questions and the plan view (P2-N003)
+- Migration onto the service and pilot on methodology-tools (P2-N006) [identified] — after Owner questions and the plan view (P2-N003)
 - Coordination between enlisted sessions (P2-N004) [identified] — after Migration onto the service and pilot on methodology-tools (P2-N006)
 - Re-plan, prune and hand back (P4-N008) [identified] — after Minimal task loop (P4-N007)
 
@@ -135,22 +129,6 @@ Documents: [plan](plans/orchestration-service.md).
     The lease table is selected by the invoked alias, and an unknown alias fails closed.
   - **Deploy, smoke test and promote pipeline** (P2-N016, done 2026-09-07)
     A merge to main deploys a version to the preprod alias, smoke-tests it, and promotes live only on a pass.
-- **Task pull loop** (P2-N005, broken-down)
-  A session asks the service for the next task in its role, claims it, reports progress, and reports completion.
-  [plan](plans/p2-n005-task-pull-loop.md), [spec](specs/p2-n005-task-pull-loop.md)
-  Note: Chunk 4 of the parent plan; independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29)
-  - **Platform capability checks** (P2-N017, identified, gated: Replanned 2026-11-11: all five platform facts are superseded (facts 1, 2, 3 and 5 by the service's conditional commit as the claim, P4-N005; fact 4 by task_next being pull-based, P4-N007). Nothing to build. Owner decided at D062 to dispose of it with the P2-N005 subtree at P4-N008.)
-    Nothing: the five platform facts this node was to answer are superseded by P4-N005 and P4-N007.
-    [plan](plans/p2-n017-platform-facts.md), [spec](specs/p2-n005-task-pull-loop.md)
-  - **Task claiming in git** (P2-N018, identified)
-    after P2-N017 · [spec](specs/p2-n005-task-pull-loop.md)
-    Note: depends on P2-N017
-  - **Role-aware session identity** (P2-N019, identified)
-    after P2-N017 · [spec](specs/p2-n005-task-pull-loop.md)
-    Note: depends on P2-N017; independent of P2-N018 (RU-018)
-  - **Task tools** (P2-N020, identified)
-    after P2-N018, P2-N019 · [spec](specs/p2-n005-task-pull-loop.md)
-    Note: depends on P2-N018 and P2-N019
 - **Owner questions and the plan view** (P2-N003, broken-down)
   The owner sees this project's plan in a browser on any device, and later answers gate decisions there.
   [plan](plans/p2-n003-owner-questions-and-plan-view.md), [spec](specs/p2-n003-owner-questions-and-plan-view.md)
@@ -161,14 +139,14 @@ Documents: [plan](plans/orchestration-service.md).
     Note: independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8)
   - **Owner question queue** (P2-N022, identified)
     The owner answers gates and asks on a phone, in the web view.
-    after P2-N005 · [plan](plans/p2-n022-owner-question-queue.md), [spec](specs/p2-n003-owner-questions-and-plan-view.md)
+    after P2-N021 · [plan](plans/p2-n022-owner-question-queue.md), [spec](specs/p2-n003-owner-questions-and-plan-view.md)
     Note: depends on P2-N021, done 2026-11-03, and on P2-N005 for its final slice only; no longer follows P2-N006 (owner, 2026-11-03)
   - **Web view UX refinement** (P2-N023, done 2026-11-07)
     At V30 the owner decided that the web view does not replace docs/plan.md yet.
     after P2-N021 · [plan](plans/p2-n023-web-view-ux-refinement.md)
     Note: Iterations 1 to 3 accepted 2026-11-03; the owner ended the loop on 2026-11-07, and the rebuild's milestone 2 superseded the view (owner, 2026-11-10)
 - **Migration onto the service and pilot on methodology-tools** (P2-N006, identified)
-  after P2-N005, P2-N003
+  after P2-N003
   Note: Chunk 5 of the parent plan; depends on P2-N005 and on P2-N021, the web view's first version, done 2026-11-03, not on P2-N003 as a whole (owner, 2026-10-29)
 - **Coordination between enlisted sessions** (P2-N004, identified)
   after P2-N006
@@ -327,11 +305,6 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - D012 on P4-N001 (2026-11-09): Milestones 1 to 6 run as one pre-ratified sequence Chosen: yes
 - D013 on P4-N001 (2026-11-09): The view targets a desktop browser Chosen: as stated
 - D014 on P4-N001 (2026-11-09): No git-only fallback for a service outage is built in this plan Chosen: as stated
-- D015 on P2-N017 (2026-11-09): P2-N017's specification Chosen: superseded by the rebuild: not answered
-- D016 on P2-N017 (2026-11-09): Where the cloud probes run Chosen: superseded by the rebuild: not answered
-- D017 on P2-N017 (2026-11-09): The scratch offering branch Chosen: superseded by the rebuild: not answered
-- D018 on P2-N017 (2026-11-09): O11's order Chosen: superseded by the rebuild: not answered
-- D019 on P2-N017 (2026-11-09): Simultaneous pushes Chosen: superseded by the rebuild: not answered
 - D020 on P2-N022 (2026-11-09): Place the owner's reordering of 2026-11-03 Chosen: superseded by the rebuild: not answered
 - D021 on P2-N022 (2026-11-09): Leaf, one specify task, then three execute slices Chosen: superseded by the rebuild: not answered
 - D022 on P2-N022 (2026-11-09): A Question register in git Chosen: superseded by the rebuild: not answered
@@ -350,4 +323,3 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - D035 on P3-N008 (2026-11-09): docs/plan.md stays the hand rendering until the switch Chosen: superseded by the rebuild: not answered
 - D036 on P3-N008 (2026-11-09): Every entry heading carries a name Chosen: superseded by the rebuild: not answered
 - D061 on P4-N006 (2026-11-11): Does the view's write path stay as built: forms on the node page, one commit per answer, the three lifecycle actions? Chosen: yes, as built
-- D062 on P2-N017 (2026-11-11): P2-N017's disposition: its five platform facts are superseded by the rebuilt loop. Dispose of it with the P2-N005 subtree at P4-N008, remove it now, or reshape it into a live claim-race check? Chosen: dispose at P4-N008
