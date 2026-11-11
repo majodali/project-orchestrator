@@ -1137,7 +1137,7 @@
         "P4-N006"
       ],
       "hold": null,
-      "start": "auto",
+      "start": "approve",
       "docs": {
         "plan": "docs/plans/rebuild.md",
         "spec": null
