@@ -251,26 +251,28 @@ Estimate: one to two sessions.
 
 Goal: sessions pull work without an orchestrator session.
 
-- [ ] `task_next(role?)`: the first node in order whose dependencies
+- [x] `task_next(role?)`: the first node in order whose dependencies
       are done, whose stage admits the next step and which has no open
       task. Returns the node, its outcome, its documents and the
-      closed decisions.
-- [ ] `task_open` is the claim. The service's conditional commit makes
+      closed decisions. Built as specified below (`src/model/loop.ts`).
+- [x] `task_open` is the claim. The service's conditional commit makes
       it atomic. A task open longer than its time limit is closed as
-      stale by the next `task_next` call.
-- [ ] `task_close(status, pull request, summary)`: records the result,
+      stale by the next `task_next` call. Built; the limit is 24 hours.
+- [x] `task_close(status, pull request, summary)`: records the result,
       moves the node when the status allows, and lists the asks the
-      summary carries as open decisions.
-- [ ] Stop conditions as code: a failed check, a changed scope (a node
+      summary carries as open decisions. Built; the asks are an
+      explicit `asks` argument, not parsed from the summary.
+- [x] Stop conditions as code: a failed check, a changed scope (a node
       edited outside the task), an open decision on the node, an ask in
-      the summary. Each returns the session to the owner.
-- [ ] The standard close-out actions specified and implemented as
+      the summary. Each returns the session to the owner. Built.
+- [x] The standard close-out actions specified and implemented as
       orchestrator features, never plan nodes (decision 13): on
       `task_close`, the task's cost, pull request and summary are
       recorded; when a node's work is done, the node moves on and
       carries its done date; verification runs as a hidden check node,
       shown only when it fails or is selected. The specification is a
-      section of this plan, written before the code.
+      section of this plan, written before the code. Written as "The
+      loop and the close-out" below, then built.
 - [ ] This repository's remaining real work runs through the loop in
       owner-attended sessions for one week.
 
@@ -305,6 +307,119 @@ Acceptance: the orientation test passes for both repositories; the
 word count under `docs/` is below 100,000 excluding `docs/archive/`.
 
 Estimate: two sessions.
+
+## The loop and the close-out
+
+The specification milestone 5 builds to, written before its code
+(decision 13). The loop is three tools, `task_next`, `task_open` and
+`task_close`, over the state file; every move is one commit by the
+service, and the close-out actions are the service's own behaviour,
+never nodes of the plan.
+
+### Steps and stages
+
+A node's stage says which step the loop offers next, and the step's
+role says who takes it. `task_close` with status `closed` moves the
+node as the last column says.
+
+| Stage | Step offered | Role | On `closed` |
+|---|---|---|---|
+| `identified` | `plan` | planner | `planned` |
+| `planned` | `specify` | planner | `specified` |
+| `specified` | `execute`, or `break down` when the task says so | implementer, planner | `verifying` with a check node; `break down`: `broken-down` |
+| `executing` | `execute` (continued or reworked) | implementer | `verifying` with a check node |
+| `verifying` | none on the node; its check node carries `verify`. When the check node failed: `execute`, the rework | implementer | the check node returns to `specified` for a new round |
+| `broken-down` | none; the children carry the work | | when the last work child is done: `verifying` with a check node |
+| check node, `specified` | `verify` | reviewer | the check node and its parent are `done`, with the date |
+
+`task_open` with step `execute` moves the node to `executing`: the
+stage records that work started. The other steps leave the stage.
+
+### The check node
+
+Verification runs as a hidden check node (decision 13). When a node
+enters `verifying` the service adds one child with `kind: "check"`,
+titled "Verification of <title>", outcome "<id> is verified against
+its outcome", stage `specified`, no dependencies, the parent's
+documents, and the next identifier in the parent's plan line. The
+`verify` step runs on it. Closing that task `closed` makes the check
+node and its parent `done` with the date, then climbs: a `broken-down`
+grandparent whose work children are all done enters `verifying` with
+a check node of its own. Closing it `blocked` or `needs-judgment` puts
+a hold on the check node with the summary as its reason; the parent
+stays `verifying` and offers `execute` again, and the rework's close
+lifts the hold and returns the check node to `specified`.
+
+The view and the renderings hide a check node unless it carries a
+hold (it failed), has an open task (it is in flight, so the flags
+above it add up) or is selected: its own page, and its parent's page,
+always show it. Check nodes count in no total. The owner's
+accept-review action marks the node's open check nodes done with it.
+Invariant 11: a node at `verifying` has exactly one check node not
+done, and a check node has a parent.
+
+### `task_next(role?)`
+
+1. Closes every open task older than the time limit, 24 hours, as
+   `stale`, with a summary saying so, in one commit, before answering.
+2. Walks the nodes in tree order and answers the first that offers a
+   step, for the role when one is given. A node offers no step when it
+   is `done` or `parked`, carries a hold, waits for approval, has an
+   open task, has an open decision, or has a dependency not done,
+   its own or an ancestor's.
+3. Answers the node in full with its step and role, its outcome, its
+   documents at the commit, the chain of its ancestors' titles, the
+   summaries of the tasks that ran on it, and the closed decisions on
+   it and above it plus the standing project decisions. Also the next
+   candidates, so a session can see what follows.
+
+### `task_open` is the claim
+
+One conditional commit: it fails when another session's claim landed
+first, and invariant 6 refuses a second open task on a node. It
+refuses a node that does not offer the step, naming the stop
+condition. It records the commit it was based on in the task's `base`
+field and answers what `task_next` answers.
+
+### `task_close(status, summary, pull request, …)`
+
+Records the result on the task: status, closing time, summary, pull
+request, commit, token counts. A planning step delivers its result
+here too, applied with status `closed`: a title, an outcome and the
+plan document from `plan`, the specification from `specify`. Then:
+
+- Scope changed: the node's title, outcome, parent, dependencies or
+  documents differ from what they were at the task's `base`. The task
+  closes as `needs-judgment` whatever status was given, the node is
+  gated with the reason, and the answer says so.
+- `closed`: the move of the table above, and each ask the call
+  carries (`asks`: question, options, default) becomes an open
+  decision on the node, which keeps the next step from being offered
+  until the owner answers.
+- `blocked`: the node is held `blocked` with the summary as reason.
+- `needs-judgment`: the node is held `gated` with the summary as
+  reason.
+- `stale`: the record only.
+
+### Stop conditions as code
+
+Each returns the session to the owner by making the next step
+unavailable and saying why in the tool's answer:
+
+- A failed check: the write is refused with the violations and
+  nothing is committed (milestone 3).
+- A changed scope: the close above.
+- An open decision on the node: `task_next` passes the node by and
+  `task_open` refuses it, naming the decision.
+- An ask in the summary: the decisions opened at close.
+
+### `node_add`
+
+Planning and breaking down need new nodes: `node_add(parent, title,
+outcome, after, docs, stage, start)` adds one child with the next
+identifier in the parent's plan line, or a root in a named line. A
+parent not yet broken down becomes `broken-down` with its first
+child: a node with children is broken down (invariant 3).
 
 ## The data model
 
@@ -372,7 +487,12 @@ Field rules:
   owner's go-ahead and counts as waiting on the owner). Decision 11.
 - `outcome` is one sentence, at most 40 words. Required from `planned`
   on.
-- `step` is `plan`, `specify`, `execute` or `verify`.
+- `step` is `plan`, `specify`, `break down`, `execute` or `verify`.
+- `kind` is `work` (the default) or `check`: a check node is the
+  verification of its parent, hidden unless it fails or is selected
+  (milestone 5).
+- A task's `base` is the commit it was opened on; `task_close` reads
+  the node there to tell a changed scope (milestone 5).
 - A decision with `standing: true` is a precedent (today's ruling). A
   closed decision is never edited; a new decision supersedes it and
   names it in `rationale`.
@@ -411,6 +531,8 @@ serves when one exists.
     counting at the sibling level when any node in one subtree waits
     for any node in another's. `render --write` puts the file in this
     order; the order itself carries no meaning (decision 12).
+11. A check node has a parent, and a node at `verifying` has exactly
+    one check node not done (milestone 5).
 
 ## GitHub interaction changes
 
@@ -424,11 +546,20 @@ serves when one exists.
 | Owner answers held in the service until an Orchestrator commits them (as planned) | Each answer is a commit by the service at the time of answering |
 | Methodology changes hand-carried, six migrations in ten weeks | Pin frozen at 1.6.0; one batch of proposals at milestone 6 |
 
-View refinements kept for the end of the plan (owner, 2026-11-10):
-making salient points stand out in the tree, and showing a node's
-dependencies and dependents with highlights when it is selected, which
-needs the page to run script and so a decision on the view's
-no-script rule.
+View refinements kept for the end of the plan, a refinement round
+after milestone 6 (owner, 2026-11-10 and 2026-11-11):
+
+- making salient points stand out in the tree;
+- showing a node's dependencies and dependents with highlights when
+  it is selected, which needs the page to run script and so a
+  decision on the view's no-script rule;
+- the node page as a detail panel beside the tree on the main page,
+  instead of a page of its own;
+- the node page's own design;
+- feedback when a form is submitted: at least the button disabled on
+  click, which also needs script; later the views become
+  single-page, with interactions and updates driven by front-end and
+  back-end events.
 
 Later, not in this plan: a push webhook so the view updates without a
 reload; a remote MCP connector for surfaces without a clone; and
@@ -570,5 +701,13 @@ orientation test result.
   the view, which this repository's pull request opens on P4-N006 for
   that purpose. Task T119 records the pull request. The test session's
   `node_update` of 2026-11-10 accepted milestone 3: P4-N005 is done.
-- M5: not started.
+- M5: built 2026-11-11, service pull request 36, pending the owner's
+  merge and the deploy run; task T120 records the pull request. The
+  owner closed D061 in the view on 2026-11-11, accepting milestone 4:
+  P4-N006 is done. What remains of milestone 5 is the week of real
+  work through the loop and its acceptance. Driven over this
+  repository's state file locally, the loop's first candidate is
+  P3-N020, `specified` with its dependency done; decision 5 pauses
+  the P3 line but the node does not say so, which the owner settles
+  before the week starts.
 - M6: not started.
