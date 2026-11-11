@@ -12,6 +12,7 @@ Gated nodes:
 
 - Platform capability checks (P2-N017): Replanned 2026-11-11: all five platform facts are superseded (facts 1, 2, 3 and 5 by the service's conditional commit as the claim, P4-N005; fact 4 by task_next being pull-based, P4-N007). Nothing to build. Owner decided at D062 to dispose of it with the P2-N005 subtree at P4-N008.
 - Project model instance for this repository (P3-N008): owner review of the plan
+- Minimal task loop (P4-N007): The owner accepts milestone 5 after the week of real work through the loop: two sessions on different days move one node from specified to done
 
 ## Ready, starting automatically when the loop runs
 
@@ -33,7 +34,6 @@ None.
 - Sequence mode (P3-N005) [broken-down]
 - Sequence mode demonstration (P3-N015) [broken-down]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
-- Minimal task loop (P4-N007) [verifying]
 
 ## Waiting on a dependency
 
@@ -276,7 +276,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   The owner answers open decisions and acts on a node's lifecycle in the view, and the service commits each answer.
   after P4-N005 · [plan](plans/rebuild.md)
   Note: Accepted 2026-11-11: the owner closed D061 in the view
-- **Minimal task loop** (P4-N007, verifying)
+- **Minimal task loop** (P4-N007, verifying, gated: The owner accepts milestone 5 after the week of real work through the loop: two sessions on different days move one node from specified to done)
   A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.
   after P4-N006 · [plan](plans/rebuild.md)
   Note: Built in service pull request 36; fixes from the first real use in service pull request 37; the week of real work through the loop is the acceptance
