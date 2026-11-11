@@ -11,7 +11,7 @@ its stage and its outcome. The state file holds the rest.
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
-- Minimal task loop (P4-N007): The owner accepts milestone 5 after the week of real work through the loop: two sessions on different days move one node from specified to done
+- Re-plan, prune and hand back (P4-N008): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
@@ -30,7 +30,6 @@ None.
 ## Waiting on a dependency
 
 - Coordination between enlisted sessions (P2-N004) [identified] — after Migration onto the service and pilot on methodology-tools (P2-N006)
-- Re-plan, prune and hand back (P4-N008) [identified] — after Minimal task loop (P4-N007)
 
 ## Blocked
 
@@ -252,7 +251,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   The owner answers open decisions and acts on a node's lifecycle in the view, and the service commits each answer.
   after P4-N005 · [plan](plans/rebuild.md)
   Note: Accepted 2026-11-11: the owner closed D061 in the view
-- **Minimal task loop** (P4-N007, verifying, gated: The owner accepts milestone 5 after the week of real work through the loop: two sessions on different days move one node from specified to done)
+- **Minimal task loop** (P4-N007, done 2026-11-11, gated: The owner accepts milestone 5 after the week of real work through the loop: two sessions on different days move one node from specified to done)
   A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.
   after P4-N006 · [plan](plans/rebuild.md)
   Note: Built in service pull request 36; fixes from the first real use in service pull request 37; the week of real work through the loop is the acceptance

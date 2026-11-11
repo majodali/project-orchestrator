@@ -1038,7 +1038,7 @@
       "kind": "work",
       "title": "Minimal task loop",
       "outcome": "A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [
         "P4-N006"
@@ -1052,7 +1052,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-11",
       "note": "Built in service pull request 36; fixes from the first real use in service pull request 37; the week of real work through the loop is the acceptance"
     },
     {
@@ -1060,7 +1060,7 @@
       "kind": "check",
       "title": "Verification of Minimal task loop",
       "outcome": "P4-N007 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N007",
       "after": [],
       "hold": null,
@@ -1069,7 +1069,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-11",
       "note": null
     },
     {
