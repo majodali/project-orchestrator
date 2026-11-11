@@ -68,7 +68,15 @@ plugin's copies are generated from them with
 (docs/plans/rebuild.md) the progress truth is `orchestration/state.json`;
 docs/plan-register.md and docs/plan.md are rendered from it, and the
 Backlog, Cost log, Ruling register and Project model are frozen. The
-dispatch loop is suspended. The founding plan is
+old dispatch loop is suspended. **Work on a plan node goes through the
+orchestration service's task loop** (`task_next`, `task_open`,
+`task_close`; the service's own instructions give the protocol when a
+session connects, and docs/plans/rebuild.md, "The loop and the
+close-out", specifies it). The service is the only writer of
+`orchestration/state.json`, `orchestration/journal.jsonl`,
+docs/plan-register.md and docs/plan.md: never edit those four, and
+never merge a pull request by hand that a task carries, because the
+service merges it when the result is accepted. The founding plan is
 docs/plans/orchestrator-v1.md.
 
 ## Conventions
