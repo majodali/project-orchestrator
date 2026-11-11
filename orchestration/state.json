@@ -466,7 +466,7 @@
       "kind": "work",
       "title": "Platform capability checks",
       "outcome": "A committed finding, docs/findings/p2-n005-platform-facts.md, answers five facts yes or no.",
-      "stage": "parked",
+      "stage": "identified",
       "parent": "P2-N005",
       "after": [],
       "hold": null,

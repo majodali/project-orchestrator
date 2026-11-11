@@ -34,7 +34,7 @@ Dependencies are in the state file, not in sibling order.
     - P2-N015 [done] Alias-aware lease table selection
     - P2-N016 [done] Deploy, smoke test and promote pipeline
   - P2-N005 [broken-down] Task pull loop — plan: plans/p2-n005-task-pull-loop.md · spec: specs/p2-n005-task-pull-loop.md
-    - P2-N017 [parked] Platform capability checks — plan: plans/p2-n017-platform-facts.md · spec: specs/p2-n005-task-pull-loop.md
+    - P2-N017 [identified] Platform capability checks — plan: plans/p2-n017-platform-facts.md · spec: specs/p2-n005-task-pull-loop.md
     - P2-N018 [identified] Task claiming in git — spec: specs/p2-n005-task-pull-loop.md
     - P2-N019 [identified] Role-aware session identity — spec: specs/p2-n005-task-pull-loop.md
     - P2-N020 [identified] Task tools — spec: specs/p2-n005-task-pull-loop.md

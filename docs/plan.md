@@ -14,6 +14,7 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
+- Platform capability checks (P2-N017) [identified]
 - Article 8 amendment proposal (P3-N012) [identified]
 
 ## In flight
@@ -134,7 +135,7 @@ Documents: [plan](plans/orchestration-service.md).
   A session asks the service for the next task in its role, claims it, reports progress, and reports completion.
   [plan](plans/p2-n005-task-pull-loop.md), [spec](specs/p2-n005-task-pull-loop.md)
   Note: Chunk 4 of the parent plan; independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29)
-  - **Platform capability checks** (P2-N017, parked)
+  - **Platform capability checks** (P2-N017, identified)
     A committed finding, docs/findings/p2-n005-platform-facts.md, answers five facts yes or no.
     [plan](plans/p2-n017-platform-facts.md), [spec](specs/p2-n005-task-pull-loop.md)
     Note: planned before execute (owner, 2026-11-03)
