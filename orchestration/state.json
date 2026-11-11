@@ -449,7 +449,7 @@
       "kind": "work",
       "title": "Owner questions and the plan view",
       "outcome": "The owner sees this project's plan in a browser on any device, and later answers gate decisions there.",
-      "stage": "broken-down",
+      "stage": "verifying",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
@@ -479,25 +479,6 @@
       "note": "independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8)"
     },
     {
-      "id": "P2-N022",
-      "kind": "work",
-      "title": "Owner question queue",
-      "outcome": "The owner answers gates and asks on a phone, in the web view.",
-      "stage": "identified",
-      "parent": "P2-N003",
-      "after": [
-        "P2-N021"
-      ],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": "docs/plans/p2-n022-owner-question-queue.md",
-        "spec": "docs/specs/p2-n003-owner-questions-and-plan-view.md"
-      },
-      "done": null,
-      "note": "depends on P2-N021, done 2026-11-03, and on P2-N005 for its final slice only; no longer follows P2-N006 (owner, 2026-11-03)"
-    },
-    {
       "id": "P2-N023",
       "kind": "work",
       "title": "Web view UX refinement",
@@ -515,6 +496,23 @@
       },
       "done": "2026-11-07",
       "note": "Iterations 1 to 3 accepted 2026-11-03; the owner ended the loop on 2026-11-07, and the rebuild's milestone 2 superseded the view (owner, 2026-11-10)"
+    },
+    {
+      "id": "P2-N024",
+      "kind": "check",
+      "title": "Verification of Owner questions and the plan view",
+      "outcome": "P2-N003 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N003",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/p2-n003-owner-questions-and-plan-view.md",
+        "spec": "docs/specs/p2-n003-owner-questions-and-plan-view.md"
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N006",
@@ -2913,25 +2911,6 @@
       "notes": "Owner-attended; model and usage unknown to the Orchestrator. Dispatched 2026-11-03 17:53 UTC; closed 2026-11-07 on the owner's words, which ended the loop after three iterations. Iteration 4 in majodali/project-orchestrator-service: no pull request. Nothing shipped."
     },
     {
-      "id": "T101",
-      "node": "P2-N022",
-      "step": "plan",
-      "status": "closed",
-      "role": "planner",
-      "model": null,
-      "tokens": {
-        "in": null,
-        "out": null
-      },
-      "opened": "2026-11-03T18:30:00Z",
-      "closed": "2026-11-03T18:30:00Z",
-      "base": null,
-      "ref": "42ad7bd",
-      "pr": "majodali/project-orchestrator#25",
-      "summary": "The plan of P2-N022 delivered; merged by pull request 25 on 2026-11-09; its gate was not crossed before the freeze.",
-      "notes": null
-    },
-    {
       "id": "T103",
       "node": "P1-N016",
       "step": "execute",
@@ -3776,138 +3755,6 @@
       "source": "docs/plans/rebuild.md, decision 10"
     },
     {
-      "id": "D020",
-      "node": "P2-N022",
-      "question": "Place the owner's reordering of 2026-11-03",
-      "options": [],
-      "default": "adopt the drafted texts below.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "the owner set the order. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n022-owner-question-queue.md, decision 1"
-    },
-    {
-      "id": "D021",
-      "node": "P2-N022",
-      "question": "Leaf, one specify task, then three execute slices",
-      "options": [],
-      "default": "a leaf",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "the slices share one resource and validate together, and P2-N021 ran this way. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n022-owner-question-queue.md, decision 2"
-    },
-    {
-      "id": "D022",
-      "node": "P2-N022",
-      "question": "A Question register in git",
-      "options": [],
-      "default": "(a) a new Document type, defined by citation: the type in docs/process/question-register.md, the instance in docs/question-register.md.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "a gate's go-ahead must be recorded in git, and a register in the style of the Plan register gives the view one file to read and the form checker one grammar to check. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n022-owner-question-queue.md, decision 3"
-    },
-    {
-      "id": "D023",
-      "node": "P2-N022",
-      "question": "Where a held answer lives",
-      "options": [],
-      "default": "(a) one item per question in the lease table of the alias that answered, keyed answer#<question ID>, with a 30-day time-to-live.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "P2-N005's decision 17 put handles there for two reasons that hold here too: no template change and no owner action. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n022-owner-question-queue.md, decision 4"
-    },
-    {
-      "id": "D024",
-      "node": "P2-N022",
-      "question": "How the owner is authorized to answer",
-      "options": [],
-      "default": "(a) the view cookie, with the same-origin and open-question checks of Who may answer.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "a held answer decides nothing until the Orchestrator commits it, and the owner sees it on the page. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n022-owner-question-queue.md, decision 5"
-    },
-    {
-      "id": "D025",
-      "node": "P2-N022",
-      "question": "Which question tools, and for whom",
-      "options": [],
-      "default": "question_list, question_answers and question_confirm on the existing MCP endpoint.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "every session holds one shared bearer token, so an answering tool would let any agent answer the owner's gate; raising is a commit, so it needs no tool. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n022-owner-question-queue.md, decision 6"
-    },
-    {
-      "id": "D026",
-      "node": "P2-N022",
-      "question": "How scheduling and delegation decisions ride the queue",
-      "options": [],
-      "default": "as decisions of a gate's entry: the scope grant, with its pull-run line and pre-authorizations, is one decision whose default is the proposed grant.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "* a scope grant is already what a gate approves (dispatch.md, Gates (v1)), so it needs no new mechanism. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n022-owner-question-queue.md, decision 7"
-    },
-    {
-      "id": "D027",
-      "node": "P2-N022",
-      "question": "Immediate-class questions",
-      "options": [],
-      "default": "no elicitation in this node.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "the transport sends one JSON body per request, and the function times out after 20 seconds, while the dialog waits on the owner. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n022-owner-question-queue.md, decision 8"
-    },
-    {
-      "id": "D028",
-      "node": "P2-N022",
-      "question": "No new journal event kind",
-      "options": [],
-      "default": "the register is the record.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "the two kinds already exist, and an answer is recorded where the gate is. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n022-owner-question-queue.md, decision 9"
-    },
-    {
-      "id": "D029",
-      "node": "P2-N022",
-      "question": "The node's check, and who verifies",
-      "options": [],
-      "default": "the gate of the check is the first gate the process owes after E3's deploy, in register order.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "a gate genuinely due keeps the check honest, and every remaining criterion is answerable from commits, tests and logs, as for P2-N005 and P2-N003. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n022-owner-question-queue.md, decision 10"
-    },
-    {
-      "id": "D030",
-      "node": "P2-N022",
-      "question": "Ratify or strike three terms",
-      "options": [],
-      "default": "ratify all three.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "the plan and its slices refer to each throughout. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n022-owner-question-queue.md, decision 11"
-    },
-    {
       "id": "D031",
       "node": "P3-N008",
       "question": "P3-N008's specification",
@@ -3996,7 +3843,7 @@
     }
   ],
   "highWater": {
-    "P2": 20,
+    "P2": 22,
     "T": 102,
     "D": 62
   }

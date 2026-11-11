@@ -33,9 +33,8 @@ Dependencies are in the state file, not in sibling order.
     - P2-N014 [done] Pull request checks
     - P2-N015 [done] Alias-aware lease table selection
     - P2-N016 [done] Deploy, smoke test and promote pipeline
-  - P2-N003 [broken-down] Owner questions and the plan view — plan: plans/p2-n003-owner-questions-and-plan-view.md · spec: specs/p2-n003-owner-questions-and-plan-view.md
+  - P2-N003 [verifying] Owner questions and the plan view — plan: plans/p2-n003-owner-questions-and-plan-view.md · spec: specs/p2-n003-owner-questions-and-plan-view.md
     - P2-N021 [done] Web view v1 — spec: specs/p2-n003-owner-questions-and-plan-view.md
-    - P2-N022 [identified] Owner question queue — plan: plans/p2-n022-owner-question-queue.md · spec: specs/p2-n003-owner-questions-and-plan-view.md
     - P2-N023 [done] Web view UX refinement — plan: plans/p2-n023-web-view-ux-refinement.md
   - P2-N006 [identified] Migration onto the service and pilot on methodology-tools
   - P2-N004 [identified] Coordination between enlisted sessions

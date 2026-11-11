@@ -15,7 +15,7 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- Owner question queue (P2-N022) [identified]
+None.
 
 ## In flight
 
@@ -25,7 +25,7 @@ None.
 
 - Orchestrator v1: process specification and plugin (P1-N001) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
-- Owner questions and the plan view (P2-N003) [broken-down]
+- Owner questions and the plan view (P2-N003) [verifying]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 
 ## Waiting on a dependency
@@ -129,7 +129,7 @@ Documents: [plan](plans/orchestration-service.md).
     The lease table is selected by the invoked alias, and an unknown alias fails closed.
   - **Deploy, smoke test and promote pipeline** (P2-N016, done 2026-09-07)
     A merge to main deploys a version to the preprod alias, smoke-tests it, and promotes live only on a pass.
-- **Owner questions and the plan view** (P2-N003, broken-down)
+- **Owner questions and the plan view** (P2-N003, verifying)
   The owner sees this project's plan in a browser on any device, and later answers gate decisions there.
   [plan](plans/p2-n003-owner-questions-and-plan-view.md), [spec](specs/p2-n003-owner-questions-and-plan-view.md)
   Note: Chunk 2 of the parent plan; split into the web view's first version and the owner question queue (owner, 2026-10-29)
@@ -137,10 +137,6 @@ Documents: [plan](plans/orchestration-service.md).
     A signed-in owner sees the plan tree at one commit and drills to node and task pages, with the Project model's renderings beside them.
     [spec](specs/p2-n003-owner-questions-and-plan-view.md)
     Note: independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8)
-  - **Owner question queue** (P2-N022, identified)
-    The owner answers gates and asks on a phone, in the web view.
-    after P2-N021 · [plan](plans/p2-n022-owner-question-queue.md), [spec](specs/p2-n003-owner-questions-and-plan-view.md)
-    Note: depends on P2-N021, done 2026-11-03, and on P2-N005 for its final slice only; no longer follows P2-N006 (owner, 2026-11-03)
   - **Web view UX refinement** (P2-N023, done 2026-11-07)
     At V30 the owner decided that the web view does not replace docs/plan.md yet.
     after P2-N021 · [plan](plans/p2-n023-web-view-ux-refinement.md)
@@ -309,17 +305,6 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - D012 on P4-N001 (2026-11-09): Milestones 1 to 6 run as one pre-ratified sequence Chosen: yes
 - D013 on P4-N001 (2026-11-09): The view targets a desktop browser Chosen: as stated
 - D014 on P4-N001 (2026-11-09): No git-only fallback for a service outage is built in this plan Chosen: as stated
-- D020 on P2-N022 (2026-11-09): Place the owner's reordering of 2026-11-03 Chosen: superseded by the rebuild: not answered
-- D021 on P2-N022 (2026-11-09): Leaf, one specify task, then three execute slices Chosen: superseded by the rebuild: not answered
-- D022 on P2-N022 (2026-11-09): A Question register in git Chosen: superseded by the rebuild: not answered
-- D023 on P2-N022 (2026-11-09): Where a held answer lives Chosen: superseded by the rebuild: not answered
-- D024 on P2-N022 (2026-11-09): How the owner is authorized to answer Chosen: superseded by the rebuild: not answered
-- D025 on P2-N022 (2026-11-09): Which question tools, and for whom Chosen: superseded by the rebuild: not answered
-- D026 on P2-N022 (2026-11-09): How scheduling and delegation decisions ride the queue Chosen: superseded by the rebuild: not answered
-- D027 on P2-N022 (2026-11-09): Immediate-class questions Chosen: superseded by the rebuild: not answered
-- D028 on P2-N022 (2026-11-09): No new journal event kind Chosen: superseded by the rebuild: not answered
-- D029 on P2-N022 (2026-11-09): The node's check, and who verifies Chosen: superseded by the rebuild: not answered
-- D030 on P2-N022 (2026-11-09): Ratify or strike three terms Chosen: superseded by the rebuild: not answered
 - D031 on P3-N008 (2026-11-09): P3-N008's specification Chosen: superseded by the rebuild: not answered
 - D032 on P3-N008 (2026-11-09): Leaf, run as three execute tasks in a fixed order Chosen: superseded by the rebuild: not answered
 - D033 on P3-N008 (2026-11-09): The service repository's parts are in the instance Chosen: superseded by the rebuild: not answered
