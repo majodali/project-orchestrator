@@ -15,7 +15,7 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- Migration onto the service and pilot on methodology-tools (P2-N006) [identified]
+None.
 
 ## In flight
 
@@ -34,6 +34,7 @@ None.
 
 ## Blocked
 
+- Migration onto the service and pilot on methodology-tools (P2-N006) [identified] — Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11)
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused under the rebuild plan's decision 1 (D005) until milestone 6 re-plans the line
 
 ## Paused by a hold or a park above
@@ -139,7 +140,7 @@ Documents: [plan](plans/orchestration-service.md).
     At V30 the owner decided that the web view does not replace docs/plan.md yet.
     after P2-N021 · [plan](plans/p2-n023-web-view-ux-refinement.md)
     Note: Iterations 1 to 3 accepted 2026-11-03; the owner ended the loop on 2026-11-07, and the rebuild's milestone 2 superseded the view (owner, 2026-11-10)
-- **Migration onto the service and pilot on methodology-tools** (P2-N006, identified)
+- **Migration onto the service and pilot on methodology-tools** (P2-N006, identified, blocked: Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11))
   after P2-N021, P2-N003
   Note: Chunk 5 of the parent plan; depends on P2-N005 and on P2-N021, the web view's first version, done 2026-11-03, not on P2-N003 as a whole (owner, 2026-10-29)
 - **Coordination between enlisted sessions** (P2-N004, identified)

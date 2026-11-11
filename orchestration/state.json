@@ -525,7 +525,10 @@
         "P2-N021",
         "P2-N003"
       ],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11)"
+      },
       "start": "auto",
       "docs": {
         "plan": null,
