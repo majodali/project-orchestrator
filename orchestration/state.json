@@ -465,7 +465,7 @@
       "id": "P2-N017",
       "kind": "work",
       "title": "Platform capability checks",
-      "outcome": "A committed finding, docs/findings/p2-n005-platform-facts.md, answers five facts yes or no.",
+      "outcome": "Nothing: the five platform facts this node was to answer are superseded by P4-N005 and P4-N007.",
       "stage": "identified",
       "parent": "P2-N005",
       "after": [],
