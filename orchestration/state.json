@@ -1095,7 +1095,7 @@
       "kind": "work",
       "title": "Task cost capture",
       "outcome": "A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1104,7 +1104,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-11",
       "note": "Owner approved the mechanism on 2026-11-11: a task_cost tool in the service, fed by a hook in this repository and by headless runs"
     },
     {
@@ -1112,7 +1112,7 @@
       "kind": "check",
       "title": "Verification of Task cost capture",
       "outcome": "P4-N010 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N010",
       "after": [],
       "hold": null,
@@ -1121,7 +1121,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-11",
       "note": null
     }
   ],
