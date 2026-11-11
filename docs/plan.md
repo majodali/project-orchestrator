@@ -8,6 +8,10 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
+Open decisions:
+
+- D061 on Decisions answered in the view (P4-N006): Does the view's write path stay as built: forms on the node page, one commit per answer, the three lifecycle actions? Default: yes, as built
+
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
@@ -20,7 +24,7 @@ Gated nodes:
 
 ## In flight
 
-- Service writes the state file (P4-N005) [executing] — T118
+- Decisions answered in the view (P4-N006) [identified] — T119
 
 ## In progress, children carry the work
 
@@ -46,7 +50,6 @@ Gated nodes:
 - Replacement of sibling ordering by recorded dependencies (P3-N009) [identified] — after Project model instance for this repository (P3-N008)
 - Reversibility and its measurement (P3-N004) [identified] — after Comprehension model (P3-N002)
 - Determination on W-001 sequence mode (P3-N016) [identified] — after Sequence mode demonstration (P3-N015)
-- Decisions answered in the view (P4-N006) [identified] — after Service writes the state file (P4-N005)
 - Minimal task loop (P4-N007) [identified] — after Decisions answered in the view (P4-N006)
 - Re-plan, prune and hand back (P4-N008) [identified] — after Minimal task loop (P4-N007)
 
@@ -271,13 +274,14 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **View on the state file** (P4-N004, done 2026-11-10)
   The web view renders the state file for a desktop browser: the hierarchy as the primary view, with what waits on the owner shown in context.
   after P4-N003 · [plan](plans/rebuild.md)
-- **Service writes the state file** (P4-N005, executing)
+- **Service writes the state file** (P4-N005, done 2026-11-10)
   One conditional commit through the GitHub App replaces the lease, update and confirm protocol; the lease table is removed.
   after P4-N004 · [plan](plans/rebuild.md)
-  Note: Service pull request 34 carries the build; the owner's first node_update call, moving this node to executing, is the acceptance
+  Note: Accepted 2026-11-10: the owner moved this node to executing with one node_update call from an enlisted session
 - **Decisions answered in the view** (P4-N006, identified)
   The owner answers open decisions and acts on a node's lifecycle in the view, and the service commits each answer.
-  after P4-N005 · [plan](plans/rebuild.md)
+  after P4-N005 · [plan](plans/rebuild.md) · 1 open decision
+  Note: Service pull request 35 carries the build; closing D061 in the view is the acceptance
 - **Minimal task loop** (P4-N007, identified)
   A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.
   after P4-N006 · [plan](plans/rebuild.md)
