@@ -15,7 +15,7 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-None.
+- Migration onto the service and pilot on methodology-tools (P2-N006) [identified]
 
 ## In flight
 
@@ -25,12 +25,10 @@ None.
 
 - Orchestrator v1: process specification and plugin (P1-N001) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
-- Owner questions and the plan view (P2-N003) [verifying]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 
 ## Waiting on a dependency
 
-- Migration onto the service and pilot on methodology-tools (P2-N006) [identified] — after Owner questions and the plan view (P2-N003)
 - Coordination between enlisted sessions (P2-N004) [identified] — after Migration onto the service and pilot on methodology-tools (P2-N006)
 - Re-plan, prune and hand back (P4-N008) [identified] — after Minimal task loop (P4-N007)
 
@@ -129,7 +127,7 @@ Documents: [plan](plans/orchestration-service.md).
     The lease table is selected by the invoked alias, and an unknown alias fails closed.
   - **Deploy, smoke test and promote pipeline** (P2-N016, done 2026-09-07)
     A merge to main deploys a version to the preprod alias, smoke-tests it, and promotes live only on a pass.
-- **Owner questions and the plan view** (P2-N003, verifying)
+- **Owner questions and the plan view** (P2-N003, done 2026-11-11)
   The owner sees this project's plan in a browser on any device, and later answers gate decisions there.
   [plan](plans/p2-n003-owner-questions-and-plan-view.md), [spec](specs/p2-n003-owner-questions-and-plan-view.md)
   Note: Chunk 2 of the parent plan; split into the web view's first version and the owner question queue (owner, 2026-10-29)
@@ -142,7 +140,7 @@ Documents: [plan](plans/orchestration-service.md).
     after P2-N021 · [plan](plans/p2-n023-web-view-ux-refinement.md)
     Note: Iterations 1 to 3 accepted 2026-11-03; the owner ended the loop on 2026-11-07, and the rebuild's milestone 2 superseded the view (owner, 2026-11-10)
 - **Migration onto the service and pilot on methodology-tools** (P2-N006, identified)
-  after P2-N003
+  after P2-N021, P2-N003
   Note: Chunk 5 of the parent plan; depends on P2-N005 and on P2-N021, the web view's first version, done 2026-11-03, not on P2-N003 as a whole (owner, 2026-10-29)
 - **Coordination between enlisted sessions** (P2-N004, identified)
   after P2-N006

@@ -449,7 +449,7 @@
       "kind": "work",
       "title": "Owner questions and the plan view",
       "outcome": "The owner sees this project's plan in a browser on any device, and later answers gate decisions there.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
@@ -458,7 +458,7 @@
         "plan": "docs/plans/p2-n003-owner-questions-and-plan-view.md",
         "spec": "docs/specs/p2-n003-owner-questions-and-plan-view.md"
       },
-      "done": null,
+      "done": "2026-11-11",
       "note": "Chunk 2 of the parent plan; split into the web view's first version and the owner question queue (owner, 2026-10-29)"
     },
     {
@@ -502,7 +502,7 @@
       "kind": "check",
       "title": "Verification of Owner questions and the plan view",
       "outcome": "P2-N003 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N003",
       "after": [],
       "hold": null,
@@ -511,7 +511,7 @@
         "plan": "docs/plans/p2-n003-owner-questions-and-plan-view.md",
         "spec": "docs/specs/p2-n003-owner-questions-and-plan-view.md"
       },
-      "done": null,
+      "done": "2026-11-11",
       "note": null
     },
     {
