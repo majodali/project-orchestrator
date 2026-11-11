@@ -1131,7 +1131,7 @@
       "kind": "work",
       "title": "Minimal task loop",
       "outcome": "A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N001",
       "after": [
         "P4-N006"
@@ -1144,6 +1144,23 @@
       },
       "done": null,
       "note": "Built in service pull request 36; fixes from the first real use in service pull request 37; the week of real work through the loop is the acceptance"
+    },
+    {
+      "id": "P4-N009",
+      "kind": "check",
+      "title": "Verification of Minimal task loop",
+      "outcome": "P4-N007 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N007",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P4-N008",
@@ -3374,7 +3391,7 @@
       "id": "T121",
       "node": "P4-N007",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -3382,11 +3399,11 @@
         "out": null
       },
       "opened": "2026-11-11T18:51:56Z",
-      "closed": null,
+      "closed": "2026-11-11T19:22:31Z",
       "base": "4751c6d5114584f67ad7632dc0c1e4deaba60c70",
       "ref": null,
-      "pr": null,
-      "summary": "Fixes from the loop's first real use: merge at done, node_remove, pausing, session instructions; service pull request 37.",
+      "pr": "majodali/project-orchestrator-service#37",
+      "summary": "Merge at done, node_remove, pausing below a hold or park, standing decisions for every task, session instructions, check status in the view; deployed as run 27.",
       "notes": null
     }
   ],
