@@ -1131,7 +1131,7 @@
       "kind": "work",
       "title": "Minimal task loop",
       "outcome": "A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.",
-      "stage": "identified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [
         "P4-N006"
@@ -1143,7 +1143,7 @@
         "spec": null
       },
       "done": null,
-      "note": "Service pull request 36 carries the build; the week of real work through the loop is the acceptance"
+      "note": "Built in service pull request 36; fixes from the first real use in service pull request 37; the week of real work through the loop is the acceptance"
     },
     {
       "id": "P4-N008",

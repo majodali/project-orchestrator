@@ -16,7 +16,7 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Article 8 amendment proposal (P3-N012) [identified]
-- Minimal task loop (P4-N007) [identified]
+- Minimal task loop (P4-N007) [executing]
 
 ## In flight
 
@@ -276,10 +276,10 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   The owner answers open decisions and acts on a node's lifecycle in the view, and the service commits each answer.
   after P4-N005 · [plan](plans/rebuild.md)
   Note: Accepted 2026-11-11: the owner closed D061 in the view
-- **Minimal task loop** (P4-N007, identified)
+- **Minimal task loop** (P4-N007, executing)
   A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.
   after P4-N006 · [plan](plans/rebuild.md)
-  Note: Service pull request 36 carries the build; the week of real work through the loop is the acceptance
+  Note: Built in service pull request 36; fixes from the first real use in service pull request 37; the week of real work through the loop is the acceptance
 - **Re-plan, prune and hand back** (P4-N008, identified)
   The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.
   after P4-N007 · [plan](plans/rebuild.md)
