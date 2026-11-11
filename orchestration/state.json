@@ -1095,7 +1095,7 @@
       "kind": "work",
       "title": "Task cost capture",
       "outcome": "A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -3273,6 +3273,25 @@
       "ref": null,
       "pr": "majodali/project-orchestrator-service#37",
       "summary": "Merge at done, node_remove, pausing below a hold or park, standing decisions for every task, session instructions, check status in the view; deployed as run 27.",
+      "notes": null
+    },
+    {
+      "id": "T122",
+      "node": "P4-N010",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-11T19:26:14Z",
+      "closed": null,
+      "base": "e0b13c2af8f14dbfb1fc307979ad5017203651a5",
+      "ref": null,
+      "pr": null,
+      "summary": "The task_cost tool in the service; the measuring hook in this repository rides orchestrator pull request 38.",
       "notes": null
     }
   ],
