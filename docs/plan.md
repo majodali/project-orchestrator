@@ -16,6 +16,7 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Owner question queue (P2-N022) [identified]
+- Task cost capture (P4-N010) [specified]
 
 ## In flight
 
@@ -264,6 +265,10 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Re-plan, prune and hand back** (P4-N008, identified)
   The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.
   after P4-N007 · [plan](plans/rebuild.md)
+- **Task cost capture** (P4-N010, specified)
+  A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
+  [plan](plans/rebuild.md)
+  Note: Owner approved the mechanism on 2026-11-11: a task_cost tool in the service, fed by a hook in this repository and by headless runs
 
 ## Decisions taken
 

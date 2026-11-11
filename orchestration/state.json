@@ -1089,6 +1089,23 @@
       },
       "done": null,
       "note": null
+    },
+    {
+      "id": "P4-N010",
+      "kind": "work",
+      "title": "Task cost capture",
+      "outcome": "A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.",
+      "stage": "specified",
+      "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": "Owner approved the mechanism on 2026-11-11: a task_cost tool in the service, fed by a hook in this repository and by headless runs"
     }
   ],
   "tasks": [
