@@ -8,10 +8,6 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D061 on Decisions answered in the view (P4-N006): Does the view's write path stay as built: forms on the node page, one commit per answer, the three lifecycle actions? Default: yes, as built
-
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
@@ -280,7 +276,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   Note: Accepted 2026-11-10: the owner moved this node to executing with one node_update call from an enlisted session
 - **Decisions answered in the view** (P4-N006, identified)
   The owner answers open decisions and acts on a node's lifecycle in the view, and the service commits each answer.
-  after P4-N005 · [plan](plans/rebuild.md) · 1 open decision
+  after P4-N005 · [plan](plans/rebuild.md)
   Note: Service pull request 35 carries the build; closing D061 in the view is the acceptance
 - **Minimal task loop** (P4-N007, identified)
   A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.
@@ -351,3 +347,4 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - D034 on P3-N008 (2026-11-09): Plan and specification documents enter the model as two resources Chosen: superseded by the rebuild: not answered
 - D035 on P3-N008 (2026-11-09): docs/plan.md stays the hand rendering until the switch Chosen: superseded by the rebuild: not answered
 - D036 on P3-N008 (2026-11-09): Every entry heading carries a name Chosen: superseded by the rebuild: not answered
+- D061 on P4-N006 (2026-11-11): Does the view's write path stay as built: forms on the node page, one commit per answer, the three lifecycle actions? Chosen: yes, as built

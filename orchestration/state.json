@@ -3905,8 +3905,8 @@
         "change it"
       ],
       "default": "yes, as built",
-      "chosen": null,
-      "decided": null,
+      "chosen": "yes, as built",
+      "decided": "2026-11-11",
       "rationale": "The milestone's acceptance is closing a real decision in the view; this is that decision. Choose the default to accept, or write what should change.",
       "standing": false,
       "source": "docs/plans/rebuild.md, milestone 4"
