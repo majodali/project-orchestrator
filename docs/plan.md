@@ -14,11 +14,11 @@ Open decisions:
 
 Gated nodes:
 
+- Platform capability checks (P2-N017): Replanned 2026-11-11: all five platform facts are superseded — facts 1, 2, 3 and 5 by the service's conditional commit as the claim (P4-N005), fact 4 by task_next being pull-based (P4-N007). Nothing to build; disposition is the open decision on this node.
 - Project model instance for this repository (P3-N008): owner review of the plan
 
 ## Ready, starting automatically when the loop runs
 
-- Platform capability checks (P2-N017) [identified]
 - Article 8 amendment proposal (P3-N012) [identified]
 
 ## In flight
@@ -139,10 +139,9 @@ Documents: [plan](plans/orchestration-service.md).
   A session asks the service for the next task in its role, claims it, reports progress, and reports completion.
   [plan](plans/p2-n005-task-pull-loop.md), [spec](specs/p2-n005-task-pull-loop.md)
   Note: Chunk 4 of the parent plan; independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29)
-  - **Platform capability checks** (P2-N017, identified)
+  - **Platform capability checks** (P2-N017, identified, gated: Replanned 2026-11-11: all five platform facts are superseded — facts 1, 2, 3 and 5 by the service's conditional commit as the claim (P4-N005), fact 4 by task_next being pull-based (P4-N007). Nothing to build; disposition is the open decision on this node.)
     A committed finding, docs/findings/p2-n005-platform-facts.md, answers five facts yes or no.
     [plan](plans/p2-n017-platform-facts.md), [spec](specs/p2-n005-task-pull-loop.md) · 1 open decision
-    Note: planned before execute (owner, 2026-11-03)
   - **Task claiming in git** (P2-N018, identified)
     after P2-N017 · [spec](specs/p2-n005-task-pull-loop.md)
     Note: depends on P2-N017
