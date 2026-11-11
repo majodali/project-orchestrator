@@ -1095,7 +1095,7 @@
       "kind": "work",
       "title": "Task cost capture",
       "outcome": "A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1106,6 +1106,23 @@
       },
       "done": null,
       "note": "Owner approved the mechanism on 2026-11-11: a task_cost tool in the service, fed by a hook in this repository and by headless runs"
+    },
+    {
+      "id": "P4-N011",
+      "kind": "check",
+      "title": "Verification of Task cost capture",
+      "outcome": "P4-N010 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N010",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     }
   ],
   "tasks": [
@@ -3279,7 +3296,7 @@
       "id": "T122",
       "node": "P4-N010",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -3287,11 +3304,11 @@
         "out": null
       },
       "opened": "2026-11-11T19:26:14Z",
-      "closed": null,
+      "closed": "2026-11-11T19:29:25Z",
       "base": "e0b13c2af8f14dbfb1fc307979ad5017203651a5",
       "ref": null,
-      "pr": null,
-      "summary": "The task_cost tool in the service; the measuring hook in this repository rides orchestrator pull request 38.",
+      "pr": "majodali/project-orchestrator-service#38",
+      "summary": "task_cost records tokens by type, model and source; eleven tools. The measuring hook is in orchestrator pull request 38, run over a real transcript.",
       "notes": null
     }
   ],
