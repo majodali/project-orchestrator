@@ -780,12 +780,13 @@ orientation test result.
   review that followed found seven defects, and the owner approved
   their fixes and decided 14 to 16 the same day; service pull request
   37 carries them (see "Pull requests and done", "`node_remove`" and
-  "What a session is told" above). One is not fixed: this
-  repository's checks have failed on `main` since 04:05 UTC that day,
-  because the workflow still runs the plugin's form checker, which
-  does not know `parked` and wants a `dispatched` journal event for
-  every executing node. Removing that step is the owner's edit to
-  make or to permit. T120 is still open on P4-N007 and goes stale at
-  01:20 UTC on 2026-11-12; closing it and setting P4-N007 and P4-N008
-  to start on approval waits on this session's access to the tools.
+  "What a session is told" above). This repository's checks failed
+  on `main` from 04:05 UTC that day, because the workflow still ran
+  the plugin's form checker, which does not know `parked` and wants a
+  `dispatched` journal event for every executing node; the owner had
+  the step removed the same day, and `plan-state check` is the one
+  validity rule. T120 was closed through the service, and P4-N007 and
+  P4-N008 start on approval, so the loop does not offer the rebuild's
+  own milestones. From here this session changes the state through
+  the service's tools, never by editing the file in a pull request.
 - M6: not started.

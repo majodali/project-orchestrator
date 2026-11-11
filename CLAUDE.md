@@ -50,8 +50,10 @@ and minimizing model and context cost.
 `orchestration/state.json`, the state file (schema, invariants, the
 renderings current). `npm run render` rewrites `docs/plan-register.md`
 and `docs/plan.md` from it; never edit those two by hand.
-`node plugin/scripts/form_check.ts` — orchestration form checks (must
-pass clean). Requires Node >=22.18.0 (>=23.6.0 on the 23.x line,
+`node plugin/scripts/form_check.ts` — the old process's form checks,
+runnable by hand over the frozen documents; no longer a CI check since
+2026-11-11, because it rejects states the service legitimately writes
+(`plan-state check` is the one validity rule). Requires Node >=22.18.0 (>=23.6.0 on the 23.x line,
 RU-013): the tool preflights this itself and exits non-zero, naming
 what was required and what was found, rather than degrading quietly.
 `mtool` (methodology-tools) runs form audits and link checks over
