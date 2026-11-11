@@ -11,11 +11,10 @@ its stage and its outcome. The state file holds the rest.
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
-- Re-plan, prune and hand back (P4-N008): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
-None.
+- Re-plan, prune and hand back (P4-N008) [identified]
 
 ## In flight
 

@@ -1083,7 +1083,7 @@
         "P4-N007"
       ],
       "hold": null,
-      "start": "approve",
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/rebuild.md",
         "spec": null
