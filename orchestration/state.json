@@ -980,7 +980,7 @@
       "kind": "work",
       "title": "Plugin tools tested as run",
       "outcome": "The owner ratifies a sequence of four members once.",
-      "stage": "specified",
+      "stage": "parked",
       "parent": "P3-N015",
       "after": [
         "P3-N019"

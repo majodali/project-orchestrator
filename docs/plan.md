@@ -16,7 +16,6 @@ Gated nodes:
 
 - Platform capability checks (P2-N017) [identified]
 - Article 8 amendment proposal (P3-N012) [identified]
-- Plugin tools tested as run (P3-N020) [specified]
 
 ## In flight
 
@@ -242,7 +241,7 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
       The owner ratifies a sequence of four members once.
       [plan](plans/p3-n015-sequence-demonstration.md)
       Note: T107 accepted 2026-11-08, member 3 of the ratified sequence
-    - **Plugin tools tested as run** (P3-N020, specified)
+    - **Plugin tools tested as run** (P3-N020, parked)
       The owner ratifies a sequence of four members once.
       after P3-N019 · [plan](plans/p3-n015-sequence-demonstration.md)
       Note: ratified, withheld by the stop

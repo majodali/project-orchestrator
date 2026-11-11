@@ -62,7 +62,7 @@ Dependencies are in the state file, not in sibling order.
       - P3-N017 [done] Methodology citations pinned in the process specification — plan: plans/p3-n015-sequence-demonstration.md
       - P3-N018 [done] Anchors on Risk register entries — plan: plans/p3-n015-sequence-demonstration.md
       - P3-N019 [done] Checker extension-point proposal ready to carry — plan: plans/p3-n015-sequence-demonstration.md
-      - P3-N020 [specified] Plugin tools tested as run — plan: plans/p3-n015-sequence-demonstration.md
+      - P3-N020 [parked] Plugin tools tested as run — plan: plans/p3-n015-sequence-demonstration.md
     - P3-N016 [identified] Determination on W-001 sequence mode
 - P4-N001 [broken-down] Rebuild: the orchestrator runs on a checked data model — plan: plans/rebuild.md
   - P4-N002 [done] Freeze and declare — plan: plans/rebuild.md
