@@ -455,6 +455,36 @@ state file's `highWater` records the highest number removed under
 each identifier prefix, so no identifier is minted twice (invariant
 1). A hold or a park is for work that will resume.
 
+### Cost capture
+
+A task's cost is measured, never estimated by the session (decision
+13; owner, 2026-11-11). The measure is tokens by type (input, output,
+cache read, cache write) and the model, not money: sessions bill to
+the subscription.
+
+- The service's `task_cost(task, tokens…, model, source)` records it
+  on an open or a closed task; a later record replaces an earlier one.
+- In an interactive session, a hook in this repository
+  (`.claude/settings.json`, `plugin/scripts/task_cost_hook.ts`) runs
+  when `task_close` returns. It sums the usage in the session
+  transcript from the task's `task_open` on, subagents included, each
+  model message once, and calls `task_cost` with source `transcript`.
+  It never fails the session: when it cannot measure, the task has no
+  measured cost.
+- A headless run, one task per run, calls `task_cost` with its
+  result's usage and source `headless`. That is the documented source
+  and the one to prefer once a script drives the loop.
+- Tokens a session gives at `task_close` are kept and marked
+  `reported`.
+
+Limits, stated so nobody trusts the figure further than it goes: the
+transcript's format is internal to Claude Code and undocumented, so
+the hook reads it tolerantly and may break on a release; the
+transcript is written a moment behind the conversation, so the last
+message can be missed; a task opened in one session and closed in
+another is not measured; and repository hooks do not run in
+multi-repository cloud sessions or in cloud project threads.
+
 ### What a session is told
 
 The service's MCP instructions carry the protocol to every session
@@ -544,6 +574,8 @@ Field rules:
   (milestone 5).
 - A task's `base` is the commit it was opened on; `task_close` reads
   the node there to tell a changed scope (milestone 5).
+- A task's `tokens` may carry `cacheRead` and `cacheWrite`, and the
+  task a `costSource`: `transcript`, `headless` or `reported`.
 - `highWater` maps an identifier prefix (`P2`, `T`, `D`) to the
   highest number removed under it. Absent until something is removed.
 - A decision with `standing: true` is a precedent (today's ruling). A
@@ -693,6 +725,11 @@ file's decisions, not an edit here.
     decision 12.
 16. A hold or a park on a node pauses everything below it. Owner,
     2026-11-11, approving the review's finding 5.
+17. A task's cost is tokens by type and the model, measured by a hook
+    or a headless run and recorded with `task_cost`; a session does
+    not estimate it. Owner, 2026-11-11.
+18. The plugin's form checker is not a CI check; `plan-state check`
+    is the one validity rule. Owner, 2026-11-11.
 
 ## Risks
 
