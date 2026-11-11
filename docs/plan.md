@@ -8,6 +8,10 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
+Open decisions:
+
+- D062 on Platform capability checks (P2-N017): P2-N017's disposition: its five platform facts are superseded by the rebuilt loop. Dispose of it with the P2-N005 subtree at P4-N008, remove it now, or reshape it into a live claim-race check? Default: dispose at P4-N008
+
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
@@ -137,7 +141,7 @@ Documents: [plan](plans/orchestration-service.md).
   Note: Chunk 4 of the parent plan; independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29)
   - **Platform capability checks** (P2-N017, identified)
     A committed finding, docs/findings/p2-n005-platform-facts.md, answers five facts yes or no.
-    [plan](plans/p2-n017-platform-facts.md), [spec](specs/p2-n005-task-pull-loop.md)
+    [plan](plans/p2-n017-platform-facts.md), [spec](specs/p2-n005-task-pull-loop.md) · 1 open decision
     Note: planned before execute (owner, 2026-11-03)
   - **Task claiming in git** (P2-N018, identified)
     after P2-N017 · [spec](specs/p2-n005-task-pull-loop.md)
