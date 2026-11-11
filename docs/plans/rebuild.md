@@ -218,19 +218,29 @@ Estimate: two to three sessions.
 Goal: the owner answers open decisions in the view and git records
 each answer.
 
-- [ ] The decisions under a node in the tree let the signed-in owner
+- [x] The decisions under a node in the tree let the signed-in owner
       choose an option or accept the default, with a one-line note.
       This is how owner questions are handled in the view (owner,
       2026-11-10): each is a decision on its node, answered where it
-      is shown.
-- [ ] The node lifecycle is visible and actable in the view: a node
+      is shown. Built: the form sits under the open decision on its
+      node page (the tree links to it), or on the tree page for a
+      project decision (`src/view/actions.ts`).
+- [x] The node lifecycle is visible and actable in the view: a node
       waiting on the owner shows what the owner can do (approve its
       start, accept its review, lift its hold), and the action is one
-      click that the service commits (owner, 2026-11-10).
-- [ ] The service commits the answer through `decision_close`. No held
-      state outside git.
-- [ ] A session that opens a task reads the decisions closed since its
-      node was planned.
+      click that the service commits (owner, 2026-11-10). Built as
+      three node updates: approving a start sets `start` to `auto`,
+      lifting a hold clears it, accepting a review moves the node to
+      `done` with the date.
+- [x] The service commits the answer through `decision_close`. No held
+      state outside git. Built: the view's forms and the tools apply
+      the same mutation (`src/model/mutations.ts`) through the same
+      store; the journal names the session "the owner, in the view".
+- [x] A session that opens a task reads the decisions closed since its
+      node was planned. Built as: `task_open` answers the closed
+      decisions on the node and its ancestors, and the standing
+      project decisions. (Nodes carry no planning date, so "since it
+      was planned" is read as "on it and above it".)
 
 Acceptance: the owner closes a real decision in the view and sees the
 commit.
@@ -555,6 +565,10 @@ orientation test result.
   session, which is also that node's approval. The deploy deletes the
   two DynamoDB tables; the deploy role keeps its table permissions
   for that one run. Task T118 records the pull request.
-- M4: not started.
+- M4: built 2026-11-10, service pull request 35, pending the owner's
+  merge, the deploy run, and the acceptance: closing decision D061 in
+  the view, which this repository's pull request opens on P4-N006 for
+  that purpose. Task T119 records the pull request. The test session's
+  `node_update` of 2026-11-10 accepted milestone 3: P4-N005 is done.
 - M5: not started.
 - M6: not started.

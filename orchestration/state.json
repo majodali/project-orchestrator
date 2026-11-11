@@ -1028,7 +1028,7 @@
       "id": "P4-N005",
       "title": "Service writes the state file",
       "outcome": "One conditional commit through the GitHub App replaces the lease, update and confirm protocol; the lease table is removed.",
-      "stage": "executing",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [
         "P4-N004"
@@ -1039,8 +1039,8 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
-      "note": "Service pull request 34 carries the build; the owner's first node_update call, moving this node to executing, is the acceptance"
+      "done": "2026-11-10",
+      "note": "Accepted 2026-11-10: the owner moved this node to executing with one node_update call from an enlisted session"
     },
     {
       "id": "P4-N006",
@@ -1058,7 +1058,7 @@
         "spec": null
       },
       "done": null,
-      "note": null
+      "note": "Service pull request 35 carries the build; closing D061 in the view is the acceptance"
     },
     {
       "id": "P4-N007",
@@ -3136,7 +3136,7 @@
       "id": "T118",
       "node": "P4-N005",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -3144,10 +3144,28 @@
         "out": null
       },
       "opened": "2026-11-10T18:30:00Z",
-      "closed": null,
+      "closed": "2026-11-10T19:48:06Z",
       "ref": null,
       "pr": "majodali/project-orchestrator-service#34",
-      "summary": "The service writes the state file as its GitHub App; the lease is removed.",
+      "summary": "The service writes the state file as its GitHub App; the lease and its tables are removed; deployed as version 20.",
+      "notes": null
+    },
+    {
+      "id": "T119",
+      "node": "P4-N006",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-10T23:30:00Z",
+      "closed": null,
+      "ref": null,
+      "pr": "majodali/project-orchestrator-service#35",
+      "summary": "Decision forms and one-click lifecycle actions in the view, committed through the store.",
       "notes": null
     }
   ],
@@ -3877,6 +3895,21 @@
       "rationale": "one slug can begin another, such as plan-register and plan-register-grammar, so a find for ## and the slug can land on the wrong entry; this keeps P3-N002 decision 9's one find and changes no definition of the bound. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
       "standing": false,
       "source": "docs/plans/p3-n008-instance-over-this-repository.md, decision 6"
+    },
+    {
+      "id": "D061",
+      "node": "P4-N006",
+      "question": "Does the view's write path stay as built: forms on the node page, one commit per answer, the three lifecycle actions?",
+      "options": [
+        "yes, as built",
+        "change it"
+      ],
+      "default": "yes, as built",
+      "chosen": null,
+      "decided": null,
+      "rationale": "The milestone's acceptance is closing a real decision in the view; this is that decision. Choose the default to accept, or write what should change.",
+      "standing": false,
+      "source": "docs/plans/rebuild.md, milestone 4"
     }
   ]
 }
