@@ -33,18 +33,13 @@ Dependencies are in the state file, not in sibling order.
     - P2-N014 [done] Pull request checks
     - P2-N015 [done] Alias-aware lease table selection
     - P2-N016 [done] Deploy, smoke test and promote pipeline
-  - P2-N005 [broken-down] Task pull loop — plan: plans/p2-n005-task-pull-loop.md · spec: specs/p2-n005-task-pull-loop.md
-    - P2-N017 [identified] [gated: Replanned 2026-11-11: all five platform facts are superseded (facts 1, 2, 3 and 5 by the service's conditional commit as the claim, P4-N005; fact 4 by task_next being pull-based, P4-N007). Nothing to build. Owner decided at D062 to dispose of it with the P2-N005 subtree at P4-N008.] Platform capability checks — plan: plans/p2-n017-platform-facts.md · spec: specs/p2-n005-task-pull-loop.md
-    - P2-N018 [identified] Task claiming in git — spec: specs/p2-n005-task-pull-loop.md
-    - P2-N019 [identified] Role-aware session identity — spec: specs/p2-n005-task-pull-loop.md
-    - P2-N020 [identified] Task tools — spec: specs/p2-n005-task-pull-loop.md
   - P2-N003 [broken-down] Owner questions and the plan view — plan: plans/p2-n003-owner-questions-and-plan-view.md · spec: specs/p2-n003-owner-questions-and-plan-view.md
     - P2-N021 [done] Web view v1 — spec: specs/p2-n003-owner-questions-and-plan-view.md
     - P2-N022 [identified] Owner question queue — plan: plans/p2-n022-owner-question-queue.md · spec: specs/p2-n003-owner-questions-and-plan-view.md
     - P2-N023 [done] Web view UX refinement — plan: plans/p2-n023-web-view-ux-refinement.md
   - P2-N006 [identified] Migration onto the service and pilot on methodology-tools
   - P2-N004 [identified] Coordination between enlisted sessions
-- P3-N001 [broken-down] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
+- P3-N001 [broken-down] [blocked: Paused under the rebuild plan's decision 1 (D005) until milestone 6 re-plans the line] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
   - P3-N002 [broken-down] Comprehension model — plan: plans/p3-n002-comprehension-model.md · spec: specs/p3-n002-comprehension-model.md
     - P3-N006 [done] Thin end-to-end slice of the model — plan: plans/p3-n006-thin-end-to-end-slice.md · spec: specs/p3-n002-comprehension-model.md
     - P3-N007 [done] Project model type and K-003 amendment draft — plan: plans/p3-n007-type-declared-amendment-drafted.md · spec: specs/p3-n002-comprehension-model.md
@@ -70,5 +65,6 @@ Dependencies are in the state file, not in sibling order.
   - P4-N004 [done] View on the state file — plan: plans/rebuild.md
   - P4-N005 [done] Service writes the state file — plan: plans/rebuild.md
   - P4-N006 [done] Decisions answered in the view — plan: plans/rebuild.md
-  - P4-N007 [identified] Minimal task loop — plan: plans/rebuild.md
+  - P4-N007 [verifying] [gated: The owner accepts milestone 5 after the week of real work through the loop: two sessions on different days move one node from specified to done] Minimal task loop — plan: plans/rebuild.md
   - P4-N008 [identified] Re-plan, prune and hand back — plan: plans/rebuild.md
+  - P4-N010 [executing] Task cost capture — plan: plans/rebuild.md

@@ -445,101 +445,6 @@
       "note": null
     },
     {
-      "id": "P2-N005",
-      "kind": "work",
-      "title": "Task pull loop",
-      "outcome": "A session asks the service for the next task in its role, claims it, reports progress, and reports completion.",
-      "stage": "broken-down",
-      "parent": "P2-N001",
-      "after": [],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": "docs/plans/p2-n005-task-pull-loop.md",
-        "spec": "docs/specs/p2-n005-task-pull-loop.md"
-      },
-      "done": null,
-      "note": "Chunk 4 of the parent plan; independent of P2-N003 and P2-N004 (RU-018; owner, 2026-10-29)"
-    },
-    {
-      "id": "P2-N017",
-      "kind": "work",
-      "title": "Platform capability checks",
-      "outcome": "Nothing: the five platform facts this node was to answer are superseded by P4-N005 and P4-N007.",
-      "stage": "identified",
-      "parent": "P2-N005",
-      "after": [],
-      "hold": {
-        "kind": "gated",
-        "reason": "Replanned 2026-11-11: all five platform facts are superseded (facts 1, 2, 3 and 5 by the service's conditional commit as the claim, P4-N005; fact 4 by task_next being pull-based, P4-N007). Nothing to build. Owner decided at D062 to dispose of it with the P2-N005 subtree at P4-N008."
-      },
-      "start": "auto",
-      "docs": {
-        "plan": "docs/plans/p2-n017-platform-facts.md",
-        "spec": "docs/specs/p2-n005-task-pull-loop.md"
-      },
-      "done": null,
-      "note": null
-    },
-    {
-      "id": "P2-N018",
-      "kind": "work",
-      "title": "Task claiming in git",
-      "outcome": null,
-      "stage": "identified",
-      "parent": "P2-N005",
-      "after": [
-        "P2-N017"
-      ],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": null,
-        "spec": "docs/specs/p2-n005-task-pull-loop.md"
-      },
-      "done": null,
-      "note": "depends on P2-N017"
-    },
-    {
-      "id": "P2-N019",
-      "kind": "work",
-      "title": "Role-aware session identity",
-      "outcome": null,
-      "stage": "identified",
-      "parent": "P2-N005",
-      "after": [
-        "P2-N017"
-      ],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": null,
-        "spec": "docs/specs/p2-n005-task-pull-loop.md"
-      },
-      "done": null,
-      "note": "depends on P2-N017; independent of P2-N018 (RU-018)"
-    },
-    {
-      "id": "P2-N020",
-      "kind": "work",
-      "title": "Task tools",
-      "outcome": null,
-      "stage": "identified",
-      "parent": "P2-N005",
-      "after": [
-        "P2-N018",
-        "P2-N019"
-      ],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": null,
-        "spec": "docs/specs/p2-n005-task-pull-loop.md"
-      },
-      "done": null,
-      "note": "depends on P2-N018 and P2-N019"
-    },
-    {
       "id": "P2-N003",
       "kind": "work",
       "title": "Owner questions and the plan view",
@@ -581,8 +486,7 @@
       "stage": "identified",
       "parent": "P2-N003",
       "after": [
-        "P2-N021",
-        "P2-N005"
+        "P2-N021"
       ],
       "hold": null,
       "start": "auto",
@@ -620,7 +524,6 @@
       "stage": "identified",
       "parent": "P2-N001",
       "after": [
-        "P2-N005",
         "P2-N021",
         "P2-N003"
       ],
@@ -660,7 +563,10 @@
       "stage": "broken-down",
       "parent": null,
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "Paused under the rebuild plan's decision 1 (D005) until milestone 6 re-plans the line"
+      },
       "start": "auto",
       "docs": {
         "plan": "docs/plans/comprehension-and-continuous-implementation.md",
@@ -1131,11 +1037,31 @@
       "kind": "work",
       "title": "Minimal task loop",
       "outcome": "A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.",
-      "stage": "identified",
+      "stage": "verifying",
       "parent": "P4-N001",
       "after": [
         "P4-N006"
       ],
+      "hold": {
+        "kind": "gated",
+        "reason": "The owner accepts milestone 5 after the week of real work through the loop: two sessions on different days move one node from specified to done"
+      },
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": "Built in service pull request 36; fixes from the first real use in service pull request 37; the week of real work through the loop is the acceptance"
+    },
+    {
+      "id": "P4-N009",
+      "kind": "check",
+      "title": "Verification of Minimal task loop",
+      "outcome": "P4-N007 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N007",
+      "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
@@ -1143,7 +1069,7 @@
         "spec": null
       },
       "done": null,
-      "note": "Service pull request 36 carries the build; the week of real work through the loop is the acceptance"
+      "note": null
     },
     {
       "id": "P4-N008",
@@ -1156,13 +1082,30 @@
         "P4-N007"
       ],
       "hold": null,
-      "start": "auto",
+      "start": "approve",
       "docs": {
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
       "done": null,
       "note": null
+    },
+    {
+      "id": "P4-N010",
+      "kind": "work",
+      "title": "Task cost capture",
+      "outcome": "A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.",
+      "stage": "executing",
+      "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": "Owner approved the mechanism on 2026-11-11: a task_cost tool in the service, fed by a hook in this repository and by headless runs"
     }
   ],
   "tasks": [
@@ -2478,25 +2421,6 @@
       "notes": "~270k subagent tokens over 84 tool calls, 14m17s dispatch→result (unattended); no input/output split reported. Advanced tier. One commit 6401311 on branch loop-runs-sequence-mode: dispatch.md's Sequence mode section (predicates copied from fcf4894, I7+ diff empty), the member's result record, the addressee rule in five result shapes and the gate template, roles.md's trigger table, six contracts and plugin/agents regenerated, two event kinds in observability.md, form-check-core.ts and a new corpus fixture, thirteen routed Backlog rows; form check, sync check, run_corpus and style clean; npm test unrun in the worktree, 34 passed on the Orchestrator's run after merge. Result written in the new record form; the Orchestrator's try found no verdict resting on missing input."
     },
     {
-      "id": "T073",
-      "node": "P2-N005",
-      "step": "plan",
-      "status": "closed",
-      "role": "planner",
-      "model": "claude-opus-5-5",
-      "tokens": {
-        "in": null,
-        "out": null
-      },
-      "opened": "2026-10-30T21:05:00Z",
-      "closed": "2026-10-30T22:50:00Z",
-      "base": null,
-      "ref": null,
-      "pr": null,
-      "summary": "~230k subagent tokens over 51 tool calls, 10m15s dispatch→result (unattended); no input/output split reported.",
-      "notes": "~230k subagent tokens over 51 tool calls, 10m15s dispatch→result (unattended); no input/output split reported. Advanced tier; read-only reach to the service repository. Plan: offers, claims and results in git (task files, claim branches, result files); the service reads git and says what to push; declared role identity with a session handle; six tools; interior with four children; thirteen decisions, four terms; two located findings (a stale lease-release Backlog row; the struck live-update text, already in P2-N003's decision 1). Packet widened: observability.md, process README, the P3-N014 plan, the service's smoke test."
-    },
-    {
       "id": "T074",
       "node": "P1-N016",
       "step": "plan",
@@ -2820,25 +2744,6 @@
       "notes": "~139k subagent tokens over 4 tool calls, 4m21s dispatch→result, plus two confirmation exchanges (unattended); no input/output split reported. Frugal tier. Round 10 stranger read of the K-003 proposal, the limit: one own mismatch, 4 prose findings (SP-04 2, SP-25 2), verdict not readable; confirmation 4 of 4 hold, 2 new defects re-fixed and confirmed. Read only the proposal and its IR."
     },
     {
-      "id": "T092",
-      "node": "P2-N005",
-      "step": "specify",
-      "status": "closed",
-      "role": "planner",
-      "model": "claude-opus-5-5",
-      "tokens": {
-        "in": null,
-        "out": null
-      },
-      "opened": "2026-10-31T10:45:00Z",
-      "closed": "2026-10-31T12:35:00Z",
-      "base": null,
-      "ref": "4d1e574",
-      "pr": null,
-      "summary": "~311k subagent tokens over 61 tool calls, 15m05s dispatch→result (unattended); no input/output split reported.",
-      "notes": "~311k subagent tokens over 61 tool calls, 15m05s dispatch→result (unattended); no input/output split reported. Advanced tier. One commit 4d1e574 on branch p2-n005-specified, 2 files: docs/specs/p2-n005-task-pull-loop.md (new, draft; the forms of the task file, claim branch with Claim, Renew and Release commits, expiry and stale rule, result file, session handle; dispatch and acceptance in a pull run; six tools; node criteria I1 to I16; children A to D at breakdown depth with criteria A1 to D12 and edges; decisions 14 to 22; three terms; proposed register lines P2-N017 to P2-N020) and the P2-N005 Backlog entry. form_check 0 violations; style 0 violations. One located finding (the plan's Dependencies section writes no edges). Packet widened read-only: the project model type and instance, the P1-N016 and P3-N007 plans, three specifications and the stop-predicates record, process README and plan-register.md, the register, Classification, open-risks R10 to R17, the Cost log header, .mcp.json, sync_agents.ts, the tools' style.ts; the service repository at 58e6819."
-    },
-    {
       "id": "T093",
       "node": "P2-N003",
       "step": "specify",
@@ -3007,25 +2912,6 @@
       "ref": "42ad7bd",
       "pr": "majodali/project-orchestrator#25",
       "summary": "The plan of P2-N022 delivered; merged by pull request 25 on 2026-11-09; its gate was not crossed before the freeze.",
-      "notes": null
-    },
-    {
-      "id": "T102",
-      "node": "P2-N017",
-      "step": "plan",
-      "status": "closed",
-      "role": "planner",
-      "model": null,
-      "tokens": {
-        "in": null,
-        "out": null
-      },
-      "opened": "2026-11-03T18:30:00Z",
-      "closed": "2026-11-03T18:30:00Z",
-      "base": null,
-      "ref": "502b808",
-      "pr": "majodali/project-orchestrator#24",
-      "summary": "The plan of P2-N017 delivered; merged by pull request 24 on 2026-11-09; its gate was not crossed before the freeze.",
       "notes": null
     },
     {
@@ -3355,7 +3241,7 @@
       "id": "T120",
       "node": "P4-N007",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -3363,11 +3249,49 @@
         "out": null
       },
       "opened": "2026-11-11T01:20:00Z",
-      "closed": null,
+      "closed": "2026-11-11T18:51:43Z",
       "base": null,
       "ref": null,
       "pr": "majodali/project-orchestrator-service#36",
-      "summary": "task_next, the claim, the close-out and check nodes; nine tools.",
+      "summary": "task_next, the claim, the close-out and check nodes built and deployed; service pull request 36 merged 2026-11-11.",
+      "notes": null
+    },
+    {
+      "id": "T121",
+      "node": "P4-N007",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-11T18:51:56Z",
+      "closed": "2026-11-11T19:22:31Z",
+      "base": "4751c6d5114584f67ad7632dc0c1e4deaba60c70",
+      "ref": null,
+      "pr": "majodali/project-orchestrator-service#37",
+      "summary": "Merge at done, node_remove, pausing below a hold or park, standing decisions for every task, session instructions, check status in the view; deployed as run 27.",
+      "notes": null
+    },
+    {
+      "id": "T122",
+      "node": "P4-N010",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-11T19:26:14Z",
+      "closed": null,
+      "base": "e0b13c2af8f14dbfb1fc307979ad5017203651a5",
+      "ref": null,
+      "pr": null,
+      "summary": "The task_cost tool in the service; the measuring hook in this repository rides orchestrator pull request 38.",
       "notes": null
     }
   ],
@@ -3835,66 +3759,6 @@
       "source": "docs/plans/rebuild.md, decision 10"
     },
     {
-      "id": "D015",
-      "node": "P2-N017",
-      "question": "P2-N017's specification",
-      "options": [],
-      "default": "the parent specification's Child A section, with no specify task.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "that section carries checkable criteria at C1 depth; P3-N006 crossed the same way (its decision 1); RU-020 spares a task on the same reasoning. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n017-platform-facts.md, decision 1"
-    },
-    {
-      "id": "D016",
-      "node": "P2-N017",
-      "question": "Where the cloud probes run",
-      "options": [],
-      "default": "the Implementer runs as a subagent of the Orchestrator's cloud session.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "the subagent answers for the Orchestrator's own pushes. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n017-platform-facts.md, decision 2"
-    },
-    {
-      "id": "D017",
-      "node": "P2-N017",
-      "question": "The scratch offering branch",
-      "options": [],
-      "default": "named pull-probe-<date> in YYYY-MM-DD form, pushed by the Implementer, and counted among the probe branches.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "A2 requires the branch, and the Writes line names only claim/probe-<n>; the push also tests the Orchestrator's offering push. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n017-platform-facts.md, decision 3"
-    },
-    {
-      "id": "D018",
-      "node": "P2-N017",
-      "question": "O11's order",
-      "options": [],
-      "default": "the owner runs O11 at the gate.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "A10 asks for one commit, and plan decision 2 holds every sibling until then; O11 is a dozen commands. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n017-platform-facts.md, decision 4"
-    },
-    {
-      "id": "D019",
-      "node": "P2-N017",
-      "question": "Simultaneous pushes",
-      "options": [],
-      "default": "three trials of two simultaneous claim pushes from the cloud session, beyond A3.",
-      "chosen": "superseded by the rebuild: not answered",
-      "decided": "2026-11-09",
-      "rationale": "A3's refusal is the client's, and only a race tests GitHub's own. Closed unanswered on the owner's decision of 2026-11-09: the rebuild (docs/plans/rebuild.md) pauses the P3 line (D005) and replaces the pull loop and the question queue as these plans designed them (milestones 3 to 5).",
-      "standing": false,
-      "source": "docs/plans/p2-n017-platform-facts.md, decision 5"
-    },
-    {
       "id": "D020",
       "node": "P2-N022",
       "question": "Place the owner's reordering of 2026-11-03",
@@ -4112,22 +3976,11 @@
       "rationale": "The milestone's acceptance is closing a real decision in the view; this is that decision. Choose the default to accept, or write what should change.",
       "standing": false,
       "source": "docs/plans/rebuild.md, milestone 4"
-    },
-    {
-      "id": "D062",
-      "node": "P2-N017",
-      "question": "P2-N017's disposition: its five platform facts are superseded by the rebuilt loop. Dispose of it with the P2-N005 subtree at P4-N008, remove it now, or reshape it into a live claim-race check?",
-      "options": [
-        "dispose at P4-N008",
-        "remove now",
-        "reshape as a claim-race check"
-      ],
-      "default": "dispose at P4-N008",
-      "chosen": "dispose at P4-N008",
-      "decided": "2026-11-11",
-      "rationale": "Owner chose in conversation 2026-11-11: dispose of P2-N017 with the P2-N005 subtree at P4-N008.",
-      "standing": false,
-      "source": null
     }
-  ]
+  ],
+  "highWater": {
+    "P2": 20,
+    "T": 102,
+    "D": 62
+  }
 }
