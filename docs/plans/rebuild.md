@@ -365,13 +365,19 @@ done, and a check node has a parent.
 2. Walks the nodes in tree order and answers the first that offers a
    step, for the role when one is given. A node offers no step when it
    is `done` or `parked`, carries a hold, waits for approval, has an
-   open task, has an open decision, or has a dependency not done,
-   its own or an ancestor's.
+   open task, has an open decision, has a dependency not done, its
+   own or an ancestor's, or stands below a node that is parked or
+   held: a hold or a park pauses everything below it (owner,
+   2026-11-11), and such a node's class is `paused`.
 3. Answers the node in full with its step and role, its outcome, its
    documents at the commit, the chain of its ancestors' titles, the
-   summaries of the tasks that ran on it, and the closed decisions on
-   it and above it plus the standing project decisions. Also the next
-   candidates, so a session can see what follows.
+   summaries of the tasks that ran on it, the closed decisions on it
+   and above it, and every standing decision, compact, wherever it
+   arose: a precedent binds every task. Also the next candidates, so
+   a session can see what follows.
+
+A stale close keeps the task's summary; the journal says why it
+closed.
 
 ### `task_open` is the claim
 
@@ -412,6 +418,81 @@ unavailable and saying why in the tool's answer:
 - An open decision on the node: `task_next` passes the node by and
   `task_open` refuses it, naming the decision.
 - An ask in the summary: the decisions opened at close.
+
+### Pull requests and done
+
+A node is done only when its pull requests are merged, and the service
+merges them itself when the done decision is taken, so no merge waits
+on a person (owner, 2026-11-11). A session opens a pull request and
+never merges it.
+
+- A planning step (`plan`, `specify`, `break down`) has no
+  verification: its pull request merges at its `closed` close.
+- An `execute` step's pull request stays open at its close and merges
+  when the verification closes `closed`, with every other unmerged
+  pull request of the node's closed tasks.
+- The owner's acceptance in the view, and `node_update` to `done`,
+  merge the same way before they commit.
+- The merge goes through GitHub's merge endpoint, so branch protection
+  decides. The service also refuses a pull request whose checks are
+  failing or still running, that conflicts with its base, or that is
+  a draft. A refusal commits nothing and names the reason; the close
+  is called again when the pull request can merge.
+- `task_close` with `branch` in place of a pull request opens one.
+
+The GitHub App needs `Pull requests: Read and write` and to be
+installed on each repository whose pull requests the tasks carry.
+
+### `node_remove`
+
+An obsolete node is removed, never parked or held, and git keeps its
+history (decision 12; owner, 2026-11-11). `node_remove(node, reason)`
+removes the node with everything below it, their tasks and their
+decisions; a node that waited for a removed one no longer does; a
+`broken-down` parent whose remaining work is all done enters
+`verifying`. It is refused while a task is open under the node. The
+state file's `highWater` records the highest number removed under
+each identifier prefix, so no identifier is minted twice (invariant
+1). A hold or a park is for work that will resume.
+
+### Cost capture
+
+A task's cost is measured, never estimated by the session (decision
+13; owner, 2026-11-11). The measure is tokens by type (input, output,
+cache read, cache write) and the model, not money: sessions bill to
+the subscription.
+
+- The service's `task_cost(task, tokens…, model, source)` records it
+  on an open or a closed task; a later record replaces an earlier one.
+- In an interactive session, a hook in this repository
+  (`.claude/settings.json`, `plugin/scripts/task_cost_hook.ts`) runs
+  when `task_close` returns. It sums the usage in the session
+  transcript from the task's `task_open` on, subagents included, each
+  model message once, and calls `task_cost` with source `transcript`.
+  It never fails the session: when it cannot measure, the task has no
+  measured cost.
+- A headless run, one task per run, calls `task_cost` with its
+  result's usage and source `headless`. That is the documented source
+  and the one to prefer once a script drives the loop.
+- Tokens a session gives at `task_close` are kept and marked
+  `reported`.
+
+Limits, stated so nobody trusts the figure further than it goes: the
+transcript's format is internal to Claude Code and undocumented, so
+the hook reads it tolerantly and may break on a release; the
+transcript is written a moment behind the conversation, so the last
+message can be missed; a task opened in one session and closed in
+another is not measured; and repository hooks do not run in
+multi-repository cloud sessions or in cloud project threads.
+
+### What a session is told
+
+The service's MCP instructions carry the protocol to every session
+that connects: go through a task, never edit the four files the
+service writes, never merge a task's pull request, remove what is
+obsolete, name yourself in `session`. The first real use, on
+2026-11-11, was a session asked to work on a node that made seven
+commits and opened no task, because nothing told it.
 
 ### `node_add`
 
@@ -493,6 +574,10 @@ Field rules:
   (milestone 5).
 - A task's `base` is the commit it was opened on; `task_close` reads
   the node there to tell a changed scope (milestone 5).
+- A task's `tokens` may carry `cacheRead` and `cacheWrite`, and the
+  task a `costSource`: `transcript`, `headless` or `reported`.
+- `highWater` maps an identifier prefix (`P2`, `T`, `D`) to the
+  highest number removed under it. Absent until something is removed.
 - A decision with `standing: true` is a precedent (today's ruling). A
   closed decision is never edited; a new decision supersedes it and
   names it in `rationale`.
@@ -629,6 +714,22 @@ file's decisions, not an edit here.
     when it fails or is selected. Owner, 2026-11-10; the default
     confirmed the same day. The close-out behaviours are specified as
     orchestrator features at milestone 5.
+14. A node is done only when its pull request is merged. When a done
+    decision is taken, by a reviewer's close or by the owner in the
+    view, the service opens the pull request if there is none and
+    merges it. No merge waits on a person. Owner, 2026-11-11. This
+    replaces decision 5's auto-merge on green for pull requests a
+    task carries.
+15. An obsolete node is removed by the service, and git keeps the
+    history; it is not parked or held. Owner, 2026-11-11, sharpening
+    decision 12.
+16. A hold or a park on a node pauses everything below it. Owner,
+    2026-11-11, approving the review's finding 5.
+17. A task's cost is tokens by type and the model, measured by a hook
+    or a headless run and recorded with `task_cost`; a session does
+    not estimate it. Owner, 2026-11-11.
+18. The plugin's form checker is not a CI check; `plan-state check`
+    is the one validity rule. Owner, 2026-11-11.
 
 ## Risks
 
@@ -707,7 +808,22 @@ orientation test result.
   P4-N006 is done. What remains of milestone 5 is the week of real
   work through the loop and its acceptance. Driven over this
   repository's state file locally, the loop's first candidate is
-  P3-N020, `specified` with its dependency done; decision 5 pauses
-  the P3 line but the node does not say so, which the owner settles
-  before the week starts.
+  P3-N020, `specified` with its dependency done; decision 1 (D005 in
+  the state file; earlier reports called it decision 5 in error)
+  pauses the P3 line but the node does not say so, which the owner
+  settles before the week starts. The owner parked it on 2026-11-11.
+  First real use, 2026-11-11: a session asked to work on P2-N017
+  used `node_update` and the decision tools and opened no task. The
+  review that followed found seven defects, and the owner approved
+  their fixes and decided 14 to 16 the same day; service pull request
+  37 carries them (see "Pull requests and done", "`node_remove`" and
+  "What a session is told" above). This repository's checks failed
+  on `main` from 04:05 UTC that day, because the workflow still ran
+  the plugin's form checker, which does not know `parked` and wants a
+  `dispatched` journal event for every executing node; the owner had
+  the step removed the same day, and `plan-state check` is the one
+  validity rule. T120 was closed through the service, and P4-N007 and
+  P4-N008 start on approval, so the loop does not offer the rebuild's
+  own milestones. From here this session changes the state through
+  the service's tools, never by editing the file in a pull request.
 - M6: not started.

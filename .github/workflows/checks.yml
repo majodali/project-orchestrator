@@ -1,10 +1,19 @@
 name: Checks
 
 # The checks a pull request and main must pass (the rebuild plan,
-# docs/plans/rebuild.md, milestone 1): the plugin's tests, the plugin's
-# form checker over the rendered register, and `plan-state check` over
-# orchestration/state.json. `plan-state` comes from the service
-# repository's package, pinned by commit in package.json.
+# docs/plans/rebuild.md, milestone 1): the plugin's tests and
+# `plan-state check` over orchestration/state.json. `plan-state` comes
+# from the service repository's package, pinned by commit in
+# package.json.
+#
+# The plugin's form checker left this workflow on 2026-11-11, on the
+# owner's decision: it checks the old process (a stage list without
+# `parked`, a `dispatched` journal event for every executing node, a
+# Backlog entry per node), and the service, which is the only writer
+# of the state file, legitimately writes states it rejects. main was
+# red for a day for that reason. `plan-state check` is the one
+# validity rule; the form checker stays runnable by hand over the
+# frozen documents.
 
 "on":
   pull_request:
@@ -16,7 +25,7 @@ permissions:
 
 jobs:
   checks:
-    name: Tests, form check, state check
+    name: Tests, state check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,8 +39,6 @@ jobs:
         run: npm ci
       - name: Tests
         run: npm test
-      - name: Form check
-        run: node plugin/scripts/form_check.ts
       - name: State check
         run: npm run check
       - name: Lint and format
