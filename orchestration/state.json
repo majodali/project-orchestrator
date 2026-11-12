@@ -1077,7 +1077,7 @@
       "kind": "work",
       "title": "Re-plan, prune and hand back",
       "outcome": "The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.",
-      "stage": "identified",
+      "stage": "planned",
       "parent": "P4-N001",
       "after": [
         "P4-N007"
@@ -3297,7 +3297,7 @@
       "id": "T123",
       "node": "P4-N008",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -3305,11 +3305,11 @@
         "out": null
       },
       "opened": "2026-11-12T06:26:32Z",
-      "closed": null,
+      "closed": "2026-11-12T06:30:05Z",
       "base": "2f6c434a260ffb23016434c4ab7207ade9ae6fda",
       "ref": null,
-      "pr": null,
-      "summary": "Revise the M6 section of docs/plans/rebuild.md into child nodes with outcomes, dependencies and criteria.",
+      "pr": "majodali/project-orchestrator#39",
+      "summary": "M6 in rebuild.md revised into six children: remaining plan re-planned, role agents on the task loop, document set pruned, README and Backlog rewritten, upstream proposals batch, methodology-tools pilot. Each has outcome, dependencies, criteria. Original bullets reconciled with the P3 hold, P2-N006, form checker leaving CI, task loop, old agents and process docs.",
       "notes": null
     }
   ],
@@ -3862,6 +3862,54 @@
       "rationale": "The milestone's acceptance is closing a real decision in the view; this is that decision. Choose the default to accept, or write what should change.",
       "standing": false,
       "source": "docs/plans/rebuild.md, milestone 4"
+    },
+    {
+      "id": "D063",
+      "node": "P4-N008",
+      "question": "Keep the P3 line held at P3-N001 with no new 'process research' node (the hold is the park)?",
+      "options": [],
+      "default": "yes, keep the hold; no new node",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T123 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D064",
+      "node": "P4-N008",
+      "question": "Remove P2-N004 (coordination between sessions), since the task_open claim already delivers it?",
+      "options": [],
+      "default": "remove it with node_remove in child 1",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T123 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D065",
+      "node": "P4-N008",
+      "question": "Grant write access to majodali/methodology-tools for the pilot child (new to this project, RU-016)?",
+      "options": [],
+      "default": "grant it, for the pilot node only",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T123 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D066",
+      "node": "P4-N008",
+      "question": "Generate the Backlog from the state file (child 4), or drop docs/backlog.md after archiving?",
+      "options": [],
+      "default": "generate it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T123 at close.",
+      "standing": false,
+      "source": null
     }
   ],
   "highWater": {
