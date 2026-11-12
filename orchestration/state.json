@@ -3580,10 +3580,12 @@
       "step": "specify",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-sonnet-5-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 30,
+        "out": 3780,
+        "cacheRead": 976361,
+        "cacheWrite": 23598
       },
       "opened": "2026-11-12T18:32:55Z",
       "closed": "2026-11-12T18:34:38Z",
@@ -3591,7 +3593,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#44",
       "summary": "M6 in rebuild.md specified: the six criteria lists stand as the specification (RU-020); added order and independence (RU-018), verification (RU-019), repository access per child (RU-016, D065), gates (RU-005; child 6 starts on approval) and decided questions D063 to D066.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
