@@ -300,6 +300,29 @@ the task loop, so no child names an orchestrator session or a
 dispatch. `.claude/agents/` and `docs/process/` still describe the
 old loop and are the largest remaining work.
 
+Specified 2026-11-12 (task T129 on P4-N008). The criteria lists
+below are the specification: each is at the bound the plan sets, so
+no child needs a further document, and the break down task enters
+the children with these lists as their criteria (RU-020).
+
+- **Order.** Children 1, 2 and 5 depend on nothing and are
+  independent of one another (RU-018). Child 3 waits for 1 and 2,
+  child 4 for 3, child 6 for 1 and 3.
+- **Verification.** Each child is verified by its check node against
+  its criteria list and outcome. A criterion that measures (the word
+  count, the orientation test, the throwaway plan step) is met by the
+  number, the method and the conclusion being recorded, whichever way
+  it falls (RU-019).
+- **Repository access (RU-016).** Children 1 to 3 write only to this
+  repository. Child 4 also writes to
+  majodali/project-orchestrator-service (standing). Child 6 writes to
+  majodali/methodology-tools, granted for that child only (D065).
+  Child 5 writes nothing outside this repository (RU-002).
+- **Gates.** Child 5 gates at `verifying` (RU-005). Child 6 starts on
+  approval, because it changes another repository.
+- **Decided already.** D063 (the P3 hold stays), D064 (P2-N004 is
+  removed), D065 (the grant), D066 (the Backlog is generated).
+
 The next task, `break down`, enters these children, each `identified`,
 in the order listed. Each carries a criteria list of at most 20
 items, not a specification document (see "What happens to existing
@@ -1032,4 +1055,4 @@ orientation test result.
   P4-N008 start on approval, so the loop does not offer the rebuild's
   own milestones. From here this session changes the state through
   the service's tools, never by editing the file in a pull request.
-- M6: planned 2026-11-12 (task T123 on P4-N008): six children, break down next.
+- M6: planned 2026-11-12 (task T123 on P4-N008): six children. Specified the same day (task T129): order, verification, repository access and gates; break down next.
