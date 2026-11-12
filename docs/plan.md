@@ -18,7 +18,7 @@ Gated nodes:
 
 ## In flight
 
-- Session hooks run on Windows (P4-N017) [executing] — T127
+None.
 
 ## In progress, children carry the work
 
@@ -26,6 +26,7 @@ Gated nodes:
 - Orchestration service (P2-N001) [broken-down]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Service package installs on Windows (P4-N016) [verifying]
+- Session hooks run on Windows (P4-N017) [verifying]
 
 ## Waiting on a dependency
 
@@ -272,7 +273,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Service package installs on Windows** (P4-N016, verifying)
   npm ci of a repository that depends on the service package succeeds on Windows: the package's install step starts the compiler with Node directly, never through npm or a shell.
   [plan](plans/rebuild.md)
-- **Session hooks run on Windows** (P4-N017, executing)
+- **Session hooks run on Windows** (P4-N017, verifying)
   The session start hook and the cost hook are Node scripts that need only node and git on the path, registered in a form that works under Git Bash and PowerShell.
   [plan](plans/rebuild.md)
 

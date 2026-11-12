@@ -1232,8 +1232,25 @@
       "kind": "work",
       "title": "Session hooks run on Windows",
       "outcome": "The session start hook and the cost hook are Node scripts that need only node and git on the path, registered in a form that works under Git Bash and PowerShell.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
+      "id": "P4-N019",
+      "kind": "check",
+      "title": "Verification of Session hooks run on Windows",
+      "outcome": "P4-N017 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N017",
       "after": [],
       "hold": null,
       "start": "auto",
@@ -3492,7 +3509,7 @@
       "id": "T127",
       "node": "P4-N017",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -3500,11 +3517,11 @@
         "out": null
       },
       "opened": "2026-11-12T16:27:52Z",
-      "closed": null,
+      "closed": "2026-11-12T16:28:42Z",
       "base": "6a30e0f5b732cf09d9c953909c13ca51974de1e1",
       "ref": null,
-      "pr": null,
-      "summary": "The session start hook rewritten as a Node script; both hooks registered in a form that works under Git Bash and PowerShell.",
+      "pr": "majodali/project-orchestrator#42",
+      "summary": "The session start hook is a Node script; both hooks are registered in a form bash and PowerShell both run; the service pin installs on Windows. Not run on Windows.",
       "notes": null
     }
   ],
