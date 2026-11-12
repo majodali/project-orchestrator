@@ -11,7 +11,6 @@ its stage and its outcome. The state file holds the rest.
 Open decisions:
 
 - D067 on Pilot enlistment of methodology-tools (P4-N027): How does the service serve methodology-tools? Default: a second deployment of the service for that repository
-- D068 on Re-plan, prune and hand back (P4-N008): Add a node for the review's service findings (write speed, the journal's size, a write test in the deploy check)? Default: yes, one node under P2-N001, after milestone 6
 
 Gated nodes:
 
@@ -267,7 +266,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   Note: Built in service pull request 36; fixes from the first real use in service pull request 37; the week of real work through the loop is the acceptance
 - **Re-plan, prune and hand back** (P4-N008, broken-down)
   The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.
-  after P4-N007 · [plan](plans/rebuild.md) · 1 open decision
+  after P4-N007 · [plan](plans/rebuild.md)
   - **Re-plan of the remaining nodes** (P4-N022, specified)
     Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.
     [plan](plans/rebuild.md)
@@ -358,3 +357,4 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - D064 on P4-N008 (2026-11-12): Remove P2-N004 (coordination between sessions), since the task_open claim already delivers it? Chosen: remove it with node_remove in child 1
 - D065 on P4-N008 (2026-11-12): Grant write access to majodali/methodology-tools for the pilot child (new to this project, RU-016)? Chosen: grant it, for the pilot node only
 - D066 on P4-N008 (2026-11-12): Generate the Backlog from the state file (child 4), or drop docs/backlog.md after archiving? Chosen: generate it
+- D068 on P4-N008 (2026-11-12): Add a node for the review's service findings (write speed, the journal's size, a write test in the deploy check)? Chosen: yes, one node under P2-N001, after milestone 6
