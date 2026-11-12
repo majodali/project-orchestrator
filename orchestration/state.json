@@ -1266,8 +1266,25 @@
       "kind": "work",
       "title": "Session start summary and the offer to act",
       "outcome": "When a session starts, the person sees a short summary of the plan on screen, and the agent's first reply gives the summary and asks before it takes a task on offer.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
+      "id": "P4-N021",
+      "kind": "check",
+      "title": "Verification of Session start summary and the offer to act",
+      "outcome": "P4-N020 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N020",
       "after": [],
       "hold": null,
       "start": "auto",
@@ -3545,7 +3562,7 @@
       "id": "T128",
       "node": "P4-N020",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -3553,11 +3570,11 @@
         "out": null
       },
       "opened": "2026-11-12T17:04:58Z",
-      "closed": null,
+      "closed": "2026-11-12T17:05:33Z",
       "base": "8eac0c88a54e5671f0b622502c6caaa3c9add1a3",
       "ref": null,
-      "pr": null,
-      "summary": "The session start hook answers in JSON: a short summary on screen for the person, and a brief for the agent that tells it to summarize and ask before claiming.",
+      "pr": "majodali/project-orchestrator#43",
+      "summary": "The hook answers in JSON: a short summary on screen for the person, and a brief telling the agent to summarize and ask before claiming. A resume or compaction only refreshes. Not yet seen in a real session.",
       "notes": null
     }
   ],

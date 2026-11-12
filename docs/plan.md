@@ -18,13 +18,14 @@ Gated nodes:
 
 ## In flight
 
-- Session start summary and the offer to act (P4-N020) [executing] — T128
+None.
 
 ## In progress, children carry the work
 
 - Orchestrator v1: process specification and plugin (P1-N001) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
+- Session start summary and the offer to act (P4-N020) [verifying]
 
 ## Waiting on a dependency
 
@@ -274,7 +275,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Session hooks run on Windows** (P4-N017, done 2026-11-12)
   The session start hook and the cost hook are Node scripts that need only node and git on the path, registered in a form that works under Git Bash and PowerShell.
   [plan](plans/rebuild.md)
-- **Session start summary and the offer to act** (P4-N020, executing)
+- **Session start summary and the offer to act** (P4-N020, verifying)
   When a session starts, the person sees a short summary of the plan on screen, and the agent's first reply gives the summary and asks before it takes a task on offer.
   [plan](plans/rebuild.md)
 
