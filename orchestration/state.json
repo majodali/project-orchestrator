@@ -1124,6 +1124,23 @@
       },
       "done": "2026-11-11",
       "note": null
+    },
+    {
+      "id": "P4-N012",
+      "kind": "work",
+      "title": "Task required for session writes",
+      "outcome": "The service refuses a session's write to a node or a decision unless it names an open task or carries the owner's dictated words, and pull requests cannot change the files the service owns.",
+      "stage": "specified",
+      "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": "The owner asked for the enforcement on 2026-11-12, after the first real use changed a node with no claim"
     }
   ],
   "tasks": [

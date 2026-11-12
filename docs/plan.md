@@ -22,6 +22,7 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Re-plan, prune and hand back (P4-N008) [planned]
+- Task required for session writes (P4-N012) [specified]
 
 ## In flight
 
@@ -268,6 +269,10 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)
   Note: Owner approved the mechanism on 2026-11-11: a task_cost tool in the service, fed by a hook in this repository and by headless runs
+- **Task required for session writes** (P4-N012, specified)
+  The service refuses a session's write to a node or a decision unless it names an open task or carries the owner's dictated words, and pull requests cannot change the files the service owns.
+  [plan](plans/rebuild.md)
+  Note: The owner asked for the enforcement on 2026-11-12, after the first real use changed a node with no claim
 
 ## Decisions taken
 
