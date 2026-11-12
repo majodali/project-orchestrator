@@ -630,6 +630,24 @@ message can be missed; a task opened in one session and closed in
 another is not measured; and repository hooks do not run in
 multi-repository cloud sessions or in cloud project threads.
 
+### What a session sees when it starts
+
+A session start hook in this repository (`.claude/settings.json`,
+`.claude/hooks/session-start.sh`) runs before the first prompt (owner,
+2026-11-12). It fetches `origin/main`. It fast-forwards the main
+checkout when that is on `main` with nothing uncommitted, because
+Claude Code reads the repository's hooks and settings from there, and
+a stale one ran a session without them. It never changes a work
+branch, never discards anything, and says plainly what it could not
+bring up to date. Then it prints the plan's brief
+(`plugin/scripts/session_brief.ts`), read from `origin/main` with the
+service's own model code: the tasks on offer with step and role, what
+is in flight, and what waits on the owner. The session tells the
+person that list before it starts.
+
+The hook cannot help a checkout that predates it: the first pull is
+by hand.
+
 ### A session's write needs a task
 
 The service refuses a session's write to a node or a decision

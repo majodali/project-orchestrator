@@ -80,7 +80,11 @@ docs/plan-register.md and docs/plan.md: never edit those four (a pull
 request that does fails the checks), and the service refuses a change
 to a node or a decision that is not under an open task. Never merge a
 pull request by hand that a task carries, because the
-service merges it when the result is accepted. The founding plan is
+service merges it when the result is accepted. A session start hook
+(`.claude/hooks/session-start.sh`) fetches `origin/main`, fast-forwards
+a clean checkout on `main`, and prints the tasks on offer: tell the
+person that list before starting, and anything it says could not be
+brought up to date. The founding plan is
 docs/plans/orchestrator-v1.md.
 
 ## Conventions
