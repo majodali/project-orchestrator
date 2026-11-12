@@ -1158,6 +1158,23 @@
       },
       "done": "2026-11-12",
       "note": null
+    },
+    {
+      "id": "P4-N014",
+      "kind": "work",
+      "title": "Session start: current checkout and tasks on offer",
+      "outcome": "A starting session has the latest main, or is told plainly that it has not, and is shown the tasks on offer before it does anything.",
+      "stage": "specified",
+      "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     }
   ],
   "tasks": [
