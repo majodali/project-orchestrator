@@ -3934,8 +3934,8 @@
       "question": "Remove P2-N004 (coordination between sessions), since the task_open claim already delivers it?",
       "options": [],
       "default": "remove it with node_remove in child 1",
-      "chosen": null,
-      "decided": null,
+      "chosen": "remove it with node_remove in child 1",
+      "decided": "2026-11-12",
       "rationale": "Asked by T123 at close.",
       "standing": false,
       "source": null
