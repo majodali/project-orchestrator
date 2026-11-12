@@ -79,3 +79,4 @@ Dependencies are in the state file, not in sibling order.
   - P2-N006 [identified] [blocked: Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11)] Migration onto the service and pilot on methodology-tools
   - P2-N004 [identified] Coordination between enlisted sessions
   - P2-N025 [identified] Faster writes, a bounded journal and a deploy write test
+  - P2-N026 [identified] Several projects and repositories in one instance

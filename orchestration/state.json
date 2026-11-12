@@ -1420,6 +1420,25 @@
       },
       "done": null,
       "note": null
+    },
+    {
+      "id": "P2-N026",
+      "kind": "work",
+      "title": "Several projects and repositories in one instance",
+      "outcome": "One instance of the orchestrator and the service serves several projects and their repositories; the pilot's separate instance is retired into it.",
+      "stage": "identified",
+      "parent": "P2-N001",
+      "after": [
+        "P4-N008"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     }
   ],
   "tasks": [

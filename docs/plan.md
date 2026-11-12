@@ -36,6 +36,7 @@ None.
 - Pilot enlistment of methodology-tools (P4-N027) [specified] — after Re-plan of the remaining nodes (P4-N022), Pruned document set (P4-N024)
 - Coordination between enlisted sessions (P2-N004) [identified] — after Migration onto the service and pilot on methodology-tools (P2-N006)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
+- Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
 
 ## Blocked
 
@@ -304,6 +305,9 @@ Documents: [plan](plans/orchestration-service.md).
   Note: Chunk 3 of the parent plan; after P2-N006, built only on a shown need (owner, 2026-10-29)
 - **Faster writes, a bounded journal and a deploy write test** (P2-N025, identified)
   A state write returns faster, the journal stops growing without bound, and the deploy check proves a write end to end: the review's service findings (D068).
+  after P4-N008
+- **Several projects and repositories in one instance** (P2-N026, identified)
+  One instance of the orchestrator and the service serves several projects and their repositories; the pilot's separate instance is retired into it.
   after P4-N008
 
 ## Decisions taken
