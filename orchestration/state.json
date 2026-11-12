@@ -3587,14 +3587,33 @@
         "cacheRead": 976361,
         "cacheWrite": 23598
       },
+      "costSource": "transcript",
       "opened": "2026-11-12T18:32:55Z",
       "closed": "2026-11-12T18:34:38Z",
       "base": "12c411b16b9b4858c45d4ec88aafe752c4db9c64",
       "ref": null,
       "pr": "majodali/project-orchestrator#44",
       "summary": "M6 in rebuild.md specified: the six criteria lists stand as the specification (RU-020); added order and independence (RU-018), verification (RU-019), repository access per child (RU-016, D065), gates (RU-005; child 6 starts on approval) and decided questions D063 to D066.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
+    },
+    {
+      "id": "T130",
+      "node": "P4-N008",
+      "step": "break down",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-12T21:12:42Z",
+      "closed": null,
+      "base": "b3bbe9de36749c47296a3a8002f72b26ea09a0e2",
+      "ref": null,
+      "pr": null,
+      "summary": "Break P4-N008 into six specified children for milestone 6, amend the M6 section of docs/plans/rebuild.md, open the child 6 decision.",
+      "notes": null
     }
   ],
   "decisions": [
