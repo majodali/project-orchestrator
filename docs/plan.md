@@ -15,6 +15,7 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Re-plan, prune and hand back (P4-N008) [planned]
+- Service package installs on Windows (P4-N016) [specified]
 
 ## In flight
 
@@ -267,6 +268,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   Note: The owner asked for the enforcement on 2026-11-12, after the first real use changed a node with no claim
 - **Session start: current checkout and tasks on offer** (P4-N014, done 2026-11-12)
   A starting session has the latest main, or is told plainly that it has not, and is shown the tasks on offer before it does anything.
+  [plan](plans/rebuild.md)
+- **Service package installs on Windows** (P4-N016, specified)
+  npm ci of a repository that depends on the service package succeeds on Windows: the package's install step starts the compiler with Node directly, never through npm or a shell.
   [plan](plans/rebuild.md)
 
 ## Decisions taken

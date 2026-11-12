@@ -1192,6 +1192,23 @@
       },
       "done": "2026-11-12",
       "note": null
+    },
+    {
+      "id": "P4-N016",
+      "kind": "work",
+      "title": "Service package installs on Windows",
+      "outcome": "npm ci of a repository that depends on the service package succeeds on Windows: the package's install step starts the compiler with Node directly, never through npm or a shell.",
+      "stage": "specified",
+      "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     }
   ],
   "tasks": [
