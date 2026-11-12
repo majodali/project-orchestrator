@@ -633,20 +633,29 @@ multi-repository cloud sessions or in cloud project threads.
 ### What a session sees when it starts
 
 A session start hook in this repository (`.claude/settings.json`,
-`.claude/hooks/session-start.sh`) runs before the first prompt (owner,
+`plugin/scripts/session_start.ts`) runs before the first prompt (owner,
 2026-11-12). It fetches `origin/main`. It fast-forwards the main
 checkout when that is on `main` with nothing uncommitted, because
 Claude Code reads the repository's hooks and settings from there, and
 a stale one ran a session without them. It never changes a work
 branch, never discards anything, and says plainly what it could not
 bring up to date. Then it prints the plan's brief
-(`plugin/scripts/session_brief.ts`), read from `origin/main` with the
+(`plugin/scripts/lib/session-brief.ts`), read from `origin/main` with the
 service's own model code: the tasks on offer with step and role, what
 is in flight, and what waits on the owner. The session tells the
 person that list before it starts.
 
 The hook cannot help a checkout that predates it: the first pull is
 by hand.
+
+Both hooks are Node scripts, started as `node
+"${CLAUDE_PROJECT_DIR}/…"`, because the owner works on Windows: there
+a hook's shell is Git Bash or PowerShell depending on what is
+installed, and a checked-out shell script can carry CRLF line endings.
+They need only `node` and `git` on the path. For the same reason the
+service package's install step starts the TypeScript compiler with
+Node directly and never through `npm` (2026-11-12, after `npm ci`
+failed on Windows).
 
 ### A session's write needs a task
 
