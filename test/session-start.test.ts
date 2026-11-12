@@ -56,13 +56,39 @@ function staleClone(): { clone: string; root: string } {
   return { clone, root };
 }
 
-function run(projectDir: string): { status: number | null; out: string } {
+interface HookOutput {
+  hookSpecificOutput: { hookEventName: string; additionalContext: string };
+  systemMessage?: string;
+}
+
+/** Runs the hook as Claude Code does: its input on stdin, its answer as
+ * one JSON object on stdout. `out` is what the agent is told. */
+function run(
+  projectDir: string,
+  source = "startup",
+): {
+  status: number | null;
+  raw: string;
+  out: string;
+  screen: string | undefined;
+} {
   const result = spawnSync(process.execPath, [SCRIPT], {
     cwd: projectDir,
     encoding: "utf8",
     env: { ...ENV, CLAUDE_PROJECT_DIR: projectDir },
+    input: JSON.stringify({ source, hook_event_name: "SessionStart" }),
   });
-  return { status: result.status, out: result.stdout };
+  if (result.stdout === "") {
+    return { status: result.status, raw: "", out: "", screen: undefined };
+  }
+  const parsed = JSON.parse(result.stdout) as HookOutput;
+  expect(parsed.hookSpecificOutput.hookEventName).toBe("SessionStart");
+  return {
+    status: result.status,
+    raw: result.stdout,
+    out: parsed.hookSpecificOutput.additionalContext,
+    screen: parsed.systemMessage,
+  };
 }
 
 const behind = (dir: string): string =>
@@ -89,10 +115,14 @@ describe("plugin/scripts/session_start.ts", () => {
   it("leaves a checkout with an uncommitted change alone, and tells the session to tell the person", () => {
     const { clone } = staleClone();
     appendFileSync(path.join(clone, "file.txt"), "mine\n");
-    const { status, out } = run(clone);
+    const { status, out, screen } = run(clone);
     expect(status).toBe(0);
     expect(out).toContain(
       "with uncommitted changes. Not updated. Tell the person before any work.",
+    );
+    // The person sees the trouble on screen too.
+    expect(screen).toContain(
+      "the main checkout is on main, 3 commit(s) behind origin/main, with uncommitted changes. Not updated.",
     );
     expect(behind(clone)).toBe("3");
     expect(git(clone, "status", "--porcelain")).toContain("file.txt");
@@ -117,9 +147,22 @@ describe("plugin/scripts/session_start.ts", () => {
   it("says nothing and succeeds outside a git checkout", () => {
     const dir = mkdtempSync(path.join(tmpdir(), "session-start-none-"));
     dirs.push(dir);
-    const { status, out } = run(dir);
+    const { status, raw } = run(dir);
     expect(status).toBe(0);
-    expect(out).toBe("");
+    expect(raw).toBe("");
+  });
+
+  it("answers with one JSON object and nothing else, shows the person a message on a fresh start, and stays quiet on screen after a compaction", () => {
+    const { clone } = staleClone();
+    const fresh = run(clone, "startup");
+    expect(fresh.raw.startsWith("{")).toBe(true);
+    expect(fresh.raw.trimEnd().endsWith("}")).toBe(true);
+    expect(fresh.screen).toBeDefined();
+    // Now up to date and nothing wrong: a compaction refreshes the
+    // agent and puts nothing on screen.
+    const later = run(clone, "compact");
+    expect(later.out).toContain("has everything on origin/main.");
+    expect(later.screen).toBeUndefined();
   });
 
   it("is registered, with the cost hook, in a form that works under bash and PowerShell", async () => {
