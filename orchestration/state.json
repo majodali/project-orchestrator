@@ -3712,10 +3712,12 @@
       "step": "break down",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-sonnet-5-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 40,
+        "out": 9214,
+        "cacheRead": 1403258,
+        "cacheWrite": 27630
       },
       "opened": "2026-11-12T21:12:42Z",
       "closed": "2026-11-12T21:16:09Z",
@@ -3723,7 +3725,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#45",
       "summary": "P4-N008 broken into six specified children, P4-N022 to P4-N027, with dependencies; child 6 starts on approval and waits on D067. M6 in rebuild.md carries each identifier beside its criteria list and the amendments to children 1 to 6.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
