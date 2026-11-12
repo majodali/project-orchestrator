@@ -1198,7 +1198,7 @@
       "kind": "work",
       "title": "Service package installs on Windows",
       "outcome": "npm ci of a repository that depends on the service package succeeds on Windows: the package's install step starts the compiler with Node directly, never through npm or a shell.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -3450,6 +3450,25 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#41",
       "summary": "A session start hook fetches main, fast-forwards a clean main checkout, reports what it could not update, and prints the tasks on offer from the state file. Tried in four checkout cases.",
+      "notes": null
+    },
+    {
+      "id": "T126",
+      "node": "P4-N016",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-12T16:27:47Z",
+      "closed": null,
+      "base": "854c0e638e449574c54887e97cd36a2eaf0b90a9",
+      "ref": null,
+      "pr": null,
+      "summary": "The prepare script starts the TypeScript compiler with Node directly instead of through npm.",
       "notes": null
     }
   ],
