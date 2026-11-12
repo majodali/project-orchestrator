@@ -14,11 +14,11 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-None.
+- Re-plan, prune and hand back (P4-N008) [specified]
 
 ## In flight
 
-- Re-plan, prune and hand back (P4-N008) [planned] — T129
+None.
 
 ## In progress, children carry the work
 
@@ -254,7 +254,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.
   after P4-N006 · [plan](plans/rebuild.md)
   Note: Built in service pull request 36; fixes from the first real use in service pull request 37; the week of real work through the loop is the acceptance
-- **Re-plan, prune and hand back** (P4-N008, planned)
+- **Re-plan, prune and hand back** (P4-N008, specified)
   The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.
   after P4-N007 · [plan](plans/rebuild.md)
 - **Task cost capture** (P4-N010, done 2026-11-11)

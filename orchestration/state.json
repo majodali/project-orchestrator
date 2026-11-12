@@ -1074,7 +1074,7 @@
       "kind": "work",
       "title": "Re-plan, prune and hand back",
       "outcome": "The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.",
-      "stage": "planned",
+      "stage": "specified",
       "parent": "P4-N001",
       "after": [
         "P4-N007"
@@ -3578,7 +3578,7 @@
       "id": "T129",
       "node": "P4-N008",
       "step": "specify",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -3586,11 +3586,11 @@
         "out": null
       },
       "opened": "2026-11-12T18:32:55Z",
-      "closed": null,
+      "closed": "2026-11-12T18:34:38Z",
       "base": "12c411b16b9b4858c45d4ec88aafe752c4db9c64",
       "ref": null,
-      "pr": null,
-      "summary": null,
+      "pr": "majodali/project-orchestrator#44",
+      "summary": "M6 in rebuild.md specified: the six criteria lists stand as the specification (RU-020); added order and independence (RU-018), verification (RU-019), repository access per child (RU-016, D065), gates (RU-005; child 6 starts on approval) and decided questions D063 to D066.",
       "notes": null
     }
   ],

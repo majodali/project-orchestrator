@@ -65,7 +65,7 @@ Dependencies are in the state file, not in sibling order.
   - P4-N005 [done] Service writes the state file — plan: plans/rebuild.md
   - P4-N006 [done] Decisions answered in the view — plan: plans/rebuild.md
   - P4-N007 [done] Minimal task loop — plan: plans/rebuild.md
-  - P4-N008 [planned] Re-plan, prune and hand back — plan: plans/rebuild.md
+  - P4-N008 [specified] Re-plan, prune and hand back — plan: plans/rebuild.md
   - P4-N010 [done] Task cost capture — plan: plans/rebuild.md
   - P4-N012 [done] Task required for session writes — plan: plans/rebuild.md
   - P4-N014 [done] Session start: current checkout and tasks on offer — plan: plans/rebuild.md
