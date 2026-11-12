@@ -4323,6 +4323,21 @@
       "rationale": "Asked by T123 at close.",
       "standing": false,
       "source": null
+    },
+    {
+      "id": "D067",
+      "node": "P4-N027",
+      "question": "How does the service serve methodology-tools?",
+      "options": [
+        "a second deployment of the service for that repository",
+        "multi-project support in one deployment"
+      ],
+      "default": "a second deployment of the service for that repository",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Serving a second repository changes the service or its deployment; the choice sets the criteria for the GitHub App install and the task_next check.",
+      "standing": false,
+      "source": "docs/plans/rebuild.md, M6, child 6"
     }
   ],
   "highWater": {

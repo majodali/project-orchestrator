@@ -8,6 +8,10 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
+Open decisions:
+
+- D067 on Pilot enlistment of methodology-tools (P4-N027): How does the service serve methodology-tools? Default: a second deployment of the service for that repository
+
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
@@ -279,7 +283,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     [plan](plans/rebuild.md)
   - **Pilot enlistment of methodology-tools** (P4-N027, specified)
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
-    after P4-N022, P4-N024 · [plan](plans/rebuild.md)
+    after P4-N022, P4-N024 · [plan](plans/rebuild.md) · 1 open decision
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)
