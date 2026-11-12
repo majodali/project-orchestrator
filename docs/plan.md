@@ -15,11 +15,10 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Re-plan, prune and hand back (P4-N008) [planned]
-- Session start summary and the offer to act (P4-N020) [specified]
 
 ## In flight
 
-None.
+- Session start summary and the offer to act (P4-N020) [executing] — T128
 
 ## In progress, children carry the work
 
@@ -275,7 +274,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Session hooks run on Windows** (P4-N017, done 2026-11-12)
   The session start hook and the cost hook are Node scripts that need only node and git on the path, registered in a form that works under Git Bash and PowerShell.
   [plan](plans/rebuild.md)
-- **Session start summary and the offer to act** (P4-N020, specified)
+- **Session start summary and the offer to act** (P4-N020, executing)
   When a session starts, the person sees a short summary of the plan on screen, and the agent's first reply gives the summary and asks before it takes a task on offer.
   [plan](plans/rebuild.md)
 

@@ -1266,7 +1266,7 @@
       "kind": "work",
       "title": "Session start summary and the offer to act",
       "outcome": "When a session starts, the person sees a short summary of the plan on screen, and the agent's first reply gives the summary and asks before it takes a task on offer.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -3539,6 +3539,25 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#42",
       "summary": "The session start hook is a Node script; both hooks are registered in a form bash and PowerShell both run; the service pin installs on Windows. Not run on Windows.",
+      "notes": null
+    },
+    {
+      "id": "T128",
+      "node": "P4-N020",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-12T17:04:58Z",
+      "closed": null,
+      "base": "8eac0c88a54e5671f0b622502c6caaa3c9add1a3",
+      "ref": null,
+      "pr": null,
+      "summary": "The session start hook answers in JSON: a short summary on screen for the person, and a brief for the agent that tells it to summarize and ask before claiming.",
       "notes": null
     }
   ],
