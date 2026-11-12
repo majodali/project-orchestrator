@@ -8,10 +8,6 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D066 on Re-plan, prune and hand back (P4-N008): Generate the Backlog from the state file (child 4), or drop docs/backlog.md after archiving? Default: generate it
-
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
@@ -260,7 +256,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   Note: Built in service pull request 36; fixes from the first real use in service pull request 37; the week of real work through the loop is the acceptance
 - **Re-plan, prune and hand back** (P4-N008, planned)
   The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.
-  after P4-N007 · [plan](plans/rebuild.md) · 1 open decision
+  after P4-N007 · [plan](plans/rebuild.md)
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)
@@ -320,3 +316,4 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - D063 on P4-N008 (2026-11-12): Keep the P3 line held at P3-N001 with no new 'process research' node (the hold is the park)? Chosen: yes, keep the hold; no new node
 - D064 on P4-N008 (2026-11-12): Remove P2-N004 (coordination between sessions), since the task_open claim already delivers it? Chosen: remove it with node_remove in child 1
 - D065 on P4-N008 (2026-11-12): Grant write access to majodali/methodology-tools for the pilot child (new to this project, RU-016)? Chosen: grant it, for the pilot node only
+- D066 on P4-N008 (2026-11-12): Generate the Backlog from the state file (child 4), or drop docs/backlog.md after archiving? Chosen: generate it

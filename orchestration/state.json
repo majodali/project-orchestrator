@@ -3958,8 +3958,8 @@
       "question": "Generate the Backlog from the state file (child 4), or drop docs/backlog.md after archiving?",
       "options": [],
       "default": "generate it",
-      "chosen": null,
-      "decided": null,
+      "chosen": "generate it",
+      "decided": "2026-11-12",
       "rationale": "Asked by T123 at close.",
       "standing": false,
       "source": null
