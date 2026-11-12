@@ -1130,7 +1130,7 @@
       "kind": "work",
       "title": "Task required for session writes",
       "outcome": "The service refuses a session's write to a node or a decision unless it names an open task or carries the owner's dictated words, and pull requests cannot change the files the service owns.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1141,6 +1141,23 @@
       },
       "done": null,
       "note": "The owner asked for the enforcement on 2026-11-12, after the first real use changed a node with no claim"
+    },
+    {
+      "id": "P4-N013",
+      "kind": "check",
+      "title": "Verification of Task required for session writes",
+      "outcome": "P4-N012 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N012",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     }
   ],
   "tasks": [
@@ -3333,7 +3350,7 @@
       "id": "T124",
       "node": "P4-N012",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -3341,11 +3358,11 @@
         "out": null
       },
       "opened": "2026-11-12T06:33:12Z",
-      "closed": null,
+      "closed": "2026-11-12T06:35:17Z",
       "base": "dd63d78ee7548da2dea4b91ffaafb28087e7a555",
       "ref": null,
-      "pr": null,
-      "summary": "The service refuses node and decision writes without an open task or the owner's words; a check keeps pull requests off the four service-owned files.",
+      "pr": "majodali/project-orchestrator-service#39",
+      "summary": "Node and decision writes are refused without an open task or the owner's words; commit and journal record which. The check on pull requests is in the orchestrator repository.",
       "notes": null
     }
   ],
