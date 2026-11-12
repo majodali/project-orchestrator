@@ -284,29 +284,174 @@ Estimate: two sessions.
 
 ### M6. Re-plan, prune and hand back
 
-Goal: the repository reads as a project again and the methodology
-follow-ups are proposed once.
+Goal: the repository reads as a project again, its remaining work is
+planned for the task loop, and the methodology follow-ups are
+proposed once.
 
-- [ ] Re-plan the remaining nodes into the state file. Park the P3
-      line's open nodes under one node, "process research", with their
-      documents linked. Keep the service nodes that remain useful.
-- [ ] Shrink `docs/process/` to what the code enforces, plus one
-      "how we work" page of at most 200 lines. Move the rest to
-      `docs/archive/` with a status line each.
-- [ ] Rewrite the README: what this is, the view link, how a session
-      enlists, how to run the checks. At most 150 lines.
-- [ ] Generate the Backlog from the state file. Record the end of the
-      K-003 deviation when the methodology releases the amendment.
-- [ ] Propose upstream, in one batch with evidence: release of the
-      K-003 amendment; registers as data files with renderings;
-      bounded specification depth.
-- [ ] Start the pilot on methodology-tools: enlist it, import an
-      initial state file from its Backlog.
+Planned 2026-11-12 (task T123 on P4-N008). The six original bullets
+are reconciled below. The P3 line is held at P3-N001, so "park its
+open nodes under one node" has no work left: the hold is the park,
+and the line resumes by an owner decision, not by this milestone.
+P2-N017 and the P2-N005 subtree are already gone from the state file.
+P2-N006 is held for this milestone and becomes the pilot's node. The
+form checker left CI on 2026-11-11, so no child keeps it green;
+`plan-state check` is the one validity rule. Sessions work through
+the task loop, so no child names an orchestrator session or a
+dispatch. `.claude/agents/` and `docs/process/` still describe the
+old loop and are the largest remaining work.
 
-Acceptance: the orientation test passes for both repositories; the
-word count under `docs/` is below 100,000 excluding `docs/archive/`.
+The next task, `break down`, enters these children, each `identified`,
+in the order listed. Each carries a criteria list of at most 20
+items, not a specification document (see "What happens to existing
+documents"). Every child's pull request keeps `npm run check` green.
 
-Estimate: two sessions.
+**1. Remaining plan re-planned**
+Outcome: every node still open outside the rebuild is either planned
+for the task loop or removed, and none carries a hold that names this
+milestone. Depends on: nothing.
+
+- [ ] P2-N006 is re-planned as the pilot's parent or removed in favour
+      of child 6; its hold text no longer names M6.
+- [ ] P2-N004 is removed with `node_remove`, or re-planned with an
+      outcome the claim by `task_open` does not already deliver.
+- [ ] P3-N001 stays held; its hold reason names the owner decision
+      that resumes it, not M6. Its children are not touched.
+- [ ] P3-N020 (parked) and P3-N008 (gated) carry a note saying the
+      hold on P3-N001 covers them.
+- [ ] P1-N001 and P2-N001 show only work that is still wanted; a root
+      with nothing open is closed through the loop.
+- [ ] The warning "P4-N007 is done and still carries a gated hold" is
+      cleared.
+- [ ] No node outside P4-N001 has `outcome: null` while it offers a
+      step.
+- [ ] `plan-state check` passes.
+
+**2. Role agents on the task loop**
+Outcome: the planner, implementer and reviewer agents describe the
+work as the task loop runs it, and the orchestrator, auditor and
+semantic-auditor roles and the `orchestrate` skill are archived.
+Depends on: nothing.
+
+- [ ] Each remaining role agent opens with `task_open`, closes with
+      `task_close`, and passes `session` on every call.
+- [ ] No role agent cites `docs/process/dispatch.md`, the Plan
+      register, sequence mode, enumerated context packets, Backlog
+      entries or the Cost log as a duty.
+- [ ] Each role agent is at most 120 lines.
+- [ ] The planner agent states the plan step's deliverable: a revised
+      plan document, a criteria list of at most 20 items, and `asks`
+      with defaults.
+- [ ] The reviewer agent verifies against the node's criteria and
+      outcome, as the check node's `verify` step runs.
+- [ ] `plugin/agents/` is regenerated with
+      `node plugin/scripts/sync_agents.ts`; its `--check` passes.
+- [ ] The `orchestrate` skill is removed from `plugin/skills/` and
+      `plugin/README.md` and archived with a status line; `enroll`
+      is rewritten against child 3's page or removed.
+- [ ] The task-cost hook is unchanged and still runs.
+- [ ] A fresh session using only the new agents completes one
+      throwaway plan step on a scratch node without an instruction
+      the agents do not carry; the result is recorded.
+
+**3. Document set pruned to what the code enforces**
+Outcome: `docs/` holds what the service and `plan-state` enforce, one
+"how we work" page, and the records still linked from the state file;
+everything else is in `docs/archive/` with a status line each.
+Depends on: 1, 2.
+
+- [ ] `docs/process/` keeps only what code enforces plus one "how we
+      work" page of at most 200 lines.
+- [ ] The page covers the task loop, the roles, a session's
+      enlistment, the checks and the owner's decisions.
+- [ ] Every archived file opens with a status line naming why it is
+      archived and what replaced it.
+- [ ] `docs/cost-log.md`, `docs/rulings.md`, the frozen text of
+      `docs/backlog.md`, the P3 findings and the superseded plans and
+      specs move to `docs/archive/`; frozen files are not rewritten.
+- [ ] Every `docs` path in `orchestration/state.json` resolves after
+      the move, updated through `node_update`, never by hand.
+- [ ] `docs/classification.md` custom definitions point at the new
+      locations or are retired with the document that carried them.
+- [ ] `docs/vocabulary.md` loses the terms of retired documents and
+      keeps the project's own.
+- [ ] `docs/open-risks.md` is kept or archived by a stated rule.
+- [ ] The `mtool` link check passes over the tree.
+- [ ] The word count under `docs/`, excluding `docs/archive/`, is
+      below 100,000 (about 382,000 at 2026-11-12); the number and the
+      method are recorded whichever way it falls (RU-019).
+- [ ] No hand-written document outside `docs/archive/` exceeds 300
+      lines.
+
+**4. README and Backlog rewritten**
+Outcome: the README tells a new reader what this is, where the view
+is, how a session enlists and how to run the checks, and the Backlog
+is a rendering of the state file. Depends on: 3.
+
+- [ ] The README is at most 150 lines: what this is, the view link,
+      enlistment, the checks, the pointers.
+- [ ] The README no longer calls the process specification
+      authoritative over the code.
+- [ ] `CLAUDE.md` Build / run / test and Architecture sections match
+      the README and the new layout.
+- [ ] The Backlog is generated by a `plan-state render` target in the
+      service repository, and `npm run check` fails when it is stale.
+- [ ] The service repository change is its own pull request
+      (majodali/project-orchestrator-service, standing under RU-016).
+- [ ] The K-003 deviation stays recorded in `docs/classification.md`;
+      its end is recorded only when the methodology releases the
+      amendment.
+- [ ] The orientation test passes: a fresh session given only the
+      README states what is done, what is next and what waits on the
+      owner within five minutes, and the owner confirms it from the
+      view within one minute.
+
+**5. Upstream proposals batch**
+Outcome: three proposals, each with evidence from this rebuild, are
+ready for the owner to carry to majodali/methodology in one batch.
+Depends on: nothing.
+
+- [ ] Proposal one: release of the K-003 amendment, from
+      `docs/proposals/planning-execution-model-is-progress-truth.md`,
+      re-verified against the current upstream text (RU-015).
+- [ ] Proposal two: registers as data files with renderings, with the
+      state file, `plan-state` and the M1 import as evidence.
+- [ ] Proposal three: bounded specification depth, with the criteria
+      list of at most 20 items and the 300-line bound as evidence.
+- [ ] Each proposal carries the final normative text, the upstream
+      text quoted verbatim and a provenance line naming version,
+      commit and date (RU-015), and its IR first (RU-022).
+- [ ] One cover note lists the three and the order to carry them.
+- [ ] No proposal asks for anything this rebuild did not need.
+- [ ] The node gates at `verifying` (RU-005). Nothing is edited in
+      majodali/methodology.
+
+**6. Pilot enlistment of methodology-tools**
+Outcome: methodology-tools is enlisted in the service and its state
+file is imported from its Backlog, checked by `plan-state`.
+Depends on: 1, 3.
+
+- [ ] The enlistment steps in child 3's page are followed as written;
+      steps that needed correction are corrected in that page.
+- [ ] `orchestration/state.json` in methodology-tools passes
+      `plan-state check`.
+- [ ] Every Backlog row of methodology-tools is a node, or is listed
+      in an import record as not mapped, with the reason.
+- [ ] The owner reviews the import record; hand corrections go in an
+      overrides file, as at M1.
+- [ ] The GitHub App is installed on methodology-tools with the same
+      path allowlist, tested; the deploy role is unchanged.
+- [ ] `task_next` run against methodology-tools answers a node.
+- [ ] Repository access: majodali/methodology-tools is new to this
+      project, so the owner grants it before the node starts.
+- [ ] Adoption of the loop by that project's own sessions is a
+      separate node (RU-017), not part of this one.
+
+Acceptance of the milestone: the orientation test passes for both
+repositories; the word count under `docs/` is below 100,000 excluding
+`docs/archive/`; no node outside the P3 line holds on this milestone.
+
+Estimate: five to seven sessions, not the two first guessed, because
+the document set and the role agents are the bulk.
 
 ## The loop and the close-out
 
@@ -826,4 +971,4 @@ orientation test result.
   P4-N008 start on approval, so the loop does not offer the rebuild's
   own milestones. From here this session changes the state through
   the service's tools, never by editing the file in a pull request.
-- M6: not started.
+- M6: planned 2026-11-12 (task T123 on P4-N008): six children, break down next.
