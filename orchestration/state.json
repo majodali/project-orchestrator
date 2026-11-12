@@ -1198,7 +1198,7 @@
       "kind": "work",
       "title": "Service package installs on Windows",
       "outcome": "npm ci of a repository that depends on the service package succeeds on Windows: the package's install step starts the compiler with Node directly, never through npm or a shell.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1207,7 +1207,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-12",
       "note": null
     },
     {
@@ -1215,7 +1215,7 @@
       "kind": "check",
       "title": "Verification of Service package installs on Windows",
       "outcome": "P4-N016 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N016",
       "after": [],
       "hold": null,
@@ -1224,7 +1224,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-12",
       "note": null
     },
     {

@@ -25,7 +25,6 @@ None.
 - Orchestrator v1: process specification and plugin (P1-N001) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
-- Service package installs on Windows (P4-N016) [verifying]
 - Session hooks run on Windows (P4-N017) [verifying]
 
 ## Waiting on a dependency
@@ -270,7 +269,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Session start: current checkout and tasks on offer** (P4-N014, done 2026-11-12)
   A starting session has the latest main, or is told plainly that it has not, and is shown the tasks on offer before it does anything.
   [plan](plans/rebuild.md)
-- **Service package installs on Windows** (P4-N016, verifying)
+- **Service package installs on Windows** (P4-N016, done 2026-11-12)
   npm ci of a repository that depends on the service package succeeds on Windows: the package's install step starts the compiler with Node directly, never through npm or a shell.
   [plan](plans/rebuild.md)
 - **Session hooks run on Windows** (P4-N017, verifying)
