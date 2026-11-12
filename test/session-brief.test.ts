@@ -118,18 +118,19 @@ describe("sessionBrief", () => {
     ]);
   });
 
-  it("tells a fresh session to give the summary and ask before it takes a task, and a resumed one only to carry on", () => {
+  it("tells a fresh session to ask before it takes a task, without restating what the person already sees, and a resumed one only to carry on", () => {
     const fresh = briefInstructions(state(), true);
-    expect(fresh).toContain("In your first reply, before anything else:");
-    expect(fresh).toContain(
-      "Name the task on offer you would take, with its step, and ask whether to take it. Do not call task_open until the person says yes.",
-    );
+    expect(fresh.split("\n")).toEqual([
+      "The person already sees a short summary of this on screen. Do not restate it; use it.",
+      "In your first reply, name the task on offer you would take, with its step, and ask whether to take it. Do not call task_open until the person says yes.",
+      "If their first message asks for something else, do that instead.",
+    ]);
     const none = state();
     none.nodes = [];
     none.tasks = [];
     none.decisions = [];
-    expect(briefInstructions(none, true)).toContain(
-      "Nothing is on offer: say so, and ask what the person wants.",
+    expect(briefInstructions(none, true)).toBe(
+      "The person already sees a short summary of this on screen. Do not restate it; use it. Nothing is on offer, so there is nothing to propose: do what the person asks.",
     );
     expect(briefInstructions(state(), false)).toBe(
       "This refreshes what you know of the checkout and the plan; carry on with what you were doing.",

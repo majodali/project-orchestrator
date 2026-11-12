@@ -646,8 +646,9 @@ is in flight, and what waits on the owner.
 
 The hook answers Claude Code in its JSON form. `additionalContext`,
 which the agent sees, carries the checkout lines, the brief, and what
-to do with them: in its first reply the agent gives the summary, names
-the task on offer it would take, and asks before it claims anything.
+to do with them: the agent does not restate the summary, since the
+person already sees it; in its first reply it names the task on offer
+it would take and asks before it claims anything.
 `systemMessage`, which the person sees on screen, carries a few lines:
 the commit, what is on offer, what is in flight, how much waits on
 them. In an interactive session nothing lets the agent speak first, so

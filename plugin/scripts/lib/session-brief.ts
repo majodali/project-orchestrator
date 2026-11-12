@@ -74,25 +74,25 @@ export function sessionBrief(state: State, at: string): string {
 }
 
 /**
- * What the agent is to do with the brief (owner, 2026-11-12). At the
- * start of a session it gives the summary and asks before it takes
- * anything; it never claims a task on its own. After a resume or a
+ * What the agent is to do with the brief (owner, 2026-11-12). The
+ * person already sees a short summary on screen when a session starts,
+ * so the agent does not restate it: it names the task it would take
+ * and asks, and never claims one on its own. After a resume or a
  * compaction the brief only refreshes what it knows.
  */
 export function briefInstructions(state: State, fresh: boolean): string {
   if (!fresh) {
     return "This refreshes what you know of the checkout and the plan; carry on with what you were doing.";
   }
-  const offers = candidates(state);
-  const ask =
-    offers.length > 0
-      ? "Name the task on offer you would take, with its step, and ask whether to take it. Do not call task_open until the person says yes."
-      : "Nothing is on offer: say so, and ask what the person wants.";
+  const shown =
+    "The person already sees a short summary of this on screen. Do not restate it; use it.";
+  if (candidates(state).length === 0) {
+    return `${shown} Nothing is on offer, so there is nothing to propose: do what the person asks.`;
+  }
   return [
-    "The person has been shown a short form of this on screen. In your first reply, before anything else:",
-    "1. Give this summary in your own words: the checkout's state, the tasks on offer, what is in flight, and what waits on the owner. Lead with anything that could not be brought up to date.",
-    `2. ${ask}`,
-    "If their first message asks for something else, give the summary briefly, then do what they asked.",
+    shown,
+    "In your first reply, name the task on offer you would take, with its step, and ask whether to take it. Do not call task_open until the person says yes.",
+    "If their first message asks for something else, do that instead.",
   ].join("\n");
 }
 
