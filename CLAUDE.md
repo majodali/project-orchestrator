@@ -82,9 +82,11 @@ to a node or a decision that is not under an open task. Never merge a
 pull request by hand that a task carries, because the
 service merges it when the result is accepted. A session start hook
 (`plugin/scripts/session_start.ts`) fetches `origin/main`, fast-forwards
-a clean checkout on `main`, and prints the tasks on offer: tell the
-person that list before starting, and anything it says could not be
-brought up to date. The founding plan is
+a clean checkout on `main`, shows the person a short summary on
+screen, and gives you the plan's brief. In your first reply give that
+summary, leading with anything that could not be brought up to date,
+name the task on offer you would take, and ask before claiming it. The
+founding plan is
 docs/plans/orchestrator-v1.md.
 
 ## Conventions

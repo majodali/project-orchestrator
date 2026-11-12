@@ -70,9 +70,66 @@ export function sessionBrief(state: State, at: string): string {
     }
   }
 
+  return lines.join("\n");
+}
+
+/**
+ * What the agent is to do with the brief (owner, 2026-11-12). At the
+ * start of a session it gives the summary and asks before it takes
+ * anything; it never claims a task on its own. After a resume or a
+ * compaction the brief only refreshes what it knows.
+ */
+export function briefInstructions(state: State, fresh: boolean): string {
+  if (!fresh) {
+    return "This refreshes what you know of the checkout and the plan; carry on with what you were doing.";
+  }
+  const offers = candidates(state);
+  const ask =
+    offers.length > 0
+      ? "Name the task on offer you would take, with its step, and ask whether to take it. Do not call task_open until the person says yes."
+      : "Nothing is on offer: say so, and ask what the person wants.";
+  return [
+    "The person has been shown a short form of this on screen. In your first reply, before anything else:",
+    "1. Give this summary in your own words: the checkout's state, the tasks on offer, what is in flight, and what waits on the owner. Lead with anything that could not be brought up to date.",
+    `2. ${ask}`,
+    "If their first message asks for something else, give the summary briefly, then do what they asked.",
+  ].join("\n");
+}
+
+/** The few lines the person sees on screen when the session starts. */
+export function screenSummary(state: State, at: string): string {
+  const offers = candidates(state);
+  const open = state.tasks.filter((t) => t.status === "open");
+  const classes = classifyAll(state);
+  const waiting =
+    state.nodes.filter((n) => classes.get(n.id) === "gated").length +
+    state.decisions.filter((d) => d.chosen === null).length;
+  const lines = [`Plan at ${at}.`];
+  if (offers.length === 0) {
+    lines.push("On offer: nothing.");
+  } else {
+    lines.push(
+      `On offer: ${offers
+        .slice(0, 5)
+        .map(
+          (c) =>
+            `${c.node.id} "${clip(c.node.title, 50)}" (${c.step}, ${c.role})`,
+        )
+        .join(
+          "; ",
+        )}${offers.length > 5 ? `; and ${offers.length - 5} more` : ""}.`,
+    );
+  }
+  if (open.length > 0) {
+    lines.push(
+      `In flight: ${open.map((t) => `${t.id} on ${t.node}`).join(", ")}.`,
+    );
+  }
+  if (waiting > 0) lines.push(`Waiting on you: ${waiting}, in the view.`);
   lines.push(
-    "",
-    "Tell the person this list before you start, and which task you will take.",
+    offers.length > 0
+      ? "Say what you want, or ask the agent which task it would take."
+      : "Say what you want.",
   );
   return lines.join("\n");
 }

@@ -2,7 +2,11 @@ import { describe, expect, it } from "vitest";
 
 import type { State } from "project-orchestrator-service/dist/model/schema.js";
 
-import { sessionBrief } from "../plugin/scripts/lib/session-brief.ts";
+import {
+  briefInstructions,
+  screenSummary,
+  sessionBrief,
+} from "../plugin/scripts/lib/session-brief.ts";
 
 /**
  * The brief a starting session is given (owner, 2026-11-12): the tasks
@@ -111,8 +115,45 @@ describe("sessionBrief", () => {
       "Waiting on the owner (answered in the view, not by a session):",
       '- P1-N004 "The part the owner reviews": owner review of the plan',
       "- decision D001 on P1-N003: Which store holds the answers?",
-      "",
-      "Tell the person this list before you start, and which task you will take.",
+    ]);
+  });
+
+  it("tells a fresh session to give the summary and ask before it takes a task, and a resumed one only to carry on", () => {
+    const fresh = briefInstructions(state(), true);
+    expect(fresh).toContain("In your first reply, before anything else:");
+    expect(fresh).toContain(
+      "Name the task on offer you would take, with its step, and ask whether to take it. Do not call task_open until the person says yes.",
+    );
+    const none = state();
+    none.nodes = [];
+    none.tasks = [];
+    none.decisions = [];
+    expect(briefInstructions(none, true)).toContain(
+      "Nothing is on offer: say so, and ask what the person wants.",
+    );
+    expect(briefInstructions(state(), false)).toBe(
+      "This refreshes what you know of the checkout and the plan; carry on with what you were doing.",
+    );
+  });
+
+  it("gives the person a few lines for the screen", () => {
+    expect(screenSummary(state(), "origin/main (abc1234)").split("\n")).toEqual(
+      [
+        "Plan at origin/main (abc1234).",
+        'On offer: P1-N002 "The part to build" (execute, implementer).',
+        "In flight: T001 on P1-N005.",
+        "Waiting on you: 2, in the view.",
+        "Say what you want, or ask the agent which task it would take.",
+      ],
+    );
+    const none = state();
+    none.nodes = [];
+    none.tasks = [];
+    none.decisions = [];
+    expect(screenSummary(none, "origin/main (abc1234)").split("\n")).toEqual([
+      "Plan at origin/main (abc1234).",
+      "On offer: nothing.",
+      "Say what you want.",
     ]);
   });
 

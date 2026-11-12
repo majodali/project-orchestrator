@@ -2,8 +2,13 @@
 /**
  * Session start (owner, 2026-11-12): bring the checkout up to date,
  * then tell the session what the plan offers. Claude Code runs this as
- * a SessionStart hook (.claude/settings.json); what it prints becomes
- * part of the session's context.
+ * a SessionStart hook (.claude/settings.json). It answers in the
+ * hook's JSON form: `additionalContext`, which the agent sees, carries
+ * the checkout lines, the plan's brief and what to do with them;
+ * `systemMessage`, which the person sees on screen, carries a short
+ * form. The agent cannot speak first in an interactive session, so the
+ * short form is how the person learns the state before typing (owner,
+ * 2026-11-12). Run by hand at a terminal, it prints plain text.
  *
  * Why: a session that started on a stale checkout ran without the
  * repository's own hooks and settings, which Claude Code reads from
@@ -70,7 +75,28 @@ function update(dir: string, label: string): string {
   return `- ${label} was ${behind} commit(s) behind origin/main and is now up to date.`;
 }
 
+/** How the session started, from the hook's input; a run by hand at a
+ * terminal has none and counts as a fresh start. */
+async function hookInput(): Promise<{ source: string } | null> {
+  if (process.stdin.isTTY) return null;
+  let text = "";
+  try {
+    for await (const chunk of process.stdin) text += String(chunk);
+    const parsed = JSON.parse(text) as { source?: unknown };
+    return {
+      source: typeof parsed.source === "string" ? parsed.source : "startup",
+    };
+  } catch {
+    return { source: "startup" };
+  }
+}
+
 async function main(): Promise<void> {
+  const input = await hookInput();
+  // A resume or a compaction refreshes the agent's knowledge; only a
+  // new or cleared session is told to summarize and ask.
+  const fresh = input === null || !["resume", "compact"].includes(input.source);
+
   const start = process.env.CLAUDE_PROJECT_DIR ?? process.cwd();
   const here = tryGit(start, "rev-parse", "--show-toplevel");
   if (here === null) return; // Not a git checkout: nothing to say.
@@ -88,44 +114,92 @@ async function main(): Promise<void> {
     mainCheckout = path.dirname(common);
   }
 
-  const lines: string[] = ["Checkout:"];
+  const checkout: string[] = [];
   if (tryGit(here, "fetch", "--quiet", "origin", "main") === null) {
-    lines.push(
+    checkout.push(
       "- could not fetch origin/main; what follows may be out of date. Tell the person.",
     );
   }
-  lines.push(update(mainCheckout, "the main checkout"));
-  if (!same(here, mainCheckout)) lines.push(update(here, "this worktree"));
-  console.log(lines.join("\n"));
-  console.log();
+  checkout.push(update(mainCheckout, "the main checkout"));
+  if (!same(here, mainCheckout)) checkout.push(update(here, "this worktree"));
+  const trouble = checkout.filter((l) => l.includes("Tell the person"));
 
   // The plan's brief, read from origin/main with the service's own
   // model code. Imported here, after the checkout is current, and
   // inside the try: a checkout with no `npm ci` still gets the lines
   // above.
+  let brief: string;
+  let instructions = "";
+  let screen: string;
   try {
     const { checkState } =
       await import("project-orchestrator-service/dist/model/check.js");
-    const { sessionBrief } = await import("./lib/session-brief.ts");
+    const { sessionBrief, briefInstructions, screenSummary } =
+      await import("./lib/session-brief.ts");
     const sha = git(here, "rev-parse", "--short", "origin/main");
     const text = git(here, "show", "origin/main:orchestration/state.json");
     const { state, findings } = checkState(JSON.parse(text) as unknown);
-    console.log(
-      state === null
-        ? `The plan at origin/main (${sha}) does not validate: ${findings.length} problem(s). Tell the person; no tool can write until it is fixed.`
-        : sessionBrief(state, `origin/main (${sha})`),
-    );
+    if (state === null) {
+      brief = `The plan at origin/main (${sha}) does not validate: ${findings.length} problem(s). Tell the person; no tool can write until it is fixed.`;
+      screen = `The plan at origin/main (${sha}) does not validate: ${findings.length} problem(s).`;
+    } else {
+      brief = sessionBrief(state, `origin/main (${sha})`);
+      instructions = briefInstructions(state, fresh);
+      screen = screenSummary(state, `origin/main (${sha})`);
+    }
   } catch {
-    console.log(
-      "The plan's brief could not be produced (it needs `npm ci` in this checkout). Call task_next to see what is on offer.",
-    );
+    brief =
+      "The plan's brief could not be produced (it needs `npm ci` in this checkout). Call task_next to see what is on offer.";
+    screen = "The plan could not be read here: run `npm ci` in this checkout.";
   }
+
+  const context = [
+    "Checkout:",
+    ...checkout,
+    "",
+    brief,
+    ...(instructions === "" ? [] : ["", instructions]),
+  ].join("\n");
+
+  if (input === null) {
+    // A person at a terminal: what the agent would be told, as text.
+    console.log(context);
+    return;
+  }
+  const output: Record<string, unknown> = {
+    hookSpecificOutput: {
+      hookEventName: "SessionStart",
+      additionalContext: context,
+    },
+  };
+  // The screen message only where the person is arriving, and always
+  // when something could not be brought up to date.
+  if (fresh || trouble.length > 0) {
+    output.systemMessage = [
+      ...trouble.map((l) =>
+        l.replace(/^- /, "").replace(/ Tell the person.*$/, ""),
+      ),
+      ...(fresh ? [screen] : []),
+    ].join("\n");
+  }
+  // Nothing but the JSON object on stdout, or Claude Code reads it as
+  // plain text.
+  process.stdout.write(JSON.stringify(output));
 }
 
 main()
   .catch((err: unknown) => {
-    console.log(
-      `Session start check failed: ${err instanceof Error ? err.message.split("\n")[0] : String(err)}. Tell the person.`,
+    const message = `Session start check failed: ${err instanceof Error ? err.message.split("\n")[0] : String(err)}.`;
+    process.stdout.write(
+      process.stdin.isTTY
+        ? `${message}\n`
+        : JSON.stringify({
+            hookSpecificOutput: {
+              hookEventName: "SessionStart",
+              additionalContext: `${message} Tell the person.`,
+            },
+            systemMessage: message,
+          }),
     );
   })
   .finally(() => {

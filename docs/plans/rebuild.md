@@ -642,8 +642,19 @@ branch, never discards anything, and says plainly what it could not
 bring up to date. Then it prints the plan's brief
 (`plugin/scripts/lib/session-brief.ts`), read from `origin/main` with the
 service's own model code: the tasks on offer with step and role, what
-is in flight, and what waits on the owner. The session tells the
-person that list before it starts.
+is in flight, and what waits on the owner.
+
+The hook answers Claude Code in its JSON form. `additionalContext`,
+which the agent sees, carries the checkout lines, the brief, and what
+to do with them: in its first reply the agent gives the summary, names
+the task on offer it would take, and asks before it claims anything.
+`systemMessage`, which the person sees on screen, carries a few lines:
+the commit, what is on offer, what is in flight, how much waits on
+them. In an interactive session nothing lets the agent speak first, so
+that screen message is how the person learns the state before typing
+(owner, 2026-11-12). After a resume or a compaction the hook only
+refreshes what the agent knows, and puts something on screen only if
+the checkout could not be brought up to date.
 
 The hook cannot help a checkout that predates it: the first pull is
 by hand.
