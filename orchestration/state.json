@@ -1162,6 +1162,23 @@
       "note": null
     },
     {
+      "id": "P4-N026",
+      "kind": "work",
+      "title": "Upstream proposals batch",
+      "outcome": "Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.",
+      "stage": "specified",
+      "parent": "P4-N008",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
       "id": "P4-N010",
       "kind": "work",
       "title": "Task cost capture",

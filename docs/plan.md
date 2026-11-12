@@ -16,6 +16,7 @@ Gated nodes:
 
 - Re-plan of the remaining nodes (P4-N022) [specified]
 - Role agents on the task loop (P4-N023) [specified]
+- Upstream proposals batch (P4-N026) [specified]
 
 ## In flight
 
@@ -272,6 +273,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **README and generated Backlog** (P4-N025, specified)
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
     after P4-N024 · [plan](plans/rebuild.md)
+  - **Upstream proposals batch** (P4-N026, specified)
+    Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.
+    [plan](plans/rebuild.md)
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)
