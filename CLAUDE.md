@@ -76,8 +76,10 @@ orchestration service's task loop** (`task_next`, `task_open`,
 session connects, and docs/plans/rebuild.md, "The loop and the
 close-out", specifies it). The service is the only writer of
 `orchestration/state.json`, `orchestration/journal.jsonl`,
-docs/plan-register.md and docs/plan.md: never edit those four, and
-never merge a pull request by hand that a task carries, because the
+docs/plan-register.md and docs/plan.md: never edit those four (a pull
+request that does fails the checks), and the service refuses a change
+to a node or a decision that is not under an open task. Never merge a
+pull request by hand that a task carries, because the
 service merges it when the result is accepted. The founding plan is
 docs/plans/orchestrator-v1.md.
 
