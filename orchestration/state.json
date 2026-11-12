@@ -1164,7 +1164,7 @@
       "kind": "work",
       "title": "Session start: current checkout and tasks on offer",
       "outcome": "A starting session has the latest main, or is told plainly that it has not, and is shown the tasks on offer before it does anything.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -3380,6 +3380,25 @@
       "ref": null,
       "pr": "majodali/project-orchestrator-service#39",
       "summary": "Node and decision writes are refused without an open task or the owner's words; commit and journal record which. The check on pull requests is in the orchestrator repository.",
+      "notes": null
+    },
+    {
+      "id": "T125",
+      "node": "P4-N014",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-12T15:50:18Z",
+      "closed": null,
+      "base": "e0f5eacb8787c85d84007237b597cdc505f28327",
+      "ref": null,
+      "pr": null,
+      "summary": "A session start hook that fetches main, fast-forwards a clean main checkout, and prints the tasks on offer from the state file.",
       "notes": null
     }
   ],

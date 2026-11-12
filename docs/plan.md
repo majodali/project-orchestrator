@@ -15,11 +15,10 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Re-plan, prune and hand back (P4-N008) [planned]
-- Session start: current checkout and tasks on offer (P4-N014) [specified]
 
 ## In flight
 
-None.
+- Session start: current checkout and tasks on offer (P4-N014) [executing] — T125
 
 ## In progress, children carry the work
 
@@ -266,7 +265,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   The service refuses a session's write to a node or a decision unless it names an open task or carries the owner's dictated words, and pull requests cannot change the files the service owns.
   [plan](plans/rebuild.md)
   Note: The owner asked for the enforcement on 2026-11-12, after the first real use changed a node with no claim
-- **Session start: current checkout and tasks on offer** (P4-N014, specified)
+- **Session start: current checkout and tasks on offer** (P4-N014, executing)
   A starting session has the latest main, or is told plainly that it has not, and is shown the tasks on offer before it does anything.
   [plan](plans/rebuild.md)
 
