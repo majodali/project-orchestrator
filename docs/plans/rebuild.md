@@ -323,12 +323,14 @@ the children with these lists as their criteria (RU-020).
 - **Decided already.** D063 (the P3 hold stays), D064 (P2-N004 is
   removed), D065 (the grant), D066 (the Backlog is generated).
 
-The next task, `break down`, enters these children, each `identified`,
-in the order listed. Each carries a criteria list of at most 20
-items, not a specification document (see "What happens to existing
-documents"). Every child's pull request keeps `npm run check` green.
+Broken down 2026-11-12 (task T130 on P4-N008). The six children are
+entered `specified`, not `identified`, in the order listed, with
+these lists as their criteria (RU-020). Each carries a criteria list
+of at most 20 items, not a specification document (see "What happens
+to existing documents"). Every child's pull request keeps
+`npm run check` green.
 
-**1. Remaining plan re-planned**
+**1. Re-plan of the remaining nodes** (P4-N022)
 Outcome: every node still open outside the rebuild is either planned
 for the task loop or removed, and none carries a hold that names this
 milestone. Depends on: nothing.
@@ -343,13 +345,11 @@ milestone. Depends on: nothing.
       hold on P3-N001 covers them.
 - [ ] P1-N001 and P2-N001 show only work that is still wanted; a root
       with nothing open is closed through the loop.
-- [ ] The warning "P4-N007 is done and still carries a gated hold" is
-      cleared.
 - [ ] No node outside P4-N001 has `outcome: null` while it offers a
       step.
 - [ ] `plan-state check` passes.
 
-**2. Role agents on the task loop**
+**2. Role agents on the task loop** (P4-N023)
 Outcome: the planner, implementer and reviewer agents describe the
 work as the task loop runs it, and the orchestrator, auditor and
 semantic-auditor roles and the `orchestrate` skill are archived.
@@ -371,12 +371,13 @@ Depends on: nothing.
 - [ ] The `orchestrate` skill is removed from `plugin/skills/` and
       `plugin/README.md` and archived with a status line; `enroll`
       is rewritten against child 3's page or removed.
-- [ ] The task-cost hook is unchanged and still runs.
+- [ ] The task-cost hook and the session start hook
+      (`plugin/scripts/session_start.ts`) are unchanged and still run.
 - [ ] A fresh session using only the new agents completes one
       throwaway plan step on a scratch node without an instruction
       the agents do not carry; the result is recorded.
 
-**3. Document set pruned to what the code enforces**
+**3. Pruned document set** (P4-N024)
 Outcome: `docs/` holds what the service and `plan-state` enforce, one
 "how we work" page, and the records still linked from the state file;
 everything else is in `docs/archive/` with a status line each.
@@ -400,12 +401,13 @@ Depends on: 1, 2.
 - [ ] `docs/open-risks.md` is kept or archived by a stated rule.
 - [ ] The `mtool` link check passes over the tree.
 - [ ] The word count under `docs/`, excluding `docs/archive/`, is
-      below 100,000 (about 382,000 at 2026-11-12); the number and the
-      method are recorded whichever way it falls (RU-019).
+      below 100,000 (409,060 on 2026-11-12); the number and the method
+      are recorded whichever way it falls (RU-019). The method is
+      `find docs -name '*.md' -not -path 'docs/archive/*' | xargs cat | wc -w`.
 - [ ] No hand-written document outside `docs/archive/` exceeds 300
       lines.
 
-**4. README and Backlog rewritten**
+**4. README and generated Backlog** (P4-N025)
 Outcome: the README tells a new reader what this is, where the view
 is, how a session enlists and how to run the checks, and the Backlog
 is a rendering of the state file. Depends on: 3.
@@ -420,6 +422,14 @@ is a rendering of the state file. Depends on: 3.
       service repository, and `npm run check` fails when it is stale.
 - [ ] The service repository change is its own pull request
       (majodali/project-orchestrator-service, standing under RU-016).
+- [ ] The generated Backlog is a fifth file the service owns: it is on
+      the allowlist in the service's `src/model/store.ts` and written
+      with every state commit.
+- [ ] This repository's check "Service-owned files untouched" covers
+      the Backlog.
+- [ ] The service change is deployed before this repository pins it,
+      so `main` is never checked by a renderer older than the one that
+      wrote it.
 - [ ] The K-003 deviation stays recorded in `docs/classification.md`;
       its end is recorded only when the methodology releases the
       amendment.
@@ -428,7 +438,7 @@ is a rendering of the state file. Depends on: 3.
       owner within five minutes, and the owner confirms it from the
       view within one minute.
 
-**5. Upstream proposals batch**
+**5. Upstream proposals batch** (P4-N026)
 Outcome: three proposals, each with evidence from this rebuild, are
 ready for the owner to carry to majodali/methodology in one batch.
 Depends on: nothing.
@@ -445,10 +455,13 @@ Depends on: nothing.
       commit and date (RU-015), and its IR first (RU-022).
 - [ ] One cover note lists the three and the order to carry them.
 - [ ] No proposal asks for anything this rebuild did not need.
-- [ ] The node gates at `verifying` (RU-005). Nothing is edited in
-      majodali/methodology.
+- [ ] The loop has no gate at `verifying`. Before closing its task,
+      the implementer sets a gated hold on the node with
+      `node_update`, reason "the owner reviews the proposals
+      (RU-005)"; the owner accepts in the view.
+- [ ] Nothing is edited in majodali/methodology.
 
-**6. Pilot enlistment of methodology-tools**
+**6. Pilot enlistment of methodology-tools** (P4-N027)
 Outcome: methodology-tools is enlisted in the service and its state
 file is imported from its Backlog, checked by `plan-state`.
 Depends on: 1, 3.
@@ -465,7 +478,13 @@ Depends on: 1, 3.
       path allowlist, tested; the deploy role is unchanged.
 - [ ] `task_next` run against methodology-tools answers a node.
 - [ ] Repository access: majodali/methodology-tools is new to this
-      project, so the owner grants it before the node starts.
+      project, so the owner grants it before the node starts (D065).
+      Also majodali/project-orchestrator-service (standing, RU-016),
+      since serving a second repository changes the service.
+- [ ] Decision D067, "How does the service serve methodology-tools?"
+      (a second deployment of the service for that repository, or
+      multi-project support in one deployment; default: the first), is
+      answered before the node starts; the node waits on it.
 - [ ] Adoption of the loop by that project's own sessions is a
       separate node (RU-017), not part of this one.
 
