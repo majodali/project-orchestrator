@@ -1043,10 +1043,7 @@
       "after": [
         "P4-N006"
       ],
-      "hold": {
-        "kind": "gated",
-        "reason": "The owner accepts milestone 5 after the week of real work through the loop: two sessions on different days move one node from specified to done"
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": "docs/plans/rebuild.md",
