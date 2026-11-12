@@ -1130,7 +1130,7 @@
       "kind": "work",
       "title": "Task required for session writes",
       "outcome": "The service refuses a session's write to a node or a decision unless it names an open task or carries the owner's dictated words, and pull requests cannot change the files the service owns.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -3327,6 +3327,25 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#39",
       "summary": "M6 in rebuild.md revised into six children: remaining plan re-planned, role agents on the task loop, document set pruned, README and Backlog rewritten, upstream proposals batch, methodology-tools pilot. Each has outcome, dependencies, criteria. Original bullets reconciled with the P3 hold, P2-N006, form checker leaving CI, task loop, old agents and process docs.",
+      "notes": null
+    },
+    {
+      "id": "T124",
+      "node": "P4-N012",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-12T06:33:12Z",
+      "closed": null,
+      "base": "dd63d78ee7548da2dea4b91ffaafb28087e7a555",
+      "ref": null,
+      "pr": null,
+      "summary": "The service refuses node and decision writes without an open task or the owner's words; a check keeps pull requests off the four service-owned files.",
       "notes": null
     }
   ],
