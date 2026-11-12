@@ -1232,7 +1232,7 @@
       "kind": "work",
       "title": "Session hooks run on Windows",
       "outcome": "The session start hook and the cost hook are Node scripts that need only node and git on the path, registered in a form that works under Git Bash and PowerShell.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1241,7 +1241,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-12",
       "note": null
     },
     {
@@ -1249,7 +1249,7 @@
       "kind": "check",
       "title": "Verification of Session hooks run on Windows",
       "outcome": "P4-N017 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N017",
       "after": [],
       "hold": null,
@@ -1258,7 +1258,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-12",
       "note": null
     }
   ],
