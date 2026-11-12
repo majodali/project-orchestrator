@@ -3710,7 +3710,7 @@
       "id": "T130",
       "node": "P4-N008",
       "step": "break down",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -3718,11 +3718,11 @@
         "out": null
       },
       "opened": "2026-11-12T21:12:42Z",
-      "closed": null,
+      "closed": "2026-11-12T21:16:09Z",
       "base": "b3bbe9de36749c47296a3a8002f72b26ea09a0e2",
       "ref": null,
-      "pr": null,
-      "summary": "Break P4-N008 into six specified children for milestone 6, amend the M6 section of docs/plans/rebuild.md, open the child 6 decision.",
+      "pr": "majodali/project-orchestrator#45",
+      "summary": "P4-N008 broken into six specified children, P4-N022 to P4-N027, with dependencies; child 6 starts on approval and waits on D067. M6 in rebuild.md carries each identifier beside its criteria list and the amendments to children 1 to 6.",
       "notes": null
     }
   ],
@@ -4338,6 +4338,21 @@
       "rationale": "Serving a second repository changes the service or its deployment; the choice sets the criteria for the GitHub App install and the task_next check.",
       "standing": false,
       "source": "docs/plans/rebuild.md, M6, child 6"
+    },
+    {
+      "id": "D068",
+      "node": "P4-N008",
+      "question": "Add a node for the review's service findings (write speed, the journal's size, a write test in the deploy check)?",
+      "options": [
+        "yes, one node under P2-N001, after milestone 6",
+        "no"
+      ],
+      "default": "yes, one node under P2-N001, after milestone 6",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T130 at close.",
+      "standing": false,
+      "source": null
     }
   ],
   "highWater": {

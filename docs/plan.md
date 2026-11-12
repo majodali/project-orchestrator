@@ -11,6 +11,7 @@ its stage and its outcome. The state file holds the rest.
 Open decisions:
 
 - D067 on Pilot enlistment of methodology-tools (P4-N027): How does the service serve methodology-tools? Default: a second deployment of the service for that repository
+- D068 on Re-plan, prune and hand back (P4-N008): Add a node for the review's service findings (write speed, the journal's size, a write test in the deploy check)? Default: yes, one node under P2-N001, after milestone 6
 
 Gated nodes:
 
@@ -24,13 +25,14 @@ Gated nodes:
 
 ## In flight
 
-- Re-plan, prune and hand back (P4-N008) [broken-down] — T130
+None.
 
 ## In progress, children carry the work
 
 - Orchestrator v1: process specification and plugin (P1-N001) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
+- Re-plan, prune and hand back (P4-N008) [broken-down]
 
 ## Waiting on a dependency
 
@@ -265,7 +267,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   Note: Built in service pull request 36; fixes from the first real use in service pull request 37; the week of real work through the loop is the acceptance
 - **Re-plan, prune and hand back** (P4-N008, broken-down)
   The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.
-  after P4-N007 · [plan](plans/rebuild.md)
+  after P4-N007 · [plan](plans/rebuild.md) · 1 open decision
   - **Re-plan of the remaining nodes** (P4-N022, specified)
     Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.
     [plan](plans/rebuild.md)
