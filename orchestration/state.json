@@ -1266,7 +1266,7 @@
       "kind": "work",
       "title": "Session start summary and the offer to act",
       "outcome": "When a session starts, the person sees a short summary of the plan on screen, and the agent's first reply gives the summary and asks before it takes a task on offer.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1275,7 +1275,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-12",
       "note": null
     },
     {
@@ -1283,7 +1283,7 @@
       "kind": "check",
       "title": "Verification of Session start summary and the offer to act",
       "outcome": "P4-N020 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N020",
       "after": [],
       "hold": null,
@@ -1292,7 +1292,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-12",
       "note": null
     }
   ],
