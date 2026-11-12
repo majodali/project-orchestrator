@@ -1164,7 +1164,7 @@
       "kind": "work",
       "title": "Session start: current checkout and tasks on offer",
       "outcome": "A starting session has the latest main, or is told plainly that it has not, and is shown the tasks on offer before it does anything.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1173,7 +1173,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-12",
       "note": null
     },
     {
@@ -1181,7 +1181,7 @@
       "kind": "check",
       "title": "Verification of Session start: current checkout and tasks on offer",
       "outcome": "P4-N014 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N014",
       "after": [],
       "hold": null,
@@ -1190,7 +1190,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-12",
       "note": null
     }
   ],
