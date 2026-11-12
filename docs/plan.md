@@ -231,6 +231,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **Pilot enlistment of methodology-tools** (P4-N027, specified)
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
     after P4-N022, P4-N024 · [plan](plans/rebuild.md)
+    Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)

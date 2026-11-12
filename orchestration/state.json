@@ -880,7 +880,7 @@
         "spec": null
       },
       "done": null,
-      "note": null
+      "note": "The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026)."
     },
     {
       "id": "P4-N010",
