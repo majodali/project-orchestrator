@@ -25,21 +25,22 @@ None.
 ## In progress, children carry the work
 
 - Orchestrator v1: process specification and plugin (P1-N001) [broken-down]
-- Orchestration service (P2-N001) [broken-down]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
+- Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
 
-- Coordination between enlisted sessions (P2-N004) [identified] — after Migration onto the service and pilot on methodology-tools (P2-N006)
 - Pruned document set (P4-N024) [specified] — after Re-plan of the remaining nodes (P4-N022), Role agents on the task loop (P4-N023)
 - README and generated Backlog (P4-N025) [specified] — after Pruned document set (P4-N024)
 - Pilot enlistment of methodology-tools (P4-N027) [specified] — after Re-plan of the remaining nodes (P4-N022), Pruned document set (P4-N024)
+- Coordination between enlisted sessions (P2-N004) [identified] — after Migration onto the service and pilot on methodology-tools (P2-N006)
+- Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 
 ## Blocked
 
-- Migration onto the service and pilot on methodology-tools (P2-N006) [identified] — Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11)
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused under the rebuild plan's decision 1 (D005) until milestone 6 re-plans the line
+- Migration onto the service and pilot on methodology-tools (P2-N006) [identified] — Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11)
 
 ## Paused by a hold or a park above
 
@@ -98,58 +99,6 @@ Documents: [plan](plans/orchestrator-v1.md).
   Every Backlog row routed to this node is either landed in the process specification, or closed with a stated reason.
   [plan](plans/p1-n016-process-spec-maintenance.md)
   Note: plan gate crossed 2026-11-03, the plan's criteria are its specification (decision 2); does not wait on P3-N009 (decision 3); E1 (T103) accepted 2026-11-03, E2 (T104) accepted 2026-11-05 under the owner's rulings A26 to A28; verifying gate crossed 2026-11-08
-
-### Orchestration service (P2-N001)
-
-Stage: broken-down, in progress, its children carry the work.
-
-A service that Claude Code sessions call over MCP for plan state, coordination and owner questions, with a web view of the plan, and git as the only source of truth.
-
-Documents: [plan](plans/orchestration-service.md).
-
-- **Service skeleton and plan state** (P2-N002, done 2026-08-26)
-  A deployed MCP service reads and validates the Plan register through a GitHub App, and a session updates plan state under an advisory lease.
-  [plan](plans/p2-n002-service-skeleton.md), [spec](specs/p2-n002-service-skeleton.md)
-  Note: Chunk 1 of the parent plan
-  - **Service repository bootstrap** (P2-N007, done 2026-08-27)
-    The service repository exists with its Classification, its Node toolchain, its README and its Backlog.
-  - **Deployed MCP server (reachability slice)** (P2-N008, done 2026-08-28)
-    A deployed MCP server on Lambda answers service_identity over HTTP with bearer-token auth, enlisted from a checked-in .mcp.json.
-  - **Plan state read** (P2-N009, done 2026-08-29)
-    plan_read returns the coordinating repository's Plan register at a named ref through an installed GitHub App, with the commit SHA on every answer.
-  - **Plan state update with advisory lease** (P2-N010, done 2026-09-01)
-    A session moves a node through a legal stage transition: it takes the lease, receives the exact edit, commits it, and the service confirms the commit carries it.
-  - **Git-only fallback and enlistment documentation** (P2-N011, done 2026-09-07)
-    A session works with the service unreachable, and the enlistment documentation says how a repository enlists.
-- **Deploy from CI on merge** (P2-N012, done 2026-09-01)
-  A merge to main in the service repository deploys the service, proves it against a real endpoint, and only then promotes it, with a red workflow on failure.
-  [plan](plans/p2-n012-deploy-from-ci-on-merge.md), [spec](specs/p2-n012-deploy-from-ci-on-merge.md)
-  - **Lambda alias assumptions check** (P2-N013, done 2026-09-01)
-    The Lambda alias assumptions the deploy relies on are verified against AWS documentation and recorded.
-  - **Pull request checks** (P2-N014, done 2026-09-01)
-    Pull-request checks build, lint and test without any deploy credential.
-  - **Alias-aware lease table selection** (P2-N015, done 2026-09-01)
-    The lease table is selected by the invoked alias, and an unknown alias fails closed.
-  - **Deploy, smoke test and promote pipeline** (P2-N016, done 2026-09-07)
-    A merge to main deploys a version to the preprod alias, smoke-tests it, and promotes live only on a pass.
-- **Owner questions and the plan view** (P2-N003, done 2026-11-11)
-  The owner sees this project's plan in a browser on any device, and later answers gate decisions there.
-  [plan](plans/p2-n003-owner-questions-and-plan-view.md), [spec](specs/p2-n003-owner-questions-and-plan-view.md)
-  Note: Chunk 2 of the parent plan; split into the web view's first version and the owner question queue (owner, 2026-10-29)
-  - **Web view v1** (P2-N021, done 2026-11-02)
-    A signed-in owner sees the plan tree at one commit and drills to node and task pages, with the Project model's renderings beside them.
-    [spec](specs/p2-n003-owner-questions-and-plan-view.md)
-    Note: independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8)
-  - **Web view UX refinement** (P2-N023, done 2026-11-07)
-    At V30 the owner decided that the web view does not replace docs/plan.md yet.
-    after P2-N021 · [plan](plans/p2-n023-web-view-ux-refinement.md)
-    Note: Iterations 1 to 3 accepted 2026-11-03; the owner ended the loop on 2026-11-07, and the rebuild's milestone 2 superseded the view (owner, 2026-11-10)
-- **Migration onto the service and pilot on methodology-tools** (P2-N006, identified, blocked: Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11))
-  after P2-N021, P2-N003
-  Note: Chunk 5 of the parent plan; depends on P2-N005 and on P2-N021, the web view's first version, done 2026-11-03, not on P2-N003 as a whole (owner, 2026-10-29)
-- **Coordination between enlisted sessions** (P2-N004, identified)
-  after P2-N006
-  Note: Chunk 3 of the parent plan; after P2-N006, built only on a shown need (owner, 2026-10-29)
 
 ### Project comprehension and continuous implementation (P3-N001)
 
@@ -301,6 +250,61 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Session start summary and the offer to act** (P4-N020, done 2026-11-12)
   When a session starts, the person sees a short summary of the plan on screen, and the agent's first reply gives the summary and asks before it takes a task on offer.
   [plan](plans/rebuild.md)
+
+### Orchestration service (P2-N001)
+
+Stage: broken-down, in progress, its children carry the work.
+
+A service that Claude Code sessions call over MCP for plan state, coordination and owner questions, with a web view of the plan, and git as the only source of truth.
+
+Documents: [plan](plans/orchestration-service.md).
+
+- **Service skeleton and plan state** (P2-N002, done 2026-08-26)
+  A deployed MCP service reads and validates the Plan register through a GitHub App, and a session updates plan state under an advisory lease.
+  [plan](plans/p2-n002-service-skeleton.md), [spec](specs/p2-n002-service-skeleton.md)
+  Note: Chunk 1 of the parent plan
+  - **Service repository bootstrap** (P2-N007, done 2026-08-27)
+    The service repository exists with its Classification, its Node toolchain, its README and its Backlog.
+  - **Deployed MCP server (reachability slice)** (P2-N008, done 2026-08-28)
+    A deployed MCP server on Lambda answers service_identity over HTTP with bearer-token auth, enlisted from a checked-in .mcp.json.
+  - **Plan state read** (P2-N009, done 2026-08-29)
+    plan_read returns the coordinating repository's Plan register at a named ref through an installed GitHub App, with the commit SHA on every answer.
+  - **Plan state update with advisory lease** (P2-N010, done 2026-09-01)
+    A session moves a node through a legal stage transition: it takes the lease, receives the exact edit, commits it, and the service confirms the commit carries it.
+  - **Git-only fallback and enlistment documentation** (P2-N011, done 2026-09-07)
+    A session works with the service unreachable, and the enlistment documentation says how a repository enlists.
+- **Deploy from CI on merge** (P2-N012, done 2026-09-01)
+  A merge to main in the service repository deploys the service, proves it against a real endpoint, and only then promotes it, with a red workflow on failure.
+  [plan](plans/p2-n012-deploy-from-ci-on-merge.md), [spec](specs/p2-n012-deploy-from-ci-on-merge.md)
+  - **Lambda alias assumptions check** (P2-N013, done 2026-09-01)
+    The Lambda alias assumptions the deploy relies on are verified against AWS documentation and recorded.
+  - **Pull request checks** (P2-N014, done 2026-09-01)
+    Pull-request checks build, lint and test without any deploy credential.
+  - **Alias-aware lease table selection** (P2-N015, done 2026-09-01)
+    The lease table is selected by the invoked alias, and an unknown alias fails closed.
+  - **Deploy, smoke test and promote pipeline** (P2-N016, done 2026-09-07)
+    A merge to main deploys a version to the preprod alias, smoke-tests it, and promotes live only on a pass.
+- **Owner questions and the plan view** (P2-N003, done 2026-11-11)
+  The owner sees this project's plan in a browser on any device, and later answers gate decisions there.
+  [plan](plans/p2-n003-owner-questions-and-plan-view.md), [spec](specs/p2-n003-owner-questions-and-plan-view.md)
+  Note: Chunk 2 of the parent plan; split into the web view's first version and the owner question queue (owner, 2026-10-29)
+  - **Web view v1** (P2-N021, done 2026-11-02)
+    A signed-in owner sees the plan tree at one commit and drills to node and task pages, with the Project model's renderings beside them.
+    [spec](specs/p2-n003-owner-questions-and-plan-view.md)
+    Note: independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8)
+  - **Web view UX refinement** (P2-N023, done 2026-11-07)
+    At V30 the owner decided that the web view does not replace docs/plan.md yet.
+    after P2-N021 · [plan](plans/p2-n023-web-view-ux-refinement.md)
+    Note: Iterations 1 to 3 accepted 2026-11-03; the owner ended the loop on 2026-11-07, and the rebuild's milestone 2 superseded the view (owner, 2026-11-10)
+- **Migration onto the service and pilot on methodology-tools** (P2-N006, identified, blocked: Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11))
+  after P2-N021, P2-N003
+  Note: Chunk 5 of the parent plan; depends on P2-N005 and on P2-N021, the web view's first version, done 2026-11-03, not on P2-N003 as a whole (owner, 2026-10-29)
+- **Coordination between enlisted sessions** (P2-N004, identified)
+  after P2-N006
+  Note: Chunk 3 of the parent plan; after P2-N006, built only on a shown need (owner, 2026-10-29)
+- **Faster writes, a bounded journal and a deploy write test** (P2-N025, identified)
+  A state write returns faster, the journal stops growing without bound, and the deploy check proves a write end to end: the review's service findings (D068).
+  after P4-N008
 
 ## Decisions taken
 

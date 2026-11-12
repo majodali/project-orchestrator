@@ -21,23 +21,6 @@ Dependencies are in the state file, not in sibling order.
   - P1-N014 [done] Role contracts adopt the methodology's conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md · spec: specs/p1-n014-role-contracts-adopt-conduct-rules.md
   - P1-N015 [done] Methodology amendments for delegated multi-agent work — plan: plans/p1-n015-methodology-amendments-delegated-work.md · spec: specs/p1-n015-methodology-amendments-delegated-work.md
   - P1-N016 [done] Process specification maintenance — plan: plans/p1-n016-process-spec-maintenance.md
-- P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
-  - P2-N002 [done] Service skeleton and plan state — plan: plans/p2-n002-service-skeleton.md · spec: specs/p2-n002-service-skeleton.md
-    - P2-N007 [done] Service repository bootstrap
-    - P2-N008 [done] Deployed MCP server (reachability slice)
-    - P2-N009 [done] Plan state read
-    - P2-N010 [done] Plan state update with advisory lease
-    - P2-N011 [done] Git-only fallback and enlistment documentation
-  - P2-N012 [done] Deploy from CI on merge — plan: plans/p2-n012-deploy-from-ci-on-merge.md · spec: specs/p2-n012-deploy-from-ci-on-merge.md
-    - P2-N013 [done] Lambda alias assumptions check
-    - P2-N014 [done] Pull request checks
-    - P2-N015 [done] Alias-aware lease table selection
-    - P2-N016 [done] Deploy, smoke test and promote pipeline
-  - P2-N003 [done] Owner questions and the plan view — plan: plans/p2-n003-owner-questions-and-plan-view.md · spec: specs/p2-n003-owner-questions-and-plan-view.md
-    - P2-N021 [done] Web view v1 — spec: specs/p2-n003-owner-questions-and-plan-view.md
-    - P2-N023 [done] Web view UX refinement — plan: plans/p2-n023-web-view-ux-refinement.md
-  - P2-N006 [identified] [blocked: Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11)] Migration onto the service and pilot on methodology-tools
-  - P2-N004 [identified] Coordination between enlisted sessions
 - P3-N001 [broken-down] [blocked: Paused under the rebuild plan's decision 1 (D005) until milestone 6 re-plans the line] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
   - P3-N002 [broken-down] Comprehension model — plan: plans/p3-n002-comprehension-model.md · spec: specs/p3-n002-comprehension-model.md
     - P3-N006 [done] Thin end-to-end slice of the model — plan: plans/p3-n006-thin-end-to-end-slice.md · spec: specs/p3-n002-comprehension-model.md
@@ -78,3 +61,21 @@ Dependencies are in the state file, not in sibling order.
   - P4-N016 [done] Service package installs on Windows — plan: plans/rebuild.md
   - P4-N017 [done] Session hooks run on Windows — plan: plans/rebuild.md
   - P4-N020 [done] Session start summary and the offer to act — plan: plans/rebuild.md
+- P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
+  - P2-N002 [done] Service skeleton and plan state — plan: plans/p2-n002-service-skeleton.md · spec: specs/p2-n002-service-skeleton.md
+    - P2-N007 [done] Service repository bootstrap
+    - P2-N008 [done] Deployed MCP server (reachability slice)
+    - P2-N009 [done] Plan state read
+    - P2-N010 [done] Plan state update with advisory lease
+    - P2-N011 [done] Git-only fallback and enlistment documentation
+  - P2-N012 [done] Deploy from CI on merge — plan: plans/p2-n012-deploy-from-ci-on-merge.md · spec: specs/p2-n012-deploy-from-ci-on-merge.md
+    - P2-N013 [done] Lambda alias assumptions check
+    - P2-N014 [done] Pull request checks
+    - P2-N015 [done] Alias-aware lease table selection
+    - P2-N016 [done] Deploy, smoke test and promote pipeline
+  - P2-N003 [done] Owner questions and the plan view — plan: plans/p2-n003-owner-questions-and-plan-view.md · spec: specs/p2-n003-owner-questions-and-plan-view.md
+    - P2-N021 [done] Web view v1 — spec: specs/p2-n003-owner-questions-and-plan-view.md
+    - P2-N023 [done] Web view UX refinement — plan: plans/p2-n023-web-view-ux-refinement.md
+  - P2-N006 [identified] [blocked: Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11)] Migration onto the service and pilot on methodology-tools
+  - P2-N004 [identified] Coordination between enlisted sessions
+  - P2-N025 [identified] Faster writes, a bounded journal and a deploy write test
