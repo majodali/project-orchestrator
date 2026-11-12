@@ -1123,6 +1123,26 @@
       "note": null
     },
     {
+      "id": "P4-N024",
+      "kind": "work",
+      "title": "Pruned document set",
+      "outcome": "docs/ holds what the service and plan-state enforce, one \"how we work\" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.",
+      "stage": "specified",
+      "parent": "P4-N008",
+      "after": [
+        "P4-N022",
+        "P4-N023"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
       "id": "P4-N010",
       "kind": "work",
       "title": "Task cost capture",

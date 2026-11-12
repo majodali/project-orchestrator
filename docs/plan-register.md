@@ -68,6 +68,7 @@ Dependencies are in the state file, not in sibling order.
   - P4-N008 [broken-down] Re-plan, prune and hand back — plan: plans/rebuild.md
     - P4-N022 [specified] Re-plan of the remaining nodes — plan: plans/rebuild.md
     - P4-N023 [specified] Role agents on the task loop — plan: plans/rebuild.md
+    - P4-N024 [specified] Pruned document set — plan: plans/rebuild.md
   - P4-N010 [done] Task cost capture — plan: plans/rebuild.md
   - P4-N012 [done] Task required for session writes — plan: plans/rebuild.md
   - P4-N014 [done] Session start: current checkout and tasks on offer — plan: plans/rebuild.md
