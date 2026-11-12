@@ -3946,8 +3946,8 @@
       "question": "Grant write access to majodali/methodology-tools for the pilot child (new to this project, RU-016)?",
       "options": [],
       "default": "grant it, for the pilot node only",
-      "chosen": null,
-      "decided": null,
+      "chosen": "grant it, for the pilot node only",
+      "decided": "2026-11-12",
       "rationale": "Asked by T123 at close.",
       "standing": false,
       "source": null
