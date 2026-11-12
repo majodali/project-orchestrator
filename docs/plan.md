@@ -14,11 +14,11 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-None.
+- Re-plan of the remaining nodes (P4-N022) [specified]
 
 ## In flight
 
-- Re-plan, prune and hand back (P4-N008) [specified] — T130
+- Re-plan, prune and hand back (P4-N008) [broken-down] — T130
 
 ## In progress, children carry the work
 
@@ -254,9 +254,12 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   A session takes the next ready task and closes it through two tool calls, with the stop conditions and the standard close-out actions as orchestrator features.
   after P4-N006 · [plan](plans/rebuild.md)
   Note: Built in service pull request 36; fixes from the first real use in service pull request 37; the week of real work through the loop is the acceptance
-- **Re-plan, prune and hand back** (P4-N008, specified)
+- **Re-plan, prune and hand back** (P4-N008, broken-down)
   The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.
   after P4-N007 · [plan](plans/rebuild.md)
+  - **Re-plan of the remaining nodes** (P4-N022, specified)
+    Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.
+    [plan](plans/rebuild.md)
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)

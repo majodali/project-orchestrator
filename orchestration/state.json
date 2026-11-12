@@ -1074,11 +1074,28 @@
       "kind": "work",
       "title": "Re-plan, prune and hand back",
       "outcome": "The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.",
-      "stage": "specified",
+      "stage": "broken-down",
       "parent": "P4-N001",
       "after": [
         "P4-N007"
       ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
+      "id": "P4-N022",
+      "kind": "work",
+      "title": "Re-plan of the remaining nodes",
+      "outcome": "Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.",
+      "stage": "specified",
+      "parent": "P4-N008",
+      "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
