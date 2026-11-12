@@ -1106,6 +1106,23 @@
       "note": null
     },
     {
+      "id": "P4-N023",
+      "kind": "work",
+      "title": "Role agents on the task loop",
+      "outcome": "The planner, implementer and reviewer agents describe the work as the task loop runs it, and the orchestrator, auditor and semantic-auditor roles and the orchestrate skill are archived.",
+      "stage": "specified",
+      "parent": "P4-N008",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
       "id": "P4-N010",
       "kind": "work",
       "title": "Task cost capture",

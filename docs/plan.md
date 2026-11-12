@@ -15,6 +15,7 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Re-plan of the remaining nodes (P4-N022) [specified]
+- Role agents on the task loop (P4-N023) [specified]
 
 ## In flight
 
@@ -259,6 +260,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   after P4-N007 · [plan](plans/rebuild.md)
   - **Re-plan of the remaining nodes** (P4-N022, specified)
     Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.
+    [plan](plans/rebuild.md)
+  - **Role agents on the task loop** (P4-N023, specified)
+    The planner, implementer and reviewer agents describe the work as the task loop runs it, and the orchestrator, auditor and semantic-auditor roles and the orchestrate skill are archived.
     [plan](plans/rebuild.md)
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
