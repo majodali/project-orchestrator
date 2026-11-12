@@ -1130,7 +1130,7 @@
       "kind": "work",
       "title": "Task required for session writes",
       "outcome": "The service refuses a session's write to a node or a decision unless it names an open task or carries the owner's dictated words, and pull requests cannot change the files the service owns.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1139,7 +1139,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-12",
       "note": "The owner asked for the enforcement on 2026-11-12, after the first real use changed a node with no claim"
     },
     {
@@ -1147,7 +1147,7 @@
       "kind": "check",
       "title": "Verification of Task required for session writes",
       "outcome": "P4-N012 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N012",
       "after": [],
       "hold": null,
@@ -1156,7 +1156,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-12",
       "note": null
     }
   ],

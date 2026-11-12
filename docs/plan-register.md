@@ -67,4 +67,4 @@ Dependencies are in the state file, not in sibling order.
   - P4-N007 [done] [gated: The owner accepts milestone 5 after the week of real work through the loop: two sessions on different days move one node from specified to done] Minimal task loop — plan: plans/rebuild.md
   - P4-N008 [planned] Re-plan, prune and hand back — plan: plans/rebuild.md
   - P4-N010 [done] Task cost capture — plan: plans/rebuild.md
-  - P4-N012 [verifying] Task required for session writes — plan: plans/rebuild.md
+  - P4-N012 [done] Task required for session writes — plan: plans/rebuild.md
