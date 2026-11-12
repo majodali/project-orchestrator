@@ -3576,6 +3576,25 @@
       "pr": "majodali/project-orchestrator#43",
       "summary": "The hook answers in JSON: a short summary on screen for the person, and a brief telling the agent to summarize and ask before claiming. A resume or compaction only refreshes. Not yet seen in a real session.",
       "notes": null
+    },
+    {
+      "id": "T129",
+      "node": "P4-N008",
+      "step": "specify",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-12T18:32:55Z",
+      "closed": null,
+      "base": "12c411b16b9b4858c45d4ec88aafe752c4db9c64",
+      "ref": null,
+      "pr": null,
+      "summary": null,
+      "notes": null
     }
   ],
   "decisions": [

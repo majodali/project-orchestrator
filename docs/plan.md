@@ -14,11 +14,11 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- Re-plan, prune and hand back (P4-N008) [planned]
+None.
 
 ## In flight
 
-None.
+- Re-plan, prune and hand back (P4-N008) [planned] — T129
 
 ## In progress, children carry the work
 
