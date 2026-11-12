@@ -1164,8 +1164,25 @@
       "kind": "work",
       "title": "Session start: current checkout and tasks on offer",
       "outcome": "A starting session has the latest main, or is told plainly that it has not, and is shown the tasks on offer before it does anything.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
+      "id": "P4-N015",
+      "kind": "check",
+      "title": "Verification of Session start: current checkout and tasks on offer",
+      "outcome": "P4-N014 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N014",
       "after": [],
       "hold": null,
       "start": "auto",
@@ -3386,7 +3403,7 @@
       "id": "T125",
       "node": "P4-N014",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -3394,11 +3411,11 @@
         "out": null
       },
       "opened": "2026-11-12T15:50:18Z",
-      "closed": null,
+      "closed": "2026-11-12T15:50:57Z",
       "base": "e0f5eacb8787c85d84007237b597cdc505f28327",
       "ref": null,
-      "pr": null,
-      "summary": "A session start hook that fetches main, fast-forwards a clean main checkout, and prints the tasks on offer from the state file.",
+      "pr": "majodali/project-orchestrator#41",
+      "summary": "A session start hook fetches main, fast-forwards a clean main checkout, reports what it could not update, and prints the tasks on offer from the state file. Tried in four checkout cases.",
       "notes": null
     }
   ],

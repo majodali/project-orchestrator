@@ -18,13 +18,14 @@ Gated nodes:
 
 ## In flight
 
-- Session start: current checkout and tasks on offer (P4-N014) [executing] — T125
+None.
 
 ## In progress, children carry the work
 
 - Orchestrator v1: process specification and plugin (P1-N001) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
+- Session start: current checkout and tasks on offer (P4-N014) [verifying]
 
 ## Waiting on a dependency
 
@@ -265,7 +266,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   The service refuses a session's write to a node or a decision unless it names an open task or carries the owner's dictated words, and pull requests cannot change the files the service owns.
   [plan](plans/rebuild.md)
   Note: The owner asked for the enforcement on 2026-11-12, after the first real use changed a node with no claim
-- **Session start: current checkout and tasks on offer** (P4-N014, executing)
+- **Session start: current checkout and tasks on offer** (P4-N014, verifying)
   A starting session has the latest main, or is told plainly that it has not, and is shown the tasks on offer before it does anything.
   [plan](plans/rebuild.md)
 

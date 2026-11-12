@@ -68,4 +68,4 @@ Dependencies are in the state file, not in sibling order.
   - P4-N008 [planned] Re-plan, prune and hand back — plan: plans/rebuild.md
   - P4-N010 [done] Task cost capture — plan: plans/rebuild.md
   - P4-N012 [done] Task required for session writes — plan: plans/rebuild.md
-  - P4-N014 [executing] Session start: current checkout and tasks on offer — plan: plans/rebuild.md
+  - P4-N014 [verifying] Session start: current checkout and tasks on offer — plan: plans/rebuild.md
