@@ -8,10 +8,6 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D067 on Pilot enlistment of methodology-tools (P4-N027): How does the service serve methodology-tools? Default: a second deployment of the service for that repository
-
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
@@ -284,7 +280,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     [plan](plans/rebuild.md)
   - **Pilot enlistment of methodology-tools** (P4-N027, specified)
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
-    after P4-N022, P4-N024 · [plan](plans/rebuild.md) · 1 open decision
+    after P4-N022, P4-N024 · [plan](plans/rebuild.md)
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)
@@ -357,4 +353,5 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - D064 on P4-N008 (2026-11-12): Remove P2-N004 (coordination between sessions), since the task_open claim already delivers it? Chosen: remove it with node_remove in child 1
 - D065 on P4-N008 (2026-11-12): Grant write access to majodali/methodology-tools for the pilot child (new to this project, RU-016)? Chosen: grant it, for the pilot node only
 - D066 on P4-N008 (2026-11-12): Generate the Backlog from the state file (child 4), or drop docs/backlog.md after archiving? Chosen: generate it
+- D067 on P4-N027 (2026-11-12): How does the service serve methodology-tools? Chosen: a second deployment of the service for that repository
 - D068 on P4-N008 (2026-11-12): Add a node for the review's service findings (write speed, the journal's size, a write test in the deploy check)? Chosen: yes, one node under P2-N001, after milestone 6

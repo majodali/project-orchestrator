@@ -4336,8 +4336,8 @@
         "multi-project support in one deployment"
       ],
       "default": "a second deployment of the service for that repository",
-      "chosen": null,
-      "decided": null,
+      "chosen": "a second deployment of the service for that repository",
+      "decided": "2026-11-12",
       "rationale": "Serving a second repository changes the service or its deployment; the choice sets the criteria for the GitHub App install and the task_next check.",
       "standing": false,
       "source": "docs/plans/rebuild.md, M6, child 6"
