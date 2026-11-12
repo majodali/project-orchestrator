@@ -69,5 +69,5 @@ Dependencies are in the state file, not in sibling order.
   - P4-N010 [done] Task cost capture — plan: plans/rebuild.md
   - P4-N012 [done] Task required for session writes — plan: plans/rebuild.md
   - P4-N014 [done] Session start: current checkout and tasks on offer — plan: plans/rebuild.md
-  - P4-N016 [executing] Service package installs on Windows — plan: plans/rebuild.md
+  - P4-N016 [verifying] Service package installs on Windows — plan: plans/rebuild.md
   - P4-N017 [executing] Session hooks run on Windows — plan: plans/rebuild.md

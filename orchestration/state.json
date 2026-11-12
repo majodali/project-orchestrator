@@ -1198,8 +1198,25 @@
       "kind": "work",
       "title": "Service package installs on Windows",
       "outcome": "npm ci of a repository that depends on the service package succeeds on Windows: the package's install step starts the compiler with Node directly, never through npm or a shell.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
+      "id": "P4-N018",
+      "kind": "check",
+      "title": "Verification of Service package installs on Windows",
+      "outcome": "P4-N016 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N016",
       "after": [],
       "hold": null,
       "start": "auto",
@@ -3456,7 +3473,7 @@
       "id": "T126",
       "node": "P4-N016",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -3464,11 +3481,11 @@
         "out": null
       },
       "opened": "2026-11-12T16:27:47Z",
-      "closed": null,
+      "closed": "2026-11-12T16:28:31Z",
       "base": "854c0e638e449574c54887e97cd36a2eaf0b90a9",
       "ref": null,
-      "pr": null,
-      "summary": "The prepare script starts the TypeScript compiler with Node directly instead of through npm.",
+      "pr": "majodali/project-orchestrator-service#40",
+      "summary": "The prepare script starts the compiler with Node by path, never through npm or a shell, and accepts the tsc.cmd entry. Not run on Windows.",
       "notes": null
     },
     {
