@@ -15,11 +15,11 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Re-plan, prune and hand back (P4-N008) [planned]
-- Session hooks run on Windows (P4-N017) [specified]
 
 ## In flight
 
 - Service package installs on Windows (P4-N016) [executing] — T126
+- Session hooks run on Windows (P4-N017) [executing] — T127
 
 ## In progress, children carry the work
 
@@ -272,7 +272,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Service package installs on Windows** (P4-N016, executing)
   npm ci of a repository that depends on the service package succeeds on Windows: the package's install step starts the compiler with Node directly, never through npm or a shell.
   [plan](plans/rebuild.md)
-- **Session hooks run on Windows** (P4-N017, specified)
+- **Session hooks run on Windows** (P4-N017, executing)
   The session start hook and the cost hook are Node scripts that need only node and git on the path, registered in a form that works under Git Bash and PowerShell.
   [plan](plans/rebuild.md)
 

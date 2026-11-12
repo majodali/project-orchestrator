@@ -1215,7 +1215,7 @@
       "kind": "work",
       "title": "Session hooks run on Windows",
       "outcome": "The session start hook and the cost hook are Node scripts that need only node and git on the path, registered in a form that works under Git Bash and PowerShell.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -3469,6 +3469,25 @@
       "ref": null,
       "pr": null,
       "summary": "The prepare script starts the TypeScript compiler with Node directly instead of through npm.",
+      "notes": null
+    },
+    {
+      "id": "T127",
+      "node": "P4-N017",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-12T16:27:52Z",
+      "closed": null,
+      "base": "6a30e0f5b732cf09d9c953909c13ca51974de1e1",
+      "ref": null,
+      "pr": null,
+      "summary": "The session start hook rewritten as a Node script; both hooks registered in a form that works under Git Bash and PowerShell.",
       "notes": null
     }
   ],
