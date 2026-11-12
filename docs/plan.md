@@ -31,6 +31,7 @@ Gated nodes:
 
 - Coordination between enlisted sessions (P2-N004) [identified] — after Migration onto the service and pilot on methodology-tools (P2-N006)
 - Pruned document set (P4-N024) [specified] — after Re-plan of the remaining nodes (P4-N022), Role agents on the task loop (P4-N023)
+- README and generated Backlog (P4-N025) [specified] — after Pruned document set (P4-N024)
 
 ## Blocked
 
@@ -268,6 +269,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **Pruned document set** (P4-N024, specified)
     docs/ holds what the service and plan-state enforce, one "how we work" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.
     after P4-N022, P4-N023 · [plan](plans/rebuild.md)
+  - **README and generated Backlog** (P4-N025, specified)
+    The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
+    after P4-N024 · [plan](plans/rebuild.md)
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)

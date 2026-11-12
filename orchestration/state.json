@@ -1143,6 +1143,25 @@
       "note": null
     },
     {
+      "id": "P4-N025",
+      "kind": "work",
+      "title": "README and generated Backlog",
+      "outcome": "The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.",
+      "stage": "specified",
+      "parent": "P4-N008",
+      "after": [
+        "P4-N024"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
       "id": "P4-N010",
       "kind": "work",
       "title": "Task cost capture",
