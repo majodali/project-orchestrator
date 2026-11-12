@@ -630,6 +630,25 @@ message can be missed; a task opened in one session and closed in
 another is not measured; and repository hooks do not run in
 multi-repository cloud sessions or in cloud project threads.
 
+### A session's write needs a task
+
+The service refuses a session's write to a node or a decision
+(`node_update`, `node_add`, `node_remove`, `decision_open`,
+`decision_close`) unless the call names the open task it is part of
+(owner, 2026-11-12). The one exception is a change the owner dictated
+to the session, which carries the owner's words as `ownerInstruction`;
+being asked to work on a node is not that. The commit message and the
+journal event say which it was. The loop's own tools and the view's
+actions, which are the owner's, are unchanged.
+
+A pull request that changes one of the four files the service owns
+fails this repository's checks.
+
+What this does not do: every caller holds the same token, so
+`ownerInstruction` rests on the session's honesty, not on a
+credential. A separate owner credential would close that and is not
+built.
+
 ### What a session is told
 
 The service's MCP instructions carry the protocol to every session
@@ -875,6 +894,9 @@ file's decisions, not an edit here.
     not estimate it. Owner, 2026-11-11.
 18. The plugin's form checker is not a CI check; `plan-state check`
     is the one validity rule. Owner, 2026-11-11.
+19. A session's write to a node or a decision needs an open task, or
+    the owner's dictated words; a pull request may not change the
+    files the service owns. Owner, 2026-11-12.
 
 ## Risks
 

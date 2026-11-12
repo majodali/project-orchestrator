@@ -30,6 +30,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          # Two commits, so that the step below can compare a pull
+          # request's merge commit with its first parent, the base.
+          fetch-depth: 2
+      # A pull request must not change the four files the orchestration
+      # service owns (owner, 2026-11-12): the service is their only
+      # writer, one commit per change on main, and a hand edit in a
+      # branch conflicts with it and escapes its checks. On a pull
+      # request the checkout is the merge of the branch into its base,
+      # so the difference to the first parent is what the pull request
+      # itself changes; main's own later commits are not counted.
+      - name: Service-owned files untouched
+        if: github.event_name == 'pull_request'
+        run: |
+          changed="$(git diff --name-only HEAD^1 HEAD -- orchestration/state.json orchestration/journal.jsonl docs/plan.md docs/plan-register.md)"
+          if [ -n "$changed" ]; then
+            echo "This pull request changes files only the orchestration service writes:"
+            echo "$changed"
+            echo "Change the plan through the service's tools, under a task. See CLAUDE.md."
+            exit 1
+          fi
+          echo "No service-owned file is changed."
       - name: Set up Node.js
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
