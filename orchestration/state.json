@@ -3292,6 +3292,25 @@
       "pr": "majodali/project-orchestrator-service#38",
       "summary": "task_cost records tokens by type, model and source; eleven tools. The measuring hook is in orchestrator pull request 38, run over a real transcript.",
       "notes": null
+    },
+    {
+      "id": "T123",
+      "node": "P4-N008",
+      "step": "plan",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-12T06:26:32Z",
+      "closed": null,
+      "base": "2f6c434a260ffb23016434c4ab7207ade9ae6fda",
+      "ref": null,
+      "pr": null,
+      "summary": "Revise the M6 section of docs/plans/rebuild.md into child nodes with outcomes, dependencies and criteria.",
+      "notes": null
     }
   ],
   "decisions": [
