@@ -1209,6 +1209,23 @@
       },
       "done": null,
       "note": null
+    },
+    {
+      "id": "P4-N017",
+      "kind": "work",
+      "title": "Session hooks run on Windows",
+      "outcome": "The session start hook and the cost hook are Node scripts that need only node and git on the path, registered in a form that works under Git Bash and PowerShell.",
+      "stage": "specified",
+      "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     }
   ],
   "tasks": [
