@@ -3922,8 +3922,8 @@
       "question": "Keep the P3 line held at P3-N001 with no new 'process research' node (the hold is the park)?",
       "options": [],
       "default": "yes, keep the hold; no new node",
-      "chosen": null,
-      "decided": null,
+      "chosen": "yes, keep the hold; no new node",
+      "decided": "2026-11-12",
       "rationale": "Asked by T123 at close.",
       "standing": false,
       "source": null
