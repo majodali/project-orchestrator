@@ -33,6 +33,7 @@ Gated nodes:
 - Coordination between enlisted sessions (P2-N004) [identified] — after Migration onto the service and pilot on methodology-tools (P2-N006)
 - Pruned document set (P4-N024) [specified] — after Re-plan of the remaining nodes (P4-N022), Role agents on the task loop (P4-N023)
 - README and generated Backlog (P4-N025) [specified] — after Pruned document set (P4-N024)
+- Pilot enlistment of methodology-tools (P4-N027) [specified] — after Re-plan of the remaining nodes (P4-N022), Pruned document set (P4-N024)
 
 ## Blocked
 
@@ -276,6 +277,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **Upstream proposals batch** (P4-N026, specified)
     Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.
     [plan](plans/rebuild.md)
+  - **Pilot enlistment of methodology-tools** (P4-N027, specified)
+    methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
+    after P4-N022, P4-N024 · [plan](plans/rebuild.md)
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)

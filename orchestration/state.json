@@ -1179,6 +1179,26 @@
       "note": null
     },
     {
+      "id": "P4-N027",
+      "kind": "work",
+      "title": "Pilot enlistment of methodology-tools",
+      "outcome": "methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.",
+      "stage": "specified",
+      "parent": "P4-N008",
+      "after": [
+        "P4-N022",
+        "P4-N024"
+      ],
+      "hold": null,
+      "start": "approve",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
       "id": "P4-N010",
       "kind": "work",
       "title": "Task cost capture",
