@@ -1384,25 +1384,6 @@
       "note": "Chunk 5 of the parent plan; depends on P2-N005 and on P2-N021, the web view's first version, done 2026-11-03, not on P2-N003 as a whole (owner, 2026-10-29)"
     },
     {
-      "id": "P2-N004",
-      "kind": "work",
-      "title": "Coordination between enlisted sessions",
-      "outcome": null,
-      "stage": "identified",
-      "parent": "P2-N001",
-      "after": [
-        "P2-N006"
-      ],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": null,
-        "spec": null
-      },
-      "done": null,
-      "note": "Chunk 3 of the parent plan; after P2-N006, built only on a shown need (owner, 2026-10-29)"
-    },
-    {
       "id": "P2-N025",
       "kind": "work",
       "title": "Faster writes, a bounded journal and a deploy write test",
