@@ -33,13 +33,13 @@ Gated nodes:
 - Pruned document set (P4-N024) [specified] — after Re-plan of the remaining nodes (P4-N022), Role agents on the task loop (P4-N023)
 - README and generated Backlog (P4-N025) [specified] — after Pruned document set (P4-N024)
 - Pilot enlistment of methodology-tools (P4-N027) [specified] — after Re-plan of the remaining nodes (P4-N022), Pruned document set (P4-N024)
+- Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
 
 ## Blocked
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused under the rebuild plan's decision 1 (D005) until milestone 6 re-plans the line
-- Migration onto the service and pilot on methodology-tools (P2-N006) [identified] — Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11)
 
 ## Paused by a hold or a park above
 
@@ -296,9 +296,10 @@ Documents: [plan](plans/orchestration-service.md).
     At V30 the owner decided that the web view does not replace docs/plan.md yet.
     after P2-N021 · [plan](plans/p2-n023-web-view-ux-refinement.md)
     Note: Iterations 1 to 3 accepted 2026-11-03; the owner ended the loop on 2026-11-07, and the rebuild's milestone 2 superseded the view (owner, 2026-11-10)
-- **Migration onto the service and pilot on methodology-tools** (P2-N006, identified, blocked: Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11))
-  after P2-N021, P2-N003
-  Note: Chunk 5 of the parent plan; depends on P2-N005 and on P2-N021, the web view's first version, done 2026-11-03, not on P2-N003 as a whole (owner, 2026-10-29)
+- **Pilot on methodology-tools: sessions on the task loop** (P2-N006, identified)
+  Sessions on methodology-tools take and close their work through the task loop, with the session start hook and the task-cost hook installed there.
+  after P4-N027
+  Note: Re-planned by T131 (P4-N022). The migration onto the service is delivered by the rebuild, and the enlistment and import by P4-N027. What remains is the adoption that P4-N027 leaves to a separate node (RU-017). It writes to majodali/methodology-tools, which needs a new grant (D065 covers P4-N027 only), so it starts on approval.
 - **Faster writes, a bounded journal and a deploy write test** (P2-N025, identified)
   A state write returns faster, the journal stops growing without bound, and the deploy check proves a write end to end: the review's service findings (D068).
   after P4-N008

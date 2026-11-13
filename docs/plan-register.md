@@ -76,6 +76,6 @@ Dependencies are in the state file, not in sibling order.
   - P2-N003 [done] Owner questions and the plan view — plan: plans/p2-n003-owner-questions-and-plan-view.md · spec: specs/p2-n003-owner-questions-and-plan-view.md
     - P2-N021 [done] Web view v1 — spec: specs/p2-n003-owner-questions-and-plan-view.md
     - P2-N023 [done] Web view UX refinement — plan: plans/p2-n023-web-view-ux-refinement.md
-  - P2-N006 [identified] [blocked: Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11)] Migration onto the service and pilot on methodology-tools
+  - P2-N006 [identified] Pilot on methodology-tools: sessions on the task loop
   - P2-N025 [identified] Faster writes, a bounded journal and a deploy write test
   - P2-N026 [identified] Several projects and repositories in one instance

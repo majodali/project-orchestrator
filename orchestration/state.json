@@ -1363,25 +1363,21 @@
     {
       "id": "P2-N006",
       "kind": "work",
-      "title": "Migration onto the service and pilot on methodology-tools",
-      "outcome": null,
+      "title": "Pilot on methodology-tools: sessions on the task loop",
+      "outcome": "Sessions on methodology-tools take and close their work through the task loop, with the session start hook and the task-cost hook installed there.",
       "stage": "identified",
       "parent": "P2-N001",
       "after": [
-        "P2-N021",
-        "P2-N003"
+        "P4-N027"
       ],
-      "hold": {
-        "kind": "blocked",
-        "reason": "Held until the rebuild's milestone 6 (P4-N008) re-plans it; milestone 6 starts the pilot on methodology-tools (owner, 2026-11-11)"
-      },
-      "start": "auto",
+      "hold": null,
+      "start": "approve",
       "docs": {
         "plan": null,
         "spec": null
       },
       "done": null,
-      "note": "Chunk 5 of the parent plan; depends on P2-N005 and on P2-N021, the web view's first version, done 2026-11-03, not on P2-N003 as a whole (owner, 2026-10-29)"
+      "note": "Re-planned by T131 (P4-N022). The migration onto the service is delivered by the rebuild, and the enlistment and import by P4-N027. What remains is the adoption that P4-N027 leaves to a separate node (RU-017). It writes to majodali/methodology-tools, which needs a new grant (D065 covers P4-N027 only), so it starts on approval."
     },
     {
       "id": "P2-N025",
