@@ -794,7 +794,7 @@
       "kind": "work",
       "title": "Re-plan of the remaining nodes",
       "outcome": "Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N008",
       "after": [],
       "hold": null,
@@ -803,7 +803,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-13",
       "note": null
     },
     {
@@ -811,7 +811,7 @@
       "kind": "check",
       "title": "Verification of Re-plan of the remaining nodes",
       "outcome": "P4-N022 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N022",
       "after": [],
       "hold": null,
@@ -820,7 +820,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-13",
       "note": null
     },
     {
@@ -3803,7 +3803,7 @@
       "id": "T132",
       "node": "P4-N028",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": null,
       "tokens": {
@@ -3811,11 +3811,11 @@
         "out": null
       },
       "opened": "2026-11-13T18:31:23Z",
-      "closed": null,
+      "closed": "2026-11-13T18:32:02Z",
       "base": "75527d2a55960cf558958633e207ce5292aa5e54",
       "ref": null,
-      "pr": null,
-      "summary": "Verify P4-N022 against its seven criteria in docs/plans/rebuild.md, checking orchestration/state.json on origin/main and pull request #49.",
+      "pr": "majodali/project-orchestrator#49",
+      "summary": "All seven criteria met on main at a42d431. P2-N004 absent; P2-N006 re-planned after P4-N027, no hold (owner-confirmed, not its parent); P3-N001 hold names D005/D063; P3-N020 and P3-N008 carry the covering note; P1-N001 verifying, P2-N001 keeps three wanted nodes; the four null outcomes are paused; plan-state check 0 violations, 0 warnings.",
       "notes": null
     }
   ],

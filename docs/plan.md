@@ -19,21 +19,20 @@ Gated nodes:
 
 ## In flight
 
-- Verification of Re-plan of the remaining nodes (P4-N028) [specified] — T132
+None.
 
 ## In progress, children carry the work
 
 - Orchestrator v1: process specification and plugin (P1-N001) [verifying]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
-- Re-plan of the remaining nodes (P4-N022) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
 
-- Pruned document set (P4-N024) [specified] — after Re-plan of the remaining nodes (P4-N022), Role agents on the task loop (P4-N023)
+- Pruned document set (P4-N024) [specified] — after Role agents on the task loop (P4-N023)
 - README and generated Backlog (P4-N025) [specified] — after Pruned document set (P4-N024)
-- Pilot enlistment of methodology-tools (P4-N027) [specified] — after Re-plan of the remaining nodes (P4-N022), Pruned document set (P4-N024)
+- Pilot enlistment of methodology-tools (P4-N027) [specified] — after Pruned document set (P4-N024)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
@@ -212,18 +211,15 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Re-plan, prune and hand back** (P4-N008, broken-down)
   The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.
   after P4-N007 · [plan](plans/rebuild.md)
-  - **Re-plan of the remaining nodes** (P4-N022, verifying)
+  - **Re-plan of the remaining nodes** (P4-N022, done 2026-11-13)
     Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.
     [plan](plans/rebuild.md)
-    - check: **Verification of Re-plan of the remaining nodes** (P4-N028, specified)
-      P4-N022 is verified against its outcome.
-      [plan](plans/rebuild.md)
   - **Role agents on the task loop** (P4-N023, specified)
     The planner, implementer and reviewer agents describe the work as the task loop runs it, and the orchestrator, auditor and semantic-auditor roles and the orchestrate skill are archived.
     [plan](plans/rebuild.md)
   - **Pruned document set** (P4-N024, specified)
     docs/ holds what the service and plan-state enforce, one "how we work" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.
-    after P4-N022, P4-N023 · [plan](plans/rebuild.md)
+    after P4-N023 · [plan](plans/rebuild.md)
   - **README and generated Backlog** (P4-N025, specified)
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
     after P4-N024 · [plan](plans/rebuild.md)
@@ -232,7 +228,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     [plan](plans/rebuild.md)
   - **Pilot enlistment of methodology-tools** (P4-N027, specified)
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
-    after P4-N022, P4-N024 · [plan](plans/rebuild.md)
+    after P4-N024 · [plan](plans/rebuild.md)
     Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
