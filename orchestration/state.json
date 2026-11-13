@@ -917,6 +917,23 @@
       "note": "The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026)."
     },
     {
+      "id": "P4-N029",
+      "kind": "work",
+      "title": "Scratch node for the planner trial",
+      "outcome": null,
+      "stage": "identified",
+      "parent": "P4-N008",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Throwaway node for the trial P4-N023 asks for; removed when the trial ends. Subject to plan: a one-line greeting printed by a script. Nothing is built, and the plan needs no file: its criteria go in the planner's last message."
+    },
+    {
       "id": "P4-N010",
       "kind": "work",
       "title": "Task cost capture",
