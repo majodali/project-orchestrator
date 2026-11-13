@@ -1405,7 +1405,7 @@
         "P4-N027"
       ],
       "hold": null,
-      "start": "approve",
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -3790,14 +3790,14 @@
         "cacheRead": 1228671,
         "cacheWrite": 44211
       },
+      "costSource": "transcript",
       "opened": "2026-11-13T18:22:17Z",
       "closed": "2026-11-13T18:24:25Z",
       "base": "d429fd5abc16ff87c4a22ee7fdd78d5d57e05b5a",
       "ref": "b128a32",
       "pr": "majodali/project-orchestrator#49",
       "summary": "P2-N004 removed (D064). P2-N006 re-planned as the pilot's adoption node after P4-N027, start on approval, hold lifted. P3-N001 hold names D005 and D063. P3-N020 and P3-N008 carry the covering note. P1-N001 entered verifying with check node P1-N017. plan-state check passes. The rebuild plan records each criterion.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
