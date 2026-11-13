@@ -3805,10 +3805,12 @@
       "step": "verify",
       "status": "closed",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 7,
+        "out": 3370,
+        "cacheRead": 419388,
+        "cacheWrite": 31998
       },
       "opened": "2026-11-13T18:31:23Z",
       "closed": "2026-11-13T18:32:02Z",
@@ -3816,7 +3818,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#49",
       "summary": "All seven criteria met on main at a42d431. P2-N004 absent; P2-N006 re-planned after P4-N027, no hold (owner-confirmed, not its parent); P3-N001 hold names D005/D063; P3-N020 and P3-N008 carry the covering note; P1-N001 verifying, P2-N001 keeps three wanted nodes; the four null outcomes are paused; plan-state check 0 violations, 0 warnings.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
