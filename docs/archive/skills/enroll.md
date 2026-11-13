@@ -1,3 +1,10 @@
+> **Status: archived 2026-11-13** (P4-N023, Role agents on the task
+> loop). Archived because the `enroll` skill set a project up for the
+> dispatch loop: a Plan register, a Cost log and a run journal by
+> hand. Enlistment in the orchestration service replaced it; its steps
+> go in the "how we work" page (P4-N024). Kept as a record; nothing
+> loads this file.
+
 ---
 name: enroll
 description: Enroll this methodology-managed project for orchestration - add the custom-definition citations to its Classification, seed the Plan register from its active plan, create the Cost log and run journal. Use when the owner asks to enroll or onboard a project.

@@ -370,27 +370,60 @@ work as the task loop runs it, and the orchestrator, auditor and
 semantic-auditor roles and the `orchestrate` skill are archived.
 Depends on: nothing.
 
-- [ ] Each remaining role agent opens with `task_open`, closes with
+- [x] Each remaining role agent opens with `task_open`, closes with
       `task_close`, and passes `session` on every call.
-- [ ] No role agent cites `docs/process/dispatch.md`, the Plan
+- [x] No role agent cites `docs/process/dispatch.md`, the Plan
       register, sequence mode, enumerated context packets, Backlog
-      entries or the Cost log as a duty.
-- [ ] Each role agent is at most 120 lines.
-- [ ] The planner agent states the plan step's deliverable: a revised
+      entries or the Cost log as a duty. The agents name
+      `docs/plan-register.md` only as a file the service owns.
+- [x] Each role agent is at most 120 lines: planner 110, implementer
+      94, reviewer 90.
+- [x] The planner agent states the plan step's deliverable: a revised
       plan document, a criteria list of at most 20 items, and `asks`
       with defaults.
-- [ ] The reviewer agent verifies against the node's criteria and
+- [x] The reviewer agent verifies against the node's criteria and
       outcome, as the check node's `verify` step runs.
-- [ ] `plugin/agents/` is regenerated with
+- [x] `plugin/agents/` is regenerated with
       `node plugin/scripts/sync_agents.ts`; its `--check` passes.
-- [ ] The `orchestrate` skill is removed from `plugin/skills/` and
+- [x] The `orchestrate` skill is removed from `plugin/skills/` and
       `plugin/README.md` and archived with a status line; `enroll`
-      is rewritten against child 3's page or removed.
-- [ ] The task-cost hook and the session start hook
+      is rewritten against child 3's page or removed. Both are in
+      `docs/archive/skills/`. `enroll` is removed, because child 3's
+      page does not exist yet; that page carries the enlistment steps.
+      The three retired roles are in `docs/archive/roles/`.
+- [x] The task-cost hook and the session start hook
       (`plugin/scripts/session_start.ts`) are unchanged and still run.
-- [ ] A fresh session using only the new agents completes one
+- [x] A fresh session using only the new agents completes one
       throwaway plan step on a scratch node without an instruction
-      the agents do not carry; the result is recorded.
+      the agents do not carry; the result is recorded. Recorded
+      below.
+
+Executed 2026-11-13 (task T134 on P4-N023). The agents now list the
+service's tools in `tools`, because an agent with a tool list reaches
+no other tool. The `journal-tail` skill is not in the criteria and
+stays as it was.
+
+The trial, 2026-11-13. Method: a scratch node, P4-N029, was added
+under P4-N008 at `identified`, with a note giving a subject to plan
+and saying that the plan needs no file. A fresh agent with no other
+context was given two sentences: read `.claude/agents/planner.md` as
+its whole instruction, and take the plan step on P4-N029. Result: it
+claimed the node with `task_open` (task T135), delivered a title, an
+outcome and six criteria, closed with `task_close` without a pull
+request, passed `session` on each write, and reported in four parts.
+The node moved to `planned`. P4-N029 was then removed. Conclusion:
+the step completed without an added instruction. Limits: the agent
+was a subagent of the implementer's session, not a separate session,
+so it also saw this repository's `CLAUDE.md` and the service's own
+instructions, as any session here does. The trial did not exercise
+the plan document or a pull request: the note excluded them, to keep
+scratch text off `main`. The agent named seven points it had to
+settle itself. Three were closed in the agents afterwards: a note
+that says no file wins over the document deliverable, a fitting title
+is kept, and an agent started by another agent uses that session's
+identifier. Four stand: which optional fields `task_open` takes,
+whether a plan step fixes file paths, how far the planner frames the
+subject, and who "the person" is for a subagent.
 
 **3. Pruned document set** (P4-N024)
 Outcome: `docs/` holds what the service and `plan-state` enforce, one

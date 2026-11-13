@@ -1,3 +1,9 @@
+> **Status: archived 2026-11-13** (P4-N023, Role agents on the task
+> loop). Archived because the orchestrator role ran the dispatch loop,
+> which the rebuild suspended. The orchestration service's task loop
+> (`task_next`, `task_open`, `task_close`) replaced it; no session
+> plays this role. Kept as a record; nothing loads this file.
+
 ---
 name: orchestrator
 description: Runs the orchestration dispatch loop on a methodology-managed project within owner-approved scope. Low-judgment only - dispatches role agents, maintains the Plan register and Cost log, writes the run journal. Use via the orchestrate skill.

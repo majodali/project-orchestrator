@@ -7,7 +7,7 @@
     {
       "name": "orchestrator",
       "source": "./plugin",
-      "description": "Role-based orchestration of methodology-managed projects: dispatch loop, role agents, form checker, run journal."
+      "description": "Role agents for methodology-managed projects on the orchestration service's task loop: planner, implementer, reviewer."
     }
   ]
 }

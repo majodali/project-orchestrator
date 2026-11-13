@@ -1,3 +1,9 @@
+> **Status: archived 2026-11-13** (P4-N023, Role agents on the task
+> loop). Archived because the `orchestrate` skill started the dispatch
+> loop, suspended on 2026-11-09. A session now takes work through the
+> service's task loop, as the role agents in `.claude/agents/`
+> describe. Kept as a record; nothing loads this file.
+
 ---
 name: orchestrate
 description: Run an orchestration session on this methodology-managed project - gather owner-approved scope, spawn the frugal-tier orchestrator agent to run the dispatch loop, and relay its gate summary. Use when the owner asks to orchestrate, dispatch, or continue orchestrated work.
