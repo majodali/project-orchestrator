@@ -3878,6 +3878,25 @@
       "pr": null,
       "summary": "Rewrite the planner, implementer and reviewer agents for the task loop, archive the orchestrator, auditor and semantic-auditor roles and the orchestrate skill, regenerate plugin/agents, and record a throwaway plan step run with only the new agents.",
       "notes": null
+    },
+    {
+      "id": "T135",
+      "node": "P4-N029",
+      "step": "plan",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-13T18:44:12Z",
+      "closed": null,
+      "base": "7d5add3994561e8c3137ace372ac261a617e149d",
+      "ref": null,
+      "pr": null,
+      "summary": "Plan the scratch node: title, outcome and criteria for a script that prints a one-line greeting. No file is written; the criteria go in the last message, as the node's note says.",
+      "notes": null
     }
   ],
   "decisions": [

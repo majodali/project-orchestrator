@@ -15,11 +15,11 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Upstream proposals batch (P4-N026) [specified]
-- Scratch node for the planner trial (P4-N029) [identified]
 
 ## In flight
 
 - Role agents on the task loop (P4-N023) [executing] — T134
+- Scratch node for the planner trial (P4-N029) [identified] — T135
 
 ## In progress, children carry the work
 
