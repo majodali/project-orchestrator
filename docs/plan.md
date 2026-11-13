@@ -23,7 +23,7 @@ Gated nodes:
 
 ## In progress, children carry the work
 
-- Orchestrator v1: process specification and plugin (P1-N001) [broken-down]
+- Orchestrator v1: process specification and plugin (P1-N001) [verifying]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
@@ -56,7 +56,7 @@ Gated nodes:
 
 ### Orchestrator v1: process specification and plugin (P1-N001)
 
-Stage: broken-down, in progress, its children carry the work.
+Stage: verifying, in progress, its children carry the work.
 
 A process specification and a Claude Code plugin run role-based agent sessions through the methodology on managed projects, at the least cost that does the job.
 

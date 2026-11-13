@@ -7,7 +7,7 @@
       "kind": "work",
       "title": "Orchestrator v1: process specification and plugin",
       "outcome": "A process specification and a Claude Code plugin run role-based agent sessions through the methodology on managed projects, at the least cost that does the job.",
-      "stage": "broken-down",
+      "stage": "verifying",
       "parent": null,
       "after": [],
       "hold": null,
@@ -239,6 +239,23 @@
       },
       "done": "2026-11-05",
       "note": "plan gate crossed 2026-11-03, the plan's criteria are its specification (decision 2); does not wait on P3-N009 (decision 3); E1 (T103) accepted 2026-11-03, E2 (T104) accepted 2026-11-05 under the owner's rulings A26 to A28; verifying gate crossed 2026-11-08"
+    },
+    {
+      "id": "P1-N017",
+      "kind": "check",
+      "title": "Verification of Orchestrator v1: process specification and plugin",
+      "outcome": "P1-N001 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P1-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/orchestrator-v1.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P3-N001",
