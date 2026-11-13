@@ -794,8 +794,25 @@
       "kind": "work",
       "title": "Re-plan of the remaining nodes",
       "outcome": "Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N008",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
+      "id": "P4-N028",
+      "kind": "check",
+      "title": "Verification of Re-plan of the remaining nodes",
+      "outcome": "P4-N022 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N022",
       "after": [],
       "hold": null,
       "start": "auto",
@@ -3764,7 +3781,7 @@
       "id": "T131",
       "node": "P4-N022",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -3772,11 +3789,11 @@
         "out": null
       },
       "opened": "2026-11-13T18:22:17Z",
-      "closed": null,
+      "closed": "2026-11-13T18:24:25Z",
       "base": "d429fd5abc16ff87c4a22ee7fdd78d5d57e05b5a",
-      "ref": null,
-      "pr": null,
-      "summary": "Execute the re-plan of the remaining nodes as the node's specification defines it, on branch claude/zealous-einstein-1rw9kw, and open a pull request for the service to merge.",
+      "ref": "b128a32",
+      "pr": "majodali/project-orchestrator#49",
+      "summary": "P2-N004 removed (D064). P2-N006 re-planned as the pilot's adoption node after P4-N027, start on approval, hold lifted. P3-N001 hold names D005 and D063. P3-N020 and P3-N008 carry the covering note. P1-N001 entered verifying with check node P1-N017. plan-state check passes. The rebuild plan records each criterion.",
       "notes": null
     }
   ],

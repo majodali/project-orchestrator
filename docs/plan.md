@@ -19,13 +19,14 @@ Gated nodes:
 
 ## In flight
 
-- Re-plan of the remaining nodes (P4-N022) [executing] — T131
+None.
 
 ## In progress, children carry the work
 
 - Orchestrator v1: process specification and plugin (P1-N001) [verifying]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
+- Re-plan of the remaining nodes (P4-N022) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
@@ -211,7 +212,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Re-plan, prune and hand back** (P4-N008, broken-down)
   The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.
   after P4-N007 · [plan](plans/rebuild.md)
-  - **Re-plan of the remaining nodes** (P4-N022, executing)
+  - **Re-plan of the remaining nodes** (P4-N022, verifying)
     Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.
     [plan](plans/rebuild.md)
   - **Role agents on the task loop** (P4-N023, specified)
