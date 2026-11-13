@@ -3827,10 +3827,12 @@
       "step": "verify",
       "status": "closed",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 10,
+        "out": 2638,
+        "cacheRead": 637754,
+        "cacheWrite": 14145
       },
       "opened": "2026-11-13T18:32:23Z",
       "closed": "2026-11-13T18:32:54Z",
@@ -3838,7 +3840,8 @@
       "ref": null,
       "pr": null,
       "summary": "P1-N001 verified. All nine work children and four grandchildren are done. docs/process/ holds the specification; the plugin, marketplace file and six role agents exist and sync_agents --check passes; the journal records 113 accepted tasks self-hosted. Pilot and cost reporting (P1-N006, P1-N007) were removed by owner decision 12. Residual: orchestrator-v1.md still reads Status: active.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
