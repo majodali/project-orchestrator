@@ -19,7 +19,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Verification of Re-plan of the remaining nodes (P4-N028) [specified] — T132
 
 ## In progress, children carry the work
 
@@ -215,6 +215,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **Re-plan of the remaining nodes** (P4-N022, verifying)
     Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.
     [plan](plans/rebuild.md)
+    - check: **Verification of Re-plan of the remaining nodes** (P4-N028, specified)
+      P4-N022 is verified against its outcome.
+      [plan](plans/rebuild.md)
   - **Role agents on the task loop** (P4-N023, specified)
     The planner, implementer and reviewer agents describe the work as the task loop runs it, and the orchestrator, auditor and semantic-auditor roles and the orchestrate skill are archived.
     [plan](plans/rebuild.md)
