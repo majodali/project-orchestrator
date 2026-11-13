@@ -19,7 +19,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Verification of Orchestrator v1: process specification and plugin (P1-N017) [specified] — T133
 
 ## In progress, children carry the work
 
@@ -98,6 +98,9 @@ Documents: [plan](plans/orchestrator-v1.md).
   Every Backlog row routed to this node is either landed in the process specification, or closed with a stated reason.
   [plan](plans/p1-n016-process-spec-maintenance.md)
   Note: plan gate crossed 2026-11-03, the plan's criteria are its specification (decision 2); does not wait on P3-N009 (decision 3); E1 (T103) accepted 2026-11-03, E2 (T104) accepted 2026-11-05 under the owner's rulings A26 to A28; verifying gate crossed 2026-11-08
+- check: **Verification of Orchestrator v1: process specification and plugin** (P1-N017, specified)
+  P1-N001 is verified against its outcome.
+  [plan](plans/orchestrator-v1.md)
 
 ### Project comprehension and continuous implementation (P3-N001)
 
