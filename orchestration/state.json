@@ -3888,10 +3888,12 @@
       "step": "verify",
       "status": "closed",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 17,
+        "out": 8174,
+        "cacheRead": 989024,
+        "cacheWrite": 42660
       },
       "opened": "2026-11-13T18:58:33Z",
       "closed": "2026-11-13T19:00:28Z",
@@ -3899,7 +3901,8 @@
       "ref": null,
       "pr": null,
       "summary": "All nine criteria of P4-N023 and its outcome are met on pull request #50 at 6d98a90. Agents are 110, 94 and 90 lines; sync check, 95 tests and plan-state check pass; hooks are unchanged. The trial's record matches the journal (T135); met under RU-019, with its limits stated.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
