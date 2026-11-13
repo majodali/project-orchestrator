@@ -14,13 +14,12 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- Re-plan of the remaining nodes (P4-N022) [specified]
 - Role agents on the task loop (P4-N023) [specified]
 - Upstream proposals batch (P4-N026) [specified]
 
 ## In flight
 
-None.
+- Re-plan of the remaining nodes (P4-N022) [executing] — T131
 
 ## In progress, children carry the work
 
@@ -213,7 +212,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Re-plan, prune and hand back** (P4-N008, broken-down)
   The remaining nodes are re-planned in the state file, the document set is pruned, the upstream proposals go in one batch, and the pilot on methodology-tools starts.
   after P4-N007 · [plan](plans/rebuild.md)
-  - **Re-plan of the remaining nodes** (P4-N022, specified)
+  - **Re-plan of the remaining nodes** (P4-N022, executing)
     Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.
     [plan](plans/rebuild.md)
   - **Role agents on the task loop** (P4-N023, specified)

@@ -777,7 +777,7 @@
       "kind": "work",
       "title": "Re-plan of the remaining nodes",
       "outcome": "Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N008",
       "after": [],
       "hold": null,
@@ -3764,6 +3764,25 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#45",
       "summary": "P4-N008 broken into six specified children, P4-N022 to P4-N027, with dependencies; child 6 starts on approval and waits on D067. M6 in rebuild.md carries each identifier beside its criteria list and the amendments to children 1 to 6.",
+      "notes": null
+    },
+    {
+      "id": "T131",
+      "node": "P4-N022",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-13T18:22:17Z",
+      "closed": null,
+      "base": "d429fd5abc16ff87c4a22ee7fdd78d5d57e05b5a",
+      "ref": null,
+      "pr": null,
+      "summary": "Execute the re-plan of the remaining nodes as the node's specification defines it, on branch claude/zealous-einstein-1rw9kw, and open a pull request for the service to merge.",
       "notes": null
     }
   ],
