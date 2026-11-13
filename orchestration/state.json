@@ -333,7 +333,7 @@
         "spec": "docs/specs/p3-n002-comprehension-model.md"
       },
       "done": null,
-      "note": "depends on P3-N007 for its executing stage (P3-N007 decision 9), done 2026-10-30"
+      "note": "The hold on P3-N001 covers this node: its own gate is not asked of the owner until the P3 line resumes (D005, D063)."
     },
     {
       "id": "P3-N009",

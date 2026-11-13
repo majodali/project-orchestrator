@@ -121,7 +121,7 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
   - **Project model instance for this repository** (P3-N008, planned, gated: owner review of the plan)
     The instance describes every current part of the project.
     after P3-N007 · [plan](plans/p3-n008-instance-over-this-repository.md), [spec](specs/p3-n002-comprehension-model.md)
-    Note: depends on P3-N007 for its executing stage (P3-N007 decision 9), done 2026-10-30
+    Note: The hold on P3-N001 covers this node: its own gate is not asked of the owner until the P3 line resumes (D005, D063).
   - **Replacement of sibling ordering by recorded dependencies** (P3-N009, identified)
     after P3-N008
     Note: depends on P3-N008
