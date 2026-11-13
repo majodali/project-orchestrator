@@ -714,7 +714,11 @@ checkout when that is on `main` with nothing uncommitted, because
 Claude Code reads the repository's hooks and settings from there, and
 a stale one ran a session without them. It never changes a work
 branch, never discards anything, and says plainly what it could not
-bring up to date. Then it prints the plan's brief
+bring up to date. In a cloud session, and only there, it then
+installs this repository's dependencies with `npm ci` when they are
+missing (owner, 2026-11-13; `plugin/scripts/lib/cloud-install.ts`): the
+clone is fresh, and without them the plan could not be read. Then it
+prints the plan's brief
 (`plugin/scripts/lib/session-brief.ts`), read from `origin/main` with the
 service's own model code: the tasks on offer with step and role, what
 is in flight, and what waits on the owner.
