@@ -919,9 +919,9 @@
     {
       "id": "P4-N029",
       "kind": "work",
-      "title": "Scratch node for the planner trial",
-      "outcome": null,
-      "stage": "identified",
+      "title": "One-line greeting script",
+      "outcome": "Running the greeting script with Node prints exactly one line, \"Hello from the project orchestrator.\", to standard output and exits with code 0.",
+      "stage": "planned",
       "parent": "P4-N008",
       "after": [],
       "hold": null,
@@ -3883,7 +3883,7 @@
       "id": "T135",
       "node": "P4-N029",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -3891,11 +3891,11 @@
         "out": null
       },
       "opened": "2026-11-13T18:44:12Z",
-      "closed": null,
+      "closed": "2026-11-13T18:44:31Z",
       "base": "7d5add3994561e8c3137ace372ac261a617e149d",
       "ref": null,
       "pr": null,
-      "summary": "Plan the scratch node: title, outcome and criteria for a script that prints a one-line greeting. No file is written; the criteria go in the last message, as the node's note says.",
+      "summary": "Planned the scratch node: title, outcome and six criteria for a script that prints a one-line greeting. No pull request and no plan document: the node's note says the plan needs no file and its criteria go in the planner's last message. No asks.",
       "notes": null
     }
   ],

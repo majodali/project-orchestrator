@@ -55,7 +55,7 @@ Dependencies are in the state file, not in sibling order.
     - P4-N025 [specified] README and generated Backlog — plan: plans/rebuild.md
     - P4-N026 [specified] Upstream proposals batch — plan: plans/rebuild.md
     - P4-N027 [specified] Pilot enlistment of methodology-tools — plan: plans/rebuild.md
-    - P4-N029 [identified] Scratch node for the planner trial
+    - P4-N029 [planned] One-line greeting script
   - P4-N010 [done] Task cost capture — plan: plans/rebuild.md
   - P4-N012 [done] Task required for session writes — plan: plans/rebuild.md
   - P4-N014 [done] Session start: current checkout and tasks on offer — plan: plans/rebuild.md

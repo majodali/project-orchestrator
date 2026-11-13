@@ -15,11 +15,11 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Upstream proposals batch (P4-N026) [specified]
+- One-line greeting script (P4-N029) [planned]
 
 ## In flight
 
 - Role agents on the task loop (P4-N023) [executing] — T134
-- Scratch node for the planner trial (P4-N029) [identified] — T135
 
 ## In progress, children carry the work
 
@@ -229,7 +229,8 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
     after P4-N024 · [plan](plans/rebuild.md)
     Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
-  - **Scratch node for the planner trial** (P4-N029, identified)
+  - **One-line greeting script** (P4-N029, planned)
+    Running the greeting script with Node prints exactly one line, "Hello from the project orchestrator.", to standard output and exits with code 0.
     Note: Throwaway node for the trial P4-N023 asks for; removed when the trial ends. Subject to plan: a one-line greeting printed by a script. Nothing is built, and the plan needs no file: its criteria go in the planner's last message.
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
