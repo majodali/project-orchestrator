@@ -917,23 +917,6 @@
       "note": "The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026)."
     },
     {
-      "id": "P4-N029",
-      "kind": "work",
-      "title": "One-line greeting script",
-      "outcome": "Running the greeting script with Node prints exactly one line, \"Hello from the project orchestrator.\", to standard output and exits with code 0.",
-      "stage": "planned",
-      "parent": "P4-N008",
-      "after": [],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": null,
-        "spec": null
-      },
-      "done": null,
-      "note": "Throwaway node for the trial P4-N023 asks for; removed when the trial ends. Subject to plan: a one-line greeting printed by a script. Nothing is built, and the plan needs no file: its criteria go in the planner's last message."
-    },
-    {
       "id": "P4-N010",
       "kind": "work",
       "title": "Task cost capture",
@@ -3878,25 +3861,6 @@
       "pr": null,
       "summary": "Rewrite the planner, implementer and reviewer agents for the task loop, archive the orchestrator, auditor and semantic-auditor roles and the orchestrate skill, regenerate plugin/agents, and record a throwaway plan step run with only the new agents.",
       "notes": null
-    },
-    {
-      "id": "T135",
-      "node": "P4-N029",
-      "step": "plan",
-      "status": "closed",
-      "role": "planner",
-      "model": null,
-      "tokens": {
-        "in": null,
-        "out": null
-      },
-      "opened": "2026-11-13T18:44:12Z",
-      "closed": "2026-11-13T18:44:31Z",
-      "base": "7d5add3994561e8c3137ace372ac261a617e149d",
-      "ref": null,
-      "pr": null,
-      "summary": "Planned the scratch node: title, outcome and six criteria for a script that prints a one-line greeting. No pull request and no plan document: the node's note says the plan needs no file and its criteria go in the planner's last message. No asks.",
-      "notes": null
     }
   ],
   "decisions": [
@@ -4530,7 +4494,8 @@
   ],
   "highWater": {
     "P2": 22,
-    "T": 102,
-    "D": 62
+    "T": 135,
+    "D": 62,
+    "P4": 29
   }
 }
