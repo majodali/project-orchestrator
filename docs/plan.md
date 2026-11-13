@@ -18,7 +18,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Verification of Role agents on the task loop (P4-N030) [specified] — T136
 
 ## In progress, children carry the work
 
@@ -216,6 +216,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **Role agents on the task loop** (P4-N023, verifying)
     The planner, implementer and reviewer agents describe the work as the task loop runs it, and the orchestrator, auditor and semantic-auditor roles and the orchestrate skill are archived.
     [plan](plans/rebuild.md)
+    - check: **Verification of Role agents on the task loop** (P4-N030, specified)
+      P4-N023 is verified against its outcome.
+      [plan](plans/rebuild.md)
   - **Pruned document set** (P4-N024, specified)
     docs/ holds what the service and plan-state enforce, one "how we work" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.
     after P4-N023 · [plan](plans/rebuild.md)
