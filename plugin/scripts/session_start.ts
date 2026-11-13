@@ -22,10 +22,17 @@
  * installed, and a checked-out `.sh` can carry CRLF line endings. This
  * needs only `node` and `git` on the path. It starts `git` directly,
  * never through a shell.
+ *
+ * In a cloud session (owner, 2026-11-13) it first installs this
+ * repository's dependencies when they are missing: the clone is fresh,
+ * so without them the plan could not be read and the person saw no
+ * summary. Nowhere else; see ./lib/cloud-install.ts for why.
  */
 
 import { execFileSync } from "node:child_process";
 import path from "node:path";
+
+import { installForCloud } from "./lib/cloud-install.ts";
 
 function git(dir: string, ...args: string[]): string {
   return execFileSync("git", ["-C", dir, ...args], {
@@ -122,6 +129,23 @@ async function main(): Promise<void> {
   }
   checkout.push(update(mainCheckout, "the main checkout"));
   if (!same(here, mainCheckout)) checkout.push(update(here, "this worktree"));
+
+  // A cloud session's clone has nothing installed. The dependencies
+  // belong to the repository this script is in, which is where Node
+  // resolves the imports below from.
+  const install = installForCloud(
+    process.env,
+    path.resolve(import.meta.dirname, "..", ".."),
+  );
+  if (install.kind === "installed") {
+    checkout.push(
+      "- dependencies were installed with `npm ci` (a cloud session starts without them).",
+    );
+  } else if (install.kind === "failed") {
+    checkout.push(
+      `- dependencies could not be installed: ${install.why}. Tell the person.`,
+    );
+  }
   const trouble = checkout.filter((l) => l.includes("Tell the person"));
 
   // The plan's brief, read from origin/main with the service's own

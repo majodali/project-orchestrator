@@ -82,8 +82,9 @@ to a node or a decision that is not under an open task. Never merge a
 pull request by hand that a task carries, because the
 service merges it when the result is accepted. A session start hook
 (`plugin/scripts/session_start.ts`) fetches `origin/main`, fast-forwards
-a clean checkout on `main`, shows the person a short summary on
-screen, and gives you the plan's brief. The person already sees that
+a clean checkout on `main`, runs `npm ci` in a cloud session that has
+no dependencies yet, shows the person a short summary on screen, and
+gives you the plan's brief. The person already sees that
 summary, so do not restate it: in your first reply name the task on
 offer you would take, and ask before claiming it. The founding plan is
 docs/plans/orchestrator-v1.md.
