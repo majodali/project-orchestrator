@@ -828,7 +828,7 @@
       "kind": "work",
       "title": "Role agents on the task loop",
       "outcome": "The planner, implementer and reviewer agents describe the work as the task loop runs it, and the orchestrator, auditor and semantic-auditor roles and the orchestrate skill are archived.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N008",
       "after": [],
       "hold": null,
@@ -3834,14 +3834,33 @@
         "cacheRead": 637754,
         "cacheWrite": 14145
       },
+      "costSource": "transcript",
       "opened": "2026-11-13T18:32:23Z",
       "closed": "2026-11-13T18:32:54Z",
       "base": "fa60c4bcccd5690e3d59d8757c30ed4698b1f8cf",
       "ref": null,
       "pr": null,
       "summary": "P1-N001 verified. All nine work children and four grandchildren are done. docs/process/ holds the specification; the plugin, marketplace file and six role agents exist and sync_agents --check passes; the journal records 113 accepted tasks self-hosted. Pilot and cost reporting (P1-N006, P1-N007) were removed by owner decision 12. Residual: orchestrator-v1.md still reads Status: active.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
+    },
+    {
+      "id": "T134",
+      "node": "P4-N023",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-13T18:40:57Z",
+      "closed": null,
+      "base": "829e0e365dec8b9b7acf364a63c613ff87a32dc7",
+      "ref": null,
+      "pr": null,
+      "summary": "Rewrite the planner, implementer and reviewer agents for the task loop, archive the orchestrator, auditor and semantic-auditor roles and the orchestrate skill, regenerate plugin/agents, and record a throwaway plan step run with only the new agents.",
+      "notes": null
     }
   ],
   "decisions": [
