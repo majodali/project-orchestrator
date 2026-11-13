@@ -18,12 +18,13 @@ Gated nodes:
 
 ## In flight
 
-- Role agents on the task loop (P4-N023) [executing] — T134
+None.
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
+- Role agents on the task loop (P4-N023) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
@@ -212,7 +213,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **Re-plan of the remaining nodes** (P4-N022, done 2026-11-13)
     Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.
     [plan](plans/rebuild.md)
-  - **Role agents on the task loop** (P4-N023, executing)
+  - **Role agents on the task loop** (P4-N023, verifying)
     The planner, implementer and reviewer agents describe the work as the task loop runs it, and the orchestrator, auditor and semantic-auditor roles and the orchestrate skill are archived.
     [plan](plans/rebuild.md)
   - **Pruned document set** (P4-N024, specified)

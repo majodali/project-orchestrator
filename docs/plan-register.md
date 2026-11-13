@@ -50,7 +50,7 @@ Dependencies are in the state file, not in sibling order.
   - P4-N007 [done] Minimal task loop — plan: plans/rebuild.md
   - P4-N008 [broken-down] Re-plan, prune and hand back — plan: plans/rebuild.md
     - P4-N022 [done] Re-plan of the remaining nodes — plan: plans/rebuild.md
-    - P4-N023 [executing] Role agents on the task loop — plan: plans/rebuild.md
+    - P4-N023 [verifying] Role agents on the task loop — plan: plans/rebuild.md
     - P4-N024 [specified] Pruned document set — plan: plans/rebuild.md
     - P4-N025 [specified] README and generated Backlog — plan: plans/rebuild.md
     - P4-N026 [specified] Upstream proposals batch — plan: plans/rebuild.md

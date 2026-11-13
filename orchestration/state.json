@@ -828,8 +828,25 @@
       "kind": "work",
       "title": "Role agents on the task loop",
       "outcome": "The planner, implementer and reviewer agents describe the work as the task loop runs it, and the orchestrator, auditor and semantic-auditor roles and the orchestrate skill are archived.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N008",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
+    },
+    {
+      "id": "P4-N030",
+      "kind": "check",
+      "title": "Verification of Role agents on the task loop",
+      "outcome": "P4-N023 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N023",
       "after": [],
       "hold": null,
       "start": "auto",
@@ -3847,7 +3864,7 @@
       "id": "T134",
       "node": "P4-N023",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -3855,11 +3872,11 @@
         "out": null
       },
       "opened": "2026-11-13T18:40:57Z",
-      "closed": null,
+      "closed": "2026-11-13T18:46:07Z",
       "base": "829e0e365dec8b9b7acf364a63c613ff87a32dc7",
-      "ref": null,
-      "pr": null,
-      "summary": "Rewrite the planner, implementer and reviewer agents for the task loop, archive the orchestrator, auditor and semantic-auditor roles and the orchestrate skill, regenerate plugin/agents, and record a throwaway plan step run with only the new agents.",
+      "ref": "6d98a90",
+      "pr": "majodali/project-orchestrator#50",
+      "summary": "Planner, implementer and reviewer agents rewritten for the task loop (110, 94, 90 lines) with the service's tools. Orchestrator, auditor, semantic-auditor roles and the orchestrate and enroll skills archived with status lines. plugin/agents regenerated. Hooks unchanged and run. Planner trial on scratch node P4-N029 completed (T135) and is recorded with its limits.",
       "notes": null
     }
   ],
