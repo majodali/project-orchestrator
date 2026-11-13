@@ -7,7 +7,7 @@ Instance of the *Plan register* type, defined by citation in the
 One line per node: identifier, stage, hold, title, documents.
 Dependencies are in the state file, not in sibling order.
 
-- P1-N001 [verifying] Orchestrator v1: process specification and plugin — plan: plans/orchestrator-v1.md
+- P1-N001 [done] Orchestrator v1: process specification and plugin — plan: plans/orchestrator-v1.md
   - P1-N002 [done] Repository bootstrap and founding plan
   - P1-N003 [done] Process specification v1
   - P1-N004 [done] Role contracts v1

@@ -19,11 +19,10 @@ Gated nodes:
 
 ## In flight
 
-- Verification of Orchestrator v1: process specification and plugin (P1-N017) [specified] — T133
+None.
 
 ## In progress, children carry the work
 
-- Orchestrator v1: process specification and plugin (P1-N001) [verifying]
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
@@ -56,7 +55,7 @@ Gated nodes:
 
 ### Orchestrator v1: process specification and plugin (P1-N001)
 
-Stage: verifying, in progress, its children carry the work.
+Stage: done, done.
 
 A process specification and a Claude Code plugin run role-based agent sessions through the methodology on managed projects, at the least cost that does the job.
 
@@ -98,9 +97,6 @@ Documents: [plan](plans/orchestrator-v1.md).
   Every Backlog row routed to this node is either landed in the process specification, or closed with a stated reason.
   [plan](plans/p1-n016-process-spec-maintenance.md)
   Note: plan gate crossed 2026-11-03, the plan's criteria are its specification (decision 2); does not wait on P3-N009 (decision 3); E1 (T103) accepted 2026-11-03, E2 (T104) accepted 2026-11-05 under the owner's rulings A26 to A28; verifying gate crossed 2026-11-08
-- check: **Verification of Orchestrator v1: process specification and plugin** (P1-N017, specified)
-  P1-N001 is verified against its outcome.
-  [plan](plans/orchestrator-v1.md)
 
 ### Project comprehension and continuous implementation (P3-N001)
 
