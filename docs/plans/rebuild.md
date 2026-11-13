@@ -335,19 +335,34 @@ Outcome: every node still open outside the rebuild is either planned
 for the task loop or removed, and none carries a hold that names this
 milestone. Depends on: nothing.
 
-- [ ] P2-N006 is re-planned as the pilot's parent or removed in favour
-      of child 6; its hold text no longer names M6.
-- [ ] P2-N004 is removed with `node_remove`, or re-planned with an
+- [x] P2-N006 is re-planned as the pilot's parent or removed in favour
+      of child 6; its hold text no longer names M6. Re-planned as
+      "Pilot on methodology-tools: sessions on the task loop": the
+      adoption that child 6 leaves to a separate node (RU-017). It
+      waits for P4-N027 and starts on approval, because it needs a
+      new grant for majodali/methodology-tools. Its hold is lifted.
+      It is not P4-N027's parent: `node_update` does not move a node.
+- [x] P2-N004 is removed with `node_remove`, or re-planned with an
       outcome the claim by `task_open` does not already deliver.
-- [ ] P3-N001 stays held; its hold reason names the owner decision
-      that resumes it, not M6. Its children are not touched.
-- [ ] P3-N020 (parked) and P3-N008 (gated) carry a note saying the
+      Removed (D064).
+- [x] P3-N001 stays held; its hold reason names the owner decision
+      that resumes it, not M6. Its children are not touched. The
+      reason names D005 and D063 and says the owner lifts the hold in
+      the view.
+- [x] P3-N020 (parked) and P3-N008 (gated) carry a note saying the
       hold on P3-N001 covers them.
-- [ ] P1-N001 and P2-N001 show only work that is still wanted; a root
-      with nothing open is closed through the loop.
-- [ ] No node outside P4-N001 has `outcome: null` while it offers a
-      step.
-- [ ] `plan-state check` passes.
+- [x] P1-N001 and P2-N001 show only work that is still wanted; a root
+      with nothing open is closed through the loop. Every child of
+      P1-N001 is done, so it entered `verifying` with the check node
+      P1-N017; a reviewer's `verify` step closes it. P2-N001 keeps
+      P2-N006, P2-N025 and P2-N026, all still wanted.
+- [x] No node outside P4-N001 has `outcome: null` while it offers a
+      step. The four that have none (P3-N004, P3-N009, P3-N012,
+      P3-N016) stand under the hold on P3-N001 and offer no step.
+- [x] `plan-state check` passes.
+
+Executed 2026-11-13 (task T131 on P4-N022), by six writes through the
+service.
 
 **2. Role agents on the task loop** (P4-N023)
 Outcome: the planner, implementer and reviewer agents describe the
