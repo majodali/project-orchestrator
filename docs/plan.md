@@ -14,22 +14,21 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
+- Pruned document set (P4-N024) [specified]
 - Upstream proposals batch (P4-N026) [specified]
 
 ## In flight
 
-- Verification of Role agents on the task loop (P4-N030) [specified] — T136
+None.
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
-- Role agents on the task loop (P4-N023) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
 
-- Pruned document set (P4-N024) [specified] — after Role agents on the task loop (P4-N023)
 - README and generated Backlog (P4-N025) [specified] — after Pruned document set (P4-N024)
 - Pilot enlistment of methodology-tools (P4-N027) [specified] — after Pruned document set (P4-N024)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
@@ -213,15 +212,12 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **Re-plan of the remaining nodes** (P4-N022, done 2026-11-13)
     Every node still open outside the rebuild is either planned for the task loop or removed, and none carries a hold that names this milestone.
     [plan](plans/rebuild.md)
-  - **Role agents on the task loop** (P4-N023, verifying)
+  - **Role agents on the task loop** (P4-N023, done 2026-11-13)
     The planner, implementer and reviewer agents describe the work as the task loop runs it, and the orchestrator, auditor and semantic-auditor roles and the orchestrate skill are archived.
     [plan](plans/rebuild.md)
-    - check: **Verification of Role agents on the task loop** (P4-N030, specified)
-      P4-N023 is verified against its outcome.
-      [plan](plans/rebuild.md)
   - **Pruned document set** (P4-N024, specified)
     docs/ holds what the service and plan-state enforce, one "how we work" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.
-    after P4-N023 · [plan](plans/rebuild.md)
+    after P4-N022, P4-N023 · [plan](plans/rebuild.md)
   - **README and generated Backlog** (P4-N025, specified)
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
     after P4-N024 · [plan](plans/rebuild.md)
