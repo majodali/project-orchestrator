@@ -21,7 +21,7 @@ Dependencies are in the state file, not in sibling order.
   - P1-N014 [done] Role contracts adopt the methodology's conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md · spec: specs/p1-n014-role-contracts-adopt-conduct-rules.md
   - P1-N015 [done] Methodology amendments for delegated multi-agent work — plan: plans/p1-n015-methodology-amendments-delegated-work.md · spec: specs/p1-n015-methodology-amendments-delegated-work.md
   - P1-N016 [done] Process specification maintenance — plan: plans/p1-n016-process-spec-maintenance.md
-- P3-N001 [broken-down] [blocked: Paused under the rebuild plan's decision 1 (D005) until milestone 6 re-plans the line] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
+- P3-N001 [broken-down] [blocked: Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
   - P3-N002 [broken-down] Comprehension model — plan: plans/p3-n002-comprehension-model.md · spec: specs/p3-n002-comprehension-model.md
     - P3-N006 [done] Thin end-to-end slice of the model — plan: plans/p3-n006-thin-end-to-end-slice.md · spec: specs/p3-n002-comprehension-model.md
     - P3-N007 [done] Project model type and K-003 amendment draft — plan: plans/p3-n007-type-declared-amendment-drafted.md · spec: specs/p3-n002-comprehension-model.md

@@ -39,7 +39,7 @@ Gated nodes:
 
 ## Blocked
 
-- Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused under the rebuild plan's decision 1 (D005) until milestone 6 re-plans the line
+- Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
 
 ## Paused by a hold or a park above
 

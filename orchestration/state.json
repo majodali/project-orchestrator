@@ -250,7 +250,7 @@
       "after": [],
       "hold": {
         "kind": "blocked",
-        "reason": "Paused under the rebuild plan's decision 1 (D005) until milestone 6 re-plans the line"
+        "reason": "Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view."
       },
       "start": "auto",
       "docs": {
