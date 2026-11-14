@@ -862,7 +862,7 @@
       "kind": "work",
       "title": "Pruned document set",
       "outcome": "docs/ holds what the service and plan-state enforce, one \"how we work\" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N008",
       "after": [
         "P4-N022",
@@ -3902,6 +3902,25 @@
       "ref": null,
       "pr": null,
       "summary": "All nine criteria of P4-N023 and its outcome are met on pull request #50 at 6d98a90. Agents are 110, 94 and 90 lines; sync check, 95 tests and plan-state check pass; hooks are unchanged. The trial's record matches the journal (T135); met under RU-019, with its limits stated.",
+      "notes": null
+    },
+    {
+      "id": "T137",
+      "node": "P4-N024",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-14T22:25:41Z",
+      "closed": null,
+      "base": "b9e2999d962426dd2bef98d896fb543546453cee",
+      "ref": null,
+      "pr": null,
+      "summary": "Prune docs/: keep what code enforces and one \"how we work\" page, move the frozen registers, the P3 findings and the superseded plans and specs to docs/archive/ with status lines, re-point the state file's paths through node_update, archive the journal-tail skill, and record the word count.",
       "notes": null
     }
   ],

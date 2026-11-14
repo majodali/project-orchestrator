@@ -14,12 +14,11 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- Pruned document set (P4-N024) [specified]
 - Upstream proposals batch (P4-N026) [specified]
 
 ## In flight
 
-None.
+- Pruned document set (P4-N024) [executing] — T137
 
 ## In progress, children carry the work
 
@@ -215,7 +214,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **Role agents on the task loop** (P4-N023, done 2026-11-13)
     The planner, implementer and reviewer agents describe the work as the task loop runs it, and the orchestrator, auditor and semantic-auditor roles and the orchestrate skill are archived.
     [plan](plans/rebuild.md)
-  - **Pruned document set** (P4-N024, specified)
+  - **Pruned document set** (P4-N024, executing)
     docs/ holds what the service and plan-state enforce, one "how we work" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.
     after P4-N022, P4-N023 · [plan](plans/rebuild.md)
     Note: Added by the owner, 2026-11-14: this node also archives the journal-tail skill. Move plugin/skills/journal-tail/SKILL.md to docs/archive/skills/ with a status line, and take it out of plugin/README.md. Keep plugin/scripts/journal_tail.ts, runnable by hand like form_check.ts. Add this as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
