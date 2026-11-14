@@ -218,6 +218,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **Pruned document set** (P4-N024, specified)
     docs/ holds what the service and plan-state enforce, one "how we work" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.
     after P4-N022, P4-N023 · [plan](plans/rebuild.md)
+    Note: Added by the owner, 2026-11-14: this node also archives the journal-tail skill. Move plugin/skills/journal-tail/SKILL.md to docs/archive/skills/ with a status line, and take it out of plugin/README.md. Keep plugin/scripts/journal_tail.ts, runnable by hand like form_check.ts. Add this as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
   - **README and generated Backlog** (P4-N025, specified)
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
     after P4-N024 · [plan](plans/rebuild.md)
