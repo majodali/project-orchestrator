@@ -58,7 +58,7 @@ Three facts force it, and each is checkable rather than aesthetic.
    plan or specification document." Five facets do not fit on that
    line, and widening the line changes the grammar that
    `plugin/scripts/lib/plan-register.ts` parses — a travelling package
-   vendored to the service repository ([RU-012](../rulings.md)).
+   vendored to the service repository ([RU-012](../archive/rulings.md)).
 3. **The register's writer rule is narrow on purpose.** The
    Orchestrator is its single writer, to keep concurrent role sessions
    from racing on the file. Recording a dependency during a node's own
@@ -136,7 +136,7 @@ model answers a question nobody asked.
 
 The node-side view — what does *this* node depend on — has a home
 already: **the Dependencies section of the node's plan**, which
-[RU-016](../rulings.md) already requires for repositories. That section
+[RU-016](../archive/rulings.md) already requires for repositories. That section
 becomes the single *authoring* point for a node's dependencies; the
 model is the single *authoritative store*. The Planner writes the
 section, the Orchestrator transcribes it into the model at acceptance.
@@ -233,7 +233,7 @@ records.
 
 Each recorded edge needs a journal event (**G4**). Chunk 1 adds the one
 event kind that requires, by spec change to
-[observability.md](../process/observability.md), which already declares
+[observability.md](../archive/process/observability.md), which already declares
 its vocabulary extendable that way. The pre-existing vocabulary gaps —
 `unblocked`, risk-opened — stay with node P1-N016 and are not widened.
 
@@ -247,7 +247,7 @@ neither.
 
 1. **The Plan register's sibling ordering — read from the model.**
    Retired as a dependency signal by owner direction,
-   [RU-018](../rulings.md). Four prose statements carry the retired
+   [RU-018](../archive/rulings.md). Four prose statements carry the retired
    meaning and all four are amended: `plan-register.md`'s "sibling
    order is dependency order", `plan-model.md`'s "Siblings are
    dependency-ordered", `dispatch.md`'s selection rule "entering
@@ -270,7 +270,7 @@ neither.
    corpus travels to the service repository (RU-012) — turning a
    single-repository node into a cross-repository one for a gain this
    node does not need. Decision 5 stages this so the owner may take the
-   other option; [RU-014](../rulings.md) is the near match arguing for
+   other option; [RU-014](../archive/rulings.md) is the near match arguing for
    it, and is cited there rather than applied here.
 3. **The Cost log's prose about what a rework row was rework of — read
    from the model, by P3-N004.** The parent specification assigns the
@@ -290,7 +290,7 @@ neither.
 
 ### K-003 — amended at the gate of 2026-10-29 (I4)
 
-The argument below was the plan's default. The owner overrode it at the gate ([RU-021](../rulings.md)): K-003 is amended so the planning/execution model is the source of progress truth, and child B drafts the amendment. The argument stays as the record of the alternative.
+The argument below was the plan's default. The owner overrode it at the gate ([RU-021](../archive/rulings.md)): K-003 is amended so the planning/execution model is the source of progress truth, and child B drafts the amendment. The argument stays as the record of the alternative.
 
 The model carries **no progress field of its own**. A resource's state
 is derived from the register stages of the nodes that create or modify
@@ -340,7 +340,7 @@ never a graph rendering a tree.
 
 ## Dependencies
 
-- **Repository reach ([RU-016](../rulings.md)): this repository only.**
+- **Repository reach ([RU-016](../archive/rulings.md)): this repository only.**
   No repository new to the project, and no owner grant needed. The
   reasoning, because this is the claim most likely to be wrong: the
   shared register grammar does not change; `form-check-core.ts` does
@@ -511,20 +511,20 @@ W-002 before any test changes, never absorbed.
 
 ## Decisions for the gate
 
-Numbered per [dispatch](../process/dispatch.md)'s owner-decision
+Numbered per [dispatch](../archive/process/dispatch.md)'s owner-decision
 economics; the owner's go-ahead adopts every default not overridden by
 number. This document opens its own sequence at 1.
 
-**Precedents checked against the [Ruling register](../rulings.md).**
-[RU-016](../rulings.md) is the authority for the repository-reach
-declaration above and decides silently. [RU-018](../rulings.md) already
+**Precedents checked against the [Ruling register](../archive/rulings.md).**
+[RU-016](../archive/rulings.md) is the authority for the repository-reach
+declaration above and decides silently. [RU-018](../archive/rulings.md) already
 settles this node's independence from P3-N003 and P3-N005 and is not
-re-raised. [RU-020](../rulings.md) will decide at this node's
+re-raised. [RU-020](../archive/rulings.md) will decide at this node's
 specification gate whether a separate `break down` task is dispatched,
-and is not staged here. [RU-010](../rulings.md) governs how the work
-reaches `main`. [RU-005](../rulings.md) does not apply: this node
+and is not staged here. [RU-010](../archive/rulings.md) governs how the work
+reaches `main`. [RU-005](../archive/rulings.md) does not apply: this node
 produces no upstream-bound artifact under its defaults.
-[RU-014](../rulings.md) is a *near* match cited in decision 5's
+[RU-014](../archive/rulings.md) is a *near* match cited in decision 5's
 rationale, not applied.
 
 1. **Which register the model extends — the parent's open question.**
@@ -543,7 +543,7 @@ rationale, not applied.
    names; giving it a hierarchy would be the parallel structure the
    owner ruled out, and deciding its granularity is explicitly not the
    model's job.
-3. **Whether K-003 is amended (I4).** Default, overridden at the gate by [RU-021](../rulings.md): the amendment is drafted by child B. The default as proposed: **no amendment.** The
+3. **Whether K-003 is amended (I4).** Default, overridden at the gate by [RU-021](../archive/rulings.md): the amendment is drafted by child B. The default as proposed: **no amendment.** The
    model carries no progress field; resource state is derived from
    register stages, progress truth stays in the Backlog, and a
    form-check rule reports divergence and is demonstrated firing.
@@ -604,7 +604,7 @@ the orchestrator. This node is the first place that decision is built,
 so child B drafts the K-003 amendment with this repository as the
 evidencing instance, in the form RU-015 requires, and the model may
 carry what the amendment makes it authoritative for. Captured as
-[RU-021](../rulings.md).
+[RU-021](../archive/rulings.md).
 
 One owner note for a future discussion, nothing to do now: resources
 are flat by decision 2, and hierarchical resources may become necessary
@@ -630,22 +630,22 @@ and encoding 1 of *The four hand-written encodings* state that rule.
 - [p3-n001-comprehension-and-continuous-implementation](../specs/p3-n001-comprehension-and-continuous-implementation.md)
   — the parent specification: criteria G1–G5, I1, I2, I2a, I3, I9, I10,
   the *Chunk 1* additions, and the gate record of 2026-09-17
-- [plan-model](../process/plan-model.md) — the hierarchy, the node
+- [plan-model](../archive/process/plan-model.md) — the hierarchy, the node
   lifecycle, the thin-slice guidance, and the monotonicity definition
-- [plan-register](../process/plan-register.md),
-  [cost-log](../process/cost-log.md),
-  [rulings](../process/rulings.md),
-  [observability](../process/observability.md) — the four type specs
+- [plan-register](../archive/process/plan-register.md),
+  [cost-log](../archive/process/cost-log.md),
+  [rulings](../archive/process/rulings.md),
+  [observability](../archive/process/observability.md) — the four type specs
   the model meets, and the shape a fifth follows
-- [profiles](../process/profiles.md) — the C1 depth this plan and its
+- [profiles](../archive/process/profiles.md) — the C1 depth this plan and its
   specification are written to
-- [dispatch](../process/dispatch.md) — the selection rule this node
+- [dispatch](../archive/process/dispatch.md) — the selection rule this node
   amends, and the owner-decision economics the gate list follows
 - [Classification](../classification.md) — where the fifth custom
   definition lands (decision 1)
 - [Risk register](../open-risks.md) — R8 (thin slice first), R10
   (second source of truth), R13 (the checker's runtime floor)
-- [Ruling register](../rulings.md) — RU-005, RU-010, RU-012, RU-014,
+- [Ruling register](../archive/rulings.md) — RU-005, RU-010, RU-012, RU-014,
   RU-016, RU-018, RU-020
 - [p2-n002-service-skeleton](p2-n002-service-skeleton.md) — the chunk
   plan shape this document follows

@@ -16,7 +16,7 @@ Node **P3-N005**, chunk 4 of **P3-N001**
 This node's specification is
 [p3-n005-sequence-mode](../specs/p3-n005-sequence-mode.md).
 Marked **independent of P3-N002** in the Plan register
-([RU-018](../rulings.md)); this plan assumes nothing the comprehension
+([RU-018](../archive/rulings.md)); this plan assumes nothing the comprehension
 model produces, and it names no dependency on it.
 
 ## Outcome
@@ -27,7 +27,7 @@ sequence are applied mechanically by the roles that meet them.
 
 Concretely, at `done`:
 
-- [dispatch.md](../process/dispatch.md) carries a normative
+- [dispatch.md](../archive/process/dispatch.md) carries a normative
   *Sequence mode* section: how a sequence is ratified, what the loop
   does between chunks, what stops it, and what a stop produces.
 - The four stop conditions exist as **predicates** — each naming the
@@ -44,7 +44,7 @@ Concretely, at `done`:
   a chunk whose result carried asks stopped it, with the stop and its
   reason in the run journal.
 - The determination on whether W-001 needs specialising upstream is
-  recorded — as an Article 8 proposal in [RU-015](../rulings.md)'s
+  recorded — as an Article 8 proposal in [RU-015](../archive/rulings.md)'s
   form, or as a reasoned argument that no amendment is needed.
 
 The node's criteria in the parent specification are **G6**, **I8**
@@ -87,7 +87,7 @@ tests and revises them before anything else depends on them.
 | W-001 condition | Proposed predicate | What it reads |
 |---|---|---|
 | A failed check | The acceptance step's checks do not all pass: `node plugin/scripts/form_check.ts` returns non-zero or reports a violation; a declared build, test or lint command fails; self-verification against the node's criteria returns any criterion not met | Command exit status; the verification result |
-| A scope change | The result names work outside the approved scope's nodes and stages, or a repository the node's plan does not declare ([RU-016](../rulings.md)); or the result raises anything in `dispatch.md`'s **immediate class** — scope expansion, a W-002 test-condition change, a deviation, budget exhaustion | The task result; the scope grant; the node's plan |
+| A scope change | The result names work outside the approved scope's nodes and stages, or a repository the node's plan does not declare ([RU-016](../archive/rulings.md)); or the result raises anything in `dispatch.md`'s **immediate class** — scope expansion, a W-002 test-condition change, a deviation, budget exhaustion | The task result; the scope grant; the node's plan |
 | A chunk needing a maintainer decision | Any task result for the chunk has status `needs-judgment`; **or** the chunk's plan or specification carries a *Decisions for the gate* entry not yet adopted or overridden at a gate | The task result's status field; the node's documents |
 | A landing summary carrying asks | The result's W-008 *Asks* part is non-empty — anything other than the stated empty part — after the owner's 2026-09-17 clarification is applied | The result's named *Asks* section |
 
@@ -96,7 +96,7 @@ Three things about this table are load-bearing.
 **"A chunk needing a maintainer decision" becomes a lookup.** This
 project already requires every owner decision to be a numbered entry
 with a default in a *Decisions for the gate* section
-([roles.md](../process/roles.md), `dispatch.md`'s owner-decision
+([roles.md](../archive/process/roles.md), `dispatch.md`'s owner-decision
 economics), and requires a role meeting a decision above its authority
 to return `needs-judgment` rather than decide. So the judgment W-001
 leaves to a human reader is already recorded in two places a predicate
@@ -139,15 +139,15 @@ it. A stop condition stated only in `dispatch.md` has the same defect.
 
 So the text lands in three places with one source:
 
-1. **[dispatch.md](../process/dispatch.md)** — normative. A *Sequence
+1. **[dispatch.md](../archive/process/dispatch.md)** — normative. A *Sequence
    mode* section beside the existing loop, ratification and all.
-2. **[roles.md](../process/roles.md)** — which role evaluates which
+2. **[roles.md](../archive/process/roles.md)** — which role evaluates which
    condition, inside each role's existing *decides* and *routes*
    lists.
 3. **`.claude/agents/`** — the six role contracts, each carrying the
    conditions it can trigger, in its own terms. `plugin/agents/` is
    regenerated from them by `node plugin/scripts/sync_agents.ts`; the
-   generated copies are never hand-edited ([RU-012](../rulings.md)).
+   generated copies are never hand-edited ([RU-012](../archive/rulings.md)).
 
 The split by role, proposed:
 
@@ -168,7 +168,7 @@ Criterion **I8** requires the conditions scored against a set of this
 project's own past task results, with **two independent readings
 producing the same stop-or-continue verdict on each**.
 
-**The corpus.** The [Cost log](../cost-log.md) carries **38 rows**
+**The corpus.** The [Cost log](../archive/cost-log.md) carries **38 rows**
 (T001–T039, less T017, which returned `needs-judgment` and got no row
 of its own — the Backlog owns that gap). Counting T017 from the run
 journal gives **39 task results**. The parent specification's
@@ -216,7 +216,7 @@ escalated rather than re-run, and it is evidence for the upstream
 half.
 
 **The predicates are fixed before either reading.** Criteria exist
-before the work they verify ([plan-model.md](../process/plan-model.md)).
+before the work they verify ([plan-model.md](../archive/process/plan-model.md)).
 Any change to a predicate after a reading is a recorded revision that
 invalidates both readings, which is what stops the text from being
 tuned to match an answer already seen.
@@ -246,7 +246,7 @@ Candidate payload, all owned Backlog findings in this repository:
 - The `docs/process/` methodology citations still targeting `v1.3.0`,
   which the Backlog already owns.
 - A chunk whose result asks the owner to hand-carry an upstream
-  artifact ([RU-002](../rulings.md)) — the natural source of a genuine
+  artifact ([RU-002](../archive/rulings.md)) — the natural source of a genuine
   act-on-now ask, and a candidate for the third position.
 
 Selection is child C's, against a stated rule: each item already owned
@@ -267,7 +267,7 @@ land.
 
 ## The lost-update race on the Backlog, which this node must answer
 
-Three plan tasks ran concurrently under [RU-018](../rulings.md) on
+Three plan tasks ran concurrently under [RU-018](../archive/rulings.md) on
 2026-09-17, and doing so exposed a hazard no rule covers: every role
 writes its own Backlog additions in the same commit as its work
 (W-003, founding ruling 1), and two roles running at once both read
@@ -302,7 +302,7 @@ drift hazard this project keeps legislating against.
 
 Decision 6 states it so the owner can override it.
 
-## Repository reach ([RU-016](../rulings.md))
+## Repository reach ([RU-016](../archive/rulings.md))
 
 This node's work lands in **this repository only**:
 `docs/process/dispatch.md`, `docs/process/roles.md`,
@@ -319,8 +319,8 @@ that repository under the standing grant and the node records the
 exercise.
 
 Any upstream-bound artifact is **hand-carried by the owner**
-([RU-002](../rulings.md)) and the node **completes at the artifact**,
-not at upstream disposition ([RU-003](../rulings.md)). Both are exact
+([RU-002](../archive/rulings.md)) and the node **completes at the artifact**,
+not at upstream disposition ([RU-003](../archive/rulings.md)). Both are exact
 matches in the Ruling register and decide silently.
 
 *Also:* this section exists partly because the Backlog records that a
@@ -389,7 +389,7 @@ here. The structural risk in this node is not the loop policy, which
 is ten paragraphs of prose; it is that **the stop conditions cannot be
 made decidable**. Child A runs that risk first, against a deliberately
 small sample, before eight documents and a live demonstration depend
-on the answer ([plan-model](../process/plan-model.md)'s thin-slice
+on the answer ([plan-model](../archive/process/plan-model.md)'s thin-slice
 guidance, [R8](../open-risks.md)).
 
 ### Proposed children, in dependency order
@@ -422,7 +422,7 @@ summarize and report; asks never rolled up), `roles.md`'s per-role
 duties, the six contracts in `.claude/agents/` carrying the conditions
 in each role's own terms, `plugin/agents/` regenerated by
 `node plugin/scripts/sync_agents.ts`, and the journal vocabulary a stop
-needs in [observability.md](../process/observability.md). Criteria:
+needs in [observability.md](../archive/process/observability.md). Criteria:
 `node plugin/scripts/form_check.ts` clean; the generated contracts
 match their sources; each role contract states the conditions that
 role can trigger **and the consequence**, so a role knows that padding
@@ -456,7 +456,7 @@ disagreed about, and what the live run showed. Criteria: the
 determination is recorded **either way**; a reasoned "no amendment"
 is complete and is not a restated likelihood; any proposal is in
 RU-015's form, hand-carried by the owner (RU-002), and the node
-completes at the artifact (RU-003); [RU-005](../rulings.md) puts this
+completes at the artifact (RU-003); [RU-005](../archive/rulings.md) puts this
 child's gate at `verifying`, before the artifact represents the
 project. Decision 5 proposes that this child also carry the W-008
 *Asks* clarification the Backlog already owns.
@@ -523,11 +523,11 @@ changes, never absorbed mid-execution — which is also criterion
 
 ## Decisions for the gate
 
-Numbered per [dispatch.md](../process/dispatch.md)'s owner-decision
+Numbered per [dispatch.md](../archive/process/dispatch.md)'s owner-decision
 economics; the owner's go-ahead adopts every default not overridden by
 number. This document opens its own sequence at 1.
 
-**Precedents checked against the [Ruling register](../rulings.md).**
+**Precedents checked against the [Ruling register](../archive/rulings.md).**
 Five active rulings are exact matches and decide silently rather than
 being re-raised: **RU-002** (upstream-bound output is hand-carried by
 the owner), **RU-003** (the node completes at the artifact, not at
@@ -628,22 +628,22 @@ dispatched as T045 to the Planner.
 - [p3-n001-comprehension-and-continuous-implementation](../specs/p3-n001-comprehension-and-continuous-implementation.md)
   — the parent specification: criteria **G6**, **I8** and **P4**, and
   the three additions in *The breakdown*'s *Chunk 4* paragraph
-- [dispatch.md](../process/dispatch.md) — the loop this node changes,
+- [dispatch.md](../archive/process/dispatch.md) — the loop this node changes,
   its owner-decision economics, and the immediate class
-- [roles.md](../process/roles.md) — the role contracts this node adds
+- [roles.md](../archive/process/roles.md) — the role contracts this node adds
   duties to, and the model-tier table decision 2 draws on
-- [plan-model.md](../process/plan-model.md) — the node lifecycle,
+- [plan-model.md](../archive/process/plan-model.md) — the node lifecycle,
   monotonicity, and the thin-slice guidance
-- [observability.md](../process/observability.md) — the run journal
+- [observability.md](../archive/process/observability.md) — the run journal
   and its extendable event vocabulary
-- [profiles.md](../process/profiles.md) — the C1 depth this document
+- [profiles.md](../archive/process/profiles.md) — the C1 depth this document
   is written to
 - [p2-n002-service-skeleton](p2-n002-service-skeleton.md) — the chunk
   plan shape this document follows
 - [Risk register](../open-risks.md) — R8 (thin slice), R10 and R12
   (the service is never a dependency), R16 and R17 (why the
   conditions land in the contracts)
-- [Ruling register](../rulings.md) — RU-002, RU-003, RU-005, RU-012,
+- [Ruling register](../archive/rulings.md) — RU-002, RU-003, RU-005, RU-012,
   RU-015, RU-016, RU-018
 - methodology **W-001** (two delivery modes, human-gated; the four
   stop conditions), **W-002** (existing tests), **W-003**

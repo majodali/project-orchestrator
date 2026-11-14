@@ -19,7 +19,7 @@ here.
 This document records the **verification criteria** the drafting is
 built against — the checklist the Implementer self-verifies against at
 C1 and the owner checks at the `verifying` gate
-([RU-005](../rulings.md) — proposal-class nodes gate at `verifying`).
+([RU-005](../archive/rulings.md) — proposal-class nodes gate at `verifying`).
 
 The governing question throughout is **adjudicability**. The
 methodology's
@@ -191,7 +191,7 @@ promise readable rather than aspirational.
   where it proposes them. *(mechanical first pass: grep the term list)*
 - **F4. Project voice.** Written as this project speaking, not as an
   agent session and not in the first person singular, so the owner
-  carries them unchanged ([RU-002](../rulings.md) — the owner
+  carries them unchanged ([RU-002](../archive/rulings.md) — the owner
   hand-carries upstream-bound output).
 - **F5. The ask is explicit.** Each proposal states what this project
   does under acceptance, under amendment, and under rejection.
@@ -230,7 +230,7 @@ promise readable rather than aspirational.
 
 C1 profile: self-verification by the Implementer against the list
 above, with no Reviewer pass required
-([profiles.md](../process/profiles.md)). RU-005 adds the owner gate at
+([profiles.md](../archive/process/profiles.md)). RU-005 adds the owner gate at
 `verifying`, because the owner is the proposals' carrier and their
 first reader.
 
@@ -242,7 +242,7 @@ alone), and F1 (whether the framing is upstream-general).
 
 ## The node stops at the artifacts
 
-[RU-003](../rulings.md) — a node targeting an external party completes
+[RU-003](../archive/rulings.md) — a node targeting an external party completes
 at the artifact. Verification therefore ends at *four adjudicable
 proposals exist and are internally correct*. It does not wait on, and
 does not test, any upstream response. A verifier who finds every
@@ -301,22 +301,22 @@ a separate exchange:
   — outcome, approach, amendment table, scope boundary, and the five
   adopted decisions.
 - [P1-N008 specification](p1-n008-mtool-checker-extension-point.md) and
-  [its proposal](../proposals/mtool-custom-type-checker.md) — the
+  [its proposal](../archive/proposals/mtool-custom-type-checker.md) — the
   precedent for a proposal-class node's criteria and for the artifact's
   shape.
 - **P1-N001 (Orchestrator v1) has no specification document**, so this
   node inherits no integration properties from its parent. The parent's
   constraints reach it through the
   [founding plan](../plans/orchestrator-v1.md) instead.
-- [rulings.md](../rulings.md) — RU-002 (the owner hand-carries
+- [rulings.md](../archive/rulings.md) — RU-002 (the owner hand-carries
   upstream-bound output), RU-003 (a node targeting an external party
   completes at the artifact), RU-005 (proposal-class nodes gate at
   `verifying`).
-- [profiles.md](../process/profiles.md) — the C1 profile: criteria-list
+- [profiles.md](../archive/process/profiles.md) — the C1 profile: criteria-list
   specifications, self-verification, owner-designated gates.
-- [plan-model.md](../process/plan-model.md) — the `specified` exit
+- [plan-model.md](../archive/process/plan-model.md) — the `specified` exit
   condition: criteria exist before the work they verify.
-- [process spec README](../process/README.md) — the *Defined terms*
+- [process spec README](../archive/process/README.md) — the *Defined terms*
   section, A3's evidencing instance.
 - [methodology release process](https://github.com/majodali/methodology/blob/v1.4.0/docs/release-process.md)
   — section 1 (proposed), which these criteria enforce.

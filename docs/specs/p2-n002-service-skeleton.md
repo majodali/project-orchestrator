@@ -34,14 +34,14 @@ This document records the criteria the **node itself** is verified
 against. It is not the union of its children's criteria. An interior
 node's `verifying` runs after its children are `done`, against its own
 criteria: integration is verified where it was specified
-([plan-model](../process/plan-model.md)). So everything below is a
+([plan-model](../archive/process/plan-model.md)). So everything below is a
 property that no single child establishes — a composition, an
 equivalence, or a whole-chunk invariant. Where a criterion here needs
 a child to do something it was not already going to do, that addition
 is named in *The breakdown* section rather than left implicit.
 
 Depth is the C1 profile's: a criteria list a verifier can check
-([profiles](../process/profiles.md)). Nothing here reopens a plan
+([profiles](../archive/process/profiles.md)). Nothing here reopens a plan
 decision.
 
 ## What "done" looks like at this node
@@ -111,7 +111,7 @@ and register state the chunk must leave behind.
   fact rather than a claim.
 - **I2 — Legality is not a second truth.** The transition table the
   service enforces is the node lifecycle of
-  [plan-model](../process/plan-model.md), cited to that document in the
+  [plan-model](../archive/process/plan-model.md), cited to that document in the
   service's source and docs. A transition the process spec permits and
   the service refuses — or the reverse — is a **service bug** with a
   Backlog entry, never a new lifecycle rule. The service is authority
@@ -256,7 +256,7 @@ criteria**, to be carried into the breakdown:
   O1–O5 is a defect in the runbook.
 - **Child C** — `plan_read` takes an explicit **ref**, defaulting to
   the repository's default branch (**I5**), and its stage vocabulary is
-  cited to [plan-model](../process/plan-model.md) rather than
+  cited to [plan-model](../archive/process/plan-model.md) rather than
   re-declared.
 - **Child D** — `plan_update` and `plan_confirm` take the same explicit
   ref (**I5**); the legality table is cited to plan-model (**I2**); and
@@ -335,7 +335,7 @@ the criteria rather than from the tasks.
 Numbering continues the plan's sequence, so one go-ahead adopts one
 list: the plan carries **1–9**, this document carries **10–12**. The
 owner's go-ahead adopts every default not overridden by number.
-Checked against the [Ruling register](../rulings.md): RU-006 and RU-007
+Checked against the [Ruling register](../archive/rulings.md): RU-006 and RU-007
 settle repository shape and promotion timing and are not re-raised;
 no existing ruling reaches the three below.
 
@@ -371,10 +371,10 @@ no existing ruling reaches the three below.
   criteria
 - [orchestration-service](../plans/orchestration-service.md) — the
   parent plan and its five standing constraints
-- [plan-model](../process/plan-model.md) — the node lifecycle this
+- [plan-model](../archive/process/plan-model.md) — the node lifecycle this
   chunk's update path enforces, and the interior-node verification rule
-- [profiles](../process/profiles.md) — the C1 specification depth this
+- [profiles](../archive/process/profiles.md) — the C1 specification depth this
   document is written to
 - [Risk register](../open-risks.md) — R10 (I1–I3), R11 (G7, I6),
   R12 (I4)
-- [Ruling register](../rulings.md) — RU-006, RU-007
+- [Ruling register](../archive/rulings.md) — RU-006, RU-007

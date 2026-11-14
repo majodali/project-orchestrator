@@ -22,8 +22,9 @@ Constitution, Article 3).
 
 - [docs/classification.md](docs/classification.md) — the binding
   declaration (C1 / S0, pinned methodology 1.6.0)
-- [docs/process/](docs/process/README.md) — the orchestration
-  process specification (v1)
+- [docs/process/how-we-work.md](docs/process/how-we-work.md) — how
+  we work: the task loop, the roles, enlistment, the checks and the
+  owner's decisions
 - [plugin/](plugin/README.md) — the Claude Code plugin implementing
   it (`/plugin marketplace add majodali/project-orchestrator`)
 - [docs/plan.md](docs/plan.md) — the plan as a person reads it:
@@ -31,7 +32,8 @@ Constitution, Article 3).
   outcome. Rendered from `orchestration/state.json`, the state file
   that is the progress truth during the rebuild
   ([docs/plans/rebuild.md](docs/plans/rebuild.md))
-- [docs/backlog.md](docs/backlog.md) — frozen 2026-11-09; becomes a
-  rendering of the state file at the rebuild's milestone 6
+- [docs/archive/](docs/archive/) — records of the old process, each
+  opening with a status line; the Backlog frozen on 2026-11-09 is
+  [here](docs/archive/backlog.md)
 - [docs/plans/orchestrator-v1.md](docs/plans/orchestrator-v1.md) — the
   founding plan

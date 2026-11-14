@@ -30,14 +30,14 @@ This document records the criteria the **node itself** is verified
 against. It is not the union of its children's criteria. An interior
 node's `verifying` runs after its children are `done`, against its own
 criteria — integration is verified where it was specified
-([plan-model](../process/plan-model.md)). So everything in
+([plan-model](../archive/process/plan-model.md)). So everything in
 *Verification criteria* is a property no single child establishes.
 Where a criterion needs a child to do something it was not already
 going to do, the addition is named in *The breakdown* rather than left
 implicit.
 
 Depth is the C1 profile's: a criteria list a verifier can check
-([profiles](../process/profiles.md)).
+([profiles](../archive/process/profiles.md)).
 
 **What this document does not do.** It does not decide chunk 1's
 design. The plan's one open question — which register the model
@@ -165,7 +165,7 @@ consequence for Allegro.
   once the model carries edges, and a search for the ones that do
   today comes back empty or names each survivor with its reason.
   `dispatch.md`'s "earlier siblings `done`" selection rule reads
-  recorded edges instead ([RU-018](../rulings.md)), so a node is never
+  recorded edges instead ([RU-018](../archive/rulings.md)), so a node is never
   held behind an unrelated sibling by an inference no document makes —
   the owner's P2-N012 finding, which the Backlog already carries. A
   register state that contradicts a recorded edge is still
@@ -210,7 +210,7 @@ consequence for Allegro.
   the plan names — a dependency recorded during node preparation, an
   edge invalidated by a superseded ruling, a part's state changing —
   either has a kind in
-  [observability.md](../process/observability.md)'s vocabulary or is
+  [observability.md](../archive/process/observability.md)'s vocabulary or is
   recorded as a vocabulary gap with a named home. The existing gaps
   (`unblocked`, risk-opened) are either closed here or explicitly left
   to node P1-N016 with a pointer, not silently widened. The
@@ -284,9 +284,9 @@ consequence for Allegro.
   completes at the artifact.** Any amendment proposal is final
   normative text with the current upstream text quoted verbatim beside
   it and a provenance line naming version, commit and date
-  ([RU-015](../rulings.md)); it is hand-carried by the owner
-  ([RU-002](../rulings.md)); and the node completes at the artifact,
-  not at upstream disposition ([RU-003](../rulings.md)).
+  ([RU-015](../archive/rulings.md)); it is hand-carried by the owner
+  ([RU-002](../archive/rulings.md)); and the node completes at the artifact,
+  not at upstream disposition ([RU-003](../archive/rulings.md)).
 - **P5 — The risk this node introduces is registered.** The plan's
   *The risk this introduces* — a loop that continues while its own
   checks pass will continue through anything its checks do not cover —
@@ -319,7 +319,7 @@ attestation. Whether Allegro adopts the model is not evidence this
 node can produce, which is why decision 1 exists.
 
 Chunks 2 and 4 are proposal-class in part, so
-[RU-005](../rulings.md) applies: their gate is at `verifying`, before
+[RU-005](../archive/rulings.md) applies: their gate is at `verifying`, before
 the artifact represents the project.
 
 ## Not verified here
@@ -453,7 +453,7 @@ design decision, not a gate decision. So this document opens the
 sequence at **1**. The owner's go-ahead adopts every default not
 explicitly overridden by number.
 
-**Precedents checked against the [Ruling register](../rulings.md).**
+**Precedents checked against the [Ruling register](../archive/rulings.md).**
 Four active rulings are exact matches and decide silently rather than
 being re-raised: **RU-002** (upstream-bound output is hand-carried by
 the owner; cross-repo scope is granted only explicitly), **RU-003**
@@ -531,11 +531,11 @@ default, it does not decide one.
 
 The owner accepted this specification and the breakdown, adopting all
 eight defaults with no override. Four rulings were captured from it:
-[RU-017](../rulings.md) (a sibling project's adoption is a separate
-node), [RU-018](../rulings.md) (a child is not queued behind a sibling
-it does not depend on), [RU-019](../rulings.md) (a measurement
+[RU-017](../archive/rulings.md) (a sibling project's adoption is a separate
+node), [RU-018](../archive/rulings.md) (a child is not queued behind a sibling
+it does not depend on), [RU-019](../archive/rulings.md) (a measurement
 criterion may be satisfied by an unfavourable result) and
-[RU-020](../rulings.md) (an interior node whose specification reaches
+[RU-020](../archive/rulings.md) (an interior node whose specification reaches
 breakdown depth needs no separate `break down` task). Decisions 3, 4,
 5 and 7 were judged node-scope and not recorded as rulings.
 
@@ -566,25 +566,25 @@ gate narrowed it; it did not close it.
   — this node's plan: the outcome, the settled direction, the register
   review, the four chunks, and the one open question this document
   leaves where the plan put it
-- [plan-model](../process/plan-model.md) — the node lifecycle, the
+- [plan-model](../archive/process/plan-model.md) — the node lifecycle, the
   interior-node verification rule, monotonicity, and the thin-slice
   guidance
-- [profiles](../process/profiles.md) — the C1 specification depth this
+- [profiles](../archive/process/profiles.md) — the C1 specification depth this
   document is written to
 - [p2-n002-service-skeleton](p2-n002-service-skeleton.md) and
   [p2-n012-deploy-from-ci-on-merge](p2-n012-deploy-from-ci-on-merge.md)
   — the G/I/P shape and the interior-node breakdown confirmation this
   document follows
-- [plan-register](../process/plan-register.md),
-  [cost-log](../process/cost-log.md),
-  [rulings](../process/rulings.md),
-  [observability](../process/observability.md) — the four register
+- [plan-register](../archive/process/plan-register.md),
+  [cost-log](../archive/process/cost-log.md),
+  [rulings](../archive/process/rulings.md),
+  [observability](../archive/process/observability.md) — the four register
   type specs the model's criteria reach into
 - [Classification](../classification.md) — where a model instance's
   type is declared, if it needs one (**I5**)
 - [Risk register](../open-risks.md) — R8 (decision 4), R10 (**I9**),
   and the entry **P5** requires
-- [Ruling register](../rulings.md) — RU-002, RU-003, RU-005, RU-010,
+- [Ruling register](../archive/rulings.md) — RU-002, RU-003, RU-005, RU-010,
   RU-015, RU-016
 - methodology **K-003** (**I4**), **W-001** (**G6**, **I8**),
   **W-002** (**I11**), **W-003** (**P2**), **W-008** (**G6**), and

@@ -187,7 +187,7 @@ Decomposition is feature-first: iteration-zero setup, then a thin
 end-to-end slice that runs the riskiest path with the least content
 in it, then the two plan-state features, then the fallback. The
 slice leads because [R11](../open-risks.md), not register parsing, is
-what could invalidate the design ([plan-model](../process/plan-model.md)
+what could invalidate the design ([plan-model](../archive/process/plan-model.md)
 thin-slice-first, [R8](../open-risks.md)).
 
 ### Proposed children, in dependency order
@@ -269,7 +269,7 @@ against R12 in the Risk register.
 deployment; B's owner-action wait may overlap them. This
 independence is stated here as a planning product so that parallel
 dispatch is available at the gate's discretion
-([dispatch](../process/dispatch.md)).
+([dispatch](../archive/process/dispatch.md)).
 
 ## Verification criteria for this node
 
@@ -324,7 +324,7 @@ absorbed.
 
 ## Decisions for the gate
 
-Numbered per [dispatch](../process/dispatch.md)'s owner-decision
+Numbered per [dispatch](../archive/process/dispatch.md)'s owner-decision
 economics; the owner's go-ahead adopts every default not overridden
 by number. RU-006 (a separately deployable, secret-holding capability
 gets its own repository, the originator coordinating) and RU-007
@@ -399,9 +399,9 @@ are not re-raised.
   plan, whose chunk 1 this node is, and its five standing constraints
 - [Risk register](../open-risks.md) — R10 (second source of truth),
   R11 (MCP surface constraints), R12 (outage stops work)
-- [docs/process/](../process/README.md) — the v1 process this chunk
+- [docs/process/](../archive/process/README.md) — the v1 process this chunk
   is the fallback for and does not change
-- [Ruling register](../rulings.md) — RU-006, RU-007
+- [Ruling register](../archive/rulings.md) — RU-006, RU-007
 
 ## Gate outcome, 2026-08-26
 
@@ -411,7 +411,7 @@ service is **TypeScript/Node** (MCP SDK) on Lambda / HTTP API /
 DynamoDB via SAM, not Python — TypeScript is common across current
 portfolio projects, and matching this repo's Python helper scripts
 was a weak reason across a repo boundary. Recorded as
-[RU-008](../rulings.md), which also minted the `stack` ruling type.
+[RU-008](../archive/rulings.md), which also minted the `stack` ruling type.
 
 The owner's fallback questions — how a session claims a task when the
 service is unreachable (proposed: the task ID in the branch name,

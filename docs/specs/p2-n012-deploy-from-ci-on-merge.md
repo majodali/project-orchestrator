@@ -22,18 +22,18 @@ is cited here, not retold.
 This document records the criteria the **node itself** is verified
 against. It is not the union of its children's criteria. An interior
 node's `verifying` runs after its children are `done`, against its own
-criteria ([plan-model](../process/plan-model.md)), so everything in
+criteria ([plan-model](../archive/process/plan-model.md)), so everything in
 *Verification criteria* is a property no single child establishes: a
 composition, an equivalence, or a whole-node invariant. Criteria that
 belong to one child are named as such and placed in *The breakdown*.
 
 Depth is the C1 profile's: a criteria list a verifier can check
-([profiles](../process/profiles.md)).
+([profiles](../archive/process/profiles.md)).
 
 The work lands in
 [majodali/project-orchestrator-service](https://github.com/majodali/project-orchestrator-service),
 permanently in this project's approved scope under
-[RU-016](../rulings.md); this node's declaration of that reach is the
+[RU-016](../archive/rulings.md); this node's declaration of that reach is the
 plan's *Dependencies* section and this sentence.
 
 ## Where the plan's twelve criteria went
@@ -318,7 +318,7 @@ Only child D blocks on them.
 Numbering continues the plan's, so one go-ahead adopts one list: the
 plan carries **1–6**, adopted 2026-09-01; this document carries
 **7–10**. The owner's go-ahead adopts every default not overridden by
-number. Checked against the [Ruling register](../rulings.md): RU-009
+number. Checked against the [Ruling register](../archive/rulings.md): RU-009
 (work reaches `main` by pull request) and RU-016 (repository access)
 both apply and neither is re-raised; no existing ruling reaches the
 four below.
@@ -449,8 +449,8 @@ prevent it, one merge before it would have mattered.
   node buys
 - [p2-n002-service-skeleton](p2-n002-service-skeleton.md) —
   chunk 1's specification, whose G/I/P shape this document follows
-- [plan-model](../process/plan-model.md) — the interior-node
+- [plan-model](../archive/process/plan-model.md) — the interior-node
   verification rule these criteria are written against
-- [profiles](../process/profiles.md) — the C1 specification depth
+- [profiles](../archive/process/profiles.md) — the C1 specification depth
 - [Risk register](../open-risks.md) — R12 (P5), R14 (I6)
-- [Ruling register](../rulings.md) — RU-009, RU-016
+- [Ruling register](../archive/rulings.md) — RU-009, RU-016

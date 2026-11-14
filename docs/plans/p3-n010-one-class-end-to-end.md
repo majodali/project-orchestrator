@@ -44,7 +44,7 @@ class, before child B (P3-N011) writes the rest.
 ### The catalogue file
 
 The Implementer creates the file to A1 to A3. The provenance line
-follows [RU-015](../rulings.md) (the delivery form for a change to a
+follows [RU-015](../archive/rulings.md) (the delivery form for a change to a
 repository this project cannot write to). It names methodology 1.6.0,
 the commit that version's tag resolves to, and the date. It states that
 no upstream passage is quoted yet. Encounter artifacts are relative
@@ -129,7 +129,7 @@ findings* (A10).
 
 ## Dependencies
 
-- **Repository reach ([RU-016](../rulings.md), the Planner declares a
+- **Repository reach ([RU-016](../archive/rulings.md), the Planner declares a
   node's repository access).** This node reads and writes **this
   repository**. It writes two new files and edits
   `docs/open-risks.md` and `docs/backlog.md`. It also reads two
@@ -145,7 +145,7 @@ findings* (A10).
   both and records the grants.
 - **Nothing in this node.** P3-N010 is P3-N003's first child.
 - **Not** a dependency: **P3-N002**
-  ([RU-018](../rulings.md), a child is not queued behind a sibling it
+  ([RU-018](../archive/rulings.md), a child is not queued behind a sibling it
   does not depend on). The enumeration is drawn by hand. The Backlog
   entry on reading the model's parts stays open.
 - **Concurrent writers.** Other nodes, P3-N006 and P3-N013 among them,
@@ -167,7 +167,7 @@ handful of Risk register edits.
 
 ## Verification
 
-C1 profile ([profiles](../process/profiles.md)). The Implementer
+C1 profile ([profiles](../archive/process/profiles.md)). The Implementer
 self-verifies against A1 to A11 and A12 to A13 below. No Reviewer is
 dispatched unless the owner asks. The owner reads `CR-001` and its run
 at P3-N003's gate, under decision 14 of the parent specification. That
@@ -195,19 +195,19 @@ lines. It changes no functional test and adds no form-check rule.
 
 ## Decisions for the gate
 
-Numbered per [dispatch](../process/dispatch.md)'s owner-decision
+Numbered per [dispatch](../archive/process/dispatch.md)'s owner-decision
 economics. The owner's go-ahead adopts every default not overridden by
 number. This plan opens its own sequence at 1.
 
-**Precedents checked against the [Ruling register](../rulings.md).**
+**Precedents checked against the [Ruling register](../archive/rulings.md).**
 RU-015 is an exact match and decides the provenance line's form
 silently. RU-016 is the authority for the repository reach, and RU-018
-for independence from P3-N002. [RU-020](../rulings.md) (an interior node
+for independence from P3-N002. [RU-020](../archive/rulings.md) (an interior node
 whose specification reaches breakdown depth needs no separate
-`break down` task) is a near match for decision 1. [RU-019](../rulings.md)
+`break down` task) is a near match for decision 1. [RU-019](../archive/rulings.md)
 (a measurement criterion may be satisfied by an unfavourable result)
 already shapes A8, which accepts an argued empty list. It raises no
-decision here. [RU-022](../rulings.md) (a document drafted for the
+decision here. [RU-022](../archive/rulings.md) (a document drafted for the
 methodology corpus is written IR first) is the subject of decision 5.
 RU-002, RU-003 and RU-005 bind child C, not this node.
 
@@ -284,14 +284,14 @@ dispatch (RU-016). Next: execute.
   [specification](../specs/p3-n003-common-risk-catalogue.md): the
   parent; criteria A1 to A11, decision 10, and the definitions this
   node applies
-- [Backlog](../backlog.md): the encounter records in the table above,
+- [Backlog](../archive/backlog.md): the encounter records in the table above,
   and the P3-N010 entry
 - [Risk register](../open-risks.md): R1 (the expected rejection), R12
   and R13 (the first candidates for a `CR-001` citation)
-- [Ruling register](../rulings.md): RU-015, RU-016, RU-018, RU-019,
+- [Ruling register](../archive/rulings.md): RU-015, RU-016, RU-018, RU-019,
   RU-020, RU-022
-- [plan-model](../process/plan-model.md), [profiles](../process/profiles.md),
-  [dispatch](../process/dispatch.md)
+- [plan-model](../archive/process/plan-model.md), [profiles](../archive/process/profiles.md),
+  [dispatch](../archive/process/dispatch.md)
 - methodology 1.6.0: Constitution **Article 4** (applicability, then
   precedence), for the header notation and decision 2; **Article 8**
   (amendments, versions, and migration), the process the catalogue is

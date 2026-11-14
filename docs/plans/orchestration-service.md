@@ -152,7 +152,7 @@ progress, and reports completion — the standing substitute for
 server-side spawning. Includes the advisory lease under several live
 sessions: role sessions claim tasks through git, and only the
 Orchestrator takes the lease
-([P2-N005 plan](p2-n005-task-pull-loop.md), decisions 4 and 7).
+([P2-N005 plan](../archive/plans/p2-n005-task-pull-loop.md), decisions 4 and 7).
 Gate: a node moves through its lifecycle across two sessions with no
 owner intervention beyond the gate.
 
@@ -173,7 +173,7 @@ Gate: owner reviews pilot results.
 **All four defaults adopted by the owner, 2026-08-26**; the repository
 [majodali/project-orchestrator-service](https://github.com/majodali/project-orchestrator-service)
 exists and chunk 1 begins there. The two recurring decisions were
-captured as rulings [RU-006 and RU-007](../rulings.md); the
+captured as rulings [RU-006 and RU-007](../archive/rulings.md); the
 boundary and disposition calls were one-offs and were not.
 
 1. **Repository shape** — default: a new repository for the service,
@@ -197,7 +197,7 @@ boundary and disposition calls were one-offs and were not.
 
 - [orchestrator-v1](orchestrator-v1.md) — the founding plan, whose
   process spec this inherits unchanged
-- [docs/process/](../process/README.md) — the orchestration process
+- [docs/process/](../archive/process/README.md) — the orchestration process
   specification
 - [Risk register](../open-risks.md) — R10–R12 record this plan's
   service-specific risks

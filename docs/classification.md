@@ -44,42 +44,47 @@ C2+ projects (recorded 2026-08-24; see the
 ## Custom definitions
 
 Adopted by citation (methodology Article 7, definition-by-citation
-form, v1.3.0) at self-hosted enrollment, 2026-08-25:
+form, v1.3.0). Revised 2026-11-14 by node P4-N024 (Pruned document
+set): the types the dispatch loop needed are retired with the
+documents that carried them.
 
-- **Plan register** (Document) — cites
-  [docs/process/plan-register.md](process/plan-register.md);
-  instance: [docs/plan-register.md](plan-register.md).
-- **Cost log** (Document) — cites
-  [docs/process/cost-log.md](process/cost-log.md);
-  instance: [docs/cost-log.md](cost-log.md).
-- **Run journal** (artifact) — cites
-  [docs/process/observability.md](process/observability.md);
-  instance: `orchestration/journal.jsonl` (telemetry, never
-  authoritative).
-- **Ruling register** (Document) — cites
-  [docs/process/rulings.md](process/rulings.md);
-  instance: [docs/rulings.md](rulings.md).
-- **Project model** (Document) — cites
-  [docs/process/project-model.md](process/project-model.md);
-  instance: [docs/project-model.md](project-model.md). This entry
-  declares the type only, and no planning/execution model. Under K-003
-  (the Backlog is the single source of progress truth) as released at
-  1.6.0, the Backlog stays the referent for what is done and what is
-  next. Added on 2026-10-30 by node P3-N007 (the type declared, the
-  arguments written, the K-003 amendment drafted).
 - **State file** (artifact) — cites the schema
   [`src/model/schema.ts`](https://github.com/majodali/project-orchestrator-service/blob/main/src/model/schema.ts)
   of majodali/project-orchestrator-service, schema version 0, which is
   the type's definition; instance: `orchestration/state.json`. Holds
-  the nodes, tasks and decisions of this project. The progress truth
-  during the rebuild, under the K-003 deviation above. The Plan
-  register and `docs/plan.md` are renderings of it. Added 2026-11-09
-  at the rebuild's milestone 1 ([plan](plans/rebuild.md)).
+  the nodes, tasks and decisions of this project, and is the progress
+  truth under the K-003 deviation above. The orchestration service is
+  its only writer. Described in
+  [the state model](process/state-model.md). Added 2026-11-09 at the
+  rebuild's milestone 1 ([plan](plans/rebuild.md)).
+- **Plan register** (rendering) — instance:
+  [docs/plan-register.md](plan-register.md), with
+  [docs/plan.md](plan.md). Both are renderings of the state file,
+  written by the service and never by hand. The hand-written type's
+  definition is archived:
+  [plan-register.md](archive/process/plan-register.md).
+- **Run journal** (artifact) — instance: `orchestration/journal.jsonl`
+  (telemetry, never authoritative), written by the service, one line
+  per write. The dispatch loop's definition is archived:
+  [observability.md](archive/process/observability.md).
 
-Sandbox designation, 2026-11-09 (methodology Article 7): the Plan
-register, Cost log, Ruling register and Project model instances above
-are `in-progress` for the rebuild ([plan](plans/rebuild.md),
-milestone 0). Each is frozen at its 2026-11-09 content. The state file
-`orchestration/state.json` supersedes the first three from
-milestone 1; the Project model is parked. The Run journal is
-unchanged. The designation ends at milestone 6.
+Retired 2026-11-14, each with its definition and its instance in
+`docs/archive/`:
+
+- **Cost log** — definition
+  [cost-log.md](archive/process/cost-log.md), instance
+  [cost-log.md](archive/cost-log.md). Replaced by the cost the service
+  records on each task in the state file.
+- **Ruling register** — definition
+  [rulings.md](archive/process/rulings.md), instance
+  [rulings.md](archive/rulings.md). Replaced by the standing decisions
+  RU-001 to RU-024 in the state file.
+- **Project model** — definition
+  [project-model.md](archive/process/project-model.md), instance
+  [project-model.md](archive/project-model.md). Not replaced: it
+  belongs to the P3 line, which the owner holds at P3-N001 (D005,
+  D063), and returns with it. Added on 2026-10-30 by node P3-N007.
+
+The sandbox designation of 2026-11-09, which froze the Plan register,
+Cost log, Ruling register and Project model instances for the
+rebuild, ended with this revision.

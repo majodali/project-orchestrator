@@ -38,9 +38,9 @@ Concretely, at `done`:
 
 ## Why this node exists
 
-**The ruling.** [RU-011](../rulings.md) settles that majodali
+**The ruling.** [RU-011](../archive/rulings.md) settles that majodali
 repo-local tooling and scripts are TypeScript/Node, the same answer
-[RU-008](../rulings.md) gives services. The plugin's three Python
+[RU-008](../archive/rulings.md) gives services. The plugin's three Python
 scripts were written a day before RU-008 and violated no ruling at
 the time; RU-011 closes the gap the wording left open. The owner's
 own framing (2026-08-29) is the reason to act on it now: *"I'd prefer
@@ -54,7 +54,7 @@ own source comment records that it mirrors `form_check.py`'s
 `NODE_RE`/`NODEISH_RE` "line for line", verified at acceptance to
 agree with it on all 19 nodes of the real register. Two hand-kept
 transcriptions of one specification
-([plan-register.md](../process/plan-register.md)) in two languages in
+([plan-register.md](../archive/process/plan-register.md)) in two languages in
 two repositories is exactly the second-truth shape this project keeps
 legislating against. Translating the Python into TypeScript and
 leaving two copies would satisfy the letter of RU-011 and miss the
@@ -84,7 +84,7 @@ repository, copied into the service repository by a generator with a
 Canonical here, because this repository owns the grammar's
 specification and Constitution Article 3 puts the machinery
 mechanizing a spec with the spec (the standing rule in
-[auditing.md](../process/auditing.md): where checker and spec
+[auditing.md](../archive/process/auditing.md): where checker and spec
 disagree, the spec is right). It is also the coordinating repo.
 
 The shared unit is deliberately small and deliberately shaped to
@@ -169,7 +169,7 @@ Three things, in descending order of how much work they do:
 2. **The stage vocabulary shared as data.** The specific gap the
    cross-check found was two places disagreeing about what a legal
    stage is. Shared as one exported constant derived from
-   [plan-model.md](../process/plan-model.md), that particular
+   [plan-model.md](../archive/process/plan-model.md), that particular
    disagreement becomes impossible; what remains is each consumer's
    choice of whether to validate, which is a policy question P2-N010
    settles openly instead of by accident.
@@ -182,7 +182,7 @@ Three things, in descending order of how much work they do:
 
 The rewritten checker must produce the same findings as the current
 one. Where the port discovers that the Python itself deviates from
-[auditing.md](../process/auditing.md), the deviation is **preserved
+[auditing.md](../archive/process/auditing.md), the deviation is **preserved
 in the port and recorded as a Backlog finding**, then fixed as a
 separate deliberate change (decision 6) — a rewrite that also changes
 behaviour cannot be verified by comparison.
@@ -217,7 +217,7 @@ drift check here; the service's adoption of it is a Backlog item for
 a service-repo node — naturally **P2-N010**, which must open the
 parser anyway to settle the stage-vocabulary question. This keeps the
 node inside single-repo scope, avoids an immediate-class scope
-expansion ([dispatch.md](../process/dispatch.md), "cross-repo reach
+expansion ([dispatch.md](../archive/process/dispatch.md), "cross-repo reach
 is scope"), and puts the adopting commit in the repository whose plan
 accounts for it.
 
@@ -229,7 +229,7 @@ owner may prefer to finish it in one motion; that is decision 3.
 
 It does not change what to build now, and it adds one small
 constraint. The
-[extension-point proposal](../proposals/mtool-custom-type-checker.md)
+[extension-point proposal](../archive/proposals/mtool-custom-type-checker.md)
 sketches a declared checker whose entry point emits JSON findings.
 That contract is still under discussion upstream and RU-004's
 precedent is sketch-only, so **no `--emit=json` mode is built here**
@@ -268,11 +268,11 @@ went `active` and its decisions 11–14 were adopted at the gate.
 **Node IDs are the Orchestrator's to issue**; the children are named
 by letter here. Each child's criteria below are that child's own —
 this node's criteria are the specification's, and they are not the
-union of these ([plan-model](../process/plan-model.md), the
+union of these ([plan-model](../archive/process/plan-model.md), the
 interior-node verification rule).
 
 The cut is four children. Decomposition here is **technical rather
-than feature-first**, and [plan-model](../process/plan-model.md)
+than feature-first**, and [plan-model](../archive/process/plan-model.md)
 allows that below an atomic feature, with the reason recorded: this
 node is one behaviour — *the tooling runs on Node and the grammar
 exists once* — and no sub-behaviour of it validates separately. What
@@ -386,8 +386,8 @@ tooling throughout this child. Criteria:
 4. **One vocabulary, as data, and no policy in it** (spec D1, D5).
    The stage set and the node-line grammar exist exactly once in
    executable form, cited to
-   [plan-model](../process/plan-model.md) and
-   [plan-register](../process/plan-register.md). No exported
+   [plan-model](../archive/process/plan-model.md) and
+   [plan-register](../archive/process/plan-register.md). No exported
    function returns a policy verdict; parse-level facts (a
    node-like line that does not parse, a duplicate ID) are the only
    error-shaped things it returns. The unit's own tests cover each
@@ -395,7 +395,7 @@ tooling throughout this child. Criteria:
    the same node set the Python's parser yields — ID, stage, hold
    marker, parent, line number.
 5. **The Node floor preflights and exits loudly** (decision 12,
-   [RU-013](../rulings.md)). One preflight, used by every tool this
+   [RU-013](../archive/rulings.md)). One preflight, used by every tool this
    node ships, that on a runtime below 22.18 (below 23.6 on the
    23.x line) prints the version required, the version found, and
    what to do, and exits non-zero without performing the tool's
@@ -537,7 +537,7 @@ the evidence is produced. Criteria:
    task result.
 3. **Preserved deviations are visible both ways** (spec B5,
    decision 6). Where the port finds `form_check.py` deviating from
-   [auditing.md](../process/auditing.md) and preserves the
+   [auditing.md](../archive/process/auditing.md) and preserves the
    deviation, the preserving site says so and cites the document,
    and a Backlog entry records it; the set of annotated sites and
    the set of entries are the same set. The two documented v1
@@ -633,7 +633,7 @@ survives. Criteria:
    passes clean on this repository at the cutover commit and at
    every later commit; its corpus self-check passes; and the
    documented command in `CLAUDE.md` states the Node floor where it
-   states the command ([RU-013](../rulings.md)).
+   states the command ([RU-013](../archive/rulings.md)).
 8. **The Backlog is the truth** (K-003, W-003, spec P2). In the
    same commit: the P1-N009 entry rewritten to what actually
    shipped, the entries this node closes closed and the ones it
@@ -650,14 +650,14 @@ oracle is deleted), and through it B and A. It is the last child.
 The order is **A → B → C → D**, and it is a strict chain: **no two
 of these children are mutually independent**, so no parallel
 dispatch is licensed at this node
-([dispatch](../process/dispatch.md) — parallelism is a planning
+([dispatch](../archive/process/dispatch.md) — parallelism is a planning
 product the owner has seen, never an Orchestrator improvisation).
 Stated positively so the Orchestrator does not have to infer it: B
 is written in the toolchain A creates and its manifest carries A's
 unit; C is measured against B's corpus and runs B's expectations on
 every invocation; D must not delete the oracle before C has produced
 the evidence. The default dependency rule
-([dispatch](../process/dispatch.md): entering `execute` requires
+([dispatch](../archive/process/dispatch.md): entering `execute` requires
 earlier siblings `done`) is therefore exactly right here and needs
 no override.
 
@@ -676,7 +676,7 @@ recorded output, a document or a register entry. Then the owner gate
 
 - **No sibling override needed.** P1-N009's earlier siblings
   (P1-N002–N005, P1-N008) are all `done`, so
-  [dispatch.md](../process/dispatch.md)'s earlier-siblings-`done`
+  [dispatch.md](../archive/process/dispatch.md)'s earlier-siblings-`done`
   default is satisfied for `execute` without an owner override.
 - **P2-N010 should follow this node's shared-unit child** — which
   the breakdown places in **child A**, and whose travelling package
@@ -704,7 +704,7 @@ From the founding plan's six, the ones that bite here:
    no Classification field (still C1 / S0 / component-library /
    none-local) and introduces no deviation.
 2. **Documentation is the spec** (constraint 3). The checker is a
-   built artifact of [auditing.md](../process/auditing.md). No
+   built artifact of [auditing.md](../archive/process/auditing.md). No
    document under `docs/process/` changes its *content* because of
    this node; where the port and the spec disagree, the spec is right
    and the port has a bug. The `python3` commands quoted in
@@ -745,7 +745,7 @@ registry and its credentials.
 
 ## Decisions for the gate
 
-Numbered per [dispatch.md](../process/dispatch.md)'s owner-decision
+Numbered per [dispatch.md](../archive/process/dispatch.md)'s owner-decision
 economics; a go-ahead adopts every default not overridden by number.
 The Ruling register was checked for exact matches: RU-008 and RU-011
 settle the language question (so it is not asked below); RU-006
@@ -828,17 +828,17 @@ following.
 
 - [orchestrator-v1](orchestrator-v1.md) — parent plan; standing
   constraints
-- [rulings.md](../rulings.md) — RU-011 (repo-local tooling is
+- [rulings.md](../archive/rulings.md) — RU-011 (repo-local tooling is
   TypeScript/Node), RU-008, RU-006, RU-005, RU-004
-- [auditing.md](../process/auditing.md) — the invariants the checker
+- [auditing.md](../archive/process/auditing.md) — the invariants the checker
   mechanizes, and the spec-is-right rule
-- [plan-register.md](../process/plan-register.md) — the grammar being
+- [plan-register.md](../archive/process/plan-register.md) — the grammar being
   shared
-- [plan-model.md](../process/plan-model.md) — the stage vocabulary,
+- [plan-model.md](../archive/process/plan-model.md) — the stage vocabulary,
   and the feature-first decomposition guidance
-- [profiles.md](../process/profiles.md) — C1 profile: breakdown above
+- [profiles.md](../archive/process/profiles.md) — C1 profile: breakdown above
   single-session size, criteria-list specifications
-- [dispatch.md](../process/dispatch.md) — owner-decision economics,
+- [dispatch.md](../archive/process/dispatch.md) — owner-decision economics,
   dependency default, cross-repo reach as scope
 - [open-risks.md](../open-risks.md) — R8 (thin slice first), R9 (the
   plugin has never been observed loading)
@@ -855,7 +855,7 @@ must declare one S-level and one Type, so the documentation tree
 would inherit the service's S1 obligations and one of the two Type
 declarations would be false (Article 4); and this pair is the only
 live exercise of the multi-repo coordination the process spec
-describes. [RU-006](../rulings.md) therefore stands unamended, and
+describes. [RU-006](../archive/rulings.md) therefore stands unamended, and
 decision 1's vendoring answer is captured as
-[RU-012](../rulings.md).
+[RU-012](../archive/rulings.md).
 

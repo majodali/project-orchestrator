@@ -1,0 +1,306 @@
+> **Status: archived 2026-11-14** (P4-N024, Pruned document set).
+> Archived because this is the Ruling register, frozen on 2026-11-09.
+> Replaced by the standing decisions RU-001 to RU-024 in
+> `orchestration/state.json`, which every task receives at
+> `task_open`.
+
+# Ruling register
+
+Status: frozen 2026-11-09 at this content, under [the rebuild plan](../plans/rebuild.md), milestone 0. Its rulings are imported into the state file's decisions at milestone 1; the file moves to `docs/archive/` at milestone 6.
+
+Instance of the *Ruling register* type, defined by citation in the
+[Classification](../classification.md)
+([type spec](process/rulings.md)). Single writer: the Orchestrator.
+Gate decisions captured as precedents; exact matches decide staged
+questions silently; recurring patterns promote into the process
+spec. First entries land at the pending P1-N008 gate.
+
+- RU-001 [active] completion/node — Execute a proposal draft before
+  its evidencing node closes? Ruling: yes. Rationale: the evidence
+  already exists; holding just delays ratified wording. Source:
+  P1-N008 gate (decision 1, default adopted), 2026-08-26. Applied: T004.
+- RU-002 [active] handoff/process — How does upstream-bound output
+  reach a repo outside granted scope? Ruling: the owner hand-carries
+  it; cross-repo scope is granted only explicitly. Rationale: no
+  scope expansion for a delivery a human can make. Source: P1-N008
+  gate (decision 2, default adopted), 2026-08-26. Applied: T020,
+  T039; the P3-N007 verifying gate, 2026-10-30.
+- RU-003 [active] completion/process — Does a node targeting an
+  external party complete at the artifact or at upstream
+  disposition? Ruling: at the artifact. Rationale: external
+  acceptance is not ours to verify. Source: P1-N008 gate
+  (decision 3, default adopted), 2026-08-26. Applied: T004, T020,
+  T039; the P3-N007 verifying gate, 2026-10-30.
+- RU-004 [active] completion/node — Full reference implementation or
+  conformance sketch for the extension-point proposal? Ruling:
+  sketch only. Rationale: the contract is still under discussion.
+  Source: P1-N008 gate (decision 4, default adopted), 2026-08-26.
+  Applied: T004.
+- RU-005 [active] verification/project — Are proposal-class nodes
+  owner-gated, and where? Ruling: yes, gate at `verifying`.
+  Rationale: the owner sees the artifact before it represents the
+  project. Source: P1-N008 gate (decision 5, default adopted),
+  2026-08-26. Applied: T020, T039.
+
+- RU-006 [active] scope/process — When does a new capability get its
+  own repository rather than joining an existing one? Ruling: when it
+  is separately deployable, holds secrets, or would raise the host
+  repo's S-level; the originating repo is then the coordinating repo.
+  Rationale: the orchestration service is deployable and holds
+  tokens; this repo is C1/S0 documentation and tooling. Source:
+  P2-N001 gate (decision 1, default adopted), 2026-08-26. Applied: —
+- RU-007 [active] scope/project — When is this repo promoted to C2?
+  Ruling: when it begins orchestrating C2+ work — chunk 5 of the
+  service plan, not before. Rationale: the owner's standing intent
+  ties promotion to what the project actually governs. Source:
+  P2-N001 gate (decision 3, default adopted), 2026-08-26. Applied: —
+- RU-008 [active] stack/process — What language and runtime do new
+  majodali services use? Ruling: TypeScript/Node. Rationale: common
+  across current portfolio projects; the MCP SDK and Lambda support
+  it first-class, and cross-repo consistency beats matching one
+  repo's helper scripts. Source: P2-N002 gate (decision 4,
+  **owner override** of the Python default), 2026-08-26. Applied: —
+- RU-009 [active] handoff/project — How does completed work reach
+  `main` in a managed project's work repo? Ruling: by pull request,
+  opened by the orchestrating session; the owner reviews and merges.
+  Rationale: the owner asked for one at the first such merge, and a
+  PR is where the "what was and was not verified" record belongs.
+  Source: owner request at the P2-N008 slice merge, 2026-08-27.
+  Applied: T009, T010, and the v1.4.0 migration of 2026-08-31
+  (no task — an orchestrator-run change, not a dispatched one) Also T024 (PR #5) and T025 (PR #6).
+
+- RU-010 [active] handoff/project — How does work reach `main` in
+  this coordinating repo, given the owner created `main` from the
+  design branch and made it default? Ruling: the same way as a work
+  repo — by pull request from the design branch, opened by the
+  orchestrating session, owner reviews and merges. Rationale: the
+  owner directed a PR when the design branch first needed to reach
+  `main`; one handoff shape across coordinating and work repos beats
+  two. Extends RU-009 rather than competing with it. Source: owner
+  request at the enlistment merge, 2026-08-28. Applied: the
+  2026-08-28 enlistment merge (PR #2) and the 2026-09-01 branch
+  tidy-up (PR #4).
+
+- RU-011 [active] stack/process — What language do majodali
+  repo-local tooling and scripts use, as distinct from deployed
+  services? Ruling: TypeScript/Node, the same answer RU-008 gives
+  services. Rationale: the owner prefers portfolio consistency and
+  reuse over per-repo convenience; the orchestrator's form checker
+  and the service's `plan_read` parse the same register grammar and
+  should not be two implementations in two languages. RU-008 was
+  minted a day after the plugin's Python scripts were written and
+  its wording reaches only services, so this is a gap being closed,
+  not an override. Source: owner decision on noticing the
+  inconsistency, 2026-08-29. Applied: —
+
+- RU-012 [active] stack/process — How do two majodali repositories
+  share one unit of code, absent a package registry? Ruling: one
+  canonical copy in the repository that owns the thing's
+  specification, vendored outward by a generator with a `--check`
+  drift mode; the consumer never edits its copy. Rationale: the least
+  machinery that makes drift mechanically detectable — no registry, no
+  release cadence, no clone-time dependency — and the pattern already
+  runs here as `.claude/agents/` → `plugin/agents/`. A registry,
+  submodule, subtree, or shared-library repo each buy less than they
+  cost at two consumers; RU-006 is the near match, and reaching for a
+  third repository is what it warns against. Revisit at a third
+  consumer. Source: P1-N009 gate (decisions 1 and 2, defaults
+  adopted), 2026-08-29. Applied: T024.
+
+- RU-013 [active] stack/process — What does a majodali tool do when
+  the runtime it needs is missing or too old? Ruling: preflight and
+  exit non-zero, naming what was required and what was found; never
+  degrade quietly and never skip the check it exists to perform.
+  Rationale: [R13](../open-risks.md)'s failure mode is losing the form
+  checker *silently*, and a loud exit converts that into a blocked
+  dispatch, which the audit process already treats as the correct
+  outcome. Generalizes beyond this node: any tool with a runtime
+  floor. Source: P1-N009 gate (decision 12, default adopted),
+  2026-08-30. Applied: —
+
+- RU-014 [active] verification/process — When a port retires the only
+  other implementation a test compares against, what happens to that
+  test? Ruling: retire the comparison, keep whatever assertion still
+  stands without the retired side, and record in the same commit
+  where the lost coverage now lives. Rationale: a cross-check needs
+  two implementations, and deleting one is the deliberate outcome of
+  a port, not an accident — so the test's premise is gone, not
+  merely inconvenient. Freezing a transcript of the retired side is
+  the anti-pattern the same test was already rewritten to remove,
+  and keeping the retired runtime alive for tests alone defeats the
+  port. Every port ends this way, which is why this is a ruling and
+  not a one-off. The W-002 ceremony still applies: the owner rules
+  before the test changes. Source: P1-N013, owner decision on the
+  T017 escalation, option (c), 2026-08-30. Applied: —
+
+- RU-015 [active] handoff/process — How does this project deliver a
+  change to a repository it cannot write to? Ruling: final normative
+  text, the current upstream text quoted verbatim beside it, and a
+  provenance line naming the version, the commit and the date the
+  quote was taken, with an instruction to re-verify before the change
+  is carried. Never a patch file. Rationale: a session that cannot
+  apply or test a patch produces one that fails on context it never
+  verified, while a verbatim quote gives the carrier the same
+  mechanical certainty and no fragile artifact. The provenance line is
+  the part that earns its keep — without it a quote that went stale
+  between drafting and delivery is undetectable by the reader.
+  Generalizes past the methodology to any upstream this project
+  proposes into. Source: P1-N015 gate (decision 2, default adopted),
+  2026-09-01. Applied: T022, T023, T039.
+
+- RU-016 [active] scope/process — Who decides which repositories a
+  node's work may write to? Ruling: the Planner declares the repository
+  access a node needs, in the node's plan; the Orchestrator grants it
+  and records the grant; the owner is asked only when a repository is
+  new to the project. This project's approved scope permanently
+  includes
+  [majodali/project-orchestrator-service](https://github.com/majodali/project-orchestrator-service).
+  Rationale: the owner's attention is the scarcest resource in the
+  loop, and re-granting a repository the project writes to constantly
+  is a question with a known answer. The declaration keeps the reach
+  visible rather than assumed — a node that writes a repository its
+  plan never named is still a scope violation, which is the property
+  the original owner-names-it rule was protecting. Supersedes
+  `dispatch.md`'s "cross-repo reach is scope" only in *who* grants,
+  not in *whether* it must be declared. Source: owner decision at the
+  P2-N012 gate, 2026-09-01. Applied: T039, T043, T055, T071, T073, T075, T080, T083, T094, T095, T096, T097, T098, T099, T100, T101, T102.
+
+- RU-017 [active] scope/project — When a node's whole driver is
+  another portfolio project, is that project's adoption part of the
+  node? Ruling: no. The node is verified against this repository's own
+  instance; adoption by the other project is a separate node with its
+  own repository grant, requested when it is wanted. Rationale: every
+  criterion must be answerable by a verifier inside the project doing
+  the work, and a node that completes only on another project's
+  adoption cannot be verified by anyone who works on it. Generalizes
+  RU-003 one step out, from an upstream repository to a sibling
+  project. Source: P3-N001 gate (decision 1, default adopted),
+  2026-09-17. Applied: —
+
+- RU-018 [active] scope/process — Is a child queued behind an earlier
+  sibling it does not depend on? Ruling: no. A child that needs
+  nothing an earlier sibling produces is marked independent in the
+  register and may be dispatched alongside it; only a real dependency
+  holds a node. This narrows `dispatch.md`'s earlier-siblings-`done`
+  default, which stands wherever independence is not recorded.
+  Rationale: sibling order was only ever a stand-in for dependency
+  information the register could not hold (see the owner's direction
+  of 2026-09-17, recorded in P3-N001's plan), and holding unrelated
+  work behind it is the defect the comprehension model exists to fix.
+  *Type note:* the taxonomy in
+  [rulings.md](process/rulings.md) has no type for dispatch-sequencing
+  decisions; `scope` is the nearest fit and the gap is filed in the
+  Backlog against P1-N016 rather than papered over. Source: P3-N001
+  gate (decision 2, default adopted), 2026-09-17. Applied: —
+
+- RU-019 [active] verification/project — May a criterion that measures
+  something be satisfied by an unfavourable result? Ruling: yes, and
+  it must be. A measurement criterion is met by the number, the
+  method and the conclusion being recorded, whichever way the number
+  falls; the response to an unfavourable one is a plan change, not a
+  failed node. Rationale: a criterion satisfiable only by a favourable
+  figure measures nothing. Source: P3-N001 gate (decision 6, default
+  adopted), 2026-09-17. Applied: —
+
+- RU-020 [active] completion/process — Does an interior node need a
+  separate `break down` task after its specification? Ruling: no, when
+  the specification already carries the children at the depth such a
+  task would produce: the children are entered `identified` with their
+  Backlog entries at the specification gate and the parent moves
+  `specified` → `broken-down` in the same act. Rationale: three
+  interior nodes have now crossed this way — P2-N002, P2-N012 and
+  P3-N001 — and dispatching a task to restate a breakdown the owner
+  has just approved spends tokens to produce nothing. A specification
+  that does *not* reach that depth still gets the task. Source:
+  P3-N001 gate (decision 8, default adopted), 2026-09-17. Applied: the
+  P3-N002, P3-N003 and P3-N005 specification gates, 2026-10-29; the
+  P2-N003 and P2-N005 specification gates, 2026-10-30.
+
+- RU-021 [active] knowledge/project — Which document is the source of
+  progress truth in an orchestrated project? Ruling: the
+  planning/execution model, once the project has one; the Backlog's
+  remaining jobs, the implementation map and the list of what is next,
+  are renderings of it. K-003 is amended to say so, project by project
+  as each adopts the orchestrator, and this repository is the
+  evidencing instance. Rationale: the owner's vision decision of
+  2026-10-28 (methodology docs/vision.md, decisions C8, C19, C20);
+  two documents claiming progress truth is the divergence the
+  comprehension model exists to remove. Overrides P3-N002's gate
+  decision 3 default. Source: owner decision at the P3-N002 gate,
+  2026-10-29. Applied: T043.
+
+- RU-022 [active] handoff/process — How does a document this project
+  drafts for the methodology corpus carry W-009 (the methodology corpus
+  writes its deliverables IR first)? Ruling: the drafting role writes the IR
+  first; the prose is rendered and reviewed under dispatch.md's prose
+  routing; and RU-015's delivery form also carries the IR, under the
+  same provenance line. Rationale: W-009 has the reasoning role render
+  normative text, and that role is the session here; an IR written
+  upstream would re-derive the reasoning. Source: P1-N014
+  specification gate (decision 11, default adopted), 2026-10-29.
+  Applied: —
+
+- RU-023 [active] sequencing/process — May a task outside a ratified
+  sequence be dispatched while the sequence runs? Options seen: (A)
+  from `sequence-ratified` to `sequence-stopped` no task outside the
+  members is dispatched, and the first member is dispatched only when
+  no other task is in flight; (B) a task outside the members may run
+  alongside, under `dispatch.md`'s *Parallel dispatch*, when a
+  gate-approved plan records it as independent. Ruling: option A, as
+  an interim rule. It holds until the stop predicates read the journal
+  by member task; the Backlog row "Lift RU-023 from interim" holds the
+  lifting. Placed at the end of `dispatch.md`, *Sequence mode*, *The
+  run*. Rationale: the predicates and the owner's audit read the
+  journal between ratification and stop, and a concurrent writer would
+  bring back the Backlog race. *Type note:* type sequencing, entered in
+  the taxonomy by P1-N016's E2. Source: owner decision at the
+  acceptance of T103 (P1-N016, task E1), ask A23, in the words "A23 go
+  with A as interim", 2026-11-03. Applied: —
+
+- RU-024 [active] sequencing/process — Does a go-ahead that adopts
+  defaults ratify a sequence? Options seen: (A) a go-ahead ratifies a
+  sequence only when its words say so; (B) a ratification entry staged
+  with the default "ratify" is adopted by the go-ahead like any other
+  default. Ruling: option A. Placed in `dispatch.md`, *Sequence mode*,
+  *Ratification*, and after the bullet "Decisions batch at the gate"
+  of *Owner-decision economics*. Rationale: W-001 (two delivery modes,
+  human-gated) says "The approval is still explicit". *Type note:*
+  type sequencing, entered in the taxonomy by P1-N016's E2. Source:
+  owner decision at the acceptance of T103 (P1-N016, task E1), ask
+  A24, default adopted, in the words "A24 and A25 defaults too",
+  2026-11-03. Applied: —
+
+Trial-4 note: RU-001/003/004 decided the execute dispatch silently —
+the register's first live exercise, and the reason `form_check.py`
+now cross-checks Applied lists against `precedent-applied` events
+(the lists were not maintained on the first run).
+
+Promotion flags: RU-018 (a child is not queued behind a sibling it
+does not depend on) is process-scope and stays flagged, left to node
+P3-N009 (sibling ordering retired), which retires sibling ordering
+(rulings.md promotion rule). Promoted 2026-11-03 by node P1-N016
+(process spec maintenance), task E1 (T103), into
+`docs/process/dispatch.md`: RU-002 (the owner hand-carries upstream
+output) and RU-015 (upstream delivery form), *Owner-decision
+economics*, the upstream bullet; RU-016 (the Planner declares the
+repository access a node needs), *Owner-decision economics*, the
+cross-repository bullet; RU-009 (completed work reaches `main` by pull
+request) and RU-010 (this repository reaches `main` the same way),
+*How work reaches `main`*. Promoted 2026-11-03 by node P1-N016, task
+E2 (T104): RU-003 (a node targeting an external party completes at the
+artifact) and RU-020 (no separate break-down task when the
+specification reaches breakdown depth), into
+`docs/process/plan-model.md`, the node lifecycle's rules; RU-013 (a
+tool with an unmet runtime floor exits loudly), into
+`docs/process/auditing.md`, *Form checks*. Each stays `active`.
+Declined 2026-11-03 by node P1-N016 (its plan's decision 10): RU-006
+(when a new capability gets its own repository), RU-008 (the language
+and runtime of new services), RU-011 (the language of repo-local
+tooling) and RU-012 (how two repositories share one unit of code),
+because they are portfolio architecture and stack choices, not
+orchestration process; RU-014 (a port retires the comparison test),
+because it was applied once, by the port that prompted it. RU-022
+(corpus-bound documents are written IR first), RU-023 (no task outside
+a ratified sequence while it runs, interim) and RU-024 (a go-ahead
+that adopts defaults ratifies no sequence) are already stated in
+`docs/process/dispatch.md`.

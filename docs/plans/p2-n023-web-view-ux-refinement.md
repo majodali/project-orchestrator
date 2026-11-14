@@ -13,9 +13,9 @@ catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#reade
 and the owner. It assumes the methodology at
 this project's pinned version, 1.6.0
 ([Classification](../classification.md)), and the [process
-specification](../process/README.md).
+specification](../archive/process/README.md).
 
-[Node](../process/README.md#def-node) P2-N023 (web view UX refinement)
+[Node](../archive/process/README.md#def-node) P2-N023 (web view UX refinement)
 is the third child of P2-N003, owner questions and the plan view
 ([plan](p2-n003-owner-questions-and-plan-view.md)). The parent's plan
 and specification name two children. The owner added this one on
@@ -93,7 +93,7 @@ node.
 
 ## Verification
 
-C1 profile ([profiles](../process/profiles.md)). One criterion:
+C1 profile ([profiles](../archive/process/profiles.md)). One criterion:
 
 - **U1.** The owner decides that the web view replaces `docs/plan.md`.
   Or ten iterations end, and the Backlog row "UX refinement of the web
@@ -197,7 +197,7 @@ asks in pull request #25 (T098). The Orchestrator set them on 2026-11-03.
 9. Branch names. The pull request's title carries `ux-NN`. The branch
    name is free. The owner's session pushes to the branch its harness
    binds (`claude/...`). The result core in
-   [dispatch.md](../process/dispatch.md#def-result-core) already
+   [dispatch.md](../archive/process/dispatch.md#def-result-core) already
    accepts a branch that the execution surface mandates. Set by the
    Orchestrator on 2026-11-03.
 10. The tree page answers P2-N021's criteria V25 and V26 differently,
@@ -239,10 +239,10 @@ records reach to majodali/project-orchestrator-service under RU-016.
 - [Plan of P2-N003](p2-n003-owner-questions-and-plan-view.md) and its
   [specification](../specs/p2-n003-owner-questions-and-plan-view.md):
   the parent
-- [Backlog](../backlog.md): the rows "Whether the web view replaces
+- [Backlog](../archive/backlog.md): the rows "Whether the web view replaces
   `docs/plan.md`" and "UX refinement of the web view"
-- [Ruling register](../rulings.md): RU-016 (repository reach) and
+- [Ruling register](../archive/rulings.md): RU-016 (repository reach) and
   RU-018 (independence from an earlier sibling)
-- [plan-model](../process/plan-model.md),
-  [observability](../process/observability.md),
-  [cost-log](../process/cost-log.md)
+- [plan-model](../archive/process/plan-model.md),
+  [observability](../archive/process/observability.md),
+  [cost-log](../archive/process/cost-log.md)

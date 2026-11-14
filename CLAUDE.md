@@ -51,7 +51,8 @@ and minimizing model and context cost.
 renderings current). `npm run render` rewrites `docs/plan-register.md`
 and `docs/plan.md` from it; never edit those two by hand.
 `node plugin/scripts/form_check.ts` — the old process's form checks,
-runnable by hand over the frozen documents; no longer a CI check since
+runnable by hand; the registers it reads are archived, so over this
+tree it reports them missing. No longer a CI check since
 2026-11-11, because it rejects states the service legitimately writes
 (`plan-state check` is the one validity rule). Requires Node >=22.18.0 (>=23.6.0 on the 23.x line,
 RU-013): the tool preflights this itself and exits non-zero, naming
@@ -69,12 +70,12 @@ plugin's copies are generated from them with
 `node plugin/scripts/sync_agents.ts`. During the rebuild
 (docs/plans/rebuild.md) the progress truth is `orchestration/state.json`;
 docs/plan-register.md and docs/plan.md are rendered from it, and the
-Backlog, Cost log, Ruling register and Project model are frozen. The
-old dispatch loop is suspended. **Work on a plan node goes through the
+Backlog, Cost log, Ruling register and Project model are archived
+under docs/archive/. The old dispatch loop is retired. **Work on a plan node goes through the
 orchestration service's task loop** (`task_next`, `task_open`,
 `task_close`; the service's own instructions give the protocol when a
-session connects, and docs/plans/rebuild.md, "The loop and the
-close-out", specifies it). The service is the only writer of
+session connects, docs/process/how-we-work.md is the one page on it,
+and docs/process/task-loop.md specifies it). The service is the only writer of
 `orchestration/state.json`, `orchestration/journal.jsonl`,
 docs/plan-register.md and docs/plan.md: never edit those four (a pull
 request that does fails the checks), and the service refuses a change
@@ -100,7 +101,10 @@ docs/plans/orchestrator-v1.md.
 ## Pointers
 
 - docs/classification.md — the binding declaration
-- docs/process/README.md — the orchestration process spec (v1)
-- docs/open-risks.md — risk register (orchestration failure modes)
-- docs/backlog.md — what is done and what is next
+- docs/process/how-we-work.md — how we work, on one page
+- docs/process/task-loop.md, docs/process/state-model.md — what the
+  service enforces
+- docs/open-risks.md — risk register
+- docs/plan.md — what is done and what is next, rendered
+- docs/archive/ — records of the old process; nothing loads them
 - docs/plans/orchestrator-v1.md — the founding plan

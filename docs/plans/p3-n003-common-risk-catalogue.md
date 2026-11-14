@@ -13,7 +13,7 @@ Node **P3-N003**, chunk 2 of **P3-N001**
 whose [specification](../specs/p3-n001-comprehension-and-continuous-implementation.md)
 gives this node criteria **G7** and **P4** and four additions its
 breakdown names. **Independent of P3-N002**
-([RU-018](../rulings.md)): nothing below needs the comprehension model
+([RU-018](../archive/rulings.md)): nothing below needs the comprehension model
 to exist, and the *Independence* section states what was checked.
 This node's own specification is
 [p3-n003-common-risk-catalogue](../specs/p3-n003-common-risk-catalogue.md).
@@ -91,7 +91,7 @@ The parent plan lists candidates, each a real encounter:
 | Fetched documentation as an instruction channel | [R15](../open-risks.md), T030, 2026-09-01 |
 | A diagnostic that asserts a cause it did not test | [R16](../open-risks.md), 2026-09-04 |
 | The surface's own guidance contradicting the project's rule | [R17](../open-risks.md), 2026-09-07 |
-| A register entry describing another repository, going stale silently | [Backlog](../backlog.md), T031, 2026-09-01 |
+| A register entry describing another repository, going stale silently | [Backlog](../archive/backlog.md), T031, 2026-09-01 |
 
 **That list is a starting point found by one person reading one plan,
 not a survey.** The node's populate stage runs a stated sweep over five
@@ -113,14 +113,14 @@ what it rejected:
   accepted task, and the notes say what actually went wrong task by
   task. Nothing has ever read it for classes.
 - **The Ruling register and the plan documents** — rulings whose
-  rationale names a failure mode ([RU-013](../rulings.md),
-  [RU-014](../rulings.md), [RU-015](../rulings.md)), and the plans' own
+  rationale names a failure mode ([RU-013](../archive/rulings.md),
+  [RU-014](../archive/rulings.md), [RU-015](../archive/rulings.md)), and the plans' own
   recorded corrections and backward transitions.
 
 Candidates already visible in those seams and not in the parent plan's
 list: a projection becoming a second source of truth
 ([R10](../open-risks.md)); a tool whose runtime floor is unmet degrading
-silently ([R13](../open-risks.md), [RU-013](../rulings.md)); a guard
+silently ([R13](../open-risks.md), [RU-013](../archive/rulings.md)); a guard
 believed because it is present rather than because it was broken
 (P1-N009's drift guard); a lost update on a single-writer file under
 parallel work (2026-09-17); an execution environment that bills the
@@ -153,7 +153,7 @@ entry.
 ### Where the catalogue lives, and in what form
 
 One copy, at **`docs/proposals/common-risk-catalogue.md`**, in
-[RU-015](../rulings.md)'s delivery form from the start: final normative
+[RU-015](../archive/rulings.md)'s delivery form from the start: final normative
 text, the current upstream text quoted verbatim beside it, and a
 provenance line naming the version, commit and date the quote was taken.
 `docs/proposals/` is this project's existing home for upstream-bound
@@ -224,7 +224,7 @@ deliverable; closing them is the work the naming makes possible.
 
 ## Independence from P3-N002
 
-[RU-018](../rulings.md)'s first exercise, so the check is stated rather
+[RU-018](../archive/rulings.md)'s first exercise, so the check is stated rather
 than assumed. **No dependency was found.** Three places one could hide:
 
 - **G7's class-to-instance citation.** Works against today's Risk
@@ -246,7 +246,7 @@ model's parts instead of the hand enumeration, and should.
 
 ## Dependencies
 
-- **Repository reach ([RU-016](../rulings.md)).** **This repository
+- **Repository reach ([RU-016](../archive/rulings.md)).** **This repository
   only**, read and write. Every entry's encounter is already recorded
   here, in the Risk register, the Backlog, the Cost log or a plan
   document, including the encounters that happened in the service
@@ -263,9 +263,9 @@ model's parts instead of the hand enumeration, and should.
 - **P3-N001 specified and broken down** (done, 2026-09-17). G7, P4 and
   the four additions bind this node.
 - **Owner action, one only: O1 — hand-carry the proposal upstream**
-  ([RU-002](../rulings.md)). It falls **after** the node is complete:
+  ([RU-002](../archive/rulings.md)). It falls **after** the node is complete:
   the node completes at the artifact, not at upstream disposition
-  ([RU-003](../rulings.md)). Nothing in the node waits on it.
+  ([RU-003](../archive/rulings.md)). Nothing in the node waits on it.
 - **Not** a dependency: **P3-N002**. See *Independence* above.
 - **Not** a dependency: P3-N005's upstream half. Both nodes may produce
   an Article 8 proposal, and the owner may carry them together; neither
@@ -284,13 +284,13 @@ proposal could plausibly be one chunk. Three things push it over:
   exactly [R8](../open-risks.md)'s failure mode and exactly what the
   plan-model's thin-slice-first guidance exists for.
 - The upstream proposal is a different artifact class with a different
-  audience, a different form ([RU-015](../rulings.md)) and a different
-  gate ([RU-005](../rulings.md), at `verifying`). It must not start
+  audience, a different form ([RU-015](../archive/rulings.md)) and a different
+  gate ([RU-005](../archive/rulings.md), at `verifying`). It must not start
   before the catalogue is settled, and the catalogue's gate should not
   be held hostage to its drafting.
 
 The cut is feature-first in the sense the
-[plan-model](../process/plan-model.md) means: the behaviors that must
+[plan-model](../archive/process/plan-model.md) means: the behaviors that must
 validate are *a class is named with evidence*, *an omission is found*,
 and *an amendment is proposed*. The first two are carried together by
 child A on one class and by child B on all of them.
@@ -307,7 +307,7 @@ Backlog and Cost log, then the run (plan of node P3-N011, decision 1).
 ### Proposed children, in dependency order
 
 IDs are the Orchestrator's to issue. The specification gate fixes them
-([RU-020](../rulings.md) applies if this document's depth carries).
+([RU-020](../archive/rulings.md) applies if this document's depth carries).
 
 **Child A — One class, carried end to end.** The thin slice, and
 deliberately the class with the most evidence: *a check that cannot fail
@@ -342,19 +342,19 @@ the class, and why the class applies; the negative control is re-run
 against the finished catalogue. Depends on child A.
 
 **Child C — The Article 8 proposal.** Deliverable: the catalogue
-delivered as an amendment proposal in [RU-015](../rulings.md)'s form —
+delivered as an amendment proposal in [RU-015](../archive/rulings.md)'s form —
 final normative text, the current upstream text quoted verbatim, a
 provenance line naming version, commit and date, and an instruction to
 re-verify before carrying — plus a cover note in the shape the
-[delegated-work amendments](../proposals/delegated-work-amendments-cover-note.md)
+[delegated-work amendments](../archive/proposals/delegated-work-amendments-cover-note.md)
 used: what is asked of the reader, the evidencing instance, and what
 this project does under accept, amend and reject. Criteria: the
 provenance line resolves; the quoted upstream text is byte-exact at the
 named commit; the ask is stated as accept / amend / reject with this
 project's response to each; no patch file anywhere.
-[RU-002](../rulings.md) (the owner hand-carries it),
-[RU-003](../rulings.md) (the node completes at the artifact) and
-[RU-005](../rulings.md) (owner-gated at `verifying`) all apply and are
+[RU-002](../archive/rulings.md) (the owner hand-carries it),
+[RU-003](../archive/rulings.md) (the node completes at the artifact) and
+[RU-005](../archive/rulings.md) (owner-gated at `verifying`) all apply and are
 not re-raised as decisions. Depends on child B.
 
 ## Verification criteria for this node
@@ -404,12 +404,12 @@ under W-002 before any test changes, never absorbed mid-execution.
 
 ## Decisions for the gate
 
-Numbered per [dispatch](../process/dispatch.md)'s owner-decision
+Numbered per [dispatch](../archive/process/dispatch.md)'s owner-decision
 economics; the owner's go-ahead adopts every default not overridden by
 number. This document opens its own sequence at 1, as a child plan's
 gate is not the parent's.
 
-**Precedents checked against the [Ruling register](../rulings.md).**
+**Precedents checked against the [Ruling register](../archive/rulings.md).**
 Four active rulings are exact matches and decide silently rather than
 being re-raised: **RU-002** (the owner hand-carries upstream-bound
 output), **RU-003** (the node completes at the artifact, not at upstream
@@ -515,18 +515,18 @@ execute tasks.
   *The breakdown* requires of this node
 - [Risk register](../open-risks.md) — R1–R17, the register this
   catalogue is distinguished from, and the seam the sweep runs first
-- [Backlog](../backlog.md) and [Cost log](../cost-log.md) — the
+- [Backlog](../archive/backlog.md) and [Cost log](../archive/cost-log.md) — the
   post-mortem seams; the Cost log's notes column is the under-read one
-- [Ruling register](../rulings.md) — RU-002, RU-003, RU-005, RU-010,
+- [Ruling register](../archive/rulings.md) — RU-002, RU-003, RU-005, RU-010,
   RU-015, RU-016, RU-018, RU-020
-- [plan-model](../process/plan-model.md) — leaf-or-interior,
+- [plan-model](../archive/process/plan-model.md) — leaf-or-interior,
   feature-first decomposition, thin-slice-first, monotonicity
-- [profiles](../process/profiles.md) — the C1 depth this plan and its
+- [profiles](../archive/process/profiles.md) — the C1 depth this plan and its
   children's criteria are written to
 - [p2-n002-service-skeleton](p2-n002-service-skeleton.md) — the chunk
   plan shape this document follows
-- [delegated-work-amendments-cover-note](../proposals/delegated-work-amendments-cover-note.md)
-  and [delegated-work-vocabulary](../proposals/delegated-work-vocabulary.md)
+- [delegated-work-amendments-cover-note](../archive/proposals/delegated-work-amendments-cover-note.md)
+  and [delegated-work-vocabulary](../archive/proposals/delegated-work-vocabulary.md)
   — the existing instances of RU-015's delivery form, which child C
   follows
 - methodology **Article 8** (the amendment process the catalogue is

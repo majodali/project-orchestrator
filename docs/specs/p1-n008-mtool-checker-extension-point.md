@@ -37,7 +37,7 @@ commit** (W-003) — two documentation changes and nothing else:
    acted on by someone with no knowledge of this project, in one
    sitting, and to be carried upstream unchanged.
 2. **A pointer in
-   [`docs/process/auditing.md`](../process/auditing.md)**, in its
+   [`docs/process/auditing.md`](../archive/process/auditing.md)**, in its
    section *"The `mtool` extension point — intended end-state"*,
    naming the drafted proposal and leaving the transitional
    side-by-side arrangement in force.
@@ -230,12 +230,12 @@ a separate exchange:
 
 - [P1-N008 plan](../plans/p1-n008-mtool-checker-extension-point.md) —
   outcome, approach, scope boundary, and the five gate decisions
-- [auditing.md](../process/auditing.md) — the transitional
+- [auditing.md](../archive/process/auditing.md) — the transitional
   arrangement and the intended end-state section this node points into
-- [profiles.md](../process/profiles.md) — C1 profile:
+- [profiles.md](../archive/process/profiles.md) — C1 profile:
   criteria-list specifications, self-verification, owner-designated
   chunk gates
-- [plan-model.md](../process/plan-model.md) — `specified` exit
+- [plan-model.md](../archive/process/plan-model.md) — `specified` exit
   condition; criteria exist before the work they verify
 - [orchestrator-v1](../plans/orchestrator-v1.md) — parent plan;
   standing constraints 1 and 4

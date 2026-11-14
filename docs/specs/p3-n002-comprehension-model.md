@@ -36,13 +36,13 @@ authoritative for.
 This document records the criteria the **node itself** is verified
 against. It is not the union of its children's criteria. An interior
 node's `verifying` runs after its children are `done`, against its own
-criteria ([plan-model](../process/plan-model.md)). So every criterion
+criteria ([plan-model](../archive/process/plan-model.md)). So every criterion
 under *Verification criteria* is a property no single child
 establishes. Where a node criterion needs a child to do something
 extra, *The breakdown* names the addition.
 
 Depth is the C1 profile's: a criteria list a verifier can check
-([profiles](../process/profiles.md)).
+([profiles](../archive/process/profiles.md)).
 
 **Repository reach (RU-016, the ruling that the Planner declares a
 node's repository access).** This node's work lands in this repository
@@ -193,10 +193,10 @@ is step zero.
 1. `README.md`
 2. The [Classification](../classification.md)
 3. The [Plan register](../plan-register.md)
-4. The [Backlog](../backlog.md)
+4. The [Backlog](../archive/backlog.md)
 5. The [Risk register](../open-risks.md)
-6. The [Ruling register](../rulings.md)
-7. The [Cost log](../cost-log.md)
+6. The [Ruling register](../archive/rulings.md)
+7. The [Cost log](../archive/cost-log.md)
 8. Any plan document under `docs/plans/` or specification document
    under `docs/specs/`
 
@@ -315,7 +315,7 @@ every other project out of scope.
   tools reading sibling position as a dependency comes back empty, or
   names each survivor with its reason. The search terms and results
   are recorded. The selection rule in
-  [dispatch](../process/dispatch.md) reads recorded edges. A register
+  [dispatch](../archive/process/dispatch.md) reads recorded edges. A register
   state that contradicts a recorded edge is reported by the form
   checker. The contradiction is induced on a local scratch branch and
   the report observed.
@@ -347,7 +347,7 @@ every other project out of scope.
   for the model an authority that K-003 as released at the pinned
   version denies, unless the owner takes option (b) of decision 13.
 - **I7: the journal can say what the model does.** The edge-recorded
-  event kind exists in [observability](../process/observability.md)'s
+  event kind exists in [observability](../archive/process/observability.md)'s
   vocabulary and in the form checker's event list. The parent plan
   names two further model events: an edge invalidated by a superseded
   ruling, and a part's state changing. Each has a kind, or is recorded
@@ -648,10 +648,10 @@ role that writes the IR of normative text to render it.
 - B6. The specification-lifecycle answer of I8 is recorded in the type
   spec.
 - B7. The `Applied:` retention reason is recorded in
-  [rulings](../process/rulings.md), the Ruling register type spec, or
+  [rulings](../archive/process/rulings.md), the Ruling register type spec, or
   in the type spec with a link from it.
 - B8. The edge-recorded event kind is added to
-  [observability](../process/observability.md) and to the event list
+  [observability](../archive/process/observability.md) and to the event list
   in `plugin/scripts/lib/form-check-core.ts`. A Vitest test outside
   `plugin/scripts/lib/corpus/` covers it. The other two model events
   of I7 each get a kind or a recorded gap with a named home.
@@ -686,7 +686,7 @@ role that writes the IR of normative text to render it.
   that wrote the IR renders the normative text and appends the render
   map. Stranger rounds run under the IR specification at v1.6.0, with
   the verdict and confirmation rules of the Reviewer (stranger)
-  contract in [roles](../process/roles.md), until a round returns
+  contract in [roles](../archive/process/roles.md), until a round returns
   readable or the count reaches the limit of ten (P3-N007 decision 7).
   The Orchestrator dispatches each round's stranger with a fresh context.
   A review record holds each round's findings, their dispositions, the
@@ -842,7 +842,7 @@ list. The plan carries 1 to 8, all decided on 2026-10-29: 1, 2 and 4 to
 8 adopted, 3 overridden. This document carries 9 to 15. The owner's
 go-ahead adopts every default not overridden by number.
 
-**Precedents checked against the [Ruling register](../rulings.md).**
+**Precedents checked against the [Ruling register](../archive/rulings.md).**
 These decide silently and are not staged.
 
 - RU-016 (repository reach) and RU-021 (the planning/execution model
@@ -921,7 +921,7 @@ in plan decision 5.
     B; standard tier for A, C and D.** Rationale: W-009 makes the role
     that writes the IR of normative text render it, and the amendment
     is the one deliverable here that represents the project upstream.
-    A tier raise needs no deviation ([roles](../process/roles.md)).
+    A tier raise needs no deviation ([roles](../archive/process/roles.md)).
 15. **Who verifies this node.** Default: **attended.** The owner
     performs G2, G3 and G5 and reads G6; the Orchestrator assembles the
     evidence; no dispatched Reviewer. Rationale: the C1 profile, G2 and
@@ -960,21 +960,21 @@ this breakdown* takes its decision 8.
 - [p2-n002-service-skeleton](p2-n002-service-skeleton.md): the
   interior-node specification shape this document follows, with the
   parent
-- [plan-model](../process/plan-model.md): the node lifecycle, the
+- [plan-model](../archive/process/plan-model.md): the node lifecycle, the
   interior-node verification rule, and monotonicity
-- [profiles](../process/profiles.md): the C1 depth
-- [plan-register](../process/plan-register.md),
-  [rulings](../process/rulings.md),
-  [observability](../process/observability.md),
-  [dispatch](../process/dispatch.md): the type specs and process
+- [profiles](../archive/process/profiles.md): the C1 depth
+- [plan-register](../archive/process/plan-register.md),
+  [rulings](../archive/process/rulings.md),
+  [observability](../archive/process/observability.md),
+  [dispatch](../archive/process/dispatch.md): the type specs and process
   documents the children amend
 - [Classification](../classification.md): the pin, v1.6.0, and where
   the fifth custom definition lands
-- [Ruling register](../rulings.md): RU-001, RU-002, RU-003, RU-005,
+- [Ruling register](../archive/rulings.md): RU-001, RU-002, RU-003, RU-005,
   RU-010, RU-014, RU-015, RU-016, RU-017, RU-018, RU-019, RU-020,
   RU-021
 - [Risk register](../open-risks.md): R10 (P5)
-- [Backlog](../backlog.md): the entries P2 names
+- [Backlog](../archive/backlog.md): the entries P2 names
 - Methodology at v1.6.0 (tag commit `3e34829`, 2026-10-28):
   [K-003](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth)
   (the Backlog is the single source of progress truth),

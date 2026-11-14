@@ -50,17 +50,17 @@ writing).
   `task_close`: `planner` (claude-opus-5; the `plan`, `specify` and
   `break down` steps), `implementer` (claude-sonnet-5; `execute`) and
   `reviewer` (claude-opus-5; `verify` on a check node). The loop is
-  specified in [`docs/plans/rebuild.md`](../docs/plans/rebuild.md),
-  "The loop and the close-out".
-- **Skills** (`skills/`): `/orchestrator:journal-tail` (the owner's
-  feed).
+  specified in
+  [`docs/process/task-loop.md`](../docs/process/task-loop.md).
+- **Skills**: none. The last one, `journal-tail`, was archived on
+  2026-11-14 (P4-N024, Pruned document set).
 - **Scripts** (`scripts/`): `session_start.ts` (the session start
   hook: brings the checkout up to date and gives the plan's brief),
   `task_cost_hook.ts` (measures a task's cost when `task_close`
   returns), `sync_agents.ts` (mirrors `.claude/agents/` into this
   package), `form_check.ts` (the old process's form checks, runnable
-  by hand over the frozen documents), `journal_tail.ts`,
-  `billing_check.sh`. The TypeScript scripts need Node >=22.18.0, or
+  by hand), `journal_tail.ts` (prints the tail of the journal,
+  runnable by hand), `billing_check.sh`. The TypeScript scripts need Node >=22.18.0, or
   >=23.6.0 on the 23.x line.
 - **Hooks** (`hooks/hooks.json`): a SessionStart warning when
   `ANTHROPIC_API_KEY` is set (Risk R7: it would silently bill API
@@ -76,6 +76,6 @@ with a status line saying what replaced it:
 - The `orchestrator`, `auditor` and `semantic-auditor` roles, in
   [`docs/archive/roles/`](../docs/archive/roles/). No session runs a
   dispatch loop: sessions take work from the service.
-- The `orchestrate` and `enroll` skills, in
+- The `orchestrate`, `enroll` and `journal-tail` skills, in
   [`docs/archive/skills/`](../docs/archive/skills/). Enlistment steps
-  go in the "how we work" page (P4-N024, Pruned document set).
+  are in [how we work](../docs/process/how-we-work.md).
