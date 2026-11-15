@@ -862,7 +862,7 @@
       "kind": "work",
       "title": "Pruned document set",
       "outcome": "docs/ holds what the service and plan-state enforce, one \"how we work\" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N008",
       "after": [
         "P4-N022",
@@ -876,6 +876,23 @@
       },
       "done": null,
       "note": "Added by the owner, 2026-11-14: this node also archives the journal-tail skill. Move plugin/skills/journal-tail/SKILL.md to docs/archive/skills/ with a status line, and take it out of plugin/README.md. Keep plugin/scripts/journal_tail.ts, runnable by hand like form_check.ts. Add this as a criterion to the node's list in docs/plans/rebuild.md in the same pull request."
+    },
+    {
+      "id": "P4-N033",
+      "kind": "check",
+      "title": "Verification of Pruned document set",
+      "outcome": "P4-N024 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N024",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P4-N025",
@@ -3945,19 +3962,22 @@
       "id": "T137",
       "node": "P4-N024",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 78,
+        "out": 46764,
+        "cacheRead": 11235710,
+        "cacheWrite": 362578
       },
+      "costSource": "transcript",
       "opened": "2026-11-14T22:25:41Z",
-      "closed": null,
+      "closed": "2026-11-15T01:00:54Z",
       "base": "b9e2999d962426dd2bef98d896fb543546453cee",
-      "ref": null,
-      "pr": null,
-      "summary": "Prune docs/: keep what code enforces and one \"how we work\" page, move the frozen registers, the P3 findings and the superseded plans and specs to docs/archive/ with status lines, re-point the state file's paths through node_update, archive the journal-tail skill, and record the word count.",
+      "ref": "8224f13",
+      "pr": "majodali/project-orchestrator#51",
+      "summary": "docs/process holds how-we-work, the task loop and the state model. 46 unlinked documents, retired risk entries and vocabulary rows, and journal-tail are archived with status lines. Word count 157,990. The owner split the 34 linked plans and specs to P4-N032 behind P4-N031. The mtool link check was not run: not installed.",
       "notes": null
     }
   ],
@@ -4586,6 +4606,22 @@
       "chosen": "yes, one node under P2-N001, after milestone 6",
       "decided": "2026-11-12",
       "rationale": "Asked by T130 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D069",
+      "node": "P4-N024",
+      "question": "The mtool link check criterion of P4-N024 was not run, because mtool is not installed in the session's environment. How should it be met?",
+      "options": [
+        "the owner runs mtool on the pull request's branch and reports the result",
+        "carry the criterion to P4-N032 (Linked plans and specs archived), which moves the remaining files",
+        "give the session a way to install mtool"
+      ],
+      "default": "carry the criterion to P4-N032 (Linked plans and specs archived), which moves the remaining files",
+      "chosen": "give the session a way to install mtool",
+      "decided": "2026-11-15",
+      "rationale": "Asked by T137 at close.",
       "standing": false,
       "source": null
     }
