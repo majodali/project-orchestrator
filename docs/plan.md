@@ -15,6 +15,7 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Upstream proposals batch (P4-N026) [specified]
+- Document paths changed through the service (P4-N031) [specified]
 
 ## In flight
 
@@ -228,6 +229,10 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
     after P4-N024 · [plan](plans/rebuild.md)
     Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
+  - **Document paths changed through the service** (P4-N031, specified)
+    A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
+    [plan](plans/rebuild.md)
+    Note: Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7.
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)

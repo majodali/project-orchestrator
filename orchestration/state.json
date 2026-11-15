@@ -934,6 +934,23 @@
       "note": "The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026)."
     },
     {
+      "id": "P4-N031",
+      "kind": "work",
+      "title": "Document paths changed through the service",
+      "outcome": "A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.",
+      "stage": "specified",
+      "parent": "P4-N008",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": "Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7."
+    },
+    {
       "id": "P4-N010",
       "kind": "work",
       "title": "Task cost capture",
