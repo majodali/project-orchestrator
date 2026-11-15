@@ -103,10 +103,10 @@ Depends on: 1, 2.
 - [x] `docs/open-risks.md` is kept or archived by a stated rule. Kept;
       the rule is in its header. Nine closed or dispatch-loop entries
       moved to `docs/archive/open-risks-retired.md`.
-- [ ] The `mtool` link check passes over the tree. Run 2026-11-15,
+- [x] The moves add no `mtool` link finding. Run 2026-11-15,
       `mtool links check` at methodology-tools 296ba46: 21 findings,
-      exit 1. The same 21 are on the task's base commit, b9e2999, so
-      the moves add none. They are in old plans and proposals.
+      the same 21 as on the task's base commit, b9e2999. Clearing
+      them is child 8's (the owner, 2026-11-15).
 - [x] The word count under `docs/`, excluding `docs/archive/`, is
       recorded with its method (RU-019):
       `find docs -name '*.md' -not -path 'docs/archive/*' | xargs cat | wc -w`
@@ -271,8 +271,9 @@ Depends on: 3, 7.
       them, by a stated rule.
 - [ ] Every `docs` path in `orchestration/state.json` resolves after
       the move, changed through the service, never by hand.
-- [ ] `docs/vocabulary.md` rows and every other link to a moved file
-      follow it.
+- [ ] Every link to a moved file follows it, and `mtool links check`
+      passes over the tree: the 21 findings of 2026-11-15 are fixed,
+      or dispositioned by a stated rule.
 - [ ] The word count under `docs/`, excluding `docs/archive/`, is
       below 100,000; the number and the method (child 3's) are
       recorded whichever way it falls (RU-019).
