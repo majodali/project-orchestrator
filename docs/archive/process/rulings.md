@@ -37,10 +37,10 @@ Every ruling carries a **type** and a **scope**:
   tier designations) · `completion` (what done means for a node
   class) · `scope` (boundaries, cross-repo reach) · `verification`
   (depth and form of criteria) · `comms` (reporting and formats) ·
-  [`sequencing`](../../vocabulary.md#def-sequencing) (dispatch order and
-  concurrency) · [`stack`](../../vocabulary.md#def-stack) (languages,
+  [`sequencing`](../vocabulary-retired.md#def-sequencing) (dispatch order and
+  concurrency) · [`stack`](../vocabulary-retired.md#def-stack) (languages,
   runtimes and code sharing) ·
-  [`knowledge`](../../vocabulary.md#def-knowledge) (which document holds
+  [`knowledge`](../vocabulary-retired.md#def-knowledge) (which document holds
   which truth). The last three entered on 2026-11-03
   ([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
   decision 16).

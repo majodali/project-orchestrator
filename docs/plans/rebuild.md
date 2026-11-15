@@ -103,11 +103,10 @@ Depends on: 1, 2.
 - [x] `docs/open-risks.md` is kept or archived by a stated rule. Kept;
       the rule is in its header. Nine closed or dispatch-loop entries
       moved to `docs/archive/open-risks-retired.md`.
-- [ ] The `mtool` link check passes over the tree. Not run: `mtool`
-      is not installed in the session's environment. A link check
-      written for this task found no link broken by the moves. It
-      reports 41 relative links that were already unresolved before
-      the task, 10 of them outside `docs/archive/`.
+- [ ] The `mtool` link check passes over the tree. Run 2026-11-15,
+      `mtool links check` at methodology-tools 296ba46: 21 findings,
+      exit 1. The same 21 are on the task's base commit, b9e2999, so
+      the moves add none. They are in old plans and proposals.
 - [x] The word count under `docs/`, excluding `docs/archive/`, is
       recorded with its method (RU-019):
       `find docs -name '*.md' -not -path 'docs/archive/*' | xargs cat | wc -w`

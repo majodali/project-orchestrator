@@ -3068,7 +3068,7 @@ decision 13).
   for Child E. **Still open**: the exercise itself, which needs a
   genuine Claude Code session start (no subagent session can produce
   that evidence) and is recorded against
-  [R12](../open-risks.md#r12) once run — the Orchestrator's or the
+  [R12](open-risks-retired.md#r12) once run — the Orchestrator's or the
   owner's to perform, per this task's `needs-judgment`-free
   boundary.
 - [ ] **Fallback task-claim protocol** — When: owner's proposal of

@@ -138,9 +138,9 @@ of node P1-N016 (process spec maintenance) on 2026-11-03 (its plan's
 decisions 14 and 16). Their rows in the [vocabulary](../../vocabulary.md)
 are their definition sites.
 
-- [`unblocked`](../../vocabulary.md#def-unblocked): a hold was released.
+- [`unblocked`](../vocabulary-retired.md#def-unblocked): a hold was released.
   Its `note` names what released it.
-- [`risk-opened`](../../vocabulary.md#def-risk-opened): a Risk register
+- [`risk-opened`](../vocabulary-retired.md#def-risk-opened): a Risk register
   entry was opened. Its `note` names the entry.
 
 Both entered the list above on 2026-11-05, at the acceptance of that
@@ -160,7 +160,7 @@ register entry, it found three acts with no kind of their own:
 
 - A ruling captured or superseded at a gate. Only the `gate-crossed`
   note can carry it. A Backlog row holds the gap.
-- A task's claim in a [pull run](../../vocabulary.md#def-pull-run). The
+- A task's claim in a [pull run](../vocabulary-retired.md#def-pull-run). The
   Backlog row "A `claimed` journal
   event kind" holds it.
 - An edge invalidated by a superseded ruling, as above.

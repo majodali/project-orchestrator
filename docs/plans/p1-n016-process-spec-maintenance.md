@@ -729,7 +729,7 @@ gate.
 
 At the verifying gate the owner verifies two things:
 
-- That [`docs/vocabulary.md`](../vocabulary.md#def-sequencing) holds
+- That [`docs/vocabulary.md`](../archive/vocabulary-retired.md#def-sequencing) holds
   the ratified terms, at the anchors `def-sequencing`, `def-stack`,
   `def-knowledge`, `def-unblocked` and `def-risk-opened`.
 - That the kinds `unblocked` and `risk-opened` appear in the service's
@@ -805,19 +805,19 @@ file's row is now the definition site, and each anchor below links it.
 
 - <a id="def-sequencing"></a>**sequencing**: a type in the Ruling
   register's taxonomy, for rulings on dispatch order and concurrency
-  ([vocabulary row](../vocabulary.md#def-sequencing)).
+  ([vocabulary row](../archive/vocabulary-retired.md#def-sequencing)).
 - <a id="def-stack"></a>**stack**: a type in the Ruling register's
   taxonomy, for rulings on languages, runtimes and code sharing
-  ([vocabulary row](../vocabulary.md#def-stack)).
+  ([vocabulary row](../archive/vocabulary-retired.md#def-stack)).
 - <a id="def-knowledge"></a>**knowledge**: a type in the Ruling
   register's taxonomy, for rulings on which document holds which truth
-  ([vocabulary row](../vocabulary.md#def-knowledge)).
+  ([vocabulary row](../archive/vocabulary-retired.md#def-knowledge)).
 - <a id="def-unblocked"></a>**unblocked**: a run journal event kind
   recording that a hold was released. Its note names what released it
-  ([vocabulary row](../vocabulary.md#def-unblocked)).
+  ([vocabulary row](../archive/vocabulary-retired.md#def-unblocked)).
 - <a id="def-risk-opened"></a>**risk-opened**: a run journal event
   kind recording that a Risk register entry was opened. Its note names
-  the entry ([vocabulary row](../vocabulary.md#def-risk-opened)).
+  the entry ([vocabulary row](../archive/vocabulary-retired.md#def-risk-opened)).
 
 ## References
 
