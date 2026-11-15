@@ -3971,14 +3971,14 @@
         "cacheRead": 11235710,
         "cacheWrite": 362578
       },
+      "costSource": "transcript",
       "opened": "2026-11-14T22:25:41Z",
       "closed": "2026-11-15T01:00:54Z",
       "base": "b9e2999d962426dd2bef98d896fb543546453cee",
       "ref": "8224f13",
       "pr": "majodali/project-orchestrator#51",
       "summary": "docs/process holds how-we-work, the task loop and the state model. 46 unlinked documents, retired risk entries and vocabulary rows, and journal-tail are archived with status lines. Word count 157,990. The owner split the 34 linked plans and specs to P4-N032 behind P4-N031. The mtool link check was not run: not installed.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
@@ -4619,8 +4619,8 @@
         "give the session a way to install mtool"
       ],
       "default": "carry the criterion to P4-N032 (Linked plans and specs archived), which moves the remaining files",
-      "chosen": null,
-      "decided": null,
+      "chosen": "give the session a way to install mtool",
+      "decided": "2026-11-15",
       "rationale": "Asked by T137 at close.",
       "standing": false,
       "source": null

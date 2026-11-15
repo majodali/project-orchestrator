@@ -8,10 +8,6 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D069 on Pruned document set (P4-N024): The mtool link check criterion of P4-N024 was not run, because mtool is not installed in the session's environment. How should it be met? Default: carry the criterion to P4-N032 (Linked plans and specs archived), which moves the remaining files
-
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
@@ -223,7 +219,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     [plan](plans/rebuild.md)
   - **Pruned document set** (P4-N024, verifying)
     docs/ holds what the service and plan-state enforce, one "how we work" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.
-    after P4-N022, P4-N023 · [plan](plans/rebuild.md) · 1 open decision
+    after P4-N022, P4-N023 · [plan](plans/rebuild.md)
     Note: Added by the owner, 2026-11-14: this node also archives the journal-tail skill. Move plugin/skills/journal-tail/SKILL.md to docs/archive/skills/ with a status line, and take it out of plugin/README.md. Keep plugin/scripts/journal_tail.ts, runnable by hand like form_check.ts. Add this as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
   - **README and generated Backlog** (P4-N025, specified)
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
@@ -373,3 +369,4 @@ Documents: [plan](plans/orchestration-service.md).
 - D066 on P4-N008 (2026-11-12): Generate the Backlog from the state file (child 4), or drop docs/backlog.md after archiving? Chosen: generate it
 - D067 on P4-N027 (2026-11-12): How does the service serve methodology-tools? Chosen: a second deployment of the service for that repository
 - D068 on P4-N008 (2026-11-12): Add a node for the review's service findings (write speed, the journal's size, a write test in the deploy check)? Chosen: yes, one node under P2-N001, after milestone 6
+- D069 on P4-N024 (2026-11-15): The mtool link check criterion of P4-N024 was not run, because mtool is not installed in the session's environment. How should it be met? Chosen: give the session a way to install mtool
