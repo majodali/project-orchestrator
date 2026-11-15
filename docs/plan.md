@@ -31,6 +31,7 @@ Gated nodes:
 
 - README and generated Backlog (P4-N025) [specified] — after Pruned document set (P4-N024)
 - Pilot enlistment of methodology-tools (P4-N027) [specified] — after Pruned document set (P4-N024)
+- Linked plans and specs archived (P4-N032) [specified] — after Document paths changed through the service (P4-N031), Pruned document set (P4-N024)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
@@ -233,6 +234,10 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
     [plan](plans/rebuild.md)
     Note: Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7.
+  - **Linked plans and specs archived** (P4-N032, specified)
+    The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.
+    after P4-N031, P4-N024 · [plan](plans/rebuild.md)
+    Note: Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8.
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)

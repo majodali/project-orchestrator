@@ -951,6 +951,26 @@
       "note": "Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7."
     },
     {
+      "id": "P4-N032",
+      "kind": "work",
+      "title": "Linked plans and specs archived",
+      "outcome": "The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.",
+      "stage": "specified",
+      "parent": "P4-N008",
+      "after": [
+        "P4-N031",
+        "P4-N024"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": "Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8."
+    },
+    {
       "id": "P4-N010",
       "kind": "work",
       "title": "Task cost capture",
