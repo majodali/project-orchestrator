@@ -3964,10 +3964,12 @@
       "step": "execute",
       "status": "closed",
       "role": "implementer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 78,
+        "out": 46764,
+        "cacheRead": 11235710,
+        "cacheWrite": 362578
       },
       "opened": "2026-11-14T22:25:41Z",
       "closed": "2026-11-15T01:00:54Z",
@@ -3975,7 +3977,8 @@
       "ref": "8224f13",
       "pr": "majodali/project-orchestrator#51",
       "summary": "docs/process holds how-we-work, the task loop and the state model. 46 unlinked documents, retired risk entries and vocabulary rows, and journal-tail are archived with status lines. Word count 157,990. The owner split the 34 linked plans and specs to P4-N032 behind P4-N031. The mtool link check was not run: not installed.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
