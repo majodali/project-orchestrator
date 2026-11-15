@@ -245,6 +245,50 @@ the decisions.
 
 Estimate: two sessions.
 
+### M6. Re-plan, prune and hand back: planning notes
+
+Planned 2026-11-12 (task T123 on P4-N008). The six original bullets
+are reconciled below. The P3 line is held at P3-N001, so "park its
+open nodes under one node" has no work left: the hold is the park,
+and the line resumes by an owner decision, not by this milestone.
+P2-N017 and the P2-N005 subtree are already gone from the state file.
+P2-N006 is held for this milestone and becomes the pilot's node. The
+form checker left CI on 2026-11-11, so no child keeps it green;
+`plan-state check` is the one validity rule. Sessions work through
+the task loop, so no child names an orchestrator session or a
+dispatch. `.claude/agents/` and `docs/process/` still describe the
+old loop and are the largest remaining work.
+
+Specified 2026-11-12 (task T129 on P4-N008). The criteria lists
+below are the specification: each is at the bound the plan sets, so
+no child needs a further document, and the break down task enters
+the children with these lists as their criteria (RU-020).
+
+- **Order.** Children 1, 2 and 5 depend on nothing and are
+  independent of one another (RU-018). Child 3 waits for 1 and 2,
+  child 4 for 3, child 6 for 1 and 3.
+- **Verification.** Each child is verified by its check node against
+  its criteria list and outcome. A criterion that measures (the word
+  count, the orientation test, the throwaway plan step) is met by the
+  number, the method and the conclusion being recorded, whichever way
+  it falls (RU-019).
+- **Repository access (RU-016).** Children 1 to 3 write only to this
+  repository. Child 4 also writes to
+  majodali/project-orchestrator-service (standing). Child 6 writes to
+  majodali/methodology-tools, granted for that child only (D065).
+  Child 5 writes nothing outside this repository (RU-002).
+- **Gates.** Child 5 gates at `verifying` (RU-005). Child 6 starts on
+  approval, because it changes another repository.
+- **Decided already.** D063 (the P3 hold stays), D064 (P2-N004 is
+  removed), D065 (the grant), D066 (the Backlog is generated).
+
+Broken down 2026-11-12 (task T130 on P4-N008). The six children are
+entered `specified`, not `identified`, in the order listed, with
+these lists as their criteria (RU-020). Each carries a criteria list
+of at most 20 items, not a specification document (see "What happens
+to existing documents"). Every child's pull request keeps
+`npm run check` green.
+
 ### M6. Re-plan, prune and hand back: children 1 and 2
 
 **1. Re-plan of the remaining nodes** (P4-N022)

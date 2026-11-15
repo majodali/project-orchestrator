@@ -56,47 +56,15 @@ Goal: the repository reads as a project again, its remaining work is
 planned for the task loop, and the methodology follow-ups are
 proposed once.
 
-Planned 2026-11-12 (task T123 on P4-N008). The six original bullets
-are reconciled below. The P3 line is held at P3-N001, so "park its
-open nodes under one node" has no work left: the hold is the park,
-and the line resumes by an owner decision, not by this milestone.
-P2-N017 and the P2-N005 subtree are already gone from the state file.
-P2-N006 is held for this milestone and becomes the pilot's node. The
-form checker left CI on 2026-11-11, so no child keeps it green;
-`plan-state check` is the one validity rule. Sessions work through
-the task loop, so no child names an orchestrator session or a
-dispatch. `.claude/agents/` and `docs/process/` still describe the
-old loop and are the largest remaining work.
-
-Specified 2026-11-12 (task T129 on P4-N008). The criteria lists
-below are the specification: each is at the bound the plan sets, so
-no child needs a further document, and the break down task enters
-the children with these lists as their criteria (RU-020).
-
-- **Order.** Children 1, 2 and 5 depend on nothing and are
-  independent of one another (RU-018). Child 3 waits for 1 and 2,
-  child 4 for 3, child 6 for 1 and 3.
-- **Verification.** Each child is verified by its check node against
-  its criteria list and outcome. A criterion that measures (the word
-  count, the orientation test, the throwaway plan step) is met by the
-  number, the method and the conclusion being recorded, whichever way
-  it falls (RU-019).
-- **Repository access (RU-016).** Children 1 to 3 write only to this
-  repository. Child 4 also writes to
-  majodali/project-orchestrator-service (standing). Child 6 writes to
-  majodali/methodology-tools, granted for that child only (D065).
-  Child 5 writes nothing outside this repository (RU-002).
-- **Gates.** Child 5 gates at `verifying` (RU-005). Child 6 starts on
-  approval, because it changes another repository.
-- **Decided already.** D063 (the P3 hold stays), D064 (P2-N004 is
-  removed), D065 (the grant), D066 (the Backlog is generated).
-
-Broken down 2026-11-12 (task T130 on P4-N008). The six children are
-entered `specified`, not `identified`, in the order listed, with
-these lists as their criteria (RU-020). Each carries a criteria list
-of at most 20 items, not a specification document (see "What happens
-to existing documents"). Every child's pull request keeps
-`npm run check` green.
+Planned, specified and broken down on 2026-11-12 (tasks T123, T129 and
+T130 on P4-N008). The planning notes are in the
+[record of the finished parts](../archive/plans/rebuild-record.md).
+Each child carries a criteria list of at most 20 items, not a
+specification document, and is verified by its check node against
+that list and its outcome. A criterion that measures is met by the
+number, the method and the conclusion being recorded, whichever way
+it falls (RU-019). Every child's pull request keeps `npm run check`
+green. Children 7 and 8 were split from child 3 on 2026-11-15.
 
 **1. Re-plan of the remaining nodes** (P4-N022) and **2. Role agents
 on the task loop** (P4-N023) are done, 2026-11-13. Their criteria and
@@ -117,12 +85,13 @@ Depends on: 1, 2.
       enlistment, the checks and the owner's decisions.
 - [x] Every archived file opens with a status line naming why it is
       archived and what replaced it.
-- [ ] `docs/cost-log.md`, `docs/rulings.md`, the frozen text of
-      `docs/backlog.md`, the P3 findings and the superseded plans and
-      specs move to `docs/archive/`; frozen files are not rewritten.
-      Done for all but the 34 plans and specs the state file links:
-      see "Blocked" below. Moved files gained a status line and had
+- [x] `docs/cost-log.md`, `docs/rulings.md`, the frozen text of
+      `docs/backlog.md`, the P3 findings and the plans and specs the
+      state file does not link move to `docs/archive/`; frozen files
+      are not rewritten. Moved files gained a status line and had
       their relative links re-pointed; nothing else in them changed.
+      The linked plans and specs are child 8's (the owner,
+      2026-11-15).
 - [x] Every `docs` path in `orchestration/state.json` resolves after
       the move, updated through `node_update`, never by hand. No
       linked document moved, so no path changed.
@@ -139,27 +108,21 @@ Depends on: 1, 2.
       written for this task found no link broken by the moves. It
       reports 41 relative links that were already unresolved before
       the task, 10 of them outside `docs/archive/`.
-- [ ] The word count under `docs/`, excluding `docs/archive/`, is
-      below 100,000 (409,060 on 2026-11-12); the number and the method
-      are recorded whichever way it falls (RU-019). The method is
-      `find docs -name '*.md' -not -path 'docs/archive/*' | xargs cat | wc -w`.
-      Recorded 2026-11-14: 157990, down from 410,513 at the task's
-      start. Not below 100,000: the 34 linked plans and specs hold
-      about 143,000 of them.
-- [ ] No hand-written document outside `docs/archive/` exceeds 300
-      lines. This plan, the Risk register and the vocabulary now fit.
-      28 linked plans and specs do not: see "Blocked" below.
+- [x] The word count under `docs/`, excluding `docs/archive/`, is
+      recorded with its method (RU-019):
+      `find docs -name '*.md' -not -path 'docs/archive/*' | xargs cat | wc -w`
+      gave 157,990 on 2026-11-14, down from 410,513 at the task's
+      start. The 100,000 target is child 8's.
+- [x] This plan, the Risk register and the vocabulary are at most 300
+      lines each. The bound for every document is child 8's.
 - [x] The `journal-tail` skill is archived in `docs/archive/skills/`
       with a status line and is out of `plugin/README.md`;
       `plugin/scripts/journal_tail.ts` stays (the owner, 2026-11-14).
 
-Executed in part 2026-11-14 (task T137 on P4-N024). Blocked: the
-state file links 34 plans and specs under `docs/plans/` and
-`docs/specs/`, and no tool changes a node's `docs` paths
-(`node_update` has no such field). They cannot move until the service
-can re-point them. A pull request also cannot move a linked file while
-`main` still names its old path, so the re-pointing and the move need
-an order the service supports.
+Executed 2026-11-14 (task T137 on P4-N024). The state file links 34
+plans and specs, and no tool changes a node's `docs` paths, so they
+could not move. On 2026-11-15 the owner split the node: the three
+criteria that depend on moving them went to child 8, behind child 7.
 
 **4. README and generated Backlog** (P4-N025)
 Outcome: the README tells a new reader what this is, where the view
@@ -275,12 +238,51 @@ The enlistment and the import:
       session start hook and the task-cost hook, is a separate node
       (RU-017), not part of this one.
 
+**7. Document paths changed through the service** (P4-N031)
+Outcome: a task can re-point a node's plan and specification paths
+through the service, in an order that lets a pull request move a
+linked document without `main` failing `plan-state check`. Depends
+on: nothing.
+
+- [ ] A session changes a node's `docs.plan` and `docs.spec` through
+      the service, under an open task or the owner's words; each is a
+      path or null, and the change is journaled.
+- [ ] The plan states the order of the re-pointing and the move, given
+      that an execute step's pull request merges only when its
+      verification closes. Invariant 8 holds on `main` and on the
+      pull request at every commit of that order.
+- [ ] A test moves a linked document through that order end to end.
+- [ ] The change is its own pull request in
+      majodali/project-orchestrator-service (standing, RU-016) and is
+      deployed before this repository pins it.
+- [ ] `docs/process/task-loop.md` and the agents say how a document
+      path is changed.
+
+**8. Linked plans and specs archived** (P4-N032)
+Outcome: the superseded plans and specs the state file links are in
+`docs/archive/` with a status line each, the state file names their
+new paths, and the word count and the 300-line bound are measured.
+Depends on: 3, 7.
+
+- [ ] The superseded plans and specs under `docs/plans/` and
+      `docs/specs/` move to `docs/archive/`, each opening with a
+      status line; nothing else in them changes but re-pointed links.
+- [ ] The implementer states which linked documents are superseded
+      and which stay because a held node of the P3 line still needs
+      them, by a stated rule.
+- [ ] Every `docs` path in `orchestration/state.json` resolves after
+      the move, changed through the service, never by hand.
+- [ ] `docs/vocabulary.md` rows and every other link to a moved file
+      follow it.
+- [ ] The word count under `docs/`, excluding `docs/archive/`, is
+      below 100,000; the number and the method (child 3's) are
+      recorded whichever way it falls (RU-019).
+- [ ] No hand-written document outside `docs/archive/` exceeds 300
+      lines; any that does is listed with the reason.
+
 Acceptance of the milestone: the orientation test passes for both
 repositories; the word count under `docs/` is below 100,000 excluding
 `docs/archive/`; no node outside the P3 line holds on this milestone.
-
-Estimate: five to seven sessions, not the two first guessed, because
-the document set and the role agents are the bulk.
 
 ## Where the rest of this plan went
 
