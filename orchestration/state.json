@@ -911,7 +911,7 @@
         "spec": null
       },
       "done": null,
-      "note": null
+      "note": "The service part is majodali/project-orchestrator-service#41, merged at cb9d727 and deployed on 2026-11-16. From that deploy the service writes docs/backlog.md with every state commit."
     },
     {
       "id": "P4-N026",
