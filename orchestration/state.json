@@ -988,6 +988,23 @@
       "note": "Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8."
     },
     {
+      "id": "P4-N035",
+      "kind": "work",
+      "title": "Scratch node for the delegation trial",
+      "outcome": null,
+      "stage": "identified",
+      "parent": "P4-N008",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Throwaway node for the trial P4-N034 asks for; removed when the trial ends. Subject to plan: a script that prints today's date. Nothing is built, and the plan needs no file: its criteria go in the planner's last message."
+    },
+    {
       "id": "P4-N010",
       "kind": "work",
       "title": "Task cost capture",
