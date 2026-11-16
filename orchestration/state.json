@@ -1196,7 +1196,7 @@
       "kind": "work",
       "title": "Delegated tasks claimed without asking",
       "outcome": "A session that an orchestrating session starts with a brief naming a node and a step claims that task without asking a person first, and a session a person starts still asks before it claims.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N001",
       "after": [
         "P4-N024"
@@ -1209,6 +1209,23 @@
       },
       "done": null,
       "note": "Asked for by the owner, 2026-11-16, after a reviewer session launched for P4-N033 stopped to ask before claiming. Criteria: (1) the session start hook's text, CLAUDE.md, docs/process/how-we-work.md and the three role agents state one rule; (2) the rule says how a session recognises a delegation brief, and that the brief authorises the named node and step and nothing else; (3) owner decisions stay asks at task_close; (4) a trial is recorded: a session launched with a brief claims its task without asking, and a session started without one still asks."
+    },
+    {
+      "id": "P4-N036",
+      "kind": "check",
+      "title": "Verification of Delegated tasks claimed without asking",
+      "outcome": "P4-N034 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N034",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N001",
@@ -4047,7 +4064,7 @@
       "id": "T140",
       "node": "P4-N034",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -4055,11 +4072,11 @@
         "out": null
       },
       "opened": "2026-11-16T06:28:25Z",
-      "closed": null,
+      "closed": "2026-11-16T06:31:41Z",
       "base": "60bb179b22ebcf8896969e8aaed9d7ff10277d17",
-      "ref": null,
-      "pr": null,
-      "summary": "State one delegation rule in the session start hook's text, CLAUDE.md, how-we-work.md and the three role agents: a brief from an orchestrating session naming a node and a step is claimed without asking and authorises nothing else. Record a trial of both cases.",
+      "ref": "2564171",
+      "pr": "majodali/project-orchestrator#52",
+      "summary": "One delegation rule is stated in the session start hook's text, CLAUDE.md, how-we-work.md, task-loop.md and the three agents: a brief naming a node and a step is claimed without asking and authorises nothing else. The hook's test follows. Trial recorded: the briefed session claimed (T141), the unbriefed one asked.",
       "notes": null
     }
   ],
