@@ -4066,10 +4066,12 @@
       "step": "execute",
       "status": "closed",
       "role": "implementer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 32,
+        "out": 11877,
+        "cacheRead": 6609189,
+        "cacheWrite": 29873
       },
       "opened": "2026-11-16T06:28:25Z",
       "closed": "2026-11-16T06:31:41Z",
@@ -4077,7 +4079,8 @@
       "ref": "2564171",
       "pr": "majodali/project-orchestrator#52",
       "summary": "One delegation rule is stated in the session start hook's text, CLAUDE.md, how-we-work.md, task-loop.md and the three agents: a brief naming a node and a step is claimed without asking and authorises nothing else. The hook's test follows. Trial recorded: the briefed session claimed (T141), the unbriefed one asked.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
