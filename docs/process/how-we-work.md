@@ -121,7 +121,26 @@ checkout on `main`, installs dependencies in a cloud session that has
 none, shows the person a short summary, and gives the session the
 plan's brief: the tasks on offer, what is in flight, what waits on the
 owner. In its first reply the session names the task it would take
-and asks before claiming it.
+and asks before claiming it, unless it opens with a delegation brief.
+
+## Delegating a task
+
+A session may start another session to do one task, by the owner's
+standing instruction of 2026-11-16. Its brief is the first message
+the new session receives, and names the node, the step and the
+session that delegates.
+
+- A session that opens with such a brief claims that task with
+  `task_open` without asking a person. The brief is its go-ahead.
+- The brief authorises that node and that step, and nothing else.
+- A brief is never the owner's words. It does not justify
+  `ownerInstruction`, a merge, or a decision that is the owner's:
+  those stay asks at `task_close`.
+- A session a person starts still asks before it claims.
+
+The delegating session stays answerable for what it delegates. It
+tells its person which session it started and for which task, and
+reports the result.
 
 ## The checks
 

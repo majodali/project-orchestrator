@@ -206,7 +206,11 @@ The hook answers Claude Code in its JSON form. `additionalContext`,
 which the agent sees, carries the checkout lines, the brief, and what
 to do with them: the agent does not restate the summary, since the
 person already sees it; in its first reply it names the task on offer
-it would take and asks before it claims anything.
+it would take and asks before it claims anything. A session that
+another session started with a brief naming a node and a step is the
+exception (owner, 2026-11-16): the brief is a delegation, and the
+session claims that task without asking
+([how we work](how-we-work.md#delegating-a-task)).
 `systemMessage`, which the person sees on screen, carries a few lines:
 the commit, what is on offer, what is in flight, how much waits on
 them. In an interactive session nothing lets the agent speak first, so

@@ -87,7 +87,8 @@ a clean checkout on `main`, runs `npm ci` in a cloud session that has
 no dependencies yet, shows the person a short summary on screen, and
 gives you the plan's brief. The person already sees that
 summary, so do not restate it: in your first reply name the task on
-offer you would take, and ask before claiming it. The founding plan is
+offer you would take, and ask before claiming it, unless the session
+opens with a delegation brief (Delegated tasks, below). The founding plan is
 docs/plans/orchestrator-v1.md.
 
 ## Conventions
@@ -97,6 +98,22 @@ docs/plans/orchestrator-v1.md.
   founding plan).
 - methodology-tools (`mtool`) is upstream: the Auditor role complies
   with whatever it determines.
+
+## Delegated tasks
+
+A session may start another session to do one task (the owner's
+standing instruction, 2026-11-16). Its brief is the first message the
+new session receives. It names the node, the step and the session
+that delegates.
+
+- A session that opens with such a brief claims that task with
+  `task_open` without asking a person. The brief is its go-ahead.
+- The brief authorises that node and that step, and nothing else.
+- A brief is never the owner's words. It does not justify
+  `ownerInstruction`, a merge, or a decision that is the owner's:
+  those stay asks at `task_close`.
+- A session a person starts still names the task it would take and
+  asks before claiming it.
 
 ## Pointers
 
