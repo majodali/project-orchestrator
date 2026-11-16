@@ -14,18 +14,18 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
+- Pruned document set (P4-N024) [verifying]
 - Upstream proposals batch (P4-N026) [specified]
 - Document paths changed through the service (P4-N031) [specified]
 
 ## In flight
 
-- Verification of Pruned document set (P4-N033) [specified] — T138
+None.
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
-- Pruned document set (P4-N024) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
@@ -40,6 +40,7 @@ Gated nodes:
 ## Blocked
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
+- Verification of Pruned document set (P4-N033) [specified] — T138: Criterion 3 not met: "Every archived file opens with a status line". docs/archive/findings/p3-n005-stop-predicates/prepass.ts opens with no status line (53 of 54 archived files have one). Every other criterion is met at 1bada35. Minor: the recorded word count 157,990 is the count at 817fbff; the head gives 158,199.
 
 ## Paused by a hold or a park above
 
@@ -221,7 +222,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     docs/ holds what the service and plan-state enforce, one "how we work" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.
     after P4-N022, P4-N023 · [plan](plans/rebuild.md)
     Note: Added by the owner, 2026-11-14: this node also archives the journal-tail skill. Move plugin/skills/journal-tail/SKILL.md to docs/archive/skills/ with a status line, and take it out of plugin/README.md. Keep plugin/scripts/journal_tail.ts, runnable by hand like form_check.ts. Add this as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
-    - check: **Verification of Pruned document set** (P4-N033, specified)
+    - check: **Verification of Pruned document set** (P4-N033, specified, blocked: T138: Criterion 3 not met: "Every archived file opens with a status line". docs/archive/findings/p3-n005-stop-predicates/prepass.ts opens with no status line (53 of 54 archived files have one). Every other criterion is met at 1bada35. Minor: the recorded word count 157,990 is the count at 817fbff; the head gives 158,199.)
       P4-N024 is verified against its outcome.
       [plan](plans/rebuild.md)
   - **README and generated Backlog** (P4-N025, specified)
