@@ -862,7 +862,7 @@
       "kind": "work",
       "title": "Pruned document set",
       "outcome": "docs/ holds what the service and plan-state enforce, one \"how we work\" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N008",
       "after": [
         "P4-N022",
@@ -874,7 +874,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-16",
       "note": "Added by the owner, 2026-11-14: this node also archives the journal-tail skill. Move plugin/skills/journal-tail/SKILL.md to docs/archive/skills/ with a status line, and take it out of plugin/README.md. Keep plugin/scripts/journal_tail.ts, runnable by hand like form_check.ts. Add this as a criterion to the node's list in docs/plans/rebuild.md in the same pull request."
     },
     {
@@ -882,7 +882,7 @@
       "kind": "check",
       "title": "Verification of Pruned document set",
       "outcome": "P4-N024 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N024",
       "after": [],
       "hold": null,
@@ -891,7 +891,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-16",
       "note": null
     },
     {
@@ -4025,7 +4025,7 @@
       "id": "T139",
       "node": "P4-N033",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": null,
       "tokens": {
@@ -4033,11 +4033,11 @@
         "out": null
       },
       "opened": "2026-11-16T06:27:07Z",
-      "closed": null,
+      "closed": "2026-11-16T06:27:54Z",
       "base": "2f1c85b858805a4242748c06800ef123f440595a",
-      "ref": null,
-      "pr": null,
-      "summary": "Re-verify P4-N024 \"Pruned document set\" on pull request #51 at 059552e, after the rework that answers T138's blocked criterion.",
+      "ref": "059552e",
+      "pr": "majodali/project-orchestrator#51",
+      "summary": "Every criterion of P4-N024 is met at 059552e. All 54 archived files open with a status line; the 45 moved files changed only by it and re-pointed links. mtool: 21 findings on branch and base, the same set. Word count 158,359 reproduces. The five repository checks and the pull request's check pass.",
       "notes": null
     }
   ],

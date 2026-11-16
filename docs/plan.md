@@ -11,29 +11,28 @@ its stage and its outcome. The state file holds the rest.
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
+- Pilot enlistment of methodology-tools (P4-N027): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
+- README and generated Backlog (P4-N025) [specified]
 - Upstream proposals batch (P4-N026) [specified]
 - Document paths changed through the service (P4-N031) [specified]
+- Delegated tasks claimed without asking (P4-N034) [specified]
 
 ## In flight
 
-- Verification of Pruned document set (P4-N033) [specified] — T139
+None.
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
-- Pruned document set (P4-N024) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
 
-- README and generated Backlog (P4-N025) [specified] — after Pruned document set (P4-N024)
-- Pilot enlistment of methodology-tools (P4-N027) [specified] — after Pruned document set (P4-N024)
-- Linked plans and specs archived (P4-N032) [specified] — after Document paths changed through the service (P4-N031), Pruned document set (P4-N024)
-- Delegated tasks claimed without asking (P4-N034) [specified] — after Pruned document set (P4-N024)
+- Linked plans and specs archived (P4-N032) [specified] — after Document paths changed through the service (P4-N031)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
@@ -218,13 +217,10 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **Role agents on the task loop** (P4-N023, done 2026-11-13)
     The planner, implementer and reviewer agents describe the work as the task loop runs it, and the orchestrator, auditor and semantic-auditor roles and the orchestrate skill are archived.
     [plan](plans/rebuild.md)
-  - **Pruned document set** (P4-N024, verifying)
+  - **Pruned document set** (P4-N024, done 2026-11-16)
     docs/ holds what the service and plan-state enforce, one "how we work" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.
     after P4-N022, P4-N023 · [plan](plans/rebuild.md)
     Note: Added by the owner, 2026-11-14: this node also archives the journal-tail skill. Move plugin/skills/journal-tail/SKILL.md to docs/archive/skills/ with a status line, and take it out of plugin/README.md. Keep plugin/scripts/journal_tail.ts, runnable by hand like form_check.ts. Add this as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
-    - check: **Verification of Pruned document set** (P4-N033, specified)
-      P4-N024 is verified against its outcome.
-      [plan](plans/rebuild.md)
   - **README and generated Backlog** (P4-N025, specified)
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
     after P4-N024 · [plan](plans/rebuild.md)
@@ -233,7 +229,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     [plan](plans/rebuild.md)
   - **Pilot enlistment of methodology-tools** (P4-N027, specified)
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
-    after P4-N024 · [plan](plans/rebuild.md)
+    after P4-N022, P4-N024 · [plan](plans/rebuild.md)
     Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
   - **Document paths changed through the service** (P4-N031, specified)
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
@@ -241,7 +237,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     Note: Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7.
   - **Linked plans and specs archived** (P4-N032, specified)
     The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.
-    after P4-N031, P4-N024 · [plan](plans/rebuild.md)
+    after P4-N031 · [plan](plans/rebuild.md)
     Note: Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8.
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.

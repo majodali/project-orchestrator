@@ -51,7 +51,7 @@ Dependencies are in the state file, not in sibling order.
   - P4-N008 [broken-down] Re-plan, prune and hand back — plan: plans/rebuild.md
     - P4-N022 [done] Re-plan of the remaining nodes — plan: plans/rebuild.md
     - P4-N023 [done] Role agents on the task loop — plan: plans/rebuild.md
-    - P4-N024 [verifying] Pruned document set — plan: plans/rebuild.md
+    - P4-N024 [done] Pruned document set — plan: plans/rebuild.md
     - P4-N025 [specified] README and generated Backlog — plan: plans/rebuild.md
     - P4-N026 [specified] Upstream proposals batch — plan: plans/rebuild.md
     - P4-N027 [specified] Pilot enlistment of methodology-tools — plan: plans/rebuild.md
