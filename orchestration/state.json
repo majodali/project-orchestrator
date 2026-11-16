@@ -4027,10 +4027,12 @@
       "step": "verify",
       "status": "closed",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 5,
+        "out": 1905,
+        "cacheRead": 493947,
+        "cacheWrite": 9581
       },
       "opened": "2026-11-16T06:27:07Z",
       "closed": "2026-11-16T06:27:54Z",
@@ -4038,7 +4040,8 @@
       "ref": "059552e",
       "pr": "majodali/project-orchestrator#51",
       "summary": "Every criterion of P4-N024 is met at 059552e. All 54 archived files open with a status line; the 45 moved files changed only by it and re-pointed links. mtool: 21 findings on branch and base, the same set. Word count 158,359 reproduces. The five repository checks and the pull request's check pass.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
