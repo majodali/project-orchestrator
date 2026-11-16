@@ -21,7 +21,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Verification of Delegated tasks claimed without asking (P4-N036) [specified] — T142
 
 ## In progress, children carry the work
 
@@ -263,6 +263,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   A session that an orchestrating session starts with a brief naming a node and a step claims that task without asking a person first, and a session a person starts still asks before it claims.
   after P4-N024 · [plan](plans/rebuild.md)
   Note: Asked for by the owner, 2026-11-16, after a reviewer session launched for P4-N033 stopped to ask before claiming. Criteria: (1) the session start hook's text, CLAUDE.md, docs/process/how-we-work.md and the three role agents state one rule; (2) the rule says how a session recognises a delegation brief, and that the brief authorises the named node and step and nothing else; (3) owner decisions stay asks at task_close; (4) a trial is recorded: a session launched with a brief claims its task without asking, and a session started without one still asks.
+  - check: **Verification of Delegated tasks claimed without asking** (P4-N036, specified)
+    P4-N034 is verified against its outcome.
+    [plan](plans/rebuild.md)
 
 ### Orchestration service (P2-N001)
 
