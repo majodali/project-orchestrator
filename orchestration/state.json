@@ -991,8 +991,8 @@
       "id": "P4-N035",
       "kind": "work",
       "title": "Scratch node for the delegation trial",
-      "outcome": null,
-      "stage": "identified",
+      "outcome": "A script at plugin/scripts/print_date.ts prints today's date in the machine's local time zone as YYYY-MM-DD on one line and exits zero.",
+      "stage": "planned",
       "parent": "P4-N008",
       "after": [],
       "hold": null,
@@ -4083,7 +4083,7 @@
       "id": "T141",
       "node": "P4-N035",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -4091,11 +4091,11 @@
         "out": null
       },
       "opened": "2026-11-16T06:30:12Z",
-      "closed": null,
+      "closed": "2026-11-16T06:30:24Z",
       "base": "bfa8ec535f570ea9a11163215f17fab0a875f70d",
       "ref": null,
       "pr": null,
-      "summary": "Plan the scratch node for the delegation trial: deliver its title, outcome and criteria list. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "summary": "Planned the scratch node. No file changed and no pull request: the node's note says its plan needs no file, so the nine-item criteria list is in the planner's last message. Title kept. Outcome delivered. No asks.",
       "notes": null
     }
   ],

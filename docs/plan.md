@@ -18,10 +18,10 @@ Gated nodes:
 - README and generated Backlog (P4-N025) [specified]
 - Upstream proposals batch (P4-N026) [specified]
 - Document paths changed through the service (P4-N031) [specified]
+- Scratch node for the delegation trial (P4-N035) [planned]
 
 ## In flight
 
-- Scratch node for the delegation trial (P4-N035) [identified] — T141
 - Delegated tasks claimed without asking (P4-N034) [executing] — T140
 
 ## In progress, children carry the work
@@ -239,7 +239,8 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.
     after P4-N031 · [plan](plans/rebuild.md)
     Note: Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8.
-  - **Scratch node for the delegation trial** (P4-N035, identified)
+  - **Scratch node for the delegation trial** (P4-N035, planned)
+    A script at plugin/scripts/print_date.ts prints today's date in the machine's local time zone as YYYY-MM-DD on one line and exits zero.
     Note: Throwaway node for the trial P4-N034 asks for; removed when the trial ends. Subject to plan: a script that prints today's date. Nothing is built, and the plan needs no file: its criteria go in the planner's last message.
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
