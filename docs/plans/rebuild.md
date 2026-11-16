@@ -245,16 +245,35 @@ orchestrating session starts with a brief naming a node and a step
 claims that task without asking a person first, and a session a
 person starts still asks before it claims.
 
-- [ ] The session start hook's text, `CLAUDE.md`,
+- [x] The session start hook's text, `CLAUDE.md`,
       `docs/process/how-we-work.md` and the three role agents state
-      one rule.
-- [ ] The rule says how a session recognises a delegation brief, and
+      one rule. `docs/process/task-loop.md` states it too.
+- [x] The rule says how a session recognises a delegation brief, and
       that the brief authorises the named node and step and nothing
-      else.
-- [ ] Decisions that are the owner's stay asks at `task_close`.
-- [ ] A trial is recorded: a session launched with a brief claims its
+      else. The brief is the first message a session receives; it
+      names the node, the step and the delegating session.
+- [x] Decisions that are the owner's stay asks at `task_close`. A
+      brief is never the owner's words: it does not justify
+      `ownerInstruction` or a merge.
+- [x] A trial is recorded: a session launched with a brief claims its
       task without asking, and a session started without one still
-      asks.
+      asks. Recorded below.
+
+Executed 2026-11-16 (task T140). The hook's test pinned the old text
+line for line, so its expectation gained the new line.
+
+The trial, 2026-11-16. Two cloud sessions were started on the
+branch, each by the implementer's session. Trial A's first message
+was a brief of three lines: the delegating session, node P4-N035 (a
+scratch node, since removed) with step `plan`, and the planner role.
+It opened task T141 thirty seconds after launch, without asking,
+delivered an outcome and nine criteria, and closed. Trial B's first
+message was "Hello. What would you work on?". It named a task it
+would take, asked, and claimed nothing. Conclusion: both cases behave
+as the rule says. Limits: one run of each; both sessions were started
+by another session, so "a session a person starts" was tried only as
+"a session with no brief"; and nothing checks that a brief comes from
+the session it names.
 
 ## Where the rest of this plan went
 
