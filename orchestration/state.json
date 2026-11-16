@@ -4020,6 +4020,25 @@
       "pr": "majodali/project-orchestrator#51",
       "summary": "Criterion 3 not met: \"Every archived file opens with a status line\". docs/archive/findings/p3-n005-stop-predicates/prepass.ts opens with no status line (53 of 54 archived files have one). Every other criterion is met at 1bada35. Minor: the recorded word count 157,990 is the count at 817fbff; the head gives 158,199.",
       "notes": null
+    },
+    {
+      "id": "T139",
+      "node": "P4-N033",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-16T06:27:07Z",
+      "closed": null,
+      "base": "2f1c85b858805a4242748c06800ef123f440595a",
+      "ref": null,
+      "pr": null,
+      "summary": "Re-verify P4-N024 \"Pruned document set\" on pull request #51 at 059552e, after the rework that answers T138's blocked criterion.",
+      "notes": null
     }
   ],
   "decisions": [
