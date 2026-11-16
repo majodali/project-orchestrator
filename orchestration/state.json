@@ -899,7 +899,7 @@
       "kind": "work",
       "title": "README and generated Backlog",
       "outcome": "The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N008",
       "after": [
         "P4-N024"
@@ -4102,6 +4102,25 @@
       "ref": "2564171",
       "pr": "majodali/project-orchestrator#52",
       "summary": "P4-N034 verified on pull request #52: all four criteria met. One rule in the hook text, CLAUDE.md, how-we-work.md, task-loop.md and the three agents. Trial confirmed from both transcripts and the journal (T141). The test change is called for by criterion 1: the old expectation fails against the new hook text. Checks pass.",
+      "notes": null
+    },
+    {
+      "id": "T143",
+      "node": "P4-N025",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-16T07:01:27Z",
+      "closed": null,
+      "base": "e3076be103377b814ca03543db38a86188733649",
+      "ref": null,
+      "pr": null,
+      "summary": "Execute P4-N025 \"README and generated Backlog\" against the node's criteria and open a pull request for the service to merge.",
       "notes": null
     }
   ],
