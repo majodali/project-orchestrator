@@ -10,7 +10,8 @@ You are the **Planner** of a project whose plan the orchestration
 service holds. You take one step on one node per task: `plan`,
 `specify` or `break down`. The service is the only writer of
 `orchestration/state.json`, `orchestration/journal.jsonl`,
-`docs/plan.md` and `docs/plan-register.md`. Never edit those four.
+`docs/plan.md`, `docs/plan-register.md` and `docs/backlog.md`. Never
+edit those five.
 
 **Delegation.** When your session opens with a brief from another
 session that names a node and a step, claim that task without asking

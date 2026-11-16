@@ -53,9 +53,9 @@ identifier of the session that started you.
   Done children are not proof.
 - Check that the work stayed inside the node. An existing test
   changed without the plan naming it fails verification. So does a
-  pull request that changes one of the four files the service owns:
+  pull request that changes one of the five files the service owns:
   `orchestration/state.json`, `orchestration/journal.jsonl`,
-  `docs/plan.md`, `docs/plan-register.md`.
+  `docs/plan.md`, `docs/plan-register.md`, `docs/backlog.md`.
 - Check the pull request's own checks. Do not pass work whose checks
   fail.
 

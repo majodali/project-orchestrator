@@ -34,8 +34,10 @@ C2+ projects (recorded 2026-08-24; see the
   recorded 2026-11-09, when the owner accepted
   [the rebuild plan](plans/rebuild.md) and ratified its milestones.
   During the rebuild the progress truth is `orchestration/state.json`
-  (from milestone 1) and the plan's checklists. The Backlog is frozen
-  and becomes a rendering of the state file at milestone 6. Rationale:
+  (from milestone 1) and the plan's checklists. The Backlog frozen on
+  2026-11-09 is archived, and since milestone 6 (P4-N025)
+  [docs/backlog.md](backlog.md) is a rendering of the state file,
+  written by the service. Rationale:
   the owner approved the K-003 amendment that makes a declared
   planning/execution model the referent on 2026-10-30; this applies it
   before its release, declared here rather than silently. Ends when
