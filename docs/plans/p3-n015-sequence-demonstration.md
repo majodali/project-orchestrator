@@ -15,7 +15,7 @@ Reader: RD-4 in the methodology's
 (a fresh agent session), and the owner at this node's gate (RD-2). It
 assumes the methodology at this project's pinned version, 1.6.0
 ([Classification](../classification.md)), and
-[dispatch.md](../process/dispatch.md)'s *Sequence mode* section, which
+[dispatch.md](../archive/process/dispatch.md)'s *Sequence mode* section, which
 defines every sequence term used here without a link of its own.
 
 Node P3-N015 (the demonstration) is child C of node P3-N005 (sequence
@@ -31,8 +31,8 @@ refine criteria C3 and C8, and each says how.
 
 The run applies the text node P3-N014 (the loop runs sequence mode)
 delivered: *Sequence mode* in `dispatch.md`, its two journal event
-kinds in [observability.md](../process/observability.md), and the
-trigger table in [roles.md](../process/roles.md). This plan labels the
+kinds in [observability.md](../archive/process/observability.md), and the
+trigger table in [roles.md](../archive/process/roles.md). This plan labels the
 proposed members M1 to M4 until the Orchestrator issues their IDs.
 
 ## Outcome
@@ -47,7 +47,7 @@ At `done`:
 - This document holds the ratification record. The journal's
   `sequence-ratified` event precedes the first member's `dispatched`
   event.
-- Each landed member's [result record](../process/dispatch.md#the-members-result-record)
+- Each landed member's [result record](../archive/process/dispatch.md#the-members-result-record)
   is in its `result-received` event before the next member's
   `dispatched` event.
 - The journal's `sequence-stopped` event names M3, condition 4 and
@@ -71,7 +71,7 @@ any member leaves the tree clean. Each premise was re-read at commit
 |---|---|---|---|
 | M1 | The process specification cites the methodology at its pin | "Methodology citations in the process spec point at the superseded pin" (2026-08-31) | Mechanical, checked by a command; no reason to raise a term, a decision or an ask (C2) |
 | M2 | Risk register entries can be linked one by one | "Risk register and Ruling register entries have no anchors" (2026-10-29), its Risk register half | As M1 |
-| M3 | The checker extension-point proposal is ready to carry | "Deliver the extension-point proposal upstream" | Its work makes an artifact ready for a delivery only the owner makes ([RU-002](../rulings.md), the owner hand-carries upstream-bound output), so its result asks the owner to act (C3) |
+| M3 | The checker extension-point proposal is ready to carry | "Deliver the extension-point proposal upstream" | Its work makes an artifact ready for a delivery only the owner makes ([RU-002](../archive/rulings.md), the owner hand-carries upstream-bound output), so its result asks the owner to act (C3) |
 | M4 | The plugin tools are tested the way they run | "No committed test runs the plugin tools the way they run" (2026-10-30, T055) | Ratified after M3, so the stop on M3's asks withholds a dispatch (decision 2) |
 
 The work is real in each case. M1 fixes eleven stale citations in the
@@ -137,7 +137,7 @@ Backlog row.
 
 ### M3. The checker extension-point proposal is ready to carry
 
-[mtool-custom-type-checker.md](../proposals/mtool-custom-type-checker.md)
+[mtool-custom-type-checker.md](../archive/proposals/mtool-custom-type-checker.md)
 is `Status: draft` and was never carried. Its K-007 contract carries it
 with its text unchanged. Since it was drafted on 2026-08-26, the form
 checker moved from Python to TypeScript (nodes P1-N009 and P1-N013),
@@ -150,7 +150,7 @@ never in the artifact.
 
 M3 writes `docs/proposals/mtool-custom-type-checker-cover-note.md`, on
 the precedent of
-[delegated-work-amendments-cover-note.md](../proposals/delegated-work-amendments-cover-note.md),
+[delegated-work-amendments-cover-note.md](../archive/proposals/delegated-work-amendments-cover-note.md),
 and its Backlog row. It reads majodali/methodology at tags `v1.3.0` and
 `v1.6.0`, read-only. It does not read majodali/methodology-tools, and
 the covering message says so.
@@ -164,7 +164,7 @@ the covering message says so.
   the sandbox) at `v1.6.0` verbatim beside the `v1.3.0` text the
   proposal links. A provenance line names the version, the commit and
   the date, and tells the carrier to re-verify before carrying
-  ([RU-015](../rulings.md), the upstream delivery form). The note
+  ([RU-015](../archive/rulings.md), the upstream delivery form). The note
   states whether the two texts differ.
 - M3.4. `git diff --quiet <base> HEAD -- docs/proposals/mtool-custom-type-checker.md`
   exits zero, where `<base>` is the commit M3's branch starts from.
@@ -236,7 +236,7 @@ The order at the gate is fixed by what the predicates read:
 Each member is one task. At its landing the Orchestrator runs the
 loop's step 3, writes the result record into the `result-received`
 note, and then applies the four predicates to that record
-([dispatch.md](../process/dispatch.md#landing), landing). Each member's
+([dispatch.md](../archive/process/dispatch.md#landing), landing). Each member's
 register line links this plan only, so this plan is the member's plan
 and specification.
 
@@ -257,7 +257,7 @@ summary, and waits.
 ### The stop summary
 
 It follows the gate summary template
-([dispatch.md](../process/dispatch.md#gates-v1), Gates). An
+([dispatch.md](../archive/process/dispatch.md#gates-v1), Gates). An
 illustration of the expected stop:
 
 ```
@@ -281,7 +281,7 @@ default next grant has four tasks, outside any sequence:
 
 - M4's execute, under the per-chunk gate. An interior node verifies
   only once its children are `done`
-  ([plan-model.md](../process/plan-model.md), the node lifecycle).
+  ([plan-model.md](../archive/process/plan-model.md), the node lifecycle).
 - Reading 1 at the frugal tier and reading 2 at the advanced tier.
   Each applies the four predicates to the result records of the
   members that ran inside the sequence (criteria C7, A5). Each writes
@@ -290,7 +290,7 @@ default next grant has four tasks, outside any sequence:
   verdict commit (criterion I6). The pre-pass is re-run at the stop's
   commit.
 - One Implementer task compares the readings and adds the agreement to
-  [child A's record](../findings/p3-n005-stop-predicates.md). It then
+  [child A's record](../archive/findings/p3-n005-stop-predicates.md). It then
   assembles this node's evidence against C1 to C14. A disagreement
   closes as criterion I6 states, by a recorded predicate revision and
   both readings re-run, within two rounds. One still open after two is
@@ -366,7 +366,7 @@ incidental. The children are mutually independent. Their order is the
 ratification record's order, and they are never dispatched in
 parallel.
 
-## Repository reach ([RU-016](../rulings.md))
+## Repository reach ([RU-016](../archive/rulings.md))
 
 This node writes this repository only:
 
@@ -392,12 +392,12 @@ No planned non-monotonicity. M4 adds a test and rewrites none. Members
 
 ## Decisions for the gate
 
-Numbered per [dispatch.md](../process/dispatch.md)'s owner-decision
+Numbered per [dispatch.md](../archive/process/dispatch.md)'s owner-decision
 economics. The owner's go-ahead adopts every default not overridden by
 number, except that it ratifies the sequence only as decision 4 states.
 This plan opens its own sequence at 1.
 
-Precedents checked against the [Ruling register](../rulings.md).
+Precedents checked against the [Ruling register](../archive/rulings.md).
 Exact matches decide silently: RU-002 (M3's delivery is the owner's),
 RU-015 (M3's quote form), RU-016 (the repository reach), and RU-009 and
 RU-010 (work reaches `main` by a pull request the owner merges). RU-020 (an
@@ -570,7 +570,7 @@ defaults ratifies no sequence) require.
   checked on 2026-11-03, at the acceptance of P1-N016's E1 (T103), by
   RU-023 and RU-024. This gate adds no row for them.
 - Edges: thirteen edges are transcribed into the [Project
-  model](../project-model.md), read from *Dependencies*, *Repository
+  model](../archive/project-model.md), read from *Dependencies*, *Repository
   reach* and the members' writes. This plan writes its writes as
   paths, not as the type's edge items, so each path was matched to the
   slug whose `is:` line names it. Transcribed: P3-N015 uses
@@ -614,7 +614,7 @@ The sequence stopped at M3 (P3-N019, T107) on condition 4. T107 landed
 at 2026-11-08T00:30:00Z: its work is accepted, and M3's Asks part
 carries one owner-addressed ask. The `sequence-stopped` event of that
 time carries the ask verbatim
-([dispatch.md](../process/dispatch.md#stop-summarize-wait), stop,
+([dispatch.md](../archive/process/dispatch.md#stop-summarize-wait), stop,
 summarize, wait).
 
 ```
@@ -652,21 +652,21 @@ task that compares the readings. Each waits on the owner's answer.
   [specification](../specs/p3-n005-sequence-mode.md): the parent, child
   C's criteria C1 to C9, G1 to G3, I6, I9 and I12, decisions 13, 15 and
   16, and the gate record of 2026-10-29
-- [dispatch.md](../process/dispatch.md): *Sequence mode*, the four
+- [dispatch.md](../archive/process/dispatch.md): *Sequence mode*, the four
   predicates, the result record, *Gates* and the bounded-attempts rule
-- [observability.md](../process/observability.md): the
+- [observability.md](../archive/process/observability.md): the
   `sequence-ratified` and `sequence-stopped` event kinds
-- [roles.md](../process/roles.md): what each role can trigger
+- [roles.md](../archive/process/roles.md): what each role can trigger
 - [p3-n014-loop-runs-sequence-mode](p3-n014-loop-runs-sequence-mode.md):
   the delivered mode
-- [Record of the stop predicates](../findings/p3-n005-stop-predicates.md):
+- [Record of the stop predicates](../archive/findings/p3-n005-stop-predicates.md):
   the verdict file format, the pre-pass and the agreement result
 - [p3-n013-stop-conditions-decidable](p3-n013-stop-conditions-decidable.md):
   the shape precedent and the two-reading method
-- [Backlog](../backlog.md), [Plan register](../plan-register.md),
-  [Ruling register](../rulings.md)
-- [plan-model.md](../process/plan-model.md),
-  [profiles.md](../process/profiles.md)
+- [Backlog](../archive/backlog.md), [Plan register](../plan-register.md),
+  [Ruling register](../archive/rulings.md)
+- [plan-model.md](../archive/process/plan-model.md),
+  [profiles.md](../archive/process/profiles.md)
 - methodology 1.6.0:
   [W-001 (two delivery modes, human-gated)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-001--two-delivery-modes-human-gated),
   [W-008 (reports map their deliverables)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-008--reports-map-their-deliverables),

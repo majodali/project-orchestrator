@@ -13,10 +13,10 @@ catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#reade
 (a fresh agent session), and the owner at this node's plan gate. It
 assumes the methodology at this project's pinned version, 1.6.0
 ([Classification](../classification.md)), the [process
-specification](../process/README.md), and the [service
+specification](../archive/process/README.md), and the [service
 plan](orchestration-service.md).
 
-[Node](../process/README.md#def-node) P2-N003 (owner questions and the
+[Node](../archive/process/README.md#def-node) P2-N003 (owner questions and the
 plan view) is chunk 2 of P2-N001, the [orchestration
 service](orchestration-service.md#chunk-2--owner-questions-and-the-plan-view).
 The owner's review of the service on 2026-10-29 settled its shape
@@ -37,7 +37,7 @@ At `done`, both children are `done`:
   first version is deployed with the service. It shows the plan tree at
   a named commit, with stages, outcomes, dependencies and what is next.
   It drills from the tree to a node and from a node to a
-  [task](../process/README.md#def-task). It reads from commits only
+  [task](../archive/process/README.md#def-task). It reads from commits only
   and changes nothing.
 - The [owner question
   queue](orchestration-service.md#design-sketch) holds gate decisions
@@ -103,7 +103,7 @@ the same SHA (decision 6).
 
 The [Plan register](../plan-register.md) is parsed by the vendored
 grammar the service already carries. The [Project
-model](../project-model.md) is parsed by one parser, written in this
+model](../archive/project-model.md) is parsed by one parser, written in this
 repository and vendored to the service (decision 7). The Cost log and
 the journal are a table and JSON lines. If their parsing in the
 service would copy logic from `plugin/scripts/lib/form-check-core.ts`,
@@ -381,7 +381,7 @@ The Orchestrator transcribes them when the type spec allows.
 ## What the specification will verify
 
 C1 profile depth: a criteria list a verifier can check
-([profiles](../process/profiles.md)).
+([profiles](../archive/process/profiles.md)).
 
 For the node, at its own `verifying`, after both children:
 
@@ -420,7 +420,7 @@ test is rewritten.
 
 ## Precedents applied
 
-Checked against the [Ruling register](../rulings.md). Each decided its
+Checked against the [Ruling register](../archive/rulings.md). Each decided its
 question without a gate entry.
 
 - RU-006 (a new capability gets its own repository when separately
@@ -594,8 +594,8 @@ In the row shape the Backlog header declares.
   steps 3 and 5.
 - [Comprehension model plan](p3-n002-comprehension-model.md) and
   [specification](../specs/p3-n002-comprehension-model.md); the
-  [instance](../project-model.md) and the [slice
-  record](../project-model-slice-record.md).
+  [instance](../archive/project-model.md) and the [slice
+  record](../archive/project-model-slice-record.md).
 - [P3-N007 plan](p3-n007-type-declared-amendment-drafted.md), the type
   spec's author.
 - [Service skeleton plan](p2-n002-service-skeleton.md) and

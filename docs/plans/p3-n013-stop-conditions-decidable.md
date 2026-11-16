@@ -207,7 +207,7 @@ Numbered per `dispatch.md`'s owner-decision economics. The owner's
 go-ahead adopts every default not overridden by number. This document
 opens its own sequence at 1.
 
-**Precedents checked against the [Ruling register](../rulings.md).**
+**Precedents checked against the [Ruling register](../archive/rulings.md).**
 RU-016 is an exact match for the repository-reach declaration and
 decides silently. RU-018 is the authority for the parent's
 independence from P3-N002. RU-020 is a near match for decision 2: it
@@ -311,14 +311,14 @@ owner's ratification. Next: E1.
   evidence section and decisions 2 and 3
 - [p2-n012-deploy-from-ci-on-merge](p2-n012-deploy-from-ci-on-merge.md):
   the plan shape this document follows
-- [dispatch.md](../process/dispatch.md): owner-decision economics,
+- [dispatch.md](../archive/process/dispatch.md): owner-decision economics,
   the handoff contract, bounded attempts, context packets
-- [plan-model.md](../process/plan-model.md): the node lifecycle and
+- [plan-model.md](../archive/process/plan-model.md): the node lifecycle and
   the leaf definition
-- [roles.md](../process/roles.md): the model-tier table and the
+- [roles.md](../archive/process/roles.md): the model-tier table and the
   Implementer role
-- [profiles.md](../process/profiles.md): C1 verification
-- [Ruling register](../rulings.md): RU-015, RU-016, RU-018, RU-019,
+- [profiles.md](../archive/process/profiles.md): C1 verification
+- [Ruling register](../archive/rulings.md): RU-015, RU-016, RU-018, RU-019,
   RU-020
 - Methodology at v1.6.0:
   [W-001](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-001--two-delivery-modes-human-gated)

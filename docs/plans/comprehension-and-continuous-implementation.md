@@ -156,7 +156,7 @@ They are identified at two moments, and the model must accept both:
   between them.
 - **During preparation for a single node** — the same moment a plan
   already declares which repositories it needs, which is where
-  [RU-016](../rulings.md) came from. Which artifacts a node will read
+  [RU-016](../archive/rulings.md) came from. Which artifacts a node will read
   or modify is the same kind of declaration.
 
 *Correction to this plan's previous draft.* It argued that the model
@@ -226,7 +226,7 @@ subsume it.
 
 ### Backlog — the amendment this most likely forces
 
-[Backlog](../backlog.md). Owner, 2026-09-17: **the project model and the Backlog are two views
+[Backlog](../archive/backlog.md). Owner, 2026-09-17: **the project model and the Backlog are two views
 of the same information**, the model adding hierarchical relationships
 and explicit dependencies.
 
@@ -247,7 +247,7 @@ structure — or a single register that subsumes both.
 
 ### Ruling register — dependency subjects, and the basis of rework
 
-[Ruling register](../rulings.md). Owner, 2026-09-17: **decision register entries will be referenced as
+[Ruling register](../archive/rulings.md). Owner, 2026-09-17: **decision register entries will be referenced as
 subjects of dependencies, and this will likely form the basis for
 estimating and performing rework.**
 
@@ -281,7 +281,7 @@ is a visible omission rather than an invisible one.
 
 ### Cost log — the measuring instrument, one field short
 
-The [Cost log](../cost-log.md) keeps one row per accepted task, keyed by node and stage. It is already the
+The [Cost log](../archive/cost-log.md) keeps one row per accepted task, keyed by node and stage. It is already the
 instrument chunk 3 needs: rework cost against the reviews it displaced.
 
 It is one field short. Rows say a task *was* rework in prose — "outage
@@ -294,7 +294,7 @@ of chunk 3's evidence rests on it.
 ### Run journal — events the model generates
 
 The run journal (`orchestration/journal.jsonl`,
-[type spec](../process/observability.md)) is an append-only event stream, already known to be short of vocabulary: no
+[type spec](../archive/process/observability.md)) is an append-only event stream, already known to be short of vocabulary: no
 `unblocked` kind, no risk-opened, no contradiction-closed, all
 standing Backlog entries. The model adds more — a dependency recorded
 during node preparation, an edge invalidated by a superseded ruling, a
@@ -518,12 +518,12 @@ Settled by the owner, 2026-09-17:
   standing constraints
 - [Orchestration service](orchestration-service.md) — constraint 3,
   degrade to git-only, which any new model must honour
-- [Backlog](../backlog.md) — the dependency mechanism, the risk
+- [Backlog](../archive/backlog.md) — the dependency mechanism, the risk
   attachment gap, P1-N006's pilot
 - The registers reviewed above: [Plan register](../plan-register.md),
-  [Backlog](../backlog.md), [Ruling register](../rulings.md),
-  [risk register](../open-risks.md), [Cost log](../cost-log.md),
-  run journal ([type spec](../process/observability.md)),
+  [Backlog](../archive/backlog.md), [Ruling register](../archive/rulings.md),
+  [risk register](../open-risks.md), [Cost log](../archive/cost-log.md),
+  run journal ([type spec](../archive/process/observability.md)),
   [Classification](../classification.md)
 - methodology **K-003** (the Backlog is the single source of progress
   truth) — the rule the model's relationship to the Backlog most

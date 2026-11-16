@@ -34,10 +34,10 @@ and each says which.
 
 The node builds on node P3-N010 (one class, carried end to end), done
 2026-10-30 at task T055 (P3-N010's execute task). That node left the
-[catalogue](../proposals/common-risk-catalogue.md) with one entry,
-[CR-001](../proposals/common-risk-catalogue.md#cr-001) (a check that
+[catalogue](../archive/proposals/common-risk-catalogue.md) with one entry,
+[CR-001](../archive/proposals/common-risk-catalogue.md#cr-001) (a check that
 cannot fail in the environment the code runs in), and the
-[check document](../common-risk-catalogue-check.md) with a parts
+[check document](../archive/common-risk-catalogue-check.md) with a parts
 enumeration of thirty parts, one run, eight omissions and eight shape
 findings.
 
@@ -143,7 +143,7 @@ guide to where the judgment lies, not an outcome.
 | The surface's own guidance contradicting the project's rule | R17 (the harness's guidance pushes against the fallback rule), 2026-09-07 | ET-2 for the stated failure, since one harness change removes it. The generalization is a separate row. |
 | A register entry describing another repository goes stale silently | Backlog, 2026-09-01 | Its generalization, a copy of another document goes stale silently, is a separate row. |
 | A projection becomes a second source of truth | R10 (the service becomes a second source of truth) | ET-3: the exercise was a mitigation, not a failure. Also whether it merges with the stale-copy row. |
-| A tool whose runtime floor is unmet degrades silently | R13 (runtime assumption moves to `node`), [RU-013](../rulings.md) (preflight and exit loudly) | Merge with CR-001, which R13 already cites, or its own class with ET-3 failing. |
+| A tool whose runtime floor is unmet degrades silently | R13 (runtime assumption moves to `node`), [RU-013](../archive/rulings.md) (preflight and exit loudly) | Merge with CR-001, which R13 already cites, or its own class with ET-3 failing. |
 | A guard believed because it is present, not because it was broken | The drift guard of P1-N009 (plugin tooling on the portfolio stack) | P3-N010 found no failure. Merge into CR-001's mitigation, or defer. |
 | A lost update on a single-writer file under parallel work | Backlog, 2026-09-17 | ET-1: concurrent agents sharing one file, or this project's dispatch loop. |
 | An execution environment bills the wrong account | R7 (billing misroute) | ET-1 and ET-3: no encounter is recorded. |
@@ -156,7 +156,7 @@ and outcome.
 
 ### What happens to P3-N010's shape findings
 
-The [shape findings](../common-risk-catalogue-check.md#shape-findings)
+The [shape findings](../archive/common-risk-catalogue-check.md#shape-findings)
 of P3-N010 are answered here, one by one.
 
 - Finding 2, coverage cannot read adequacy: decision 3.
@@ -215,7 +215,7 @@ node's edit (criterion B10, concurrent writes to shared registers).
   lines on R12 (service outage stops work) and R13 are this node's
   starting state.
 - Not a dependency: P3-N002 (the comprehension model)
-  ([RU-018](../rulings.md), a child is not queued behind a sibling it
+  ([RU-018](../archive/rulings.md), a child is not queued behind a sibling it
   does not depend on). The enumeration stays hand-drawn. The Backlog
   entry on reading the model's parts stays open.
 - T055's two asks to the owner, on CR-001's header and R13's citation.
@@ -223,7 +223,7 @@ node's edit (criterion B10, concurrent writes to shared registers).
   catalogue and register then hold.
 - Owner actions: none.
 
-Repository reach ([RU-016](../rulings.md), the Planner declares a
+Repository reach ([RU-016](../archive/rulings.md), the Planner declares a
 node's repository access). This node reads and writes this repository.
 It writes four files: the catalogue, the check document,
 `docs/open-risks.md` and `docs/backlog.md`. It reads two repositories
@@ -256,7 +256,7 @@ Decision 1 carries the departure to the owner.
 
 ## Verification
 
-C1 profile ([profiles](../process/profiles.md)). The Implementer of
+C1 profile ([profiles](../archive/process/profiles.md)). The Implementer of
 each task self-verifies against the criteria that task meets. E3
 verifies the node against B1 to B11 and the additions below. No
 Reviewer is dispatched unless the owner asks. The owner reads the
@@ -292,7 +292,7 @@ form-check rule.
 
 ## Decisions for the gate
 
-Numbered per [dispatch](../process/dispatch.md)'s owner-decision
+Numbered per [dispatch](../archive/process/dispatch.md)'s owner-decision
 economics. The owner's go-ahead adopts every default not overridden by
 number. This plan opens its own sequence at 1.
 
@@ -300,15 +300,15 @@ The owner adopted decisions 1 to 5 at their defaults on 2026-10-30
 (*Gate record, 2026-10-30*). The rulings of the verifying gate,
 2026-11-03, are in *Gate record, 2026-11-03, at verifying*.
 
-Precedents checked against the [Ruling register](../rulings.md).
+Precedents checked against the [Ruling register](../archive/rulings.md).
 RU-016 is an exact match for the repository reach and decides it
 silently. RU-018 is the authority for independence from P3-N002.
-[RU-020](../rulings.md) (an interior node whose specification reaches
+[RU-020](../archive/rulings.md) (an interior node whose specification reaches
 breakdown depth needs no separate `break down` task) is a near match
-for decision 2. [RU-022](../rulings.md) (corpus-bound documents are
+for decision 2. [RU-022](../archive/rulings.md) (corpus-bound documents are
 written IR first) raises no decision: the breakdown adopted on
 2026-10-29 places the IR at child C, and P3-N010's decision 5 applied
-the same reading. [RU-019](../rulings.md) (a measurement criterion may
+the same reading. [RU-019](../archive/rulings.md) (a measurement criterion may
 be satisfied by an unfavourable result) does not apply. A control whose
 pair does not return is a failed check by definition.
 
@@ -364,7 +364,7 @@ pair does not return is a failed check by definition.
      step 2 argument names. A pair whose argument names an exposure the
      clause does not state is an omission, and its item names that
      exposure."
-   - [Check document](../common-risk-catalogue-check.md), *Steps*,
+   - [Check document](../archive/common-risk-catalogue-check.md), *Steps*,
      step 3. Append to step 3: "A covering entry's *Class* clause also
      states the exposure that the pair's step 2 argument names. A pair
      whose argument names an exposure the clause does not state is an
@@ -374,7 +374,7 @@ pair does not return is a failed check by definition.
    **Default**: defects found by one sequence of runs of the same check
    or pipeline, up to its first passing run, count as one encounter.
    E1 adds this sentence to the catalogue's definition of an
-   [independent encounter](../proposals/common-risk-catalogue.md#def-independent-encounter).
+   [independent encounter](../archive/proposals/common-risk-catalogue.md#def-independent-encounter).
    **Rationale**: shape finding 6 found the choice open. P3-N010 counted
    the four deploy defects of P2-N012 (deploy the service from CI on
    merge) once, the lower count, and the rule
@@ -398,7 +398,7 @@ pair does not return is a failed check by definition.
      service repository's Backlog, wherever it sits, the Plan register's
      `done` nodes, and a stated list of standing artifact classes (plan
      decision 3, refined at the gates of nodes P3-N010 and P3-N011)."
-   - [Check document](../common-risk-catalogue-check.md), *Inputs*.
+   - [Check document](../archive/common-risk-catalogue-check.md), *Inputs*.
      Insert after the paragraph ending "The specification reads the
      Backlog's Completed section only.": "The checked entries of the
      service repository's Backlog are read too, at the commit the run
@@ -473,13 +473,13 @@ the term's definition site.
   admits the class, merges into it, or merges with exposure into it.
   Second, the entry's text states the class's failure as its own
   subject. The [check
-  document](../common-risk-catalogue-check.md#the-citation-test) applies
+  document](../archive/common-risk-catalogue-check.md#the-citation-test) applies
   the test.
 - <a id="def-delta-row"></a>**delta row**: a candidate row for a
   failure that a source recorded after the pass that read the source.
   A delta row is labelled `DL-nn`, and the pass stays at its commit.
   The [check
-  document](../common-risk-catalogue-check.md#sources-that-moved-after-the-passes)
+  document](../archive/common-risk-catalogue-check.md#sources-that-moved-after-the-passes)
   holds three delta rows.
 
 ## References
@@ -489,16 +489,16 @@ the term's definition site.
   the parent, criteria B1 to B11, the definitions and the gate record
 - [p3-n010-one-class-end-to-end](p3-n010-one-class-end-to-end.md): the
   shape precedent, and decisions 1 to 5 adopted 2026-10-30
-- [Check document](../common-risk-catalogue-check.md) and
-  [catalogue](../proposals/common-risk-catalogue.md): this node's
+- [Check document](../archive/common-risk-catalogue-check.md) and
+  [catalogue](../archive/proposals/common-risk-catalogue.md): this node's
   starting state
-- [Risk register](../open-risks.md), [Backlog](../backlog.md),
-  [Cost log](../cost-log.md), [Ruling register](../rulings.md): four of
+- [Risk register](../open-risks.md), [Backlog](../archive/backlog.md),
+  [Cost log](../archive/cost-log.md), [Ruling register](../archive/rulings.md): four of
   the five sources
 - [p3-n013-stop-conditions-decidable](p3-n013-stop-conditions-decidable.md):
   the multi-task leaf precedent
-- [plan-model](../process/plan-model.md),
-  [profiles](../process/profiles.md), [dispatch](../process/dispatch.md)
+- [plan-model](../archive/process/plan-model.md),
+  [profiles](../archive/process/profiles.md), [dispatch](../archive/process/dispatch.md)
 - methodology 1.6.0: Constitution Article 4 (applicability, then
   precedence) for ET-4, and Article 8 (amendments, versions, and
   migration), the process child C proposes through

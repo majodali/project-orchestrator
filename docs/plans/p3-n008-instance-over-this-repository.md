@@ -8,19 +8,19 @@ Status: draft
      P3-N008; it goes `active` when the owner approves it at the gate,
      and `closed → Backlog entry` when the node reaches `done`. -->
 
-Project model: [project-model.md](../project-model.md).
+Project model: [project-model.md](../archive/project-model.md).
 
 Reader: RD-4 in the methodology's [reader
 catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers)
 (a fresh agent session), and the owner at this node's plan gate. It
 assumes the methodology at this project's pinned version, 1.6.0
 ([Classification](../classification.md)), the [type
-specification](../process/project-model.md) of the Project model, and
+specification](../archive/process/project-model.md) of the Project model, and
 the section *Child C: the instance, over this repository* of the
 [specification of the comprehension
 model](../specs/p3-n002-comprehension-model.md).
 
-[Node](../process/README.md#def-node) P3-N008 is child C of P3-N002
+[Node](../archive/process/README.md#def-node) P3-N008 is child C of P3-N002
 (the comprehension model): [plan](p3-n002-comprehension-model.md),
 [specification](../specs/p3-n002-comprehension-model.md). It is third
 in the chain P3-N006 to P3-N009. It builds on P3-N006 (the thin
@@ -69,10 +69,10 @@ one commit, and moves the Backlog in that commit.
 1. **E1, the parts and their entries.** E1 writes the enumeration. It
    opens one entry per part and fills `is:`, `state:`, `spec:` and
    `risks:` from records. It writes the
-   [edges](../process/project-model.md#def-edge) that records of
+   [edges](../archive/process/project-model.md#def-edge) that records of
    `done` nodes and the Ruling register state. It conforms the five
    slice entries, adds [date
-   notes](../process/project-model.md#def-date-note), and rewrites the
+   notes](../archive/process/project-model.md#def-date-note), and rewrites the
    instance's title and preamble, which still describe the slice.
    Criteria: C2, C9's count so far, C10, C11.
 2. **E2, the edges of open nodes and the carried specifications.** E2
@@ -93,18 +93,18 @@ header and every entry.
 
 ### How the parts are enumerated
 
-E1 builds the list of [resources](../process/project-model.md#def-resource)
+E1 builds the list of [resources](../archive/process/project-model.md#def-resource)
 from five sources. Each closes a gap the others leave.
 
-1. **Slugs.** Every [slug](../process/project-model.md#def-slug)
+1. **Slugs.** Every [slug](../archive/process/project-model.md#def-slug)
    already in the instance or in a transcribed record. This covers the
    five slice entries and the [held
-   edges](../process/project-model.md#def-held-edge) the Orchestrator
+   edges](../archive/process/project-model.md#def-held-edge) the Orchestrator
    transcribes at the acceptance of P3-N007's first execute task
    (P3-N007 decision 8).
 2. **Parts.** The 30 parts of the parts enumeration of P3-N010 (one
    class, carried end to end), in the [check
-   document](../common-risk-catalogue-check.md#parts-enumeration).
+   document](../archive/common-risk-catalogue-check.md#parts-enumeration).
    Each part maps to one or more entries, or the record says why it
    maps to none. The enumeration is risk-shaped and coarse, so a part
    such as PT-02 (the process specification) maps to one entry per
@@ -113,7 +113,7 @@ from five sources. Each closes a gap the others leave.
    `git ls-files` at E1's base commit. Each path is named in some
    entry's `is:` line, or listed in the record with the reason it is
    no part, such as `package-lock.json` inside the Node toolchain.
-4. **Rulings.** Every ruling in the [Ruling register](../rulings.md),
+4. **Rulings.** Every ruling in the [Ruling register](../archive/rulings.md),
    RU-001 to RU-022 at planning. A ruling is a resource under the type
    specification, and C6 needs every consumed ruling.
 5. **Nodes.** Every node past `identified` in the Plan register, 38
@@ -137,7 +137,7 @@ count is the number of such parts.
 
 ### Entries at scale, under the writer rule
 
-The [writer rule](../process/project-model.md#the-writer-rule) names
+The [writer rule](../archive/process/project-model.md#the-writer-rule) names
 this node's case. The brief of each execute task names
 `docs/project-model.md` among its writes, so the task writes entries
 and edges as its dispatched work. No task writes a Plan register
@@ -152,7 +152,7 @@ field.
   `plan-register-grammar` all exist.
 - **Edge list.** Each task lists the edges it wrote, one line per edge
   in the note format of the `edge-recorded` event
-  ([observability](../process/observability.md)). The Orchestrator
+  ([observability](../archive/process/observability.md)). The Orchestrator
   writes one event per line at acceptance. An edge the instance
   already holds gains a source from a second record and no event, as
   *Recording an edge* in the type specification says.
@@ -180,7 +180,7 @@ items, because edge items only add, and by deriving state again.
 ### The navigation measure, extended from fifty paths to the instance
 
 The slice measured fifty paths: five entries, five answers, two
-starting points ([slice record](../project-model-slice-record.md),
+starting points ([slice record](../archive/project-model-slice-record.md),
 section 4). Those paths stand as the slice's record and are not
 measured again.
 
@@ -196,7 +196,7 @@ measurement.
    register, the Ruling register, the Cost log.
 
 So every class of [starting
-point](../process/project-model.md#the-navigation-bound) is measured.
+point](../archive/process/project-model.md#the-navigation-bound) is measured.
 With about 120 entries, the sample is about 24 entries and 360 paths.
 
 Each path is recorded from step zero, as the slice did. Rows come from
@@ -216,9 +216,9 @@ heading's find, and (iii) by checking every entry's facet lines.
 
 E3 produces both renderings by the procedures in the type
 specification: [the implementation
-map](../process/project-model.md#the-implementation-map) over every
+map](../archive/process/project-model.md#the-implementation-map) over every
 entry, and [the list of what is
-next](../process/project-model.md#the-list-of-what-is-next) over every
+next](../archive/process/project-model.md#the-list-of-what-is-next) over every
 node not `done`. Each reads the instance and the Plan register, and
 nothing else. The record states that neither rendering is the
 referent.
@@ -254,7 +254,7 @@ disposition, does not.
 - A difference with no stated cause.
 - A difference neither fixed nor carried.
 - A rendered row that adds a claim its source lacks, or drops a claim
-  of a [facet](../process/project-model.md#def-facet) its procedure
+  of a [facet](../archive/process/project-model.md#def-facet) its procedure
   carries.
 - A `state:` line that disagrees with the stages at step 6 of the
   implementation map's procedure, and is left in the instance.
@@ -274,7 +274,7 @@ The renderings cannot replace it now, for three reasons. The list of
 what is next omits outcomes, which are most of `docs/plan.md`. A
 rendering made once by hand is not kept current, and no rendering tool
 exists before the switch. The dependency text of `docs/plan.md` follows
-the selection rule in [dispatch](../process/dispatch.md), which P3-N009
+the selection rule in [dispatch](../archive/process/dispatch.md), which P3-N009
 (sibling ordering retired, and the checks that replace it) changes, not
 this node.
 
@@ -309,7 +309,7 @@ session.
 ## Dependencies
 
 Edges are in the type's
-[notation](../process/project-model.md#how-a-plan-writes-an-edge).
+[notation](../archive/process/project-model.md#how-a-plan-writes-an-edge).
 They extend the parent's *Edges stated at this breakdown* and name the
 parent's "header of every starting point" with slugs.
 
@@ -343,7 +343,7 @@ parent's "header of every starting point" with slugs.
   of its edge list; `form-checker`, which C11 runs; `RU-016`, `RU-017`,
   `RU-018` and `RU-021`.
 - **No after qualifier.** No edge here carries an [after
-  qualifier](../process/project-model.md#def-after-qualifier). P3-N011
+  qualifier](../archive/process/project-model.md#def-after-qualifier). P3-N011
   (the sweep, the rest of the catalogue, and the omission list)
   modifies `risk-register` and `common-risk-catalogue-check`. P3-N008
   reads both as they stand. Waiting on P3-N011 would queue this node
@@ -372,7 +372,7 @@ parent's "header of every starting point" with slugs.
 
 ## Verification
 
-C1 profile ([profiles](../process/profiles.md)). Each task's
+C1 profile ([profiles](../archive/process/profiles.md)). Each task's
 Implementer self-verifies its criteria against the parent
 specification's *Child C* section, and E3 confirms C1 to C11 for the
 whole node. The adopted decisions of this plan bind the Implementer
@@ -388,11 +388,11 @@ vendored files stay byte-identical.
 
 ## Decisions for the gate
 
-Numbered per [dispatch](../process/dispatch.md)'s owner-decision
+Numbered per [dispatch](../archive/process/dispatch.md)'s owner-decision
 economics. This document opens its own sequence at 1. The owner's
 go-ahead adopts every default not overridden by number.
 
-Precedents checked against the [Ruling register](../rulings.md). These
+Precedents checked against the [Ruling register](../archive/rulings.md). These
 decide silently and are not staged.
 
 - RU-016: this plan's *Dependencies* is the repository-reach
@@ -498,7 +498,7 @@ decision 3; RU-019, for what fails C8.
    land on the wrong entry; this keeps P3-N002 decision 9's one find
    and changes no definition of the bound.
    **Affected locations**:
-   - [Type specification](../process/project-model.md), *The entry
+   - [Type specification](../archive/process/project-model.md), *The entry
      grammar* (active), correction of the heading rule:
      `heading       = "## " , slug , " (" , name , ")" , newline ;`
    - The same section, correction of the paragraph after the grammar:
@@ -561,20 +561,20 @@ Two existing rows are rewritten, for the Orchestrator at this gate.
   decisions 4, 8 and 9
 - [Plan of P3-N006](p3-n006-thin-end-to-end-slice.md): the shape this
   plan follows
-- [Type specification](../process/project-model.md): the grammar, the
+- [Type specification](../archive/process/project-model.md): the grammar, the
   derivations, the writer rule, *Recording an edge*, the renderings,
   the navigation bound and the checker rules
-- [Instance](../project-model.md) and [slice
-  record](../project-model-slice-record.md): the five entries, the
+- [Instance](../archive/project-model.md) and [slice
+  record](../archive/project-model-slice-record.md): the five entries, the
   differences ML1 to ML7, BL1, BL2, DG1 and DG2, and the fifty paths
-- [Check document](../common-risk-catalogue-check.md): the parts
+- [Check document](../archive/common-risk-catalogue-check.md): the parts
   enumeration of P3-N010
-- [Plan register](../plan-register.md), [Backlog](../backlog.md),
-  [plan.md](../plan.md), [Ruling register](../rulings.md)
-- [plan-model](../process/plan-model.md),
-  [dispatch](../process/dispatch.md),
-  [observability](../process/observability.md),
-  [profiles](../process/profiles.md)
+- [Plan register](../plan-register.md), [Backlog](../archive/backlog.md),
+  [plan.md](../plan.md), [Ruling register](../archive/rulings.md)
+- [plan-model](../archive/process/plan-model.md),
+  [dispatch](../archive/process/dispatch.md),
+  [observability](../archive/process/observability.md),
+  [profiles](../archive/process/profiles.md)
 - Methodology at v1.6.0:
   [K-003](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth)
   (the Backlog is the single source of progress truth),

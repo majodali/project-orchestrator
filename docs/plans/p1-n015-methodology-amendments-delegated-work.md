@@ -37,7 +37,7 @@ requires:
 
 The node completes at the artifacts. Upstream disposition is tracked in
 the Backlog, not verified here
-([RU-003](../rulings.md) — a node targeting an external party completes
+([RU-003](../archive/rulings.md) — a node targeting an external party completes
 at the artifact).
 
 ## Why this node exists
@@ -61,7 +61,7 @@ is an amendment proposal upstream, never a silent local divergence.
 ## The four amendments and the instances that evidence them
 
 The owner approved the substance in sketch on 2026-08-31, and the
-[Backlog](../backlog.md) entry for this node states it. This plan does
+[Backlog](../archive/backlog.md) entry for this node states it. This plan does
 not re-argue it. Each amendment must name the instance it evidences,
 because adjudicability depends on that link
 ([Article 6](https://github.com/majodali/methodology/blob/v1.4.0/docs/constitution.md#article-6--inclusion-every-rule-earns-its-keep)
@@ -69,16 +69,16 @@ because adjudicability depends on that link
 
 | Amendment | Target text | Evidencing instance |
 |---|---|---|
-| A1 — scope the report rule by audience, not by artifact | [W-008 (reports map their deliverables)](https://github.com/majodali/methodology/blob/v1.4.0/docs/rules/working-agreement.md#w-008--reports-map-their-deliverables) and the style guide's *Reports and summaries* section | the handoff contract in [dispatch.md](../process/dispatch.md); every task result this project's loop has produced, each addressed to an orchestrating agent rather than to a human reader |
+| A1 — scope the report rule by audience, not by artifact | [W-008 (reports map their deliverables)](https://github.com/majodali/methodology/blob/v1.4.0/docs/rules/working-agreement.md#w-008--reports-map-their-deliverables) and the style guide's *Reports and summaries* section | the handoff contract in [dispatch.md](../archive/process/dispatch.md); every task result this project's loop has produced, each addressed to an orchestrating agent rather than to a human reader |
 | A2 — name whose duty marking is when sessions nest | [K-011 (found contradictions are marked, not routed around)](https://github.com/majodali/methodology/blob/v1.4.0/docs/rules/knowledge.md#k-011--found-contradictions-are-marked-not-routed-around) | [P1-N014 decision 2](p1-n014-role-contracts-adopt-v140-rules.md#decisions-for-the-gate), adopted at its gate: the finder owns the duty, and a role forbidden to edit files discharges by located finding |
-| A3 — give delegated work a vocabulary | [vocabulary.md](https://github.com/majodali/methodology/blob/v1.4.0/docs/vocabulary.md), *Defined terms* | the *Defined terms* section of [the process spec](../process/README.md), where this project already minted *Managed project*, *Node*, *Task*, and *Approved scope* under Article 7 because upstream had no words for them |
+| A3 — give delegated work a vocabulary | [vocabulary.md](https://github.com/majodali/methodology/blob/v1.4.0/docs/vocabulary.md), *Defined terms* | the *Defined terms* section of [the process spec](../archive/process/README.md), where this project already minted *Managed project*, *Node*, *Task*, and *Approved scope* under Article 7 because upstream had no words for them |
 | A4 — state K-010's converse | [K-010 (superseded content is never silently readable)](https://github.com/majodali/methodology/blob/v1.4.0/docs/rules/knowledge.md#k-010--superseded-content-is-never-silently-readable) | [orchestrator-v1](orchestrator-v1.md), which claimed a v1.3.0 pin after this project migrated to 1.4.0; found and fixed during task T019 |
 
 ## Approach
 
 One drafting session produces four proposal documents under
 `docs/proposals/`, following the shape
-[P1-N008's proposal](../proposals/mtool-custom-type-checker.md) set,
+[P1-N008's proposal](../archive/proposals/mtool-custom-type-checker.md) set,
 plus a short cover note the owner reads before carrying them.
 
 Each proposal document holds five parts:
@@ -115,10 +115,10 @@ other three and may be drafted at any point.
 This node completes at the artifacts. It does not include:
 
 - writing in the methodology repository, or opening any PR there.
-  [RU-002](../rulings.md) settles the handoff: the owner hand-carries
+  [RU-002](../archive/rulings.md) settles the handoff: the owner hand-carries
   upstream-bound output, and cross-repo scope is granted only
   explicitly;
-- upstream adjudication or disposition ([RU-003](../rulings.md));
+- upstream adjudication or disposition ([RU-003](../archive/rulings.md));
 - releasing P1-N014's hold, or adopting accepted text into
   `docs/process/`. Both fire after a release exists, and both are
   Backlog items;
@@ -145,22 +145,22 @@ This node completes at the artifacts. It does not include:
 
 ## Rulings checked
 
-The [Ruling register](../rulings.md) was read entry by entry.
+The [Ruling register](../archive/rulings.md) was read entry by entry.
 
 Three entries are exact matches and decide silently, so they are not
-staged below: [RU-002](../rulings.md) (the owner hand-carries
-upstream-bound output), [RU-003](../rulings.md) (a node targeting an
+staged below: [RU-002](../archive/rulings.md) (the owner hand-carries
+upstream-bound output), [RU-003](../archive/rulings.md) (a node targeting an
 external party completes at the artifact), and
-[RU-005](../rulings.md) (proposal-class nodes are owner-gated at
+[RU-005](../archive/rulings.md) (proposal-class nodes are owner-gated at
 `verifying`).
 
-[RU-001](../rulings.md) (a proposal draft may execute before its
+[RU-001](../archive/rulings.md) (a proposal draft may execute before its
 evidencing node closes) covers A1 and A2, whose evidencing instance is
 a plan node held at `planned`. The evidence those proposals cite is the
 recorded decision and the recorded task history, both of which already
 exist.
 
-[RU-004](../rulings.md) is a near match that does not carry.
+[RU-004](../archive/rulings.md) is a near match that does not carry.
 It ruled for a sketch over a full implementation because the contract
 was still under discussion. Here the substance is settled by the owner,
 so drafting final text is not rework built ahead of a decision. This is
@@ -182,7 +182,7 @@ The candidate cut was examined. A3 and the three rule amendments do
 validate separately, which is what would justify children. They are not
 split now because each artifact is a single-sitting document, and
 because the C1 profile requires breakdown only above single-session
-size ([profiles.md](../process/profiles.md)).
+size ([profiles.md](../archive/process/profiles.md)).
 
 If the specify stage judges the set beyond one session, the recorded
 cut is two dependency-ordered children: the delegation vocabulary
@@ -193,7 +193,7 @@ needs no new argument.
 ## Decisions for the gate
 
 Numbered per the owner-decision economics in
-[dispatch.md](../process/dispatch.md); a go-ahead adopts every default
+[dispatch.md](../archive/process/dispatch.md); a go-ahead adopts every default
 not overridden by number.
 
 1. Four proposals or one bundle?
@@ -266,7 +266,7 @@ not overridden by number.
 Recorded here so the gate summary can state them, not as node scope:
 
 1. Carry the four proposals upstream as PRs against the methodology's
-   `main` ([RU-002](../rulings.md)).
+   `main` ([RU-002](../archive/rulings.md)).
 2. Convene an interim adjudication, or hold them for the next review
    round.
 3. Correct the Portfolio register's row for this project and add
@@ -282,14 +282,14 @@ Recorded here so the gate summary can state them, not as node scope:
   node, its decision 1 (cite, do not restate), its decision 2 (the
   finder marks), and the gate outcome that opened this node.
 - [p1-n008 plan](p1-n008-mtool-checker-extension-point.md) and
-  [its proposal](../proposals/mtool-custom-type-checker.md) — the
+  [its proposal](../archive/proposals/mtool-custom-type-checker.md) — the
   precedent for a proposal-class node and for the artifact's shape.
-- [rulings.md](../rulings.md) — RU-001, RU-002, RU-003, RU-004, RU-005.
-- [dispatch.md](../process/dispatch.md) — the handoff contract and the
+- [rulings.md](../archive/rulings.md) — RU-001, RU-002, RU-003, RU-004, RU-005.
+- [dispatch.md](../archive/process/dispatch.md) — the handoff contract and the
   owner-decision economics; A1's evidencing instance.
-- [profiles.md](../process/profiles.md) — the C1 profile: breakdown
+- [profiles.md](../archive/process/profiles.md) — the C1 profile: breakdown
   above single-session size, criteria-list specifications.
-- [process spec README](../process/README.md) — the *Defined terms*
+- [process spec README](../archive/process/README.md) — the *Defined terms*
   section; A3's evidencing instance.
 - [methodology release process](https://github.com/majodali/methodology/blob/v1.4.0/docs/release-process.md)
   — section 1 (proposed), which binds the deliverable's shape.
@@ -314,8 +314,8 @@ the narrowing knowingly, the Planner having flagged it for override
 rather than presenting it as recorded intent.
 
 Three rulings decided parts of this node silently and are recorded
-as applied at T020: [RU-002](../rulings.md) (the owner hand-carries
-upstream-bound output), [RU-003](../rulings.md) (a node targeting an
+as applied at T020: [RU-002](../archive/rulings.md) (the owner hand-carries
+upstream-bound output), [RU-003](../archive/rulings.md) (a node targeting an
 external party completes at the artifact) and
-[RU-005](../rulings.md) (proposal-class nodes gate at `verifying`).
+[RU-005](../archive/rulings.md) (proposal-class nodes gate at `verifying`).
 

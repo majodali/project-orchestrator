@@ -14,11 +14,11 @@ catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#reade
 (a fresh agent session), and the owner at this node's specification
 gate. It assumes the methodology at this project's pinned version,
 1.6.0 ([Classification](../classification.md)), the [process
-specification](../process/README.md), the [service
+specification](../archive/process/README.md), the [service
 plan](../plans/orchestration-service.md) and this node's
 [plan](../plans/p2-n003-owner-questions-and-plan-view.md).
 
-[Node](../process/README.md#def-node) **P2-N003** (owner questions and
+[Node](../archive/process/README.md#def-node) **P2-N003** (owner questions and
 the plan view) is chunk 2 of P2-N001, the [orchestration
 service](../plans/orchestration-service.md#chunk-2--owner-questions-and-the-plan-view).
 This document specifies the outcome its
@@ -44,8 +44,8 @@ needs no separate break-down task).
 The node's own criteria are I1 to I10 under *Verification of the
 node*. An interior node's `verifying` runs after its children are
 `done`, against its own criteria ([plan
-model](../process/plan-model.md)). Depth is the C1 profile's: a
-criteria list a verifier can check ([profiles](../process/profiles.md)).
+model](../archive/process/plan-model.md)). Depth is the C1 profile's: a
+criteria list a verifier can check ([profiles](../archive/process/profiles.md)).
 Nothing here reopens a plan decision. Decisions 11 to 15 below refine
 points the plan left open, and each names what it refines.
 
@@ -178,7 +178,7 @@ Path: `/view/node/<node ID>`.
    the journal holds a `gate-crossed` or `accepted` event for the node,
    the date of the latest one follows, labelled "last journal event,
    telemetry". The run journal is never authoritative
-   ([observability](../process/observability.md)).
+   ([observability](../archive/process/observability.md)).
 2. **Outcome.** The first paragraph of the *Outcome* section of the
    plan the node's register line links. Where the plan has no
    *Outcome* section, the field says so and links the plan. Where the
@@ -318,7 +318,7 @@ consumer never edits its copy.
   by `plugin/scripts/sync_shared_unit.ts`. If P3-N009 has written it
   when task E3 starts, task E3 imports it. Otherwise task E3 writes it,
   and P3-N009 imports it later. The parser follows the entry grammar
-  of the [type](../process/project-model.md#the-entry-grammar) and
+  of the [type](../archive/process/project-model.md#the-entry-grammar) and
   reports parse errors with their line.
 - **The Cost log and the journal.** The form checker's core,
   `plugin/scripts/lib/form-check-core.ts`, already splits Cost log
@@ -334,7 +334,7 @@ consumer never edits its copy.
 ### What "what is next" means
 
 The view implements the two renderings the [Project model
-type](../process/project-model.md#the-two-renderings) defines: the
+type](../archive/process/project-model.md#the-two-renderings) defines: the
 implementation map and the list of what is next. It applies each
 procedure as written, reading the instance and the register at the
 page's SHA and nothing else (decision 9).
@@ -531,7 +531,7 @@ service repository unless they name this one.
 
 - **V27. The navigation bound, per view.** From the tree page, each of
   the five answers for a resource is reached within the [navigation
-  bound](../process/project-model.md#the-navigation-bound) of three
+  bound](../archive/process/project-model.md#the-navigation-bound) of three
   steps, a link click counting as one. Measured for every fifth entry
   in file order, after E3. Before E3, the criterion is recorded as not
   yet applicable.
@@ -757,7 +757,7 @@ list, as P2-N005's own change.
 ## Edges stated at this breakdown
 
 The children's edges, in the [type's
-notation](../process/project-model.md#how-a-plan-writes-an-edge). The
+notation](../archive/process/project-model.md#how-a-plan-writes-an-edge). The
 IDs are those proposed under *Register action proposed*; the
 Orchestrator writes the issued IDs. New slugs carry a gloss.
 
@@ -835,7 +835,7 @@ to 15. The owner's go-ahead adopts every default not overridden by
 number. Ratifying the three terms under *Terms this specification
 introduces* is asked beside these.
 
-Checked against the [Ruling register](../rulings.md). RU-009 (work
+Checked against the [Ruling register](../archive/rulings.md). RU-009 (work
 reaches `main` by pull request), RU-012 (how two repositories share
 one unit of code), RU-016 (the Planner declares the repository access
 a node needs), RU-018 (a child is not queued behind a sibling it does
@@ -869,7 +869,7 @@ question silently. No ruling reaches the five below.
     **Rationale:** a part's state is derived from Plan register stages,
     and the journal already records every stage change. An event would
     record a derivation, not an act. The [observability
-    spec](../process/observability.md) homed this gap in P2-N003 for
+    spec](../archive/process/observability.md) homed this gap in P2-N003 for
     the view to decide. **Affected locations:** in
     `docs/process/observability.md`, under *Events*, two corrections.
     - Replace "Two further events of the Project model have no kind
@@ -929,7 +929,7 @@ terms this document introduces: *view token*, *view cookie* and *not
 computable*. The drafted texts of decisions 11 and 14 were placed in
 the [plan](../plans/p2-n003-owner-questions-and-plan-view.md), and the
 drafted text of decision 12 in
-[observability.md](../process/observability.md), *Events*. Decisions 13
+[observability.md](../archive/process/observability.md), *Events*. Decisions 13
 and 15 state no affected location. RU-020 (an interior node whose
 specification carries its children needs no separate break-down task)
 applied. The two children were entered `identified`, with their Backlog
@@ -938,7 +938,7 @@ question queue). In the same act the node moved `specified` →
 `broken-down`. P2-N005's specification was still at its gate, so the IDs
 P2-N017 to P2-N020 stay reserved for its children and the proposed IDs
 hold. The edges under *Edges stated at this breakdown* were transcribed
-into the [Project model instance](../project-model.md), the edge
+into the [Project model instance](../archive/project-model.md), the edge
 `task-pull-loop` under the slug `task-tools` that P2-N005's
 specification names, with `task-pull-loop` kept as its alias. Decisions
 11 to 15 were judged node-scope, so no ruling was captured. The owner
@@ -958,16 +958,16 @@ task, E1, the thin end-to-end slice.
 - [Specification of P2-N012](p2-n012-deploy-from-ci-on-merge.md)
   (deploy the service from CI on merge): the smoke test, the aliases,
   criteria I1, I3 and I6, owner actions O7 to O10.
-- [Project model type](../process/project-model.md): the entry grammar,
+- [Project model type](../archive/process/project-model.md): the entry grammar,
   the two renderings, the dependency rule and the navigation bound.
-- [Project model instance](../project-model.md) and the [slice
-  record](../project-model-slice-record.md).
+- [Project model instance](../archive/project-model.md) and the [slice
+  record](../archive/project-model-slice-record.md).
 - [Hand rendering of the plan](../plan.md).
-- [Plan model](../process/plan-model.md),
-  [profiles](../process/profiles.md),
-  [dispatch](../process/dispatch.md) and
-  [observability](../process/observability.md).
-- [Ruling register](../rulings.md): the rulings named above, and
+- [Plan model](../archive/process/plan-model.md),
+  [profiles](../archive/process/profiles.md),
+  [dispatch](../archive/process/dispatch.md) and
+  [observability](../archive/process/observability.md).
+- [Ruling register](../archive/rulings.md): the rulings named above, and
   RU-021 (the planning/execution model is the source of progress
   truth).
 - [Risk register](../open-risks.md): R10, R11, R12 and R14.

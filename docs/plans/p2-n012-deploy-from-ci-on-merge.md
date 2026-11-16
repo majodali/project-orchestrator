@@ -220,7 +220,7 @@ child is what the owner sees working.
 
 - **Cross-repo scope.** The execute stage writes
   `majodali/project-orchestrator-service`. Granted at the gate, and
-  granted permanently: [RU-016](../rulings.md) puts that repository in
+  granted permanently: [RU-016](../archive/rulings.md) puts that repository in
   this project's approved scope for good and moves the granting duty
   from the owner to the Orchestrator. This plan's declaration of the
   reach is still required, and is this bullet.
@@ -294,9 +294,9 @@ absorbed.
 
 ## Decisions for the gate
 
-Numbered per [dispatch](../process/dispatch.md)'s owner-decision
+Numbered per [dispatch](../archive/process/dispatch.md)'s owner-decision
 economics. The owner's go-ahead adopts every default not overridden by
-number. The [Ruling register](../rulings.md) was checked for
+number. The [Ruling register](../archive/rulings.md) was checked for
 near-matches: RU-009 (work reaches `main` by pull request) is the only
 one that touches this node, and it is consistent with everything
 below.
@@ -324,7 +324,7 @@ below.
    C2+.
 
    Not proposed, and worth one line because
-   [plan-model](../process/plan-model.md) has a SHOULD about it: the
+   [plan-model](../archive/process/plan-model.md) has a SHOULD about it: the
    node lifecycle's stages are deliberately **not** folded into this
    declaration. The service repository has no Plan register of its
    own, so its Backlog would be a second carrier of stages the
@@ -364,7 +364,7 @@ below.
    node before P2-N011 (degrade to git-only). Rationale: this node has
    no dependency on P2-N011 and the owner has asked for the pipeline
    now; the departure is surfaced rather than taken quietly, because
-   [dispatch](../process/dispatch.md) makes "earlier siblings `done`"
+   [dispatch](../archive/process/dispatch.md) makes "earlier siblings `done`"
    the default entry condition for `execute` and P2-N011 is a child of
    the earlier sibling P2-N002.
 
@@ -385,12 +385,12 @@ settled rather than as a proposal with an answer somewhere else.
   sibling order carries dependency by convention only, and P2-N012
   depends on nothing in P2-N011. What is missing is a way for the
   Planner to state real dependencies, which is now a
-  [Backlog](../backlog.md) entry and a change to the plan model rather
+  [Backlog](../archive/backlog.md) entry and a change to the plan model rather
   than to this node. Until it exists, sibling order remains the
   convention and a departure remains an owner decision, as this one
   was.
 - **Cross-repo scope** — granted, and made permanent by
-  [RU-016](../rulings.md): the Planner declares the repository access a
+  [RU-016](../archive/rulings.md): the Planner declares the repository access a
   node needs, the Orchestrator grants it and records the grant, and the
   owner is asked only for a repository new to the project.
   `majodali/project-orchestrator-service` is now permanently in scope.
@@ -406,7 +406,7 @@ and still block only child D.
   its owner actions O1–O6, and decision 7 on the lease
 - [Risk register](../open-risks.md) — R12 (service outage stops work),
   R14 (dependency search is an attack surface)
-- [Ruling register](../rulings.md) — RU-009 (work reaches `main` by
+- [Ruling register](../archive/rulings.md) — RU-009 (work reaches `main` by
   pull request)
 - methodology
   [vocabulary](https://github.com/majodali/methodology/blob/v1.4.0/docs/vocabulary.md) —

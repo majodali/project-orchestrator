@@ -38,12 +38,12 @@ each of them.
 This document records the criteria the **node itself** is verified
 against. It is not the union of its children's criteria. An interior
 node's `verifying` runs after its children are `done`, against its own
-criteria ([plan-model](../process/plan-model.md)). Everything under
+criteria ([plan-model](../archive/process/plan-model.md)). Everything under
 *Verification criteria* is therefore a property no single child
 establishes. A child's own criteria are under *The breakdown*.
 
 Depth is the C1 profile's: a criteria list a verifier can check
-([profiles](../process/profiles.md)). This document reopens no plan
+([profiles](../archive/process/profiles.md)). This document reopens no plan
 decision.
 
 **What this document does not do.** It does not draft a catalogue
@@ -52,18 +52,18 @@ class. It does not choose the catalogue's upstream wording. Those are
 the children's work, and every criterion below is checkable whatever
 the children find.
 
-**Repository reach** ([RU-016](../rulings.md), the Planner declares a
+**Repository reach** ([RU-016](../archive/rulings.md), the Planner declares a
 node's repository access). The plan declares this repository only, read
 and write. This specification refines that declaration in one respect.
 Child C reads **majodali/methodology** read-only, at the commit its
-provenance line names, because [RU-015](../rulings.md) (the delivery
+provenance line names, because [RU-015](../archive/rulings.md) (the delivery
 form for a change to a repository this project cannot write to)
 requires the current upstream text quoted verbatim. That repository is
 not new to this project: node P1-N015 read it the same way for its four
 proposals. No work is written outside this repository. The
 communication-pipeline repository is not needed, because this
-project's [roles.md](../process/roles.md) and
-[dispatch.md](../process/dispatch.md) already carry the review
+project's [roles.md](../archive/process/roles.md) and
+[dispatch.md](../archive/process/dispatch.md) already carry the review
 procedure child C runs under.
 
 ## Where the plan's gate decisions land
@@ -275,7 +275,7 @@ register state the node must leave behind.
   state. The chosen pair returns. The record names the commits.
 - **G6. The proposal is readable and in the delivery form.** The owner
   reads the catalogue and its cover note at this node's `verifying`
-  gate ([RU-005](../rulings.md), proposal-class nodes are owner-gated
+  gate ([RU-005](../archive/rulings.md), proposal-class nodes are owner-gated
   at `verifying`). Both documents meet RU-015's delivery form. Each has
   an intermediate representation (IR) beside it and a review record
   ending in a readable verdict. Decision 16 governs a count that
@@ -313,7 +313,7 @@ register state the node must leave behind.
   none (plan decision 8).
 - **I6. Independence from P3-N002 held.** No criterion of this node, and
   no child's output, reads anything node P3-N002 (the comprehension
-  model) produces ([RU-018](../rulings.md), a child is not queued behind
+  model) produces ([RU-018](../archive/rulings.md), a child is not queued behind
   a sibling it does not depend on). If P3-N002 lands during this node,
   the Backlog entry on reading the model's parts stays open and this
   node's enumeration stays as committed.
@@ -353,9 +353,9 @@ register state the node must leave behind.
   are there.
 - **P4. The node completes at the artifact.** The node is `done` when
   the proposal exists and the owner accepted it at the RU-005 gate.
-  Nothing waits on upstream disposition ([RU-003](../rulings.md), a node
+  Nothing waits on upstream disposition ([RU-003](../archive/rulings.md), a node
   targeting an external party completes at the artifact). Nothing is
-  carried upstream by the node ([RU-002](../rulings.md), the owner
+  carried upstream by the node ([RU-002](../archive/rulings.md), the owner
   hand-carries upstream-bound output).
 - **P5. Decisions are closed.** Every numbered decision in the plan
   (1 to 9) and in this document (10 to 16) was adopted or overridden at
@@ -376,7 +376,7 @@ C1 profile: each child is self-verified by its Implementer against its
 own criteria, and a Reviewer pass is by owner request. Child C's
 stranger rounds are a different review. They are prose review by the
 Reviewer (stranger) role, which this project's prose-routing rule in
-[dispatch.md](../process/dispatch.md) selects. They are not code
+[dispatch.md](../archive/process/dispatch.md) selects. They are not code
 verification.
 
 This node's `verifying` is an evidence assembly. Each criterion is
@@ -435,7 +435,7 @@ is now in a child's criteria.
 
 IDs are the Orchestrator's to issue. The criteria below are at the
 depth a `break down` task would produce, so
-[RU-020](../rulings.md) (an interior node whose specification reaches
+[RU-020](../archive/rulings.md) (an interior node whose specification reaches
 breakdown depth needs no separate `break down` task) applies.
 
 ### Child A: one class, carried end to end
@@ -557,7 +557,7 @@ project's prose-routing rule. Nothing is carried upstream.
   note is rendered by the Paraphraser (rule BP-03, disposition D2).
   Both carry a render map, and CK-15 passes on both.
 - **C5.** Each document's stranger rounds run under the Reviewer
-  (stranger) role in [roles.md](../process/roles.md), a fresh instance
+  (stranger) role in [roles.md](../archive/process/roles.md), a fresh instance
   per round, until a round returns readable or the count reaches the
   limit of ten. Each review record sits beside its IR. It names the
   communication-pipeline branch-point version and the roles.md text
@@ -577,7 +577,7 @@ project's prose-routing rule. Nothing is carried upstream.
   1.6.0 is released before child C runs, the cover note says so and the
   result reports it to the Orchestrator.
 - **C8.** The cover note follows the
-  [delegated-work amendments cover note](../proposals/delegated-work-amendments-cover-note.md)'s
+  [delegated-work amendments cover note](../archive/proposals/delegated-work-amendments-cover-note.md)'s
   shape. It states what is asked of the reader as accept, amend or
   reject, with this project's response under each. It links the
   evidencing instance, which is the sweep record and the final run
@@ -622,14 +622,14 @@ list: the plan carries **1 to 9**, and this document carries **10 to
 16**. The owner's go-ahead adopts every default not overridden by
 number.
 
-**Precedents checked against the [Ruling register](../rulings.md).**
+**Precedents checked against the [Ruling register](../archive/rulings.md).**
 Four active rulings are exact matches and decide silently: RU-002,
 RU-003, RU-005 and RU-015. RU-016 is the authority for the repository
 reach declaration. RU-018 is the authority for independence from
-P3-N002. [RU-019](../rulings.md) (a measurement criterion may be
+P3-N002. [RU-019](../archive/rulings.md) (a measurement criterion may be
 satisfied by an unfavourable result) is a near match for decision 16
 and argues its default; it does not decide it. RU-020 decides that no
-separate `break down` task is dispatched. [RU-021](../rulings.md)
+separate `break down` task is dispatched. [RU-021](../archive/rulings.md)
 (the planning and execution model is the source of progress truth once
 a project has one) changes nothing here until P3-N002 lands.
 
@@ -737,19 +737,19 @@ Backlog.
 - [p2-n002-service-skeleton](p2-n002-service-skeleton.md): the
   specification shape this document follows, and the precedent for a
   gate assembly that performs its own check
-- [plan-model](../process/plan-model.md): the interior-node verification
+- [plan-model](../archive/process/plan-model.md): the interior-node verification
   rule, the node lifecycle, and the monotonicity definition
-- [profiles](../process/profiles.md): the C1 specification depth
-- [dispatch](../process/dispatch.md) and [roles](../process/roles.md):
+- [profiles](../archive/process/profiles.md): the C1 specification depth
+- [dispatch](../archive/process/dispatch.md) and [roles](../archive/process/roles.md):
   the prose-routing rule, the Paraphraser and the Reviewer (stranger)
   that child C runs under
 - [Risk register](../open-risks.md): the register this catalogue is
   distinguished from, cited from, and swept first
-- [Backlog](../backlog.md): the encounter records decision 10 rests on,
+- [Backlog](../archive/backlog.md): the encounter records decision 10 rests on,
   and the three entries filed while planning this node
-- [Ruling register](../rulings.md): RU-002, RU-003, RU-005, RU-015,
+- [Ruling register](../archive/rulings.md): RU-002, RU-003, RU-005, RU-015,
   RU-016, RU-018, RU-019, RU-020, RU-021
-- [delegated-work-amendments-cover-note](../proposals/delegated-work-amendments-cover-note.md):
+- [delegated-work-amendments-cover-note](../archive/proposals/delegated-work-amendments-cover-note.md):
   the cover-note shape child C follows
 - methodology 1.6.0: **W-009** (the methodology corpus writes its
   deliverables IR first), the intermediate representation

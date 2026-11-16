@@ -13,17 +13,17 @@ catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#reade
 (a fresh agent session), and the owner at this node's plan gate. It
 assumes the methodology at this project's pinned version, 1.6.0
 ([Classification](../classification.md)), the [process
-specification](../process/README.md), and the section *Child B: the
+specification](../archive/process/README.md), and the section *Child B: the
 type declared, the arguments written, the K-003 amendment drafted* of
 the [specification of the comprehension
 model](../specs/p3-n002-comprehension-model.md).
 
-[Node](../process/README.md#def-node) P3-N007 is child B of P3-N002
+[Node](../archive/process/README.md#def-node) P3-N007 is child B of P3-N002
 (the comprehension model): [plan](p3-n002-comprehension-model.md),
 [specification](../specs/p3-n002-comprehension-model.md). It is second
 in the chain P3-N006 to P3-N009. It builds on P3-N006 (the thin
-end-to-end slice), whose [instance](../project-model.md) and [slice
-record](../project-model-slice-record.md) landed at commit `86a1330`.
+end-to-end slice), whose [instance](../archive/project-model.md) and [slice
+record](../archive/project-model-slice-record.md) landed at commit `86a1330`.
 
 The parent specification fixes this node's outcome and its criteria
 B1 to B17. This plan does not restate them. It records what that
@@ -62,7 +62,7 @@ Concretely, at `done`:
 ### A leaf run as a fixed task sequence
 
 The node runs as four steps (decision 2). Each step is a
-[task](../process/README.md#def-task) the Orchestrator dispatches and
+[task](../archive/process/README.md#def-task) the Orchestrator dispatches and
 accepts.
 
 1. **E1, the type and the arguments.** An Implementer task at the
@@ -87,7 +87,7 @@ representation](https://github.com/majodali/methodology/blob/v1.6.0/docs/interme
 the methodology specifies: a checked list of claims from which prose is
 rendered. A stranger is a reviewer with a fresh context who restates
 the text before reading the IR
-([roles](../process/roles.md#reviewer-stranger)).
+([roles](../archive/process/roles.md#reviewer-stranger)).
 
 ### E1: where each part of the type lands
 
@@ -218,7 +218,7 @@ The proposal states the three answers B10 requires.
 
 The rest of the proposal follows P1-N015's precedent shape
 ([proposal on K-010's
-converse](../proposals/active-documents-are-corrected-not-marked.md)).
+converse](../archive/proposals/active-documents-are-corrected-not-marked.md)).
 
 - K-003's text quoted verbatim from tag v1.6.0, checked unchanged
   against the methodology's `main` at drafting. The provenance line
@@ -251,7 +251,7 @@ v1.6.0. The Orchestrator supplies them.
 
 The rounds run until a round returns readable, or the count reaches
 ten (B14). The verdict and confirmation rules are those of the
-Reviewer (stranger) contract in [roles](../process/roles.md)
+Reviewer (stranger) contract in [roles](../archive/process/roles.md)
 (decision 7). That contract adds the methodology's evaluation-case-009
 changes, which the methodology's Release register lists as unreleased
 after v1.6.0. The review record states which rules it applied.
@@ -331,7 +331,7 @@ qualifier of decision 3. Decision 8 says when they reach the instance.
 
 ## Verification
 
-C1 profile ([profiles](../process/profiles.md)). The Implementer
+C1 profile ([profiles](../archive/process/profiles.md)). The Implementer
 self-verifies B1 to B15 and B17 against the parent specification's
 *Child B* section. The adopted decisions of this plan bind the
 Implementer beside it. B16 is the owner gate at `verifying` (RU-005).
@@ -346,11 +346,11 @@ is run at E1 to show it.
 
 ## Decisions for the gate
 
-Numbered per [dispatch](../process/dispatch.md)'s owner-decision
+Numbered per [dispatch](../archive/process/dispatch.md)'s owner-decision
 economics. This document opens its own sequence at 1. The owner's
 go-ahead adopts every default not overridden by number.
 
-Precedents checked against the [Ruling register](../rulings.md). These
+Precedents checked against the [Ruling register](../archive/rulings.md). These
 decide silently and are not staged.
 
 - RU-016: this plan's *Dependencies* is the repository-reach
@@ -470,7 +470,7 @@ result), for decision 6.
    P3-N002](../specs/p3-n002-comprehension-model.md), B14 (active),
    correction: "Stranger rounds run under the IR specification at
    v1.6.0, with the verdict and confirmation rules of the Reviewer
-   (stranger) contract in [roles](../process/roles.md), until a round
+   (stranger) contract in [roles](../archive/process/roles.md), until a round
    returns readable or the count reaches the limit of ten (P3-N007
    decision 7)."
 8. **When held edges reach the instance.**
@@ -546,7 +546,7 @@ result), for decision 6.
 - **Containment joins the hierarchical-resources entry.** When:
   2026-10-30, planning P3-N007 (slice finding 11). Status: open; add
   the finding's pointer to the existing entry. Pointer: [slice
-  record](../project-model-slice-record.md), section 7.
+  record](../archive/project-model-slice-record.md), section 7.
 
 
 ## Gate record, 2026-10-30
@@ -568,7 +568,7 @@ RU-005 (proposal-class nodes are owner-gated at verifying): "P3-N007
 amendment approved and terms ratified. Go ahead and dispatch the
 meta-review". The decisions:
 
-- The [K-003 proposal](../proposals/planning-execution-model-is-progress-truth.md)
+- The [K-003 proposal](../archive/proposals/planning-execution-model-is-progress-truth.md)
   is approved for carrying as it stands, the IR's ask A1. Count 1 closed
   at the limit, round 10 not readable, the final round's fixes
   confirmed.
@@ -580,7 +580,7 @@ meta-review". The decisions:
   wording, and the proposed claims are decided.
 - Ten terms are ratified: alias line, closing parenthetical, node item,
   after qualifier, gate item, outside item, partial item and date note,
-  defined in the [type specification](../process/project-model.md#defined-terms);
+  defined in the [type specification](../archive/process/project-model.md#defined-terms);
   and list of what is next and rendering, the IR's ask A3, which gain
   definition sites there.
 - The meta-review of count 1 is dispatched as communication-pipeline
@@ -603,20 +603,20 @@ P3-N008's executing stage no longer waits (decision 9).
   record of 2026-10-29
 - [plan of P3-N002](p3-n002-comprehension-model.md): decisions 1 to 8,
   decision 3 overridden by RU-021, the sketch notation
-- [project-model.md](../project-model.md) and the [slice
-  record](../project-model-slice-record.md) at commit `86a1330`:
+- [project-model.md](../archive/project-model.md) and the [slice
+  record](../archive/project-model-slice-record.md) at commit `86a1330`:
   sections 2, 5 and 7
 - [plan of P3-N006](p3-n006-thin-end-to-end-slice.md): decision 2 on
   held edges, and the shape this plan follows
 - [plan of P3-N013](p3-n013-stop-conditions-decidable.md): decision 1,
   a leaf run as a fixed task sequence
-- [plan-model](../process/plan-model.md),
-  [dispatch](../process/dispatch.md), [roles](../process/roles.md),
-  [profiles](../process/profiles.md),
-  [observability](../process/observability.md),
-  [rulings](../process/rulings.md): the process documents E1 reads or
+- [plan-model](../archive/process/plan-model.md),
+  [dispatch](../archive/process/dispatch.md), [roles](../archive/process/roles.md),
+  [profiles](../archive/process/profiles.md),
+  [observability](../archive/process/observability.md),
+  [rulings](../archive/process/rulings.md): the process documents E1 reads or
   amends
-- [Ruling register](../rulings.md): RU-002, RU-003, RU-005, RU-010,
+- [Ruling register](../archive/rulings.md): RU-002, RU-003, RU-005, RU-010,
   RU-015, RU-016, RU-018, RU-019, RU-021, RU-022
 - Methodology at v1.6.0:
   [K-003](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth)

@@ -53,7 +53,7 @@ reason recorded.
 | `form-checker` | `plugin/scripts/form_check.ts` and `plugin/scripts/lib/form-check-core.ts` | many modifying nodes, and a predecessor in another language |
 | `plan-register-grammar` | `plugin/scripts/lib/plan-register.ts` | consumed across a repository boundary (A1) |
 | `run-journal` | `orchestration/journal.jsonl` | a process document as its specification |
-| `RU-016` | the ruling in the [Ruling register](../rulings.md) | a ruling as a resource (A1) |
+| `RU-016` | the ruling in the [Ruling register](../archive/rulings.md) | a ruling as a resource (A1) |
 | `project-orchestrator-repo` | this repository | a repository as a resource (A1) |
 
 `form-checker` and `RU-016` are the slugs the parent specification
@@ -96,7 +96,7 @@ The slice record answers each, and A7 requires the answer.
    What does its creating edge name?
 5. `plan-register-grammar` is consumed by a repository, through the
    vendoring generator `plugin/scripts/sync_shared_unit.ts`
-   ([RU-012](../rulings.md)). How is a consumer outside the Plan
+   ([RU-012](../archive/rulings.md)). How is a consumer outside the Plan
    register stated?
 6. `run-journal`'s specification is `docs/process/observability.md`,
    a process document, where the others link node specifications. Is
@@ -109,7 +109,7 @@ against an entry (A7).
 
 ### Measuring the bound
 
-The two starting points A4 requires are the [Backlog](../backlog.md)
+The two starting points A4 requires are the [Backlog](../archive/backlog.md)
 and the specification
 [p1-n009-plugin-tooling-portfolio-stack](../specs/p1-n009-plugin-tooling-portfolio-stack.md).
 
@@ -213,7 +213,7 @@ the notation untested, which is the failure the slice exists to stop.
 Edges are in the parent plan's sketch notation. P3-N007 may refine the
 notation. Decision 2 says when they reach the instance.
 
-- **Repository reach ([RU-016](../rulings.md)): this repository only,
+- **Repository reach ([RU-016](../archive/rulings.md)): this repository only,
   write. No other repository is read.** The cross-repository facts
   about `plan-register-grammar` come from this repository: the
   vendoring generator, RU-012 and the P1-N011 Backlog entry. A verifier
@@ -245,7 +245,7 @@ notation. Decision 2 says when they reach the instance.
   model records declarations.
 - **Nodes.** None among the siblings: P3-N006 is first in the chain.
   P3-N003 and P3-N005 are independent of P3-N002
-  ([RU-018](../rulings.md)), and nothing here changes that.
+  ([RU-018](../archive/rulings.md)), and nothing here changes that.
 - **Overlap, not dependency: P1-N014.** P1-N014 (done on 2026-10-29, after this plan was written) also edits the Backlog header; it was `executing` at planning time and
   declares the Backlog's row shape in the Backlog header. P3-N006
   adds a line to the same header. The edits do not overlap. P3-N006
@@ -268,11 +268,11 @@ vendored file.
 
 ## Decisions for the gate
 
-Numbered per [dispatch](../process/dispatch.md)'s owner-decision
+Numbered per [dispatch](../archive/process/dispatch.md)'s owner-decision
 economics. This document opens its own sequence at 1. The owner's
 go-ahead adopts every default not overridden by number.
 
-**Precedents checked against the [Ruling register](../rulings.md).**
+**Precedents checked against the [Ruling register](../archive/rulings.md).**
 These decide silently and are not staged.
 
 - RU-016: this plan's *Dependencies* is the repository-reach
@@ -350,13 +350,13 @@ standard tier (P3-N002 decision 14).
   record of 2026-10-29
 - [p3-n002-comprehension-model](p3-n002-comprehension-model.md): the
   parent plan, its sketch entry and its decisions 1 to 8
-- [plan-model](../process/plan-model.md): the node lifecycle and the
+- [plan-model](../archive/process/plan-model.md): the node lifecycle and the
   thin-slice guidance
-- [dispatch](../process/dispatch.md): owner-decision economics
-- [profiles](../process/profiles.md): the C1 depth and self-verification
+- [dispatch](../archive/process/dispatch.md): owner-decision economics
+- [profiles](../archive/process/profiles.md): the C1 depth and self-verification
 - [p1-n014-role-contracts-adopt-v140-rules](p1-n014-role-contracts-adopt-v140-rules.md):
   the Backlog header overlap
-- [Ruling register](../rulings.md): RU-005, RU-010, RU-012, RU-016,
+- [Ruling register](../archive/rulings.md): RU-005, RU-010, RU-012, RU-016,
   RU-018, RU-019, RU-020, RU-021
 - Methodology at v1.6.0:
   [K-003](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-003--the-backlog-is-the-single-source-of-progress-truth)
