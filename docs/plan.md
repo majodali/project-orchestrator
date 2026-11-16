@@ -11,12 +11,12 @@ its stage and its outcome. The state file holds the rest.
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
-- Pilot enlistment of methodology-tools (P4-N027): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
 - README and generated Backlog (P4-N025) [specified]
 - Upstream proposals batch (P4-N026) [specified]
+- Pilot enlistment of methodology-tools (P4-N027) [specified]
 - Document paths changed through the service (P4-N031) [specified]
 
 ## In flight

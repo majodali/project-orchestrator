@@ -942,7 +942,7 @@
         "P4-N024"
       ],
       "hold": null,
-      "start": "approve",
+      "start": "auto",
       "docs": {
         "plan": "docs/plans/rebuild.md",
         "spec": null
@@ -4095,14 +4095,14 @@
         "cacheRead": 631318,
         "cacheWrite": 41947
       },
+      "costSource": "transcript",
       "opened": "2026-11-16T06:32:22Z",
       "closed": "2026-11-16T06:33:41Z",
       "base": "4ec85319ae86907cc8de8e203672bcb1af833d7c",
       "ref": "2564171",
       "pr": "majodali/project-orchestrator#52",
       "summary": "P4-N034 verified on pull request #52: all four criteria met. One rule in the hook text, CLAUDE.md, how-we-work.md, task-loop.md and the three agents. Trial confirmed from both transcripts and the journal (T141). The test change is called for by criterion 1: the old expectation fails against the new hook text. Checks pass.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
