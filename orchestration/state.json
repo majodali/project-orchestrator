@@ -899,7 +899,7 @@
       "kind": "work",
       "title": "README and generated Backlog",
       "outcome": "The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N008",
       "after": [
         "P4-N024"
@@ -910,7 +910,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-16",
       "note": "The service part is majodali/project-orchestrator-service#41, merged at cb9d727 and deployed on 2026-11-16. From that deploy the service writes docs/backlog.md with every state commit."
     },
     {
@@ -918,7 +918,7 @@
       "kind": "check",
       "title": "Verification of README and generated Backlog",
       "outcome": "P4-N025 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N025",
       "after": [],
       "hold": null,
@@ -927,7 +927,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-16",
       "note": null
     },
     {

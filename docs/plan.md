@@ -26,7 +26,6 @@ None.
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
-- README and generated Backlog (P4-N025) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
@@ -220,7 +219,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     docs/ holds what the service and plan-state enforce, one "how we work" page, and the records still linked from the state file; everything else is in docs/archive/ with a status line each.
     after P4-N022, P4-N023 · [plan](plans/rebuild.md)
     Note: Added by the owner, 2026-11-14: this node also archives the journal-tail skill. Move plugin/skills/journal-tail/SKILL.md to docs/archive/skills/ with a status line, and take it out of plugin/README.md. Keep plugin/scripts/journal_tail.ts, runnable by hand like form_check.ts. Add this as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
-  - **README and generated Backlog** (P4-N025, verifying)
+  - **README and generated Backlog** (P4-N025, done 2026-11-16)
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
     after P4-N024 · [plan](plans/rebuild.md)
     Note: The service part is majodali/project-orchestrator-service#41, merged at cb9d727 and deployed on 2026-11-16. From that deploy the service writes docs/backlog.md with every state commit.
