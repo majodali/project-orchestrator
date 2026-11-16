@@ -988,23 +988,6 @@
       "note": "Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8."
     },
     {
-      "id": "P4-N035",
-      "kind": "work",
-      "title": "Scratch node for the delegation trial",
-      "outcome": "A script at plugin/scripts/print_date.ts prints today's date in the machine's local time zone as YYYY-MM-DD on one line and exits zero.",
-      "stage": "planned",
-      "parent": "P4-N008",
-      "after": [],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": null,
-        "spec": null
-      },
-      "done": null,
-      "note": "Throwaway node for the trial P4-N034 asks for; removed when the trial ends. Subject to plan: a script that prints today's date. Nothing is built, and the plan needs no file: its criteria go in the planner's last message."
-    },
-    {
       "id": "P4-N010",
       "kind": "work",
       "title": "Task cost capture",
@@ -4078,28 +4061,6 @@
       "pr": null,
       "summary": "State one delegation rule in the session start hook's text, CLAUDE.md, how-we-work.md and the three role agents: a brief from an orchestrating session naming a node and a step is claimed without asking and authorises nothing else. Record a trial of both cases.",
       "notes": null
-    },
-    {
-      "id": "T141",
-      "node": "P4-N035",
-      "step": "plan",
-      "status": "closed",
-      "role": "planner",
-      "model": "claude-fable-5-2",
-      "tokens": {
-        "in": 4,
-        "out": 818,
-        "cacheRead": 176380,
-        "cacheWrite": 10364
-      },
-      "opened": "2026-11-16T06:30:12Z",
-      "closed": "2026-11-16T06:30:24Z",
-      "base": "bfa8ec535f570ea9a11163215f17fab0a875f70d",
-      "ref": null,
-      "pr": null,
-      "summary": "Planned the scratch node. No file changed and no pull request: the node's note says its plan needs no file, so the nine-item criteria list is in the planner's last message. Title kept. Outcome delivered. No asks.",
-      "notes": null,
-      "costSource": "transcript"
     }
   ],
   "decisions": [
@@ -4749,8 +4710,8 @@
   ],
   "highWater": {
     "P2": 22,
-    "T": 135,
+    "T": 141,
     "D": 62,
-    "P4": 29
+    "P4": 35
   }
 }
