@@ -18,10 +18,10 @@ Gated nodes:
 - README and generated Backlog (P4-N025) [specified]
 - Upstream proposals batch (P4-N026) [specified]
 - Document paths changed through the service (P4-N031) [specified]
-- Scratch node for the delegation trial (P4-N035) [identified]
 
 ## In flight
 
+- Scratch node for the delegation trial (P4-N035) [identified] — T141
 - Delegated tasks claimed without asking (P4-N034) [executing] — T140
 
 ## In progress, children carry the work

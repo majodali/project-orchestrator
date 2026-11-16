@@ -4078,6 +4078,25 @@
       "pr": null,
       "summary": "State one delegation rule in the session start hook's text, CLAUDE.md, how-we-work.md and the three role agents: a brief from an orchestrating session naming a node and a step is claimed without asking and authorises nothing else. Record a trial of both cases.",
       "notes": null
+    },
+    {
+      "id": "T141",
+      "node": "P4-N035",
+      "step": "plan",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-16T06:30:12Z",
+      "closed": null,
+      "base": "bfa8ec535f570ea9a11163215f17fab0a875f70d",
+      "ref": null,
+      "pr": null,
+      "summary": "Plan the scratch node for the delegation trial: deliver its title, outcome and criteria list. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "notes": null
     }
   ],
   "decisions": [
