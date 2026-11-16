@@ -1196,7 +1196,7 @@
       "kind": "work",
       "title": "Delegated tasks claimed without asking",
       "outcome": "A session that an orchestrating session starts with a brief naming a node and a step claims that task without asking a person first, and a session a person starts still asks before it claims.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [
         "P4-N024"
@@ -1207,7 +1207,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-16",
       "note": "Asked for by the owner, 2026-11-16, after a reviewer session launched for P4-N033 stopped to ask before claiming. Criteria: (1) the session start hook's text, CLAUDE.md, docs/process/how-we-work.md and the three role agents state one rule; (2) the rule says how a session recognises a delegation brief, and that the brief authorises the named node and step and nothing else; (3) owner decisions stay asks at task_close; (4) a trial is recorded: a session launched with a brief claims its task without asking, and a session started without one still asks."
     },
     {
@@ -1215,7 +1215,7 @@
       "kind": "check",
       "title": "Verification of Delegated tasks claimed without asking",
       "outcome": "P4-N034 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N034",
       "after": [],
       "hold": null,
@@ -1224,7 +1224,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-16",
       "note": null
     },
     {
@@ -4086,7 +4086,7 @@
       "id": "T142",
       "node": "P4-N036",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": null,
       "tokens": {
@@ -4094,11 +4094,11 @@
         "out": null
       },
       "opened": "2026-11-16T06:32:22Z",
-      "closed": null,
+      "closed": "2026-11-16T06:33:41Z",
       "base": "4ec85319ae86907cc8de8e203672bcb1af833d7c",
-      "ref": null,
-      "pr": null,
-      "summary": "Verify P4-N034 (delegated tasks claimed without asking) on pull request #52 against its criteria, including the recorded trial and whether the criteria call for the changed test expectation. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "ref": "2564171",
+      "pr": "majodali/project-orchestrator#52",
+      "summary": "P4-N034 verified on pull request #52: all four criteria met. One rule in the hook text, CLAUDE.md, how-we-work.md, task-loop.md and the three agents. Trial confirmed from both transcripts and the journal (T141). The test change is called for by criterion 1: the old expectation fails against the new hook text. Checks pass.",
       "notes": null
     }
   ],

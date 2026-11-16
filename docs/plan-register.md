@@ -63,7 +63,7 @@ Dependencies are in the state file, not in sibling order.
   - P4-N016 [done] Service package installs on Windows — plan: plans/rebuild.md
   - P4-N017 [done] Session hooks run on Windows — plan: plans/rebuild.md
   - P4-N020 [done] Session start summary and the offer to act — plan: plans/rebuild.md
-  - P4-N034 [verifying] Delegated tasks claimed without asking — plan: plans/rebuild.md
+  - P4-N034 [done] Delegated tasks claimed without asking — plan: plans/rebuild.md
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
   - P2-N002 [done] Service skeleton and plan state — plan: plans/p2-n002-service-skeleton.md · spec: specs/p2-n002-service-skeleton.md
     - P2-N007 [done] Service repository bootstrap
