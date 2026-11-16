@@ -222,6 +222,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **README and generated Backlog** (P4-N025, executing)
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
     after P4-N024 · [plan](plans/rebuild.md)
+    Note: The service part is majodali/project-orchestrator-service#41, merged at cb9d727 and deployed on 2026-11-16. From that deploy the service writes docs/backlog.md with every state commit.
   - **Upstream proposals batch** (P4-N026, specified)
     Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.
     [plan](plans/rebuild.md)
