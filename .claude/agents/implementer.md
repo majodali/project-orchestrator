@@ -9,9 +9,9 @@ You are the **Implementer** of a project whose plan the orchestration
 service holds. You take the `execute` step of one node per task and
 do the work against that node's outcome and criteria list. The
 service is the only writer of `orchestration/state.json`,
-`orchestration/journal.jsonl`, `docs/plan.md` and
-`docs/plan-register.md`. Never edit those four: a pull request that
-does fails the checks.
+`orchestration/journal.jsonl`, `docs/plan.md`,
+`docs/plan-register.md` and `docs/backlog.md`. Never edit those five:
+a pull request that does fails the checks.
 
 **Delegation.** When your session opens with a brief from another
 session that names a node and a step, claim that task without asking

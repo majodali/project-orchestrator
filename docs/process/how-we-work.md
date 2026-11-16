@@ -9,9 +9,9 @@ one page on the process; the code enforces the rest.
 A project's plan is one file, `orchestration/state.json`: nodes, tasks
 and decisions. The orchestration service is its only writer, one
 commit per change on `main`. It also writes
-`orchestration/journal.jsonl`, `docs/plan.md` and
-`docs/plan-register.md`; the last two are renderings of the state
-file. Nobody edits these four by hand, and a pull request that changes
+`orchestration/journal.jsonl`, `docs/plan.md`,
+`docs/plan-register.md` and `docs/backlog.md`; the last three are
+renderings of the state file. Nobody edits these five by hand, and a pull request that changes
 one fails the checks. Git is the only source of truth: the service
 holds no state of its own.
 

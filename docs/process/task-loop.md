@@ -242,7 +242,7 @@ being asked to work on a node is not that. The commit message and the
 journal event say which it was. The loop's own tools and the view's
 actions, which are the owner's, are unchanged.
 
-A pull request that changes one of the four files the service owns
+A pull request that changes one of the five files the service owns
 fails this repository's checks.
 
 What this does not do: every caller holds the same token, so
@@ -253,7 +253,7 @@ built.
 ### What a session is told
 
 The service's MCP instructions carry the protocol to every session
-that connects: go through a task, never edit the four files the
+that connects: go through a task, never edit the five files the
 service writes, never merge a task's pull request, remove what is
 obsolete, name yourself in `session`. The first real use, on
 2026-11-11, was a session asked to work on a node that made seven
