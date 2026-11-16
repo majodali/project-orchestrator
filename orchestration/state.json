@@ -4812,8 +4812,8 @@
         "no, leave it"
       ],
       "default": "yes, reword it in a later node",
-      "chosen": null,
-      "decided": null,
+      "chosen": "yes, reword it in a later node",
+      "decided": "2026-11-16",
       "rationale": "Asked by T143 at close.",
       "standing": false,
       "source": null

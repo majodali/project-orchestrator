@@ -8,10 +8,6 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D071 on README and generated Backlog (P4-N025): The service repository's docs/classification.md says its own Backlog becomes a rendering at milestone 6, but that repository has no state file. Reword that sentence to say its Backlog stays frozen and its nodes are in the coordinating repository's generated Backlog? Default: yes, reword it in a later node
-
 Gated nodes:
 
 - Project model instance for this repository (P3-N008): owner review of the plan
@@ -226,7 +222,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     Note: Added by the owner, 2026-11-14: this node also archives the journal-tail skill. Move plugin/skills/journal-tail/SKILL.md to docs/archive/skills/ with a status line, and take it out of plugin/README.md. Keep plugin/scripts/journal_tail.ts, runnable by hand like form_check.ts. Add this as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
   - **README and generated Backlog** (P4-N025, verifying)
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
-    after P4-N024 · [plan](plans/rebuild.md) · 1 open decision
+    after P4-N024 · [plan](plans/rebuild.md)
     Note: The service part is majodali/project-orchestrator-service#41, merged at cb9d727 and deployed on 2026-11-16. From that deploy the service writes docs/backlog.md with every state commit.
   - **Upstream proposals batch** (P4-N026, specified)
     Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.
@@ -379,3 +375,4 @@ Documents: [plan](plans/orchestration-service.md).
 - D068 on P4-N008 (2026-11-12): Add a node for the review's service findings (write speed, the journal's size, a write test in the deploy check)? Chosen: yes, one node under P2-N001, after milestone 6
 - D069 on P4-N024 (2026-11-15): The mtool link check criterion of P4-N024 was not run, because mtool is not installed in the session's environment. How should it be met? Chosen: give the session a way to install mtool
 - D070 on P4-N025 (2026-11-16): Orientation test, the owner's half: do you confirm from the view within one minute that 53 nodes are done, P4-N026, P4-N027 and P4-N031 are next, and only P3-N008 waits on you? Chosen: confirmed
+- D071 on P4-N025 (2026-11-16): The service repository's docs/classification.md says its own Backlog becomes a rendering at milestone 6, but that repository has no state file. Reword that sentence to say its Backlog stays frozen and its nodes are in the coordinating repository's generated Backlog? Chosen: yes, reword it in a later node
