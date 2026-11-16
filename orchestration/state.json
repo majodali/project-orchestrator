@@ -899,7 +899,7 @@
       "kind": "work",
       "title": "README and generated Backlog",
       "outcome": "The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N008",
       "after": [
         "P4-N024"
@@ -912,6 +912,23 @@
       },
       "done": null,
       "note": "The service part is majodali/project-orchestrator-service#41, merged at cb9d727 and deployed on 2026-11-16. From that deploy the service writes docs/backlog.md with every state commit."
+    },
+    {
+      "id": "P4-N037",
+      "kind": "check",
+      "title": "Verification of README and generated Backlog",
+      "outcome": "P4-N025 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N025",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P4-N026",
@@ -4108,7 +4125,7 @@
       "id": "T143",
       "node": "P4-N025",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -4116,11 +4133,11 @@
         "out": null
       },
       "opened": "2026-11-16T07:01:27Z",
-      "closed": null,
+      "closed": "2026-11-16T14:23:54Z",
       "base": "e3076be103377b814ca03543db38a86188733649",
       "ref": null,
-      "pr": null,
-      "summary": "Execute P4-N025 \"README and generated Backlog\" against the node's criteria and open a pull request for the service to merge.",
+      "pr": "majodali/project-orchestrator#53",
+      "summary": "README rewritten for a new reader (121 lines). The service renders docs/backlog.md as a fifth owned file (project-orchestrator-service#41, merged and deployed at cb9d727); this repository pins it, and CI guards the file. Nine criteria met. Orientation test: a fresh session answered from the README in three tool calls; the owner's confirmation is open.",
       "notes": null
     }
   ],
@@ -4765,6 +4782,36 @@
       "chosen": "give the session a way to install mtool",
       "decided": "2026-11-15",
       "rationale": "Asked by T137 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D070",
+      "node": "P4-N025",
+      "question": "Orientation test, the owner's half: do you confirm from the view within one minute that 53 nodes are done, P4-N026, P4-N027 and P4-N031 are next, and only P3-N008 waits on you?",
+      "options": [
+        "confirmed",
+        "not confirmed"
+      ],
+      "default": "confirmed",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T143 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D071",
+      "node": "P4-N025",
+      "question": "The service repository's docs/classification.md says its own Backlog becomes a rendering at milestone 6, but that repository has no state file. Reword that sentence to say its Backlog stays frozen and its nodes are in the coordinating repository's generated Backlog?",
+      "options": [
+        "yes, reword it in a later node",
+        "no, leave it"
+      ],
+      "default": "yes, reword it in a later node",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T143 at close.",
       "standing": false,
       "source": null
     }
