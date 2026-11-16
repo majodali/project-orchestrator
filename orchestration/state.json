@@ -4088,10 +4088,12 @@
       "step": "verify",
       "status": "closed",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 11,
+        "out": 4723,
+        "cacheRead": 631318,
+        "cacheWrite": 41947
       },
       "opened": "2026-11-16T06:32:22Z",
       "closed": "2026-11-16T06:33:41Z",
@@ -4099,7 +4101,8 @@
       "ref": "2564171",
       "pr": "majodali/project-orchestrator#52",
       "summary": "P4-N034 verified on pull request #52: all four criteria met. One rule in the hook text, CLAUDE.md, how-we-work.md, task-loop.md and the three agents. Trial confirmed from both transcripts and the journal (T141). The test change is called for by criterion 1: the old expectation fails against the new hook text. Checks pass.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
