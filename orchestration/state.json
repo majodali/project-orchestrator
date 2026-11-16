@@ -1196,7 +1196,7 @@
       "kind": "work",
       "title": "Delegated tasks claimed without asking",
       "outcome": "A session that an orchestrating session starts with a brief naming a node and a step claims that task without asking a person first, and a session a person starts still asks before it claims.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [
         "P4-N024"
@@ -4034,14 +4034,33 @@
         "cacheRead": 493947,
         "cacheWrite": 9581
       },
+      "costSource": "transcript",
       "opened": "2026-11-16T06:27:07Z",
       "closed": "2026-11-16T06:27:54Z",
       "base": "2f1c85b858805a4242748c06800ef123f440595a",
       "ref": "059552e",
       "pr": "majodali/project-orchestrator#51",
       "summary": "Every criterion of P4-N024 is met at 059552e. All 54 archived files open with a status line; the 45 moved files changed only by it and re-pointed links. mtool: 21 findings on branch and base, the same set. Word count 158,359 reproduces. The five repository checks and the pull request's check pass.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
+    },
+    {
+      "id": "T140",
+      "node": "P4-N034",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-16T06:28:25Z",
+      "closed": null,
+      "base": "60bb179b22ebcf8896969e8aaed9d7ff10277d17",
+      "ref": null,
+      "pr": null,
+      "summary": "State one delegation rule in the session start hook's text, CLAUDE.md, how-we-work.md and the three role agents: a brief from an orchestrating session naming a node and a step is claimed without asking and authorises nothing else. Record a trial of both cases.",
+      "notes": null
     }
   ],
   "decisions": [

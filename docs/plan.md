@@ -18,11 +18,10 @@ Gated nodes:
 - README and generated Backlog (P4-N025) [specified]
 - Upstream proposals batch (P4-N026) [specified]
 - Document paths changed through the service (P4-N031) [specified]
-- Delegated tasks claimed without asking (P4-N034) [specified]
 
 ## In flight
 
-None.
+- Delegated tasks claimed without asking (P4-N034) [executing] — T140
 
 ## In progress, children carry the work
 
@@ -259,7 +258,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Session start summary and the offer to act** (P4-N020, done 2026-11-12)
   When a session starts, the person sees a short summary of the plan on screen, and the agent's first reply gives the summary and asks before it takes a task on offer.
   [plan](plans/rebuild.md)
-- **Delegated tasks claimed without asking** (P4-N034, specified)
+- **Delegated tasks claimed without asking** (P4-N034, executing)
   A session that an orchestrating session starts with a brief naming a node and a step claims that task without asking a person first, and a session a person starts still asks before it claims.
   after P4-N024 · [plan](plans/rebuild.md)
   Note: Asked for by the owner, 2026-11-16, after a reviewer session launched for P4-N033 stopped to ask before claiming. Criteria: (1) the session start hook's text, CLAUDE.md, docs/process/how-we-work.md and the three role agents state one rule; (2) the rule says how a session recognises a delegation brief, and that the brief authorises the named node and step and nothing else; (3) owner decisions stay asks at task_close; (4) a trial is recorded: a session launched with a brief claims its task without asking, and a session started without one still asks.
