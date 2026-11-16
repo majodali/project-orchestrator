@@ -3979,6 +3979,25 @@
       "pr": "majodali/project-orchestrator#51",
       "summary": "docs/process holds how-we-work, the task loop and the state model. 46 unlinked documents, retired risk entries and vocabulary rows, and journal-tail are archived with status lines. Word count 157,990. The owner split the 34 linked plans and specs to P4-N032 behind P4-N031. The mtool link check was not run: not installed.",
       "notes": null
+    },
+    {
+      "id": "T138",
+      "node": "P4-N033",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-16T05:22:42Z",
+      "closed": null,
+      "base": "b7ebb8afc568d62bbaf4be3b83c986b81dce88a6",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P4-N024 \"Pruned document set\" (pull request #51, task T137) against its criteria in docs/plans/rebuild.md and its outcome.",
+      "notes": null
     }
   ],
   "decisions": [
