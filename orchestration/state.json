@@ -4085,10 +4085,12 @@
       "step": "plan",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 4,
+        "out": 818,
+        "cacheRead": 176380,
+        "cacheWrite": 10364
       },
       "opened": "2026-11-16T06:30:12Z",
       "closed": "2026-11-16T06:30:24Z",
@@ -4096,7 +4098,8 @@
       "ref": null,
       "pr": null,
       "summary": "Planned the scratch node. No file changed and no pull request: the node's note says its plan needs no file, so the nine-item criteria list is in the planner's last message. Title kept. Outcome delivered. No asks.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
