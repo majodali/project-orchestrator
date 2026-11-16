@@ -885,10 +885,7 @@
       "stage": "specified",
       "parent": "P4-N024",
       "after": [],
-      "hold": {
-        "kind": "blocked",
-        "reason": "T138: Criterion 3 not met: \"Every archived file opens with a status line\". docs/archive/findings/p3-n005-stop-predicates/prepass.ts opens with no status line (53 of 54 archived files have one). Every other criterion is met at 1bada35. Minor: the recorded word count 157,990 is the count at 817fbff; the head gives 158,199."
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": "docs/plans/rebuild.md",
@@ -3996,14 +3993,14 @@
         "cacheRead": 1420153,
         "cacheWrite": 65111
       },
+      "costSource": "transcript",
       "opened": "2026-11-16T05:22:42Z",
       "closed": "2026-11-16T05:25:51Z",
       "base": "b7ebb8afc568d62bbaf4be3b83c986b81dce88a6",
       "ref": null,
       "pr": "majodali/project-orchestrator#51",
       "summary": "Criterion 3 not met: \"Every archived file opens with a status line\". docs/archive/findings/p3-n005-stop-predicates/prepass.ts opens with no status line (53 of 54 archived files have one). Every other criterion is met at 1bada35. Minor: the recorded word count 157,990 is the count at 817fbff; the head gives 158,199.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
