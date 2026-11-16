@@ -110,7 +110,7 @@ Depends on: 1, 2.
 - [x] The word count under `docs/`, excluding `docs/archive/`, is
       recorded with its method (RU-019):
       `find docs -name '*.md' -not -path 'docs/archive/*' | xargs cat | wc -w`
-      gave 157,990 on 2026-11-14, down from 410,513 at the task's
+      gave 158,359 on 2026-11-16, down from 410,513 at the task's
       start. The 100,000 target is child 8's.
 - [x] This plan, the Risk register and the vocabulary are at most 300
       lines each. The bound for every document is child 8's.

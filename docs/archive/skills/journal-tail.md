@@ -1,6 +1,6 @@
 > **Status: archived 2026-11-14** (P4-N024, Pruned document set).
-> Archived because this is the `journal-tail` skill showed the run
-> journal of the dispatch loop. The service's journal carries one
+> Archived because the `journal-tail` skill showed the run journal of
+> the dispatch loop. The service's journal carries one
 > event kind, and the view shows the plan's state.
 > `plugin/scripts/journal_tail.ts` stays, runnable by hand.
 

@@ -1,3 +1,9 @@
+// Status: archived 2026-11-14 (P4-N024, Pruned document set). Archived
+// because this is a record of the P3 line (project comprehension and
+// continuous implementation), held at P3-N001 by the owner's decisions
+// D005 and D063. Nothing replaced it; it is read again if the line
+// resumes.
+//
 // The mechanical pre-pass of node P3-N013 (the four stop conditions,
 // decidable, evidenced, and related to the meta-review signals).
 //
