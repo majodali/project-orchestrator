@@ -386,6 +386,60 @@ identifier. Four stand: which optional fields `task_open` takes,
 whether a plan step fixes file paths, how far the planner frames the
 subject, and who "the person" is for a subagent.
 
+### M6. Re-plan, prune and hand back: child 3
+
+**3. Pruned document set** (P4-N024)
+Outcome: `docs/` holds what the service and `plan-state` enforce, one
+"how we work" page, and the records still linked from the state file;
+everything else is in `docs/archive/` with a status line each.
+Depends on: 1, 2.
+
+- [x] `docs/process/` keeps only what code enforces plus one "how we
+      work" page of at most 200 lines. It holds `how-we-work.md` (171
+      lines), `task-loop.md` and `state-model.md` (moved from this
+      plan), and a short `plan-register.md` that the renderer links.
+- [x] The page covers the task loop, the roles, a session's
+      enlistment, the checks and the owner's decisions.
+- [x] Every archived file opens with a status line naming why it is
+      archived and what replaced it.
+- [x] `docs/cost-log.md`, `docs/rulings.md`, the frozen text of
+      `docs/backlog.md`, the P3 findings and the plans and specs the
+      state file does not link move to `docs/archive/`; frozen files
+      are not rewritten. Moved files gained a status line and had
+      their relative links re-pointed; nothing else in them changed.
+      The linked plans and specs are child 8's (the owner,
+      2026-11-15).
+- [x] Every `docs` path in `orchestration/state.json` resolves after
+      the move, updated through `node_update`, never by hand. No
+      linked document moved, so no path changed.
+- [x] `docs/classification.md` custom definitions point at the new
+      locations or are retired with the document that carried them.
+- [x] `docs/vocabulary.md` loses the terms of retired documents and
+      keeps the project's own. 34 rows moved to
+      `docs/archive/vocabulary-retired.md`; six task-loop terms added.
+- [x] `docs/open-risks.md` is kept or archived by a stated rule. Kept;
+      the rule is in its header. Nine closed or dispatch-loop entries
+      moved to `docs/archive/open-risks-retired.md`.
+- [x] The moves add no `mtool` link finding. Run 2026-11-15,
+      `mtool links check` at methodology-tools 296ba46: 21 findings,
+      the same 21 as on the task's base commit, b9e2999. Clearing
+      them is child 8's (the owner, 2026-11-15).
+- [x] The word count under `docs/`, excluding `docs/archive/`, is
+      recorded with its method (RU-019):
+      `find docs -name '*.md' -not -path 'docs/archive/*' | xargs cat | wc -w`
+      gave 158,359 on 2026-11-16, down from 410,513 at the task's
+      start. The 100,000 target is child 8's.
+- [x] This plan, the Risk register and the vocabulary are at most 300
+      lines each. The bound for every document is child 8's.
+- [x] The `journal-tail` skill is archived in `docs/archive/skills/`
+      with a status line and is out of `plugin/README.md`;
+      `plugin/scripts/journal_tail.ts` stays (the owner, 2026-11-14).
+
+Executed 2026-11-14 (task T137 on P4-N024). The state file links 34
+plans and specs, and no tool changes a node's `docs` paths, so they
+could not move. On 2026-11-15 the owner split the node: the three
+criteria that depend on moving them went to child 8, behind child 7.
+
 ## GitHub interaction changes
 
 | Today | After |

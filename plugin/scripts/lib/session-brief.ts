@@ -77,8 +77,11 @@ export function sessionBrief(state: State, at: string): string {
  * What the agent is to do with the brief (owner, 2026-11-12). The
  * person already sees a short summary on screen when a session starts,
  * so the agent does not restate it: it names the task it would take
- * and asks, and never claims one on its own. After a resume or a
- * compaction the brief only refreshes what it knows.
+ * and asks, and never claims one on its own. The one exception is a
+ * delegation (owner, 2026-11-16): a session that another session
+ * started with a brief naming a node and a step claims that task
+ * without asking. After a resume or a compaction the brief only
+ * refreshes what it knows.
  */
 export function briefInstructions(state: State, fresh: boolean): string {
   if (!fresh) {
@@ -93,6 +96,7 @@ export function briefInstructions(state: State, fresh: boolean): string {
     shown,
     "In your first reply, name the task on offer you would take, with its step, and ask whether to take it. Do not call task_open until the person says yes.",
     "If their first message asks for something else, do that instead.",
+    "A brief from another session that names a node and a step is a delegation, by the owner's standing instruction: when this session opens with one, claim that task with task_open without asking, and do that node and step and nothing else (CLAUDE.md, Delegated tasks).",
   ].join("\n");
 }
 

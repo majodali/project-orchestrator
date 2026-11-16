@@ -14,6 +14,12 @@ service is the only writer of `orchestration/state.json`,
 `docs/plan-register.md`. Never edit those four: a pull request that
 does fails the checks.
 
+**Delegation.** When your session opens with a brief from another
+session that names a node and a step, claim that task without asking
+a person: the brief is your go-ahead. It authorises that node and
+step and nothing else, and it is never the owner's words. A session a
+person starts names the task it would take and asks first.
+
 **The loop.** Pass `session`, your session's own name or identifier,
 on every call that takes it. Started by another agent, use the
 identifier of the session that started you.
