@@ -1192,6 +1192,25 @@
       "note": null
     },
     {
+      "id": "P4-N034",
+      "kind": "work",
+      "title": "Delegated tasks claimed without asking",
+      "outcome": "A session that an orchestrating session starts with a brief naming a node and a step claims that task without asking a person first, and a session a person starts still asks before it claims.",
+      "stage": "specified",
+      "parent": "P4-N001",
+      "after": [
+        "P4-N024"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": "Asked for by the owner, 2026-11-16, after a reviewer session launched for P4-N033 stopped to ask before claiming. Criteria: (1) the session start hook's text, CLAUDE.md, docs/process/how-we-work.md and the three role agents state one rule; (2) the rule says how a session recognises a delegation brief, and that the brief authorises the named node and step and nothing else; (3) owner decisions stay asks at task_close; (4) a trial is recorded: a session launched with a brief claims its task without asking, and a session started without one still asks."
+    },
+    {
       "id": "P2-N001",
       "kind": "work",
       "title": "Orchestration service",
@@ -3978,6 +3997,28 @@
       "ref": "8224f13",
       "pr": "majodali/project-orchestrator#51",
       "summary": "docs/process holds how-we-work, the task loop and the state model. 46 unlinked documents, retired risk entries and vocabulary rows, and journal-tail are archived with status lines. Word count 157,990. The owner split the 34 linked plans and specs to P4-N032 behind P4-N031. The mtool link check was not run: not installed.",
+      "notes": null
+    },
+    {
+      "id": "T138",
+      "node": "P4-N033",
+      "step": "verify",
+      "status": "blocked",
+      "role": "reviewer",
+      "model": "claude-fable-5-2",
+      "tokens": {
+        "in": 22,
+        "out": 11424,
+        "cacheRead": 1420153,
+        "cacheWrite": 65111
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-16T05:22:42Z",
+      "closed": "2026-11-16T05:25:51Z",
+      "base": "b7ebb8afc568d62bbaf4be3b83c986b81dce88a6",
+      "ref": null,
+      "pr": "majodali/project-orchestrator#51",
+      "summary": "Criterion 3 not met: \"Every archived file opens with a status line\". docs/archive/findings/p3-n005-stop-predicates/prepass.ts opens with no status line (53 of 54 archived files have one). Every other criterion is met at 1bada35. Minor: the recorded word count 157,990 is the count at 817fbff; the head gives 158,199.",
       "notes": null
     }
   ],
