@@ -4134,14 +4134,14 @@
         "cacheRead": 8108425,
         "cacheWrite": 239879
       },
+      "costSource": "transcript",
       "opened": "2026-11-16T07:01:27Z",
       "closed": "2026-11-16T14:23:54Z",
       "base": "e3076be103377b814ca03543db38a86188733649",
       "ref": null,
       "pr": "majodali/project-orchestrator#53",
       "summary": "README rewritten for a new reader (121 lines). The service renders docs/backlog.md as a fifth owned file (project-orchestrator-service#41, merged and deployed at cb9d727); this repository pins it, and CI guards the file. Nine criteria met. Orientation test: a fresh session answered from the README in three tool calls; the owner's confirmation is open.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
@@ -4797,8 +4797,8 @@
         "not confirmed"
       ],
       "default": "confirmed",
-      "chosen": null,
-      "decided": null,
+      "chosen": "confirmed",
+      "decided": "2026-11-16",
       "rationale": "Asked by T143 at close.",
       "standing": false,
       "source": null
