@@ -1685,7 +1685,7 @@
       "kind": "work",
       "title": "Decision script and settings of the orchestrator",
       "outcome": "A script prints the sessions to start and the reports to give as JSON, from the state file, the journal, the settings, the agent files and a session snapshot, and one session per role was started from its output.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N027",
       "after": [],
       "hold": null,
@@ -4707,14 +4707,33 @@
         "cacheRead": 1422232,
         "cacheWrite": 25696
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T22:23:41Z",
       "closed": "2026-11-17T22:24:46Z",
       "base": "17fcd3e501f2ce77c090cbb1dd726bb8de6e7987",
       "ref": null,
       "pr": null,
       "summary": "Every criterion of P4-N026 is met at ea191b4. T151's four points are fixed in IR and prose; all five verbatim quotes match methodology 4c7b1dd; the two further fixes are real errors. mtool: links 8 findings as on main, IR and style 0 violations. Pull request check passes. Minor: recorded style warning counts do not reproduce (59, not 153).",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
+    },
+    {
+      "id": "T157",
+      "node": "P2-N030",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": "claude-fable-5-2",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T22:25:36Z",
+      "closed": null,
+      "base": "bfe0052cff489a0a0a9696b03ce4809fc6618840",
+      "ref": null,
+      "pr": null,
+      "summary": "Build orchestrate_next.ts, lib/orchestrate.ts and orchestration/orchestrator.json with tests, meeting criteria 1 to 6, 8, 19 and 20 of the orchestrator-session specification. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "notes": null
     }
   ],
   "decisions": [
