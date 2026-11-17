@@ -1,6 +1,6 @@
 # View that updates itself and leads with what matters (P2-N028)
 
-Status: specified (T163, 2026-11-17), by the criteria below.
+Status: broken down (T165, 2026-11-17). The criteria below specify it.
 
 Reader: the owner, and the sessions that work this node. The reader
 knows [how we work](../process/how-we-work.md), and nothing else.
@@ -193,29 +193,29 @@ to). Each child that writes there is entered `start: approve`.
   verification, and the node's result is live when it is merged.
 - Each pull request carries before and after screenshots from the
   service's preview (`npm run view:shots`).
-- One child writes here: it raises this repository's pinned service
-  version and adds the `session` line to docs/process/state-model.md.
-  It waits for slice C.
-- The break down's pull request adds each child that writes there to
-  `orchestration/orchestrator.json`, under that repository
-  (docs/specs/orchestrator-session.md, S4).
+- Each such child is listed in `orchestration/orchestrator.json`
+  under that repository (docs/specs/orchestrator-session.md, S4).
 
-## Slices
+## Children
 
-For the break down step. A is the thin slice that runs end to end.
+Each child's criteria are the items named. None links this plan.
 
-- **A. The tree page updates itself.** Section 3. Criteria 1 to 6.
-- **B. The four lists and the action sentences.** Sections 1 and 2.
-  Criteria 7 to 11. Needs nothing from A.
-- **C. Session, duration and criteria.** Sections 6 and 7. Criteria
-  12 to 15. Needs nothing from A or B.
-- **D. Feedback in place and the panel.** Sections 4 and 5. Criteria
-  16 to 18. Waits for A, whose script it extends, and B, whose rows
-  it opens.
-- **E. The trial.** Criteria 19 and 20. Waits for A to D.
+- **P2-N037, Tree page that updates itself.** Section 3. Criteria 1 to 4 and 6.
+- **P2-N038, Four lists ahead of the tree.** Sections 1 and 2.
+  Criteria 7 to 11.
+- **P2-N039, Session, duration and criteria on pages.** Sections 6
+  and 7. Criteria 12 to 15 and 18. Waits for P2-N038, whose "Running"
+  row shows the session.
+- **P2-N040, Feedback in place and the node panel.** Sections 4 and
+  5. Criteria 5, 16 and 17. Waits for P2-N037 and P2-N038.
+- **P2-N041, View trial with its measured delay.** Criteria 19 and
+  20. Waits for P2-N039 and P2-N040, merged and deployed.
+- **P2-N042, Session field adopted in this repository.** Writes
+  here: the service pin and a line in docs/process/state-model.md.
+  `npm run check` and `npm test` pass. Waits for P2-N039.
 
-All link this plan, so the shared-document rule runs them one at a
-time.
+Two run at a time: P2-N037 with P2-N038, then P2-N039 with P2-N040.
+Each pair edits `src/view/html.ts` and `test/viewPages.test.ts`.
 
 ## Criteria
 

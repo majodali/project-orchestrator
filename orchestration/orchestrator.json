@@ -7,7 +7,7 @@
     { "repository": "majodali/project-orchestrator", "nodes": [] },
     {
       "repository": "majodali/project-orchestrator-service",
-      "nodes": ["P2-N032"]
+      "nodes": ["P2-N032", "P2-N037", "P2-N038", "P2-N039", "P2-N040", "P2-N041"]
     }
   ]
 }
