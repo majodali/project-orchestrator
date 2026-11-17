@@ -23,7 +23,7 @@ Dependencies are in the state file, not in sibling order.
   - P1-N016 [done] Process specification maintenance
 - P3-N001 [broken-down] [blocked: Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
   - P3-N002 [broken-down] Comprehension model — plan: plans/p3-n002-comprehension-model.md · spec: specs/p3-n002-comprehension-model.md
-    - P3-N006 [done] Thin end-to-end slice of the model — plan: plans/p3-n006-thin-end-to-end-slice.md · spec: specs/p3-n002-comprehension-model.md
+    - P3-N006 [done] Thin end-to-end slice of the model — spec: specs/p3-n002-comprehension-model.md
     - P3-N007 [done] Project model type and K-003 amendment draft — plan: plans/p3-n007-type-declared-amendment-drafted.md · spec: specs/p3-n002-comprehension-model.md
     - P3-N008 [planned] [gated: owner review of the plan] Project model instance for this repository — plan: plans/p3-n008-instance-over-this-repository.md · spec: specs/p3-n002-comprehension-model.md
     - P3-N009 [identified] Replacement of sibling ordering by recorded dependencies

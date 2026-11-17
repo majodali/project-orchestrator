@@ -109,7 +109,7 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
   Note: Chunk 1 of the parent plan
   - **Thin end-to-end slice of the model** (P3-N006, done 2026-10-30)
     Five real parts of this repository carried through the model, the navigation bound and both renderings, in one commit, so that P3-N007 can define the type against content that has already pushed back.
-    [plan](plans/p3-n006-thin-end-to-end-slice.md), [spec](specs/p3-n002-comprehension-model.md)
+    [spec](specs/p3-n002-comprehension-model.md)
   - **Project model type and K-003 amendment draft** (P3-N007, done 2026-10-31)
     The Project model becomes a declared type of this repository, and the K-003 (the Backlog is the single source of progress truth) amendment exists as a reviewed proposal ready for the owner to carry.
     after P3-N006 · [plan](plans/p3-n007-type-declared-amendment-drafted.md), [spec](specs/p3-n002-comprehension-model.md)

@@ -305,7 +305,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p3-n006-thin-end-to-end-slice.md",
+        "plan": null,
         "spec": "docs/specs/p3-n002-comprehension-model.md"
       },
       "done": "2026-10-30",
@@ -4339,6 +4339,10 @@
           "node": "P2-N024",
           "plan": "docs/archive/plans/p2-n003-owner-questions-and-plan-view.md",
           "spec": "docs/archive/specs/p2-n003-owner-questions-and-plan-view.md"
+        },
+        {
+          "node": "P3-N006",
+          "plan": "docs/archive/plans/p3-n006-thin-end-to-end-slice.md"
         }
       ]
     }
