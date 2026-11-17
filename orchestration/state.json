@@ -5429,8 +5429,8 @@
         "Drop criterion 4: the reviewer's branch check at each verification is the trial"
       ],
       "default": "The delegating session records it from its next two real tasks that each carry a pull request, and the next execute task on P4-N038 writes it into the record",
-      "chosen": null,
-      "decided": null,
+      "chosen": "The delegating session records it from its next two real tasks that each carry a pull request, and the next execute task on P4-N038 writes it into the record",
+      "decided": "2026-11-17",
       "rationale": "Asked by T153 at close.",
       "standing": false,
       "source": null
