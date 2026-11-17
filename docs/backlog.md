@@ -16,21 +16,21 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Process specification v1** (P1-N003) — When: not recorded. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Role contracts v1** (P1-N004) — When: not recorded. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Plugin v1 and self-hosted trial** (P1-N005) — When: 2026-08-26. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Proposal: mtool checker extension point** (P1-N008) — When: 2026-08-26. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Plugin tooling on the portfolio stack** (P1-N009) — When: 2026-08-30. Status: done. Pointer: `orchestration/state.json`.
+- [x] **Proposal: mtool checker extension point** (P1-N008) — When: 2026-08-26. Status: done. Pointer: [plan](archive/plans/p1-n008-mtool-checker-extension-point.md), [spec](archive/specs/p1-n008-mtool-checker-extension-point.md).
+- [x] **Plugin tooling on the portfolio stack** (P1-N009) — When: 2026-08-30. Status: done. Pointer: [plan](archive/plans/p1-n009-plugin-tooling-portfolio-stack.md), [spec](archive/specs/p1-n009-plugin-tooling-portfolio-stack.md).
 - [x] **Node toolchain and shared register grammar** (P1-N010) — When: 2026-08-30. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Conformance corpus and vendoring generator** (P1-N011) — When: 2026-08-30. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Form checker ported to TypeScript** (P1-N012) — When: 2026-08-30. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Cutover to the TypeScript tools** (P1-N013) — When: 2026-08-30. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Role contracts adopt the methodology's conduct rules** (P1-N014) — When: 2026-10-29. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Methodology amendments for delegated multi-agent work** (P1-N015) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Process specification maintenance** (P1-N016) — When: 2026-11-05. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Thin end-to-end slice of the model** (P3-N006) — When: 2026-10-30. Status: done. Pointer: [spec](specs/p3-n002-comprehension-model.md).
-- [x] **Project model type and K-003 amendment draft** (P3-N007) — When: 2026-10-31. Status: done. Pointer: [spec](specs/p3-n002-comprehension-model.md).
-- [x] **First risk class end to end** (P3-N010) — When: 2026-10-30. Status: done. Pointer: [spec](specs/p3-n003-common-risk-catalogue.md).
-- [x] **Catalogue sweep and omission list** (P3-N011) — When: 2026-10-31. Status: done. Pointer: [spec](specs/p3-n003-common-risk-catalogue.md).
-- [x] **Decidable stop conditions** (P3-N013) — When: 2026-10-30. Status: done. Pointer: [spec](specs/p3-n005-sequence-mode.md).
-- [x] **Sequence mode in the dispatch loop** (P3-N014) — When: 2026-10-30. Status: done. Pointer: [spec](specs/p3-n005-sequence-mode.md).
+- [x] **Role contracts adopt the methodology's conduct rules** (P1-N014) — When: 2026-10-29. Status: done. Pointer: [plan](archive/plans/p1-n014-role-contracts-adopt-v140-rules.md), [spec](archive/specs/p1-n014-role-contracts-adopt-conduct-rules.md).
+- [x] **Methodology amendments for delegated multi-agent work** (P1-N015) — When: 2026-09-01. Status: done. Pointer: [plan](archive/plans/p1-n015-methodology-amendments-delegated-work.md), [spec](archive/specs/p1-n015-methodology-amendments-delegated-work.md).
+- [x] **Process specification maintenance** (P1-N016) — When: 2026-11-05. Status: done. Pointer: [plan](archive/plans/p1-n016-process-spec-maintenance.md).
+- [x] **Thin end-to-end slice of the model** (P3-N006) — When: 2026-10-30. Status: done. Pointer: [plan](archive/plans/p3-n006-thin-end-to-end-slice.md), [spec](specs/p3-n002-comprehension-model.md).
+- [x] **Project model type and K-003 amendment draft** (P3-N007) — When: 2026-10-31. Status: done. Pointer: [plan](archive/plans/p3-n007-type-declared-amendment-drafted.md), [spec](specs/p3-n002-comprehension-model.md).
+- [x] **First risk class end to end** (P3-N010) — When: 2026-10-30. Status: done. Pointer: [plan](archive/plans/p3-n010-one-class-end-to-end.md), [spec](specs/p3-n003-common-risk-catalogue.md).
+- [x] **Catalogue sweep and omission list** (P3-N011) — When: 2026-10-31. Status: done. Pointer: [plan](archive/plans/p3-n011-sweep-and-omission-list.md), [spec](specs/p3-n003-common-risk-catalogue.md).
+- [x] **Decidable stop conditions** (P3-N013) — When: 2026-10-30. Status: done. Pointer: [plan](archive/plans/p3-n013-stop-conditions-decidable.md), [spec](specs/p3-n005-sequence-mode.md).
+- [x] **Sequence mode in the dispatch loop** (P3-N014) — When: 2026-10-30. Status: done. Pointer: [plan](archive/plans/p3-n014-loop-runs-sequence-mode.md), [spec](specs/p3-n005-sequence-mode.md).
 - [x] **Methodology citations pinned in the process specification** (P3-N017) — When: 2026-11-07. Status: done. Pointer: [plan](plans/p3-n015-sequence-demonstration.md).
 - [x] **Anchors on Risk register entries** (P3-N018) — When: 2026-11-07. Status: done. Pointer: [plan](plans/p3-n015-sequence-demonstration.md).
 - [x] **Checker extension-point proposal ready to carry** (P3-N019) — When: 2026-11-08. Status: done. Pointer: [plan](plans/p3-n015-sequence-demonstration.md).
@@ -45,6 +45,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Pruned document set** (P4-N024) — When: 2026-11-16. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **README and generated Backlog** (P4-N025) — When: 2026-11-16. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Document paths changed through the service** (P4-N031) — When: 2026-11-17. Status: done. Pointer: [plan](plans/rebuild.md).
+- [x] **Linked plans and specs archived** (P4-N032) — When: 2026-11-17. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Task cost capture** (P4-N010) — When: 2026-11-11. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Task required for session writes** (P4-N012) — When: 2026-11-12. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Session start: current checkout and tasks on offer** (P4-N014) — When: 2026-11-12. Status: done. Pointer: [plan](plans/rebuild.md).
@@ -52,20 +53,20 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Session hooks run on Windows** (P4-N017) — When: 2026-11-12. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Session start summary and the offer to act** (P4-N020) — When: 2026-11-12. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Delegated tasks claimed without asking** (P4-N034) — When: 2026-11-16. Status: done. Pointer: [plan](plans/rebuild.md).
-- [x] **Service skeleton and plan state** (P2-N002) — When: 2026-08-26. Status: done. Pointer: `orchestration/state.json`.
+- [x] **Service skeleton and plan state** (P2-N002) — When: 2026-08-26. Status: done. Pointer: [plan](archive/plans/p2-n002-service-skeleton.md), [spec](archive/specs/p2-n002-service-skeleton.md).
 - [x] **Service repository bootstrap** (P2-N007) — When: 2026-08-27. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Deployed MCP server (reachability slice)** (P2-N008) — When: 2026-08-28. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Plan state read** (P2-N009) — When: 2026-08-29. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Plan state update with advisory lease** (P2-N010) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Git-only fallback and enlistment documentation** (P2-N011) — When: 2026-09-07. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Deploy from CI on merge** (P2-N012) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
+- [x] **Deploy from CI on merge** (P2-N012) — When: 2026-09-01. Status: done. Pointer: [plan](archive/plans/p2-n012-deploy-from-ci-on-merge.md), [spec](archive/specs/p2-n012-deploy-from-ci-on-merge.md).
 - [x] **Lambda alias assumptions check** (P2-N013) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Pull request checks** (P2-N014) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Alias-aware lease table selection** (P2-N015) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Deploy, smoke test and promote pipeline** (P2-N016) — When: 2026-09-07. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Owner questions and the plan view** (P2-N003) — When: 2026-11-11. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Web view v1** (P2-N021) — When: 2026-11-02. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Web view UX refinement** (P2-N023) — When: 2026-11-07. Status: done. Pointer: `orchestration/state.json`.
+- [x] **Owner questions and the plan view** (P2-N003) — When: 2026-11-11. Status: done. Pointer: [plan](archive/plans/p2-n003-owner-questions-and-plan-view.md), [spec](archive/specs/p2-n003-owner-questions-and-plan-view.md).
+- [x] **Web view v1** (P2-N021) — When: 2026-11-02. Status: done. Pointer: [spec](archive/specs/p2-n003-owner-questions-and-plan-view.md).
+- [x] **Web view UX refinement** (P2-N023) — When: 2026-11-07. Status: done. Pointer: [plan](archive/plans/p2-n023-web-view-ux-refinement.md).
 
 ## Upcoming
 
@@ -84,7 +85,6 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Re-plan, prune and hand back** (P4-N008) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Upstream proposals batch** (P4-N026) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
 - [ ] **Pilot enlistment of methodology-tools** (P4-N027) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
-- [ ] **Linked plans and specs archived** (P4-N032) — When: not dated. Status: verifying, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **One branch for each pull request** (P4-N038) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
 - [ ] **Orchestration service** (P2-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestration-service.md).
 - [ ] **Pilot on methodology-tools: sessions on the task loop** (P2-N006) — When: after P4-N027. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.

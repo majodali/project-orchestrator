@@ -98,8 +98,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
-        "spec": null
+        "plan": "docs/archive/plans/p1-n008-mtool-checker-extension-point.md",
+        "spec": "docs/archive/specs/p1-n008-mtool-checker-extension-point.md"
       },
       "done": "2026-08-26",
       "note": null
@@ -115,8 +115,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
-        "spec": null
+        "plan": "docs/archive/plans/p1-n009-plugin-tooling-portfolio-stack.md",
+        "spec": "docs/archive/specs/p1-n009-plugin-tooling-portfolio-stack.md"
       },
       "done": "2026-08-30",
       "note": null
@@ -200,8 +200,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
-        "spec": null
+        "plan": "docs/archive/plans/p1-n014-role-contracts-adopt-v140-rules.md",
+        "spec": "docs/archive/specs/p1-n014-role-contracts-adopt-conduct-rules.md"
       },
       "done": "2026-10-29",
       "note": null
@@ -217,8 +217,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
-        "spec": null
+        "plan": "docs/archive/plans/p1-n015-methodology-amendments-delegated-work.md",
+        "spec": "docs/archive/specs/p1-n015-methodology-amendments-delegated-work.md"
       },
       "done": "2026-09-01",
       "note": null
@@ -234,7 +234,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/archive/plans/p1-n016-process-spec-maintenance.md",
         "spec": null
       },
       "done": "2026-11-05",
@@ -305,7 +305,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/archive/plans/p3-n006-thin-end-to-end-slice.md",
         "spec": "docs/specs/p3-n002-comprehension-model.md"
       },
       "done": "2026-10-30",
@@ -324,7 +324,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/archive/plans/p3-n007-type-declared-amendment-drafted.md",
         "spec": "docs/specs/p3-n002-comprehension-model.md"
       },
       "done": "2026-10-31",
@@ -399,7 +399,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/archive/plans/p3-n010-one-class-end-to-end.md",
         "spec": "docs/specs/p3-n003-common-risk-catalogue.md"
       },
       "done": "2026-10-30",
@@ -418,7 +418,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/archive/plans/p3-n011-sweep-and-omission-list.md",
         "spec": "docs/specs/p3-n003-common-risk-catalogue.md"
       },
       "done": "2026-10-31",
@@ -490,7 +490,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/archive/plans/p3-n013-stop-conditions-decidable.md",
         "spec": "docs/specs/p3-n005-sequence-mode.md"
       },
       "done": "2026-10-30",
@@ -510,7 +510,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/archive/plans/p3-n014-loop-runs-sequence-mode.md",
         "spec": "docs/specs/p3-n005-sequence-mode.md"
       },
       "done": "2026-10-30",
@@ -1006,7 +1006,7 @@
       "kind": "work",
       "title": "Linked plans and specs archived",
       "outcome": "The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N008",
       "after": [
         "P4-N031",
@@ -1018,7 +1018,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-17",
       "note": "Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8."
     },
     {
@@ -1026,7 +1026,7 @@
       "kind": "check",
       "title": "Verification of Linked plans and specs archived",
       "outcome": "P4-N032 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N032",
       "after": [],
       "hold": null,
@@ -1035,7 +1035,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-17",
       "note": null
     },
     {
@@ -1323,8 +1323,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
-        "spec": null
+        "plan": "docs/archive/plans/p2-n002-service-skeleton.md",
+        "spec": "docs/archive/specs/p2-n002-service-skeleton.md"
       },
       "done": "2026-08-26",
       "note": "Chunk 1 of the parent plan"
@@ -1425,8 +1425,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
-        "spec": null
+        "plan": "docs/archive/plans/p2-n012-deploy-from-ci-on-merge.md",
+        "spec": "docs/archive/specs/p2-n012-deploy-from-ci-on-merge.md"
       },
       "done": "2026-09-01",
       "note": null
@@ -1510,8 +1510,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
-        "spec": null
+        "plan": "docs/archive/plans/p2-n003-owner-questions-and-plan-view.md",
+        "spec": "docs/archive/specs/p2-n003-owner-questions-and-plan-view.md"
       },
       "done": "2026-11-11",
       "note": "Chunk 2 of the parent plan; split into the web view's first version and the owner question queue (owner, 2026-10-29)"
@@ -1528,7 +1528,7 @@
       "start": "auto",
       "docs": {
         "plan": null,
-        "spec": null
+        "spec": "docs/archive/specs/p2-n003-owner-questions-and-plan-view.md"
       },
       "done": "2026-11-02",
       "note": "independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8)"
@@ -1546,7 +1546,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/archive/plans/p2-n023-web-view-ux-refinement.md",
         "spec": null
       },
       "done": "2026-11-07",
@@ -1563,8 +1563,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
-        "spec": null
+        "plan": "docs/archive/plans/p2-n003-owner-questions-and-plan-view.md",
+        "spec": "docs/archive/specs/p2-n003-owner-questions-and-plan-view.md"
       },
       "done": "2026-11-11",
       "note": null
@@ -4390,7 +4390,7 @@
       "id": "T147",
       "node": "P4-N040",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": null,
       "tokens": {
@@ -4398,11 +4398,11 @@
         "out": null
       },
       "opened": "2026-11-17T21:02:03Z",
-      "closed": null,
+      "closed": "2026-11-17T21:05:08Z",
       "base": "7e78f28fd7432c89c4c74f62a56537e50d1ac80a",
-      "ref": null,
-      "pr": null,
-      "summary": "Verify P4-N032 (task T146, pull request 59) against the criteria under \"8. Linked plans and specs archived\" in docs/plans/rebuild.md. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "ref": "652cf63e3fef8fcd558d504e642889fa3d27adb6",
+      "pr": "majodali/project-orchestrator#59",
+      "summary": "All six criteria met at 652cf63. 22 moved files differ from base only by status block and links; 25 docsOnMerge paths resolve; word count 76,401; ten P3 documents over 300 lines listed. mtool exits 1 on 8 findings, all in verbatim methodology text (RU-015), unchanged by the pull request; judged dispositioned under the criterion's wording.",
       "notes": null
     }
   ],
@@ -5092,6 +5092,21 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T145 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D073",
+      "node": "P4-N032",
+      "question": "`mtool links check` still exits non-zero on 8 links inside methodology text that archived proposals carry verbatim (RU-015). The verification read P4-N032's criterion as met by the stated disposition rule. Should the upstream proposals batch (P4-N026) ask methodology-tools for a way to exempt quoted upstream text, so the tool can exit zero over this tree?",
+      "options": [
+        "yes, add it to P4-N026",
+        "no, accept the standing non-zero exit on these 8"
+      ],
+      "default": "yes, add it to P4-N026",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T147 at close.",
       "standing": false,
       "source": null
     }

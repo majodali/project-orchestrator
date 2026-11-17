@@ -11,6 +11,7 @@ its stage and its outcome. The state file holds the rest.
 Open decisions:
 
 - D072 on Document paths changed through the service (P4-N031): Pull request 58 adds a 'delegation brief' row to docs/vocabulary.md, citing the owner's ratification in conversation on 2026-11-17. The row is outside P4-N031's criteria and the reviewer could not confirm the ratification. Keep the row? Default: keep it
+- D073 on Linked plans and specs archived (P4-N032): `mtool links check` still exits non-zero on 8 links inside methodology text that archived proposals carry verbatim (RU-015). The verification read P4-N032's criterion as met by the stated disposition rule. Should the upstream proposals batch (P4-N026) ask methodology-tools for a way to exempt quoted upstream text, so the tool can exit zero over this tree? Default: yes, add it to P4-N026
 
 ## Ready, starting automatically when the loop runs
 
@@ -23,13 +24,12 @@ Open decisions:
 
 ## In flight
 
-- Verification of Linked plans and specs archived (P4-N040) [specified] — T147
+None.
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
-- Linked plans and specs archived (P4-N032) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
@@ -78,8 +78,10 @@ Documents: [plan](plans/orchestrator-v1.md).
   Note: Chunk 4 of the parent plan
 - **Proposal: mtool checker extension point** (P1-N008, done 2026-08-26)
   A decision-ready proposal to methodology-tools for one generic capability: a checker that a project declares beside its custom type and that mtool audit form runs.
+  [plan](archive/plans/p1-n008-mtool-checker-extension-point.md), [spec](archive/specs/p1-n008-mtool-checker-extension-point.md)
 - **Plugin tooling on the portfolio stack** (P1-N009, done 2026-08-30)
   The plugin's tooling runs on the portfolio's declared stack, Node and TypeScript, and the Plan register grammar has one implementation that both repositories share.
+  [plan](archive/plans/p1-n009-plugin-tooling-portfolio-stack.md), [spec](archive/specs/p1-n009-plugin-tooling-portfolio-stack.md)
   - **Node toolchain and shared register grammar** (P1-N010, done 2026-08-30)
     The plugin's tooling runs on Node, and the Plan register grammar has one TypeScript implementation, proven by the journal_tail port.
   - **Conformance corpus and vendoring generator** (P1-N011, done 2026-08-30)
@@ -90,10 +92,13 @@ Documents: [plan](plans/orchestrator-v1.md).
     The Python scripts retired, sync_agents ported, and every invocation site moved to the TypeScript tools.
 - **Role contracts adopt the methodology's conduct rules** (P1-N014, done 2026-10-29)
   Every conduct duty that methodology v1.4.0 named is stated once, in the document that owns it, and reaches the roles through the artifacts they actually load.
+  [plan](archive/plans/p1-n014-role-contracts-adopt-v140-rules.md), [spec](archive/specs/p1-n014-role-contracts-adopt-conduct-rules.md)
 - **Methodology amendments for delegated multi-agent work** (P1-N015, done 2026-09-01)
   Four adjudicable amendment proposals to majodali/methodology, drafted in this repository and hand-carried upstream by the owner.
+  [plan](archive/plans/p1-n015-methodology-amendments-delegated-work.md), [spec](archive/specs/p1-n015-methodology-amendments-delegated-work.md)
 - **Process specification maintenance** (P1-N016, done 2026-11-05)
   Every Backlog row routed to this node is either landed in the process specification, or closed with a stated reason.
+  [plan](archive/plans/p1-n016-process-spec-maintenance.md)
   Note: plan gate crossed 2026-11-03, the plan's criteria are its specification (decision 2); does not wait on P3-N009 (decision 3); E1 (T103) accepted 2026-11-03, E2 (T104) accepted 2026-11-05 under the owner's rulings A26 to A28; verifying gate crossed 2026-11-08
 
 ### Project comprehension and continuous implementation (P3-N001)
@@ -110,10 +115,10 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
   Note: Chunk 1 of the parent plan
   - **Thin end-to-end slice of the model** (P3-N006, done 2026-10-30)
     Five real parts of this repository carried through the model, the navigation bound and both renderings, in one commit, so that P3-N007 can define the type against content that has already pushed back.
-    [spec](specs/p3-n002-comprehension-model.md)
+    [plan](archive/plans/p3-n006-thin-end-to-end-slice.md), [spec](specs/p3-n002-comprehension-model.md)
   - **Project model type and K-003 amendment draft** (P3-N007, done 2026-10-31)
     The Project model becomes a declared type of this repository, and the K-003 (the Backlog is the single source of progress truth) amendment exists as a reviewed proposal ready for the owner to carry.
-    after P3-N006 · [spec](specs/p3-n002-comprehension-model.md)
+    after P3-N006 · [plan](archive/plans/p3-n007-type-declared-amendment-drafted.md), [spec](specs/p3-n002-comprehension-model.md)
     Note: depends on P3-N006
   - **Project model instance for this repository** (P3-N008, planned, gated: owner review of the plan)
     The instance describes every current part of the project.
@@ -128,10 +133,10 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
   Note: Chunk 2 of the parent plan; independent of P3-N002 (RU-018)
   - **First risk class end to end** (P3-N010, done 2026-10-30)
     The catalogue exists with one entry.
-    [spec](specs/p3-n003-common-risk-catalogue.md)
+    [plan](archive/plans/p3-n010-one-class-end-to-end.md), [spec](specs/p3-n003-common-risk-catalogue.md)
   - **Catalogue sweep and omission list** (P3-N011, done 2026-10-31)
     Every candidate in the five sources that criterion B1 (one recorded pass per source) names is dispositioned on the record.
-    after P3-N010 · [spec](specs/p3-n003-common-risk-catalogue.md)
+    after P3-N010 · [plan](archive/plans/p3-n011-sweep-and-omission-list.md), [spec](specs/p3-n003-common-risk-catalogue.md)
     Note: depends on P3-N010
   - **Article 8 amendment proposal** (P3-N012, identified)
     after P3-N011
@@ -145,10 +150,10 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
   Note: Chunk 4 of the parent plan; independent of P3-N002 (RU-018)
   - **Decidable stop conditions** (P3-N013, done 2026-10-30)
     W-001's four stop conditions exist as committed predicates that two blind readings apply identically to this project's past task results.
-    [spec](specs/p3-n005-sequence-mode.md)
+    [plan](archive/plans/p3-n013-stop-conditions-decidable.md), [spec](specs/p3-n005-sequence-mode.md)
   - **Sequence mode in the dispatch loop** (P3-N014, done 2026-10-30)
     This project's dispatch loop can run methodology W-001 (two delivery modes, human-gated)'s pre-ratified sequence.
-    after P3-N013, P1-N014 · [spec](specs/p3-n005-sequence-mode.md)
+    after P3-N013, P1-N014 · [plan](archive/plans/p3-n014-loop-runs-sequence-mode.md), [spec](specs/p3-n005-sequence-mode.md)
     Note: depends on P3-N013 and on P1-N014's execute
   - **Sequence mode demonstration** (P3-N015, broken-down)
     The owner ratifies a sequence of four members once.
@@ -233,13 +238,10 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
     [plan](plans/rebuild.md) · 1 open decision
     Note: Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7.
-  - **Linked plans and specs archived** (P4-N032, verifying)
+  - **Linked plans and specs archived** (P4-N032, done 2026-11-17)
     The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.
-    after P4-N031, P4-N024 · [plan](plans/rebuild.md)
+    after P4-N031, P4-N024 · [plan](plans/rebuild.md) · 1 open decision
     Note: Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8.
-    - check: **Verification of Linked plans and specs archived** (P4-N040, specified)
-      P4-N032 is verified against its outcome.
-      [plan](plans/rebuild.md)
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)
@@ -279,6 +281,7 @@ Documents: [plan](plans/orchestration-service.md).
 
 - **Service skeleton and plan state** (P2-N002, done 2026-08-26)
   A deployed MCP service reads and validates the Plan register through a GitHub App, and a session updates plan state under an advisory lease.
+  [plan](archive/plans/p2-n002-service-skeleton.md), [spec](archive/specs/p2-n002-service-skeleton.md)
   Note: Chunk 1 of the parent plan
   - **Service repository bootstrap** (P2-N007, done 2026-08-27)
     The service repository exists with its Classification, its Node toolchain, its README and its Backlog.
@@ -292,6 +295,7 @@ Documents: [plan](plans/orchestration-service.md).
     A session works with the service unreachable, and the enlistment documentation says how a repository enlists.
 - **Deploy from CI on merge** (P2-N012, done 2026-09-01)
   A merge to main in the service repository deploys the service, proves it against a real endpoint, and only then promotes it, with a red workflow on failure.
+  [plan](archive/plans/p2-n012-deploy-from-ci-on-merge.md), [spec](archive/specs/p2-n012-deploy-from-ci-on-merge.md)
   - **Lambda alias assumptions check** (P2-N013, done 2026-09-01)
     The Lambda alias assumptions the deploy relies on are verified against AWS documentation and recorded.
   - **Pull request checks** (P2-N014, done 2026-09-01)
@@ -302,13 +306,15 @@ Documents: [plan](plans/orchestration-service.md).
     A merge to main deploys a version to the preprod alias, smoke-tests it, and promotes live only on a pass.
 - **Owner questions and the plan view** (P2-N003, done 2026-11-11)
   The owner sees this project's plan in a browser on any device, and later answers gate decisions there.
+  [plan](archive/plans/p2-n003-owner-questions-and-plan-view.md), [spec](archive/specs/p2-n003-owner-questions-and-plan-view.md)
   Note: Chunk 2 of the parent plan; split into the web view's first version and the owner question queue (owner, 2026-10-29)
   - **Web view v1** (P2-N021, done 2026-11-02)
     A signed-in owner sees the plan tree at one commit and drills to node and task pages, with the Project model's renderings beside them.
+    [spec](archive/specs/p2-n003-owner-questions-and-plan-view.md)
     Note: independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8)
   - **Web view UX refinement** (P2-N023, done 2026-11-07)
     At V30 the owner decided that the web view does not replace docs/plan.md yet.
-    after P2-N021
+    after P2-N021 · [plan](archive/plans/p2-n023-web-view-ux-refinement.md)
     Note: Iterations 1 to 3 accepted 2026-11-03; the owner ended the loop on 2026-11-07, and the rebuild's milestone 2 superseded the view (owner, 2026-11-10)
 - **Pilot on methodology-tools: sessions on the task loop** (P2-N006, identified)
   Sessions on methodology-tools take and close their work through the task loop, with the session start hook and the task-cost hook installed there.
