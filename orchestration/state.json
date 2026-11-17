@@ -1671,14 +1671,14 @@
       "kind": "work",
       "title": "Orchestrator session that keeps work moving",
       "outcome": "One restartable session starts a session for each offered task on its role's model, messages stalled ones, and returns to the owner only on the four stop conditions, so offered work proceeds without the owner starting or prompting sessions.",
-      "stage": "planned",
+      "stage": "specified",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestrator-session.md",
-        "spec": null
+        "spec": "docs/specs/orchestrator-session.md"
       },
       "done": null,
       "note": "The owner, 2026-11-16: work should always continue wherever possible. Of three ways (the service starts sessions, enlisted sessions take their next task, an orchestrator session that starts sessions and messages existing ones) the owner prefers the last, and it could be made configurable. Open for the plan step: where the model per role is recorded, how many sessions run at once, and what wakes the orchestrator session. From the P3 line, which stays held (the owner, 2026-11-17): reuse the four stop conditions of sequence mode, which P3-N013 made decidable (docs/specs/p3-n005-sequence-mode.md): a failed check, a scope change, a decision that is the owner's, and a close that carries asks. They are when the orchestrator session returns to the owner. The plan step also says what is left of P3-N005 and P3-N016 once this node exists. Input from the owner, 2026-11-17: a session that attaches a second repository after it starts loses the service tools that .mcp.json gives it, and they do not return (seen in the session that executed P4-N031). So the orchestrator session attaches no repository mid-session, and work in another repository goes to a session started for it; the plan step says how that session reaches the service. Next step: break down (the plan's four slices; docs/specs/orchestrator-session.md, S8)."
@@ -4496,7 +4496,7 @@
       "id": "T150",
       "node": "P2-N027",
       "step": "specify",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -4504,11 +4504,11 @@
         "out": null
       },
       "opened": "2026-11-17T22:05:07Z",
-      "closed": null,
+      "closed": "2026-11-17T22:10:08Z",
       "base": "b6188c76488ed87c4ce6e7139b80c6ce8628073f",
       "ref": null,
-      "pr": null,
-      "summary": "Judge whether the eighteen criteria of docs/plans/orchestrator-session.md are at the depth the work needs, and deliver a separate specification only where they are not. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "pr": "majodali/project-orchestrator#62",
+      "summary": "Specification in docs/specs/orchestrator-session.md: the script's inputs and action keys, a session snapshot with title marks as the only memory, check and nudge rules, report reasons, the watcher's wake rule, the cost hook vendored to the service repository. Twenty criteria; the plan's hook statement corrected. Node's note names break down as the next step.",
       "notes": null
     },
     {
@@ -5325,6 +5325,21 @@
       "chosen": "add a node, to start when the release is tagged",
       "decided": "2026-11-17",
       "rationale": "Asked by T149 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D080",
+      "node": "P2-N027",
+      "question": "Ratify the four terms the specification of P2-N027 introduces (snapshot, mark, pending start, acted file; docs/specs/orchestrator-session.md, Terms introduced)?",
+      "options": [
+        "ratify all four",
+        "strike or rename the ones the owner names"
+      ],
+      "default": "ratify all four",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T150 at close.",
       "standing": false,
       "source": null
     }
