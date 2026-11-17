@@ -1719,7 +1719,7 @@
       "kind": "work",
       "title": "Orchestrator role and its watcher",
       "outcome": "A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N027",
       "after": [
         "P2-N030"
@@ -1732,6 +1732,23 @@
       },
       "done": null,
       "note": "Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates."
+    },
+    {
+      "id": "P2-N035",
+      "kind": "check",
+      "title": "Verification of Orchestrator role and its watcher",
+      "outcome": "P2-N031 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N031",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/orchestrator-session.md",
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N032",
@@ -4803,7 +4820,7 @@
       "id": "T160",
       "node": "P2-N031",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -4811,11 +4828,11 @@
         "out": null
       },
       "opened": "2026-11-17T22:45:55Z",
-      "closed": null,
+      "closed": "2026-11-17T23:01:15Z",
       "base": "4bfb0b5453062a09e94b5f7a81c25e4c1df4b1af",
-      "ref": null,
-      "pr": null,
-      "summary": "Write the orchestrator role agent and its watcher against docs/plans/orchestrator-session.md, delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "ref": "6a860044bbf9e5f949b50fc11dc7419741104e0b",
+      "pr": "majodali/project-orchestrator#67",
+      "summary": "Criteria 7 and 9 to 12 met. orchestrator.md (120 lines), plan_watch.ts with 12 tests, 17 tests for S3 in decide, how-we-work.md at 200 lines; CI passes. lib/orchestrate.ts unchanged: D087 was still open, so its change is left out. Seven readings and the how-we-work.md lines touched are in the pull request. No session has followed the role yet.",
       "notes": null
     }
   ],
@@ -5731,6 +5748,21 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T159 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D088",
+      "node": "P2-N031",
+      "question": "A report of open decisions has the key `report:<node>:<condition>:<reason>` (specification S1), so a new decision on a node already reported changes no key and does not wake the watcher (T159's finding). Adding the decisions' identifiers to the keys of `decision` and `asks` reports changes S1 and two expected keys in test/orchestrate.test.ts, which the plan does not name. Pull request 67 leaves the keys as they are; its acted file covers the case where the first decision is answered before the next is asked. Change the keys?",
+      "options": [
+        "yes, in a new node after P2-N031, which also carries D087's change to lib/orchestrate.ts if the owner chooses it",
+        "no, keep the keys of S1"
+      ],
+      "default": "yes, in a new node after P2-N031, which also carries D087's change to lib/orchestrate.ts if the owner chooses it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T160 at close.",
       "standing": false,
       "source": null
     }

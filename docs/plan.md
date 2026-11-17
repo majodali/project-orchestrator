@@ -14,6 +14,7 @@ Open decisions:
 - D085 on View that updates itself and leads with what matters (P2-N028): May the view run one script of its own, served from the view's origin, and may the test that asserts no script (test/viewPages.test.ts in the service repository) be rewritten to assert no inline and no third-party script? The rule "No script" is in the archived specification of P2-N003. Default: yes, one first-party script, with the test rewritten
 - D086 on View that updates itself and leads with what matters (P2-N028): Should the view notify the owner outside its browser tab when something new waits on the owner? Default: no, the tab's title count only, and the orchestrator's report is the notice; decide again after the trial of criterion 19
 - D087 on Decision script and settings of the orchestrator (P2-N030): The decision script holds a verification back while another node has an open execute or planning task on the same plan document (specification S4, as written). S4's own reason, that a reviewer edits nothing, would let the verification start. Every P4 node links docs/plans/rebuild.md, so a verification there waits for any execute task on the line. Should a verify start be exempt from the shared-document rule? Default: exempt a verify start; P2-N031's task changes lib/orchestrate.ts and its test
+- D088 on Orchestrator role and its watcher (P2-N031): A report of open decisions has the key `report:<node>:<condition>:<reason>` (specification S1), so a new decision on a node already reported changes no key and does not wake the watcher (T159's finding). Adding the decisions' identifiers to the keys of `decision` and `asks` reports changes S1 and two expected keys in test/orchestrate.test.ts, which the plan does not name. Pull request 67 leaves the keys as they are; its acted file covers the case where the first decision is answered before the next is asked. Change the keys? Default: yes, in a new node after P2-N031, which also carries D087's change to lib/orchestrate.ts if the owner chooses it
 
 Gated nodes:
 
@@ -28,7 +29,7 @@ Gated nodes:
 
 ## In flight
 
-- Orchestrator role and its watcher (P2-N031) [executing] — T160
+None.
 
 ## In progress, children carry the work
 
@@ -36,6 +37,7 @@ Gated nodes:
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
+- Orchestrator role and its watcher (P2-N031) [verifying]
 
 ## Waiting on a dependency
 
@@ -345,9 +347,9 @@ Documents: [plan](plans/orchestration-service.md).
     A script prints the sessions to start and the reports to give as JSON, from the state file, the journal, the settings, the agent files and a session snapshot, and one session per role was started from its output.
     [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 1 open decision
     Note: Slice 1 of the plan (Children). Criteria 1 to 6, 8, 19 and 20 of the specification.
-  - **Orchestrator role and its watcher** (P2-N031, executing)
+  - **Orchestrator role and its watcher** (P2-N031, verifying)
     A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.
-    after P2-N030 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    after P2-N030 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 1 open decision
     Note: Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates.
   - **Service repository enlisted for delegated sessions** (P2-N032, specified)
     A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
