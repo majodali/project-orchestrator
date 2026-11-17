@@ -16,12 +16,12 @@ Open decisions:
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - One branch for each pull request (P4-N038) [executing]
-- View that updates itself and leads with what matters (P2-N028) [identified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
 - Decision script and settings of the orchestrator (P2-N030) [executing] — T157
+- View that updates itself and leads with what matters (P2-N028) [identified] — T158
 
 ## In progress, children carry the work
 

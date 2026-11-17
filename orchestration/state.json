@@ -4734,6 +4734,25 @@
       "pr": null,
       "summary": "Build orchestrate_next.ts, lib/orchestrate.ts and orchestration/orchestrator.json with tests, meeting criteria 1 to 6, 8, 19 and 20 of the orchestrator-session specification. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
       "notes": null
+    },
+    {
+      "id": "T158",
+      "node": "P2-N028",
+      "step": "plan",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T22:26:28Z",
+      "closed": null,
+      "base": "7ba626c988e0ae33342a928e8dfb39ba123d3846",
+      "ref": null,
+      "pr": null,
+      "summary": "Plan the view that updates itself and leads with what the owner must act on: a new plan document under docs/plans/ with outcome and criteria, delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "notes": null
     }
   ],
   "decisions": [
