@@ -77,7 +77,6 @@ Documents: [plan](plans/orchestrator-v1.md).
   Note: Chunk 4 of the parent plan
 - **Proposal: mtool checker extension point** (P1-N008, done 2026-08-26)
   A decision-ready proposal to methodology-tools for one generic capability: a checker that a project declares beside its custom type and that mtool audit form runs.
-  [plan](plans/p1-n008-mtool-checker-extension-point.md), [spec](specs/p1-n008-mtool-checker-extension-point.md)
 - **Plugin tooling on the portfolio stack** (P1-N009, done 2026-08-30)
   The plugin's tooling runs on the portfolio's declared stack, Node and TypeScript, and the Plan register grammar has one implementation that both repositories share.
   [plan](plans/p1-n009-plugin-tooling-portfolio-stack.md), [spec](specs/p1-n009-plugin-tooling-portfolio-stack.md)

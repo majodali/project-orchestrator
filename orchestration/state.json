@@ -98,8 +98,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p1-n008-mtool-checker-extension-point.md",
-        "spec": "docs/specs/p1-n008-mtool-checker-extension-point.md"
+        "plan": null,
+        "spec": null
       },
       "done": "2026-08-26",
       "note": null
@@ -4286,7 +4286,14 @@
       "ref": null,
       "pr": null,
       "summary": "Archive the linked plans and specs of finished work under docs/archive/ using docsOnMerge, state by rule which P3 documents stay, re-point links, and make mtool links check pass. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
-      "notes": null
+      "notes": null,
+      "docsOnMerge": [
+        {
+          "node": "P1-N008",
+          "plan": "docs/archive/plans/p1-n008-mtool-checker-extension-point.md",
+          "spec": "docs/archive/specs/p1-n008-mtool-checker-extension-point.md"
+        }
+      ]
     }
   ],
   "decisions": [

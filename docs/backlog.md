@@ -16,7 +16,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Process specification v1** (P1-N003) — When: not recorded. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Role contracts v1** (P1-N004) — When: not recorded. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Plugin v1 and self-hosted trial** (P1-N005) — When: 2026-08-26. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Proposal: mtool checker extension point** (P1-N008) — When: 2026-08-26. Status: done. Pointer: [plan](plans/p1-n008-mtool-checker-extension-point.md), [spec](specs/p1-n008-mtool-checker-extension-point.md).
+- [x] **Proposal: mtool checker extension point** (P1-N008) — When: 2026-08-26. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Plugin tooling on the portfolio stack** (P1-N009) — When: 2026-08-30. Status: done. Pointer: [plan](plans/p1-n009-plugin-tooling-portfolio-stack.md), [spec](specs/p1-n009-plugin-tooling-portfolio-stack.md).
 - [x] **Node toolchain and shared register grammar** (P1-N010) — When: 2026-08-30. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Conformance corpus and vendoring generator** (P1-N011) — When: 2026-08-30. Status: done. Pointer: `orchestration/state.json`.
