@@ -4505,14 +4505,14 @@
         "cacheRead": 1801194,
         "cacheWrite": 95362
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T22:05:07Z",
       "closed": "2026-11-17T22:10:08Z",
       "base": "b6188c76488ed87c4ce6e7139b80c6ce8628073f",
       "ref": null,
       "pr": "majodali/project-orchestrator#62",
       "summary": "Specification in docs/specs/orchestrator-session.md: the script's inputs and action keys, a session snapshot with title marks as the only memory, check and nudge rules, report reasons, the watcher's wake rule, the cost hook vendored to the service repository. Twenty criteria; the plan's hook statement corrected. Node's note names break down as the next step.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T151",
@@ -4534,6 +4534,25 @@
       "ref": null,
       "pr": null,
       "summary": "Not met. Criterion 2: Backlog at b1c8b9f has 79 rows in 95 lines, not 95 rows (proposal two L214, IR C31, E9; proposal one IR E10). Criterion 4: proposal one IR C38 says \"or artifact\"; prose says \"or custom artifact types\". Criterion 6: K-012 makes the declaration name the check; this Classification does not. Also: methodology PR 73 merged 2026-10-31.",
+      "notes": null
+    },
+    {
+      "id": "T152",
+      "node": "P4-N026",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T22:10:54Z",
+      "closed": null,
+      "base": "8c626cca717ab9d9a560bd09afb8d637c329e605",
+      "ref": null,
+      "pr": null,
+      "summary": "Rework after T151: correct the Backlog row count, align proposal one's IR C38 with its prose, settle the K-012 check-naming duty against this Classification, correct the merge date of methodology pull request 73, and re-check every cited figure and quote.",
       "notes": null
     }
   ],

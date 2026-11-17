@@ -14,7 +14,6 @@ Open decisions:
 
 ## Ready, starting automatically when the loop runs
 
-- Upstream proposals batch (P4-N026) [verifying]
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - One branch for each pull request (P4-N038) [specified]
 - Orchestrator session that keeps work moving (P2-N027) [specified]
@@ -23,7 +22,7 @@ Open decisions:
 
 ## In flight
 
-None.
+- Upstream proposals batch (P4-N026) [verifying] — T152
 
 ## In progress, children carry the work
 
