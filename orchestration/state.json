@@ -5261,8 +5261,8 @@
         "no node yet"
       ],
       "default": "add a node, to start when the release is tagged",
-      "chosen": null,
-      "decided": null,
+      "chosen": "add a node, to start when the release is tagged",
+      "decided": "2026-11-17",
       "rationale": "Asked by T149 at close.",
       "standing": false,
       "source": null
