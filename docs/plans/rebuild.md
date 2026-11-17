@@ -109,27 +109,27 @@ is a rendering of the state file. Depends on: 3.
       three tool calls and the owner confirmed (D070).
 
 **5. Upstream proposals batch** (P4-N026)
-Outcome: three proposals, each with evidence from this rebuild, are
-ready for the owner to carry to majodali/methodology in one batch.
-Depends on: nothing.
+Outcome: three proposals, each with evidence from this rebuild, are ready for
+the owner to carry to majodali/methodology in one batch. Depends on: nothing.
+Executed 2026-11-17 (T149); what was done: [record](../archive/plans/rebuild-record.md).
 
-- [ ] Proposal one: release of the K-003 amendment, from
+- [x] Proposal one: release of the K-003 amendment, from
       `docs/archive/proposals/planning-execution-model-is-progress-truth.md`,
       re-verified against the current upstream text (RU-015).
-- [ ] Proposal two: registers as data files with renderings, with the
+- [x] Proposal two: registers as data files with renderings, with the
       state file, `plan-state` and the M1 import as evidence.
-- [ ] Proposal three: bounded specification depth, with the criteria
+- [x] Proposal three: bounded specification depth, with the criteria
       list of at most 20 items and the 300-line bound as evidence.
-- [ ] Each proposal carries the final normative text, the upstream
+- [x] Each proposal carries the final normative text, the upstream
       text quoted verbatim and a provenance line naming version,
       commit and date (RU-015), and its IR first (RU-022).
-- [ ] One cover note lists the three and the order to carry them.
-- [ ] No proposal asks for anything this rebuild did not need.
-- [ ] The loop has no gate at `verifying`. Before closing its task,
-      the implementer sets a gated hold on the node with
-      `node_update`, reason "the owner reviews the proposals
-      (RU-005)"; the owner accepts in the view.
-- [ ] Nothing is edited in majodali/methodology.
+- [x] One cover note lists the three and the order to carry them.
+- [x] No proposal asks for anything this rebuild did not need.
+- [x] The batch carries a request to methodology-tools to exempt verbatim quotes from `mtool links check` (D073).
+- [x] The loop has no gate at `verifying`. Before closing its task, the
+      implementer sets a gated hold on the node with `node_update`, reason
+      "the owner reviews the proposals (RU-005)"; the owner accepts in the view.
+- [x] Nothing is edited in majodali/methodology.
 
 **6. Pilot enlistment of methodology-tools** (P4-N027)
 Outcome: methodology-tools is enlisted in the service and its state

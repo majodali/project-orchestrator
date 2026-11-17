@@ -571,6 +571,92 @@ Two are not hand-written: `docs/plan.md` (rendered by the service) and
 data). `docs/process/task-loop.md` is at 300 and
 `docs/plans/rebuild.md` is within the bound.
 
+### M6. Re-plan, prune and hand back: child 5
+
+**5. Upstream proposals batch** (P4-N026). Its criteria are in
+`docs/plans/rebuild.md`. Executed 2026-11-17 (task T149). The batch is
+in `docs/proposals/`, with a cover note, `README.md`. What each tick
+rests on:
+
+- **Proposal one.** `k-003-amendment-release.md` with its IR. The
+  re-verification found that the K-003 amendment was merged upstream on
+  2026-10-31 (methodology pull request 73) and that the Release
+  register records it accepted on 2026-11-02. It stands on
+  `main`, unreleased. So the proposal asks for the release, v1.7.0,
+  and records the six places where the accepted text differs from the
+  proposal of 2026-10-30. It asks for no change to a rule.
+- **Proposal two.** `registers-as-data-files.md` with its IR: one new
+  rule, suggested identifier K-012, one sentence in the vocabulary row
+  Register, and the words "or custom artifact types" in the row
+  planning/execution model. Evidence: the state file, `plan-state
+  check` with its invariants, the import of 2026-11-09 and its record.
+- **Proposal three.** `bounded-specification-depth.md` with its IR:
+  one new rule, suggested identifier K-013, and one vocabulary row,
+  criteria list. Evidence: the nine criteria lists of milestone 6 (4
+  to 15 criteria), their verifications, and the 300-line bound with
+  the ten documents that exceed it.
+- **Form.** Each proposal quotes the upstream text in fenced blocks,
+  filled by a script from a read-only clone, never typed. One
+  provenance line covers the prose and the IR: majodali/methodology
+  `main` at 4c7b1dd (committed 2026-11-02), read 2026-11-17; v1.6.0 is
+  3e34829. Each IR was written first and has Status `draft`.
+- **Nothing beyond the rebuild's needs.** Proposal one asks for the
+  release only. Proposal two's rule states the duties the rebuild
+  already meets. Proposal three exempts registers, because the
+  rebuild's evidence about registers is proposal two's. Each of two
+  and three says that the rebuild changed several things at once and
+  does not isolate one effect.
+- **The request to methodology-tools** (D073).
+  `mtool-links-quoted-text.md`: four criteria for a mark that exempts
+  quoted text, and the alternative that a fenced block is already
+  skipped. It carries no IR: RU-022 covers the methodology corpus.
+- **The hold.** Set with `node_update` under T149 before the close.
+- **Nothing edited upstream.** Both clones were read-only and had no
+  local change at the end.
+
+**The checks**, at methodology-tools 296ba46 and the corpus at
+4c7b1dd:
+
+- `mtool links check`: 8 findings, the same 8 as on `main`. The new
+  files add none, because their quotes are in fenced blocks, which the
+  check skips.
+- `mtool ir check` over the three IRs: 0 violations, 0 warnings, 1
+  unratified term (criteria list).
+- `mtool style` over the five prose files: 0 violations. Warnings:
+  49, 36 and 34 on the three proposals, 22 on the cover note and 12
+  on the request, after the rework. Most are P-008 link hints on common words; the
+  proposal of 2026-10-30 has 26.
+- No stranger rounds ran. The impact assessments of two and three
+  read methodology, methodology-tools and this repository only.
+- The word count under `docs/`, outside `docs/archive/`, by child 3's
+  method: 89,361 after the rework, up from 76,660 at the branch's base.
+  The batch adds about 12,700 words. Each new file is within 300 lines; the longest
+  is 297. `docs/plans/rebuild.md` stays at 300.
+
+**The rework** (task T152, 2026-11-17), after the verification of
+task T151 failed. Each fix was made in the IR first, then in the
+prose:
+
+- The rendered Backlog at b1c8b9f holds 79 rows in 95 lines, not 95
+  rows: one row per node that is not a check node (95 nodes, 16 check
+  nodes). Corrected in proposal two and its IR, and in proposal one
+  and its IR.
+- Proposal one's IR now names the words proposal two asks for as its
+  prose does: "or custom artifact types".
+- The rule of proposal two no longer makes the declaration name the
+  check. This project's Classification names the schema and not the
+  check, so that duty was more than the rebuild needed. The duty that
+  a check fails on a stale rendering stays.
+- Methodology pull request 73 was merged on 2026-10-31 (commit
+  be5f993). The Release register records the acceptance on
+  2026-11-02. Proposal one now states both.
+- Two more errors the re-check found. A verify task does not always
+  carry a pull request, so proposal one says "with a summary". The
+  fifth difference of K-003 from the proposal of 2026-10-30 now names
+  the five linked terms and the link that left the statement.
+- Every other figure and quote was checked again against the commit
+  it names. Inline quotes that leave out link markup now say so.
+
 ## GitHub interaction changes
 
 | Today | After |
