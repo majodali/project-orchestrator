@@ -5755,8 +5755,8 @@
         "yes, a browser notification the owner switches on"
       ],
       "default": "no, the tab's title count only, and the orchestrator's report is the notice; decide again after the trial of criterion 19",
-      "chosen": null,
-      "decided": null,
+      "chosen": "no, the tab's title count only, and the orchestrator's report is the notice; decide again after the trial of criterion 19",
+      "decided": "2026-11-17",
       "rationale": "Asked by T158 at close.",
       "standing": false,
       "source": null
