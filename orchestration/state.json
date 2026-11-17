@@ -4903,10 +4903,12 @@
       "step": "execute",
       "status": "closed",
       "role": "implementer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 15,
+        "out": 5873,
+        "cacheRead": 1245285,
+        "cacheWrite": 109726
       },
       "opened": "2026-11-17T23:35:07Z",
       "closed": "2026-11-17T23:37:18Z",
@@ -4914,7 +4916,8 @@
       "ref": "e863c53cc9d99424eeffc70abe7612c13a6d5ff3",
       "pr": "majodali/project-orchestrator#63",
       "summary": "All four criteria met. Criterion 4 ticked on D084. Main merged into the branch, both sides kept; how-we-work.md stays at 200 lines. The orchestrator agent is not edited: it opens no pull request and starts sessions on the default branch already. Checks pass: 215 tests, 0 violations.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T163",
