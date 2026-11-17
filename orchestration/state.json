@@ -972,7 +972,7 @@
       "kind": "work",
       "title": "Document paths changed through the service",
       "outcome": "A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N008",
       "after": [],
       "hold": null,
@@ -983,6 +983,23 @@
       },
       "done": null,
       "note": "Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7."
+    },
+    {
+      "id": "P4-N039",
+      "kind": "check",
+      "title": "Verification of Document paths changed through the service",
+      "outcome": "P4-N031 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N031",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P4-N032",
@@ -4215,7 +4232,7 @@
       "id": "T144",
       "node": "P4-N031",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -4223,11 +4240,11 @@
         "out": null
       },
       "opened": "2026-11-17T17:55:08Z",
-      "closed": null,
+      "closed": "2026-11-17T20:47:41Z",
       "base": "d9bbb8c4ec17e54bbab2a7da6a0ed6e9cff68f1f",
-      "ref": null,
-      "pr": null,
-      "summary": "Add a way for a task to change a node's plan and specification paths through the service, with an order that lets a pull request move a linked document while plan-state check stays green on main and on the pull request, tested end to end, deployed, pinned and documented.",
+      "ref": "673da6083d775d5f8a916cd0388812e21c7d4f1b",
+      "pr": "majodali/project-orchestrator#58",
+      "summary": "node_update changes a node's plan and specification paths. docsOnMerge moves a linked document: the path is cleared, the pull request moves the file, the service sets the new path when the node is done. Service pull request 43 merged and deployed; this repository pins it. Documents and agents say how.",
       "notes": null
     }
   ],
