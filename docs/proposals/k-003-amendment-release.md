@@ -1,6 +1,6 @@
 # Release of the K-003 amendment
 
-Status: draft (written on 2026-11-17 under task T149 of node P4-N026, Upstream proposals batch; not yet approved for carrying; no stranger rounds run)
+Status: draft (written on 2026-11-17 under task T149 of node P4-N026, Upstream proposals batch; reworked the same day under task T152; not yet approved for carrying; no stranger rounds run)
 
 <!-- K-007 contract: Status transitions draft → approved for carrying
      (the project-orchestrator owner, at the hold on node P4-N026) →
@@ -38,8 +38,10 @@ upstream `main` before carrying it. The quotes may have moved.
 The
 [owner](https://github.com/majodali/methodology/blob/4c7b1dd35ff984ad75e2f5b381190d48ed1d2c57/docs/vocabulary.md#def-human-owner)
 accepted the amendment of K-003 (the Backlog is the single source of
-progress truth) on 2026-11-02 by merging methodology pull request 73.
-The amended K-003 stands on `main` at commit `4c7b1dd`. The amendment's
+progress truth). Methodology pull request 73, which carries it, was
+merged into `main` on 2026-10-31. The Release register records that
+the owner accepted the amendment as it stands on 2026-11-02. The
+amended K-003 stands on `main` at commit `4c7b1dd`. The amendment's
 entry stands in the Unreleased section of the [Release
 register](https://github.com/majodali/methodology/blob/4c7b1dd35ff984ad75e2f5b381190d48ed1d2c57/docs/releases.md).
 
@@ -96,7 +98,9 @@ places:
 3. The Cites line names the C-tier, Article 7 and the
    planning/execution model row.
 4. A Protects line is added.
-5. Five terms in the statement are linked to the vocabulary.
+5. The statement links five terms to the vocabulary: Register,
+   Workflow, stage designations, referent and renderings. It no longer
+   links planning/execution model, which the Cites line links.
 6. The referent clause gains the marker "except as the next sentence
    provides".
 
@@ -118,7 +122,7 @@ The [state file](../vocabulary.md#def-state-file),
 tasks and 56 decisions at commit `b1c8b9f`. Since 2026-11-16 the
 project's [Backlog](../backlog.md) is a
 [rendering](https://github.com/majodali/methodology/blob/4c7b1dd35ff984ad75e2f5b381190d48ed1d2c57/docs/vocabulary.md#def-rendering)
-of the state file, one row per node. The check `plan-state check`
+of the state file, one row per node that is not a check node. The check `plan-state check`
 fails when a rendered file differs from the rendering.
 
 
@@ -126,8 +130,7 @@ Two facts differ from the proposal of 2026-10-30. The Project model,
 whose slice that proposal cited as the evidencing instance, was
 retired from the project's custom definitions on 2026-11-14. The
 state file records each verification as a task on a [check
-node](../vocabulary.md#def-check-node), with a summary and a pull
-request. Its schema has no separate field for verification evidence.
+node](../vocabulary.md#def-check-node), with a summary. Its schema has no separate field for verification evidence.
 
 
 ## The change asked
@@ -193,7 +196,7 @@ rationale.
 
 One mismatch stands in the way of a clean declaration. The vocabulary
 row for planning/execution model says the declaring entry "names the
-custom document types that make up the model". project-orchestrator
+custom document types that make up the model" (link markup left out). project-orchestrator
 declares the state file as a custom artifact type, not as a custom
 document type. Proposal two of the batch, [registers as data files
 with renderings](registers-as-data-files.md), asks for the words "or
@@ -212,4 +215,4 @@ it at the hold on node P4-N026 under RU-005 (proposal-class nodes are
 owner-gated at verifying). At that hold the owner approves the
 proposal for carrying, amends it or returns it.
 
-<!-- render map: C1→¶7 C2→¶7 C3→¶7 C4→¶8 C5→¶8 C6→¶8 C7→¶10 C8→¶10 C9→¶13 C10→¶13 C11→¶13 C12→¶13 C13→¶14 C14→¶14 C15→¶15 C16→¶15 C17→¶15 C18→¶16 C19→¶16 C20→¶16 C21→¶17 C22→¶17 C23→¶17 C24→¶18 C25→¶18 C26→¶18 C27→¶18 C28→¶18 C29→¶23 C30→¶23 C31→¶23 C32→¶24 C33→¶24 C34→¶24 C35→¶24 C36→¶25 C37→¶25 C38→¶25 C39→¶25 C40→¶25 -->
+<!-- render map: C1→¶7 C2→¶7 C3→¶7 C4→¶8 C5→¶8 C6→¶8 C7→¶10 C8→¶10 C9→¶13 C10→¶13 C11→¶13 C12→¶13 C13→¶14 C14→¶14 C15→¶15 C16→¶15 C17→¶15 C18→¶16 C19→¶16 C20→¶16 C21→¶17 C22→¶17 C23→¶17 C24→¶18 C25→¶18 C26→¶18 C27→¶18 C28→¶18 C29→¶23 C30→¶23 C31→¶23 C32→¶24 C33→¶24 C34→¶24 C35→¶24 C36→¶25 C37→¶25 C38→¶25 C39→¶25 C40→¶25 C41→¶7 -->

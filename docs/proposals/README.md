@@ -42,8 +42,9 @@ quoted verbatim, a provenance line naming version, commit and date
 What changed since the plan named them:
 
 - Proposal one is no longer a proposal to amend K-003 (the Backlog is
-  the single source of progress truth). The owner accepted that
-  amendment upstream on 2026-11-02. It stands on `main`, unreleased.
+  the single source of progress truth). That amendment was merged
+  upstream on 2026-10-31 and the Release register records it accepted
+  on 2026-11-02. It stands on `main`, unreleased.
   Proposal one now asks for the release, and records how the accepted
   text differs from the proposal of 2026-10-30.
 - Proposal two also carries a short fix to the vocabulary row for

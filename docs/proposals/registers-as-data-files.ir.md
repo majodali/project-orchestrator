@@ -2,7 +2,7 @@
 
 Reader: RD-4
 Purpose: document. The proposal to add one rule and two vocabulary edits, so that a project may keep a Register as a checked data file with the Register's Document as a rendering of the data file.
-Status: draft (written on 2026-11-17 under task T149 of node P4-N026; no stranger rounds run; 47 claims; unratified terms 0)
+Status: draft (written on 2026-11-17 under task T149 of node P4-N026; reworked on 2026-11-17 under task T152; no stranger rounds run; 47 claims; unratified terms 0)
 Source: criterion two of node P4-N026 (Upstream proposals batch) in docs/plans/rebuild.md; the review of 2026-11-09, docs/archive/reviews/2026-11-09-review-of-the-approach.md; milestone 1 of the rebuild plan; majodali/methodology at main, commit 4c7b1dd.
 Normative: yes
 Footprint: docs/proposals/registers-as-data-files.md
@@ -55,7 +55,7 @@ C9. The proposal suggests the identifier K-012 for the rule, and the maintainers
 
 C10. The rule lets a project keep a Register as a data file, a non-document artifact of a custom type declared in the Custom definitions section of the Classification. [proposed: this IR]
 
-C11. Under the rule, the declaration names the schema that defines the type and the check that validates an instance. [proposed: this IR]
+C11. Under the rule, the declaration names the schema that defines the type. [proposed: this IR]
 
 C12. Under the rule, the Document of a Register kept as a data file is a rendering of the data file. [proposed: this IR]
 
@@ -97,7 +97,7 @@ C29. Invariant 9 of `plan-state check` fails when a rendered Document differs fr
 
 C30. A CI step of project-orchestrator fails a pull request that changes a file the service owns. evidence: E10. [decided: project-orchestrator .github/workflows/checks.yml at commit b1c8b9f]
 
-C31. The rendered Backlog holds 95 rows in 95 lines, one row per node, each with the four fields P-006 names. evidence: E9. [decided: project-orchestrator docs/backlog.md at commit b1c8b9f]
+C31. The rendered Backlog holds 79 rows in 95 lines, one row per node that is not a check node, each with the four fields P-006 names. evidence: E9. [decided: project-orchestrator docs/backlog.md at commit b1c8b9f]
 
 C32. The import of 2026-11-09 wrote the first state file from the Plan register, the Cost log, the Ruling register, the journal and the decision sections of five plans. evidence: E3. [decided: project-orchestrator import record, 2026-11-09]
 
@@ -131,7 +131,7 @@ C43. The impact assessment did not read the registers of any project except meth
 
 C44. The migration note says a project that keeps every Register by hand changes nothing. [proposed: this IR]
 
-C47. The migration note says a project that keeps a Register as a data file declares the type, adds the header line and adds the check. [proposed: this IR]
+C47. The migration note says a project that keeps a Register as a data file declares the type with its schema, adds the header line and adds the check. [proposed: this IR]
 
 ## Relations
 
@@ -159,11 +159,11 @@ E5. majodali/methodology docs/rules/prose.md at main, commit 4c7b1dd, P-006: "A 
 
 E6. majodali/project-orchestrator orchestration/state.json at commit b1c8b9f, counted on 2026-11-17: 95 nodes, 139 tasks, 56 decisions.
 
-E7. majodali/project-orchestrator docs/classification.md at commit b1c8b9f, Custom definitions: "State file (artifact) — cites the schema `src/model/schema.ts` of majodali/project-orchestrator-service, schema version 0, which is the type's definition".
+E7. majodali/project-orchestrator docs/classification.md at commit b1c8b9f, Custom definitions: with its link markup left out, "State file (artifact) — cites the schema `src/model/schema.ts` of majodali/project-orchestrator-service, schema version 0, which is the type's definition". The entry does not name the check.
 
 E8. majodali/project-orchestrator docs/process/state-model.md at commit b1c8b9f: "`plan-state check` enforces the invariants below on every write and in CI"; invariants 1 to 11; invariant 9, "The rendered Markdown files equal `render`'s output."
 
-E9. majodali/project-orchestrator docs/backlog.md at commit b1c8b9f: the header "Generated from `orchestration/state.json` by `plan-state render`. Do not edit by hand"; "Each row has four fields, in this order: what, when, status, pointer"; 95 lines, 95 rows. docs/plan-register.md and docs/plan.md carry the same generated-file header.
+E9. majodali/project-orchestrator docs/backlog.md at commit b1c8b9f: the header "Generated from `orchestration/state.json` by `plan-state render`. Do not edit by hand"; "Each row has four fields, in this order: what, when, status, pointer"; 95 lines, 79 rows. The state file at that commit holds 95 nodes, 16 of them check nodes. docs/plan-register.md and docs/plan.md carry the same generated-file header.
 
 E10. majodali/project-orchestrator .github/workflows/checks.yml at commit b1c8b9f: the steps "Service-owned files untouched" and "State check".
 

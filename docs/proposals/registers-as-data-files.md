@@ -1,6 +1,6 @@
 # A register kept as data is rendered, never hand-edited
 
-Status: draft (written on 2026-11-17 under task T149 of node P4-N026, Upstream proposals batch; not yet approved for carrying; no stranger rounds run)
+Status: draft (written on 2026-11-17 under task T149 of node P4-N026, Upstream proposals batch; reworked the same day under task T152; not yet approved for carrying; no stranger rounds run)
 
 <!-- K-007 contract: Status transitions draft → approved for carrying
      (the project-orchestrator owner, at the hold on node P4-N026) →
@@ -74,8 +74,7 @@ of a custom type declared in the Custom definitions section of the
 [Classification](https://github.com/majodali/methodology/blob/4c7b1dd35ff984ad75e2f5b381190d48ed1d2c57/docs/vocabulary.md#def-classification).
 The rule then states five duties:
 
-1. The declaration names the schema that defines the type and the
-   check that validates an instance.
+1. The declaration names the schema that defines the type.
 2. The Register's Document is a
    [rendering](https://github.com/majodali/methodology/blob/4c7b1dd35ff984ad75e2f5b381190d48ed1d2c57/docs/vocabulary.md#def-rendering)
    of the data file.
@@ -107,9 +106,9 @@ Protects: [provenance](../vocabulary.md#def-provenance) — each row of the regi
 [non-document artifact](../vocabulary.md#def-non-document-artifacts)
 of a custom type declared in the Custom definitions section of its
 [Classification](../vocabulary.md#def-classification). The
-declaration MUST name the schema that defines the type and the check
-that validates an instance. Where a project keeps a Register as a
-data file, the Register's Document MUST be a
+declaration MUST name the schema that defines the type. Where a
+project keeps a Register as a data file, the Register's Document MUST
+be a
 [rendering](../vocabulary.md#def-rendering) of the data file. The
 Document MUST name the data file and the rendering procedure in its
 header. The Document MUST NOT be edited by hand. An automated check
@@ -211,8 +210,8 @@ the [Backlog](../backlog.md). Each names the state file and the
 command `plan-state render` in its header. Invariant 9 of `plan-state
 check` fails when a rendered Document differs from the rendering. A
 CI step fails a pull request that changes a file the service owns.
-The rendered Backlog holds 95 rows in 95 lines, one row per node,
-each with the four fields P-006 names.
+The rendered Backlog holds 79 rows in 95 lines, one row per node that
+is not a check node, each with the four fields P-006 names.
 
 The import of 2026-11-09 wrote the first state file. It read the Plan
 register, the Cost log, the Ruling register, the journal and the
@@ -279,9 +278,9 @@ except methodology, methodology-tools and project-orchestrator.
     "or custom artifact types".
 - **Migration note**: a project that keeps every Register by hand
   changes nothing. A project that keeps a Register as a data file
-  declares the type in its Classification with its schema and its
-  check, adds the header line to the rendered Document, and adds the
-  check that fails when the Document differs from the rendering.
+  declares the type in its Classification with its schema, adds the
+  header line to the rendered Document, and adds the check that fails
+  when the Document differs from the rendering.
 ```
 
 ## The ask

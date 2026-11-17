@@ -2,7 +2,7 @@
 
 Reader: RD-4
 Purpose: document. The request that the methodology's owner cut the release that carries the accepted K-003 amendment, so that project-orchestrator can pin the release and end its recorded deviation.
-Status: draft (written on 2026-11-17 under task T149 of node P4-N026; no stranger rounds run; 40 claims; unratified terms 0)
+Status: draft (written on 2026-11-17 under task T149 of node P4-N026; reworked on 2026-11-17 under task T152; no stranger rounds run; 41 claims; unratified terms 0)
 Source: criterion one of node P4-N026 (Upstream proposals batch) in docs/plans/rebuild.md; the proposal of 2026-10-30, docs/archive/proposals/planning-execution-model-is-progress-truth.md; majodali/methodology at main, commit 4c7b1dd.
 Footprint: docs/proposals/k-003-amendment-release.md
 
@@ -28,7 +28,9 @@ T7. Owner: the one human who owns the methodology and its portfolio projects and
 
 ### The state upstream
 
-C1. The owner accepted the K-003 amendment on 2026-11-02 by merging methodology pull request 73. evidence: E1. [decided: methodology Release register, main at 4c7b1dd]
+C1. Methodology pull request 73, which carries the K-003 amendment, was merged into main on 2026-10-31. evidence: E11. [decided: methodology main, commit be5f993]
+
+C41. The Release register records that the owner accepted the amendment as it stands on 2026-11-02. evidence: E1. [decided: methodology Release register, main at 4c7b1dd]
 
 C2. The amended K-003 (the Backlog is the single source of progress truth) stands on the methodology's main branch at commit 4c7b1dd. evidence: E2. [decided: methodology main, commit 4c7b1dd]
 
@@ -62,13 +64,13 @@ C14. The recorded deviation ends when the amendment is released and pinned in pr
 
 C15. The state file holds the plan of project-orchestrator: 95 nodes, 139 tasks and 56 decisions at commit b1c8b9f. evidence: E9. [decided: project-orchestrator orchestration/state.json at commit b1c8b9f]
 
-C16. Since 2026-11-16 the Backlog of project-orchestrator is a rendering of the state file, one row per node. evidence: E10. [decided: project-orchestrator node P4-N025, 2026-11-16]
+C16. Since 2026-11-16 the Backlog of project-orchestrator is a rendering of the state file, one row per node that is not a check node. evidence: E10. [decided: project-orchestrator node P4-N025, 2026-11-16]
 
 C17. The check `plan-state check` fails when a rendered file differs from the rendering. evidence: E10. [decided: project-orchestrator docs/process/state-model.md, invariant 9]
 
 C18. The Project model, whose slice the proposal of 2026-10-30 cited as the evidencing instance, was retired from the custom definitions of project-orchestrator on 2026-11-14. evidence: E8. [decided: project-orchestrator node P4-N024, 2026-11-14]
 
-C19. The state file records each verification as a task on a check node, with a summary and a pull request. evidence: E9. [decided: project-orchestrator docs/process/state-model.md]
+C19. The state file records each verification as a task on a check node, with a summary. evidence: E9. [decided: project-orchestrator docs/process/state-model.md]
 
 C20. The schema of the state file has no separate field for verification evidence. evidence: E9. [decided: project-orchestrator docs/process/state-model.md]
 
@@ -110,7 +112,7 @@ C36. The vocabulary row for planning/execution model says the declaring entry na
 
 C37. project-orchestrator declares the state file as a custom artifact type, not as a custom document type. evidence: E8. [decided: project-orchestrator Classification, 2026-11-09]
 
-C38. Proposal two of the batch, registers as data files with renderings, asks for the words "or artifact" in the vocabulary row for planning/execution model. [proposed: this IR]
+C38. Proposal two of the batch, registers as data files with renderings, asks for the words "or custom artifact types" in the vocabulary row for planning/execution model. [proposed: this IR]
 
 C39. If the release ships without proposal two, the migration pull request still declares the state file. [proposed: this IR]
 
@@ -140,15 +142,17 @@ E4. majodali/methodology docs/release-process.md at main, commit 4c7b1dd: sectio
 
 E5. majodali/project-orchestrator docs/archive/proposals/planning-execution-model-is-progress-truth.md at commit b1c8b9f, with the IR and the review record beside it: the replacement text of K-003 and its claim C9, the appended sentence.
 
-E6. The comparison of E2 with the replacement text of E5, made on 2026-11-17. The six differences: the Applies line gains the gloss "(criticality tier C1 and above)"; the Motivated-by line cites the proposal, its gate and the slice record in other words; the Cites line names the C-tier, Article 7 and the planning/execution model row; a Protects line is added; five terms in the statement are linked to the vocabulary; the referent clause gains the marker "except as the next sentence provides".
+E6. The comparison of E2 with the replacement text of E5, made on 2026-11-17. The six differences: the Applies line gains the gloss "(criticality tier C1 and above)"; the Motivated-by line cites the proposal, its gate and the slice record in other words; the Cites line names the C-tier, Article 7 and the planning/execution model row; a Protects line is added; the statement links five terms to the vocabulary (Register, Workflow, stage designations, referent and renderings) and no longer links planning/execution model, which the Cites line links; the referent clause gains the marker "except as the next sentence provides".
 
-E7. majodali/methodology docs/vocabulary.md at main, commit 4c7b1dd: the rows with the anchors def-planning-execution-model, def-list-of-what-is-next, def-rendering and def-referent. The first reads in part: "The entry is a definition by citation under Article 7 and names the custom document types that make up the model."
+E7. majodali/methodology docs/vocabulary.md at main, commit 4c7b1dd: the rows with the anchors def-planning-execution-model, def-list-of-what-is-next, def-rendering and def-referent. The first reads in part, with its link markup left out: "The entry is a definition by citation under Article 7 and names the custom document types that make up the model."
 
 E8. majodali/project-orchestrator docs/classification.md at commit b1c8b9f: the Deviation register's one entry, K-003, "Ends when the amendment is released and pinned here"; the Custom definitions entry "State file (artifact)"; the entry "Project model" under "Retired 2026-11-14".
 
 E9. majodali/project-orchestrator orchestration/state.json at commit b1c8b9f, counted on 2026-11-17: 95 nodes, 139 tasks, 56 decisions. docs/process/state-model.md at that commit: the data model, and the field rule "Resources, verification evidence and multi-project state are later schema versions".
 
-E10. majodali/project-orchestrator docs/backlog.md at commit b1c8b9f: "Generated from `orchestration/state.json` by `plan-state render`", 95 rows. docs/process/state-model.md, invariant 9: "The rendered Markdown files equal `render`'s output." docs/plans/rebuild.md, child 4 (P4-N025), done 2026-11-16.
+E10. majodali/project-orchestrator docs/backlog.md at commit b1c8b9f: "Generated from `orchestration/state.json` by `plan-state render`", 79 rows in 95 lines. The state file at that commit holds 95 nodes, 16 of them check nodes. docs/process/state-model.md, invariant 9: "The rendered Markdown files equal `render`'s output." docs/plans/rebuild.md, child 4 (P4-N025), done 2026-11-16.
+
+E11. `git log --merges` on majodali/methodology main, read on 2026-11-17: commit be5f993, "Merge pull request #73 from majodali/k-003-planning-execution-model", committed 2026-10-31T17:16:03-07:00.
 
 ## Asks
 
