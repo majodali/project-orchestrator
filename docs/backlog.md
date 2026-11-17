@@ -63,7 +63,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Pull request checks** (P2-N014) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Alias-aware lease table selection** (P2-N015) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Deploy, smoke test and promote pipeline** (P2-N016) — When: 2026-09-07. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Owner questions and the plan view** (P2-N003) — When: 2026-11-11. Status: done. Pointer: [plan](plans/p2-n003-owner-questions-and-plan-view.md), [spec](specs/p2-n003-owner-questions-and-plan-view.md).
+- [x] **Owner questions and the plan view** (P2-N003) — When: 2026-11-11. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Web view v1** (P2-N021) — When: 2026-11-02. Status: done. Pointer: [spec](specs/p2-n003-owner-questions-and-plan-view.md).
 - [x] **Web view UX refinement** (P2-N023) — When: 2026-11-07. Status: done. Pointer: [plan](plans/p2-n023-web-view-ux-refinement.md).
 

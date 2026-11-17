@@ -298,7 +298,6 @@ Documents: [plan](plans/orchestration-service.md).
     A merge to main deploys a version to the preprod alias, smoke-tests it, and promotes live only on a pass.
 - **Owner questions and the plan view** (P2-N003, done 2026-11-11)
   The owner sees this project's plan in a browser on any device, and later answers gate decisions there.
-  [plan](plans/p2-n003-owner-questions-and-plan-view.md), [spec](specs/p2-n003-owner-questions-and-plan-view.md)
   Note: Chunk 2 of the parent plan; split into the web view's first version and the owner question queue (owner, 2026-10-29)
   - **Web view v1** (P2-N021, done 2026-11-02)
     A signed-in owner sees the plan tree at one commit and drills to node and task pages, with the Project model's renderings beside them.

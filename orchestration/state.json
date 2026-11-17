@@ -1493,8 +1493,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p2-n003-owner-questions-and-plan-view.md",
-        "spec": "docs/specs/p2-n003-owner-questions-and-plan-view.md"
+        "plan": null,
+        "spec": null
       },
       "done": "2026-11-11",
       "note": "Chunk 2 of the parent plan; split into the web view's first version and the owner question queue (owner, 2026-10-29)"
@@ -4321,6 +4321,11 @@
           "node": "P2-N012",
           "plan": "docs/archive/plans/p2-n012-deploy-from-ci-on-merge.md",
           "spec": "docs/archive/specs/p2-n012-deploy-from-ci-on-merge.md"
+        },
+        {
+          "node": "P2-N003",
+          "plan": "docs/archive/plans/p2-n003-owner-questions-and-plan-view.md",
+          "spec": "docs/archive/specs/p2-n003-owner-questions-and-plan-view.md"
         }
       ]
     }
