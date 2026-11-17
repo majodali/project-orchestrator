@@ -4741,8 +4741,10 @@
       "role": "implementer",
       "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 52,
+        "out": 66914,
+        "cacheRead": 5358852,
+        "cacheWrite": 182019
       },
       "opened": "2026-11-17T22:25:36Z",
       "closed": "2026-11-17T22:38:49Z",
@@ -4750,7 +4752,8 @@
       "ref": "d10e38d28b4c3d7af923e1164a5e0d5cf99a5b60",
       "pr": "majodali/project-orchestrator#66",
       "summary": "Criteria 1 to 6, 8, 19 and 20 met. orchestrate_next.ts, lib/orchestrate.ts and orchestration/orchestrator.json with 76 tests; CI passes. Trial: create_session accepts claude-opus-5 and claude-sonnet-5, each role ran on its model, list_sessions returned all three titles. No agent file changed. Six readings of the specification are listed in the pull request for the reviewer.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T158",
