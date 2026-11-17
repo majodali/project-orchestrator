@@ -12,6 +12,10 @@ Open decisions:
 
 - D090 on Orchestrator fixes before its trial (P2-N036): Criterion 1 of P2-N036 (D088) makes the asks key `report:P1-N002:4:asks:D001`. One existing test in test/plan-watch.test.ts, "does not exit on a commit that adds no key, or only removes one", writes the old key `report:P1-N002:4:asks` to its acted file as setup and now fails. D088 clears only two expected keys in test/orchestrate.test.ts. May that test's constant ASKS_KEY follow the new key, with nothing else in it changed? Default: yes, change the constant ASKS_KEY to the new key in pull request 69
 
+Gated nodes:
+
+- Backlog reader in the state importer (P4-N044): start needs the owner's approval
+
 ## Ready, starting automatically when the loop runs
 
 - Orchestrator fixes before its trial (P2-N036) [executing]
@@ -19,7 +23,7 @@ Open decisions:
 
 ## In flight
 
-- Pilot enlistment of methodology-tools (P4-N027) [specified] — T168
+- Pilot enlistment of methodology-tools (P4-N027) [broken-down] — T168
 - Service repository enlisted for delegated sessions (P2-N032) [executing] — T167
 
 ## In progress, children carry the work
@@ -237,10 +241,13 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.
     [plan](plans/rebuild.md)
     Note: Added by the owner's answer to D073 (on P4-N032), 2026-11-17: the batch also carries a request to methodology-tools for a way to exempt methodology text that a document quotes verbatim (RU-015) from mtool links check, so the tool can exit zero over this tree. Evidence: the 8 findings P4-N032 dispositioned. Add it as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
-  - **Pilot enlistment of methodology-tools** (P4-N027, specified)
+  - **Pilot enlistment of methodology-tools** (P4-N027, broken-down)
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
     after P4-N022, P4-N024 · [plan](plans/rebuild.md)
     Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
+    - **Backlog reader in the state importer** (P4-N044, specified)
+      `plan-state import` builds a state file from a project's K-004 Backlog when that project has no Plan register, and its import record names every row it did not map and why.
+      Note: Child 1 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 1 (the parent's plan document; this node links none of its own). Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, and to this repository for the pin. The importer requires docs/plan-register.md today and methodology-tools has none, which is why this child precedes the import.
   - **Document paths changed through the service** (P4-N031, done 2026-11-17)
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
     [plan](plans/rebuild.md)

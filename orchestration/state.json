@@ -969,7 +969,7 @@
       "kind": "work",
       "title": "Pilot enlistment of methodology-tools",
       "outcome": "methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.",
-      "stage": "specified",
+      "stage": "broken-down",
       "parent": "P4-N008",
       "after": [
         "P4-N022",
@@ -983,6 +983,23 @@
       },
       "done": null,
       "note": "The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026)."
+    },
+    {
+      "id": "P4-N044",
+      "kind": "work",
+      "title": "Backlog reader in the state importer",
+      "outcome": "`plan-state import` builds a state file from a project's K-004 Backlog when that project has no Plan register, and its import record names every row it did not map and why.",
+      "stage": "specified",
+      "parent": "P4-N027",
+      "after": [],
+      "hold": null,
+      "start": "approve",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Child 1 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 1 (the parent's plan document; this node links none of its own). Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, and to this repository for the pin. The importer requires docs/plan-register.md today and methodology-tools has none, which is why this child precedes the import."
     },
     {
       "id": "P4-N031",
@@ -5114,14 +5131,14 @@
         "cacheRead": 2667172,
         "cacheWrite": 72783
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T23:39:06Z",
       "closed": "2026-11-17T23:43:18Z",
       "base": "a352dd61473e884f3f453ed968817e5304a07d95",
       "ref": "e863c53cc9d99424eeffc70abe7612c13a6d5ff3",
       "pr": null,
       "summary": "All four criteria met. Both remotes hold only main and open pull requests' branches. Branch t153-p4-n038-one-branch is its own, mergeable, CI green; npm test, check, lint, format and sync_agents --check pass. Finding: the archive record's two new sections sit inside Milestones, so M6 child 5 nests under them.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T167",
