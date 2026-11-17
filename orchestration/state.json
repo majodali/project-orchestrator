@@ -1864,6 +1864,25 @@
       "note": "Slice A of docs/plans/view-that-leads-and-updates.md: section 3, criteria 1 to 4 and 6. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. Links no plan document because it edits none here."
     },
     {
+      "id": "P2-N038",
+      "kind": "work",
+      "title": "Four lists ahead of the tree",
+      "outcome": "The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.",
+      "stage": "specified",
+      "parent": "P2-N028",
+      "after": [
+        "P2-N032"
+      ],
+      "hold": null,
+      "start": "approve",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Slice B of docs/plans/view-that-leads-and-updates.md: sections 1 and 2, criteria 7 to 11. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside P2-N037; both edit src/view/html.ts and test/viewPages.test.ts, in different places. Links no plan document because it edits none here."
+    },
+    {
       "id": "P2-N029",
       "kind": "work",
       "title": "Rework cost measured against the reviews it replaces",
