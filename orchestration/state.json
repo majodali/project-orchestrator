@@ -4253,10 +4253,12 @@
       "step": "verify",
       "status": "closed",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 14,
+        "out": 5457,
+        "cacheRead": 675794,
+        "cacheWrite": 53210
       },
       "opened": "2026-11-17T20:48:36Z",
       "closed": "2026-11-17T20:50:59Z",
@@ -4264,7 +4266,8 @@
       "ref": null,
       "pr": null,
       "summary": "All five criteria of P4-N031 met. Service at 6f2b9f7: 249 tests pass, test/documentPaths.test.ts moves a linked document through the stated order; deployed commit matches. Pull request 58: check green, plan-state check, tests, lint, format, sync_agents pass; link check reports the same 21 findings as main. One low finding: a vocabulary row outside the node.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
