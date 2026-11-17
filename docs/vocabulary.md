@@ -29,9 +29,9 @@ Defined in [the task loop](process/task-loop.md) and
 | <a id="def-state-file"></a>state file | `orchestration/state.json`: the nodes, tasks and decisions of one project, written only by the orchestration service. | [the state model](process/state-model.md) |
 | <a id="def-task"></a>task | One step on one node by one session, opened with `task_open` and closed with `task_close`. | [the task loop](process/task-loop.md) |
 | <a id="def-check-node"></a>check node | The child the service adds when a node's work is done, on which the reviewer's `verify` step runs. | [the task loop](process/task-loop.md#the-check-node) |
-| <a id="def-hold"></a>hold | A mark on a node, `gated` or `blocked`, with a reason, that keeps it and everything below it from offering a step until the owner lifts it. | [the state model](process/state-model.md) |
+| <a id="def-hold"></a>hold | A mark on a node, `gated` or `blocked`, with a reason, that keeps it and everything below it from offering a step until it is lifted: by the owner in the view, or, on the check node of a failed verification, by the rework's close. | [the state model](process/state-model.md) |
 | <a id="def-standing-decision"></a>standing decision | A closed decision marked as a precedent, which every task receives at `task_open`. | [the state model](process/state-model.md) |
-| <a id="def-view"></a>view | The web page the service serves, where the owner reads the plan and answers decisions. | [how we work](process/how-we-work.md#the-owners-decisions) |
+| <a id="def-view"></a>view | The web page the service serves, where the owner reads the plan, answers decisions, approves starts, lifts holds and accepts reviews. | [how we work](process/how-we-work.md#the-owners-decisions) |
 
 ## Ratified 2026-10-29
 
@@ -59,7 +59,7 @@ Defined in [the task loop](process/task-loop.md) and
 | Term | Meaning | Ratified in |
 |---|---|---|
 | <a id="def-rendering"></a>rendering | A text produced from a source by a stated procedure, which adds no claim the source lacks and drops none the procedure says it carries. | [plan of P3-N007](plans/p3-n007-type-declared-amendment-drafted.md#gate-record-2026-10-30-at-verifying), verifying gate of 2026-10-30; defined in [project-model.md](archive/process/project-model.md#def-rendering) |
-| <a id="def-view-token"></a>view token | The read-only credential the owner mints for the web view, held apart from the MCP bearer token and refused by the MCP endpoint. | [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#def-view-token), gate of 2026-10-30 |
+| <a id="def-view-token"></a>view token | The credential the owner mints for the web view, held apart from the MCP bearer token and refused by the MCP endpoint. It was read-only as ratified; since 2026-11-10 the view also writes the owner's own actions (answer a decision, approve a start, lift a hold, accept a review), so it is a write credential for those. | [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#def-view-token), gate of 2026-10-30 |
 | <a id="def-view-cookie"></a>view cookie | The signed cookie the sign-in route issues in exchange for the view token, which every other `/view` route requires. | [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#def-view-cookie), gate of 2026-10-30 |
 | <a id="def-not-computable"></a>not computable | The web view's marking for a rendering, or an item of one, that the type's procedure cannot finish from the files at the page's commit, naming the file, the line and the missing input. | [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#def-not-computable), gate of 2026-10-30 |
 

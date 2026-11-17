@@ -2,14 +2,16 @@ import { describe, expect, it } from "vitest";
 
 import {
   findClaim,
+  findWindowStart,
   measureTask,
   parseTranscript,
 } from "../plugin/scripts/lib/task-cost.ts";
 
 /**
  * The cost hook's measurement (the rebuild plan, "Cost capture"): the
- * tokens between a task's claim and the end of the transcript, each
- * model message counted once.
+ * tokens from the close of the session's previous task, or from the
+ * session's start, to the end of the transcript, each model message
+ * counted once.
  */
 
 function assistant(
@@ -59,9 +61,22 @@ function claim(toolUseId: string, taskId: string, at: string) {
   ];
 }
 
+/** A `task_close` call for `taskId`, as the model makes it. */
+function close(taskId: string, at: string) {
+  return assistant("m-close-" + taskId + at, usage(2, 1), { timestamp: at }, [
+    {
+      type: "tool_use",
+      id: "tu-close-" + taskId + at,
+      name: "mcp__project-orchestrator__task_close",
+      input: { taskId, status: "closed", summary: "Done." },
+    },
+  ]);
+}
+
 describe("measureTask", () => {
-  it("sums the usage from the task's claim on, counting a message once however many lines carry it", () => {
+  it("sums the usage from the session's start when no task closed before, counting a message once however many lines carry it", () => {
     const lines = [
+      // What the session read before it claimed is the task's cost too.
       assistant("m-before", usage(1000, 1000, 1000, 1000)),
       ...claim("tu1", "T200", "2026-11-11T11:00:00.000Z"),
       // One message over three lines: its last line has the final count.
@@ -78,17 +93,65 @@ describe("measureTask", () => {
       }),
     ];
     expect(measureTask(lines, "T200")).toEqual({
-      tokensIn: 160,
-      tokensOut: 65,
-      cacheRead: 11000,
-      cacheWrite: 200,
+      tokensIn: 1160,
+      tokensOut: 1065,
+      cacheRead: 12000,
+      cacheWrite: 1200,
       model: "recorded-model",
-      messages: 3,
+      messages: 4,
     });
   });
 
-  it("adds subagent transcripts from the claim's time on", () => {
-    const main = claim("tu1", "T200", "2026-11-11T11:00:00.000Z");
+  it("starts at the close of the session's previous task, and ignores a close of the task itself", () => {
+    const lines = [
+      ...claim("tu0", "T199", "2026-11-11T09:00:00.000Z"),
+      assistant("m-earlier", usage(900, 900, 900, 900)),
+      close("T199", "2026-11-11T09:30:00.000Z"),
+      // Reading before the claim: this task's.
+      assistant("m-reading", usage(20, 10, 300, 0)),
+      ...claim("tu1", "T200", "2026-11-11T11:00:00.000Z"),
+      assistant("m-work", usage(100, 40, 5000, 200)),
+      // A close the service refused, then the one that held.
+      close("T200", "2026-11-11T11:10:00.000Z"),
+      assistant("m-wait", usage(5, 5)),
+      close("T200", "2026-11-11T11:12:00.000Z"),
+    ];
+    expect(findWindowStart(lines, "T200")).toEqual({
+      index: 4,
+      timestamp: "2026-11-11T09:30:00.000Z",
+    });
+    expect(measureTask(lines, "T200")).toMatchObject({
+      tokensIn: 20 + 10 + 100 + 2 + 5 + 2,
+      tokensOut: 10 + 5 + 40 + 1 + 5 + 1,
+      cacheRead: 5300,
+      messages: 6,
+    });
+  });
+
+  it("counts a session's tokens once when one task is opened inside another", () => {
+    const lines = [
+      ...claim("tu1", "T200", "2026-11-11T11:00:00.000Z"),
+      assistant("m-outer-1", usage(100, 100)),
+      ...claim("tu2", "T201", "2026-11-11T11:05:00.000Z"),
+      assistant("m-inner", usage(7, 7)),
+      close("T201", "2026-11-11T11:06:00.000Z"),
+      assistant("m-outer-2", usage(30, 30)),
+      close("T200", "2026-11-11T11:10:00.000Z"),
+    ];
+    // The inner task takes what came before its close.
+    const inner = measureTask(lines.slice(0, 7), "T201")!;
+    const outer = measureTask(lines, "T200")!;
+    expect(inner.tokensIn).toBe(10 + 100 + 10 + 7 + 2);
+    expect(outer.tokensIn).toBe(30 + 2);
+    const all = [10, 100, 10, 7, 2, 30, 2].reduce((a, b) => a + b, 0);
+    expect(inner.tokensIn + outer.tokensIn).toBe(all);
+  });
+
+  it("adds subagent transcripts from the previous close's time on", () => {
+    const main = [
+      close("T199", "2026-11-11T10:59:30.000Z"),
+      ...claim("tu1", "T200", "2026-11-11T11:00:00.000Z"),
+    ];
     const subagent = [
       assistant("s-early", usage(999, 999), {
         timestamp: "2026-11-11T10:59:00.000Z",
@@ -119,9 +182,10 @@ describe("measureTask", () => {
       index: 3,
       timestamp: "2026-11-11T12:00:00.000Z",
     });
+    // No task closed before, so both claims' tokens are the task's.
     expect(measureTask(twice, "T200")).toMatchObject({
-      tokensIn: 11,
-      tokensOut: 6,
+      tokensIn: 521,
+      tokensOut: 511,
     });
   });
 

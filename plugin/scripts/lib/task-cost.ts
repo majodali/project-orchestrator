@@ -1,12 +1,22 @@
 /**
  * Measures what a task cost from a Claude Code session transcript (the
  * rebuild plan, "Cost capture"; owner, 2026-11-11): the tokens by type
- * and the model, between the `task_open` call that claimed the task
- * and the end of the transcript. The transcript's format is internal
- * to Claude Code and undocumented, so everything here is tolerant: a
- * line that does not parse or lacks a field is skipped, and a
- * transcript in which the task's claim cannot be found measures
- * nothing rather than guessing.
+ * and the model, from the close of the session's previous task, or
+ * from the start of the session when there is none, to the end of the
+ * transcript.
+ *
+ * Not from the task's claim (owner, 2026-11-16). A session reads the
+ * plan, the node's documents and the pull request before it claims,
+ * and a verification's claim came seconds before its close: counting
+ * from the claim left that work in no task's cost. Counting from the
+ * previous close puts every token of a session in exactly one task. A
+ * task opened inside another (a trial on a scratch node) takes what
+ * came before its close, and the outer task the rest.
+ *
+ * The transcript's format is internal to Claude Code and undocumented,
+ * so everything here is tolerant: a line that does not parse or lacks
+ * a field is skipped, and a transcript in which the task's claim
+ * cannot be found measures nothing rather than guessing.
  *
  * What the format is, as read from real transcripts on 2026-11-11: one
  * JSON object per line; an assistant entry carries `message.id`,
@@ -110,6 +120,40 @@ export function findClaim(
   return found;
 }
 
+/**
+ * Where the task's cost starts: just after the last `task_close` call
+ * for another task, or the start of the transcript. A close of this
+ * same task is not a boundary: the hook runs after it, and a close
+ * the service refused (checks still running) is called again.
+ */
+export function findWindowStart(
+  entries: Entry[],
+  taskId: string,
+): { index: number; timestamp: string | null } {
+  let start: { index: number; timestamp: string | null } = {
+    index: 0,
+    timestamp: null,
+  };
+  entries.forEach((entry, index) => {
+    for (const block of blocks(entry)) {
+      if (
+        block.type === "tool_use" &&
+        typeof block.name === "string" &&
+        /(^|__)task_close$/.test(block.name)
+      ) {
+        const closed = (block.input as Entry | undefined)?.taskId;
+        if (closed === taskId) continue;
+        const ts = entry.timestamp;
+        start = {
+          index: index + 1,
+          timestamp: typeof ts === "string" ? ts : null,
+        };
+      }
+    }
+  });
+  return start;
+}
+
 function count(value: unknown): number {
   return typeof value === "number" && Number.isFinite(value) && value > 0
     ? Math.floor(value)
@@ -143,27 +187,28 @@ function addUsage(
 }
 
 /**
- * The cost of a task: the main transcript from the task's claim on,
- * and the subagent transcripts' entries from that time on. Null when
- * the claim is not in the transcript: the task was opened by another
- * session, and this one cannot say what it cost.
+ * The cost of a task: the main transcript from the close of the
+ * previous task on, or from its start, and the subagent transcripts'
+ * entries from that time on. Null when the task's claim is not in the
+ * transcript: the task was opened by another session, and this one
+ * cannot say what it cost.
  */
 export function measureTask(
   main: Entry[],
   taskId: string,
   subagents: Entry[][] = [],
 ): TaskCost | null {
-  const claim = findClaim(main, taskId);
-  if (claim === null) return null;
+  if (findClaim(main, taskId) === null) return null;
+  const start = findWindowStart(main, taskId);
   const seen = new Map<string, { usage: Entry; model: string | null }>();
-  addUsage(main.slice(claim.index), seen);
+  addUsage(main.slice(start.index), seen);
   for (const entries of subagents) {
     addUsage(
       entries.filter(
         (e) =>
-          claim.timestamp === null ||
+          start.timestamp === null ||
           typeof e.timestamp !== "string" ||
-          e.timestamp >= claim.timestamp,
+          e.timestamp >= start.timestamp,
       ),
       seen,
     );

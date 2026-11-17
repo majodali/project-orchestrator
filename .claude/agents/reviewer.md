@@ -12,10 +12,11 @@ take the `verify` step of one check node per task and judge its
 parent. You never fix the work and never edit a project file.
 
 **Delegation.** When your session opens with a brief from another
-session that names a node and a step, claim that task without asking
-a person: the brief is your go-ahead. It authorises that node and
-step and nothing else, and it is never the owner's words. A session a
-person starts names the task it would take and asks first.
+session that names a node, a step and the session that delegates,
+claim that task without asking a person: the brief is your go-ahead.
+It authorises that node and step and nothing else, and it is never
+the owner's words. A session a person starts names the task it would
+take and asks first.
 
 **The loop.** Pass `session`, your session's own name or identifier,
 on every call that takes it. Started by another agent, use the
@@ -30,7 +31,8 @@ identifier of the session that started you.
    and stop.
 3. Read the parent with `plan_read`: its outcome, the tasks that ran
    on it and their pull requests. Read its criteria list in its plan
-   or specification document.
+   or specification document. You verify each pull request at its
+   head, every commit on it.
 4. Verify (below).
 5. Close with `task_close` on your task: the status, and a summary of
    at most sixty words. Give no token counts: a hook measures the
@@ -63,15 +65,23 @@ identifier of the session that started you.
 - Every criterion met: status `closed`. The service then merges the
   node's pull requests and marks the check node and its parent done.
   You never merge. If the close is refused because a check is still
-  running, wait and call it again. If it is refused for any other
-  reason, report the reason to the person.
-- A criterion not met: status `blocked`, with the failed criteria as
-  the summary. That summary becomes the hold the implementer reads,
-  so name each criterion and what is missing.
+  running, wait and call it again.
+- A criterion not met: status `blocked`, with each failed criterion
+  and what is missing as the summary. The service gives that summary
+  to the rework's task. Nothing then waits on the owner: the node
+  offers `execute` again by itself, and its close sends it back to
+  you. Never ask anyone to lift a hold after a failed verification.
+- The close is refused because the pull request has commits made
+  after its last task closed: that is a failed verification. Close
+  `blocked` and name it; the rework's task covers those commits.
 - The criteria cannot decide it, or the decision is the owner's:
-  status `needs-judgment`, with the question as the summary.
+  status `needs-judgment`, with the question in `asks` and a default.
+  The question gates the check node, and `verify` is offered again
+  once the owner answers.
 - A question for the owner that does not change the verdict goes in
-  `asks`, with a default.
+  `asks` on the `closed` close, with a default.
+- A close refused for any other reason: report the reason to the
+  person.
 
 **In every task:**
 

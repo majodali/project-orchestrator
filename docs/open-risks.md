@@ -209,7 +209,15 @@ links a class in the archived
   both the token and the cookie, so the cookie reaches no write tool
   ([specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md),
   *Sign-in*, decision 13). Rotation stores the token under a new dated
-  secret name, so CloudFormation resolves the new value. *Status*:
+  secret name, so CloudFormation resolves the new value. *Amended
+  2026-11-17*: the heading and the mitigation predate the view's
+  actions. Since 2026-11-10 the cookie also writes: it answers a
+  decision, approves a start, lifts a hold and accepts a review, and
+  accepting a review merges the node's pull requests. It still reaches
+  no MCP tool. A cross-site post is refused (`Sec-Fetch-Site` and the
+  request's origin), and every action is one commit by the service,
+  named in the journal as the owner's, in the view. A lost device
+  therefore carries those four actions as well as the read. *Status*:
   open; recorded 2026-10-30, proposed at P2-N003's specification
   (T093) and by P2-N021's task E1 (T094), which built the cookie in
   majodali/project-orchestrator-service commit `bf8f1b5`.
