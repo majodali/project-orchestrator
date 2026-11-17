@@ -209,9 +209,11 @@ on: nothing.
       the pull request moves the file, the done decision sets it.
 - [x] A test moves a linked document through that order end to end:
       `test/documentPaths.test.ts` in the service repository.
-- [ ] The change is its own pull request in
+- [x] The change is its own pull request in
       majodali/project-orchestrator-service (standing, RU-016) and is
-      deployed before this repository pins it. Pull request 43.
+      deployed before this repository pins it. Pull request 43,
+      merged at 6f2b9f7; deploy run 33 succeeded 2026-11-17, and the
+      pin follows it.
 - [x] `docs/process/task-loop.md` and the agents say how a document
       path is changed.
 
