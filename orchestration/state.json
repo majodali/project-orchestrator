@@ -4851,14 +4851,14 @@
         "cacheRead": 2268258,
         "cacheWrite": 86897
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T23:02:57Z",
       "closed": "2026-11-17T23:09:18Z",
       "base": "e84c7a14418193c5f7d6558f7c5ffd6b85acf855",
       "ref": null,
       "pr": "majodali/project-orchestrator#67",
       "summary": "Criteria 7 and 9 to 12 met at 6a86004. npm test (215), check, lint, format, sync_agents --check and CI pass. Watcher run by hand: waits, exits on an added key only. Seven readings supported. Findings: role never sets the background limit, so the watcher is stopped at 30 minutes without output; three smaller guesses. Pull request 63 conflicts in how-we-work.md.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
@@ -5785,8 +5785,8 @@
         "no, keep the keys of S1"
       ],
       "default": "yes, in a new node after P2-N031, which also carries D087's change to lib/orchestrate.ts if the owner chooses it",
-      "chosen": null,
-      "decided": null,
+      "chosen": "yes, in a new node after P2-N031, which also carries D087's change to lib/orchestrate.ts if the owner chooses it",
+      "decided": "2026-11-17",
       "rationale": "Asked by T160 at close.",
       "standing": false,
       "source": null
