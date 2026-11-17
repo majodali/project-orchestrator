@@ -96,4 +96,5 @@ Dependencies are in the state file, not in sibling order.
     - P2-N039 [specified] Session, duration and criteria on pages
     - P2-N040 [specified] Feedback in place and the node panel
     - P2-N041 [specified] View trial with its measured delay
+    - P2-N042 [specified] Session field adopted in this repository
   - P2-N029 [identified] Rework cost measured against the reviews it replaces

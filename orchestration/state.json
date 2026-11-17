@@ -1942,6 +1942,25 @@
       "note": "Slice E of docs/plans/view-that-leads-and-updates.md: criteria 19 and 20, each met by its record (RU-019). Needs the four slices before it merged and deployed. Writes docs/runbook.md in majodali/project-orchestrator-service (RU-016); the owner merges there by hand. D086 is decided again from this record. Links no plan document because it edits none here."
     },
     {
+      "id": "P2-N042",
+      "kind": "work",
+      "title": "Session field adopted in this repository",
+      "outcome": "This repository's pinned service version knows the task's session field, and docs/process/state-model.md describes it, so plan-state check accepts a state file that carries it.",
+      "stage": "specified",
+      "parent": "P2-N028",
+      "after": [
+        "P2-N039"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Child F of docs/plans/view-that-leads-and-updates.md, Where the work happens. Writes here only: package.json and its lock file for the pin, and one line in docs/process/state-model.md. Criteria: npm run check and npm test pass on the new pin; state-model.md names the field and says who writes it. Needs P2-N039 merged in the service repository."
+    },
+    {
       "id": "P2-N029",
       "kind": "work",
       "title": "Rework cost measured against the reviews it replaces",

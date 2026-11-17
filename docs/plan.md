@@ -40,6 +40,7 @@ Nothing.
 - Session, duration and criteria on pages (P2-N039) [specified] — after Four lists ahead of the tree (P2-N038)
 - Feedback in place and the node panel (P2-N040) [specified] — after Tree page that updates itself (P2-N037), Four lists ahead of the tree (P2-N038)
 - View trial with its measured delay (P2-N041) [specified] — after Session, duration and criteria on pages (P2-N039), Feedback in place and the node panel (P2-N040)
+- Session field adopted in this repository (P2-N042) [specified] — after Session, duration and criteria on pages (P2-N039)
 
 ## Blocked
 
@@ -382,6 +383,10 @@ Documents: [plan](plans/orchestration-service.md).
     A record in the service's runbook gives, for five plan changes on the deployed view, the time from commit to shown, and the number of GitHub reads one open tab causes in an hour.
     after P2-N039, P2-N040
     Note: Slice E of docs/plans/view-that-leads-and-updates.md: criteria 19 and 20, each met by its record (RU-019). Needs the four slices before it merged and deployed. Writes docs/runbook.md in majodali/project-orchestrator-service (RU-016); the owner merges there by hand. D086 is decided again from this record. Links no plan document because it edits none here.
+  - **Session field adopted in this repository** (P2-N042, specified)
+    This repository's pinned service version knows the task's session field, and docs/process/state-model.md describes it, so plan-state check accepts a state file that carries it.
+    after P2-N039
+    Note: Child F of docs/plans/view-that-leads-and-updates.md, Where the work happens. Writes here only: package.json and its lock file for the pin, and one line in docs/process/state-model.md. Criteria: npm run check and npm test pass on the new pin; state-model.md names the field and says who writes it. Needs P2-N039 merged in the service repository.
 - **Rework cost measured against the reviews it replaces** (P2-N029, identified)
   The cost of each rework is set against the verifications and owner reviews it replaced, from the tasks' measured costs, so the owner sees whether longer runs of work without review pay.
   Note: The owner, 2026-11-17: pull reversibility forward from the P3 line. P3-N004 "Reversibility and its measurement" stays under the hold on P3-N001 until that line is re-planned; this node takes its measurement half onto the task loop. The data it needs now exists: a rework is its own task (an execute task on a node whose verification failed), and each task has a measured cost. Source for the argument: docs/plans/comprehension-and-continuous-implementation.md, Chunk 3. The plan step says what remains of P3-N004 once this node exists, and whether making work cheap to undo needs work of its own.
