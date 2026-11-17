@@ -26,11 +26,11 @@ the chain comes from two facts the node's criteria in
    (`src/model/cli.js`, the `import` command). methodology-tools has
    no Plan register: its plan is its K-004 Backlog,
    `docs/backlog.md`, 21 rows, 4 of them open. So the importer gains
-   a Backlog reader (child 1) before the import (child 2). The
-   alternative — hand-writing a Plan register for methodology-tools
-   and importing that — was rejected: it hand-authors the plan in the
-   format this rebuild retired, and the node's criterion asks for an
-   import record over Backlog rows.
+   a Backlog reader (child 1, P4-N044) before the import (child 2,
+   P4-N045). The alternative — hand-writing a Plan register for
+   methodology-tools and importing that — was rejected: it
+   hand-authors the plan in the format this rebuild retired, and the
+   node's criterion asks for an import record over Backlog rows.
 2. **The second instance cannot be deployed before methodology-tools
    has a state file.** Check 3 of `scripts/smoke-test.sh` calls
    `plan_read`, which reads the project's `orchestration/state.json`
@@ -38,11 +38,15 @@ the chain comes from two facts the node's criteria in
    methodology-tools'. Deploying the second instance before the
    import would fail its smoke test, and the deploy workflow fails
    the whole run when either instance fails, so the first instance
-   would not be promoted either. So the import (child 2) precedes the
-   deploy path (child 3).
+   would not be promoted either. So the import precedes the deploy
+   path (child 3, P4-N046).
 
 `.mcp.json` names an endpoint that does not exist until child 3
-deploys, so the enlistment and the trial are child 4.
+deploys, so the enlistment and the trial are child 4, P4-N047.
+
+The four children were added on 2026-11-17 by task T168, each
+entered `specified` with its criteria section below named in its
+note.
 
 No child waits for P2-N032. Each child's task is held by a session
 started in this repository, which is the only session that has this
@@ -77,7 +81,7 @@ actions it needs are done before it works.
   criteria below — and names the other repository's pull request in
   its summary, the pattern tasks T143 and T144 followed.
 
-## 1. Backlog reader in the state importer
+## 1. Backlog reader in the state importer (P4-N044)
 
 Outcome: `plan-state import` builds a state file from a project's
 K-004 Backlog when that project has no Plan register, and its import
@@ -116,7 +120,7 @@ and this repository for the pin.
       and `npm run check` stays green, so one version of
       `plan-state` serves both projects.
 
-## 2. methodology-tools' plan as a state file
+## 2. methodology-tools' plan as a state file (P4-N045)
 
 Outcome: methodology-tools carries `orchestration/state.json`,
 imported from its Backlog by `plan-state import` and passing
@@ -161,7 +165,7 @@ this node only).
 - [ ] Nothing else in methodology-tools changes. No `.mcp.json`: the
       endpoint does not exist until child 3.
 
-## 3. Second instance on the deploy path
+## 3. Second instance on the deploy path (P4-N046)
 
 Outcome: every merge in the service repository deploys, smoke-tests
 and promotes both instances from one template at one commit, and the
@@ -203,7 +207,7 @@ majodali/project-orchestrator-service (standing, RU-016).
       commit and their own project name.
 - [ ] The owner merges the pull request; that merge is the deploy.
 
-## 4. The pilot's first task through its own instance
+## 4. The pilot's first task through its own instance (P4-N047)
 
 Outcome: a session started in methodology-tools reaches the pilot
 instance, `task_next` answers a node of methodology-tools, and one
