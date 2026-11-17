@@ -4498,10 +4498,12 @@
       "step": "specify",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 27,
+        "out": 25723,
+        "cacheRead": 1801194,
+        "cacheWrite": 95362
       },
       "opened": "2026-11-17T22:05:07Z",
       "closed": "2026-11-17T22:10:08Z",
@@ -4509,7 +4511,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#62",
       "summary": "Specification in docs/specs/orchestrator-session.md: the script's inputs and action keys, a session snapshot with title marks as the only memory, check and nudge rules, report reasons, the watcher's wake rule, the cost hook vendored to the service repository. Twenty criteria; the plan's hook statement corrected. Node's note names break down as the next step.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T151",
