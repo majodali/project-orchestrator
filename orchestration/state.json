@@ -4898,6 +4898,25 @@
       "pr": null,
       "summary": "Continue P4-N038 on pull request 63 after D084: tick criterion 4 if the owner accepted the record, merge main and resolve the conflict in how-we-work.md, and settle whether the rule belongs in the orchestrator agent. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
       "notes": null
+    },
+    {
+      "id": "T163",
+      "node": "P2-N028",
+      "step": "specify",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T23:35:21Z",
+      "closed": null,
+      "base": "29eea3d7d06a5153095c1650b981aa3e2fc308fe",
+      "ref": null,
+      "pr": null,
+      "summary": "Specify the view node: check the plan's twenty criteria for depth, record D085 and D086, and check the split with the orchestrator's reports against the orchestrator as built. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "notes": null
     }
   ],
   "decisions": [
