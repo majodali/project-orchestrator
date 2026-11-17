@@ -95,7 +95,7 @@ Each term below was ratified by the owner at this node's gate of
 The parent plan's standing constraint 1 says git remains authoritative.
 The write model of node P2-N002 (service skeleton and plan state) keeps
 every repository write with the session
-([P2-N002 plan](../../plans/p2-n002-service-skeleton.md), decision 3). The owner
+([P2-N002 plan](p2-n002-service-skeleton.md), decision 3). The owner
 kept that model on 2026-10-29 (service review, ask 8).
 
 This node applies the same model to tasks. An offer, a claim and a
@@ -195,7 +195,7 @@ The role is declared, not authenticated. Every session holds the
 owner's one bearer token, so the service cannot prove a role. The
 check exists to catch a mistake, such as an Implementer session taking
 the register lease. Decision 12 of the
-[P2-N002 specification](../../specs/p2-n002-service-skeleton.md) deferred
+[P2-N002 specification](../specs/p2-n002-service-skeleton.md) deferred
 role identity to this node for that reason.
 
 `plan_lease_acquire` gains an optional handle. With a handle whose role
@@ -210,7 +210,7 @@ their claims race on git, not on the lease. The lease stays the
 Orchestrator's single-writer guard for the Plan register. Several live
 sessions exercise it in one way: a registered non-Orchestrator session
 is refused while the Orchestrator writes. Decision 7 of the
-[P2-N002 plan](../../plans/p2-n002-service-skeleton.md) deferred that test to this
+[P2-N002 plan](p2-n002-service-skeleton.md) deferred that test to this
 node.
 
 ### A session with no task
@@ -228,7 +228,7 @@ finished.
 ### Sequence mode
 
 Node P3-N014 (the loop runs sequence mode) adds a *Sequence mode*
-section to dispatch.md ([plan](../../plans/p3-n014-loop-runs-sequence-mode.md)).
+section to dispatch.md ([plan](p3-n014-loop-runs-sequence-mode.md)).
 In a pull run, the Orchestrator offers one ratified member at a time,
 as that section requires. The result file carries the result in the
 form P3-N014's record of a member's result reads. Nothing in sequence
@@ -275,7 +275,7 @@ that works without the service, a change to the existing write path,
 and a new tool set. Each validates separately.
 
 The decomposition leads with a spike, as P2-N012 (deploy the service
-from CI on merge) did ([plan](../../plans/p2-n012-deploy-from-ci-on-merge.md),
+from CI on merge) did ([plan](p2-n012-deploy-from-ci-on-merge.md),
 decision 2). What is in doubt is whether a cloud session may push a
 branch beside the one its surface assigns. If it may not, the claim
 protocol changes and the node returns to `plan`. The git-only loop
@@ -459,7 +459,7 @@ source of progress truth) for decision 3.
    identity on the service's write path** — When: 2026-08-26, P2-N002
    specification decision 12. Status: planned in node P2-N005; the role
    is declared at registration and checked, not authenticated.
-   Pointer: [plan of P2-N005](plans/p2-n005-task-pull-loop.md),
+   Pointer: [plan of P2-N005](p2-n005-task-pull-loop.md),
    decision 7."
 8. Who writes the Plan register when a pulled task closes. Default:
    the Orchestrator, at acceptance, as today. The closing session
@@ -535,13 +535,13 @@ specification, task T092.
 
 - [orchestration-service](../../plans/orchestration-service.md): the parent plan,
   its standing constraints and chunk 4
-- [p2-n002-service-skeleton](../../plans/p2-n002-service-skeleton.md) and its
-  [specification](../../specs/p2-n002-service-skeleton.md): the write
+- [p2-n002-service-skeleton](p2-n002-service-skeleton.md) and its
+  [specification](../specs/p2-n002-service-skeleton.md): the write
   model (decision 3), the lease (decision 7) and role identity
   (decision 12)
-- [p2-n012-deploy-from-ci-on-merge](../../plans/p2-n012-deploy-from-ci-on-merge.md):
+- [p2-n012-deploy-from-ci-on-merge](p2-n012-deploy-from-ci-on-merge.md):
   the pipeline, the smoke test and the spike-first shape
-- [p3-n014-loop-runs-sequence-mode](../../plans/p3-n014-loop-runs-sequence-mode.md):
+- [p3-n014-loop-runs-sequence-mode](p3-n014-loop-runs-sequence-mode.md):
   sequence mode and the record of a member's result
 - [dispatch.md](../process/dispatch.md),
   [enlistment.md](../process/enlistment.md),

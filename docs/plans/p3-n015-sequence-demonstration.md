@@ -144,7 +144,7 @@ checker moved from Python to TypeScript (nodes P1-N009 and P1-N013),
 and the pin moved from 1.3.0 to 1.6.0. The proposal links Article 7 at
 `v1.3.0`. Its sketch names a Python entry point, with an evidence link
 pinned to a commit. The
-[P1-N009 plan](p1-n009-plugin-tooling-portfolio-stack.md), decision 8,
+[P1-N009 plan](../archive/plans/p1-n009-plugin-tooling-portfolio-stack.md), decision 8,
 says a delivery after the rewrite states that in the covering message,
 never in the artifact.
 
@@ -516,12 +516,12 @@ and ratified the sequence in words that say so (*Gate record,
   while it runs** — When: 2026-10-30, planning P3-N015. Status: open,
   for P1-N016 and as evidence for P3-N016; *Sequence mode* is silent,
   and decision 5 of this plan answers it for one run. Pointer:
-  [plan of P3-N015](plans/p3-n015-sequence-demonstration.md), decision 5.
+  [plan of P3-N015](p3-n015-sequence-demonstration.md), decision 5.
 - [ ] **Whether a go-ahead that adopts defaults ratifies a sequence**
   — When: 2026-10-30, planning P3-N015. Status: open, for P1-N016 and as
   evidence for P3-N016; W-001 requires explicit approval, while
   `dispatch.md`'s *Gates* lets one go-ahead adopt every default.
-  Pointer: [plan of P3-N015](plans/p3-n015-sequence-demonstration.md),
+  Pointer: [plan of P3-N015](p3-n015-sequence-demonstration.md),
   decision 4.
 
 ## Gate record, 2026-11-04
@@ -657,11 +657,11 @@ task that compares the readings. Each waits on the owner's answer.
 - [observability.md](../archive/process/observability.md): the
   `sequence-ratified` and `sequence-stopped` event kinds
 - [roles.md](../archive/process/roles.md): what each role can trigger
-- [p3-n014-loop-runs-sequence-mode](p3-n014-loop-runs-sequence-mode.md):
+- [p3-n014-loop-runs-sequence-mode](../archive/plans/p3-n014-loop-runs-sequence-mode.md):
   the delivered mode
 - [Record of the stop predicates](../archive/findings/p3-n005-stop-predicates.md):
   the verdict file format, the pre-pass and the agreement result
-- [p3-n013-stop-conditions-decidable](p3-n013-stop-conditions-decidable.md):
+- [p3-n013-stop-conditions-decidable](../archive/plans/p3-n013-stop-conditions-decidable.md):
   the shape precedent and the two-reading method
 - [Backlog](../archive/backlog.md), [Plan register](../plan-register.md),
   [Ruling register](../archive/rulings.md)

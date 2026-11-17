@@ -23,7 +23,7 @@ This record belongs to the instance
 instance holds entries only. This record holds the reasoning. Both land
 in one commit, which node P3-N007 pins. The record's seven sections
 follow the order the [plan of
-P3-N006](../plans/p3-n006-thin-end-to-end-slice.md) fixes.
+P3-N006](plans/p3-n006-thin-end-to-end-slice.md) fixes.
 
 Terms this record uses are defined in the
 [specification](../specs/p3-n002-comprehension-model.md), section *The
@@ -145,13 +145,13 @@ the one used.
   trial, done) and P1-N012 (The form checker on the shared unit, done);
   modified by P1-N013 (The cutover, done). Pointer: [Plugin tooling on
   the portfolio stack,
-  specification](../specs/p1-n009-plugin-tooling-portfolio-stack.md).
+  specification](specs/p1-n009-plugin-tooling-portfolio-stack.md).
 - [x] **The one canonical implementation of the Plan register grammar
   and the node lifecycle stage vocabulary (plan-register-grammar)** —
   When: the model holds no date. Status: built; created by P1-N010 (Node
   toolchain and the shared register grammar, done); modified by P1-N013
   (The cutover, done). Pointer: [Plugin tooling on the portfolio stack,
-  specification](../specs/p1-n009-plugin-tooling-portfolio-stack.md).
+  specification](specs/p1-n009-plugin-tooling-portfolio-stack.md).
 - [x] **The append-only feed of orchestration operation (run-journal)**
   — When: the model holds no date. Status: built; created by P1-N005
   (Plugin v1 with self-hosted trial, done); no modifying node. Pointer:
@@ -232,7 +232,7 @@ to do the same.
 A path is the ordered steps from a starting point to the line that
 states an answer. The slice measured two starting points: the
 [Backlog](backlog.md) and the [specification of
-P1-N009](../specs/p1-n009-plugin-tooling-portfolio-stack.md). Each carries
+P1-N009](specs/p1-n009-plugin-tooling-portfolio-stack.md). Each carries
 a header line linking `project-model.md`, added in this commit (A4,
 paths from two starting points). Five resources, five answers and two
 starting points give fifty paths.

@@ -257,7 +257,7 @@ model's parts instead of the hand enumeration, and should.
   read-only, with the widening recorded in the Cost log and the journal.
   No work is written there. (This bullet is the plan-level declaration
   RU-016 requires; it sits in *Dependencies* following
-  [p2-n012](p2-n012-deploy-from-ci-on-merge.md)'s precedent, because no
+  [p2-n012](../archive/plans/p2-n012-deploy-from-ci-on-merge.md)'s precedent, because no
   process document yet names the section a plan carries for this — a
   gap the Backlog already owns, bound for P1-N016.)
 - **P3-N001 specified and broken down** (done, 2026-09-17). G7, P4 and
@@ -501,7 +501,7 @@ that when specified. Specification dispatched as T044 to the Planner.
 
 Correction at P3-N011's plan gate, 2026-10-30, placed by task T069.
 The owner adopted decision 1 of the [plan of
-P3-N011](p3-n011-sweep-and-omission-list.md) there. *Leaf or interior*
+P3-N011](../archive/plans/p3-n011-sweep-and-omission-list.md) there. *Leaf or interior*
 records that child B stays a leaf, split by source across three
 execute tasks.
 
@@ -523,7 +523,7 @@ execute tasks.
   feature-first decomposition, thin-slice-first, monotonicity
 - [profiles](../archive/process/profiles.md) — the C1 depth this plan and its
   children's criteria are written to
-- [p2-n002-service-skeleton](p2-n002-service-skeleton.md) — the chunk
+- [p2-n002-service-skeleton](../archive/plans/p2-n002-service-skeleton.md) — the chunk
   plan shape this document follows
 - [delegated-work-amendments-cover-note](../archive/proposals/delegated-work-amendments-cover-note.md)
   and [delegated-work-vocabulary](../archive/proposals/delegated-work-vocabulary.md)

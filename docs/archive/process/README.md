@@ -46,7 +46,7 @@ are defined below.
 Each term a gate record of this project shows ratified has one row in
 the project's [vocabulary](../../vocabulary.md). The row is the term's
 definition site
-([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
 decision 12).
 
 ## Documents
@@ -98,7 +98,7 @@ mapping. How roles are prompted and provisioned is plugin material
 
 The methodology's [prose rules](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/prose.md),
 the P- series, bind this project's artifacts by class
-([plan for P1-N014 (role contracts adopt the methodology's conduct rules)](../../plans/p1-n014-role-contracts-adopt-v140-rules.md),
+([plan for P1-N014 (role contracts adopt the methodology's conduct rules)](../plans/p1-n014-role-contracts-adopt-v140-rules.md),
 decision 7: how far the prose rules reach). Each class below names
 what binds it.
 
@@ -119,6 +119,6 @@ what binds it.
   `plugin/agents/` are bound as briefs are.
 - Skill files under `plugin/skills/` are bound as briefs are, like
   role contracts
-  ([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+  ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
   inventory row 27).
 - The run journal and code, code comments included, are exempt.

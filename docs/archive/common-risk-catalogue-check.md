@@ -30,10 +30,10 @@ This document is the record that decision 11 (where this project's
 records of the catalogue live) of the specification fixes. Node P3-N010
 (one class, carried end to end) wrote it for the class
 [CR-001](proposals/common-risk-catalogue.md#cr-001) alone. The
-[plan](../plans/p3-n010-one-class-end-to-end.md) of that node and child A
+[plan](plans/p3-n010-one-class-end-to-end.md) of that node and child A
 of the specification are the authority. Node P3-N011 (the sweep, the
 rest of the catalogue and the omission list) extends it to every class,
-under its [plan](../plans/p3-n011-sweep-and-omission-list.md).
+under its [plan](plans/p3-n011-sweep-and-omission-list.md).
 
 | Section | Content |
 |---|---|
@@ -2519,7 +2519,7 @@ rules.
 the defaults. The three weaker *Class* lines stand, so B16 and B7 stand as recorded. The scope
 arguments are accepted, so the 11 pairs stay covered. The two terms are
 ratified, with their definition sites in the [plan of node
-P3-N011](../plans/p3-n011-sweep-and-omission-list.md#terms-this-node-introduces).
+P3-N011](plans/p3-n011-sweep-and-omission-list.md#terms-this-node-introduces).
 Two items of this list stay open, because the gate did not rule them:
 the reading of ET-2, for the gate of node P3-N003, and the term
 *aggregate node*, in its own Backlog entry.)
@@ -2541,7 +2541,7 @@ the reading of ET-2, for the gate of node P3-N003, and the term
 
 - [Specification of node P3-N003](../specs/p3-n003-common-risk-catalogue.md):
   the definitions, criteria A1 to A11 (child A) and the gate record
-- [Plan of node P3-N010](../plans/p3-n010-one-class-end-to-end.md):
+- [Plan of node P3-N010](plans/p3-n010-one-class-end-to-end.md):
   decisions 1 to 5 and criteria A12 and A13 (the three further
   candidates, and concurrent writes to shared registers)
 - [Catalogue](proposals/common-risk-catalogue.md) and

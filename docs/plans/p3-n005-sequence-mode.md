@@ -638,7 +638,7 @@ dispatched as T045 to the Planner.
   and its extendable event vocabulary
 - [profiles.md](../archive/process/profiles.md) — the C1 depth this document
   is written to
-- [p2-n002-service-skeleton](p2-n002-service-skeleton.md) — the chunk
+- [p2-n002-service-skeleton](../archive/plans/p2-n002-service-skeleton.md) — the chunk
   plan shape this document follows
 - [Risk register](../open-risks.md) — R8 (thin slice), R10 and R12
   (the service is never a dependency), R16 and R17 (why the

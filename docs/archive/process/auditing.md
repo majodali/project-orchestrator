@@ -59,7 +59,7 @@ event and no session identifier; and a sequence's journal. A node
 after P3-N009 (sibling ordering retired) writes them into this list and
 the checker together, so that this list names no rule the checker does
 not run
-([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
 decision 11). The Backlog row "Form-check rules from the process-spec
 pass" holds them until then.
 
@@ -118,7 +118,7 @@ under the gated [node](README.md#def-node) still stands, and whether
 it names its scheduled resolution. For
 [K-010 (superseded content is never silently readable)](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/knowledge.md#k-010--superseded-content-is-never-silently-readable),
 this project's review round is the next gate on the node the marker
-sits under ([plan for P1-N014 (role contracts adopt the methodology's conduct rules)](../../plans/p1-n014-role-contracts-adopt-v140-rules.md),
+sits under ([plan for P1-N014 (role contracts adopt the methodology's conduct rules)](../plans/p1-n014-role-contracts-adopt-v140-rules.md),
 decision 6: the standing-marker bound is the next gate). A marker that
 names its scheduled resolution answers the question in advance. A standing
 marker that names none is a finding.

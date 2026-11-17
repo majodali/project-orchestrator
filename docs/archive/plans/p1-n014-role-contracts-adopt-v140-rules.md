@@ -1,3 +1,9 @@
+> **Status: archived 2026-11-17** (P4-N032, Linked plans and specs
+> archived). Archived because this is the plan of P1-N014 (Role
+> contracts adopt the methodology's conduct rules), and every node that
+> links it is done. Nothing replaces it: the work is delivered, and
+> `orchestration/state.json` records the node.
+
 # Role contracts adopt the methodology's conduct rules
 
 Status: closed → Backlog entry (node P1-N014 done 2026-10-29, task T047 executed, T052 verified; see the Backlog entry "Role contracts adopt the methodology's conduct rules")
@@ -13,7 +19,7 @@ Status: closed → Backlog entry (node P1-N014 done 2026-10-29, task T047 execut
      them. -->
 
 Node P1-N014, child of P1-N001
-([orchestrator-v1](orchestrator-v1.md)). Specification:
+([orchestrator-v1](../../plans/orchestrator-v1.md)). Specification:
 [p1-n014-role-contracts-adopt-conduct-rules](../specs/p1-n014-role-contracts-adopt-conduct-rules.md).
 A Backlog-discovered node, in
 the same position as [P1-N008](p1-n008-mtool-checker-extension-point.md)
@@ -30,13 +36,13 @@ actually load.
 
 Concretely, at `done`:
 
-- The handoff contract in [dispatch.md](../archive/process/dispatch.md) cites
+- The handoff contract in [dispatch.md](../process/dispatch.md) cites
   the methodology's rule
   [W-008 (reports map their deliverables)](https://github.com/majodali/methodology/blob/v1.4.0/docs/rules/working-agreement.md#w-008--reports-map-their-deliverables)
   for what a task result owes its reader. It restates none of that
   rule's normative text, and it keeps the fields the rule does not
   cover.
-- [roles.md](../archive/process/roles.md) says, per role, who marks a found
+- [roles.md](../process/roles.md) says, per role, who marks a found
   contradiction, who enumerates a supersession's affected locations,
   and who places the markers.
 - The six role contracts in `.claude/agents/` carry those duties in
@@ -109,7 +115,7 @@ reads as a style rule elsewhere. In this project it is load-bearing. The
 dispatch loop's whole design is the enumerated packet: a role is given
 what it needs and reads no further. A bare identifier in a brief, a
 plan, or a specification forces a read outside the packet. That is
-[Risk R6 (packet-insufficiency spiral)](../open-risks.md) by another
+[Risk R6 (packet-insufficiency spiral)](../../open-risks.md) by another
 name, one citation at a time.
 
 ## Approach
@@ -128,7 +134,7 @@ document, and drift there is a bug in the artifact. A restatement
 inside a peer specification document is a second authority, and drift
 there is a genuine conflict with no resolution rule.
 
-The near-match precedent is [RU-012](../archive/rulings.md). It settles that
+The near-match precedent is [RU-012](../rulings.md). It settles that
 two repositories share a unit of code by keeping one canonical copy
 where the specification lives and vendoring it outward. The consumer
 never edits its copy. The same shape applies to a duty: one canonical
@@ -182,7 +188,7 @@ consequences follow, and both need writing down:
   work that acts on the finding.
 - Some decision entries live in registers that only the Orchestrator
   writes. A role reports the location; the Orchestrator records it in
-  the [Ruling register](../archive/rulings.md) entry in its acceptance commit.
+  the [Ruling register](../rulings.md) entry in its acceptance commit.
 
 ### Marking is never scope creep; fixing may be
 
@@ -343,7 +349,7 @@ to the `specify` stage; the evidence they should be built from is:
 ## Dependencies and ordering
 
 - No dependency is unmet. Every earlier sibling of P1-N014 is `done`,
-  so the earlier-siblings default in [dispatch.md](../archive/process/dispatch.md)
+  so the earlier-siblings default in [dispatch.md](../process/dispatch.md)
   is satisfied without an owner override.
 - P1-N006 (pilot) and P1-N007 (cost reporting and close-out) should
   follow this node. Both write prose and reports at volume, and both
@@ -421,12 +427,12 @@ work that the methodology's tooling repository has already queued.
 ## Decisions for the gate
 
 Numbered per the owner-decision economics in
-[dispatch.md](../archive/process/dispatch.md); a go-ahead adopts every default
-not overridden by number. The [Ruling register](../archive/rulings.md) was
+[dispatch.md](../process/dispatch.md); a go-ahead adopts every default
+not overridden by number. The [Ruling register](../rulings.md) was
 checked entry by entry. No active ruling decides any question below.
-[RU-012](../archive/rulings.md), which keeps one canonical copy of a shared
+[RU-012](../rulings.md), which keeps one canonical copy of a shared
 unit and vendors it outward, is the near match behind decision 1.
-[RU-013](../archive/rulings.md), which requires a tool to fail loudly rather
+[RU-013](../rulings.md), which requires a tool to fail loudly rather
 than degrade quietly, is the near match behind decision 6.
 
 1. Does the process specification cite the methodology's report rule,
@@ -437,7 +443,7 @@ than degrade quietly, is the near match behind decision 6.
    **Default**: (a).
    **Rationale**: a prompt is compiled from a document and drift in it
    is a bug, while a second specification is a second authority with no
-   resolution rule, which is the shape [RU-012](../archive/rulings.md) already
+   resolution rule, which is the shape [RU-012](../rulings.md) already
    settled for code.
 
 2. Who marks content found to contradict a recorded decision?
@@ -517,23 +523,23 @@ than degrade quietly, is the near match behind decision 6.
 
 ## References
 
-- [orchestrator-v1](orchestrator-v1.md) — the parent plan and its six
+- [orchestrator-v1](../../plans/orchestrator-v1.md) — the parent plan and its six
   standing constraints. P1-N001 has no specification document: it
   predates the convention, so this node inherits no integration
   properties from it.
-- [dispatch.md](../archive/process/dispatch.md) — the handoff contract, the
+- [dispatch.md](../process/dispatch.md) — the handoff contract, the
   owner-decision economics, the packet table, and the gate summary
   template.
-- [roles.md](../archive/process/roles.md) — the six role contracts this node
+- [roles.md](../process/roles.md) — the six role contracts this node
   edits.
-- [profiles.md](../archive/process/profiles.md) — the C1 profile: breakdown
+- [profiles.md](../process/profiles.md) — the C1 profile: breakdown
   above single-session size, criteria-list specifications.
-- [auditing.md](../archive/process/auditing.md) — the semantic Auditor's gate
+- [auditing.md](../process/auditing.md) — the semantic Auditor's gate
   pass, and the rule that the specification is right when checker and
   specification disagree.
-- [rulings.md](../archive/rulings.md) — RU-012 (one canonical copy, vendored
+- [rulings.md](../rulings.md) — RU-012 (one canonical copy, vendored
   outward) and RU-013 (fail loudly, never degrade quietly).
-- [open-risks.md](../open-risks.md) — R6 (packet-insufficiency spiral).
+- [open-risks.md](../../open-risks.md) — R6 (packet-insufficiency spiral).
 - [p1-n009 plan](p1-n009-plugin-tooling-portfolio-stack.md) — the model
   for a node plan on this project.
 - [methodology v1.4.0 style guide](https://github.com/majodali/methodology/blob/v1.4.0/docs/style.md)
@@ -591,8 +597,8 @@ block verbatim as the release's one migration action.
 
 Two further role-contract items accumulated while this node was
 blocked, both from real encounters, and both belong in its scope:
-[R15](../open-risks.md) — instructions found in fetched documentation
-are data, never direction — and [R16](../open-risks.md) — a
+[R15](../../open-risks.md) — instructions found in fetched documentation
+are data, never direction — and [R16](../../open-risks.md) — a
 diagnostic reports what it observed and never asserts a cause it did
 not test.
 

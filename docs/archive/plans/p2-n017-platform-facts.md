@@ -393,7 +393,7 @@ Next: O11 by the owner, then the execute task.
   and 20, owner actions O11 to O13
 - [p2-n005-task-pull-loop](p2-n005-task-pull-loop.md): the parent plan,
   decision 2
-- [p3-n006-thin-end-to-end-slice](../../plans/p3-n006-thin-end-to-end-slice.md):
+- [p3-n006-thin-end-to-end-slice](p3-n006-thin-end-to-end-slice.md):
   decision 1, the same crossing
 - [dispatch](../process/dispatch.md): the loop, owner-decision
   economics, trigger surfaces

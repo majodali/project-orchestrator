@@ -766,7 +766,7 @@ recorded edges. The form checker gains the model's rules.
 - D3. D's amendment of the selection rule is the one that lands.
   Node P1-N016 (process spec maintenance) edits neither the selection
   rule nor the statements of D1, so it does not wait on D
-  ([plan of P1-N016](../plans/p1-n016-process-spec-maintenance.md),
+  ([plan of P1-N016](../archive/plans/p1-n016-process-spec-maintenance.md),
   decision 3). D closes the Backlog collision entry.
 - D4. The search of I2 is run and recorded, with its terms.
 - D5. New form-check rules: every node ID in the instance resolves in
@@ -945,7 +945,7 @@ judged node-scope; no ruling was captured.
 
 Corrections at P3-N007's plan gate, 2026-10-30, placed by task T069.
 The owner adopted that node's decisions there, in the [plan of
-P3-N007](../plans/p3-n007-type-declared-amendment-drafted.md).
+P3-N007](../archive/plans/p3-n007-type-declared-amendment-drafted.md).
 Criteria B2, D1 and D5 take the dependency rule of its decision 3. G6
 takes its decisions 4 and 6. B14 takes its decision 7. *Edges stated at
 this breakdown* takes its decision 8.
@@ -957,7 +957,7 @@ this breakdown* takes its decision 8.
 - [p3-n001-comprehension-and-continuous-implementation](p3-n001-comprehension-and-continuous-implementation.md):
   the parent specification, its criteria, its *Chunk 1* additions, and
   its decisions 4 and 5
-- [p2-n002-service-skeleton](p2-n002-service-skeleton.md): the
+- [p2-n002-service-skeleton](../archive/specs/p2-n002-service-skeleton.md): the
   interior-node specification shape this document follows, with the
   parent
 - [plan-model](../archive/process/plan-model.md): the node lifecycle, the

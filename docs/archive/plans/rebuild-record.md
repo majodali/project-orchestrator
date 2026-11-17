@@ -440,6 +440,137 @@ plans and specs, and no tool changes a node's `docs` paths, so they
 could not move. On 2026-11-15 the owner split the node: the three
 criteria that depend on moving them went to child 8, behind child 7.
 
+### M6. Re-plan, prune and hand back: child 8
+
+**8. Linked plans and specs archived** (P4-N032). Its criteria are in
+[the plan](../../plans/rebuild.md), child 8. Executed 2026-11-17 (task
+T146). This is what the execution found and measured.
+
+**The rule.** A plan or specification the state file links is
+superseded when every node that links it is `done`. It stays when at
+least one node that links it is not `done`: open, held or parked. Two
+documents are outside the rule. `docs/plans/rebuild.md` is this task's
+own node's plan. `docs/plans/orchestrator-v1.md` stays although
+P1-N001 and P1-N017 are done, because `CLAUDE.md`, `README.md` and
+`docs/classification.md` cite it as the founding plan and for the
+standing billing constraint.
+
+**Superseded, moved** (22 files, 15 plans and 7 specs). Each moved
+from `docs/plans/` to `docs/archive/plans/`, or from `docs/specs/` to
+`docs/archive/specs/`, under the same file name.
+
+- Plans: `p1-n008-mtool-checker-extension-point`,
+  `p1-n009-plugin-tooling-portfolio-stack`,
+  `p1-n014-role-contracts-adopt-v140-rules`,
+  `p1-n015-methodology-amendments-delegated-work`,
+  `p1-n016-process-spec-maintenance`, `p2-n002-service-skeleton`,
+  `p2-n003-owner-questions-and-plan-view`,
+  `p2-n012-deploy-from-ci-on-merge`, `p2-n023-web-view-ux-refinement`,
+  `p3-n006-thin-end-to-end-slice`,
+  `p3-n007-type-declared-amendment-drafted`,
+  `p3-n010-one-class-end-to-end`, `p3-n011-sweep-and-omission-list`,
+  `p3-n013-stop-conditions-decidable`,
+  `p3-n014-loop-runs-sequence-mode`.
+- Specs: `p1-n008-mtool-checker-extension-point`,
+  `p1-n009-plugin-tooling-portfolio-stack`,
+  `p1-n014-role-contracts-adopt-conduct-rules`,
+  `p1-n015-methodology-amendments-delegated-work`,
+  `p2-n002-service-skeleton`, `p2-n003-owner-questions-and-plan-view`,
+  `p2-n012-deploy-from-ci-on-merge`.
+
+**Staying** (13 files), each with the node that keeps it.
+
+- `docs/plans/orchestration-service.md`: P2-N001, broken down, open.
+- `docs/plans/comprehension-and-continuous-implementation.md` and
+  `docs/specs/p3-n001-comprehension-and-continuous-implementation.md`:
+  P3-N001, held (D005, D063).
+- `docs/plans/p3-n002-comprehension-model.md` and
+  `docs/specs/p3-n002-comprehension-model.md`: P3-N002, broken down
+  under the hold. P3-N008 also links the spec.
+- `docs/plans/p3-n008-instance-over-this-repository.md`: P3-N008,
+  planned and gated.
+- `docs/plans/p3-n003-common-risk-catalogue.md` and
+  `docs/specs/p3-n003-common-risk-catalogue.md`: P3-N003, broken down
+  under the hold.
+- `docs/plans/p3-n005-sequence-mode.md` and
+  `docs/specs/p3-n005-sequence-mode.md`: P3-N005, broken down under
+  the hold.
+- `docs/plans/p3-n015-sequence-demonstration.md`: P3-N015, broken
+  down under the hold, and P3-N020, parked.
+- `docs/plans/orchestrator-v1.md` and `docs/plans/rebuild.md`: outside
+  the rule, as above.
+
+The done children of the P3 line (P3-N006, P3-N007, P3-N010, P3-N011,
+P3-N013, P3-N014) lost their plans to the archive and keep their
+parents' specifications, which stay.
+
+**The state file.** Seventeen `node_update` calls with `docsOnMerge`
+under T146, one for each node that links a moved file, cleared 25
+paths (commits 9f1b919 to 26fb267 on `main`). This was the first real
+use of `docsOnMerge` (P4-N031). Every call committed without a
+warning. The service sets the new paths when P4-N032 is done.
+
+**The moved files.** Each gained a status line as its first lines.
+887 relative links were re-pointed by a script, in the moved files and
+in every file that links them, `docs/vocabulary.md` rows and anchors
+included. Nothing else changed in a moved file. Left as they are, by
+rule: paths inside code fences, test data under `test/` and
+`fixtures/`, and `orchestration/import-record.md`, which records the
+paths the M1 import read on its day. The node example in
+`docs/process/state-model.md` names the new path.
+
+**The link check.** `mtool links check` at methodology-tools 296ba46
+reported 21 findings before the move, the same 21 as on 2026-11-15.
+After it, 13 are fixed and 8 are dispositioned. The tool still exits
+non-zero on the 8: it has no way to exempt a link.
+
+- Fixed, 13. Rule: a link inside text quoted from another document is
+  re-pointed so that it resolves from the quoting file to the
+  document the quote means. Seven in the plan of P1-N016, two in the
+  plan of P3-N015, and one each in the plans of P2-N005, P3-N007 and
+  P3-N008. The thirteenth, in `docs/archive/backlog.md`, named a file
+  that never existed; it now points at the plan of P3-N005.
+- Dispositioned, 8. Rule: a link inside normative text that a
+  proposal writes for majodali/methodology resolves in that
+  repository, not in this one, and the text is delivered verbatim
+  (RU-015), so it is not changed here. They are in
+  `docs/archive/proposals/`:
+  `active-documents-are-corrected-not-marked.md` (2),
+  `contradiction-marking-in-nested-sessions.md` (2),
+  `report-rule-scoped-by-audience.md` (2) and
+  `planning-execution-model-is-progress-truth.md` with its `.ir.md`
+  (1 each).
+
+**The word count.** Child 3's method,
+`find docs -name '*.md' -not -path 'docs/archive/*' | xargs cat | wc -w`,
+gave 76401 on 2026-11-17, down from 161,840 at the task's start. It
+is below 100,000.
+
+**The 300-line bound.** Method:
+`git ls-files '*.md' | grep -v '^docs/archive/' | xargs wc -l`.
+Twelve files exceed 300 lines. Ten are hand-written, and all ten are
+documents of the held P3 line that stay by the rule above. They
+predate the bound and are not rewritten while the line is held;
+bringing them under it is work for the line when the owner resumes it.
+
+| Lines | Document |
+|---|---|
+| 998 | `docs/specs/p3-n002-comprehension-model.md` |
+| 764 | `docs/specs/p3-n003-common-risk-catalogue.md` |
+| 679 | `docs/specs/p3-n005-sequence-mode.md` |
+| 674 | `docs/plans/p3-n015-sequence-demonstration.md` |
+| 654 | `docs/plans/p3-n002-comprehension-model.md` |
+| 652 | `docs/plans/p3-n005-sequence-mode.md` |
+| 591 | `docs/specs/p3-n001-comprehension-and-continuous-implementation.md` |
+| 585 | `docs/plans/p3-n008-instance-over-this-repository.md` |
+| 535 | `docs/plans/comprehension-and-continuous-implementation.md` |
+| 534 | `docs/plans/p3-n003-common-risk-catalogue.md` |
+
+Two are not hand-written: `docs/plan.md` (rendered by the service) and
+`plugin/scripts/lib/corpus/fixtures/live-tree/docs/backlog.md` (test
+data). `docs/process/task-loop.md` is at 300 and
+`docs/plans/rebuild.md` is within the bound.
+
 ## GitHub interaction changes
 
 | Today | After |

@@ -502,7 +502,7 @@ decision 3; RU-019, for what fails C8.
      grammar* (active), correction of the heading rule:
      `heading       = "## " , slug , " (" , name , ")" , newline ;`
    - The same section, correction of the paragraph after the grammar:
-     "A heading's `name` is the [resource's](#def-resource) name in
+     "A heading's `name` is the [resource's](../archive/process/project-model.md#def-resource) name in
      words. Every heading carries one. A ruling needs it under P-004
      (citations carry names). A word slug needs it because one slug can
      begin another, such as `plan-register` and
@@ -557,9 +557,9 @@ Two existing rows are rewritten, for the Orchestrator at this gate.
   *Child C*, *The navigation bound*, G1 to G6, I1 to I10, P1 to P6,
   *Edges stated at this breakdown*, decision 13 and the gate records
 - [Plan of P3-N002](p3-n002-comprehension-model.md): decisions 1 to 8
-- [Plan of P3-N007](p3-n007-type-declared-amendment-drafted.md):
+- [Plan of P3-N007](../archive/plans/p3-n007-type-declared-amendment-drafted.md):
   decisions 4, 8 and 9
-- [Plan of P3-N006](p3-n006-thin-end-to-end-slice.md): the shape this
+- [Plan of P3-N006](../archive/plans/p3-n006-thin-end-to-end-slice.md): the shape this
   plan follows
 - [Type specification](../archive/process/project-model.md): the grammar, the
   derivations, the writer rule, *Recording an edge*, the renderings,

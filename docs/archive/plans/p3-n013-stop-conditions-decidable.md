@@ -1,3 +1,9 @@
+> **Status: archived 2026-11-17** (P4-N032, Linked plans and specs
+> archived). Archived because this is the plan of P3-N013 (Decidable
+> stop conditions), and every node that links it is done. Nothing
+> replaces it: the work is delivered, and `orchestration/state.json`
+> records the node.
+
 # The four stop conditions: decidable, evidenced, and related to the meta-review signals
 
 Status: closed → Backlog entry (node P3-N013 done 2026-10-30, tasks T056 and T059 to T067; see the Backlog entry on the four stop conditions)
@@ -6,13 +12,13 @@ Status: closed → Backlog entry (node P3-N013 done 2026-10-30, tasks T056 and T
      X, because Y | closed → Backlog entry). Anything unmarked here is a
      live claim of current intent. This is the plan document for node
      P3-N013, child A of P3-N005
-     ([sequence-mode](p3-n005-sequence-mode.md)); it goes `active` when
+     ([sequence-mode](../../plans/p3-n005-sequence-mode.md)); it goes `active` when
      the owner approves it at this node's gate, and
      `closed → Backlog entry` when the node reaches `done`. -->
 
 Node **P3-N013**, child A of **P3-N005**
-([plan](p3-n005-sequence-mode.md) ·
-[specification](../specs/p3-n005-sequence-mode.md)). The parent
+([plan](../../plans/p3-n005-sequence-mode.md) ·
+[specification](../../specs/p3-n005-sequence-mode.md)). The parent
 specification's section *Child A: the four stop conditions, decidable,
 evidenced, and related to the meta-review signals* carries this node's
 criteria **A1 to A10**, and it binds criteria **I1 to I6**, **I10** and
@@ -207,7 +213,7 @@ Numbered per `dispatch.md`'s owner-decision economics. The owner's
 go-ahead adopts every default not overridden by number. This document
 opens its own sequence at 1.
 
-**Precedents checked against the [Ruling register](../archive/rulings.md).**
+**Precedents checked against the [Ruling register](../rulings.md).**
 RU-016 is an exact match for the repository-reach declaration and
 decides silently. RU-018 is the authority for the parent's
 independence from P3-N002. RU-020 is a near match for decision 2: it
@@ -304,21 +310,21 @@ owner's ratification. Next: E1.
 
 ## References
 
-- [p3-n005-sequence-mode (specification)](../specs/p3-n005-sequence-mode.md):
+- [p3-n005-sequence-mode (specification)](../../specs/p3-n005-sequence-mode.md):
   criteria I1 to I6, I10, I11 and A1 to A10; decisions 9 to 16 and the
   gate record of 2026-10-29
-- [p3-n005-sequence-mode (plan)](p3-n005-sequence-mode.md): the
+- [p3-n005-sequence-mode (plan)](../../plans/p3-n005-sequence-mode.md): the
   evidence section and decisions 2 and 3
 - [p2-n012-deploy-from-ci-on-merge](p2-n012-deploy-from-ci-on-merge.md):
   the plan shape this document follows
-- [dispatch.md](../archive/process/dispatch.md): owner-decision economics,
+- [dispatch.md](../process/dispatch.md): owner-decision economics,
   the handoff contract, bounded attempts, context packets
-- [plan-model.md](../archive/process/plan-model.md): the node lifecycle and
+- [plan-model.md](../process/plan-model.md): the node lifecycle and
   the leaf definition
-- [roles.md](../archive/process/roles.md): the model-tier table and the
+- [roles.md](../process/roles.md): the model-tier table and the
   Implementer role
-- [profiles.md](../archive/process/profiles.md): C1 verification
-- [Ruling register](../archive/rulings.md): RU-015, RU-016, RU-018, RU-019,
+- [profiles.md](../process/profiles.md): C1 verification
+- [Ruling register](../rulings.md): RU-015, RU-016, RU-018, RU-019,
   RU-020
 - Methodology at v1.6.0:
   [W-001](https://github.com/majodali/methodology/blob/v1.6.0/docs/rules/working-agreement.md#w-001--two-delivery-modes-human-gated)

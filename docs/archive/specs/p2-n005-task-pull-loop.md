@@ -1355,9 +1355,9 @@ change.)
   ratified terms
 - [orchestration-service](../../plans/orchestration-service.md): the
   parent plan, chunk 4 and the five standing constraints
-- [p2-n002-service-skeleton](../../specs/p2-n002-service-skeleton.md): the write
+- [p2-n002-service-skeleton](p2-n002-service-skeleton.md): the write
   model, the lease, and role identity deferred to this node
-- [p2-n012-deploy-from-ci-on-merge](../../specs/p2-n012-deploy-from-ci-on-merge.md):
+- [p2-n012-deploy-from-ci-on-merge](p2-n012-deploy-from-ci-on-merge.md):
   the pipeline, the smoke test and owner actions O7 to O10
 - [dispatch.md](../process/dispatch.md),
   [enlistment.md](../process/enlistment.md),

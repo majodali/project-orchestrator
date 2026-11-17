@@ -23,7 +23,7 @@ statement. Interior nodes are decompositions. A **leaf** is a node
 with one outcome and no part that validates on its own. It runs as one
 task, or as a fixed sequence of tasks its plan names. A task that needs
 an independent session, such as a blind reading, is one of those tasks
-([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
 decision 8). Depth is not fixed — nodes are broken down until their
 children are leaves, and no further (no empty ceremony).
 
@@ -140,7 +140,7 @@ Rules:
   `planned` → `specified`, with the parent's child section and the
   plan's additions as its specification. The plan does not stage the
   question
-  ([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+  ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
   decision 7).
 - An interior node gets no separate `break down` task when its
   specification already carries the children at the depth that task
@@ -185,7 +185,7 @@ no more. Owner ruling, 2026-08-24
 - A checked entry stays where it stands in the Backlog. A reader
   looking for finished work reads every checked entry, wherever it
   sits, and no entry moves when it is checked
-  ([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+  ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
   decision 13).
 - A managed project SHOULD declare the node lifecycle's stage set as
   (part of) its methodology Workflow, so Backlog entries carry node

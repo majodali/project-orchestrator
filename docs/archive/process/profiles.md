@@ -43,7 +43,7 @@ Notes:
   [plan-model.md](plan-model.md#the-hierarchy): a leaf is a node with
   one outcome and no part that validates on its own, and runs as one
   task or as a fixed sequence of tasks its plan names
-  ([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+  ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
   decision 8).
 - **C0** is deliberately thin: the methodology puts only the
   exploration baseline in play there, and orchestrating exploration

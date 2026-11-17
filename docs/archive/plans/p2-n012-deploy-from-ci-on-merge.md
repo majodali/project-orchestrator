@@ -1,3 +1,9 @@
+> **Status: archived 2026-11-17** (P4-N032, Linked plans and specs
+> archived). Archived because this is the plan of P2-N012 (Deploy from
+> CI on merge), and every node that links it is done. Nothing replaces
+> it: the work is delivered, and `orchestration/state.json` records the
+> node.
+
 # Deploy the service from CI on merge
 
 Status: closed → Backlog entry
@@ -9,7 +15,7 @@ Status: closed → Backlog entry
      and `closed → Backlog entry` when the node reaches `done`. -->
 
 Node P2-N012, child of P2-N001
-([orchestration-service](orchestration-service.md)). Not a chunk: a
+([orchestration-service](../../plans/orchestration-service.md)). Not a chunk: a
 delivery-mechanics node in the position
 [P1-N008](p1-n008-mtool-checker-extension-point.md) held under the
 founding plan. The work lands in
@@ -48,11 +54,11 @@ runs. One HTTP call against a real endpoint catches both.
 
 ## How much machinery this deserves
 
-Constraint 3 of the [parent plan](orchestration-service.md), degrade
+Constraint 3 of the [parent plan](../../plans/orchestration-service.md), degrade
 to git-only, bounds this node. A session whose service is down falls
 back to the v1 process and keeps working, so an outage here is
 expensive attention, not stopped work
-([R12](../open-risks.md), service outage stops work). That buys the
+([R12](../../open-risks.md), service outage stops work). That buys the
 small machinery — one alias, one smoke test, one alias repoint — and
 argues against the large machinery. Traffic shifting, deployment
 preferences and a second stack are excluded below for this reason,
@@ -79,7 +85,7 @@ Two workflow files, because they need different permissions:
 
 Third-party actions are pinned to commit SHAs, and the smoke test uses
 `curl` and Node built-ins rather than a new dependency
-([R14](../open-risks.md), dependency search is an attack surface).
+([R14](../../open-risks.md), dependency search is an attack surface).
 
 ### One deploy path
 
@@ -182,7 +188,7 @@ the other three exist.
 The decomposition leads with the assumption spike rather than a thin
 end-to-end slice. The usual reason for the slice, surfacing a
 structural error before fan-out compounds it
-([R8](../open-risks.md), premature fan-out), is served better here by
+([R8](../../open-risks.md), premature fan-out), is served better here by
 the spike: what is in doubt is a platform fact, not the integration.
 
 ### Proposed children, in dependency order
@@ -220,7 +226,7 @@ child is what the owner sees working.
 
 - **Cross-repo scope.** The execute stage writes
   `majodali/project-orchestrator-service`. Granted at the gate, and
-  granted permanently: [RU-016](../archive/rulings.md) puts that repository in
+  granted permanently: [RU-016](../rulings.md) puts that repository in
   this project's approved scope for good and moves the granting duty
   from the owner to the Orchestrator. This plan's declaration of the
   reach is still required, and is this bullet.
@@ -294,9 +300,9 @@ absorbed.
 
 ## Decisions for the gate
 
-Numbered per [dispatch](../archive/process/dispatch.md)'s owner-decision
+Numbered per [dispatch](../process/dispatch.md)'s owner-decision
 economics. The owner's go-ahead adopts every default not overridden by
-number. The [Ruling register](../archive/rulings.md) was checked for
+number. The [Ruling register](../rulings.md) was checked for
 near-matches: RU-009 (work reaches `main` by pull request) is the only
 one that touches this node, and it is consistent with everything
 below.
@@ -324,7 +330,7 @@ below.
    C2+.
 
    Not proposed, and worth one line because
-   [plan-model](../archive/process/plan-model.md) has a SHOULD about it: the
+   [plan-model](../process/plan-model.md) has a SHOULD about it: the
    node lifecycle's stages are deliberately **not** folded into this
    declaration. The service repository has no Plan register of its
    own, so its Backlog would be a second carrier of stages the
@@ -364,7 +370,7 @@ below.
    node before P2-N011 (degrade to git-only). Rationale: this node has
    no dependency on P2-N011 and the owner has asked for the pipeline
    now; the departure is surfaced rather than taken quietly, because
-   [dispatch](../archive/process/dispatch.md) makes "earlier siblings `done`"
+   [dispatch](../process/dispatch.md) makes "earlier siblings `done`"
    the default entry condition for `execute` and P2-N011 is a child of
    the earlier sibling P2-N002.
 
@@ -385,12 +391,12 @@ settled rather than as a proposal with an answer somewhere else.
   sibling order carries dependency by convention only, and P2-N012
   depends on nothing in P2-N011. What is missing is a way for the
   Planner to state real dependencies, which is now a
-  [Backlog](../archive/backlog.md) entry and a change to the plan model rather
+  [Backlog](../backlog.md) entry and a change to the plan model rather
   than to this node. Until it exists, sibling order remains the
   convention and a departure remains an owner decision, as this one
   was.
 - **Cross-repo scope** — granted, and made permanent by
-  [RU-016](../archive/rulings.md): the Planner declares the repository access a
+  [RU-016](../rulings.md): the Planner declares the repository access a
   node needs, the Orchestrator grants it and records the grant, and the
   owner is asked only for a repository new to the project.
   `majodali/project-orchestrator-service` is now permanently in scope.
@@ -400,13 +406,13 @@ and still block only child D.
 
 ## References
 
-- [orchestration-service](orchestration-service.md) — the parent plan
+- [orchestration-service](../../plans/orchestration-service.md) — the parent plan
   and its five standing constraints, constraint 3 above all
 - [p2-n002-service-skeleton](p2-n002-service-skeleton.md) — chunk 1,
   its owner actions O1–O6, and decision 7 on the lease
-- [Risk register](../open-risks.md) — R12 (service outage stops work),
+- [Risk register](../../open-risks.md) — R12 (service outage stops work),
   R14 (dependency search is an attack surface)
-- [Ruling register](../archive/rulings.md) — RU-009 (work reaches `main` by
+- [Ruling register](../rulings.md) — RU-009 (work reaches `main` by
   pull request)
 - methodology
   [vocabulary](https://github.com/majodali/methodology/blob/v1.4.0/docs/vocabulary.md) —

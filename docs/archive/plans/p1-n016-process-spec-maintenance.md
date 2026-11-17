@@ -1,3 +1,9 @@
+> **Status: archived 2026-11-17** (P4-N032, Linked plans and specs
+> archived). Archived because this is the plan of P1-N016 (Process
+> specification maintenance), and every node that links it is done.
+> Nothing replaces it: the work is delivered, and
+> `orchestration/state.json` records the node.
+
 # Process spec maintenance: branch lifecycle, PR citation, packet table
 
 Status: closed → Backlog entry (node P1-N016 done 2026-11-08 at the owner's verifying gate; see the Backlog entry "Process spec maintenance: branch lifecycle, PR citation, packet table")
@@ -12,17 +18,17 @@ Reader: RD-4 in the methodology's
 [reader catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers)
 (a fresh agent session), and the owner at this node's gate (RD-2). It
 assumes the methodology at this project's pinned version, 1.6.0
-([Classification](../classification.md)), and the
-[process specification](../archive/process/README.md), whose defined terms
-[node](../archive/process/README.md#def-node) and
-[task](../archive/process/README.md#def-task) are used here without further
+([Classification](../../classification.md)), and the
+[process specification](../process/README.md), whose defined terms
+[node](../process/README.md#def-node) and
+[task](../process/README.md#def-task) are used here without further
 links.
 
 Node P1-N016 (process spec maintenance) is a child of P1-N001
-(orchestrator v1) ([founding plan](orchestrator-v1.md)). It was opened
+(orchestrator v1) ([founding plan](../../plans/orchestrator-v1.md)). It was opened
 on 2026-09-01 with three corrections to `docs/process/`: who deletes a
 merged branch, how work reaches `main` by pull request, and the packet
-table. Since then the [Backlog](../archive/backlog.md) has routed about two
+table. Since then the [Backlog](../backlog.md) has routed about two
 dozen more rows to it. This plan lists every one of them and gives each
 a disposition.
 
@@ -38,7 +44,7 @@ ruling flagged for promotion is promoted or declined.
 
 At `done`:
 
-- [dispatch.md](../archive/process/dispatch.md) says who deletes a task branch
+- [dispatch.md](../process/dispatch.md) says who deletes a task branch
   and when, and why role branches are pushed. It says how work reaches
   `main`, citing RU-009 (completed work reaches `main` by pull request)
   and RU-010 (this repository reaches `main` the same way).
@@ -46,10 +52,10 @@ At `done`:
   against it. The Orchestrator's startup working set is stated once, in
   `dispatch.md`, and repeated word for word in its contract and the
   `orchestrate` skill.
-- [plan-model.md](../archive/process/plan-model.md) says what a leaf is when its
+- [plan-model.md](../process/plan-model.md) says what a leaf is when its
   work takes several tasks, and when a child carried by its parent's
   specification needs a plan task.
-- [observability.md](../archive/process/observability.md) can record a block's
+- [observability.md](../process/observability.md) can record a block's
   release and a new risk, and says what its `stage` and `session`
   fields hold.
 - The project has a vocabulary file, and the Backlog's header states
@@ -70,7 +76,7 @@ them by passage and by timing.
 - **P3-N009's text.** P3-N009's criterion D1 amends four statements
   that give sibling order a dependency meaning
   (specification of P3-N002 (the comprehension model),
-  [child D](../specs/p3-n002-comprehension-model.md#child-d-sibling-ordering-retired-and-the-checks-that-replace-it)).
+  [child D](../../specs/p3-n002-comprehension-model.md#child-d-sibling-ordering-retired-and-the-checks-that-replace-it)).
   This node edits none of them. It also leaves alone two restatements
   that D1 does not list. One is the sentence of `dispatch.md`'s
   *Parallel dispatch* paragraph on earlier siblings. The other is step
@@ -140,7 +146,7 @@ row waits on it any longer.
 
 ### Rulings flagged for promotion
 
-[`docs/process/rulings.md`](../archive/process/rulings.md)'s promote step flags
+[`docs/process/rulings.md`](../process/rulings.md)'s promote step flags
 every process-scope ruling, and every project-scope ruling applied three
 times, for the next maintenance pass on the specification. This node is
 that pass. A promoted ruling is stated in the specification, which cites
@@ -251,13 +257,13 @@ by path. Their slugs are P3-N008's to issue.
   P3-N007 or P3-N009 creates, so it carries no `after` qualifier.
 
 Repository reach
-([RU-016 (the Planner declares the repository access a node needs)](../archive/rulings.md)):
+([RU-016 (the Planner declares the repository access a node needs)](../rulings.md)):
 **this repository only, write.** It writes the files the two tasks
 list. It reads the methodology at v1.6.0, commit `3e34829`, for the
 texts it cites, and writes nothing there.
 `plugin/scripts/lib/form-check-core.ts` is not vendored, and the node
 adds no corpus fixture, so nothing travels to the service repository
-([RU-012 (one canonical copy, vendored by a generator)](../archive/rulings.md)).
+([RU-012 (one canonical copy, vendored by a generator)](../rulings.md)).
 
 > Found at the gate, 2026-11-03: the event kinds no longer sit in
 > `plugin/scripts/lib/form-check-core.ts`. Node P2-N021 (the web
@@ -284,7 +290,7 @@ omission list) and P3-N007.
 
 ## Verification
 
-C1 profile ([profiles](../archive/process/profiles.md)). Each task's
+C1 profile ([profiles](../process/profiles.md)). Each task's
 Implementer self-verifies against the criteria it meets. E2 verifies
 the node against all of them. No Reviewer is dispatched unless the
 owner asks. Under decision 2, these criteria are the node's
@@ -357,14 +363,14 @@ The record is in *Acceptance of E2, 2026-11-05*.
 
 ## Decisions for the gate
 
-Numbered per [dispatch.md](../archive/process/dispatch.md)'s owner-decision
+Numbered per [dispatch.md](../process/dispatch.md)'s owner-decision
 economics. The owner's go-ahead adopts every default not overridden by
 number. This plan opens its own sequence at 1.
 
 The owner adopted decisions 1 to 17 at their defaults on 2026-11-03,
 and ratified the five names of decision 16 (*Gate record, 2026-11-03*).
 
-**Precedents checked against the [Ruling register](../archive/rulings.md).**
+**Precedents checked against the [Ruling register](../rulings.md).**
 RU-016 is an exact match for the repository reach and decides it
 silently. RU-020 is a near match for decisions 2 and 7. RU-012 raises
 no decision: nothing vendored changes. RU-022 raises no decision: the
@@ -396,38 +402,38 @@ dispositions every ruling the promote step flags.
    rows 1 to 3 have been owed since 2026-09-01.
    **Affected locations**: four `active` documents and one Backlog
    entry.
-   - [plan.md](../plan.md), node P1-N016. Replace "- Depends on:
+   - [plan.md](../../plan.md), node P1-N016. Replace "- Depends on:
      nothing for planning. Its executing stage waits on P3-N009
      (sibling ordering retired)." with: "- Depends on: nothing for
      planning. Its executing stage waits on the acceptance of E1, the
      first execute task of P3-N007 (the type declared), which edits the
      same process documents. It does not wait on P3-N009 (sibling
-     ordering retired) ([plan](plans/p1-n016-process-spec-maintenance.md),
+     ordering retired) ([plan](p1-n016-process-spec-maintenance.md),
      decision 3)."
-   - [plan.md](../plan.md), node P3-N009. Replace "  - Needed by:
+   - [plan.md](../../plan.md), node P3-N009. Replace "  - Needed by:
      P1-N016, whose executing stage builds on the new dispatch rule."
      with: "  - Needed by: nothing. P1-N016 (process spec maintenance)
      leaves the selection rule to this node and does not wait on it."
-   - [plan.md](../plan.md), the waits between lines. Replace "- The
+   - [plan.md](../../plan.md), the waits between lines. Replace "- The
      executing stage of P1-N016 (process spec maintenance) waits on
      P3-N009 (sibling ordering retired)." with: "- The executing stage
      of P1-N016 (process spec maintenance) waits on E1, the first
      execute task of P3-N007 (the type declared)."
-   - [plan.md](../plan.md), the diagram. Replace "  P3N009 -->
+   - [plan.md](../../plan.md), the diagram. Replace "  P3N009 -->
      P1N016" with "  P3N007 --> P1N016".
-   - [plan.md](../plan.md), *Planning now*. Replace "- P1-N016 (process
+   - [plan.md](../../plan.md), *Planning now*. Replace "- P1-N016 (process
      spec maintenance), task T074. Its executing stage waits on
      P3-N009." with: "- P1-N016 (process spec maintenance), task T074.
      Its executing stage waits on E1, the first execute task of
      P3-N007."
-   - [P3-N002 specification](../specs/p3-n002-comprehension-model.md),
+   - [P3-N002 specification](../../specs/p3-n002-comprehension-model.md),
      criterion D3. Replace "Node P1-N016 rebases on it. The Backlog
      collision entry is closed." with: "Node P1-N016 (process spec
      maintenance) edits neither the selection rule nor the statements of
      D1, so it does not wait on D
-     ([plan of P1-N016](../plans/p1-n016-process-spec-maintenance.md),
+     ([plan of P1-N016](p1-n016-process-spec-maintenance.md),
      decision 3). D closes the Backlog collision entry."
-   - [Backlog](../archive/backlog.md), the entry "P3-N002 and P1-N016 both reach
+   - [Backlog](../backlog.md), the entry "P3-N002 and P1-N016 both reach
      `dispatch.md`'s selection rule". Replace "**P3-N002's amendment is
      the one that lands, and P1-N016 rebases its pass on the amended
      text.**" with: "P3-N002's amendment is the one that lands. P1-N016
@@ -489,17 +495,17 @@ dispositions every ruling the promote step flags.
    the single-session wording.
    **Affected locations**: two process documents with no Status line.
    E2 reworks both passages.
-   - [plan-model.md](../archive/process/plan-model.md), *The hierarchy*.
+   - [plan-model.md](../process/plan-model.md), *The hierarchy*.
      Insert before the paragraph beginning "A managed project's plan is
      a tree": "> Superseded by decision 8 of the
-     [plan of node P1-N016](../plans/p1-n016-process-spec-maintenance.md)
+     [plan of node P1-N016](p1-n016-process-spec-maintenance.md)
      (process spec maintenance), a leaf runs as one task or a fixed
      sequence of tasks, adopted at that plan's gate. Read that decision
      for what a leaf is until the node's execute reworks this
      paragraph."
-   - [profiles.md](../archive/process/profiles.md), *Profile table*. Insert
+   - [profiles.md](../process/profiles.md), *Profile table*. Insert
      after the table: "> Superseded by decision 8 of the
-     [plan of node P1-N016](../plans/p1-n016-process-spec-maintenance.md)
+     [plan of node P1-N016](p1-n016-process-spec-maintenance.md)
      (process spec maintenance) for the Breakdown row's
      \"single-session size\", adopted at that plan's gate. Read that
      decision until the node's execute reworks the row."
@@ -556,14 +562,14 @@ dispositions every ruling the promote step flags.
     P3-N010's decision 3 adopted this reading; the Backlog becomes a
     rendering once the amendment of K-003 (the Backlog is the single
     source of progress truth) is pinned
-    ([RU-021 (the planning/execution model is the source of progress truth)](../archive/rulings.md)),
+    ([RU-021 (the planning/execution model is the source of progress truth)](../rulings.md)),
     so moving entries now is work the rendering redoes.
     **Affected locations**: one `active` document.
-    - [plan.md](../plan.md), opening. Replace "Today the
-      [Backlog](backlog.md) holds the implementation map (its
-      [Completed](backlog.md#completed) section) and the list of what is
-      next (its [Upcoming](backlog.md#upcoming) section)." with: "Today
-      the [Backlog](backlog.md) holds the implementation map (its
+    - [plan.md](../../plan.md), opening. Replace "Today the
+      [Backlog](../backlog.md) holds the implementation map (its
+      [Completed](../backlog.md#completed) section) and the list of what is
+      next (its [Upcoming](../backlog.md#upcoming) section)." with: "Today
+      the [Backlog](../backlog.md) holds the implementation map (its
       checked entries, wherever they sit) and the list of what is next
       (its open entries)."
 14. **The journal's kinds and fields.**
@@ -617,7 +623,7 @@ dispositions every ruling the promote step flags.
   after P3-N009 if decision 11 is adopted: a plan's or specification's
   Status against its node's stage; a `dispatched` event with no terminal
   event and no session identifier; a sequence's journal. Pointer:
-  [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md),
+  [plan of P1-N016](p1-n016-process-spec-maintenance.md),
   decision 11.
 - [ ] **The selection rule is restated outside P3-N009's four
   statements** — When: 2026-10-30, planning P1-N016 (T074). Status:
@@ -625,7 +631,7 @@ dispositions every ruling the promote step flags.
   dispatch* paragraph and step 2 of `.claude/agents/orchestrator.md`,
   with its mirror in `plugin/agents/`, restate "earlier siblings
   `done`". Pointer:
-  [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), *What
+  [plan of P1-N016](p1-n016-process-spec-maintenance.md), *What
   this node leaves alone*.
 
 ## Gate record, 2026-11-03
@@ -678,7 +684,7 @@ defaults.
   Orchestrator names each one in that task's brief, or routes it
   elsewhere.
 - Edges: seventeen of the edges under *Dependencies* are transcribed
-  into the [Project model](../archive/project-model.md). Five stay held: the
+  into the [Project model](../project-model.md). Five stay held: the
   `modifies` edges on `docs/process/README.md`, `profiles.md`,
   `auditing.md` and `plugin/skills/orchestrate/SKILL.md`, and the
   `creates` edge on `docs/vocabulary.md`. No slug names those
@@ -729,7 +735,7 @@ gate.
 
 At the verifying gate the owner verifies two things:
 
-- That [`docs/vocabulary.md`](../archive/vocabulary-retired.md#def-sequencing) holds
+- That [`docs/vocabulary.md`](../vocabulary-retired.md#def-sequencing) holds
   the ratified terms, at the anchors `def-sequencing`, `def-stack`,
   `def-knowledge`, `def-unblocked` and `def-risk-opened`.
 - That the kinds `unblocked` and `risk-opened` appear in the service's
@@ -754,7 +760,7 @@ and V8 to V15) plus the acceptance commits of 2026-11-05 (V1 and V7).
   `node plugin/scripts/run_corpus.ts` reports every fixture matching
   its recorded expectation.
 - V11: met. The *Promotion flags* line E2 proposed is in the
-  [Ruling register](../archive/rulings.md).
+  [Ruling register](../rulings.md).
 - V12: met. The acceptance leaves `dispatch.md` unchanged from *How a
   reading applies the predicates* to the end of *Predicate 4*, and
   leaves step 1 unchanged.
@@ -770,7 +776,7 @@ The owner crossed this node's `verifying` gate on 2026-11-08. The
 owner's words: "A29 verified - go ahead with default". The go-ahead
 adopts the default of the *Verification record*.
 
-- The first check is verified. [`docs/vocabulary.md`](../vocabulary.md)
+- The first check is verified. [`docs/vocabulary.md`](../../vocabulary.md)
   holds the five ratified terms, at the anchors `def-sequencing`,
   `def-stack`, `def-knowledge`, `def-unblocked` and `def-risk-opened`.
 - The second check is verified. The kinds `unblocked` and
@@ -800,38 +806,38 @@ pass" (decision 11). The five held edges under *Gate record,
 
 The owner ratified all five names on 2026-11-03 (decision 16). Each
 definition below was the term's definition site until E2 wrote
-[`docs/vocabulary.md`](../vocabulary.md). Under decision 12, that
+[`docs/vocabulary.md`](../../vocabulary.md). Under decision 12, that
 file's row is now the definition site, and each anchor below links it.
 
 - <a id="def-sequencing"></a>**sequencing**: a type in the Ruling
   register's taxonomy, for rulings on dispatch order and concurrency
-  ([vocabulary row](../archive/vocabulary-retired.md#def-sequencing)).
+  ([vocabulary row](../vocabulary-retired.md#def-sequencing)).
 - <a id="def-stack"></a>**stack**: a type in the Ruling register's
   taxonomy, for rulings on languages, runtimes and code sharing
-  ([vocabulary row](../archive/vocabulary-retired.md#def-stack)).
+  ([vocabulary row](../vocabulary-retired.md#def-stack)).
 - <a id="def-knowledge"></a>**knowledge**: a type in the Ruling
   register's taxonomy, for rulings on which document holds which truth
-  ([vocabulary row](../archive/vocabulary-retired.md#def-knowledge)).
+  ([vocabulary row](../vocabulary-retired.md#def-knowledge)).
 - <a id="def-unblocked"></a>**unblocked**: a run journal event kind
   recording that a hold was released. Its note names what released it
-  ([vocabulary row](../archive/vocabulary-retired.md#def-unblocked)).
+  ([vocabulary row](../vocabulary-retired.md#def-unblocked)).
 - <a id="def-risk-opened"></a>**risk-opened**: a run journal event
   kind recording that a Risk register entry was opened. Its note names
-  the entry ([vocabulary row](../archive/vocabulary-retired.md#def-risk-opened)).
+  the entry ([vocabulary row](../vocabulary-retired.md#def-risk-opened)).
 
 ## References
 
-- [orchestrator-v1](orchestrator-v1.md): the founding plan, this node's
+- [orchestrator-v1](../../plans/orchestrator-v1.md): the founding plan, this node's
   parent
-- [Backlog](../archive/backlog.md): this node's entry and the rows routed to it
-- [dispatch](../archive/process/dispatch.md), [plan-model](../archive/process/plan-model.md),
-  [roles](../archive/process/roles.md), [observability](../archive/process/observability.md),
-  [profiles](../archive/process/profiles.md), [auditing](../archive/process/auditing.md),
-  [rulings type](../archive/process/rulings.md), [README](../archive/process/README.md):
+- [Backlog](../backlog.md): this node's entry and the rows routed to it
+- [dispatch](../process/dispatch.md), [plan-model](../process/plan-model.md),
+  [roles](../process/roles.md), [observability](../process/observability.md),
+  [profiles](../process/profiles.md), [auditing](../process/auditing.md),
+  [rulings type](../process/rulings.md), [README](../process/README.md):
   the documents the node maintains
-- [Ruling register](../archive/rulings.md): the promotion flags and the
+- [Ruling register](../rulings.md): the promotion flags and the
   precedents checked
-- [P3-N002 specification](../specs/p3-n002-comprehension-model.md),
+- [P3-N002 specification](../../specs/p3-n002-comprehension-model.md),
   child D: P3-N009's criteria
 - [P3-N007 plan](p3-n007-type-declared-amendment-drafted.md) and
   [P3-N014 plan](p3-n014-loop-runs-sequence-mode.md): the overlapping

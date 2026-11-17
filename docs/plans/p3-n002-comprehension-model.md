@@ -617,7 +617,7 @@ summaries.
 
 Corrections at P3-N007's plan gate, 2026-10-30, placed by task T069.
 The owner adopted decision 3 of the [plan of
-P3-N007](p3-n007-type-declared-amendment-drafted.md) there. Under it, a
+P3-N007](../archive/plans/p3-n007-type-declared-amendment-drafted.md) there. Under it, a
 `uses` edge depends on the creating nodes. It depends on a modifying
 node only when the edge names that node. *Two entities, one edge kind*
 and encoding 1 of *The four hand-written encodings* state that rule.
@@ -647,7 +647,7 @@ and encoding 1 of *The four hand-written encodings* state that rule.
   (second source of truth), R13 (the checker's runtime floor)
 - [Ruling register](../archive/rulings.md) — RU-005, RU-010, RU-012, RU-014,
   RU-016, RU-018, RU-020
-- [p2-n002-service-skeleton](p2-n002-service-skeleton.md) — the chunk
+- [p2-n002-service-skeleton](../archive/plans/p2-n002-service-skeleton.md) — the chunk
   plan shape this document follows
 - methodology **K-003** (decision 3), **K-007** (the status contract),
   **W-002** (decision 5's other option), **W-003** (same-commit

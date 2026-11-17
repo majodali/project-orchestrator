@@ -1,3 +1,9 @@
+> **Status: archived 2026-11-17** (P4-N032, Linked plans and specs
+> archived). Archived because this is the plan of P1-N008 (Proposal:
+> mtool checker extension point), and every node that links it is done.
+> Nothing replaces it: the work is delivered, and
+> `orchestration/state.json` records the node.
+
 # `mtool` custom-type checker extension point — upstream proposal
 
 Status: closed → Backlog entry
@@ -9,10 +15,10 @@ Status: closed → Backlog entry
      and `closed → Backlog entry` when the node reaches `done`. -->
 
 Node **P1-N008**, child of P1-N001
-([orchestrator-v1](orchestrator-v1.md)). Not one of that plan's
+([orchestrator-v1](../../plans/orchestrator-v1.md)). Not one of that plan's
 enumerated chunks 1–6: a Backlog-discovered node, raised by the
 transitional arrangement recorded in
-[auditing.md](../archive/process/auditing.md) and bound by the founding
+[auditing.md](../process/auditing.md) and bound by the founding
 plan's standing constraints — above all constraint 4, "`mtool` is
 upstream", and constraint 1's rule that a gap exposed by refinement
 is fixed by a proposal upstream, never by local divergence.
@@ -66,7 +72,7 @@ what ends the transition, and the Backlog item is its record.
 One authored artifact, produced by a single working session in this
 repository: `docs/proposals/mtool-custom-type-checker.md` (new
 directory; statused per K-007), plus a one-paragraph pointer added
-to [auditing.md](../archive/process/auditing.md)'s extension-point section in
+to [auditing.md](../process/auditing.md)'s extension-point section in
 the same commit (W-003). The transitional arrangement itself does not
 change — it stays in force until the upstream capability exists.
 
@@ -129,7 +135,7 @@ Delivery of the artifact upstream is a separate, scope-gated step
   caught real defects across the trials. What P1-N005's gate has not
   yet done is *ratify* that record — which matters here only because
   the proposal's evidence section cites it. The register-order
-  default in [dispatch.md](../archive/process/dispatch.md) gates `execute`
+  default in [dispatch.md](../process/dispatch.md) gates `execute`
   on earlier siblings being `done`; overriding that default is the
   owner's call, put as decision 1. Planning and specification of
   this node need no such override (dispatch's dependency rule asks
@@ -173,7 +179,7 @@ proposed.
 
 ## Decisions for the gate
 
-Numbered per [dispatch.md](../archive/process/dispatch.md)'s owner-decision
+Numbered per [dispatch.md](../process/dispatch.md)'s owner-decision
 economics; a go-ahead adopts every default not overridden by number.
 
 1. **Execute the draft before P1-N005's demo gate closes?**
@@ -210,14 +216,14 @@ economics; a go-ahead adopts every default not overridden by number.
 
 ## References
 
-- [orchestrator-v1](orchestrator-v1.md) — parent plan; standing
+- [orchestrator-v1](../../plans/orchestrator-v1.md) — parent plan; standing
   constraints 1 and 4
-- [auditing.md](../archive/process/auditing.md) — the transitional
+- [auditing.md](../process/auditing.md) — the transitional
   side-by-side arrangement and the intended end-state this node
   proposes
-- [dispatch.md](../archive/process/dispatch.md) — dependency default,
+- [dispatch.md](../process/dispatch.md) — dependency default,
   cross-repo reach as scope, owner-decision economics
-- [profiles.md](../archive/process/profiles.md) — C1 profile (breakdown
+- [profiles.md](../process/profiles.md) — C1 profile (breakdown
   above single-session size; criteria-list specifications)
 - [methodology-tools](https://github.com/majodali/methodology-tools)
   — the upstream recipient

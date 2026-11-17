@@ -42,7 +42,7 @@ Every ruling carries a **type** and a **scope**:
   runtimes and code sharing) ·
   [`knowledge`](../vocabulary-retired.md#def-knowledge) (which document holds
   which truth). The last three entered on 2026-11-03
-  ([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+  ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
   decision 16).
 - **Scope**: `node` (this node only — rarely worth recording) ·
   `project` · `process` (would apply to any managed project — spec
