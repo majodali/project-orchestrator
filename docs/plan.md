@@ -13,7 +13,6 @@ Nothing.
 ## Ready, starting automatically when the loop runs
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
-- One branch for each pull request (P4-N038) [executing]
 - Service repository enlisted for delegated sessions (P2-N032) [specified]
 - Orchestrator fixes before its trial (P2-N036) [specified]
 - View that updates itself and leads with what matters (P2-N028) [planned]
@@ -21,7 +20,7 @@ Nothing.
 
 ## In flight
 
-None.
+- One branch for each pull request (P4-N038) [executing] — T162
 
 ## In progress, children carry the work
 

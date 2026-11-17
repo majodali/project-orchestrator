@@ -4879,6 +4879,25 @@
       "pr": "majodali/project-orchestrator#67",
       "summary": "Criteria 7 and 9 to 12 met at 6a86004. npm test (215), check, lint, format, sync_agents --check and CI pass. Watcher run by hand: waits, exits on an added key only. Seven readings supported. Findings: role never sets the background limit, so the watcher is stopped at 30 minutes without output; three smaller guesses. Pull request 63 conflicts in how-we-work.md.",
       "notes": null
+    },
+    {
+      "id": "T162",
+      "node": "P4-N038",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T23:35:07Z",
+      "closed": null,
+      "base": "a908150a76dfc69e7a71c93c51d59d1a33a969fd",
+      "ref": null,
+      "pr": null,
+      "summary": "Continue P4-N038 on pull request 63 after D084: tick criterion 4 if the owner accepted the record, merge main and resolve the conflict in how-we-work.md, and settle whether the rule belongs in the orchestrator agent. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "notes": null
     }
   ],
   "decisions": [

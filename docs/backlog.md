@@ -87,7 +87,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Rebuild: the orchestrator runs on a checked data model** (P4-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Re-plan, prune and hand back** (P4-N008) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Pilot enlistment of methodology-tools** (P4-N027) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
-- [ ] **One branch for each pull request** (P4-N038) — When: not dated. Status: executing, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
+- [ ] **One branch for each pull request** (P4-N038) — When: not dated. Status: executing, in flight. Pointer: [plan](plans/rebuild.md).
 - [ ] **Pin migrated to the release with the K-003 amendment** (P4-N042) — When: not dated. Status: identified, blocked. Pointer: `orchestration/state.json`.
 - [ ] **Orchestration service** (P2-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestration-service.md).
 - [ ] **Pilot on methodology-tools: sessions on the task loop** (P2-N006) — When: after P4-N027. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
