@@ -13,17 +13,23 @@ Open decisions:
 - D084 on One branch for each pull request (P4-N038): Criterion 4: D083 chose the delegating session's next two tasks as the trial. It reported two earlier ones instead: T140 (pull request 52, from claude/zealous-einstein-1rw9kw, the branch that was reused for pull requests 49 to 57) and T144 (pull request 58, from a branch made for it). Both branches are gone now. Only the second shows the rule followed. Does this stand as the trial? Default: Yes: accept the record with its limits and tick criterion 4
 - D085 on View that updates itself and leads with what matters (P2-N028): May the view run one script of its own, served from the view's origin, and may the test that asserts no script (test/viewPages.test.ts in the service repository) be rewritten to assert no inline and no third-party script? The rule "No script" is in the archived specification of P2-N003. Default: yes, one first-party script, with the test rewritten
 - D086 on View that updates itself and leads with what matters (P2-N028): Should the view notify the owner outside its browser tab when something new waits on the owner? Default: no, the tab's title count only, and the orchestrator's report is the notice; decide again after the trial of criterion 19
+- D087 on Decision script and settings of the orchestrator (P2-N030): The decision script holds a verification back while another node has an open execute or planning task on the same plan document (specification S4, as written). S4's own reason, that a reviewer edits nothing, would let the verification start. Every P4 node links docs/plans/rebuild.md, so a verification there waits for any execute task on the line. Should a verify start be exempt from the shared-document rule? Default: exempt a verify start; P2-N031's task changes lib/orchestrate.ts and its test
+
+Gated nodes:
+
+- Service repository enlisted for delegated sessions (P2-N032): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - One branch for each pull request (P4-N038) [executing]
+- Orchestrator role and its watcher (P2-N031) [specified]
 - View that updates itself and leads with what matters (P2-N028) [planned]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-- Verification of Decision script and settings of the orchestrator (P2-N034) [specified] — T159
+None.
 
 ## In progress, children carry the work
 
@@ -31,15 +37,12 @@ Open decisions:
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
-- Decision script and settings of the orchestrator (P2-N030) [verifying]
 
 ## Waiting on a dependency
 
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
-- Orchestrator role and its watcher (P2-N031) [specified] — after Decision script and settings of the orchestrator (P2-N030)
-- Service repository enlisted for delegated sessions (P2-N032) [specified] — after Decision script and settings of the orchestrator (P2-N030)
 - Orchestrator trial with its measured cost (P2-N033) [specified] — after Orchestrator role and its watcher (P2-N031), Service repository enlisted for delegated sessions (P2-N032), One branch for each pull request (P4-N038)
 
 ## Blocked
@@ -339,13 +342,10 @@ Documents: [plan](plans/orchestration-service.md).
   One restartable session starts a session for each offered task on its role's model, messages stalled ones, and returns to the owner only on the four stop conditions, so offered work proceeds without the owner starting or prompting sessions.
   [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
   Note: The owner, 2026-11-16: work should always continue wherever possible. Of three ways (the service starts sessions, enlisted sessions take their next task, an orchestrator session that starts sessions and messages existing ones) the owner prefers the last, and it could be made configurable. Open for the plan step: where the model per role is recorded, how many sessions run at once, and what wakes the orchestrator session. From the P3 line, which stays held (the owner, 2026-11-17): reuse the four stop conditions of sequence mode, which P3-N013 made decidable (docs/specs/p3-n005-sequence-mode.md): a failed check, a scope change, a decision that is the owner's, and a close that carries asks. They are when the orchestrator session returns to the owner. The plan step also says what is left of P3-N005 and P3-N016 once this node exists. Input from the owner, 2026-11-17: a session that attaches a second repository after it starts loses the service tools that .mcp.json gives it, and they do not return (seen in the session that executed P4-N031). So the orchestrator session attaches no repository mid-session, and work in another repository goes to a session started for it; the plan step says how that session reaches the service. Next step: break down (the plan's four slices; docs/specs/orchestrator-session.md, S8).
-  - **Decision script and settings of the orchestrator** (P2-N030, verifying)
+  - **Decision script and settings of the orchestrator** (P2-N030, done 2026-11-17)
     A script prints the sessions to start and the reports to give as JSON, from the state file, the journal, the settings, the agent files and a session snapshot, and one session per role was started from its output.
-    [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 1 open decision
     Note: Slice 1 of the plan (Children). Criteria 1 to 6, 8, 19 and 20 of the specification.
-    - check: **Verification of Decision script and settings of the orchestrator** (P2-N034, specified)
-      P2-N030 is verified against its outcome.
-      [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
   - **Orchestrator role and its watcher** (P2-N031, specified)
     A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.
     after P2-N030 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)

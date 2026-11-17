@@ -68,6 +68,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Owner questions and the plan view** (P2-N003) — When: 2026-11-11. Status: done. Pointer: [plan](archive/plans/p2-n003-owner-questions-and-plan-view.md), [spec](archive/specs/p2-n003-owner-questions-and-plan-view.md).
 - [x] **Web view v1** (P2-N021) — When: 2026-11-02. Status: done. Pointer: [spec](archive/specs/p2-n003-owner-questions-and-plan-view.md).
 - [x] **Web view UX refinement** (P2-N023) — When: 2026-11-07. Status: done. Pointer: [plan](archive/plans/p2-n023-web-view-ux-refinement.md).
+- [x] **Decision script and settings of the orchestrator** (P2-N030) — When: 2026-11-17. Status: done. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 
 ## Upcoming
 
@@ -92,9 +93,8 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Faster writes, a bounded journal and a deploy write test** (P2-N025) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Several projects and repositories in one instance** (P2-N026) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
-- [ ] **Decision script and settings of the orchestrator** (P2-N030) — When: not dated. Status: verifying, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
-- [ ] **Orchestrator role and its watcher** (P2-N031) — When: after P2-N030. Status: specified, waiting on a dependency. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
-- [ ] **Service repository enlisted for delegated sessions** (P2-N032) — When: after P2-N030. Status: specified, waiting on a dependency. Pointer: [spec](specs/orchestrator-session.md).
+- [ ] **Orchestrator role and its watcher** (P2-N031) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
+- [ ] **Service repository enlisted for delegated sessions** (P2-N032) — When: not dated. Status: specified, waiting on the owner. Pointer: [spec](specs/orchestrator-session.md).
 - [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: after P2-N031, P2-N032, P4-N038. Status: specified, waiting on a dependency. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: planned, ready, starts automatically. Pointer: [plan](plans/view-that-leads-and-updates.md).
 - [ ] **Rework cost measured against the reviews it replaces** (P2-N029) — When: not dated. Status: identified, ready, starts automatically. Pointer: `orchestration/state.json`.
