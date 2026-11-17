@@ -571,6 +571,67 @@ Two are not hand-written: `docs/plan.md` (rendered by the service) and
 data). `docs/process/task-loop.md` is at 300 and
 `docs/plans/rebuild.md` is within the bound.
 
+### M6. Re-plan, prune and hand back: child 5
+
+**5. Upstream proposals batch** (P4-N026). Its criteria are in
+`docs/plans/rebuild.md`. Executed 2026-11-17 (task T149). The batch is
+in `docs/proposals/`, with a cover note, `README.md`. What each tick
+rests on:
+
+- **Proposal one.** `k-003-amendment-release.md` with its IR. The
+  re-verification found that the owner accepted the K-003 amendment
+  upstream on 2026-11-02 (methodology pull request 73). It stands on
+  `main`, unreleased. So the proposal asks for the release, v1.7.0,
+  and records the six places where the accepted text differs from the
+  proposal of 2026-10-30. It asks for no change to a rule.
+- **Proposal two.** `registers-as-data-files.md` with its IR: one new
+  rule, suggested identifier K-012, one sentence in the vocabulary row
+  Register, and the words "or custom artifact types" in the row
+  planning/execution model. Evidence: the state file, `plan-state
+  check` with its invariants, the import of 2026-11-09 and its record.
+- **Proposal three.** `bounded-specification-depth.md` with its IR:
+  one new rule, suggested identifier K-013, and one vocabulary row,
+  criteria list. Evidence: the nine criteria lists of milestone 6 (4
+  to 15 criteria), their verifications, and the 300-line bound with
+  the ten documents that exceed it.
+- **Form.** Each proposal quotes the upstream text in fenced blocks,
+  filled by a script from a read-only clone, never typed. One
+  provenance line covers the prose and the IR: majodali/methodology
+  `main` at 4c7b1dd (committed 2026-11-02), read 2026-11-17; v1.6.0 is
+  3e34829. Each IR was written first and has Status `draft`.
+- **Nothing beyond the rebuild's needs.** Proposal one asks for the
+  release only. Proposal two's rule states the duties the rebuild
+  already meets. Proposal three exempts registers, because the
+  rebuild's evidence about registers is proposal two's. Each of two
+  and three says that the rebuild changed several things at once and
+  does not isolate one effect.
+- **The request to methodology-tools** (D073).
+  `mtool-links-quoted-text.md`: four criteria for a mark that exempts
+  quoted text, and the alternative that a fenced block is already
+  skipped. It carries no IR: RU-022 covers the methodology corpus.
+- **The hold.** Set with `node_update` under T149 before the close.
+- **Nothing edited upstream.** Both clones were read-only and had no
+  local change at the end.
+
+**The checks**, at methodology-tools 296ba46 and the corpus at
+4c7b1dd:
+
+- `mtool links check`: 8 findings, the same 8 as on `main`. The new
+  files add none, because their quotes are in fenced blocks, which the
+  check skips.
+- `mtool ir check` over the three IRs: 0 violations, 0 warnings, 1
+  unratified term (criteria list).
+- `mtool style` over the five prose files: 0 violations. Warnings:
+  41, 32 and 34 on the three proposals, 21 on the cover note and 12
+  on the request. Most are P-008 link hints on common words; the
+  proposal of 2026-10-30 has 26.
+- No stranger rounds ran. The impact assessments of two and three
+  read methodology, methodology-tools and this repository only.
+- The word count under `docs/`, outside `docs/archive/`, by child 3's
+  method: 89,179, up from 76,660 at the branch's base. The batch adds
+  about 12,500 words. Each new file is within 300 lines; the longest
+  is 298. `docs/plans/rebuild.md` stays at 300.
+
 ## GitHub interaction changes
 
 | Today | After |
