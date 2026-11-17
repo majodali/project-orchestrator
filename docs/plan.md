@@ -147,7 +147,7 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
     [spec](specs/p3-n005-sequence-mode.md)
   - **Sequence mode in the dispatch loop** (P3-N014, done 2026-10-30)
     This project's dispatch loop can run methodology W-001 (two delivery modes, human-gated)'s pre-ratified sequence.
-    after P3-N013, P1-N014 · [plan](plans/p3-n014-loop-runs-sequence-mode.md), [spec](specs/p3-n005-sequence-mode.md)
+    after P3-N013, P1-N014 · [spec](specs/p3-n005-sequence-mode.md)
     Note: depends on P3-N013 and on P1-N014's execute
   - **Sequence mode demonstration** (P3-N015, broken-down)
     The owner ratifies a sequence of four members once.

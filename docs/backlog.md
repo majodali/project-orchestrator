@@ -30,7 +30,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **First risk class end to end** (P3-N010) — When: 2026-10-30. Status: done. Pointer: [spec](specs/p3-n003-common-risk-catalogue.md).
 - [x] **Catalogue sweep and omission list** (P3-N011) — When: 2026-10-31. Status: done. Pointer: [spec](specs/p3-n003-common-risk-catalogue.md).
 - [x] **Decidable stop conditions** (P3-N013) — When: 2026-10-30. Status: done. Pointer: [spec](specs/p3-n005-sequence-mode.md).
-- [x] **Sequence mode in the dispatch loop** (P3-N014) — When: 2026-10-30. Status: done. Pointer: [plan](plans/p3-n014-loop-runs-sequence-mode.md), [spec](specs/p3-n005-sequence-mode.md).
+- [x] **Sequence mode in the dispatch loop** (P3-N014) — When: 2026-10-30. Status: done. Pointer: [spec](specs/p3-n005-sequence-mode.md).
 - [x] **Methodology citations pinned in the process specification** (P3-N017) — When: 2026-11-07. Status: done. Pointer: [plan](plans/p3-n015-sequence-demonstration.md).
 - [x] **Anchors on Risk register entries** (P3-N018) — When: 2026-11-07. Status: done. Pointer: [plan](plans/p3-n015-sequence-demonstration.md).
 - [x] **Checker extension-point proposal ready to carry** (P3-N019) — When: 2026-11-08. Status: done. Pointer: [plan](plans/p3-n015-sequence-demonstration.md).

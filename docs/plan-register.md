@@ -34,7 +34,7 @@ Dependencies are in the state file, not in sibling order.
   - P3-N004 [identified] Reversibility and its measurement
   - P3-N005 [broken-down] Sequence mode — plan: plans/p3-n005-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
     - P3-N013 [done] Decidable stop conditions — spec: specs/p3-n005-sequence-mode.md
-    - P3-N014 [done] Sequence mode in the dispatch loop — plan: plans/p3-n014-loop-runs-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
+    - P3-N014 [done] Sequence mode in the dispatch loop — spec: specs/p3-n005-sequence-mode.md
     - P3-N015 [broken-down] Sequence mode demonstration — plan: plans/p3-n015-sequence-demonstration.md · spec: specs/p3-n005-sequence-mode.md
       - P3-N017 [done] Methodology citations pinned in the process specification — plan: plans/p3-n015-sequence-demonstration.md
       - P3-N018 [done] Anchors on Risk register entries — plan: plans/p3-n015-sequence-demonstration.md

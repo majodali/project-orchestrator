@@ -510,7 +510,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p3-n014-loop-runs-sequence-mode.md",
+        "plan": null,
         "spec": "docs/specs/p3-n005-sequence-mode.md"
       },
       "done": "2026-10-30",
@@ -4359,6 +4359,10 @@
         {
           "node": "P3-N013",
           "plan": "docs/archive/plans/p3-n013-stop-conditions-decidable.md"
+        },
+        {
+          "node": "P3-N014",
+          "plan": "docs/archive/plans/p3-n014-loop-runs-sequence-mode.md"
         }
       ]
     }
