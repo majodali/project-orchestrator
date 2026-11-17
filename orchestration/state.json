@@ -945,7 +945,7 @@
         "spec": null
       },
       "done": null,
-      "note": null
+      "note": "Added by the owner's answer to D073 (on P4-N032), 2026-11-17: the batch also carries a request to methodology-tools for a way to exempt methodology text that a document quotes verbatim (RU-015) from mtool links check, so the tool can exit zero over this tree. Evidence: the 8 findings P4-N032 dispositioned. Add it as a criterion to the node's list in docs/plans/rebuild.md in the same pull request."
     },
     {
       "id": "P4-N027",
