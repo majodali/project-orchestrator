@@ -8,19 +8,23 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Nothing.
+Open decisions:
+
+- D074 on Orchestrator session that keeps work moving (P2-N027): Which model runs the orchestrator session? Default: claude-sonnet-5
+- D075 on Orchestrator session that keeps work moving (P2-N027): When P2-N027 is done, remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027 instead of P3-N015? Default: yes
+- D076 on Orchestrator session that keeps work moving (P2-N027): Set a weekly limit on the measured cost of delegated tasks now? Default: no limit until the trial records a week's figure
 
 ## Ready, starting automatically when the loop runs
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - One branch for each pull request (P4-N038) [specified]
+- Orchestrator session that keeps work moving (P2-N027) [planned]
 - View that updates itself and leads with what matters (P2-N028) [identified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
 - Upstream proposals batch (P4-N026) [executing] — T149
-- Orchestrator session that keeps work moving (P2-N027) [identified] — T148
 
 ## In progress, children carry the work
 
@@ -323,8 +327,9 @@ Documents: [plan](plans/orchestration-service.md).
 - **Several projects and repositories in one instance** (P2-N026, identified)
   One instance of the orchestrator and the service serves several projects and their repositories; the pilot's separate instance is retired into it.
   after P4-N008
-- **Orchestrator session that keeps work moving** (P2-N027, identified)
-  One long-lived session starts a session for each offered task on its role's model and messages running ones, so offered work proceeds without the owner starting or prompting sessions.
+- **Orchestrator session that keeps work moving** (P2-N027, planned)
+  One restartable session starts a session for each offered task on its role's model, messages stalled ones, and returns to the owner only on the four stop conditions, so offered work proceeds without the owner starting or prompting sessions.
+  [plan](plans/orchestrator-session.md) · 3 open decisions
   Note: The owner, 2026-11-16: work should always continue wherever possible. Of three ways (the service starts sessions, enlisted sessions take their next task, an orchestrator session that starts sessions and messages existing ones) the owner prefers the last, and it could be made configurable. Open for the plan step: where the model per role is recorded, how many sessions run at once, and what wakes the orchestrator session. From the P3 line, which stays held (the owner, 2026-11-17): reuse the four stop conditions of sequence mode, which P3-N013 made decidable (docs/specs/p3-n005-sequence-mode.md): a failed check, a scope change, a decision that is the owner's, and a close that carries asks. They are when the orchestrator session returns to the owner. The plan step also says what is left of P3-N005 and P3-N016 once this node exists. Input from the owner, 2026-11-17: a session that attaches a second repository after it starts loses the service tools that .mcp.json gives it, and they do not return (seen in the session that executed P4-N031). So the orchestrator session attaches no repository mid-session, and work in another repository goes to a session started for it; the plan step says how that session reaches the service.
 - **View that updates itself and leads with what matters** (P2-N028, identified)
   The view refreshes when the plan changes and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.

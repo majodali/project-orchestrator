@@ -83,6 +83,6 @@ Dependencies are in the state file, not in sibling order.
   - P2-N006 [identified] Pilot on methodology-tools: sessions on the task loop
   - P2-N025 [identified] Faster writes, a bounded journal and a deploy write test
   - P2-N026 [identified] Several projects and repositories in one instance
-  - P2-N027 [identified] Orchestrator session that keeps work moving
+  - P2-N027 [planned] Orchestrator session that keeps work moving — plan: plans/orchestrator-session.md
   - P2-N028 [identified] View that updates itself and leads with what matters
   - P2-N029 [identified] Rework cost measured against the reviews it replaces

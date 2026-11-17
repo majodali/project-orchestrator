@@ -1630,14 +1630,14 @@
       "id": "P2-N027",
       "kind": "work",
       "title": "Orchestrator session that keeps work moving",
-      "outcome": "One long-lived session starts a session for each offered task on its role's model and messages running ones, so offered work proceeds without the owner starting or prompting sessions.",
-      "stage": "identified",
+      "outcome": "One restartable session starts a session for each offered task on its role's model, messages stalled ones, and returns to the owner only on the four stop conditions, so offered work proceeds without the owner starting or prompting sessions.",
+      "stage": "planned",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/plans/orchestrator-session.md",
         "spec": null
       },
       "done": null,
@@ -4412,7 +4412,7 @@
       "id": "T148",
       "node": "P2-N027",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -4420,11 +4420,11 @@
         "out": null
       },
       "opened": "2026-11-17T21:38:32Z",
-      "closed": null,
+      "closed": "2026-11-17T21:42:57Z",
       "base": "2e8a94bee921215a0e6cc6c8ffabfa95985e8ab5",
       "ref": null,
-      "pr": null,
-      "summary": "Plan the orchestrator session role: a new plan document under docs/plans/ with outcome and criteria, delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "pr": "majodali/project-orchestrator#60",
+      "summary": "Plan delivered in docs/plans/orchestrator-session.md: an orchestrator role that carries out actions a decision script prints, a watcher that wakes it, one settings file, models read from the agent files, other-repository sessions started in that repository, four stop conditions per node, eighteen criteria, four slices. Three asks.",
       "notes": null
     },
     {
@@ -5148,6 +5148,51 @@
       "chosen": "yes, add it to P4-N026",
       "decided": "2026-11-17",
       "rationale": "Asked by T147 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D074",
+      "node": "P2-N027",
+      "question": "Which model runs the orchestrator session?",
+      "options": [
+        "claude-sonnet-5",
+        "claude-opus-5"
+      ],
+      "default": "claude-sonnet-5",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T148 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D075",
+      "node": "P2-N027",
+      "question": "When P2-N027 is done, remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027 instead of P3-N015?",
+      "options": [
+        "yes",
+        "keep all three as they are"
+      ],
+      "default": "yes",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T148 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D076",
+      "node": "P2-N027",
+      "question": "Set a weekly limit on the measured cost of delegated tasks now?",
+      "options": [
+        "no limit until the trial records a week's figure",
+        "a figure the owner names"
+      ],
+      "default": "no limit until the trial records a week's figure",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T148 at close.",
       "standing": false,
       "source": null
     }
