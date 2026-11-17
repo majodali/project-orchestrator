@@ -4463,14 +4463,14 @@
         "cacheRead": 10713911,
         "cacheWrite": 243752
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T21:38:37Z",
       "closed": "2026-11-17T21:54:46Z",
       "base": "cc1cc3e9e4f05763be5b5ba936d6b50ae33035b7",
       "ref": "6292fdffc0a6ec568239efae2c405b295b257de6",
       "pr": "majodali/project-orchestrator#61",
       "summary": "Batch in docs/proposals/: K-003 release request (the amendment is accepted upstream, unreleased), registers as data files, bounded documents and specifications, each IR first with verbatim quotes and provenance; cover note; mtool quote-exemption request (D073). All nine criteria met; hold set. mtool links: 8 findings, unchanged. No stranger rounds run.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
@@ -5231,8 +5231,8 @@
         "strike"
       ],
       "default": "ratify",
-      "chosen": null,
-      "decided": null,
+      "chosen": "ratify",
+      "decided": "2026-11-17",
       "rationale": "Asked by T149 at close.",
       "standing": false,
       "source": null
