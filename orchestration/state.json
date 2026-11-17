@@ -4414,10 +4414,12 @@
       "step": "plan",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 25,
+        "out": 21946,
+        "cacheRead": 1558754,
+        "cacheWrite": 77723
       },
       "opened": "2026-11-17T21:38:32Z",
       "closed": "2026-11-17T21:42:57Z",
@@ -4425,7 +4427,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#60",
       "summary": "Plan delivered in docs/plans/orchestrator-session.md: an orchestrator role that carries out actions a decision script prints, a watcher that wakes it, one settings file, models read from the agent files, other-repository sessions started in that repository, four stop conditions per node, eighteen criteria, four slices. Three asks.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T149",
