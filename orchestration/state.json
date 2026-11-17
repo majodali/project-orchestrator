@@ -1772,7 +1772,7 @@
       "kind": "work",
       "title": "Service repository enlisted for delegated sessions",
       "outcome": "A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N027",
       "after": [
         "P2-N030"
@@ -5092,14 +5092,14 @@
         "cacheRead": 2785437,
         "cacheWrite": 22611
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T23:37:35Z",
       "closed": "2026-11-17T23:41:36Z",
       "base": "f15b88d775e416e952b883411c1bb6c98559bb63",
       "ref": null,
       "pr": "majodali/project-orchestrator#70",
       "summary": "Six children added, P2-N037 to P2-N042, each specified with its criteria named in the plan. Five write to the service repository, wait on P2-N032 and need the owner's approval to start; the settings file lists them, and the test that pins its node list follows. The plan says which pairs run together.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T166",
@@ -5118,6 +5118,25 @@
       "ref": null,
       "pr": null,
       "summary": "Verify P4-N038 (One branch for each pull request), tasks T153, T154 and T162, pull request #63, against the node's four criteria and decisions D081-D084.",
+      "notes": null
+    },
+    {
+      "id": "T167",
+      "node": "P2-N032",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": "claude-sonnet-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T23:41:52Z",
+      "closed": null,
+      "base": "0d2806f03df0f1627e7496ff0fd1951ab902b31a",
+      "ref": null,
+      "pr": null,
+      "summary": "Add this repo's generator that vendors the cost hook (RU-012), then delegate the push to majodali/project-orchestrator-service to a helper session, per criterion 13 and S7.",
       "notes": null
     }
   ],
