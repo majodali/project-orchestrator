@@ -4292,10 +4292,12 @@
       "step": "execute",
       "status": "closed",
       "role": "implementer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 57,
+        "out": 28088,
+        "cacheRead": 3957053,
+        "cacheWrite": 96920
       },
       "opened": "2026-11-17T20:52:04Z",
       "closed": "2026-11-17T21:00:14Z",
@@ -4381,7 +4383,8 @@
           "node": "P3-N014",
           "plan": "docs/archive/plans/p3-n014-loop-runs-sequence-mode.md"
         }
-      ]
+      ],
+      "costSource": "transcript"
     }
   ],
   "decisions": [
