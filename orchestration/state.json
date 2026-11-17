@@ -5725,8 +5725,8 @@
         "Drop criterion 4: the reviewer's branch check at each verification is the trial"
       ],
       "default": "Yes: accept the record with its limits and tick criterion 4",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Yes: accept the record with its limits and tick criterion 4",
+      "decided": "2026-11-17",
       "rationale": "Asked by T154 at close.",
       "standing": false,
       "source": null
