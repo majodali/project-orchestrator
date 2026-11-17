@@ -23,7 +23,6 @@ Open decisions:
 ## In flight
 
 - Verification of Upstream proposals batch (P4-N041) [specified] — T156
-- Orchestrator session that keeps work moving (P2-N027) [broken-down] — T155
 
 ## In progress, children carry the work
 
@@ -31,6 +30,7 @@ Open decisions:
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Upstream proposals batch (P4-N026) [verifying]
 - Orchestration service (P2-N001) [broken-down]
+- Orchestrator session that keeps work moving (P2-N027) [broken-down]
 
 ## Waiting on a dependency
 

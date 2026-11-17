@@ -4676,7 +4676,7 @@
       "id": "T155",
       "node": "P2-N027",
       "step": "break down",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -4684,11 +4684,11 @@
         "out": null
       },
       "opened": "2026-11-17T22:22:20Z",
-      "closed": null,
+      "closed": "2026-11-17T22:24:12Z",
       "base": "00700a0f3184a5b34e4fa189bcd4f56e25b0bf83",
       "ref": null,
-      "pr": null,
-      "summary": "Break P2-N027 into the plan's four slices as specified children with real dependencies, write each child's criteria into the plan, and add vocabulary rows for the four terms ratified by D080. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "pr": "majodali/project-orchestrator#64",
+      "summary": "Four specified children: P2-N030 (decision script and settings), P2-N031 (role and watcher, after N030), P2-N032 (service repository enlisted, after N030, start approve), P2-N033 (trial, after N031, N032 and P4-N038). The plan names each child's criteria and that N031 and N032 may run together. Vocabulary rows for the four terms of D080.",
       "notes": null
     },
     {
