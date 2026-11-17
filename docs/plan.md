@@ -8,10 +8,6 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D080 on Orchestrator session that keeps work moving (P2-N027): Ratify the four terms the specification of P2-N027 introduces (snapshot, mark, pending start, acted file; docs/specs/orchestrator-session.md, Terms introduced)? Default: ratify all four
-
 Gated nodes:
 
 - Upstream proposals batch (P4-N026): the owner reviews the proposals (RU-005)
@@ -335,7 +331,7 @@ Documents: [plan](plans/orchestration-service.md).
   after P4-N008
 - **Orchestrator session that keeps work moving** (P2-N027, specified)
   One restartable session starts a session for each offered task on its role's model, messages stalled ones, and returns to the owner only on the four stop conditions, so offered work proceeds without the owner starting or prompting sessions.
-  [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 1 open decision
+  [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
   Note: The owner, 2026-11-16: work should always continue wherever possible. Of three ways (the service starts sessions, enlisted sessions take their next task, an orchestrator session that starts sessions and messages existing ones) the owner prefers the last, and it could be made configurable. Open for the plan step: where the model per role is recorded, how many sessions run at once, and what wakes the orchestrator session. From the P3 line, which stays held (the owner, 2026-11-17): reuse the four stop conditions of sequence mode, which P3-N013 made decidable (docs/specs/p3-n005-sequence-mode.md): a failed check, a scope change, a decision that is the owner's, and a close that carries asks. They are when the orchestrator session returns to the owner. The plan step also says what is left of P3-N005 and P3-N016 once this node exists. Input from the owner, 2026-11-17: a session that attaches a second repository after it starts loses the service tools that .mcp.json gives it, and they do not return (seen in the session that executed P4-N031). So the orchestrator session attaches no repository mid-session, and work in another repository goes to a session started for it; the plan step says how that session reaches the service. Next step: break down (the plan's four slices; docs/specs/orchestrator-session.md, S8).
 - **View that updates itself and leads with what matters** (P2-N028, identified)
   The view refreshes when the plan changes and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
@@ -408,6 +404,7 @@ Documents: [plan](plans/orchestration-service.md).
 - D077 on P4-N026 (2026-11-17): Ratify or strike the term 'criteria list', which proposal three introduces (a Specification given as a list of criteria, each one statement of an observable result that a reviewer judges met or unmet)? Chosen: ratify
 - D078 on P4-N026 (2026-11-17): In which order do you carry the batch to majodali/methodology? Chosen: two and three first, then the release (one migration here, no deviation left)
 - D079 on P4-N026 (2026-11-17): Add a node for migrating this repository's pin to the release that carries the K-003 amendment (declare the state file as the planning/execution model, end the K-003 deviation, adopt or deviate from the four other unreleased amendments)? P4-N026 does not cover it. Chosen: add a node, to start when the release is tagged
+- D080 on P2-N027 (2026-11-17): Ratify the four terms the specification of P2-N027 introduces (snapshot, mark, pending start, acted file; docs/specs/orchestrator-session.md, Terms introduced)? Chosen: ratify all four
 - D081 on P4-N038 (2026-11-17): Criterion 3: is the repository setting "Automatically delete head branches" on in majodali/project-orchestrator and in majodali/project-orchestrator-service? Head branches of pull requests 57 to 60 and 62 are already gone from this repository, and the service has no code that deletes a branch. Pull request 63 records the setting as the mechanism. Chosen: The owner turns the setting on in both repositories (or confirms it is on); the service is not changed
 - D082 on P4-N038 (2026-11-17): The branch claude/relaxed-meitner-6i6cbh is left on this repository's remote. Its last pull request, 56, merged on 2026-11-17 and its tip is that merge commit. Delete it, with any merged branches left in the service repository? Chosen: Yes, the owner deletes them
 - D083 on P4-N038 (2026-11-17): Criterion 4 asks for a trial: two tasks in a row from one session produce two branches, and the first is gone after its merge. A session delegated one task cannot run it, and it must leave no scratch node. Who runs it? Chosen: The delegating session records it from its next two real tasks that each carry a pull request, and the next execute task on P4-N038 writes it into the record

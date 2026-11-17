@@ -5384,8 +5384,8 @@
         "strike or rename the ones the owner names"
       ],
       "default": "ratify all four",
-      "chosen": null,
-      "decided": null,
+      "chosen": "ratify all four",
+      "decided": "2026-11-17",
       "rationale": "Asked by T150 at close.",
       "standing": false,
       "source": null
