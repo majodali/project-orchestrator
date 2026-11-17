@@ -101,4 +101,5 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Tree page that updates itself** (P2-N037) — When: after P2-N032. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Four lists ahead of the tree** (P2-N038) — When: after P2-N032. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Session, duration and criteria on pages** (P2-N039) — When: after P2-N038. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
+- [ ] **Feedback in place and the node panel** (P2-N040) — When: after P2-N037, P2-N038. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Rework cost measured against the reviews it replaces** (P2-N029) — When: not dated. Status: identified, ready, starts automatically. Pointer: `orchestration/state.json`.

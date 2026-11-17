@@ -38,6 +38,7 @@ Nothing.
 - Tree page that updates itself (P2-N037) [specified] — after Service repository enlisted for delegated sessions (P2-N032)
 - Four lists ahead of the tree (P2-N038) [specified] — after Service repository enlisted for delegated sessions (P2-N032)
 - Session, duration and criteria on pages (P2-N039) [specified] — after Four lists ahead of the tree (P2-N038)
+- Feedback in place and the node panel (P2-N040) [specified] — after Tree page that updates itself (P2-N037), Four lists ahead of the tree (P2-N038)
 
 ## Blocked
 
@@ -372,6 +373,10 @@ Documents: [plan](plans/orchestration-service.md).
     A task records the session that opened it, and the view shows each task's session and duration, each node's criteria from its documents, and the other nodes that link the same documents.
     after P2-N038
     Note: Slice C of docs/plans/view-that-leads-and-updates.md: sections 6 and 7, criteria 12 to 15 and 18. Waits for P2-N038, whose "Running" row shows the session. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside the panel slice: it edits the schema, nodePage.ts and taskPage.ts. Links no plan document because it edits none here.
+  - **Feedback in place and the node panel** (P2-N040, specified)
+    A submitted form shows its result on the page without a reload, the tab's title counts what needs the owner, and on a wide window a node opens in a panel beside the tree.
+    after P2-N037, P2-N038
+    Note: Slice D of docs/plans/view-that-leads-and-updates.md: sections 4 and 5, criteria 5, 16 and 17. Waits for P2-N037, whose script it extends, and P2-N038, whose rows it counts and opens. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside the session slice: it edits the script and src/view/html.ts. Links no plan document because it edits none here.
 - **Rework cost measured against the reviews it replaces** (P2-N029, identified)
   The cost of each rework is set against the verifications and owner reviews it replaced, from the tasks' measured costs, so the owner sees whether longer runs of work without review pay.
   Note: The owner, 2026-11-17: pull reversibility forward from the P3 line. P3-N004 "Reversibility and its measurement" stays under the hold on P3-N001 until that line is re-planned; this node takes its measurement half onto the task loop. The data it needs now exists: a rework is its own task (an execute task on a node whose verification failed), and each task has a measured cost. Source for the argument: docs/plans/comprehension-and-continuous-implementation.md, Chunk 3. The plan step says what remains of P3-N004 once this node exists, and whether making work cheap to undo needs work of its own.
