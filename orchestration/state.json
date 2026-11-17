@@ -1681,7 +1681,7 @@
         "spec": null
       },
       "done": null,
-      "note": "The owner, 2026-11-16: work should always continue wherever possible. Of three ways (the service starts sessions, enlisted sessions take their next task, an orchestrator session that starts sessions and messages existing ones) the owner prefers the last, and it could be made configurable. Open for the plan step: where the model per role is recorded, how many sessions run at once, and what wakes the orchestrator session. From the P3 line, which stays held (the owner, 2026-11-17): reuse the four stop conditions of sequence mode, which P3-N013 made decidable (docs/specs/p3-n005-sequence-mode.md): a failed check, a scope change, a decision that is the owner's, and a close that carries asks. They are when the orchestrator session returns to the owner. The plan step also says what is left of P3-N005 and P3-N016 once this node exists. Input from the owner, 2026-11-17: a session that attaches a second repository after it starts loses the service tools that .mcp.json gives it, and they do not return (seen in the session that executed P4-N031). So the orchestrator session attaches no repository mid-session, and work in another repository goes to a session started for it; the plan step says how that session reaches the service."
+      "note": "The owner, 2026-11-16: work should always continue wherever possible. Of three ways (the service starts sessions, enlisted sessions take their next task, an orchestrator session that starts sessions and messages existing ones) the owner prefers the last, and it could be made configurable. Open for the plan step: where the model per role is recorded, how many sessions run at once, and what wakes the orchestrator session. From the P3 line, which stays held (the owner, 2026-11-17): reuse the four stop conditions of sequence mode, which P3-N013 made decidable (docs/specs/p3-n005-sequence-mode.md): a failed check, a scope change, a decision that is the owner's, and a close that carries asks. They are when the orchestrator session returns to the owner. The plan step also says what is left of P3-N005 and P3-N016 once this node exists. Input from the owner, 2026-11-17: a session that attaches a second repository after it starts loses the service tools that .mcp.json gives it, and they do not return (seen in the session that executed P4-N031). So the orchestrator session attaches no repository mid-session, and work in another repository goes to a session started for it; the plan step says how that session reaches the service. Next step: break down (the plan's four slices; docs/specs/orchestrator-session.md, S8)."
     },
     {
       "id": "P2-N028",
@@ -4524,14 +4524,14 @@
         "cacheRead": 3321503,
         "cacheWrite": 123676
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T22:05:12Z",
       "closed": "2026-11-17T22:09:43Z",
       "base": "26f738bfdf09bf654512c6a337e3202964c40bab",
       "ref": null,
       "pr": null,
       "summary": "Not met. Criterion 2: Backlog at b1c8b9f has 79 rows in 95 lines, not 95 rows (proposal two L214, IR C31, E9; proposal one IR E10). Criterion 4: proposal one IR C38 says \"or artifact\"; prose says \"or custom artifact types\". Criterion 6: K-012 makes the declaration name the check; this Classification does not. Also: methodology PR 73 merged 2026-10-31.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
