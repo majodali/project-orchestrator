@@ -8,14 +8,13 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Gated nodes:
-
-- Service repository enlisted for delegated sessions (P2-N032): start needs the owner's approval
+Nothing.
 
 ## Ready, starting automatically when the loop runs
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - One branch for each pull request (P4-N038) [executing]
+- Service repository enlisted for delegated sessions (P2-N032) [specified]
 - View that updates itself and leads with what matters (P2-N028) [planned]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 

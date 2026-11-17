@@ -1761,7 +1761,7 @@
         "P2-N030"
       ],
       "hold": null,
-      "start": "approve",
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": "docs/specs/orchestrator-session.md"
