@@ -2,9 +2,8 @@
 
 Status: planned (T158, 2026-11-17). Not yet specified or broken down.
 
-Reader: the owner, and the sessions that specify, build and verify
-this node. The reader knows
-[how we work](../process/how-we-work.md). Nothing else is assumed.
+Reader: the owner, and the sessions that work this node. The reader
+knows [how we work](../process/how-we-work.md), and nothing else.
 
 ## Outcome
 
@@ -17,9 +16,7 @@ the session.
 
 The owner, 2026-11-16: the view is the best way to know that
 something waits on the owner, so it must update by itself and show
-more useful information.
-
-In the three days before this plan the owner needed to learn that
+more useful information. In the three days before this plan the owner needed to learn that
 decisions were open, to lift a review hold, to approve a start, and
 to see which sessions ran. Each time a session said so in
 conversation, because the view does not announce a change.
@@ -61,8 +58,8 @@ line that still carries the full SHA, which the smoke test reads.
    - a ready node whose start needs approval;
    - any other hold the owner can lift.
 
-   Decisions come first, then reviews, then approvals, then other
-   holds. Each row names its node by title and identifier.
+   Rows come in that order. Each names its node by title and
+   identifier.
 2. **Ready.** Nodes that offer a step and wait on nothing, with the
    step. These start without the owner.
 3. **Running.** One row for each open task: node, step, role, the
@@ -106,8 +103,7 @@ code, no browser storage beyond the view cookie.
   "(3) Plan", so the browser tab shows it. A row that arrived since
   the page was opened is marked "new" until the owner clicks it.
 - A page read at a named `ref` does not update: it shows that commit.
-
-Without the script every page works as it does today.
+- Without the script every page works as it does today.
 
 ### 4. Feedback after a click
 
@@ -173,9 +169,8 @@ section 8). The split, so the owner is not told the same thing twice:
 | 4. A close that carries asks | Each ask as a decision under "Needs you" | One line, as for 3 |
 
 The rule: the view holds every question and every action. The
-report is the notice. It never repeats a question's text or options.
-What only the orchestrator can know stays in its report: a session
-that ended, a model that was refused, the budget.
+report is the notice and never repeats a question's text or options.
+It alone carries a session that ended, a refused model, the budget.
 
 The view does not notify outside its tab: the report arrives in a
 conversation, which already notifies the owner (ask 2). The view
@@ -299,7 +294,6 @@ A test is in the service repository's `npm test`.
 
 ## Terms introduced
 
-- **Needs you, Ready, Running, Just finished**: the four sections of
-  section 1.
+- **Needs you, Ready, Running, Just finished**: section 1's lists.
 - **Version route**: `GET /view/version` (section 3).
 - **Panel**: the node page shown beside the tree (section 5).
