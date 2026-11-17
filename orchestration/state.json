@@ -1006,7 +1006,7 @@
       "kind": "work",
       "title": "Linked plans and specs archived",
       "outcome": "The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N008",
       "after": [
         "P4-N031",
@@ -1020,6 +1020,23 @@
       },
       "done": null,
       "note": "Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8."
+    },
+    {
+      "id": "P4-N040",
+      "kind": "check",
+      "title": "Verification of Linked plans and specs archived",
+      "outcome": "P4-N032 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N032",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P4-N010",
@@ -4273,7 +4290,7 @@
       "id": "T146",
       "node": "P4-N032",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -4281,11 +4298,11 @@
         "out": null
       },
       "opened": "2026-11-17T20:52:04Z",
-      "closed": null,
+      "closed": "2026-11-17T21:00:14Z",
       "base": "9871e3acc5f3f707b390d211d58b2b15fb50e7ee",
-      "ref": null,
-      "pr": null,
-      "summary": "Archive the linked plans and specs of finished work under docs/archive/ using docsOnMerge, state by rule which P3 documents stay, re-point links, and make mtool links check pass. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "ref": "652cf63e3fef8fcd558d504e642889fa3d27adb6",
+      "pr": "majodali/project-orchestrator#59",
+      "summary": "Archived 15 plans and 7 specs of done nodes with status lines; 887 links re-pointed; 25 paths cleared by docsOnMerge, which worked. Word count 76,401. Ten held P3 documents exceed 300 lines, listed. mtool: 13 findings fixed, 8 dispositioned by rule (verbatim proposal text); the tool still exits non-zero on those 8, for the reviewer to judge.",
       "notes": null,
       "docsOnMerge": [
         {

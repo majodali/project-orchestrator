@@ -23,12 +23,13 @@ Open decisions:
 
 ## In flight
 
-- Linked plans and specs archived (P4-N032) [executing] — T146
+None.
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
+- Linked plans and specs archived (P4-N032) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
@@ -232,7 +233,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
     [plan](plans/rebuild.md) · 1 open decision
     Note: Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7.
-  - **Linked plans and specs archived** (P4-N032, executing)
+  - **Linked plans and specs archived** (P4-N032, verifying)
     The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.
     after P4-N031, P4-N024 · [plan](plans/rebuild.md)
     Note: Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8.
