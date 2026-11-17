@@ -4456,10 +4456,12 @@
       "step": "execute",
       "status": "closed",
       "role": "implementer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 91,
+        "out": 88068,
+        "cacheRead": 10713911,
+        "cacheWrite": 243752
       },
       "opened": "2026-11-17T21:38:37Z",
       "closed": "2026-11-17T21:54:46Z",
@@ -4467,7 +4469,8 @@
       "ref": "6292fdffc0a6ec568239efae2c405b295b257de6",
       "pr": "majodali/project-orchestrator#61",
       "summary": "Batch in docs/proposals/: K-003 release request (the amendment is accepted upstream, unreleased), registers as data files, bounded documents and specifications, each IR first with verbatim quotes and provenance; cover note; mtool quote-exemption request (D073). All nine criteria met; hold set. mtool links: 8 findings, unchanged. No stranger rounds run.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
