@@ -14,7 +14,6 @@ Nothing.
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - One branch for each pull request (P4-N038) [specified]
-- Pin migrated to the release with the K-003 amendment (P4-N042) [identified]
 - Orchestrator session that keeps work moving (P2-N027) [planned]
 - View that updates itself and leads with what matters (P2-N028) [identified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
@@ -39,6 +38,7 @@ None.
 ## Blocked
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
+- Pin migrated to the release with the K-003 amendment (P4-N042) [identified] — Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.
 
 ## Paused by a hold or a park above
 
@@ -269,7 +269,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   Every pull request comes from a branch of its own, made for that task and deleted after the merge, so two sessions never push to the same branch.
   [plan](plans/rebuild.md)
   Note: Asked for by the owner, 2026-11-17, after a second session worked on another session's branch (claude/zealous-einstein-1rw9kw) and both opened pull requests from it. Criteria: (1) docs/process/how-we-work.md and the three role agents say a task's pull request comes from a new branch named for the task, never from a branch another pull request used; (2) a delegating session starts the new session on main, never on its own work branch, unless the brief says the work is on that branch; (3) head branches are deleted after merge in this repository and the service repository, by the repository setting or by the service at merge, and the record says which; (4) the rule is tried once: two tasks in a row from one session produce two branches, and the first is gone after its merge.
-- **Pin migrated to the release with the K-003 amendment** (P4-N042, identified)
+- **Pin migrated to the release with the K-003 amendment** (P4-N042, identified, blocked: Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.)
   This repository pins the methodology release that carries the K-003 amendment, declares the state file as its planning/execution model, ends the K-003 deviation, and adopts or deviates from each other amendment in that release.
   Note: Added by the owner's answer to D079 (on P4-N026), 2026-11-17. It starts when majodali/methodology tags the release; until then nothing can be done. The owner carries the batch in the order D078 gives: proposals two and three first, then the release.
 

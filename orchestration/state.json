@@ -1320,7 +1320,10 @@
       "stage": "identified",
       "parent": "P4-N001",
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged."
+      },
       "start": "auto",
       "docs": {
         "plan": null,
