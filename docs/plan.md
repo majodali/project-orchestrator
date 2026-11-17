@@ -8,9 +8,7 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Gated nodes:
-
-- Upstream proposals batch (P4-N026): the owner reviews the proposals (RU-005)
+Nothing.
 
 ## Ready, starting automatically when the loop runs
 
@@ -27,6 +25,7 @@ Gated nodes:
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
+- Upstream proposals batch (P4-N026) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
@@ -225,7 +224,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
     after P4-N024 · [plan](plans/rebuild.md)
     Note: The service part is majodali/project-orchestrator-service#41, merged at cb9d727 and deployed on 2026-11-16. From that deploy the service writes docs/backlog.md with every state commit.
-  - **Upstream proposals batch** (P4-N026, verifying, gated: the owner reviews the proposals (RU-005))
+  - **Upstream proposals batch** (P4-N026, verifying)
     Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.
     [plan](plans/rebuild.md)
     Note: Added by the owner's answer to D073 (on P4-N032), 2026-11-17: the batch also carries a request to methodology-tools for a way to exempt methodology text that a document quotes verbatim (RU-015) from mtool links check, so the tool can exit zero over this tree. Evidence: the 8 findings P4-N032 dispositioned. Add it as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
