@@ -4905,10 +4905,12 @@
       "step": "specify",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 17,
+        "out": 6168,
+        "cacheRead": 1474593,
+        "cacheWrite": 118039
       },
       "opened": "2026-11-17T23:35:21Z",
       "closed": "2026-11-17T23:36:14Z",
@@ -4916,7 +4918,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#68",
       "summary": "The plan's twenty criteria are the specification; no second document. Revised in place: D085 and D086 recorded, the split with the orchestrator's reports checked against stateReports as built, criterion 8 tightened to the same rules, and the settings line the break down must add for children in the service repository.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T164",
