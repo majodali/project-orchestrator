@@ -97,7 +97,7 @@ exception is a change the owner dictated to you in this conversation:
 pass their words as `ownerInstruction`. Do not change the title,
 outcome, parent, dependencies or documents of your own node with
 `node_update`: deliver them at `task_close`, or the task closes as a
-changed scope.
+changed scope. Another node's documents change with `docs`.
 
 **In every task:**
 

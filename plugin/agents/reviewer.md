@@ -60,6 +60,9 @@ identifier of the session that started you.
   `docs/plan.md`, `docs/plan-register.md`, `docs/backlog.md`.
 - Check the pull request's own checks. Do not pass work whose checks
   fail.
+- A pull request that moves a document a node links needs the new
+  path named with `docsOnMerge` on that node. Your close is refused
+  when a named path has no file on the pull request.
 
 **The verdict is the close:**
 

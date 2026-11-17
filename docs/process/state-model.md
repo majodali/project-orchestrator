@@ -99,6 +99,32 @@ Field rules:
 - Resources, verification evidence and multi-project state are later
   schema versions, added when the view or the loop needs them.
 
+## Changing and moving a node's documents
+
+A node's `docs.plan` and `docs.spec` are changed with `node_update`
+(P4-N031, 2026-11-17), under an open task or the owner's words.
+
+- `docs` sets a path now, or null. The service refuses a path that
+  is not a file on the default branch.
+- `docsOnMerge` is for moving a linked document, and needs an open
+  execute task. The order:
+  1. The session calls `node_update` on the node that links the
+     document, with `docsOnMerge` naming the new path. The service
+     clears the node's path at once and records the new one on the
+     task, as the task's `docsOnMerge`.
+  2. The task's pull request moves the file. Its check passes,
+     because the state file names neither path.
+  3. When the task's node is done, the service checks that a pull
+     request of the node brings a file to the new path, merges, and
+     sets the path in the commit that follows.
+- A done decision whose pull requests bring no file to a recorded
+  path is refused: nothing is merged and nothing is committed.
+- Invariant 8 holds on the default branch and on the pull request at
+  every commit of that order. Moving a linked file any other way
+  breaks it.
+- `docsOnMerge` is not for the task's own node: a change to its
+  documents is a changed scope.
+
 ## The invariants
 
 Checked by `check`, in the service and in CI. Each names the rule it
