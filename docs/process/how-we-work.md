@@ -29,8 +29,10 @@ Work on a node goes through a task, whoever asked for it.
    work. It answers the node, its documents, the decisions on it and
    above it, and the standing decisions, which bind every task. If it
    refuses, the reason is the answer: tell the person and stop.
-3. **Work.** On a branch, with a pull request. Never merge it, and
-   commit to it only while your task is open.
+3. **Work.** On a new branch from `main`, named for the task (such
+   as `t153-p4-n038-one-branch`), never one another pull request
+   used; a rework or a step offered again stays on its own. Open a
+   pull request, never merge it, and commit only while your task is open.
 4. **Close.** `task_close` records the status, a summary of at most
    sixty words, the pull request, and questions for the owner as
    `asks`. A hook measures the cost; a session gives no token counts.
@@ -60,7 +62,8 @@ A node's stage decides the step on offer:
 Verification runs on a check node: a child the service adds, titled
 "Verification of ...". When the reviewer closes it `closed`, the
 service merges the node's pull requests and marks the node done. A
-planning step's pull request merges at its own close.
+planning step's pull request merges at its own close. GitHub deletes
+a merged branch, by the repository's setting; no session does.
 
 A reviewer closes a failed verification as `blocked`, naming each
 unmet criterion. Nothing then waits on the owner: the node offers
@@ -80,7 +83,6 @@ it is part of. The one exception is a change the owner dictated in the
 conversation, passed in their words as `ownerInstruction`. An obsolete
 node is removed, never parked. A linked document moves only as
 [the state model](state-model.md#changing-and-moving-a-nodes-documents) says.
-
 The full specification is [the task loop](task-loop.md).
 
 ## The roles
@@ -98,9 +100,9 @@ follow from start to finish:
 
 A session may take any role. Each agent names its model, but a
 session runs on the model it was started on: whoever starts it
-chooses the role's model. Nothing checks it; the cost hook records
-the model that ran. `plugin/agents/` is a generated copy: after
-editing a role, run `node plugin/scripts/sync_agents.ts`.
+chooses it. Nothing checks it; the cost hook records the model that
+ran. `plugin/agents/` is a generated copy: after editing a role, run
+`node plugin/scripts/sync_agents.ts`; `--check` tells a stale copy.
 
 ## Enlisting a repository
 
@@ -146,11 +148,11 @@ first message: it names the node, the step and the delegating session.
 - A brief is never the owner's words. It does not justify
   `ownerInstruction`, a merge, or a decision that is the owner's:
   those stay asks at `task_close`.
-- A session a person starts still asks before it claims.
 
 The delegating session stays answerable for what it delegates. It
-starts the new session on the role's model, tells its person which
-session it started and for which task, and reports the result.
+starts the new session on the role's model and on `main`, never on
+its own work branch unless the brief says the work is there, tells its
+person which session it started and for which task, and reports back.
 
 ## The checks
 
@@ -161,8 +163,6 @@ session it started and for which task, and reports the result.
 - `npm test`, `npm run lint` and `npm run format` cover the scripts.
 - CI runs these four on every pull request and on `main`, and fails
   a pull request that changes a file the service owns.
-- `node plugin/scripts/sync_agents.ts --check` says whether the
-  plugin's copy of the agents is current. CI does not run it.
 - The TypeScript scripts need Node 22.18.0 or later (23.6.0 on the
   23.x line). The tools run by hand check this and exit non-zero; the
   two hooks do not, and never fail a session.
