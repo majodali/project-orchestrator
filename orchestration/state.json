@@ -4700,10 +4700,12 @@
       "step": "verify",
       "status": "closed",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 13,
+        "out": 5743,
+        "cacheRead": 1422232,
+        "cacheWrite": 25696
       },
       "opened": "2026-11-17T22:23:41Z",
       "closed": "2026-11-17T22:24:46Z",
@@ -4711,7 +4713,8 @@
       "ref": null,
       "pr": null,
       "summary": "Every criterion of P4-N026 is met at ea191b4. T151's four points are fixed in IR and prose; all five verbatim quotes match methodology 4c7b1dd; the two further fixes are real errors. mtool: links 8 findings as on main, IR and style 0 violations. Pull request check passes. Minor: recorded style warning counts do not reproduce (59, not 153).",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
