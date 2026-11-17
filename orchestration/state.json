@@ -4246,6 +4246,25 @@
       "pr": "majodali/project-orchestrator#58",
       "summary": "node_update changes a node's plan and specification paths. docsOnMerge moves a linked document: the path is cleared, the pull request moves the file, the service sets the new path when the node is done. Service pull request 43 merged and deployed; this repository pins it. Documents and agents say how.",
       "notes": null
+    },
+    {
+      "id": "T145",
+      "node": "P4-N039",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T20:48:36Z",
+      "closed": null,
+      "base": "df4d0a67ae05d6ca3a66e1ddd3473b625cde4bab",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P4-N031 (task T144) against the criteria under \"7. Document paths changed through the service\" in docs/plans/rebuild.md: pull request majodali/project-orchestrator#58 and the service's part merged at 6f2b9f7.",
+      "notes": null
     }
   ],
   "decisions": [
