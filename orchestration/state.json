@@ -5070,20 +5070,20 @@
         "cacheRead": 3133459,
         "cacheWrite": 101377
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T23:35:26Z",
       "closed": "2026-11-17T23:40:14Z",
       "base": "05251bd7baf3e684f2c7eb5739c2be938a21c951",
       "ref": "e471e3a",
       "pr": "majodali/project-orchestrator#69",
       "summary": "Criteria 2, 3 and 4 met; orchestrator.md is 119 lines, plugin/agents regenerated. Criterion 1 is built, but an existing test outside D088's clearance, test/plan-watch.test.ts (\"does not exit on a commit that adds no key\"), fails on its setup key, so criterion 5 is unmet: 217 tests pass, 1 fails. Check, lint, format pass.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T165",
       "node": "P2-N028",
       "step": "break down",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -5091,11 +5091,11 @@
         "out": null
       },
       "opened": "2026-11-17T23:37:35Z",
-      "closed": null,
+      "closed": "2026-11-17T23:41:36Z",
       "base": "f15b88d775e416e952b883411c1bb6c98559bb63",
       "ref": null,
-      "pr": null,
-      "summary": "Break the view node down into its slices as children, each with its criteria named in the plan, waiting on P2-N032 where it writes to the service repository, with the settings lines for them. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "pr": "majodali/project-orchestrator#70",
+      "summary": "Six children added, P2-N037 to P2-N042, each specified with its criteria named in the plan. Five write to the service repository, wait on P2-N032 and need the owner's approval to start; the settings file lists them, and the test that pins its node list follows. The plan says which pairs run together.",
       "notes": null
     },
     {

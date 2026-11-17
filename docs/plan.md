@@ -22,7 +22,6 @@ Open decisions:
 ## In flight
 
 - Verification of One branch for each pull request (P4-N043) [specified] — T166
-- View that updates itself and leads with what matters (P2-N028) [broken-down] — T165
 
 ## In progress, children carry the work
 
@@ -31,6 +30,7 @@ Open decisions:
 - One branch for each pull request (P4-N038) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
+- View that updates itself and leads with what matters (P2-N028) [broken-down]
 
 ## Waiting on a dependency
 
