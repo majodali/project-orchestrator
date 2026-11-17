@@ -52,7 +52,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Session hooks run on Windows** (P4-N017) — When: 2026-11-12. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Session start summary and the offer to act** (P4-N020) — When: 2026-11-12. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Delegated tasks claimed without asking** (P4-N034) — When: 2026-11-16. Status: done. Pointer: [plan](plans/rebuild.md).
-- [x] **Service skeleton and plan state** (P2-N002) — When: 2026-08-26. Status: done. Pointer: [plan](plans/p2-n002-service-skeleton.md), [spec](specs/p2-n002-service-skeleton.md).
+- [x] **Service skeleton and plan state** (P2-N002) — When: 2026-08-26. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Service repository bootstrap** (P2-N007) — When: 2026-08-27. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Deployed MCP server (reachability slice)** (P2-N008) — When: 2026-08-28. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Plan state read** (P2-N009) — When: 2026-08-29. Status: done. Pointer: `orchestration/state.json`.

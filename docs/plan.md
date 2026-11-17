@@ -275,7 +275,6 @@ Documents: [plan](plans/orchestration-service.md).
 
 - **Service skeleton and plan state** (P2-N002, done 2026-08-26)
   A deployed MCP service reads and validates the Plan register through a GitHub App, and a session updates plan state under an advisory lease.
-  [plan](plans/p2-n002-service-skeleton.md), [spec](specs/p2-n002-service-skeleton.md)
   Note: Chunk 1 of the parent plan
   - **Service repository bootstrap** (P2-N007, done 2026-08-27)
     The service repository exists with its Classification, its Node toolchain, its README and its Backlog.

@@ -1306,8 +1306,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p2-n002-service-skeleton.md",
-        "spec": "docs/specs/p2-n002-service-skeleton.md"
+        "plan": null,
+        "spec": null
       },
       "done": "2026-08-26",
       "note": "Chunk 1 of the parent plan"
@@ -4311,6 +4311,11 @@
         {
           "node": "P1-N016",
           "plan": "docs/archive/plans/p1-n016-process-spec-maintenance.md"
+        },
+        {
+          "node": "P2-N002",
+          "plan": "docs/archive/plans/p2-n002-service-skeleton.md",
+          "spec": "docs/archive/specs/p2-n002-service-skeleton.md"
         }
       ]
     }
