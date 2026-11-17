@@ -204,8 +204,8 @@ majodali/project-orchestrator-service carries:
   a `--check` mode, as RU-012 (how two repositories share one unit
   of code) requires. The copy is never edited there.
 
-This session did not read the service repository. The break down
-step states what it already holds.
+No planning task read the service repository. P2-N032's task
+states what it already holds.
 
 ## S8. This node's next step, and what is not verified
 
