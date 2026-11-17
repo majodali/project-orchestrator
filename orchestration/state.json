@@ -1546,8 +1546,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p2-n003-owner-questions-and-plan-view.md",
-        "spec": "docs/specs/p2-n003-owner-questions-and-plan-view.md"
+        "plan": null,
+        "spec": null
       },
       "done": "2026-11-11",
       "note": null
@@ -4334,6 +4334,11 @@
         {
           "node": "P2-N023",
           "plan": "docs/archive/plans/p2-n023-web-view-ux-refinement.md"
+        },
+        {
+          "node": "P2-N024",
+          "plan": "docs/archive/plans/p2-n003-owner-questions-and-plan-view.md",
+          "spec": "docs/archive/specs/p2-n003-owner-questions-and-plan-view.md"
         }
       ]
     }
