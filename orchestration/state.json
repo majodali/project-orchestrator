@@ -200,8 +200,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p1-n014-role-contracts-adopt-v140-rules.md",
-        "spec": "docs/specs/p1-n014-role-contracts-adopt-conduct-rules.md"
+        "plan": null,
+        "spec": null
       },
       "done": "2026-10-29",
       "note": null
@@ -4297,6 +4297,11 @@
           "node": "P1-N009",
           "plan": "docs/archive/plans/p1-n009-plugin-tooling-portfolio-stack.md",
           "spec": "docs/archive/specs/p1-n009-plugin-tooling-portfolio-stack.md"
+        },
+        {
+          "node": "P1-N014",
+          "plan": "docs/archive/plans/p1-n014-role-contracts-adopt-v140-rules.md",
+          "spec": "docs/archive/specs/p1-n014-role-contracts-adopt-conduct-rules.md"
         }
       ]
     }

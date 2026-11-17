@@ -89,7 +89,6 @@ Documents: [plan](plans/orchestrator-v1.md).
     The Python scripts retired, sync_agents ported, and every invocation site moved to the TypeScript tools.
 - **Role contracts adopt the methodology's conduct rules** (P1-N014, done 2026-10-29)
   Every conduct duty that methodology v1.4.0 named is stated once, in the document that owns it, and reaches the roles through the artifacts they actually load.
-  [plan](plans/p1-n014-role-contracts-adopt-v140-rules.md), [spec](specs/p1-n014-role-contracts-adopt-conduct-rules.md)
 - **Methodology amendments for delegated multi-agent work** (P1-N015, done 2026-09-01)
   Four adjudicable amendment proposals to majodali/methodology, drafted in this repository and hand-carried upstream by the owner.
   [plan](plans/p1-n015-methodology-amendments-delegated-work.md), [spec](specs/p1-n015-methodology-amendments-delegated-work.md)

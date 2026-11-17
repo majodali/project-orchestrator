@@ -18,7 +18,7 @@ Dependencies are in the state file, not in sibling order.
     - P1-N011 [done] Conformance corpus and vendoring generator
     - P1-N012 [done] Form checker ported to TypeScript
     - P1-N013 [done] Cutover to the TypeScript tools
-  - P1-N014 [done] Role contracts adopt the methodology's conduct rules — plan: plans/p1-n014-role-contracts-adopt-v140-rules.md · spec: specs/p1-n014-role-contracts-adopt-conduct-rules.md
+  - P1-N014 [done] Role contracts adopt the methodology's conduct rules
   - P1-N015 [done] Methodology amendments for delegated multi-agent work — plan: plans/p1-n015-methodology-amendments-delegated-work.md · spec: specs/p1-n015-methodology-amendments-delegated-work.md
   - P1-N016 [done] Process specification maintenance — plan: plans/p1-n016-process-spec-maintenance.md
 - P3-N001 [broken-down] [blocked: Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.] Project comprehension and continuous implementation — plan: plans/comprehension-and-continuous-implementation.md · spec: specs/p3-n001-comprehension-and-continuous-implementation.md
