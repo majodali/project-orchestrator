@@ -1815,7 +1815,7 @@
       "kind": "work",
       "title": "View that updates itself and leads with what matters",
       "outcome": "The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.",
-      "stage": "planned",
+      "stage": "specified",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
@@ -4903,7 +4903,7 @@
       "id": "T163",
       "node": "P2-N028",
       "step": "specify",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -4911,11 +4911,11 @@
         "out": null
       },
       "opened": "2026-11-17T23:35:21Z",
-      "closed": null,
+      "closed": "2026-11-17T23:36:14Z",
       "base": "29eea3d7d06a5153095c1650b981aa3e2fc308fe",
       "ref": null,
-      "pr": null,
-      "summary": "Specify the view node: check the plan's twenty criteria for depth, record D085 and D086, and check the split with the orchestrator's reports against the orchestrator as built. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "pr": "majodali/project-orchestrator#68",
+      "summary": "The plan's twenty criteria are the specification; no second document. Revised in place: D085 and D086 recorded, the split with the orchestrator's reports checked against stateReports as built, criterion 8 tightened to the same rules, and the settings line the break down must add for children in the service repository.",
       "notes": null
     },
     {

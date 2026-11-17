@@ -14,13 +14,13 @@ Nothing.
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - Service repository enlisted for delegated sessions (P2-N032) [specified]
+- View that updates itself and leads with what matters (P2-N028) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
 - One branch for each pull request (P4-N038) [executing] — T162
 - Orchestrator fixes before its trial (P2-N036) [executing] — T164
-- View that updates itself and leads with what matters (P2-N028) [planned] — T163
 
 ## In progress, children carry the work
 
@@ -353,7 +353,7 @@ Documents: [plan](plans/orchestration-service.md).
     A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.
     after P2-N032, P4-N038, P2-N036 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 4 of the plan (Children). Criteria 14 to 18. Its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027.
-- **View that updates itself and leads with what matters** (P2-N028, planned)
+- **View that updates itself and leads with what matters** (P2-N028, specified)
   The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
   [plan](plans/view-that-leads-and-updates.md)
   Note: The owner, 2026-11-16: the view is the best way to know that something waits on the owner, so it must update dynamically and show more useful information. The owner's earlier notes belong here too: the node page as a detail panel beside the tree, feedback after a click, and single-page behaviour. The view allows no script today; updating by itself needs one. From the P3 line, which stays held (the owner, 2026-11-17): the comprehension model (docs/specs/p3-n002-comprehension-model.md) describes each part of a project and what depends on it. The plan step decides what of it the view shows, such as what a node's work touches and what depends on that.
