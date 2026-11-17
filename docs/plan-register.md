@@ -57,6 +57,7 @@ Dependencies are in the state file, not in sibling order.
     - P4-N027 [broken-down] Pilot enlistment of methodology-tools — plan: plans/rebuild.md
       - P4-N044 [specified] Backlog reader in the state importer
       - P4-N045 [specified] methodology-tools' plan as a state file
+      - P4-N046 [specified] Second instance on the deploy path
     - P4-N031 [done] Document paths changed through the service — plan: plans/rebuild.md
     - P4-N032 [done] Linked plans and specs archived — plan: plans/rebuild.md
   - P4-N010 [done] Task cost capture — plan: plans/rebuild.md
