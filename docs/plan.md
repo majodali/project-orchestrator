@@ -14,12 +14,12 @@ Open decisions:
 
 ## Ready, starting automatically when the loop runs
 
-- Pilot enlistment of methodology-tools (P4-N027) [specified]
 - Orchestrator fixes before its trial (P2-N036) [executing]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
+- Pilot enlistment of methodology-tools (P4-N027) [specified] — T168
 - Verification of One branch for each pull request (P4-N043) [specified] — T166
 - Service repository enlisted for delegated sessions (P2-N032) [executing] — T167
 

@@ -5138,6 +5138,25 @@
       "pr": null,
       "summary": "Add this repo's generator that vendors the cost hook (RU-012), then delegate the push to majodali/project-orchestrator-service to a helper session, per criterion 13 and S7.",
       "notes": null
+    },
+    {
+      "id": "T168",
+      "node": "P4-N027",
+      "step": "break down",
+      "status": "open",
+      "role": "planner",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T23:43:14Z",
+      "closed": null,
+      "base": "d5b9eec39714a5a3c6a19cc9f88e6ba2e53776b0",
+      "ref": null,
+      "pr": null,
+      "summary": "Break down P4-N027 into child nodes cut by repository and by who can act, so the pilot enlistment of methodology-tools runs as separate tasks with explicit owner stop points.",
+      "notes": null
     }
   ],
   "decisions": [
