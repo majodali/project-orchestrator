@@ -20,9 +20,9 @@ Its two goals, in order:
 - **The plan of this project**, one checked file:
   `orchestration/state.json`, the state file. It holds the nodes, the
   tasks and the decisions, and it is the progress truth.
-- **The role agents** in `.claude/agents/`: planner, implementer and
-  reviewer. [plugin/](plugin/README.md) packages them with the hooks
-  and scripts as a Claude Code plugin.
+- **The role agents** in `.claude/agents/`: planner, implementer,
+  reviewer and orchestrator. [plugin/](plugin/README.md) packages
+  them with the hooks and scripts as a Claude Code plugin.
 - **The process**, on one page:
   [docs/process/how-we-work.md](docs/process/how-we-work.md).
 

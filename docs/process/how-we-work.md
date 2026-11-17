@@ -7,13 +7,12 @@ one page on the process; the code enforces the rest.
 ## The plan and its one writer
 
 A project's plan is one file, `orchestration/state.json`: nodes, tasks
-and decisions. The orchestration service is its only writer, one
-commit per change on `main`. It also writes
-`orchestration/journal.jsonl`, `docs/plan.md`,
-`docs/plan-register.md` and `docs/backlog.md`; the last three are
-renderings of the state file. Nobody edits these five by hand, and a pull request that changes
-one fails the checks. Git is the only source of truth: the service
-holds no state of its own.
+and decisions. The orchestration service is its only writer, one commit
+per change on `main`. It also writes `orchestration/journal.jsonl`,
+`docs/plan.md`, `docs/plan-register.md` and `docs/backlog.md`; the last
+three are renderings of the state file. Nobody edits these five by hand,
+and a pull request that changes one fails the checks. Git is the only
+source of truth: the service holds no state of its own.
 
 A node is a piece of work with a title, an outcome of one sentence,
 a stage, the nodes it waits for, and the documents that plan it. The
@@ -69,10 +68,9 @@ sends the node back to be verified. The service refuses to merge a
 pull request with commits made after its last execute task closed,
 so a fix after a close is always a rework task.
 
-A node offers no step while it is held or parked, waits for a
-dependency or for approval, has an open task or an open decision, or
-stands below a held node. A task open for more than 24 hours is closed
-as `stale`.
+A node offers no step while it is held or parked, waits for a dependency
+or for approval, has an open task or an open decision, or stands below a
+held node. A task open for over 24 hours is closed `stale`.
 
 Every other write to the plan (`node_update`, `node_add`,
 `node_remove`, `decision_open`, `decision_close`) names the open task
@@ -85,8 +83,7 @@ The full specification is [the task loop](task-loop.md).
 
 ## The roles
 
-Three role agents live in `.claude/agents/`, each a page a session can
-follow from start to finish:
+Four role agents live in `.claude/agents/`, each a page to follow:
 
 - **Planner**: the `plan`, `specify` and `break down` steps. Delivers
   a title, an outcome, a revised plan document with a criteria list of
@@ -95,12 +92,18 @@ follow from start to finish:
   node's criteria and opens the pull request.
 - **Reviewer**: the `verify` step. Checks every criterion itself and
   reports; it never fixes.
+- **Orchestrator**: takes no task. The owner starts one session and
+  names the role. A script tells it which sessions to start or message,
+  and a background watcher wakes it on a new action or a due check of an
+  open task. It returns to the owner on a failed check, a scope change,
+  a decision that is the owner's, or a close with asks.
 
-A session may take any role. Each agent names its model, but a
-session runs on the model it was started on: whoever starts it
-chooses the role's model. Nothing checks it; the cost hook records
-the model that ran. `plugin/agents/` is a generated copy: after
-editing a role, run `node plugin/scripts/sync_agents.ts`.
+A session may take any role. Each agent names its model, but a session
+runs on the model it was started on: whoever starts it chooses the
+role's model. The orchestrator's script reports a session on another
+model than its role's; the cost hook records the one that ran.
+`plugin/agents/` is a generated copy: after editing a role, run
+`node plugin/scripts/sync_agents.ts`.
 
 ## Enlisting a repository
 
@@ -172,12 +175,10 @@ session it started and for which task, and reports the result.
 The owner decides in the view, a web page the service serves, and each
 answer is a commit by the service.
 
-- **Decisions.** A question for the owner is an open decision on a
-  node, with options and a default. A session raises one as an ask at
-  `task_close`, never only in chat. The node offers no step until the
-  owner answers.
+- **Decisions.** A question for the owner is an open decision on a node,
+  with options and a default. A session asks at `task_close`, never only
+  in chat. The node offers no step until the owner answers.
 - **Holds.** The owner lifts a hold, or accepts a review, in the view.
-  A failed verification's rework starts by itself: no lift is offered.
 - **Approval.** A node with `start: approve` waits for the owner's
   go-ahead when it is ready, as one that writes to another repository does.
 - **Standing decisions.** A decision marked standing is a precedent:
@@ -191,8 +192,7 @@ introduced. An empty part is stated, never dropped.
 
 - A node's criteria are a list of at most 20 items in its plan
   document. No node needs a document for its own sake.
-- A new hand-written document is at most 300 lines; older plans and
-  specifications over it are on their way to the archive (P4-N032).
+- A new hand-written document is at most 300 lines.
 - Documentation moves in the same pull request as the work.
 - A document that no longer describes what we do moves to
   `docs/archive/`, opening with a status line that says why and what

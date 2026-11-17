@@ -1666,3 +1666,439 @@ describe("orchestrate_next.ts (criterion 1)", () => {
     }
   });
 });
+
+// ---------------------------------------------------------------------
+// P2-N031: criteria 10 and 11
+// ---------------------------------------------------------------------
+
+describe("checks, nudges and their reports (criterion 11, S3)", () => {
+  const TASK_OPENED = "2026-11-17T11:00:00Z";
+  const atWork = (openedAt = TASK_OPENED) =>
+    state(
+      [node({ id: "P1-N001", title: "The node", stage: "executing" })],
+      [
+        task({
+          id: "T001",
+          node: "P1-N001",
+          step: "execute",
+          opened: openedAt,
+        }),
+      ],
+    );
+  const journal = [opened("T001", "P1-N001", "session_a")];
+  const holder = (marks: string, status = "working") => [
+    session({
+      id: "session_a",
+      title: `P1-N001 execute${marks}`,
+      created: "2026-11-17T10:55:00Z",
+      status,
+    }),
+  ];
+  const NUDGE = [
+    "From session session_orchestrator: task T001 on P1-N001, execute, has been open since 2026-11-17T11:00:00Z and this session is not working.",
+    "If its work is finished, close it with task_close. If it cannot finish, close it needs-judgment or blocked and say why.",
+  ].join("\n");
+
+  it("gives nothing for an open task no older than `checkAfterMinutes`", () => {
+    const given = (now: string): Given => ({
+      state: atWork(),
+      journal,
+      sessions: holder("", "completed"),
+      now,
+    });
+    expect(run(given("2026-11-17T11:40:00Z"))).toEqual([]);
+    expect(run(given("2026-11-17T11:45:00Z"))).toEqual([]);
+    expect(keys(given("2026-11-17T11:46:00Z"))).toEqual(["check:T001"]);
+  });
+
+  it("a check, then a message for a session not working, then the no-close report", () => {
+    // 50 minutes after the task opened: a check, whatever the status.
+    const first = run({
+      state: atWork(),
+      journal,
+      sessions: holder("", "completed"),
+      now: "2026-11-17T11:50:00Z",
+    });
+    expect(first).toEqual([
+      {
+        kind: "check",
+        key: "check:T001",
+        task: "T001",
+        node: "P1-N001",
+        session: "session_a",
+        mark: "checked T001 2026-11-17T11:50Z",
+      },
+    ]);
+
+    // The check is carried out: its mark is on the title, the status
+    // is fresh. The session is not working, so it is told.
+    const checked = "; checked T001 2026-11-17T11:50Z";
+    const second = run({
+      state: atWork(),
+      journal,
+      sessions: holder(checked, "completed"),
+      now: "2026-11-17T11:50:00Z",
+    });
+    expect(second).toEqual([
+      {
+        kind: "message",
+        key: "message:session_a:nudged:T001",
+        session: "session_a",
+        node: "P1-N001",
+        text: NUDGE,
+        mark: "nudged T001 2026-11-17T11:50Z",
+      },
+    ]);
+
+    // Told once: nothing more until `checkAfterMinutes` have passed
+    // since the last mark.
+    const nudged = `${checked}; nudged T001 2026-11-17T11:50Z`;
+    const told = (now: string): Given => ({
+      state: atWork(),
+      journal,
+      sessions: holder(nudged, "completed"),
+      now,
+    });
+    expect(run(told("2026-11-17T11:51:00Z"))).toEqual([]);
+    expect(run(told("2026-11-17T12:35:00Z"))).toEqual([]);
+
+    const third = run(told("2026-11-17T12:36:00Z"));
+    expect(third).toHaveLength(1);
+    expect(third[0]).toMatchObject({
+      kind: "report",
+      key: "report:P1-N001:1:no-close",
+      node: "P1-N001",
+      condition: 1,
+      reason: "no-close",
+    });
+    expect((third[0] as ReportAction).text).toContain("T001");
+    expect((third[0] as ReportAction).text).toContain("session_a");
+  });
+
+  it("sends no message to a session that is working, and reports it when the task stays open", () => {
+    const checked = "; checked T001 2026-11-17T11:50Z";
+    const given = (now: string): Given => ({
+      state: atWork(),
+      journal,
+      sessions: holder(checked, "working"),
+      now,
+    });
+    expect(run(given("2026-11-17T11:51:00Z"))).toEqual([]);
+    expect(keys(given("2026-11-17T12:36:00Z"))).toEqual([
+      "report:P1-N001:1:no-close",
+    ]);
+  });
+
+  it("takes every status but `working` for not working", () => {
+    for (const status of [
+      "SESSION_STATUS_BUCKET_COMPLETED",
+      "SESSION_STATUS_BUCKET_BLOCKED",
+      "SESSION_STATUS_BUCKET_FAILED",
+      "SESSION_STATUS_BUCKET_REVIEW_READY",
+    ]) {
+      const read = parseSessions(
+        JSON.stringify(holder("; checked T001 2026-11-17T11:50Z", status)),
+      );
+      expect(read.ok).toBe(true);
+      expect(
+        keys({
+          state: atWork(),
+          journal,
+          sessions: read.ok ? read.value : [],
+          now: "2026-11-17T11:51:00Z",
+        }),
+      ).toEqual(["message:session_a:nudged:T001"]);
+    }
+  });
+
+  it("reports a task open past the limit that no session holds", () => {
+    expect(keys({ state: atWork(), now: "2026-11-17T11:50:00Z" })).toEqual([
+      "report:P1-N001:1:no-session",
+    ]);
+  });
+
+  // A rework sent by message to the session of the task before it.
+  const reworkState = () =>
+    state(verifying("P1-N001", "P1-N002", true), [
+      task({
+        id: "T001",
+        node: "P1-N001",
+        step: "execute",
+        status: "closed",
+        opened: "2026-11-17T10:00:00Z",
+        closed: "2026-11-17T10:30:00Z",
+        pr: `${PROJECT}#7`,
+      }),
+      task({
+        id: "T002",
+        node: "P1-N002",
+        step: "verify",
+        status: "blocked",
+        opened: "2026-11-17T10:35:00Z",
+        closed: "2026-11-17T10:50:00Z",
+      }),
+    ]);
+  const continued = (at: string, extra: Partial<SessionEntry> = {}) => [
+    session({
+      id: "session_a",
+      title: `P1-N001 execute; continued T001 ${at}`,
+      created: "2026-11-17T09:55:00Z",
+      status: "completed",
+      ...extra,
+    }),
+  ];
+
+  it("no-claim: a session sent continued work that opened no task within `checkAfterMinutes`", () => {
+    const given = (at: string): Given => ({
+      state: reworkState(),
+      journal,
+      sessions: continued(at),
+    });
+    // Sent 40 minutes ago and not yet claimed: the session is neither
+    // reported nor told again, although its status is not `working`.
+    expect(run(given("2026-11-17T11:20Z"))).toEqual([]);
+    const late = run(given("2026-11-17T11:10Z"));
+    expect(late.map((a) => a.key)).toEqual(["report:P1-N001:1:no-claim"]);
+    expect((late[0] as ReportAction).text).toContain("session_a");
+  });
+
+  it("no-claim: a started session that opened no task within `checkAfterMinutes`", () => {
+    const given = (created: string): Given => ({
+      state: state([
+        node({ id: "P1-N001", title: "The node", stage: "specified" }),
+      ]),
+      sessions: [
+        session({
+          id: "session_a",
+          title: "P1-N001 execute",
+          created,
+          status: "completed",
+        }),
+      ],
+    });
+    expect(run(given("2026-11-17T11:20:00Z"))).toEqual([]);
+    expect(keys(given("2026-11-17T11:10:00Z"))).toEqual([
+      "report:P1-N001:1:no-claim",
+    ]);
+  });
+
+  it("model: a pending start on another model than its role's", () => {
+    const actions = run({
+      state: reworkState(),
+      journal,
+      sessions: continued("2026-11-17T11:40Z", { model: "model-other" }),
+    });
+    expect(actions.map((a) => a.key)).toEqual(["report:P1-N001:1:model"]);
+    expect((actions[0] as ReportAction).text).toContain("model-other");
+    expect((actions[0] as ReportAction).text).toContain("model-implementer");
+  });
+
+  it("model: the session of an open task on another model, before any check is due", () => {
+    const actions = run({
+      state: atWork("2026-11-17T11:50:00Z"),
+      journal,
+      sessions: [
+        session({
+          id: "session_a",
+          title: "P1-N001 execute",
+          model: "model-other",
+        }),
+      ],
+    });
+    expect(actions.map((a) => a.key)).toEqual(["report:P1-N001:1:model"]);
+  });
+
+  it("does not take a task that closed before a session was started for that session's", () => {
+    // T001 closed needs-judgment at 11:00. A session started at 11:30
+    // for the step offered again has not claimed yet: it is a pending
+    // start, and the node gets no second start and no message.
+    const s = state(
+      [node({ id: "P1-N001", title: "The node", stage: "executing" })],
+      [
+        task({
+          id: "T001",
+          node: "P1-N001",
+          step: "execute",
+          status: "needs-judgment",
+          opened: "2026-11-17T10:00:00Z",
+          closed: "2026-11-17T11:00:00Z",
+          pr: `${PROJECT}#9`,
+        }),
+      ],
+    );
+    expect(keys({ state: s })).toEqual(["start:P1-N001:execute:T001"]);
+    expect(
+      run({
+        state: s,
+        sessions: [
+          session({
+            id: "session_b",
+            title: "P1-N001 execute",
+            created: "2026-11-17T11:30:00Z",
+            status: "completed",
+          }),
+        ],
+      }),
+    ).toEqual([]);
+  });
+});
+
+describe("continued work (criterion 10, S3)", () => {
+  // `execute` is offered again: its last task closed needs-judgment
+  // and the owner has answered.
+  const again = () =>
+    state(
+      [node({ id: "P1-N001", title: "The node", stage: "executing" })],
+      [
+        task({
+          id: "T001",
+          node: "P1-N001",
+          step: "execute",
+          status: "needs-judgment",
+          opened: "2026-11-17T10:00:00Z",
+          closed: "2026-11-17T11:00:00Z",
+          pr: `${PROJECT}#9`,
+        }),
+      ],
+    );
+  const journal = [opened("T001", "P1-N001", "session_a")];
+  const holder = (extra: Partial<SessionEntry> = {}) =>
+    session({
+      id: "session_a",
+      title: "P1-N001 execute",
+      created: "2026-11-17T09:55:00Z",
+      status: "completed",
+      ...extra,
+    });
+
+  it("goes by message, marked `continued <task>`, to the last task's session when the snapshot holds it", () => {
+    const actions = run({ state: again(), journal, sessions: [holder()] });
+    expect(actions).toHaveLength(1);
+    expect(actions[0]).toMatchObject({
+      kind: "message",
+      key: "message:session_a:continued:T001",
+      session: "session_a",
+      node: "P1-N001",
+      mark: "continued T001 2026-11-17T12:00Z",
+    });
+    const text = (actions[0] as { text: string }).text;
+    expect(text).toContain(
+      "This step is offered again after task T001, which did not finish it.",
+    );
+    expect(text).toContain(`Continue on pull request ${PROJECT}#9:`);
+  });
+
+  it("goes by start with `pr` when the snapshot does not hold that session", () => {
+    const actions = run({ state: again(), journal, sessions: [] });
+    expect(actions).toHaveLength(1);
+    expect(actions[0]).toMatchObject({
+      kind: "start",
+      key: "start:P1-N001:execute:T001",
+      title: "P1-N001 execute",
+      pr: `${PROJECT}#9`,
+    });
+    expect((actions[0] as StartAction).brief).toContain(
+      `Continue on pull request ${PROJECT}#9:`,
+    );
+  });
+
+  it("goes by start with `pr` when that session is archived", () => {
+    // `get_session` gives no status bucket `archived`: the snapshot
+    // says it with the session status, read the same way.
+    const read = parseSessions(
+      JSON.stringify([holder({ status: "SESSION_STATUS_ARCHIVED" })]),
+    );
+    expect(read.ok && read.value[0]!.status).toBe("archived");
+    for (const status of ["archived", "SESSION_STATUS_ARCHIVED"]) {
+      const sessions = parseSessions(JSON.stringify([holder({ status })]));
+      expect(
+        keys({
+          state: again(),
+          journal,
+          sessions: sessions.ok ? sessions.value : [],
+        }),
+      ).toEqual(["start:P1-N001:execute:T001"]);
+    }
+  });
+
+  it("prints the message no more once its mark is in the snapshot", () => {
+    expect(
+      run({
+        state: again(),
+        journal,
+        sessions: [
+          holder({
+            title: "P1-N001 execute; continued T001 2026-11-17T11:59Z",
+          }),
+        ],
+      }),
+    ).toEqual([]);
+  });
+
+  it("prints the start no more once the new session is in the snapshot", () => {
+    expect(
+      run({
+        state: again(),
+        journal,
+        sessions: [
+          session({
+            id: "session_b",
+            title: "P1-N001 execute",
+            created: "2026-11-17T11:59:00Z",
+          }),
+        ],
+      }),
+    ).toEqual([]);
+  });
+
+  it("prints neither once the continued session has opened its task", () => {
+    const s = again();
+    s.tasks.push(
+      task({
+        id: "T002",
+        node: "P1-N001",
+        step: "execute",
+        opened: "2026-11-17T11:58:00Z",
+      }),
+    );
+    expect(
+      run({
+        state: s,
+        journal: [...journal, opened("T002", "P1-N001", "session_a")],
+        sessions: [
+          holder({
+            title: "P1-N001 execute; continued T001 2026-11-17T11:57Z",
+          }),
+        ],
+      }),
+    ).toEqual([]);
+  });
+
+  it("sends a rework the same way: by message to the session that holds the pull request", () => {
+    const s = state(verifying("P1-N001", "P1-N002", true), [
+      task({
+        id: "T001",
+        node: "P1-N001",
+        step: "execute",
+        status: "closed",
+        opened: "2026-11-17T10:00:00Z",
+        closed: "2026-11-17T10:30:00Z",
+        pr: `${PROJECT}#7`,
+      }),
+      task({
+        id: "T002",
+        node: "P1-N002",
+        step: "verify",
+        status: "blocked",
+        opened: "2026-11-17T10:35:00Z",
+        closed: "2026-11-17T10:50:00Z",
+      }),
+    ]);
+    expect(keys({ state: s, journal, sessions: [holder()] })).toEqual([
+      "message:session_a:continued:T001",
+    ]);
+    expect(keys({ state: s, journal, sessions: [] })).toEqual([
+      "start:P1-N001:execute:T002",
+    ]);
+  });
+});
