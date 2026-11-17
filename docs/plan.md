@@ -38,6 +38,7 @@ Gated nodes:
 
 - methodology-tools' plan as a state file (P4-N045) [specified] — after Backlog reader in the state importer (P4-N044)
 - Second instance on the deploy path (P4-N046) [specified] — after methodology-tools' plan as a state file (P4-N045)
+- The pilot's first task through its own instance (P4-N047) [specified] — after Second instance on the deploy path (P4-N046)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
@@ -258,6 +259,10 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
       Every merge in the service repository deploys, smoke-tests and promotes both instances from one template at one commit, and the runbook and the deploy role's record carry the second instance.
       after P4-N045
       Note: Child 3 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 3. Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and that merge is the deploy, so it starts on approval; the owner widens the deploy role's policy first (O2). Waits for P4-N045 because check 3 of scripts/smoke-test.sh calls plan_read: the second instance's smoke test fails until methodology-tools carries a state file, and a failing instance reddens the whole run.
+    - **The pilot's first task through its own instance** (P4-N047, specified)
+      A session started in methodology-tools reaches the pilot instance, `task_next` answers a node of methodology-tools, and one write commits there as the GitHub App with its journal line.
+      after P4-N046
+      Note: Child 4 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 4. Writes .mcp.json and .claude/settings.json to majodali/methodology-tools (D065) and the enlistment corrections to this repository's docs/process/how-we-work.md, so it starts on approval; the owner sets MCP_AUTH_TOKEN in that repository's cloud environment first (O3). Waits for P4-N046: .mcp.json names an endpoint the second instance's first deploy creates. The two hooks stay with P2-N006 (RU-017).
   - **Document paths changed through the service** (P4-N031, done 2026-11-17)
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
     [plan](plans/rebuild.md)
