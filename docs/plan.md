@@ -14,12 +14,12 @@ Nothing.
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - Service repository enlisted for delegated sessions (P2-N032) [specified]
-- View that updates itself and leads with what matters (P2-N028) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
 - Orchestrator fixes before its trial (P2-N036) [executing] — T164
+- View that updates itself and leads with what matters (P2-N028) [specified] — T165
 
 ## In progress, children carry the work
 

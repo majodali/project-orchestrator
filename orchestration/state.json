@@ -4910,14 +4910,14 @@
         "cacheRead": 1245285,
         "cacheWrite": 109726
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T23:35:07Z",
       "closed": "2026-11-17T23:37:18Z",
       "base": "a908150a76dfc69e7a71c93c51d59d1a33a969fd",
       "ref": "e863c53cc9d99424eeffc70abe7612c13a6d5ff3",
       "pr": "majodali/project-orchestrator#63",
       "summary": "All four criteria met. Criterion 4 ticked on D084. Main merged into the branch, both sides kept; how-we-work.md stays at 200 lines. The orchestrator agent is not edited: it opens no pull request and starts sessions on the default branch already. Checks pass: 215 tests, 0 violations.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T163",
@@ -4958,6 +4958,25 @@
       "ref": null,
       "pr": null,
       "summary": "Execute P2-N036: meet its five criteria from decisions D087, D088 and D089, in the decision script, its tests and the orchestrator role, on a new branch with a pull request.",
+      "notes": null
+    },
+    {
+      "id": "T165",
+      "node": "P2-N028",
+      "step": "break down",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T23:37:35Z",
+      "closed": null,
+      "base": "f15b88d775e416e952b883411c1bb6c98559bb63",
+      "ref": null,
+      "pr": null,
+      "summary": "Break the view node down into its slices as children, each with its criteria named in the plan, waiting on P2-N032 where it writes to the service repository, with the settings lines for them. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
       "notes": null
     }
   ],
