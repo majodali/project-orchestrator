@@ -1,6 +1,6 @@
 # Orchestrator session that keeps work moving (P2-N027)
 
-Status: draft (plan step, task T148, 2026-11-17)
+Status: planned (T148). [The specification](../specs/orchestrator-session.md) (T150) amends the criteria and governs where the two differ.
 
 Reader: the owner, and the sessions that specify, build and verify
 this node. The reader knows
@@ -142,8 +142,8 @@ session starts in the work repository and attaches nothing later.
 
 It reaches the service as any enlisted session does. The work
 repository carries `.mcp.json` naming the instance, and
-`.claude/settings.json` enabling the server and this repository's
-plugin, whose `plugin/hooks/hooks.json` registers the cost hook. The
+`.claude/settings.json` enabling the server and registering the
+cost hook, from a vendored copy (the specification, S7). The
 session inherits the token from its environment.
 
 The first such repository is majodali/project-orchestrator-service,
