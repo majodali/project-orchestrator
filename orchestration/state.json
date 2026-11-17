@@ -935,7 +935,7 @@
       "kind": "work",
       "title": "Upstream proposals batch",
       "outcome": "Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N008",
       "after": [],
       "hold": {
@@ -949,6 +949,23 @@
       },
       "done": null,
       "note": "Added by the owner's answer to D073 (on P4-N032), 2026-11-17: the batch also carries a request to methodology-tools for a way to exempt methodology text that a document quotes verbatim (RU-015) from mtool links check, so the tool can exit zero over this tree. Evidence: the 8 findings P4-N032 dispositioned. Add it as a criterion to the node's list in docs/plans/rebuild.md in the same pull request."
+    },
+    {
+      "id": "P4-N041",
+      "kind": "check",
+      "title": "Verification of Upstream proposals batch",
+      "outcome": "P4-N026 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N026",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P4-N027",
@@ -4437,7 +4454,7 @@
       "id": "T149",
       "node": "P4-N026",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -4445,11 +4462,11 @@
         "out": null
       },
       "opened": "2026-11-17T21:38:37Z",
-      "closed": null,
+      "closed": "2026-11-17T21:54:46Z",
       "base": "cc1cc3e9e4f05763be5b5ba936d6b50ae33035b7",
-      "ref": null,
-      "pr": null,
-      "summary": "Write the upstream proposals batch for majodali/methodology per section 5 of docs/plans/rebuild.md and decision D073, on a new branch, and open the pull request.",
+      "ref": "6292fdffc0a6ec568239efae2c405b295b257de6",
+      "pr": "majodali/project-orchestrator#61",
+      "summary": "Batch in docs/proposals/: K-003 release request (the amendment is accepted upstream, unreleased), registers as data files, bounded documents and specifications, each IR first with verbatim quotes and provenance; cover note; mtool quote-exemption request (D073). All nine criteria met; hold set. mtool links: 8 findings, unchanged. No stranger rounds run.",
       "notes": null
     }
   ],
@@ -5199,6 +5216,51 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T148 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D077",
+      "node": "P4-N026",
+      "question": "Ratify or strike the term 'criteria list', which proposal three introduces (a Specification given as a list of criteria, each one statement of an observable result that a reviewer judges met or unmet)?",
+      "options": [
+        "ratify",
+        "strike"
+      ],
+      "default": "ratify",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T149 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D078",
+      "node": "P4-N026",
+      "question": "In which order do you carry the batch to majodali/methodology?",
+      "options": [
+        "two and three first, then the release (one migration here, no deviation left)",
+        "the release first, then two and three (ends the K-003 deviation at once; one new deviation on 'custom document types' and a second migration)"
+      ],
+      "default": "two and three first, then the release (one migration here, no deviation left)",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T149 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D079",
+      "node": "P4-N026",
+      "question": "Add a node for migrating this repository's pin to the release that carries the K-003 amendment (declare the state file as the planning/execution model, end the K-003 deviation, adopt or deviate from the four other unreleased amendments)? P4-N026 does not cover it.",
+      "options": [
+        "add a node, to start when the release is tagged",
+        "no node yet"
+      ],
+      "default": "add a node, to start when the release is tagged",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T149 at close.",
       "standing": false,
       "source": null
     }

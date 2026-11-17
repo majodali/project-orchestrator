@@ -83,7 +83,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Determination on W-001 sequence mode** (P3-N016) — When: after P3-N015. Status: identified, paused by a hold or a park above. Pointer: `orchestration/state.json`.
 - [ ] **Rebuild: the orchestrator runs on a checked data model** (P4-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Re-plan, prune and hand back** (P4-N008) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
-- [ ] **Upstream proposals batch** (P4-N026) — When: not dated. Status: executing, waiting on the owner. Pointer: [plan](plans/rebuild.md).
+- [ ] **Upstream proposals batch** (P4-N026) — When: not dated. Status: verifying, waiting on the owner. Pointer: [plan](plans/rebuild.md).
 - [ ] **Pilot enlistment of methodology-tools** (P4-N027) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
 - [ ] **One branch for each pull request** (P4-N038) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
 - [ ] **Orchestration service** (P2-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestration-service.md).

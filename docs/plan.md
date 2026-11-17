@@ -13,6 +13,9 @@ Open decisions:
 - D074 on Orchestrator session that keeps work moving (P2-N027): Which model runs the orchestrator session? Default: claude-sonnet-5
 - D075 on Orchestrator session that keeps work moving (P2-N027): When P2-N027 is done, remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027 instead of P3-N015? Default: yes
 - D076 on Orchestrator session that keeps work moving (P2-N027): Set a weekly limit on the measured cost of delegated tasks now? Default: no limit until the trial records a week's figure
+- D077 on Upstream proposals batch (P4-N026): Ratify or strike the term 'criteria list', which proposal three introduces (a Specification given as a list of criteria, each one statement of an observable result that a reviewer judges met or unmet)? Default: ratify
+- D078 on Upstream proposals batch (P4-N026): In which order do you carry the batch to majodali/methodology? Default: two and three first, then the release (one migration here, no deviation left)
+- D079 on Upstream proposals batch (P4-N026): Add a node for migrating this repository's pin to the release that carries the K-003 amendment (declare the state file as the planning/execution model, end the K-003 deviation, adopt or deviate from the four other unreleased amendments)? P4-N026 does not cover it. Default: add a node, to start when the release is tagged
 
 Gated nodes:
 
@@ -231,9 +234,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
     after P4-N024 · [plan](plans/rebuild.md)
     Note: The service part is majodali/project-orchestrator-service#41, merged at cb9d727 and deployed on 2026-11-16. From that deploy the service writes docs/backlog.md with every state commit.
-  - **Upstream proposals batch** (P4-N026, executing, gated: the owner reviews the proposals (RU-005))
+  - **Upstream proposals batch** (P4-N026, verifying, gated: the owner reviews the proposals (RU-005))
     Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.
-    [plan](plans/rebuild.md)
+    [plan](plans/rebuild.md) · 3 open decisions
     Note: Added by the owner's answer to D073 (on P4-N032), 2026-11-17: the batch also carries a request to methodology-tools for a way to exempt methodology text that a document quotes verbatim (RU-015) from mtool links check, so the tool can exit zero over this tree. Evidence: the 8 findings P4-N032 dispositioned. Add it as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
   - **Pilot enlistment of methodology-tools** (P4-N027, specified)
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
