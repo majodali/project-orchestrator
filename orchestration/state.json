@@ -5770,8 +5770,8 @@
         "keep the rule as written"
       ],
       "default": "exempt a verify start; P2-N031's task changes lib/orchestrate.ts and its test",
-      "chosen": null,
-      "decided": null,
+      "chosen": "exempt a verify start; P2-N031's task changes lib/orchestrate.ts and its test",
+      "decided": "2026-11-17",
       "rationale": "Asked by T159 at close.",
       "standing": false,
       "source": null
