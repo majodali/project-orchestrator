@@ -29,7 +29,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Verification of Orchestrator role and its watcher (P2-N035) [specified] — T161
 
 ## In progress, children carry the work
 
@@ -351,6 +351,9 @@ Documents: [plan](plans/orchestration-service.md).
     A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.
     after P2-N030 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 1 open decision
     Note: Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates.
+    - check: **Verification of Orchestrator role and its watcher** (P2-N035, specified)
+      P2-N031 is verified against its outcome.
+      [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
   - **Service repository enlisted for delegated sessions** (P2-N032, specified)
     A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
     after P2-N030 · [spec](specs/orchestrator-session.md)
