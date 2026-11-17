@@ -21,8 +21,9 @@
  *    also when the check node's last verification closed `blocked` or
  *    `needs-judgment`: S3's continued work is read as work on a work
  *    node.
- *  - The shared-document rule of S4 holds a check node too, as its
- *    text says, although a reviewer edits nothing.
+ *  - The shared-document rule of S4 never holds a `verify` start: a
+ *    reviewer edits nothing (D087, a verify start is exempt from the
+ *    shared-document rule).
  *  - A scope hold is recognised with the task prefix the service
  *    writes: `T123: Scope changed during ...` (S5 gives the text
  *    without the prefix).
@@ -74,7 +75,9 @@ export interface JournalLine {
 }
 
 /** One session of the snapshot (S2). `status` is the status bucket,
- * as `working`, or `archived` for a session that is archived. */
+ * as `working`, or `archived` for a session that is archived: the
+ * bucket never says archived, so the orchestrator writes the session
+ * status then, and `SESSION_STATUS_ARCHIVED` reads as `archived`. */
 export interface SessionEntry {
   id: string;
   title: string;
@@ -479,12 +482,16 @@ function report(
   condition: Condition,
   reason: Reason,
   what: string,
+  decisions: string[] = [],
 ): ReportAction {
   const subject =
     node === null ? "The project" : `${node.id} "${node.title.trim()}"`;
+  // A report of open decisions names them in its key (S1), so a
+  // further decision on the node is a new action (D088).
+  const named = decisions.length === 0 ? "" : `:${decisions.join(",")}`;
   return {
     kind: "report",
-    key: `report:${node?.id ?? "project"}:${condition}:${reason}`,
+    key: `report:${node?.id ?? "project"}:${condition}:${reason}${named}`,
     node: node?.id ?? null,
     condition,
     reason,
@@ -537,6 +544,7 @@ function stateReports(state: State): ReportAction[] {
           3,
           "decision",
           `${owners.map((d) => d.id).join(", ")} is open on it. Answer in the view.`,
+          owners.map((d) => d.id),
         ),
       );
     }
@@ -547,6 +555,7 @@ function stateReports(state: State): ReportAction[] {
           4,
           "asks",
           `${asked.map((d) => d.id).join(", ")} was asked at a task's close. Answer in the view.`,
+          asked.map((d) => d.id),
         ),
       );
     }
@@ -878,7 +887,13 @@ export function decide(inputs: Inputs): { actions: Action[] } {
     if (pending.has(node.id)) continue;
     if (step === "execute" && executing >= settings.limits.execute) continue;
     if (PLANNING.has(step) && planning >= settings.limits.plan) continue;
-    if (node.docs.plan !== null && busyDocs.has(node.docs.plan)) continue;
+    // A verify start is exempt: a reviewer edits nothing (S4, D087).
+    if (
+      step !== "verify" &&
+      node.docs.plan !== null &&
+      busyDocs.has(node.docs.plan)
+    )
+      continue;
 
     // Continued work (S3): a rework, or a step offered again after its
     // last task closed needs-judgment or blocked. Never a `verify`.

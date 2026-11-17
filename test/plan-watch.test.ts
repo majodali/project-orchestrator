@@ -339,6 +339,45 @@ describe("the watcher wakes on a new action key (criterion 9, S6)", () => {
     expect(result.new).toEqual(["start:P1-N003:plan:new"]);
   }, 90_000);
 
+  it("exits when a second decision opens on a node already reported (D088)", async () => {
+    const done = node({
+      id: "P1-N002",
+      title: "Done",
+      stage: "done",
+      done: "2026-11-17",
+    });
+    const first = decision({
+      id: "D001",
+      node: "P1-N002",
+      rationale: "Asked by T001 at close.",
+    });
+    const r = repo(state([HELD, done], [], [first]));
+    const FIRST_KEY = "report:P1-N002:4:asks:D001";
+    writeFileSync(r.acted, JSON.stringify([HELD_KEY, FIRST_KEY]));
+    const run = watcher(r);
+    await sleep(SEVERAL_POLLS);
+    // The first decision was reported before.
+    expect(run.exited()).toBe(false);
+
+    const second = decision({
+      id: "D002",
+      node: "P1-N002",
+      rationale: "Asked by T002 at close.",
+    });
+    r.push(
+      {
+        "orchestration/state.json": JSON.stringify(
+          state([HELD, done], [], [first, second]),
+        ),
+      },
+      "a second decision is asked",
+    );
+    const out = await run.done;
+    expect(out.code).toBe(0);
+    const result = printed(out.stdout);
+    expect(result.new).toEqual(["report:P1-N002:4:asks:D001,D002"]);
+  }, 60_000);
+
   it("exits with no commit when a check falls due", async () => {
     // The task was opened 50 seconds ago and a check is due after one
     // minute: nothing is due now, and a check is in about ten seconds.

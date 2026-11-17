@@ -496,7 +496,7 @@ describe("the limits and the shared document (criterion 3, S4)", () => {
     expect(keys({ state: s })).toEqual(["start:P1-N003:execute:new"]);
   });
 
-  it("holds a check node too while another node's task is open on its plan document", () => {
+  it("starts a verify while another node's task is open on its plan document (D087)", () => {
     const s = state(
       [
         node({ id: "P1-N001", title: "First", stage: "executing", ...shared }),
@@ -505,7 +505,17 @@ describe("the limits and the shared document (criterion 3, S4)", () => {
       [task({ id: "T001", node: "P1-N001", step: "execute" })],
     );
     s.nodes[2]!.docs = { plan: PLAN, spec: null };
-    expect(keys({ state: s })).toEqual([]);
+    expect(keys({ state: s })).toEqual(["start:P1-N003:verify:new"]);
+  });
+
+  it("starts a verify beside a pending start on its plan document (D087)", () => {
+    const s = state([
+      node({ id: "P1-N001", title: "First", stage: "specified", ...shared }),
+      ...verifying("P1-N002", "P1-N003", false, shared),
+    ]);
+    s.nodes[2]!.docs = { plan: PLAN, spec: null };
+    const sessions = [session({ id: "session_a", title: "P1-N001 execute" })];
+    expect(keys({ state: s, sessions })).toEqual(["start:P1-N003:verify:new"]);
   });
 });
 
@@ -736,7 +746,7 @@ describe("one report for each row of S5 (criterion 4)", () => {
   it("3 decision: an open decision that no task asked", () => {
     const actions = withDecision("The owner raised it.");
     expect(only(actions)).toEqual([
-      "report:P1-N001:3:decision",
+      "report:P1-N001:3:decision:D007",
       "P1-N001",
       3,
       "decision",
@@ -747,11 +757,29 @@ describe("one report for each row of S5 (criterion 4)", () => {
 
   it("4 asks: an open decision a task asked at its close", () => {
     expect(only(withDecision("Asked by T012 at close."))).toEqual([
-      "report:P1-N001:4:asks",
+      "report:P1-N001:4:asks:D007",
       "P1-N001",
       4,
       "asks",
     ]);
+  });
+
+  it("changes the key when a second decision opens on the node (D088)", () => {
+    const two = (rationale: string | null) =>
+      run({
+        state: state(
+          [node({ id: "P1-N001", title: "The node", stage: "specified" })],
+          [],
+          [
+            decision({ id: "D007", node: "P1-N001", rationale }),
+            decision({ id: "D009", node: "P1-N001", rationale }),
+          ],
+        ),
+      }).map((a) => a.key);
+    expect(two("Asked by T012 at close.")).toEqual([
+      "report:P1-N001:4:asks:D007,D009",
+    ]);
+    expect(two(null)).toEqual(["report:P1-N001:3:decision:D007,D009"]);
   });
 
   it("gives no report for a decision that is answered", () => {
