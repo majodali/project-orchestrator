@@ -1002,6 +1002,25 @@
       "note": "Child 1 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 1 (the parent's plan document; this node links none of its own). Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, and to this repository for the pin. The importer requires docs/plan-register.md today and methodology-tools has none, which is why this child precedes the import."
     },
     {
+      "id": "P4-N045",
+      "kind": "work",
+      "title": "methodology-tools' plan as a state file",
+      "outcome": "methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.",
+      "stage": "specified",
+      "parent": "P4-N027",
+      "after": [
+        "P4-N044"
+      ],
+      "hold": null,
+      "start": "approve",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Child 2 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 2. Writes to majodali/methodology-tools, new to this project and granted by D065 for P4-N027 only, so it starts on approval; the owner adds that repository to the GitHub App's installation (O1) and merges there after reviewing the import record. Waits for P4-N044: the importer cannot read a Backlog until then."
+    },
+    {
       "id": "P4-N031",
       "kind": "work",
       "title": "Document paths changed through the service",
