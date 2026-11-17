@@ -1774,7 +1774,7 @@
       "kind": "work",
       "title": "Orchestrator fixes before its trial",
       "outcome": "A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N027",
       "after": [
         "P2-N031"
@@ -4916,6 +4916,25 @@
       "ref": null,
       "pr": null,
       "summary": "Specify the view node: check the plan's twenty criteria for depth, record D085 and D086, and check the split with the orchestrator's reports against the orchestrator as built. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "notes": null
+    },
+    {
+      "id": "T164",
+      "node": "P2-N036",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": "claude-fable-5-2",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T23:35:26Z",
+      "closed": null,
+      "base": "05251bd7baf3e684f2c7eb5739c2be938a21c951",
+      "ref": null,
+      "pr": null,
+      "summary": "Execute P2-N036: meet its five criteria from decisions D087, D088 and D089, in the decision script, its tests and the orchestrator role, on a new branch with a pull request.",
       "notes": null
     }
   ],
