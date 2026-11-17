@@ -247,49 +247,42 @@ Acceptance of the milestone: the orientation test passes for both
 repositories; the word count under `docs/` is below 100,000 excluding
 `docs/archive/`; no node outside the P3 line holds on this milestone.
 
-## Delegated tasks claimed without asking (P4-N034)
+## One branch for each pull request (P4-N038)
 
-Added by the owner on 2026-11-16, after a reviewer session launched
-for P4-N033 stopped to ask before claiming. Outcome: a session that an
-orchestrating session starts with a brief naming a node and a step
-claims that task without asking a person first, and a session a
-person starts still asks before it claims.
+Asked for by the owner on 2026-11-17, after a second session worked
+on another session's branch, `claude/zealous-einstein-1rw9kw`, and
+both opened pull requests from it. Outcome: every pull request comes
+from a branch of its own, made for that task and deleted after the
+merge, so two sessions never push to the same branch.
 
-- [x] The session start hook's text, `CLAUDE.md`,
-      `docs/process/how-we-work.md` and the three role agents state
-      one rule. `docs/process/task-loop.md` states it too.
-- [x] The rule says how a session recognises a delegation brief, and
-      that the brief authorises the named node and step and nothing
-      else. The brief is the first message a session receives; it
-      names the node, the step and the delegating session.
-- [x] Decisions that are the owner's stay asks at `task_close`. A
-      brief is never the owner's words: it does not justify
-      `ownerInstruction` or a merge.
-- [x] A trial is recorded: a session launched with a brief claims its
-      task without asking, and a session started without one still
-      asks. Recorded below.
+- [x] `docs/process/how-we-work.md` and the three role agents say a
+      task's pull request comes from a new branch named for the
+      task, never from a branch another pull request used.
+- [x] A delegating session starts the new session on `main`, never
+      on its own work branch, unless the brief says the work is on
+      that branch (`docs/process/how-we-work.md`, `CLAUDE.md`).
+- [x] Head branches are deleted after merge in this repository and
+      the service repository, by the repository setting or by the
+      service at merge, and the record says which. The repository
+      setting, in both (D081); the service is not changed.
+- [x] The rule is tried once: two tasks in a row from one session
+      produce two branches, and the first is gone after its merge.
+      Recorded from tasks T140 and T144, which ran before the rule;
+      the owner accepted the record with its limits (D084).
 
-Executed 2026-11-16 (task T140). The hook's test pinned the old text
-line for line, so its expectation gained the new line.
-
-The trial, 2026-11-16. Two cloud sessions were started on the
-branch, each by the implementer's session. Trial A's first message
-was a brief of three lines: the delegating session, node P4-N035 (a
-scratch node, since removed) with step `plan`, and the planner role.
-It opened task T141 thirty seconds after launch, without asking,
-delivered an outcome and nine criteria, and closed. Trial B's first
-message was "Hello. What would you work on?". It named a task it
-would take, asked, and claimed nothing. Conclusion: both cases behave
-as the rule says. Limits: one run of each; both sessions were started
-by another session, so "a session a person starts" was tried only as
-"a session with no brief"; and nothing checks that a brief comes from
-the session it names.
+Executed 2026-11-17 (tasks T153, T154 and T162). What was observed for
+criterion 3, and the trial with its limits: the
+[record of the finished parts](../archive/plans/rebuild-record.md),
+"One branch for each pull request".
 
 ## Where the rest of this plan went
 
 Moved on 2026-11-14 (P4-N024, Pruned document set), unchanged:
 
 - **The loop and the close-out**: [the task loop](../process/task-loop.md).
+- **Delegated tasks claimed without asking** (P4-N034), moved on
+  2026-11-17 (P4-N038) with its criteria, all met, and its trial: the
+  [record of the finished parts](../archive/plans/rebuild-record.md).
 - **The data model** and **the invariants**:
   [the state model](../process/state-model.md).
 - **Decisions** 1 to 13, **GitHub interaction changes**, **What

@@ -571,6 +571,143 @@ Two are not hand-written: `docs/plan.md` (rendered by the service) and
 data). `docs/process/task-loop.md` is at 300 and
 `docs/plans/rebuild.md` is within the bound.
 
+## Delegated tasks claimed without asking (P4-N034)
+
+Moved from the rebuild plan on 2026-11-17 (P4-N038), unchanged.
+
+Added by the owner on 2026-11-16, after a reviewer session launched
+for P4-N033 stopped to ask before claiming. Outcome: a session that an
+orchestrating session starts with a brief naming a node and a step
+claims that task without asking a person first, and a session a
+person starts still asks before it claims.
+
+- [x] The session start hook's text, `CLAUDE.md`,
+      `docs/process/how-we-work.md` and the three role agents state
+      one rule. `docs/process/task-loop.md` states it too.
+- [x] The rule says how a session recognises a delegation brief, and
+      that the brief authorises the named node and step and nothing
+      else. The brief is the first message a session receives; it
+      names the node, the step and the delegating session.
+- [x] Decisions that are the owner's stay asks at `task_close`. A
+      brief is never the owner's words: it does not justify
+      `ownerInstruction` or a merge.
+- [x] A trial is recorded: a session launched with a brief claims its
+      task without asking, and a session started without one still
+      asks. Recorded below.
+
+Executed 2026-11-16 (task T140). The hook's test pinned the old text
+line for line, so its expectation gained the new line.
+
+The trial, 2026-11-16. Two cloud sessions were started on the
+branch, each by the implementer's session. Trial A's first message
+was a brief of three lines: the delegating session, node P4-N035 (a
+scratch node, since removed) with step `plan`, and the planner role.
+It opened task T141 thirty seconds after launch, without asking,
+delivered an outcome and nine criteria, and closed. Trial B's first
+message was "Hello. What would you work on?". It named a task it
+would take, asked, and claimed nothing. Conclusion: both cases behave
+as the rule says. Limits: one run of each; both sessions were started
+by another session, so "a session a person starts" was tried only as
+"a session with no brief"; and nothing checks that a brief comes from
+the session it names.
+
+## One branch for each pull request (P4-N038): the record
+
+Written 2026-11-17 by task T153. The criteria are in
+[the rebuild plan](../../plans/rebuild.md).
+
+**What happened.** Pull requests 49 to 53 and 57 all came from
+`claude/zealous-einstein-1rw9kw`: 49 to 52 from one session, 53 and
+57 from a second session whose checkout was started on that branch.
+Before that, pull requests 30 to 38, 40 to 43, 46 to 48 and 54 to 56
+all came from `claude/relaxed-meitner-6i6cbh`.
+
+**The rule** (criteria 1 and 2). A task's pull request comes from a
+new branch made from `main` and named for the task, such as
+`t153-p4-n038-one-branch`. A rework, or a step offered again after
+the owner's answer, continues on its pull request and so on its
+branch. A delegating session starts the new session on `main`, unless
+the brief says the work is on a named branch. Nothing enforces the
+rule: the reviewer checks the branch at verification.
+
+**Deletion after merge** (criterion 3). Observed on 2026-11-17 at
+22:15 UTC, by listing this repository's remote branches and its pull
+requests:
+
+- The remote held three branches: `main`,
+  `p4-n026-upstream-proposals-batch` (pull request 61, open) and
+  `claude/relaxed-meitner-6i6cbh`.
+- The head branches of pull requests 57, 58, 59, 60 and 62, merged
+  between 17:48 and 22:10 UTC that day, were gone.
+- `claude/relaxed-meitner-6i6cbh` remained. Its last pull request,
+  56, merged at 01:23 UTC that day, and its tip is that merge commit.
+- A code search of majodali/project-orchestrator-service found no
+  call that deletes a branch.
+
+Conclusion: branches merged since 17:48 UTC are being deleted in
+this repository, and the service's code is not what deletes them.
+Not tested: whether the repository setting "Automatically delete
+head branches" is on, or a person deleted them. The session could
+not read the setting, and could not list the service repository's
+branches. Both, and the one leftover branch, are asks of task T153.
+
+**The owner's answers**, 2026-11-17. D081: the repository setting
+"Automatically delete head branches" is the mechanism in both
+repositories, and the service is not changed. D082: the owner deletes
+the leftover branches. D083: the delegating session records the trial
+from its real tasks, and the next execute task writes it here.
+
+**Deletion after merge, second observation** (task T154, 2026-11-17
+at 22:22 UTC). `git ls-remote --heads origin` in this repository
+answered three heads: `main`, `p4-n026-upstream-proposals-batch`
+(pull request 61, open) and `t153-p4-n038-one-branch` (pull request
+63, open). `claude/relaxed-meitner-6i6cbh` was gone. The delegating
+session reported one head, `main`, in the service repository, and
+that no session it started deleted the branches of pull requests 58,
+59, 60 and 62 here or 43 there. T154's session could not see the
+service repository, and no session read the setting itself: that it
+is on rests on D081.
+
+**The trial** (criterion 4), as the delegating session
+(session_015Vm2MuBeQZve9M2xraAqcj) reported it from its own tasks:
+
+- Task T140 on P4-N034, closed 2026-11-16: pull request 52, from
+  `claude/zealous-einstein-1rw9kw`, merged 2026-11-16.
+- Task T144 on P4-N031, closed 2026-11-17: pull request 58, from
+  `claude/p4-n031-document-paths`, merged 2026-11-17, with service
+  pull request 43 from a branch of the same name there.
+
+Checked by T154's session: the journal gives both tasks to that
+session, with no task of its own between them; the state file gives
+them pull requests 52 and 58; the pull request list gives those head
+branches and merge dates; neither branch is on this remote. Not
+checked: service pull request 43 and its branch.
+
+Conclusion: two tasks in a row from one session produced two
+branches, and neither is on its remote. Limits:
+
+- Both tasks ran before the rule was written, and before D083 asked
+  for the session's next two tasks.
+- The first branch was not made for T140. It carried pull requests
+  49 to 53 and 57, the last two from another session. It was deleted
+  after pull request 57 merged, not after 52.
+- Only the second branch shows the rule followed: made for its task,
+  one pull request, gone after its merge. So do the branches of pull
+  requests 59, 60 and 62, each from a session with one task.
+
+Whether this stands as the trial was an ask of task T154. The owner
+answered on 2026-11-17 (D084): accept the record with its limits and
+tick criterion 4.
+
+**The fourth role agent** (task T162). Pull request 67 (P2-N031) added
+`.claude/agents/orchestrator.md` after criterion 1 was written for
+three agents. The orchestrator takes no task and opens no pull
+request, so the branch rule does not concern it. Criterion 2 does:
+it starts sessions. Its `start` action calls `create_session` with
+the repository as `source_url` and no revision, which checks out the
+default branch, `main`. So it follows the rule as written, and T162
+did not edit the file. Not tested: a start by the orchestrator was
+not observed by this session.
 ### M6. Re-plan, prune and hand back: child 5
 
 **5. Upstream proposals batch** (P4-N026). Its criteria are in
