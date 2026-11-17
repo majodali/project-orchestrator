@@ -39,7 +39,7 @@ below). Correcting one fact in an earlier entry does not rewrite it.
 Where a checked entry lives: where it stands. An entry is checked in
 place and does not move to *Completed*. A reader looking for finished
 work reads every checked entry, wherever it sits
-([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
+([plan of node P1-N016 (process spec maintenance)](plans/p1-n016-process-spec-maintenance.md),
 decision 13).
 
 ## Completed
@@ -235,8 +235,8 @@ decision 13).
 - [x] **`mtool` custom-type checker extension-point proposal drafted
   and approved** (node P1-N008, `done`) — planned and specified by
   trial 3's orchestrated run
-  ([plan](../plans/p1-n008-mtool-checker-extension-point.md) ·
-  [spec](../specs/p1-n008-mtool-checker-extension-point.md), 22
+  ([plan](plans/p1-n008-mtool-checker-extension-point.md) ·
+  [spec](specs/p1-n008-mtool-checker-extension-point.md), 22
   criteria); specify-stage gate crossed 2026-08-26 with all five
   decisions adopted and captured as [rulings](rulings.md)
   RU-001–RU-005 (conformance sketch only, node completes at the
@@ -353,7 +353,7 @@ decision 13).
   it stays with that node: its specify stage now resumes against the
   released text, which differs from what this project proposed in the
   three ways the disposition entry above records
-  ([p1-n014 plan](../plans/p1-n014-role-contracts-adopt-v140-rules.md),
+  ([p1-n014 plan](plans/p1-n014-role-contracts-adopt-v140-rules.md),
   gate outcome).
 - [x] **Communication-pipeline roles proposal accepted** — owner,
   2026-10-26:
@@ -374,7 +374,7 @@ decision 13).
 
 - [ ] **P1-N014 specified, 2026-10-29 (T046)** — the role contracts'
   specification stands at
-  [specs/p1-n014-role-contracts-adopt-conduct-rules.md](../specs/p1-n014-role-contracts-adopt-conduct-rules.md),
+  [specs/p1-n014-role-contracts-adopt-conduct-rules.md](specs/p1-n014-role-contracts-adopt-conduct-rules.md),
   against the 1.6.0 pin: a seventeen-row inventory of conduct duties
   from W-008, K-010, K-011, P-004, P-007, P-008, W-009, the paraphraser
   and stranger clauses and risks R15 to R17, each with its owning
@@ -498,7 +498,7 @@ decision 13).
   after count 1 closed at the limit. Ten terms ratified; the
   meta-review of the count was delivered as communication-pipeline
   evaluation case 013. The node completes at the artifact (RU-003).
-  Pointer: [plan](../plans/p3-n007-type-declared-amendment-drafted.md),
+  Pointer: [plan](plans/p3-n007-type-declared-amendment-drafted.md),
   [type specification](process/project-model.md),
   [proposal](proposals/planning-execution-model-is-progress-truth.md).
 - [ ] **Upstream disposition of the K-003 amendment proposal** — When:
@@ -577,7 +577,7 @@ decision 13).
   on resources no slug names yet: `docs/process/README.md`,
   `profiles.md`, `auditing.md`, `plugin/skills/orchestrate/SKILL.md`
   and `docs/vocabulary.md`. P3-N008's edges are all held. Pointer:
-  [plan of P1-N016](../plans/p1-n016-process-spec-maintenance.md),
+  [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md),
   [plan of P3-N008](../plans/p3-n008-instance-over-this-repository.md).
 - [ ] **P3-N009 identified, 2026-10-29** — sibling ordering retired
   from `dispatch.md`, `plan-model.md` and the register's header, and
@@ -598,7 +598,7 @@ decision 13).
   returned its pair. Pointer:
   [check document](common-risk-catalogue-check.md),
   [catalogue](proposals/common-risk-catalogue.md),
-  [plan](../plans/p3-n010-one-class-end-to-end.md).
+  [plan](plans/p3-n010-one-class-end-to-end.md).
 - [ ] **Track the service's deployed parts under CR-001, or check them where they run** —
   When: 2026-10-30, P3-N010 run record, omission items O2, O3, O4, O6
   and O8. Status: open; five parts have no Risk register entry citing
@@ -656,7 +656,7 @@ decision 13).
   Open outside this gate: the reading of ET-2, for the gate of P3-N003;
   the term *aggregate node*; the encounters DL-01 (CR-005, task T076)
   and CR-010 at task T083, not yet in the catalogue. Pointer:
-  [plan](../plans/p3-n011-sweep-and-omission-list.md),
+  [plan](plans/p3-n011-sweep-and-omission-list.md),
   [omission list](common-risk-catalogue-check.md#full-run-the-omission-list),
   [verification](common-risk-catalogue-check.md#verification-of-node-p3-n011).
 - [x] **A leaf may need several execute tasks, and plan-model.md says
@@ -679,7 +679,7 @@ decision 13).
   open task as the P2-N023 plan's *Recording* requires; no adopted
   decision changes the rule. Pointer:
   [observability.md](process/observability.md#write-and-read-rules),
-  session end; [plan of P2-N023](../plans/p2-n023-web-view-ux-refinement.md#recording).
+  session end; [plan of P2-N023](plans/p2-n023-web-view-ux-refinement.md#recording).
 - [ ] **P3-N012 identified, 2026-10-29** — the Article 8 proposal for
   `docs/registers/common-risk-catalogue.md` upstream, written IR first
   and reviewed, delivered under RU-015 and RU-022 (spec child C).
@@ -693,7 +693,7 @@ decision 13).
   on all 212 verdict rows, 95 of 95 where input existed; predicates 1
   and 4 closed after round 2, 2 and 3 after round 3, none escalated;
   signal 3 and signal 2's restatement half have no counterpart.
-  Pointer: [record](findings/p3-n005-stop-predicates.md), [plan](../plans/p3-n013-stop-conditions-decidable.md).
+  Pointer: [record](findings/p3-n005-stop-predicates.md), [plan](plans/p3-n013-stop-conditions-decidable.md).
 - [x] **A leaf whose evidence needs independent sessions** — When:
   2026-10-29, planning P3-N013 (W-001's four stop conditions,
   decidable); landed 2026-11-03 by P1-N016 (process spec maintenance),
@@ -821,11 +821,11 @@ decision 13).
   the six contracts carry each role's conditions; two journal event
   kinds and a corpus fixture; of the 13 routed rows, 10 closed and 3
   rewritten.
-  Pointer: [plan](../plans/p3-n014-loop-runs-sequence-mode.md), [dispatch.md](process/dispatch.md#sequence-mode).
+  Pointer: [plan](plans/p3-n014-loop-runs-sequence-mode.md), [dispatch.md](process/dispatch.md#sequence-mode).
 - [ ] **Re-vendor the conformance corpus into the service repository**
   — When: 2026-10-30, planning P3-N014. Status: open; the fixture
   P3-N014 adds leaves the service's vendored copy behind. Pointer:
-  [plan of P3-N014](../plans/p3-n014-loop-runs-sequence-mode.md), decision 8.
+  [plan of P3-N014](plans/p3-n014-loop-runs-sequence-mode.md), decision 8.
 - [x] **A form-check rule for a sequence's journal** — When: 2026-10-30,
   planning P3-N014; closed 2026-11-03 by P1-N016 (process spec
   maintenance), task E2 (T104). Status: closed; moved to the row
@@ -903,7 +903,7 @@ decision 13).
   records as independent run alongside a ratified sequence once the
   predicates read the journal by member task** — When: 2026-11-03,
   acceptance of T103. Status: open, for P3-N016. Pointer:
-  [plan of P1-N016](../plans/p1-n016-process-spec-maintenance.md),
+  [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md),
   [dispatch.md, *The run*](process/dispatch.md#the-run).
 - [x] **Whether a go-ahead that adopts defaults ratifies a sequence**
   — When: 2026-10-30, planning P3-N015; landed 2026-11-03 at the
@@ -921,7 +921,7 @@ decision 13).
   ran in majodali/project-orchestrator-service (R16 in
   [open-risks.md](../open-risks.md); the P3-N011 plan's candidates
   table). One sentence to correct in the plan at its next edit.
-  Pointer: [plan of P3-N005](plans/p3-n005-stop-conditions-decidable.md).
+  Pointer: [plan of P3-N005](../plans/p3-n005-sequence-mode.md).
 - [ ] **The entry "two open entries for P3-N001, one of them stale"
   can close** — When: 2026-10-30, planning P3-N015 (T076 finding).
   Status: open; that entry says the sketch entry "still stands open",
@@ -1018,7 +1018,7 @@ decision 13).
   model's writer rule and P3-N014 (T072) edited all six for sequence
   mode, each from branch base `bd4fc8d`, and the Orchestrator merged
   both on 2026-10-30 keeping both sets of additions. Pointer:
-  [P1-N014 specification](../specs/p1-n014-role-contracts-adopt-conduct-rules.md), the binding section.
+  [P1-N014 specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the binding section.
 
 - [ ] **Retiring the Ruling register's `Applied:` field** — the option
   P3-N002's decision 5 declines by default, kept live here. A ruling is
@@ -1395,9 +1395,9 @@ decision 13).
   plan-state read/update, `.mcp.json` enlistment proven from a web
   and a local session against this repo, and the degrade-to-git-only
   fallback exercised (R12). Planned as an interior node
-  ([plan](../plans/p2-n002-service-skeleton.md), five proposed children
+  ([plan](plans/p2-n002-service-skeleton.md), five proposed children
   led by a reachability slice) and specified
-  ([spec](../specs/p2-n002-service-skeleton.md): the breakdown stands,
+  ([spec](specs/p2-n002-service-skeleton.md): the breakdown stands,
   with integration criteria built around one gate demonstration — a
   session enlisted only by the checked-in `.mcp.json` reads the real
   register and moves a real node, and the change lands as an ordinary
@@ -1427,8 +1427,8 @@ decision 13).
   standing changed-day duty rather than silently closed; and the new
   Classification's cross-repo links point at `blob/main/` in this
   repo, which has no `main` — they dangle until repaired
-  ([plan](../plans/p2-n002-service-skeleton.md) ·
-  [spec](../specs/p2-n002-service-skeleton.md)).
+  ([plan](plans/p2-n002-service-skeleton.md) ·
+  [spec](specs/p2-n002-service-skeleton.md)).
 - [x] **Chunk-1 child: reachability slice** (node P2-N008, `done`)
   — delivered in the service
   repo on branch `p2-n008-reachability-slice` (`fa3e979`): an MCP
@@ -1584,7 +1584,7 @@ decision 13).
   implementation instead of two. The Python predates RU-008 by a day
   and violated no ruling; the owner's call is portfolio consistency
   and reuse (2026-08-29). Planned as an **interior** node
-  ([plan](../plans/p1-n009-plugin-tooling-portfolio-stack.md)): the
+  ([plan](plans/p1-n009-plugin-tooling-portfolio-stack.md)): the
   grammar and the lifecycle stage set become one dependency-free
   canonical file here, copied into the service repo by a generator
   with a `--check` drift mode (the `sync_agents` pattern) rather
@@ -1606,7 +1606,7 @@ decision 13).
   weighed and rejected combining the two repositories (so
   [RU-006](rulings.md) stands), and decision 1 became
   [RU-012](rulings.md). **Specified 2026-08-30**
-  ([spec](../specs/p1-n009-plugin-tooling-portfolio-stack.md)): criteria
+  ([spec](specs/p1-n009-plugin-tooling-portfolio-stack.md)): criteria
   in five groups — behavioural equality with the retired checker over
   a corpus that includes registers which *fail* (one fixture per
   finding rule, expectations generated from the Python before it is
@@ -1694,7 +1694,7 @@ decision 13).
   `form_check.py`, `sync_agents.py`) are untouched, and
   `python3 plugin/scripts/form_check.py` passes clean at every
   commit of this child. Criteria in the
-  [plan](../plans/p1-n009-plugin-tooling-portfolio-stack.md).
+  [plan](plans/p1-n009-plugin-tooling-portfolio-stack.md).
   **Re-verified at acceptance** rather than accepted on report: the
   four equality cases diffed again byte-for-byte (identical, exit
   codes matching including 1 on the no-journal case); the
@@ -2079,8 +2079,8 @@ decision 13).
   self-sufficiency), and F1 (upstream-general framing) left for the
   owner's read per the spec's *How verification runs* section.
   **Gate pending: owner review at `verifying`.**
-  Plan: [p1-n015-methodology-amendments-delegated-work](../plans/p1-n015-methodology-amendments-delegated-work.md).
-  Spec: [p1-n015-methodology-amendments-delegated-work](../specs/p1-n015-methodology-amendments-delegated-work.md).
+  Plan: [p1-n015-methodology-amendments-delegated-work](plans/p1-n015-methodology-amendments-delegated-work.md).
+  Spec: [p1-n015-methodology-amendments-delegated-work](specs/p1-n015-methodology-amendments-delegated-work.md).
 - [ ] **The portfolio register's row for this project is stale** —
   `docs/registers/portfolio.md` upstream records this project pinned
   at 1.3.0, and does not list `project-orchestrator-service` at all.
@@ -2097,7 +2097,7 @@ decision 13).
   Dispatched task, context packet, handoff contract, and the
   node-attached gate stay Article 7 custom definitions here until a
   second project needs them. Reasoning:
-  [p1-n015 plan](../plans/p1-n015-methodology-amendments-delegated-work.md),
+  [p1-n015 plan](plans/p1-n015-methodology-amendments-delegated-work.md),
   decision 4.
 - [ ] **Two deferred prose guidelines, held for recorded instances** —
   identified 2026-09-01 during the P1-N015 revision (task T023), not
@@ -2120,7 +2120,7 @@ decision 13).
   with findings). Status: done; the seventeen duties are stated once in
   `docs/process/` and carried by the six role contracts, with
   `plugin/agents/` regenerated; R14's wording re-routed to P3-N014.
-  Pointer: [specification](../specs/p1-n014-role-contracts-adopt-conduct-rules.md), the duty inventory.
+  Pointer: [specification](specs/p1-n014-role-contracts-adopt-conduct-rules.md), the duty inventory.
 - [x] **R14's contract wording** — When: 2026-10-29, T052 verdict on
   P1-N014; landed 2026-10-30 by P3-N014 (T072). Status: done; a new or
   low-provenance dependency is a `needs-judgment` return, stated in
@@ -2180,7 +2180,7 @@ decision 13).
   later task with the twelve documents among its writes adds the
   back-links; this row stays open until then, and decision 12 is met
   for P1-N016's own anchors. Pointer: [vocabulary](../vocabulary.md),
-  [plan of P1-N016](../plans/p1-n016-process-spec-maintenance.md), decision 12.
+  [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), decision 12.
 - [ ] **A verifying record opens with the owner's checks and cites
   merged commits** — When: 2026-11-07, at the owner's review of A29.
   Status: open, for the next process-spec maintenance pass (the
@@ -2191,7 +2191,7 @@ decision 13).
   [plan-model.md](process/plan-model.md) or
   [dispatch.md](process/dispatch.md#gates-v1), *Gates (v1)*. Pointer:
   [plan of
-  P1-N016](../plans/p1-n016-process-spec-maintenance.md#verification-record),
+  P1-N016](plans/p1-n016-process-spec-maintenance.md#verification-record),
   *Verification record*, the first record written this way.
 - [x] **Methodology citations in the process spec point at the
   superseded pin** — When: identified 2026-08-31 while planning
@@ -2295,13 +2295,13 @@ decision 13).
   assumption the design rests on and could not be confirmed against
   AWS documentation from this environment, so verifying it is the
   first thing the work does. Planned 2026-09-01
-  ([plan](../plans/p2-n012-deploy-from-ci-on-merge.md)): interior, four
+  ([plan](plans/p2-n012-deploy-from-ci-on-merge.md)): interior, four
   children led by that assumption spike, with six decisions staged —
   among them the exact Workflow declaration text and the boundary
   that keeps a fork or workflow-editing pull request away from the
   deploy role. All six adopted at the gate the same day, and
   cross-repo scope made permanent by [RU-016](rulings.md). Specified
-  2026-09-01 ([spec](../specs/p2-n012-deploy-from-ci-on-merge.md)): the
+  2026-09-01 ([spec](specs/p2-n012-deploy-from-ci-on-merge.md)): the
   four children stand, and the plan's twelve criteria split into six
   that belong to one child and eight node-level compositions built so
   that a verifier holding no AWS credential can still check them —
@@ -2312,7 +2312,7 @@ decision 13).
   Reviewer, whether branch protection blocks `done`, and where the two
   prerequisite outage fixes execute. **Done 2026-09-07**: all twenty
   criteria met, the assembly in the
-  [specification](../specs/p2-n012-deploy-from-ci-on-merge.md)'s Gate
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md)'s Gate
   evidence section, with I2's trust-policy clause attested by the
   owner because no session can read an IAM role. Four `push` runs to
   reach green, and four distinct defects on the way — an IAM audience
@@ -2340,9 +2340,9 @@ decision 13).
   an alias, and delivers an event shape that adapter handles; the
   production integration can be bound to `live`; and a stack update
   does not reset `live`. First of the four by
-  [decision 2](../plans/p2-n012-deploy-from-ci-on-merge.md), because a
+  [decision 2](plans/p2-n012-deploy-from-ci-on-merge.md), because a
   false assumption here costs one task rather than the node. Criteria
-  in the [specification](../specs/p2-n012-deploy-from-ci-on-merge.md).
+  in the [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
   **Blocked 2026-09-01, before dispatch**: this environment's network
   egress policy denies `docs.aws.amazon.com`, `aws.amazon.com` and
   `repost.aws` — a 403 at the CONNECT, for both `curl` and the fetch
@@ -2378,7 +2378,7 @@ decision 13).
   Independent of the other three and shippable alone. Closes the
   `.aws-sam/` lint-hygiene entry above, since the workflow runs a
   `sam build` every time. Criteria in the
-  [specification](../specs/p2-n012-deploy-from-ci-on-merge.md).
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
   **Delivered 2026-09-01** (T031): branch `p2-n014-pr-checks`
   (`a5f75f3`), four separately named jobs — `Build`, `Lint`, `Test`,
   `SAM validate --lint` — on `pull_request` only, `contents: read` at
@@ -2402,7 +2402,7 @@ decision 13).
   the template. `service_identity` gains the qualifier and the
   resolved table, which is what makes the choice checkable in one
   authenticated call. Criteria in the
-  [specification](../specs/p2-n012-deploy-from-ci-on-merge.md).
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
   **Delivered 2026-09-01** (T032): branch
   `p2-n015-alias-aware-lease-table` (`62e144a`). A call arriving
   through `live` resolves the production table, through `preprod` the
@@ -2433,7 +2433,7 @@ decision 13).
   service repository's Classification. The child the owner sees
   working, and the only one blocking on owner actions O7 to O10.
   Criteria in the
-  [specification](../specs/p2-n012-deploy-from-ci-on-merge.md).
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md).
   **Workflows delivered 2026-09-02** (T034), branch
   `p2-n016-deploy-workflow` (`74d67c1`): `deploy.yml` on `push` to
   `main` with `id-token: write` and a non-cancelling `deploy-main`
@@ -2582,7 +2582,7 @@ decision 13).
   answered the same day. `AWS_ACCESS_KEY_ID` and
   `AWS_SECRET_ACCESS_KEY` are set in the orchestration session's
   environment, which contradicted the P2-N012
-  [specification](../specs/p2-n012-deploy-from-ci-on-merge.md)'s
+  [specification](specs/p2-n012-deploy-from-ci-on-merge.md)'s
   organizing premise that no dispatched session holds AWS access. It
   was marked rather than assumed away, and the owner — who had not put
   them there — gave explicit permission for one diagnostic call. AWS
@@ -2728,7 +2728,7 @@ decision 13).
   dispatch* paragraph and step 2 of `.claude/agents/orchestrator.md`,
   with its mirror in `plugin/agents/`, restate "earlier siblings
   `done`". Pointer:
-  [plan of P1-N016](../plans/p1-n016-process-spec-maintenance.md), *What
+  [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md), *What
   this node leaves alone*.
 - [ ] **Form-check rules from the process-spec pass** — When:
   2026-10-30, planning P1-N016 (T074). Status: open, a node to identify
@@ -2742,7 +2742,7 @@ decision 13).
   into it by P1-N016's task E2 (T104), and `auditing.md` names the
   three rules as not yet in its list. Decision 11 says the node is "identified
   now", so where it enters the register is open. Pointer:
-  [plan of P1-N016](../plans/p1-n016-process-spec-maintenance.md),
+  [plan of P1-N016](plans/p1-n016-process-spec-maintenance.md),
   decision 11.
 - [x] **P1-N016's E2 changes a vendored unit** — When: 2026-11-03, at
   P1-N016's plan gate; landed 2026-11-05 at the acceptance of P1-N016's
@@ -2755,7 +2755,7 @@ decision 13).
   2026-11-03: E2 (T104) left the unit unchanged, because the kinds
   waited on the owner's W-002 ruling (the row "The run journal can
   record a block but not its release"). Pointer: [plan of
-  P1-N016](../plans/p1-n016-process-spec-maintenance.md), *Dependencies*.
+  P1-N016](plans/p1-n016-process-spec-maintenance.md), *Dependencies*.
 - [x] **Process spec maintenance: branch lifecycle, PR citation,
   packet table** (node P1-N016) — When: opened 2026-09-01; planned
   2026-10-30 (T074); specified 2026-11-03 at the owner's plan gate; E1
@@ -2786,7 +2786,7 @@ decision 13).
   RU-014. RU-018 is left to P3-N009. Open for later passes: the rows
   "The first definitions of ratified terms do not link their vocabulary
   rows" and "Form-check rules from the process-spec pass". Pointer:
-  [plan](../plans/p1-n016-process-spec-maintenance.md), [dispatch.md](process/dispatch.md),
+  [plan](plans/p1-n016-process-spec-maintenance.md), [dispatch.md](process/dispatch.md),
   [Ruling register](rulings.md).
 - [x] **`docs/process/README.md` is the packet gap, three times
   running** — When: T019 and T020; landed 2026-11-03 by P1-N016 (process spec maintenance), task E1 (T103). Status: done; the
@@ -2808,8 +2808,8 @@ decision 13).
   [RU-002](rulings.md) applies — the artifact is written here and the
   owner hand-carries it; cross-repo scope is not assumed. The natural
   vehicle is the checker extension point already proposed at P1-N008
-  ([plan](../plans/p1-n008-mtool-checker-extension-point.md) ·
-  [spec](../specs/p1-n008-mtool-checker-extension-point.md)), whose
+  ([plan](plans/p1-n008-mtool-checker-extension-point.md) ·
+  [spec](specs/p1-n008-mtool-checker-extension-point.md)), whose
   contract this would be an early consumer of. Sized as its own node
   when the owner wants it; not folded into P1-N009.
 - [x] **`run_corpus.ts` contained NUL bytes, and ripgrep silently
@@ -2988,7 +2988,7 @@ decision 13).
   and its drift check"). Running that check automatically stays open
   in the service repository's Backlog. Kept out of P1-N009 to avoid
   an immediate-class scope expansion
-  ([P1-N009 plan](../plans/p1-n009-plugin-tooling-portfolio-stack.md),
+  ([P1-N009 plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
   decision 3). Checked on 2026-10-29 (task T051), after it had stayed
   open. Evidence that the check does not run on its own: the service's
   copy lagged the corpus from `6401311` until `c600a40` (T095).
@@ -3096,7 +3096,7 @@ decision 13).
   against its criteria I1 to I10 after both children are done. P2-N021
   done 2026-11-03. Next: P2-N022, its plan task T101 dispatched
   2026-11-03. Pointer:
-  [specification](../specs/p2-n003-owner-questions-and-plan-view.md).
+  [specification](specs/p2-n003-owner-questions-and-plan-view.md).
 - [x] **P2-N021 done, 2026-11-03: the web view's first version** —
   When: identified at P2-N003's specification gate; tasks E1 to E3
   (T094 to T096) accepted by 2026-11-02; done at the owner's
@@ -3126,7 +3126,7 @@ decision 13).
   The Orchestrator ruled both (plan of P2-N023, decisions 10 and 11).
   Pointer:
   [specification of P2-N003, child
-  1](../specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version);
+  1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version);
   [service runbook, The web view (node
   P2-N021)](https://github.com/majodali/project-orchestrator-service/blob/main/docs/runbook.md#the-web-view-node-p2-n021).
 - [ ] **P2-N022 identified, 2026-10-30: the owner question queue** —
@@ -3138,13 +3138,13 @@ decision 13).
   gate. Depends on P2-N021, done 2026-11-03, and on P2-N005 for its
   final slice only. Pointer:
   [specification of P2-N003, child
-  2](../specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue).
+  2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue).
 - [ ] **Waits per task under the node-to-node dependency rule** — When:
   2026-10-30, specifying P2-N003 (T093). Status: open; the type's rule
   is per node, while P2-N003's plan decision 8 is per task; a register
   note carries the split until P3-N009 decides how a task-level wait is
   recorded. Pointer:
-  [specification of P2-N003](../specs/p2-n003-owner-questions-and-plan-view.md#edges-stated-at-this-breakdown).
+  [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#edges-stated-at-this-breakdown).
 - [x] **Record the view cookie as a risk** — When: 2026-10-30,
   specifying P2-N003 (T093); closed 2026-10-30, entered as R18 at T094's
   result. Status: done; R18: the view
@@ -3152,7 +3152,7 @@ decision 13).
   owner's devices, mitigated by its attributes, a 30-day lifetime and
   revocation by token rotation (decision 13). Pointer:
   [Risk register, R18](../open-risks.md),
-  [specification of P2-N003](../specs/p2-n003-owner-questions-and-plan-view.md#risks).
+  [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#risks).
 - [x] **E1's deploy evidence: the smoke-test run log and the latency
   figures, recorded after the deploy that follows O-view-1 to
   O-view-4** — When: 2026-10-30, at T094's acceptance; widened
@@ -3184,7 +3184,7 @@ decision 13).
   request #18's check. This row was P2-N021's hold. With it closed, the
   node moved to `verifying`. Pointer:
   [specification of P2-N003, Child 1's verification
-  criteria](../specs/p2-n003-owner-questions-and-plan-view.md#child-1s-verification-criteria);
+  criteria](specs/p2-n003-owner-questions-and-plan-view.md#child-1s-verification-criteria);
   [service runbook, Latency of the view's pages
   (V22)](https://github.com/majodali/project-orchestrator-service/blob/main/docs/runbook.md#latency-of-the-views-pages-v22).
 - [ ] **Which source of an item is its date note's source** — When:
@@ -3246,7 +3246,7 @@ decision 13).
   — When: 2026-10-30, T095. Status: open; decide whether the page
   degrades per field, showing the failing read in that field, or stays
   as it is. Pointer: [specification of P2-N003, The node
-  page](../specs/p2-n003-owner-questions-and-plan-view.md#the-node-page).
+  page](specs/p2-n003-owner-questions-and-plan-view.md#the-node-page).
 - [ ] **A stale comment in the service's `test/viewSignIn.test.ts`** —
   When: 2026-10-30, T095 (located finding). Status: open; left by E2
   under W-002; the owner's ruling of 2026-11-01 covered
@@ -3268,7 +3268,7 @@ decision 13).
   the plan's Markdown as text with its links unrendered (V10); unparsed
   lines are noted by line number. Pointer: [specification of P2-N003,
   The node
-  page](../specs/p2-n003-owner-questions-and-plan-view.md#the-node-page).
+  page](specs/p2-n003-owner-questions-and-plan-view.md#the-node-page).
 - [ ] **The service's deploy workflow calls its smoke test three
   checks** — When: 2026-10-30, T094 (located finding). Status: open;
   the comment "Smoke test (G3) — three checks" in
@@ -3290,27 +3290,27 @@ decision 13).
   rotation runbook stores the view token under a new dated secret name,
   because CloudFormation resolves a dynamic reference only when the
   resource changes (V21). Pointer: [specification of P2-N003, child
-  1](../specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
+  1](specs/p2-n003-owner-questions-and-plan-view.md#child-1-the-web-views-first-version).
 - [ ] **The task page reads P2-N005's task files** — When: 2026-10-30,
   specifying P2-N003 (T093). Status: open, after P2-N005; once task,
   claim and result files exist in git, the task page can show them
   beside the Cost log row and the journal events. Pointer:
-  [specification of P2-N003](../specs/p2-n003-owner-questions-and-plan-view.md#the-task-page).
+  [specification of P2-N003](specs/p2-n003-owner-questions-and-plan-view.md#the-task-page).
 - [ ] **Drill from the web view to code and test results** — When:
   2026-10-30, planning P2-N003 (T075). Status: open; waits for the
   plan-model amendment on where each node's verification evidence
   lands, after the pilot. Pointer: [plan of
-  P2-N003](../plans/p2-n003-owner-questions-and-plan-view.md#what-this-node-does-not-cover).
+  P2-N003](plans/p2-n003-owner-questions-and-plan-view.md#what-this-node-does-not-cover).
 - [ ] **Sign-in to the web view by GitHub account** — When:
   2026-10-30, planning P2-N003 (T075). Status: open; replaces the
   view's token when a second person needs the view, beside the OAuth
   entry. Pointer: [plan of
-  P2-N003](../plans/p2-n003-owner-questions-and-plan-view.md#how-it-is-authenticated-a-separate-read-only-token).
+  P2-N003](plans/p2-n003-owner-questions-and-plan-view.md#how-it-is-authenticated-a-separate-read-only-token).
 - [ ] **The model's two renderings as shared code** — When:
   2026-10-30, planning P2-N003 (T075). Status: open; the view renders
   them in the service, and RU-012 asks for one copy once this
   repository renders its Backlog by script. Pointer: [plan of
-  P2-N003](../plans/p2-n003-owner-questions-and-plan-view.md#what-it-shows-three-pages).
+  P2-N003](plans/p2-n003-owner-questions-and-plan-view.md#what-it-shows-three-pages).
 - [x] **Whether the web view replaces `docs/plan.md`** — When:
   2026-10-30, planning P2-N003 (T075); decided 2026-11-03, at P2-N021's
   demonstration (V30). Status: done. The view does not replace
@@ -3335,7 +3335,7 @@ decision 13).
   if there's a need for another iteration. There are some issues with
   the data the view is built on - we'll need to address those here."
   Pointer:
-  [plan](../plans/p2-n023-web-view-ux-refinement.md) ·
+  [plan](plans/p2-n023-web-view-ux-refinement.md) ·
   [brief](https://github.com/majodali/project-orchestrator-service/blob/main/docs/web-view-ux-brief.md).
 - [ ] **The web view's data has issues the owner saw after the UX
   loop** — When: 2026-11-07, the owner's words at the end of
@@ -3346,7 +3346,7 @@ decision 13).
   that the view reads main while the records of 2026-11-03 onward sit
   on the unmerged chain of pull requests #26 to #28; merging the chain
   resolves it. Pointer: [plan of
-  P2-N023](../plans/p2-n023-web-view-ux-refinement.md#loop-ended-2026-11-07),
+  P2-N023](plans/p2-n023-web-view-ux-refinement.md#loop-ended-2026-11-07),
   *Loop ended*.
 - [ ] **The node page links the plan's verification record and marks a
   non-default ref** — When: 2026-11-07, at the owner's review of A29.
@@ -3358,7 +3358,7 @@ decision 13).
   Pointer: the plan of P2-N022, not yet on this branch (T101's output
   `docs/plans/p2-n022-owner-question-queue.md`), and its
   [specification, child
-  2](../specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue);
+  2](specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue);
   the owner's conversation of 2026-11-07, on A29.
 - [ ] **Service chunk 3 — topics and coordination** (node P2-N004) —
   project topics for status and cross-session coordination, including
@@ -3535,7 +3535,7 @@ decision 13).
   entry-point sketch is labelled illustrative), but if delivery
   follows the rewrite, say so in the covering message rather than
   editing the artifact ([P1-N009
-  plan](../plans/p1-n009-plugin-tooling-portfolio-stack.md),
+  plan](plans/p1-n009-plugin-tooling-portfolio-stack.md),
   decision 8). 2026-11-08: the cover note,
   [mtool-custom-type-checker-cover-note.md](proposals/mtool-custom-type-checker-cover-note.md),
   is ready at 41ddcc4 (P3-N019, T107); the owner's carry is asked in

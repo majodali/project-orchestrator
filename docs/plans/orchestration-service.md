@@ -128,7 +128,7 @@ Gate: the owner sees a session read and update real plan state.
 ### Chunk 2 — Owner questions and the plan view
 
 Node P2-N003, split at its planning into two children (owner,
-2026-10-29; [plan](p2-n003-owner-questions-and-plan-view.md)). The web
+2026-10-29; [plan](../archive/plans/p2-n003-owner-questions-and-plan-view.md)). The web
 view's first version comes first: read-only, read from commits only,
 drilling to node and task, in parallel with the task-pull loop and
 before the pilot. The owner question queue follows the pilot: gate

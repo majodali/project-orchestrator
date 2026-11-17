@@ -27,7 +27,7 @@ sequence is ratified or running. Backlog entries are read by node ID
 when a step needs them. Other spec documents are read on demand. Any
 read beyond the set is the Orchestrator's own packet-widening,
 journaled like a role's
-([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
 decision 9). The Orchestrator never waits on timers or polls:
 dispatched work notifies on completion.
 
@@ -49,11 +49,11 @@ project's [profile](profiles.md), the Orchestrator repeatedly:
    and the branch the brief names exist. It journals the `dispatched`
    event only after the launch returns, with `session` holding the
    launched session's identifier
-   ([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+   ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
    decision 14). An owner-attended task, which the Orchestrator does
    not launch, is journaled `dispatched` when its brief is handed
    over, with `session` `null`, as the
-   [plan of node P2-N023 (web view UX refinement)](../../plans/p2-n023-web-view-ux-refinement.md)
+   [plan of node P2-N023 (web view UX refinement)](../plans/p2-n023-web-view-ux-refinement.md)
    states in *Recording*. (Added 2026-11-05 at the acceptance of T104,
    under the owner's ruling.)
 3. **Accepts** the result: verifies the handoff contract below was
@@ -81,7 +81,7 @@ project's [profile](profiles.md), the Orchestrator repeatedly:
    `git push --delete`, is recorded, and its cause is untested. Task
    branches are pushed to the remote because a container restart in
    the middle of a session once cost work that only the container held
-   ([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+   ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
    decision 4).
 4. **Stops** at a gate, on an empty actionable set, on a blocked
    task, or on exhausting approved scope — and summarizes to the
@@ -105,9 +105,9 @@ concurrently, no brief names the Backlog or the Risk register among
 the role's writes. Each role returns its Backlog and Risk register
 additions in its result, and the Orchestrator writes them in the
 acceptance commit, which is serial. A brief's writes bound the role
-([specification of P1-N014 (role contracts adopt the methodology's conduct rules)](../../specs/p1-n014-role-contracts-adopt-conduct-rules.md),
+([specification of P1-N014 (role contracts adopt the methodology's conduct rules)](../specs/p1-n014-role-contracts-adopt-conduct-rules.md),
 decision 13), so two roles never append to one register at once
-([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
 decision 5).
 
 ## How work reaches `main`
@@ -129,7 +129,7 @@ Work reaches `main` in two steps.
 A branch merged by pull request is left to the repository's automatic
 deletion of merged branches (the loop, step 3). This section promotes
 both rulings into the specification
-([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
 decision 10); both rulings stay `active`.
 
 ## The orchestration service (optional accelerator)
@@ -224,7 +224,7 @@ batches, against stated defaults.
   nothing. It dispatches a Planner task that drafts and places the
   text, before any other task on that node. Drafting is judgment, so
   the Orchestrator never drafts the text
-  ([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+  ([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
   decision 6).
 - **Decisions batch at the gate.** The gate summary lists them
   numbered, defaults stated; the owner's go-ahead adopts every
@@ -343,7 +343,7 @@ order:
    [P3-N005 specification](../../specs/p3-n005-sequence-mode.md#decisions-for-the-gate)
    replaced that with the addressee rule. What the Orchestrator may be
    asked is decision 6 of the
-   [P3-N014 plan](../../plans/p3-n014-loop-runs-sequence-mode.md#decisions-for-the-gate).)
+   [P3-N014 plan](../plans/p3-n014-loop-runs-sequence-mode.md#decisions-for-the-gate).)
 
    The asks part holds only what its reader can act on now. The asks
    part may hold an open question the reader can answer on the spot.
@@ -435,7 +435,7 @@ role MAY pull more when its task genuinely needs it, but a packet
 that routinely proves insufficient is a spec defect to fix here.
 
 **The base**, in every packet
-([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
 decision 9):
 
 - Brief items 1 and 2. Item 1 gives the Binding block and
@@ -504,7 +504,7 @@ It opens with an outcome line. The rule's four parts follow in the
 rule's order, each stated when empty in the rule's own words. The
 numbered decisions are the asks, term ratifications included. The
 open, precedents, costs and blockers lines close it
-([specification of P1-N014 (role contracts adopt the methodology's conduct rules)](../../specs/p1-n014-role-contracts-adopt-conduct-rules.md),
+([specification of P1-N014 (role contracts adopt the methodology's conduct rules)](../specs/p1-n014-role-contracts-adopt-conduct-rules.md),
 decision 12: the gate summary template). The target is under about 24
 lines. The Liaison relays it verbatim in substance.
 
@@ -537,7 +537,7 @@ owner nothing to review or override).
 They hold only what the owner can act on now. An open question that
 waits on other activity, and an item needing no answer yet, go on the
 *Changed* line
-([P3-N014 plan](../../plans/p3-n014-loop-runs-sequence-mode.md#decisions-for-the-gate),
+([P3-N014 plan](../plans/p3-n014-loop-runs-sequence-mode.md#decisions-for-the-gate),
 decision 5).
 
 **The gate record.** The owner's go-ahead is recorded in the gated
@@ -559,7 +559,7 @@ It adds to the loop above and changes none of it. The loop runs a
 sequence only when the owner has ratified one. Otherwise the per-chunk
 gate holds. The section's sources are the
 [P3-N005 specification](../../specs/p3-n005-sequence-mode.md), child B,
-and the [P3-N014 plan](../../plans/p3-n014-loop-runs-sequence-mode.md).
+and the [P3-N014 plan](../plans/p3-n014-loop-runs-sequence-mode.md).
 
 A [member of a sequence](../../specs/p3-n005-sequence-mode.md#gate-record-2026-10-29)
 is a chunk the owner ratified: one node, with the stages ratified for
@@ -689,7 +689,7 @@ predicates sees its opening condition (*The item's notes*, below).
 
 Outside a sequence, the `result-received` note carries the result's
 Asks part, part 7 above, verbatim
-([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
 decision 15). The record form was tried once outside a sequence, on
 the execute task of node P3-N014 (the loop runs sequence mode)
 (specification of P3-N005 (sequence mode), criterion B4).
@@ -874,7 +874,7 @@ It never re-runs a check.
 commits, and the scope the member ran under. Inside a sequence that
 scope is the owner's ratification record (parent decision 13). For the
 corpus it is the
-[stand-in grant](../../plans/p3-n013-stop-conditions-decidable.md#decisions-for-the-gate)
+[stand-in grant](../plans/p3-n013-stop-conditions-decidable.md#decisions-for-the-gate)
 the corpus statement names for the item (plan decision 4).
 
 **The three sets.**

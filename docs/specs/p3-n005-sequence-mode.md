@@ -429,10 +429,10 @@ checker's event list.
 - B3. The ratification record's fields are decision 13's.
 - B4. The audit record of each member's result is decision 12's,
   holding every input the four predicates read ([P3-N014
-  plan](../plans/p3-n014-loop-runs-sequence-mode.md), decision 4).
+  plan](../archive/plans/p3-n014-loop-runs-sequence-mode.md), decision 4).
   Outside a sequence, the record form is written once, for node
   P3-N014's execute task ([P3-N014
-  plan](../plans/p3-n014-loop-runs-sequence-mode.md), decision 9).
+  plan](../archive/plans/p3-n014-loop-runs-sequence-mode.md), decision 9).
 - B5. The addressee rule is decision 11's, stated in the handoff
   contract's task-result shape.
 - B6. The Orchestrator contract states that it never ratifies, extends
@@ -633,7 +633,7 @@ to 16 were judged node-scope; no ruling was captured.
 
 Corrections at P3-N014's plan gate, 2026-10-30, placed by task T069.
 The owner adopted decisions 4 and 9 of the [plan of
-P3-N014](../plans/p3-n014-loop-runs-sequence-mode.md) there. Criterion
+P3-N014](../archive/plans/p3-n014-loop-runs-sequence-mode.md) there. Criterion
 B4 states what the audit record holds. It also states that the record
 form is tried once, on P3-N014's execute task.
 
@@ -650,7 +650,7 @@ texts, verbatim.
 - [p3-n001-comprehension-and-continuous-implementation](p3-n001-comprehension-and-continuous-implementation.md):
   the parent specification, criteria G6, I8 and P4, and the *Chunk 4*
   additions
-- [p2-n002-service-skeleton](p2-n002-service-skeleton.md): the
+- [p2-n002-service-skeleton](../archive/specs/p2-n002-service-skeleton.md): the
   interior-node specification shape this document follows
 - [dispatch.md](../archive/process/dispatch.md): the loop this node changes,
   the owner-decision economics, the immediate class, the handoff

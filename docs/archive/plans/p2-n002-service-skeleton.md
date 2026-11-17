@@ -1,3 +1,9 @@
+> **Status: archived 2026-11-17** (P4-N032, Linked plans and specs
+> archived). Archived because this is the plan of P2-N002 (Service
+> skeleton and plan state), and every node that links it is done.
+> Nothing replaces it: the work is delivered, and
+> `orchestration/state.json` records the node.
+
 # Service skeleton and plan state
 
 Status: closed → Backlog entry
@@ -5,7 +11,7 @@ Status: closed → Backlog entry
 <!-- K-007 contract: Status transitions draft → active → (superseded by
      X, because Y | closed → Backlog entry). Flips `active` when the
      owner accepts the breakdown at this node's gate. Node P2-N002,
-     chunk 1 of [orchestration-service](orchestration-service.md). -->
+     chunk 1 of [orchestration-service](../../plans/orchestration-service.md). -->
 
 Outcome under development: a deployed orchestration service that a
 Claude Code session enlists from a checked-in `.mcp.json` and uses to
@@ -30,7 +36,7 @@ Three things, in order of how much they are in doubt:
 
 1. **That a Claude Code session can reach an authenticated,
    AWS-hosted MCP server at all** — on the local surface and on the
-   web surface. [R11](../open-risks.md) records the unknowns: cloud
+   web surface. [R11](../../open-risks.md) records the unknowns: cloud
    egress may need the domain allowlisted or connector routing, and
    the client-side secret has to reach the session without entering
    git. Nothing else in the chunk matters if this fails.
@@ -38,11 +44,11 @@ Three things, in order of how much they are in doubt:
    that "update plan state" through the service produces exactly the
    commit the v1 process would have produced, and that a divergence
    between service and git is a reported error rather than a silent
-   second truth ([R10](../open-risks.md)).
+   second truth ([R10](../../open-risks.md)).
 3. **That the fallback is real** — a session whose service is down
    completes the same stage transition by the v1 process, and a
    checked-in `.mcp.json` pointing at a dead endpoint does not
-   degrade session startup ([R12](../open-risks.md)).
+   degrade session startup ([R12](../../open-risks.md)).
 
 Everything else in the chunk (register parsing, tool shapes, the
 repository's own scaffolding) is ordinary work whose risk is cost,
@@ -136,7 +142,7 @@ the next read reconciles from git and the lease expires — the failure
 mode is a slow projection, never a wrong one.
 
 Reads reconcile from git on every call (short cache, SHA reported).
-[R10](../open-risks.md) is thereby closed by construction rather than
+[R10](../../open-risks.md) is thereby closed by construction rather than
 by discipline: the service has no state that git cannot correct.
 
 ### Fallback
@@ -186,9 +192,9 @@ behind.
 Decomposition is feature-first: iteration-zero setup, then a thin
 end-to-end slice that runs the riskiest path with the least content
 in it, then the two plan-state features, then the fallback. The
-slice leads because [R11](../open-risks.md), not register parsing, is
-what could invalidate the design ([plan-model](../archive/process/plan-model.md)
-thin-slice-first, [R8](../open-risks.md)).
+slice leads because [R11](../../open-risks.md), not register parsing, is
+what could invalidate the design ([plan-model](../process/plan-model.md)
+thin-slice-first, [R8](../../open-risks.md)).
 
 ### Proposed children, in dependency order
 
@@ -255,7 +261,7 @@ session moves a real node through a real stage transition end to
 end. This child, with C, is what the gate demonstrates.
 
 **Child E — Degrade to git-only, and enlistment documentation.**
-The [R12](../open-risks.md) exercise plus the documents that make
+The [R12](../../open-risks.md) exercise plus the documents that make
 enlistment repeatable. Criteria: with the endpoint unreachable, a
 Claude Code session starts normally, its unrelated tool use is
 unaffected, and it completes the same stage transition through the
@@ -269,7 +275,7 @@ against R12 in the Risk register.
 deployment; B's owner-action wait may overlap them. This
 independence is stated here as a planning product so that parallel
 dispatch is available at the gate's discretion
-([dispatch](../archive/process/dispatch.md)).
+([dispatch](../process/dispatch.md)).
 
 ## Verification criteria for this node
 
@@ -324,7 +330,7 @@ absorbed.
 
 ## Decisions for the gate
 
-Numbered per [dispatch](../archive/process/dispatch.md)'s owner-decision
+Numbered per [dispatch](../process/dispatch.md)'s owner-decision
 economics; the owner's go-ahead adopts every default not overridden
 by number. RU-006 (a separately deployable, secret-holding capability
 gets its own repository, the originator coordinating) and RU-007
@@ -395,13 +401,13 @@ are not re-raised.
 
 ## References
 
-- [orchestration-service](orchestration-service.md) — the parent
+- [orchestration-service](../../plans/orchestration-service.md) — the parent
   plan, whose chunk 1 this node is, and its five standing constraints
-- [Risk register](../open-risks.md) — R10 (second source of truth),
+- [Risk register](../../open-risks.md) — R10 (second source of truth),
   R11 (MCP surface constraints), R12 (outage stops work)
-- [docs/process/](../archive/process/README.md) — the v1 process this chunk
+- [docs/process/](../process/README.md) — the v1 process this chunk
   is the fallback for and does not change
-- [Ruling register](../archive/rulings.md) — RU-006, RU-007
+- [Ruling register](../rulings.md) — RU-006, RU-007
 
 ## Gate outcome, 2026-08-26
 
@@ -411,7 +417,7 @@ service is **TypeScript/Node** (MCP SDK) on Lambda / HTTP API /
 DynamoDB via SAM, not Python — TypeScript is common across current
 portfolio projects, and matching this repo's Python helper scripts
 was a weak reason across a repo boundary. Recorded as
-[RU-008](../archive/rulings.md), which also minted the `stack` ruling type.
+[RU-008](../rulings.md), which also minted the `stack` ruling type.
 
 The owner's fallback questions — how a session claims a task when the
 service is unreachable (proposed: the task ID in the branch name,

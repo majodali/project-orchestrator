@@ -1,3 +1,9 @@
+> **Status: archived 2026-11-17** (P4-N032, Linked plans and specs
+> archived). Archived because this is the specification of P2-N012
+> (Deploy from CI on merge), and every node that links it is done.
+> Nothing replaces it: the work is delivered, and
+> `orchestration/state.json` records the node.
+
 # Deploy the service from CI on merge — specification
 
 Status: closed → Backlog entry
@@ -10,7 +16,7 @@ Status: closed → Backlog entry
      node reaches `done`. -->
 
 Node **P2-N012**, child of
-[orchestration-service](../plans/orchestration-service.md), specifying
+[orchestration-service](../../plans/orchestration-service.md), specifying
 the outcome fixed by its
 [plan](../plans/p2-n012-deploy-from-ci-on-merge.md). The plan decided
 *what* and *why* — pull-request checks that cannot deploy, a merge that
@@ -22,18 +28,18 @@ is cited here, not retold.
 This document records the criteria the **node itself** is verified
 against. It is not the union of its children's criteria. An interior
 node's `verifying` runs after its children are `done`, against its own
-criteria ([plan-model](../archive/process/plan-model.md)), so everything in
+criteria ([plan-model](../process/plan-model.md)), so everything in
 *Verification criteria* is a property no single child establishes: a
 composition, an equivalence, or a whole-node invariant. Criteria that
 belong to one child are named as such and placed in *The breakdown*.
 
 Depth is the C1 profile's: a criteria list a verifier can check
-([profiles](../archive/process/profiles.md)).
+([profiles](../process/profiles.md)).
 
 The work lands in
 [majodali/project-orchestrator-service](https://github.com/majodali/project-orchestrator-service),
 permanently in this project's approved scope under
-[RU-016](../archive/rulings.md); this node's declaration of that reach is the
+[RU-016](../rulings.md); this node's declaration of that reach is the
 plan's *Dependencies* section and this sentence.
 
 ## Where the plan's twelve criteria went
@@ -130,7 +136,7 @@ process and register state the node must leave behind.
   token from Secrets Manager at run time, and neither repository's
   history carries a credential. Third-party actions are pinned to
   commit SHAs, and the smoke test adds no dependency
-  ([R14](../open-risks.md)).
+  ([R14](../../open-risks.md)).
 - **I7 — Monotonic.** The service's existing test corpus passes
   unchanged after children C and D land. No previously defined
   functional test was rewritten; the local dev server and the suite
@@ -162,7 +168,7 @@ process and register state the node must leave behind.
 - **P4 — The record exists.** A Cost log record for every dispatched
   task of the node, and a run-journal entry for the first CI deploy.
   The Orchestrator writes both; the verifier checks they are there.
-- **P5 — The risk entries reflect what changed.** [R12](../open-risks.md)
+- **P5 — The risk entries reflect what changed.** [R12](../../open-risks.md)
   records that deploy-caused outages are now caught by the pipeline
   and that between-deploy breakage still is not, pointing at the
   Backlog entry that carries it.
@@ -318,7 +324,7 @@ Only child D blocks on them.
 Numbering continues the plan's, so one go-ahead adopts one list: the
 plan carries **1–6**, adopted 2026-09-01; this document carries
 **7–10**. The owner's go-ahead adopts every default not overridden by
-number. Checked against the [Ruling register](../archive/rulings.md): RU-009
+number. Checked against the [Ruling register](../rulings.md): RU-009
 (work reaches `main` by pull request) and RU-016 (repository access)
 both apply and neither is re-raised; no existing ruling reaches the
 four below.
@@ -444,13 +450,13 @@ prevent it, one merge before it would have mattered.
 - [p2-n012-deploy-from-ci-on-merge](../plans/p2-n012-deploy-from-ci-on-merge.md) —
   this node's plan: the settled Approach, decisions 1–6 with their
   gate outcome, and owner actions O7–O10
-- [orchestration-service](../plans/orchestration-service.md) — the
+- [orchestration-service](../../plans/orchestration-service.md) — the
   parent plan and constraint 3, which bounds how much machinery this
   node buys
 - [p2-n002-service-skeleton](p2-n002-service-skeleton.md) —
   chunk 1's specification, whose G/I/P shape this document follows
-- [plan-model](../archive/process/plan-model.md) — the interior-node
+- [plan-model](../process/plan-model.md) — the interior-node
   verification rule these criteria are written against
-- [profiles](../archive/process/profiles.md) — the C1 specification depth
-- [Risk register](../open-risks.md) — R12 (P5), R14 (I6)
-- [Ruling register](../archive/rulings.md) — RU-009, RU-016
+- [profiles](../process/profiles.md) — the C1 specification depth
+- [Risk register](../../open-risks.md) — R12 (P5), R14 (I6)
+- [Ruling register](../rulings.md) — RU-009, RU-016

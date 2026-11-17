@@ -1,3 +1,9 @@
+> **Status: archived 2026-11-17** (P4-N032, Linked plans and specs
+> archived). Archived because this is the plan of P2-N023 (Web view UX
+> refinement), and every node that links it is done. Nothing replaces
+> it: the work is delivered, and `orchestration/state.json` records the
+> node.
+
 # The web view reads well enough to replace the plan document
 
 Status: active
@@ -12,10 +18,10 @@ Reader: a fresh agent session (RD-4 in the methodology's [reader
 catalog](https://github.com/majodali/methodology/blob/v1.6.0/docs/style.md#readers)),
 and the owner. It assumes the methodology at
 this project's pinned version, 1.6.0
-([Classification](../classification.md)), and the [process
-specification](../archive/process/README.md).
+([Classification](../../classification.md)), and the [process
+specification](../process/README.md).
 
-[Node](../archive/process/README.md#def-node) P2-N023 (web view UX refinement)
+[Node](../process/README.md#def-node) P2-N023 (web view UX refinement)
 is the third child of P2-N003, owner questions and the plan view
 ([plan](p2-n003-owner-questions-and-plan-view.md)). The parent's plan
 and specification name two children. The owner added this one on
@@ -24,7 +30,7 @@ and specification name two children. The owner added this one on
 ## Outcome
 
 At V30 the owner decided that the web view does not replace
-[`docs/plan.md`](../plan.md) yet. The owner's words: "we need to do some
+[`docs/plan.md`](../../plan.md) yet. The owner's words: "we need to do some
 UX refinement first." This node does that refinement. It changes how the view's pages
 read and feel on a phone. It adds no data source and no route without a
 decision recorded in this node.
@@ -93,7 +99,7 @@ node.
 
 ## Verification
 
-C1 profile ([profiles](../archive/process/profiles.md)). One criterion:
+C1 profile ([profiles](../process/profiles.md)). One criterion:
 
 - **U1.** The owner decides that the web view replaces `docs/plan.md`.
   Or ten iterations end, and the Backlog row "UX refinement of the web
@@ -197,7 +203,7 @@ asks in pull request #25 (T098). The Orchestrator set them on 2026-11-03.
 9. Branch names. The pull request's title carries `ux-NN`. The branch
    name is free. The owner's session pushes to the branch its harness
    binds (`claude/...`). The result core in
-   [dispatch.md](../archive/process/dispatch.md#def-result-core) already
+   [dispatch.md](../process/dispatch.md#def-result-core) already
    accepts a branch that the execution surface mandates. Set by the
    Orchestrator on 2026-11-03.
 10. The tree page answers P2-N021's criteria V25 and V26 differently,
@@ -239,10 +245,10 @@ records reach to majodali/project-orchestrator-service under RU-016.
 - [Plan of P2-N003](p2-n003-owner-questions-and-plan-view.md) and its
   [specification](../specs/p2-n003-owner-questions-and-plan-view.md):
   the parent
-- [Backlog](../archive/backlog.md): the rows "Whether the web view replaces
+- [Backlog](../backlog.md): the rows "Whether the web view replaces
   `docs/plan.md`" and "UX refinement of the web view"
-- [Ruling register](../archive/rulings.md): RU-016 (repository reach) and
+- [Ruling register](../rulings.md): RU-016 (repository reach) and
   RU-018 (independence from an earlier sibling)
-- [plan-model](../archive/process/plan-model.md),
-  [observability](../archive/process/observability.md),
-  [cost-log](../archive/process/cost-log.md)
+- [plan-model](../process/plan-model.md),
+  [observability](../process/observability.md),
+  [cost-log](../process/cost-log.md)

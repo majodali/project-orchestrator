@@ -23,7 +23,7 @@ Reader: RD-4 in the methodology's
 **P3-N013** (the four stop conditions, decidable, evidenced, and related
 to the meta-review signals), the task that compares them, and a
 verifier who did not do the work. It assumes the
-[node's plan](../../plans/p3-n013-stop-conditions-decidable.md) and the
+[node's plan](../plans/p3-n013-stop-conditions-decidable.md) and the
 [parent specification](../../specs/p3-n005-sequence-mode.md)'s section
 *Child A*.
 
@@ -45,7 +45,7 @@ yields stop or continue without a fresh judgment. The record also
 states the corpus the two readings apply the predicates to.
 
 The predicate text and the corpus statement were committed alone, in
-a [predicate commit](../../plans/p3-n013-stop-conditions-decidable.md#e1-write-sample-and-fix-the-predicates).
+a [predicate commit](../plans/p3-n013-stop-conditions-decidable.md#e1-write-sample-and-fix-the-predicates).
 The text below is draft 4, commit `fcf4894`. Round 3's readings start
 from it and score predicates 2 and 3. Predicates 1 and 4 closed after
 round 2; draft 4 leaves their text as draft 3, commit `027ca03`, wrote
@@ -182,7 +182,7 @@ It never re-runs a check.
 commits, and the scope the member ran under. Inside a sequence that
 scope is the owner's ratification record (parent decision 13). For the
 corpus it is the
-[stand-in grant](../../plans/p3-n013-stop-conditions-decidable.md#decisions-for-the-gate)
+[stand-in grant](../plans/p3-n013-stop-conditions-decidable.md#decisions-for-the-gate)
 the corpus statement names for the item (plan decision 4).
 
 **The three sets.**
@@ -1234,7 +1234,7 @@ criteria A1 to A10 under the C1 profile.
 
 ## References
 
-- [p3-n013-stop-conditions-decidable](../../plans/p3-n013-stop-conditions-decidable.md):
+- [p3-n013-stop-conditions-decidable](../plans/p3-n013-stop-conditions-decidable.md):
   this node's plan, its decisions 4 to 6, the task sequence E1 to E4
   and the additions A2+, A3+ and A6+
 - [p3-n005-sequence-mode (specification)](../../specs/p3-n005-sequence-mode.md):

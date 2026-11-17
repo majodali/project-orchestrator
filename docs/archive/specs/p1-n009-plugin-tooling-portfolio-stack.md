@@ -1,3 +1,9 @@
+> **Status: archived 2026-11-17** (P4-N032, Linked plans and specs
+> archived). Archived because this is the specification of P1-N009
+> (Plugin tooling on the portfolio stack), and every node that links it
+> is done. Nothing replaces it: the work is delivered, and
+> `orchestration/state.json` records the node.
+
 # Plugin tooling on the portfolio stack — specification
 
 Status: closed → Backlog entry
@@ -9,32 +15,32 @@ Status: closed → Backlog entry
      breakdown at this node's gate, and `closed → Backlog entry` when the
      node reaches `done`. -->
 
-Project model: the five-resource slice is [project-model.md](../archive/project-model.md).
+Project model: the five-resource slice is [project-model.md](../project-model.md).
 
 Node **P1-N009**, child of P1-N001
-([orchestrator-v1](../plans/orchestrator-v1.md)), specifying the
+([orchestrator-v1](../../plans/orchestrator-v1.md)), specifying the
 outcome fixed by its
 [plan](../plans/p1-n009-plugin-tooling-portfolio-stack.md). The plan
 decided *what* and *why* — the repo-local tooling moves to
-TypeScript/Node per [RU-011](../archive/rulings.md), and the one grammar two
+TypeScript/Node per [RU-011](../rulings.md), and the one grammar two
 repositories parse gets one implementation with a mechanical guard
 against drift — and decided that the node is **interior**, with five
 sketched children. All ten of its decisions were adopted as defaulted
 at the gate of 2026-08-29, and decision 1's answer is now
-[RU-012](../archive/rulings.md). Nothing here reopens any of them.
+[RU-012](../rulings.md). Nothing here reopens any of them.
 
 This document records the criteria the **node itself** is verified
 against. It is not the union of its children's criteria. An interior
 node's `verifying` runs after its children are `done`, against its own
 criteria: integration is verified where it was specified
-([plan-model](../archive/process/plan-model.md)). So everything below is a
+([plan-model](../process/plan-model.md)). So everything below is a
 property no single child establishes — an equivalence, a composition,
 or a whole-node invariant. Where a criterion needs a child to do
 something it was not already going to do, that addition is named in
 *The breakdown* rather than left implicit.
 
 Depth is the C1 profile's: a criteria list a verifier can check
-([profiles](../archive/process/profiles.md)).
+([profiles](../process/profiles.md)).
 
 **On inherited properties.** P1-N001 has **no specification
 document** — it is the founding plan and predates the specify
@@ -100,7 +106,7 @@ node's first commit.
 - **B2 — Equality is finding-for-finding, and mechanically decided.**
   For every fixture, the two implementations produce the same
   **multiset of `(severity, rule, path relative to the fixture root)`
-  fingerprints** — the shape [auditing.md](../archive/process/auditing.md)
+  fingerprints** — the shape [auditing.md](../process/auditing.md)
   already names as the audit delivery shape — the same total finding
   count, and the same exit code. Message prose is compared too, but
   exact wording equality is not required; **any difference that
@@ -124,7 +130,7 @@ node's first commit.
   and the checker's own corpus run at `done` passes against them.
 - **B5 — Preserved deviations are visible, both ways (decision 6).**
   Where the port discovers the Python deviating from
-  [auditing.md](../archive/process/auditing.md) and preserves the deviation,
+  [auditing.md](../process/auditing.md) and preserves the deviation,
   the preserving code site says so, citing the document, and a Backlog
   entry records it. *Verifier check*: the set of annotated sites and
   the set of Backlog entries are the same set. The Python's already
@@ -144,8 +150,8 @@ planned.
 - **D1 — One vocabulary, as data.** The lifecycle stage set and the
   node-line grammar exist exactly once in executable form in this
   repository, in the shared unit, cited to
-  [plan-model](../archive/process/plan-model.md) and
-  [plan-register](../archive/process/plan-register.md). *Verifier check*: a
+  [plan-model](../process/plan-model.md) and
+  [plan-register](../process/plan-register.md). *Verifier check*: a
   search of the repository's TypeScript sources for stage-name string
   literals and for node-line regular expressions returns hits only
   inside the shared unit and inside the corpus fixtures. The Python's
@@ -282,7 +288,7 @@ touching the service repository**.
   `plugin/scripts/lib/corpus/fixtures/live-tree/*`, a frozen
   historical snapshot of this repository's own documents;
   `test/plan-register.test.ts`, which names the retired checker in
-  the disposition comment [RU-014](../archive/rulings.md) mandates; and the
+  the disposition comment [RU-014](../rulings.md) mandates; and the
   provenance doc comments in the ported tools recording what each
   was ported *from*. Every one is history or self-description, not
   an instruction a reader acts on. One further point, resolved
@@ -403,7 +409,7 @@ Named so their absence is not read as oversight:
 - **What a `/plugin` install physically ships**, and what
   `${CLAUDE_PLUGIN_ROOT}` resolves to in practice (open Backlog item).
   The design is correct under either answer, and per
-  [R9](../open-risks.md) the plugin has never been observed loading —
+  [R9](../../open-risks.md) the plugin has never been observed loading —
   so no criterion above is conditioned on it loading. C6 checks both
   path shapes textually and the repository-relative path
   operationally.
@@ -414,7 +420,7 @@ Named so their absence is not read as oversight:
 ## The breakdown
 
 **The plan's five sketched children are the right cut** — the thin
-end-to-end slice still leads ([R8](../open-risks.md)), the shared unit
+end-to-end slice still leads ([R8](../../open-risks.md)), the shared unit
 still precedes the checker that depends on it, and the cutover still
 follows the equality evidence. Writing the criteria exposed one
 ordering defect, one boundary that must now be settled a particular
@@ -490,7 +496,7 @@ work at `verifying`, not a child's.
 Numbering continues the plan's sequence, so one go-ahead adopts one
 list: the plan carries **1–10** (all adopted 2026-08-29), this
 document carries **11–14**. Every default not overridden by number is
-adopted. Checked against the [Ruling register](../archive/rulings.md) for near
+adopted. Checked against the [Ruling register](../rulings.md) for near
 matches: RU-011 and RU-012 settle the language and the sharing
 mechanism and are not re-raised; RU-004 is the near match behind
 leaving `--emit=json` alone and is already applied by plan decision 8;
@@ -514,10 +520,10 @@ applied by plan decision 10. No active ruling reaches the four below.
     `--experimental-strip-types` flag; (c) declare no floor and let
     the failure be whatever Node prints. Default: **(a)**. Rationale:
     it matches the service's `engines: node >=22` (decision 9), and
-    [R13](../open-risks.md)'s named failure mode is *losing the
+    [R13](../../open-risks.md)'s named failure mode is *losing the
     checker silently* — a loud non-zero exit is what turns that into a
     blocked dispatch, which
-    [auditing.md](../archive/process/auditing.md) already says is the correct
+    [auditing.md](../process/auditing.md) already says is the correct
     response to a check that cannot pass.
 13. **What triggers the conformance corpus in this repository.**
     Options: (a) the form checker runs the corpus as a self-check on
@@ -556,20 +562,20 @@ applied by plan decision 10. No active ruling reaches the four below.
 - [p1-n009-plugin-tooling-portfolio-stack](../plans/p1-n009-plugin-tooling-portfolio-stack.md)
   — this node's plan, its decisions 1–10, and the gate outcome of
   2026-08-29
-- [orchestrator-v1](../plans/orchestrator-v1.md) — the parent plan and
+- [orchestrator-v1](../../plans/orchestrator-v1.md) — the parent plan and
   its standing constraints. **P1-N001 has no specification document**
   (it predates the convention), so there are no inherited integration
   properties; the constraint list is what binds from above.
-- [auditing.md](../archive/process/auditing.md) — the invariants the checker
+- [auditing.md](../process/auditing.md) — the invariants the checker
   mechanizes, the finding-fingerprint shape B2 uses, the run
   frequencies C5 protects, and the spec-is-right rule
-- [plan-register.md](../archive/process/plan-register.md) and
-  [plan-model.md](../archive/process/plan-model.md) — the grammar and the
+- [plan-register.md](../process/plan-register.md) and
+  [plan-model.md](../process/plan-model.md) — the grammar and the
   stage vocabulary the shared unit carries; plan-model also carries
   the interior-node verification rule this document is written under
-- [profiles.md](../archive/process/profiles.md) — the C1 specification depth
-- [rulings.md](../archive/rulings.md) — RU-011, RU-012, RU-006, RU-005, RU-004
-- [open-risks.md](../open-risks.md) — R13 (decision 12, C5), R9 (the
+- [profiles.md](../process/profiles.md) — the C1 specification depth
+- [rulings.md](../rulings.md) — RU-011, RU-012, RU-006, RU-005, RU-004
+- [open-risks.md](../../open-risks.md) — R13 (decision 12, C5), R9 (the
   no-build design and the plugin-loading caveat), R8 (thin slice
   first)
 - [p2-n002-service-skeleton spec](p2-n002-service-skeleton.md) — the
@@ -584,5 +590,5 @@ commit: `docs/plans/p2-n002-service-skeleton.md` criterion 9 and
 `python3 plugin/scripts/form_check.py`, both are checked at a
 `verifying` that falls after this node retires that file, and both
 are renamed with no change of substance. Decision 12's failure
-posture is captured as [RU-013](../archive/rulings.md).
+posture is captured as [RU-013](../rulings.md).
 

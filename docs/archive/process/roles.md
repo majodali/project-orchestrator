@@ -55,7 +55,7 @@ the cost goal is visible in the data, never silent.
 Every role below carries these duties, the Liaison included. Each
 contract in `.claude/agents/` restates them in its role's terms, and
 names each source by identifier and name
-([specification of P1-N014 (role contracts adopt the methodology's conduct rules)](../../specs/p1-n014-role-contracts-adopt-conduct-rules.md),
+([specification of P1-N014 (role contracts adopt the methodology's conduct rules)](../specs/p1-n014-role-contracts-adopt-conduct-rules.md),
 the duty inventory).
 
 - **Found contradictions**: a role that finds content contradicting a
@@ -71,7 +71,7 @@ the duty inventory).
   finding in its [task](README.md#def-task) result: the file, the
   location, and the decision contradicted. A role whose brief names
   the files it writes treats every other file as outside its writes
-  ([P1-N014 specification](../../specs/p1-n014-role-contracts-adopt-conduct-rules.md), decision 13: a
+  ([P1-N014 specification](../specs/p1-n014-role-contracts-adopt-conduct-rules.md), decision 13: a
   brief's writes bound the role). The session that acts on a located
   finding owes the correction
   ([dispatch.md](dispatch.md), the loop, step 3).
@@ -137,7 +137,7 @@ role's row in the role's own terms.
 | Reviewer (stranger) | None directly | Its verdicts reach a sequence only through the author's result: at the limit of ten rounds the author returns `needs-judgment`, and on a meta-review signal the author's result carries an owner-addressed ask |
 | Liaison | None | Its quiet loop holds through a sequence: the owner hears immediate-class escalations, blockers and, at the end, the stop summary |
 
-Two rows rest on the [P3-N014 plan](../../plans/p3-n014-loop-runs-sequence-mode.md#decisions-for-the-gate)'s
+Two rows rest on the [P3-N014 plan](../plans/p3-n014-loop-runs-sequence-mode.md#decisions-for-the-gate)'s
 decisions. An ask to the Orchestrator for anything it does not
 discharge at acceptance fails the handoff check, which predicate 1
 reads (decision 6). An author whose text reaches the stranger-round

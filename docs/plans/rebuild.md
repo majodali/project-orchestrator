@@ -223,22 +223,25 @@ Outcome: the superseded plans and specs the state file links are in
 new paths, and the word count and the 300-line bound are measured.
 Depends on: 3, 7.
 
-- [ ] The superseded plans and specs under `docs/plans/` and
+- [x] The superseded plans and specs under `docs/plans/` and
       `docs/specs/` move to `docs/archive/`, each opening with a
       status line; nothing else in them changes but re-pointed links.
-- [ ] The implementer states which linked documents are superseded
+- [x] The implementer states which linked documents are superseded
       and which stay because a held node of the P3 line still needs
       them, by a stated rule.
-- [ ] Every `docs` path in `orchestration/state.json` resolves after
+- [x] Every `docs` path in `orchestration/state.json` resolves after
       the move, changed through the service, never by hand.
-- [ ] Every link to a moved file follows it, and `mtool links check`
+- [x] Every link to a moved file follows it, and `mtool links check`
       passes over the tree: the 21 findings of 2026-11-15 are fixed,
       or dispositioned by a stated rule.
-- [ ] The word count under `docs/`, excluding `docs/archive/`, is
+- [x] The word count under `docs/`, excluding `docs/archive/`, is
       below 100,000; the number and the method (child 3's) are
       recorded whichever way it falls (RU-019).
-- [ ] No hand-written document outside `docs/archive/` exceeds 300
+- [x] No hand-written document outside `docs/archive/` exceeds 300
       lines; any that does is listed with the reason.
+
+Executed 2026-11-17 (task T146). The rule, the lists and the numbers:
+[record of the finished parts](../archive/plans/rebuild-record.md).
 
 Acceptance of the milestone: the orientation test passes for both
 repositories; the word count under `docs/` is below 100,000 excluding

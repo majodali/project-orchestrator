@@ -22,11 +22,11 @@ a verifier who did not do the work.
 
 This file applies the four
 [stop predicates](../p3-n005-stop-predicates.md) at the
-[predicate commit](../../../plans/p3-n013-stop-conditions-decidable.md#e1-write-sample-and-fix-the-predicates)
+[predicate commit](../../plans/p3-n013-stop-conditions-decidable.md#e1-write-sample-and-fix-the-predicates)
 `d843457` to the 53 items of that record's corpus statement, frozen at
 commit `d1c3659`. Each row follows the record's *The verdict file*
 section. Journal events are cited by kind and timestamp. The
-[stand-in grants](../../../plans/p3-n013-stop-conditions-decidable.md#decisions-for-the-gate)
+[stand-in grants](../../plans/p3-n013-stop-conditions-decidable.md#decisions-for-the-gate)
 G1 to G18 are the record's. Findings and Backlog additions travel in
 the reading's result, not here.
 

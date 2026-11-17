@@ -19,13 +19,13 @@ and the owner at this node's plan gate. It
 assumes the methodology at this project's pinned version, 1.6.0
 ([Classification](../../classification.md)), the [process
 specification](../process/README.md), the [specification of
-P2-N003](../../specs/p2-n003-owner-questions-and-plan-view.md) and the
+P2-N003](../specs/p2-n003-owner-questions-and-plan-view.md) and the
 [specification of P2-N005](../specs/p2-n005-task-pull-loop.md).
 
 [Node](../process/README.md#def-node) P2-N022 (the owner question
 queue) is child 2 of P2-N003 (owner questions and the plan view). The
 [specification of
-P2-N003](../../specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue)
+P2-N003](../specs/p2-n003-owner-questions-and-plan-view.md#child-2-the-owner-question-queue)
 carries it at outcome depth and lists seven questions its planning
 answers. This plan answers them, fixes the approach and the slices,
 and stages eleven decisions for the gate.
@@ -63,10 +63,10 @@ The items below are inputs, not decisions of this plan.
 
 - The queue's split from the web view, and its outcome (review of
   2026-10-29, ask 3, and [plan of
-  P2-N003](../../plans/p2-n003-owner-questions-and-plan-view.md), decision 1).
+  P2-N003](p2-n003-owner-questions-and-plan-view.md), decision 1).
 - The write model stands. A session is git's only writer. The service
   holds no repository write credential (review ask 8, and [plan of
-  P2-N002](../../plans/p2-n002-service-skeleton.md), decision 3).
+  P2-N002](p2-n002-service-skeleton.md), decision 3).
 - The view token is separate from the MCP bearer token, and the MCP
   endpoint refuses it (plan of P2-N003, decision 4).
 - On 2026-11-03 the owner set three things. P2-N022 no longer follows
@@ -149,7 +149,7 @@ options and a link to the full text.
 ### The questions page (slice E1)
 
 Two read-only pages in the service, behind the [view
-cookie](../../specs/p2-n003-owner-questions-and-plan-view.md#def-view-cookie).
+cookie](../specs/p2-n003-owner-questions-and-plan-view.md#def-view-cookie).
 
 | Method and path | Answers |
 |---|---|
@@ -905,10 +905,10 @@ relative to this plan. Placed in `docs/backlog.md`, each reads
 
 ## References
 
-- [Specification of P2-N003](../../specs/p2-n003-owner-questions-and-plan-view.md):
+- [Specification of P2-N003](../specs/p2-n003-owner-questions-and-plan-view.md):
   child 2, criteria I1 to I10, R10 and R11, the terms, decisions 4, 12
   and 13, the edges.
-- [Plan of P2-N003](../../plans/p2-n003-owner-questions-and-plan-view.md): the
+- [Plan of P2-N003](p2-n003-owner-questions-and-plan-view.md): the
   form this plan follows, and decisions 1 to 10.
 - [Specification of P2-N005](../specs/p2-n005-task-pull-loop.md): the
   write model, the session handle, the task tools, the pull run, and

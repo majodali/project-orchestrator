@@ -1,3 +1,9 @@
+> **Status: archived 2026-11-17** (P4-N032, Linked plans and specs
+> archived). Archived because this is the specification of P2-N002
+> (Service skeleton and plan state), and every node that links it is
+> done. Nothing replaces it: the work is delivered, and
+> `orchestration/state.json` records the node.
+
 # Service skeleton and plan state — specification
 
 Status: closed → Backlog entry
@@ -22,7 +28,7 @@ Status: closed → Backlog entry
      node reaches `done`. -->
 
 Node **P2-N002** (chunk 1 of
-[orchestration-service](../plans/orchestration-service.md)),
+[orchestration-service](../../plans/orchestration-service.md)),
 specifying the outcome fixed by its
 [plan](../plans/p2-n002-service-skeleton.md). The plan decided *what*
 and *why* — a deployed MCP service that a session enlists from a
@@ -34,14 +40,14 @@ This document records the criteria the **node itself** is verified
 against. It is not the union of its children's criteria. An interior
 node's `verifying` runs after its children are `done`, against its own
 criteria: integration is verified where it was specified
-([plan-model](../archive/process/plan-model.md)). So everything below is a
+([plan-model](../process/plan-model.md)). So everything below is a
 property that no single child establishes — a composition, an
 equivalence, or a whole-chunk invariant. Where a criterion here needs
 a child to do something it was not already going to do, that addition
 is named in *The breakdown* section rather than left implicit.
 
 Depth is the C1 profile's: a criteria list a verifier can check
-([profiles](../archive/process/profiles.md)). Nothing here reopens a plan
+([profiles](../process/profiles.md)). Nothing here reopens a plan
 decision.
 
 ## What "done" looks like at this node
@@ -111,7 +117,7 @@ and register state the chunk must leave behind.
   fact rather than a claim.
 - **I2 — Legality is not a second truth.** The transition table the
   service enforces is the node lifecycle of
-  [plan-model](../archive/process/plan-model.md), cited to that document in the
+  [plan-model](../process/plan-model.md), cited to that document in the
   service's source and docs. A transition the process spec permits and
   the service refuses — or the reverse — is a **service bug** with a
   Backlog entry, never a new lifecycle rule. The service is authority
@@ -123,7 +129,7 @@ and register state the chunk must leave behind.
   whose register does not carry the edit is refused as a divergence,
   and a projection contradicted by git loses. The exercise is
   performed, not reasoned about, and its outcome is recorded against
-  **R10** in the [Risk register](../open-risks.md).
+  **R10** in the [Risk register](../../open-risks.md).
 - **I4 — Fallback equivalence.** With the endpoint unreachable, a
   session enlisted by the same checked-in `.mcp.json` starts cleanly,
   uses unrelated tools unaffected, and completes the same class of
@@ -256,7 +262,7 @@ criteria**, to be carried into the breakdown:
   O1–O5 is a defect in the runbook.
 - **Child C** — `plan_read` takes an explicit **ref**, defaulting to
   the repository's default branch (**I5**), and its stage vocabulary is
-  cited to [plan-model](../archive/process/plan-model.md) rather than
+  cited to [plan-model](../process/plan-model.md) rather than
   re-declared.
 - **Child D** — `plan_update` and `plan_confirm` take the same explicit
   ref (**I5**); the legality table is cited to plan-model (**I2**); and
@@ -335,7 +341,7 @@ the criteria rather than from the tasks.
 Numbering continues the plan's sequence, so one go-ahead adopts one
 list: the plan carries **1–9**, this document carries **10–12**. The
 owner's go-ahead adopts every default not overridden by number.
-Checked against the [Ruling register](../archive/rulings.md): RU-006 and RU-007
+Checked against the [Ruling register](../rulings.md): RU-006 and RU-007
 settle repository shape and promotion timing and are not re-raised;
 no existing ruling reaches the three below.
 
@@ -369,12 +375,12 @@ no existing ruling reaches the three below.
 - [p2-n002-service-skeleton](../plans/p2-n002-service-skeleton.md) —
   this node's plan, including decisions 1–9 and the children's own
   criteria
-- [orchestration-service](../plans/orchestration-service.md) — the
+- [orchestration-service](../../plans/orchestration-service.md) — the
   parent plan and its five standing constraints
-- [plan-model](../archive/process/plan-model.md) — the node lifecycle this
+- [plan-model](../process/plan-model.md) — the node lifecycle this
   chunk's update path enforces, and the interior-node verification rule
-- [profiles](../archive/process/profiles.md) — the C1 specification depth this
+- [profiles](../process/profiles.md) — the C1 specification depth this
   document is written to
-- [Risk register](../open-risks.md) — R10 (I1–I3), R11 (G7, I6),
+- [Risk register](../../open-risks.md) — R10 (I1–I3), R11 (G7, I6),
   R12 (I4)
-- [Ruling register](../archive/rulings.md) — RU-006, RU-007
+- [Ruling register](../rulings.md) — RU-006, RU-007

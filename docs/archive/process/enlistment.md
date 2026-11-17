@@ -13,7 +13,7 @@ instance to enlist against: taking it from *not enlisted* to
 *enlisted*, confirming that worked, and what a session does when the
 service cannot be reached. Today this is
 `majodali/project-orchestrator` against one deployed instance
-(chunk 1, node [P2-N002](../../plans/p2-n002-service-skeleton.md)); the
+(chunk 1, node [P2-N002](../plans/p2-n002-service-skeleton.md)); the
 same steps apply to any other managed project once one enlists.
 
 Deploying and operating the service itself — the AWS account, the
@@ -195,8 +195,8 @@ against [R12](../../open-risks.md) with the date.
 
 - [dispatch.md](dispatch.md) — the v1 process this document is the
   fallback statement for; unchanged in substance by the service
-- [p2-n002-service-skeleton](../../plans/p2-n002-service-skeleton.md) and
-  its [specification](../../specs/p2-n002-service-skeleton.md) — decision
+- [p2-n002-service-skeleton](../plans/p2-n002-service-skeleton.md) and
+  its [specification](../specs/p2-n002-service-skeleton.md) — decision
   5 (client authentication), I4 (fallback equivalence)
 - [Risk register](../../open-risks.md) — R12
 - [project-orchestrator-service](https://github.com/majodali/project-orchestrator-service) —

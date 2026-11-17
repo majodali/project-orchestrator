@@ -65,7 +65,7 @@ result record ([dispatch.md](dispatch.md#sequence-mode)), or a
 result's Asks part.
 
 Three fields have fixed contents
-([plan of node P1-N016 (process spec maintenance)](../../plans/p1-n016-process-spec-maintenance.md),
+([plan of node P1-N016 (process spec maintenance)](../plans/p1-n016-process-spec-maintenance.md),
 decisions 14 and 15):
 
 - `stage` holds the task's stage as the
@@ -128,7 +128,7 @@ recorded gap with a home. The second needs no kind.
   (reversibility, and the measurement that says whether it pays).
 - A part's state change has no event kind, by decision 12 of the
   [specification of P2-N003 (owner questions and the plan
-  view)](../../specs/p2-n003-owner-questions-and-plan-view.md#decisions-for-the-gate).
+  view)](../specs/p2-n003-owner-questions-and-plan-view.md#decisions-for-the-gate).
   A part's state is derived from Plan register stages, and this
   journal already records every stage change. The web view derives a
   part's state when it renders a page.

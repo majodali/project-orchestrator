@@ -734,7 +734,7 @@ Backlog.
 - [p3-n001-comprehension-and-continuous-implementation](p3-n001-comprehension-and-continuous-implementation.md):
   the parent specification, **G7**, **P4**, and the four additions its
   breakdown names
-- [p2-n002-service-skeleton](p2-n002-service-skeleton.md): the
+- [p2-n002-service-skeleton](../archive/specs/p2-n002-service-skeleton.md): the
   specification shape this document follows, and the precedent for a
   gate assembly that performs its own check
 - [plan-model](../archive/process/plan-model.md): the interior-node verification

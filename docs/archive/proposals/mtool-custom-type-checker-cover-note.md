@@ -36,7 +36,7 @@ proposal is ready to carry), specified in the
 
 The proposal is not edited. Changes since its drafting go in the
 covering message, never in the artifact
-([plan of node P1-N009 (plugin tooling on the portfolio stack)](../../plans/p1-n009-plugin-tooling-portfolio-stack.md),
+([plan of node P1-N009 (plugin tooling on the portfolio stack)](../plans/p1-n009-plugin-tooling-portfolio-stack.md),
 decision 8).
 
 ## How to carry it

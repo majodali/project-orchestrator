@@ -571,8 +571,8 @@ gate narrowed it; it did not close it.
   guidance
 - [profiles](../archive/process/profiles.md) — the C1 specification depth this
   document is written to
-- [p2-n002-service-skeleton](p2-n002-service-skeleton.md) and
-  [p2-n012-deploy-from-ci-on-merge](p2-n012-deploy-from-ci-on-merge.md)
+- [p2-n002-service-skeleton](../archive/specs/p2-n002-service-skeleton.md) and
+  [p2-n012-deploy-from-ci-on-merge](../archive/specs/p2-n012-deploy-from-ci-on-merge.md)
   — the G/I/P shape and the interior-node breakdown confirmation this
   document follows
 - [plan-register](../archive/process/plan-register.md),

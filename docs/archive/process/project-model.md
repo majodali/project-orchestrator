@@ -63,7 +63,7 @@ progress authority. A Classification declares a planning/execution
 model by a separate entry in its Custom definitions section. That entry
 names the types that make up the model ([plan of P3-N007 (the type
 declared, the arguments written, the K-003 amendment
-drafted)](../../plans/p3-n007-type-declared-amendment-drafted.md),
+drafted)](../plans/p3-n007-type-declared-amendment-drafted.md),
 decision 5). This repository has not made that declaration. The
 declaration waits for the release of the K-003 amendment.
 
@@ -412,7 +412,7 @@ node counted, a node that needs a later change could start before it.
 The rule counts the creating nodes always, and a modifying node only
 when the [after qualifier](#def-after-qualifier) names it. The rule is
 decision 3 of the [plan of
-P3-N007](../../plans/p3-n007-type-declared-amendment-drafted.md).
+P3-N007](../plans/p3-n007-type-declared-amendment-drafted.md).
 
 The slice record's finding 1 proposed a fourth edge label that reads a
 resource as it stands and creates no dependency. That label loses
@@ -869,7 +869,7 @@ them when it populates the instance. The differences:
 
 ## References
 
-- [Plan of P3-N007](../../plans/p3-n007-type-declared-amendment-drafted.md):
+- [Plan of P3-N007](../plans/p3-n007-type-declared-amendment-drafted.md):
   its decisions, and its table of the fourteen slice findings
 - [Specification of P3-N002](../../specs/p3-n002-comprehension-model.md):
   child B's criteria, *The navigation bound*, I1 to I10, and *Edges

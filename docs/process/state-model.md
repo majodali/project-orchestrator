@@ -28,7 +28,7 @@ type's definition for Classification purposes.
       "parent": "P2-N003",
       "after": [],
       "hold": null,
-      "docs": { "plan": null, "spec": "docs/specs/p2-n003-owner-questions-and-plan-view.md" },
+      "docs": { "plan": null, "spec": "docs/archive/specs/p2-n003-owner-questions-and-plan-view.md" },
       "done": "2026-11-03",
       "note": null
     }
