@@ -5201,8 +5201,8 @@
         "keep all three as they are"
       ],
       "default": "yes",
-      "chosen": null,
-      "decided": null,
+      "chosen": "yes",
+      "decided": "2026-11-17",
       "rationale": "Asked by T148 at close.",
       "standing": false,
       "source": null
