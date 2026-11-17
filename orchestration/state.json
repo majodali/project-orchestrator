@@ -1300,7 +1300,7 @@
       "kind": "work",
       "title": "One branch for each pull request",
       "outcome": "Every pull request comes from a branch of its own, made for that task and deleted after the merge, so two sessions never push to the same branch.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1309,7 +1309,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-17",
       "note": "Asked for by the owner, 2026-11-17, after a second session worked on another session's branch (claude/zealous-einstein-1rw9kw) and both opened pull requests from it. Criteria: (1) docs/process/how-we-work.md and the three role agents say a task's pull request comes from a new branch named for the task, never from a branch another pull request used; (2) a delegating session starts the new session on main, never on its own work branch, unless the brief says the work is on that branch; (3) head branches are deleted after merge in this repository and the service repository, by the repository setting or by the service at merge, and the record says which; (4) the rule is tried once: two tasks in a row from one session produce two branches, and the first is gone after its merge."
     },
     {
@@ -1317,7 +1317,7 @@
       "kind": "check",
       "title": "Verification of One branch for each pull request",
       "outcome": "P4-N038 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N038",
       "after": [],
       "hold": null,
@@ -1326,7 +1326,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-17",
       "note": null
     },
     {
@@ -5105,7 +5105,7 @@
       "id": "T166",
       "node": "P4-N043",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -5113,11 +5113,11 @@
         "out": null
       },
       "opened": "2026-11-17T23:39:06Z",
-      "closed": null,
+      "closed": "2026-11-17T23:43:18Z",
       "base": "a352dd61473e884f3f453ed968817e5304a07d95",
-      "ref": null,
+      "ref": "e863c53cc9d99424eeffc70abe7612c13a6d5ff3",
       "pr": null,
-      "summary": "Verify P4-N038 (One branch for each pull request), tasks T153, T154 and T162, pull request #63, against the node's four criteria and decisions D081-D084.",
+      "summary": "All four criteria met. Both remotes hold only main and open pull requests' branches. Branch t153-p4-n038-one-branch is its own, mergeable, CI green; npm test, check, lint, format and sync_agents --check pass. Finding: the archive record's two new sections sit inside Milestones, so M6 child 5 nests under them.",
       "notes": null
     },
     {

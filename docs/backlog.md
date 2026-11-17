@@ -54,6 +54,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Session hooks run on Windows** (P4-N017) — When: 2026-11-12. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Session start summary and the offer to act** (P4-N020) — When: 2026-11-12. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Delegated tasks claimed without asking** (P4-N034) — When: 2026-11-16. Status: done. Pointer: [plan](plans/rebuild.md).
+- [x] **One branch for each pull request** (P4-N038) — When: 2026-11-17. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Service skeleton and plan state** (P2-N002) — When: 2026-08-26. Status: done. Pointer: [plan](archive/plans/p2-n002-service-skeleton.md), [spec](archive/specs/p2-n002-service-skeleton.md).
 - [x] **Service repository bootstrap** (P2-N007) — When: 2026-08-27. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Deployed MCP server (reachability slice)** (P2-N008) — When: 2026-08-28. Status: done. Pointer: `orchestration/state.json`.
@@ -87,7 +88,6 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Rebuild: the orchestrator runs on a checked data model** (P4-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Re-plan, prune and hand back** (P4-N008) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Pilot enlistment of methodology-tools** (P4-N027) — When: not dated. Status: specified, in flight. Pointer: [plan](plans/rebuild.md).
-- [ ] **One branch for each pull request** (P4-N038) — When: not dated. Status: verifying, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Pin migrated to the release with the K-003 amendment** (P4-N042) — When: not dated. Status: identified, blocked. Pointer: `orchestration/state.json`.
 - [ ] **Orchestration service** (P2-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestration-service.md).
 - [ ] **Pilot on methodology-tools: sessions on the task loop** (P2-N006) — When: after P4-N027. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
@@ -96,7 +96,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Service repository enlisted for delegated sessions** (P2-N032) — When: not dated. Status: executing, in flight. Pointer: [spec](specs/orchestrator-session.md).
 - [ ] **Orchestrator fixes before its trial** (P2-N036) — When: not dated. Status: executing, ready, starts automatically. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
-- [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: after P2-N032, P4-N038, P2-N036. Status: specified, waiting on a dependency. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
+- [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: after P2-N032, P2-N036. Status: specified, waiting on a dependency. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/view-that-leads-and-updates.md).
 - [ ] **Tree page that updates itself** (P2-N037) — When: after P2-N032. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Four lists ahead of the tree** (P2-N038) — When: after P2-N032. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.

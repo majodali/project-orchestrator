@@ -20,14 +20,12 @@ Open decisions:
 ## In flight
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified] — T168
-- Verification of One branch for each pull request (P4-N043) [specified] — T166
 - Service repository enlisted for delegated sessions (P2-N032) [executing] — T167
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
-- One branch for each pull request (P4-N038) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
@@ -37,7 +35,7 @@ Open decisions:
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
-- Orchestrator trial with its measured cost (P2-N033) [specified] — after Service repository enlisted for delegated sessions (P2-N032), One branch for each pull request (P4-N038), Orchestrator fixes before its trial (P2-N036)
+- Orchestrator trial with its measured cost (P2-N033) [specified] — after Service repository enlisted for delegated sessions (P2-N032), Orchestrator fixes before its trial (P2-N036)
 - Tree page that updates itself (P2-N037) [specified] — after Service repository enlisted for delegated sessions (P2-N032)
 - Four lists ahead of the tree (P2-N038) [specified] — after Service repository enlisted for delegated sessions (P2-N032)
 - Session, duration and criteria on pages (P2-N039) [specified] — after Four lists ahead of the tree (P2-N038)
@@ -275,13 +273,10 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   A session that an orchestrating session starts with a brief naming a node and a step claims that task without asking a person first, and a session a person starts still asks before it claims.
   after P4-N024 · [plan](plans/rebuild.md)
   Note: Asked for by the owner, 2026-11-16, after a reviewer session launched for P4-N033 stopped to ask before claiming. Criteria: (1) the session start hook's text, CLAUDE.md, docs/process/how-we-work.md and the three role agents state one rule; (2) the rule says how a session recognises a delegation brief, and that the brief authorises the named node and step and nothing else; (3) owner decisions stay asks at task_close; (4) a trial is recorded: a session launched with a brief claims its task without asking, and a session started without one still asks.
-- **One branch for each pull request** (P4-N038, verifying)
+- **One branch for each pull request** (P4-N038, done 2026-11-17)
   Every pull request comes from a branch of its own, made for that task and deleted after the merge, so two sessions never push to the same branch.
   [plan](plans/rebuild.md)
   Note: Asked for by the owner, 2026-11-17, after a second session worked on another session's branch (claude/zealous-einstein-1rw9kw) and both opened pull requests from it. Criteria: (1) docs/process/how-we-work.md and the three role agents say a task's pull request comes from a new branch named for the task, never from a branch another pull request used; (2) a delegating session starts the new session on main, never on its own work branch, unless the brief says the work is on that branch; (3) head branches are deleted after merge in this repository and the service repository, by the repository setting or by the service at merge, and the record says which; (4) the rule is tried once: two tasks in a row from one session produce two branches, and the first is gone after its merge.
-  - check: **Verification of One branch for each pull request** (P4-N043, specified)
-    P4-N038 is verified against its outcome.
-    [plan](plans/rebuild.md)
 - **Pin migrated to the release with the K-003 amendment** (P4-N042, identified, blocked: Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.)
   This repository pins the methodology release that carries the K-003 amendment, declares the state file as its planning/execution model, ends the K-003 deviation, and adopts or deviates from each other amendment in that release.
   Note: Added by the owner's answer to D079 (on P4-N026), 2026-11-17. It starts when majodali/methodology tags the release; until then nothing can be done. The owner carries the batch in the order D078 gives: proposals two and three first, then the release.
@@ -363,7 +358,7 @@ Documents: [plan](plans/orchestration-service.md).
     Note: Added on the owner's answers of 2026-11-17 to D087 (on P2-N030), D088 and D089 (on P2-N031), which each name this node. Criteria: (1) D088: the keys of `decision` and `asks` reports carry the decisions' identifiers, so a second decision on a node changes a key; specification S1 and the two expected keys in test/orchestrate.test.ts follow, which the owner's answer to D088 allows. (2) D087: a verify start is exempt from the shared-document rule of S4, in lib/orchestrate.ts and its test, and S4 says so. (3) D089, in .claude/agents/orchestrator.md, still at most 120 lines: it tells the session to give the background watcher the two-hour limit and what to do if the watcher is stopped with no output; how the session learns its own identifier for --self; one rule for what it tells the owner at a wake, the time-limit wake included; and archive_session is used or dropped. (4) T159's other finding is settled: the status bucket that never says archived. (5) plugin/agents/ is regenerated and the checks pass.
   - **Orchestrator trial with its measured cost** (P2-N033, specified)
     A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.
-    after P2-N032, P4-N038, P2-N036 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    after P2-N032, P2-N036 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 4 of the plan (Children). Criteria 14 to 18. Its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027.
 - **View that updates itself and leads with what matters** (P2-N028, broken-down)
   The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
