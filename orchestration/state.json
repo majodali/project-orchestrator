@@ -1303,7 +1303,7 @@
       "kind": "work",
       "title": "One branch for each pull request",
       "outcome": "Every pull request comes from a branch of its own, made for that task and deleted after the merge, so two sessions never push to the same branch.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -4553,6 +4553,25 @@
       "ref": null,
       "pr": null,
       "summary": "Rework after T151: correct the Backlog row count, align proposal one's IR C38 with its prose, settle the K-012 check-naming duty against this Classification, correct the merge date of methodology pull request 73, and re-check every cited figure and quote.",
+      "notes": null
+    },
+    {
+      "id": "T153",
+      "node": "P4-N038",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T22:11:38Z",
+      "closed": null,
+      "base": "1bcf97ab04fee1cd7497a92d395727aedc5ba4f3",
+      "ref": null,
+      "pr": null,
+      "summary": "Execute P4-N038 against its four criteria: one branch per pull request, deleted after merge. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
       "notes": null
     }
   ],

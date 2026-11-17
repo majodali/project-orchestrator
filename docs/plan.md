@@ -15,7 +15,6 @@ Open decisions:
 ## Ready, starting automatically when the loop runs
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
-- One branch for each pull request (P4-N038) [specified]
 - Orchestrator session that keeps work moving (P2-N027) [specified]
 - View that updates itself and leads with what matters (P2-N028) [identified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
@@ -23,6 +22,7 @@ Open decisions:
 ## In flight
 
 - Upstream proposals batch (P4-N026) [verifying] — T152
+- One branch for each pull request (P4-N038) [executing] — T153
 
 ## In progress, children carry the work
 
@@ -270,7 +270,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   A session that an orchestrating session starts with a brief naming a node and a step claims that task without asking a person first, and a session a person starts still asks before it claims.
   after P4-N024 · [plan](plans/rebuild.md)
   Note: Asked for by the owner, 2026-11-16, after a reviewer session launched for P4-N033 stopped to ask before claiming. Criteria: (1) the session start hook's text, CLAUDE.md, docs/process/how-we-work.md and the three role agents state one rule; (2) the rule says how a session recognises a delegation brief, and that the brief authorises the named node and step and nothing else; (3) owner decisions stay asks at task_close; (4) a trial is recorded: a session launched with a brief claims its task without asking, and a session started without one still asks.
-- **One branch for each pull request** (P4-N038, specified)
+- **One branch for each pull request** (P4-N038, executing)
   Every pull request comes from a branch of its own, made for that task and deleted after the merge, so two sessions never push to the same branch.
   [plan](plans/rebuild.md)
   Note: Asked for by the owner, 2026-11-17, after a second session worked on another session's branch (claude/zealous-einstein-1rw9kw) and both opened pull requests from it. Criteria: (1) docs/process/how-we-work.md and the three role agents say a task's pull request comes from a new branch named for the task, never from a branch another pull request used; (2) a delegating session starts the new session on main, never on its own work branch, unless the brief says the work is on that branch; (3) head branches are deleted after merge in this repository and the service repository, by the repository setting or by the service at merge, and the record says which; (4) the rule is tried once: two tasks in a row from one session produce two branches, and the first is gone after its merge.
