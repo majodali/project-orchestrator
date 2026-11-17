@@ -23,7 +23,7 @@ Open decisions:
 
 ## In flight
 
-None.
+- Verification of Decision script and settings of the orchestrator (P2-N034) [specified] — T159
 
 ## In progress, children carry the work
 
@@ -343,6 +343,9 @@ Documents: [plan](plans/orchestration-service.md).
     A script prints the sessions to start and the reports to give as JSON, from the state file, the journal, the settings, the agent files and a session snapshot, and one session per role was started from its output.
     [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 1 of the plan (Children). Criteria 1 to 6, 8, 19 and 20 of the specification.
+    - check: **Verification of Decision script and settings of the orchestrator** (P2-N034, specified)
+      P2-N030 is verified against its outcome.
+      [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
   - **Orchestrator role and its watcher** (P2-N031, specified)
     A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.
     after P2-N030 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)

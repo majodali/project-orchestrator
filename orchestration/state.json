@@ -4746,14 +4746,14 @@
         "cacheRead": 5358852,
         "cacheWrite": 182019
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T22:25:36Z",
       "closed": "2026-11-17T22:38:49Z",
       "base": "bfe0052cff489a0a0a9696b03ce4809fc6618840",
       "ref": "d10e38d28b4c3d7af923e1164a5e0d5cf99a5b60",
       "pr": "majodali/project-orchestrator#66",
       "summary": "Criteria 1 to 6, 8, 19 and 20 met. orchestrate_next.ts, lib/orchestrate.ts and orchestration/orchestrator.json with 76 tests; CI passes. Trial: create_session accepts claude-opus-5 and claude-sonnet-5, each role ran on its model, list_sessions returned all three titles. No agent file changed. Six readings of the specification are listed in the pull request for the reviewer.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T158",
@@ -4775,6 +4775,25 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#65",
       "summary": "Plan written: four lists ahead of the tree, one first-party script that polls a version route and updates the page, feedback in place, a node panel, and session, duration and criteria on pages. It splits the view from the orchestrator's reports, names five slices and twenty criteria, and carries two asks.",
+      "notes": null
+    },
+    {
+      "id": "T159",
+      "node": "P2-N034",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T22:40:41Z",
+      "closed": null,
+      "base": "739ab424f8327c97a9dcb5be0b8b4433717ca3f8",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N030 (task T157, pull request 66) against its criteria in docs/plans/orchestrator-session.md, delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
       "notes": null
     }
   ],
