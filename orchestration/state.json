@@ -955,7 +955,10 @@
       "stage": "specified",
       "parent": "P4-N026",
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "T151: Not met. Criterion 2: Backlog at b1c8b9f has 79 rows in 95 lines, not 95 rows (proposal two L214, IR C31, E9; proposal one IR E10). Criterion 4: proposal one IR C38 says \"or artifact\"; prose says \"or custom artifact types\". Criterion 6: K-012 makes the declaration name the check; this Classification does not. Also: methodology PR 73 merged 2026-10-31."
+      },
       "start": "auto",
       "docs": {
         "plan": "docs/plans/rebuild.md",
@@ -4512,7 +4515,7 @@
       "id": "T151",
       "node": "P4-N041",
       "step": "verify",
-      "status": "open",
+      "status": "blocked",
       "role": "reviewer",
       "model": null,
       "tokens": {
@@ -4520,11 +4523,11 @@
         "out": null
       },
       "opened": "2026-11-17T22:05:12Z",
-      "closed": null,
+      "closed": "2026-11-17T22:09:43Z",
       "base": "26f738bfdf09bf654512c6a337e3202964c40bab",
       "ref": null,
       "pr": null,
-      "summary": "Verify P4-N026 (Upstream proposals batch), task T149, pull request #61, against its criteria in docs/plans/rebuild.md and the D073 criterion: quotes checked against upstream text, provenance, the K-003 claim, scope and evidence of each proposal.",
+      "summary": "Not met. Criterion 2: Backlog at b1c8b9f has 79 rows in 95 lines, not 95 rows (proposal two L214, IR C31, E9; proposal one IR E10). Criterion 4: proposal one IR C38 says \"or artifact\"; prose says \"or custom artifact types\". Criterion 6: K-012 makes the declaration name the check; this Classification does not. Also: methodology PR 73 merged 2026-10-31.",
       "notes": null
     }
   ],

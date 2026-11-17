@@ -12,6 +12,7 @@ Nothing.
 
 ## Ready, starting automatically when the loop runs
 
+- Upstream proposals batch (P4-N026) [verifying]
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - One branch for each pull request (P4-N038) [specified]
 - View that updates itself and leads with what matters (P2-N028) [identified]
@@ -19,14 +20,12 @@ Nothing.
 
 ## In flight
 
-- Verification of Upstream proposals batch (P4-N041) [specified] — T151
 - Orchestrator session that keeps work moving (P2-N027) [planned] — T150
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
-- Upstream proposals batch (P4-N026) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
@@ -38,6 +37,7 @@ Nothing.
 ## Blocked
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
+- Verification of Upstream proposals batch (P4-N041) [specified] — T151: Not met. Criterion 2: Backlog at b1c8b9f has 79 rows in 95 lines, not 95 rows (proposal two L214, IR C31, E9; proposal one IR E10). Criterion 4: proposal one IR C38 says "or artifact"; prose says "or custom artifact types". Criterion 6: K-012 makes the declaration name the check; this Classification does not. Also: methodology PR 73 merged 2026-10-31.
 - Pin migrated to the release with the K-003 amendment (P4-N042) [identified] — Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.
 
 ## Paused by a hold or a park above
@@ -229,7 +229,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.
     [plan](plans/rebuild.md)
     Note: Added by the owner's answer to D073 (on P4-N032), 2026-11-17: the batch also carries a request to methodology-tools for a way to exempt methodology text that a document quotes verbatim (RU-015) from mtool links check, so the tool can exit zero over this tree. Evidence: the 8 findings P4-N032 dispositioned. Add it as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
-    - check: **Verification of Upstream proposals batch** (P4-N041, specified)
+    - check: **Verification of Upstream proposals batch** (P4-N041, specified, blocked: T151: Not met. Criterion 2: Backlog at b1c8b9f has 79 rows in 95 lines, not 95 rows (proposal two L214, IR C31, E9; proposal one IR E10). Criterion 4: proposal one IR C38 says "or artifact"; prose says "or custom artifact types". Criterion 6: K-012 makes the declaration name the check; this Classification does not. Also: methodology PR 73 merged 2026-10-31.)
       P4-N026 is verified against its outcome.
       [plan](plans/rebuild.md)
   - **Pilot enlistment of methodology-tools** (P4-N027, specified)
