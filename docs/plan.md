@@ -304,7 +304,7 @@ Documents: [plan](plans/orchestration-service.md).
     Note: independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8)
   - **Web view UX refinement** (P2-N023, done 2026-11-07)
     At V30 the owner decided that the web view does not replace docs/plan.md yet.
-    after P2-N021 · [plan](plans/p2-n023-web-view-ux-refinement.md)
+    after P2-N021
     Note: Iterations 1 to 3 accepted 2026-11-03; the owner ended the loop on 2026-11-07, and the rebuild's milestone 2 superseded the view (owner, 2026-11-10)
 - **Pilot on methodology-tools: sessions on the task loop** (P2-N006, identified)
   Sessions on methodology-tools take and close their work through the task loop, with the session start hook and the task-cost hook installed there.

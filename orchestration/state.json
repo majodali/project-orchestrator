@@ -1529,7 +1529,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p2-n023-web-view-ux-refinement.md",
+        "plan": null,
         "spec": null
       },
       "done": "2026-11-07",
@@ -4330,6 +4330,10 @@
         {
           "node": "P2-N021",
           "spec": "docs/archive/specs/p2-n003-owner-questions-and-plan-view.md"
+        },
+        {
+          "node": "P2-N023",
+          "plan": "docs/archive/plans/p2-n023-web-view-ux-refinement.md"
         }
       ]
     }

@@ -79,7 +79,7 @@ Dependencies are in the state file, not in sibling order.
     - P2-N016 [done] Deploy, smoke test and promote pipeline
   - P2-N003 [done] Owner questions and the plan view
     - P2-N021 [done] Web view v1
-    - P2-N023 [done] Web view UX refinement — plan: plans/p2-n023-web-view-ux-refinement.md
+    - P2-N023 [done] Web view UX refinement
   - P2-N006 [identified] Pilot on methodology-tools: sessions on the task loop
   - P2-N025 [identified] Faster writes, a bounded journal and a deploy write test
   - P2-N026 [identified] Several projects and repositories in one instance
