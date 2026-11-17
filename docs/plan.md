@@ -112,7 +112,7 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
     [spec](specs/p3-n002-comprehension-model.md)
   - **Project model type and K-003 amendment draft** (P3-N007, done 2026-10-31)
     The Project model becomes a declared type of this repository, and the K-003 (the Backlog is the single source of progress truth) amendment exists as a reviewed proposal ready for the owner to carry.
-    after P3-N006 · [plan](plans/p3-n007-type-declared-amendment-drafted.md), [spec](specs/p3-n002-comprehension-model.md)
+    after P3-N006 · [spec](specs/p3-n002-comprehension-model.md)
     Note: depends on P3-N006
   - **Project model instance for this repository** (P3-N008, planned, gated: owner review of the plan)
     The instance describes every current part of the project.

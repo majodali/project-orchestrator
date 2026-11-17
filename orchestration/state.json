@@ -324,7 +324,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p3-n007-type-declared-amendment-drafted.md",
+        "plan": null,
         "spec": "docs/specs/p3-n002-comprehension-model.md"
       },
       "done": "2026-10-31",
@@ -4343,6 +4343,10 @@
         {
           "node": "P3-N006",
           "plan": "docs/archive/plans/p3-n006-thin-end-to-end-slice.md"
+        },
+        {
+          "node": "P3-N007",
+          "plan": "docs/archive/plans/p3-n007-type-declared-amendment-drafted.md"
         }
       ]
     }
