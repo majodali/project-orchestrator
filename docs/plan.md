@@ -16,7 +16,6 @@ Open decisions:
 
 - Upstream proposals batch (P4-N026) [specified]
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
-- Linked plans and specs archived (P4-N032) [specified]
 - One branch for each pull request (P4-N038) [specified]
 - Orchestrator session that keeps work moving (P2-N027) [identified]
 - View that updates itself and leads with what matters (P2-N028) [identified]
@@ -24,7 +23,7 @@ Open decisions:
 
 ## In flight
 
-None.
+- Linked plans and specs archived (P4-N032) [executing] — T146
 
 ## In progress, children carry the work
 
@@ -238,7 +237,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
     [plan](plans/rebuild.md) · 1 open decision
     Note: Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7.
-  - **Linked plans and specs archived** (P4-N032, specified)
+  - **Linked plans and specs archived** (P4-N032, executing)
     The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.
     after P4-N031, P4-N024 · [plan](plans/rebuild.md)
     Note: Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8.

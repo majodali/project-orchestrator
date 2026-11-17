@@ -1006,7 +1006,7 @@
       "kind": "work",
       "title": "Linked plans and specs archived",
       "outcome": "The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N008",
       "after": [
         "P4-N031",
@@ -4260,14 +4260,33 @@
         "cacheRead": 675794,
         "cacheWrite": 53210
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T20:48:36Z",
       "closed": "2026-11-17T20:50:59Z",
       "base": "df4d0a67ae05d6ca3a66e1ddd3473b625cde4bab",
       "ref": null,
       "pr": null,
       "summary": "All five criteria of P4-N031 met. Service at 6f2b9f7: 249 tests pass, test/documentPaths.test.ts moves a linked document through the stated order; deployed commit matches. Pull request 58: check green, plan-state check, tests, lint, format, sync_agents pass; link check reports the same 21 findings as main. One low finding: a vocabulary row outside the node.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
+    },
+    {
+      "id": "T146",
+      "node": "P4-N032",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T20:52:04Z",
+      "closed": null,
+      "base": "9871e3acc5f3f707b390d211d58b2b15fb50e7ee",
+      "ref": null,
+      "pr": null,
+      "summary": "Archive the linked plans and specs of finished work under docs/archive/ using docsOnMerge, state by rule which P3 documents stay, re-point links, and make mtool links check pass. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "notes": null
     }
   ],
   "decisions": [
