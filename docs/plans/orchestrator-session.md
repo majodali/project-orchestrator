@@ -1,6 +1,6 @@
 # Orchestrator session that keeps work moving (P2-N027)
 
-Status: planned (T148). [The specification](../specs/orchestrator-session.md) (T150) amends the criteria and governs where the two differ.
+Status: broken down (T155). [The specification](../specs/orchestrator-session.md) (T150) holds most criteria and governs where the two differ.
 
 Reader: the owner, and the sessions that specify, build and verify
 this node. The reader knows
@@ -196,62 +196,40 @@ sequence. That loop is retired. Its durable result is P3-N013
 - P3-N005 stays, held with the P3 line, with P3-N016 its one open
   child. These change another line's scope, so they are ask 2.
 
-## Slices, for the break down step
+## Children
 
-1. **Decide and start, by hand.** `orchestrate_next.ts`, the settings
-   file and the brief text. Runs end to end with no watcher.
-2. **The role and the watcher.** `orchestrator.md`, `plan_watch.ts`,
-   the `message` and `check` actions, the stop reports.
-3. **Another repository.** The two files in the service repository
-   (`start: approve`) and criterion 13. Waits for slice 1.
-4. **The trial and the measurements.** Criteria 14 to 18. Waits for
-   slices 2 and 3, and for P4-N038.
+Broken down by task T155, 2026-11-17. Each child's criteria are the
+numbered items named here: 14, 15, 16 and 18 below, the rest in
+[the specification](../specs/orchestrator-session.md), Criteria.
+
+1. **P2-N030, Decision script and settings of the orchestrator.**
+   Criteria 1 to 6, 8, 19 and 20. Adds `orchestrate_next.ts`,
+   `lib/orchestrate.ts`, `orchestration/orchestrator.json` and their
+   tests. The settings file lists P2-N032 under
+   majodali/project-orchestrator-service (specification, S4).
+2. **P2-N031, Orchestrator role and its watcher.** Criteria 7 and 9
+   to 12. Adds `orchestrator.md` and `plan_watch.ts`, extends
+   `lib/orchestrate.ts`, edits how-we-work.md. Waits for P2-N030,
+   whose decision function it extends.
+3. **P2-N032, Service repository enlisted for delegated sessions.**
+   Criterion 13 and the specification's S7. Writes to
+   majodali/project-orchestrator-service (RU-016, who decides which
+   repositories a node's work may write to), so `start: approve`.
+   Here it adds only the generator that vendors the cost hook. Waits
+   for P2-N030, whose script starts its trial's session.
+4. **P2-N033, Orchestrator trial with its measured cost.** Criteria
+   14 to 18. Waits for P2-N031, P2-N032 and P4-N038 (One branch for
+   each pull request). Its last act carries out D075, the answer to ask 2.
+
+P2-N031 and P2-N032 may run together: they edit different files, and
+P2-N032 links no plan document, so the shared-document rule of the
+specification's S4 does not hold one for the other. Nothing else
+runs together: P2-N030 comes first and P2-N033 last.
 
 ## Criteria
 
-1. `plugin/scripts/orchestrate_next.ts` prints its actions as JSON
-   from a state file, a journal and a settings file given as paths,
-   and reads nothing else. Its tests run under `npm test`.
-2. Tests show a `start` for each offered step with the model from
-   the role's agent file, and none for a node that is held, has an
-   open decision, has an open task, or waits for approval.
-3. Tests show the limits hold: no third execute `start` at
-   `limits.execute` 2, and no `start` for a node whose plan document
-   an open execute task's node also links.
-4. Tests show each of the four stop conditions of section 8 yields
-   one `report` naming the node and the condition, and that a missing
-   or unreadable input yields `report`, never `start`.
-5. `orchestration/orchestrator.json` exists with the fields of
-   section 3, a test checks it against its schema, and CI does not
-   treat it as a file the service owns.
-6. A recorded trial starts one session for each role with the model
-   its agent file names. `get_session` gives the model each ran on.
-   The record states each result; an identifier `create_session`
-   refuses is corrected in the agent file in the same pull request.
-7. `.claude/agents/orchestrator.md` exists, is at most 120 lines,
-   states the rules of section 2, and
-   `node plugin/scripts/sync_agents.ts --check` passes.
-8. The brief the script prints names the delegating session, the
-   node, the step and the role, and for continued work the pull
-   request and its branch. A test pins the text.
-9. `plugin/scripts/plan_watch.ts` exits within two minutes of a
-   commit to `main` that changes the list of actions, and does not
-   exit on a commit that leaves it unchanged. Tests show both against
-   a local repository.
-10. A rework goes by `message` to the session that held the node's
-    last task when that session exists, and by `start` with the pull
-    request's branch otherwise. Tests show both.
-11. A `check` is emitted for a task open longer than
-    `checkAfterMinutes`, and a second one for the same task yields a
-    `report` under condition 1. Tests show both.
-12. `docs/process/how-we-work.md` says how the orchestrator session is
-    started, what wakes it and when it returns to the owner, and no
-    longer says that nothing checks the model. It stays within its
-    line bound.
-13. A recorded trial: a session started by the orchestrator with
-    `source_url` majodali/project-orchestrator-service calls
-    `service_identity`, opens and closes a task, and the task has a
-    measured cost. The record states what loaded and what did not.
+Criteria 1 to 13, 17, 19 and 20 are in the specification.
+
 14. A recorded trial: the orchestrator session carries at least three
     nodes from an offered step to done, two of them at the same time,
     with no message from the owner to any session in between. The
@@ -264,9 +242,6 @@ sequence. That loop is retired. Its durable result is P3-N013
 16. The record sets the orchestrator's cost in the trial beside the
     sum of its delegated tasks' recorded costs, as a ratio, by the
     same method.
-17. A new orchestrator session, started while delegated tasks are
-    open, prints the same actions as the one it replaces. The trial
-    records one such replacement.
 18. The orchestrator session makes no write to the plan: the journal
     of the trial holds no line whose `session` is the orchestrator's.
 
@@ -290,7 +265,7 @@ sequence. That loop is retired. Its durable result is P3-N013
   session is always possible (criterion 17). Criterion 15 measures it.
 - **The plugin's hooks do not load in a session started in another
   repository.** Then its task has no measured cost. Criterion 13
-  records what happens before slice 4 relies on it.
+  records what happens before P2-N033 relies on it.
 
 ## Terms introduced
 

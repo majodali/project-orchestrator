@@ -211,7 +211,7 @@ step states what it already holds.
 
 P2-N027's note now ends `Next step: break down`, set under T150, so
 S4's rule applies to the node that defines it. The plan's four
-slices are the children. The task that finishes the last slice
+slices are the children. The task that finishes P2-N033
 carries out D075 (remove P3-N015 and P3-N020; P3-N016 waits for
 P2-N027) as its last act.
 
@@ -219,14 +219,13 @@ Not verified here: that `list_sessions` returns sessions another
 session started, with their titles; and that `create_session`
 accepts `claude-opus-5` and `claude-sonnet-5` (tasks T147 to T149
 ran on `claude-fable-5-2`). Criterion 6 records both. If the first
-fails, S2 fails closed and slice 1 returns to the owner.
+fails, S2 fails closed and P2-N030 returns to the owner.
 
 ## Criteria
 
-Each item below replaces the plan's criterion of the same number.
-The plan's criteria 14, 15, 16 and 18 stand as worded there. 19 and
-20 are new. Slices: 1 to 6, 8, 19 and 20 are slice 1; 7 and 9 to 12
-are slice 2; 13 is slice 3; 14 to 18 are slice 4.
+Criteria 14, 15, 16 and 18 are in the plan, with the children that
+carry each criterion: P2-N030 has 1 to 6, 8, 19 and 20; P2-N031 has
+7 and 9 to 12; P2-N032 has 13; P2-N033 has 14 to 18.
 
 1. `orchestrate_next.ts` prints `{ "actions": [...] }` in the shapes
    of S1 from the inputs of S1 given as paths, and makes no network
