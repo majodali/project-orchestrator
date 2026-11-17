@@ -5246,8 +5246,8 @@
         "the release first, then two and three (ends the K-003 deviation at once; one new deviation on 'custom document types' and a second migration)"
       ],
       "default": "two and three first, then the release (one migration here, no deviation left)",
-      "chosen": null,
-      "decided": null,
+      "chosen": "two and three first, then the release (one migration here, no deviation left)",
+      "decided": "2026-11-17",
       "rationale": "Asked by T149 at close.",
       "standing": false,
       "source": null
