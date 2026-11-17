@@ -1,0 +1,13 @@
+{
+  "limits": { "execute": 2, "plan": 1 },
+  "maxReworkRounds": 2,
+  "checkAfterMinutes": 45,
+  "weeklyBudget": null,
+  "repositories": [
+    { "repository": "majodali/project-orchestrator", "nodes": [] },
+    {
+      "repository": "majodali/project-orchestrator-service",
+      "nodes": ["P2-N032"]
+    }
+  ]
+}

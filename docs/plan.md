@@ -8,33 +8,33 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Gated nodes:
-
-- Upstream proposals batch (P4-N026): the owner reviews the proposals (RU-005)
+Nothing.
 
 ## Ready, starting automatically when the loop runs
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
-- One branch for each pull request (P4-N038) [executing]
-- Orchestrator session that keeps work moving (P2-N027) [specified]
-- View that updates itself and leads with what matters (P2-N028) [identified]
+- Service repository enlisted for delegated sessions (P2-N032) [specified]
+- Orchestrator fixes before its trial (P2-N036) [specified]
+- View that updates itself and leads with what matters (P2-N028) [planned]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-None.
+- One branch for each pull request (P4-N038) [executing] — T162
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
+- Orchestrator session that keeps work moving (P2-N027) [broken-down]
 
 ## Waiting on a dependency
 
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
+- Orchestrator trial with its measured cost (P2-N033) [specified] — after Service repository enlisted for delegated sessions (P2-N032), One branch for each pull request (P4-N038), Orchestrator fixes before its trial (P2-N036)
 
 ## Blocked
 
@@ -226,7 +226,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
     after P4-N024 · [plan](plans/rebuild.md)
     Note: The service part is majodali/project-orchestrator-service#41, merged at cb9d727 and deployed on 2026-11-16. From that deploy the service writes docs/backlog.md with every state commit.
-  - **Upstream proposals batch** (P4-N026, verifying, gated: the owner reviews the proposals (RU-005))
+  - **Upstream proposals batch** (P4-N026, done 2026-11-17)
     Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.
     [plan](plans/rebuild.md)
     Note: Added by the owner's answer to D073 (on P4-N032), 2026-11-17: the batch also carries a request to methodology-tools for a way to exempt methodology text that a document quotes verbatim (RU-015) from mtool links check, so the tool can exit zero over this tree. Evidence: the 8 findings P4-N032 dispositioned. Add it as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
@@ -329,12 +329,33 @@ Documents: [plan](plans/orchestration-service.md).
 - **Several projects and repositories in one instance** (P2-N026, identified)
   One instance of the orchestrator and the service serves several projects and their repositories; the pilot's separate instance is retired into it.
   after P4-N008
-- **Orchestrator session that keeps work moving** (P2-N027, specified)
+- **Orchestrator session that keeps work moving** (P2-N027, broken-down)
   One restartable session starts a session for each offered task on its role's model, messages stalled ones, and returns to the owner only on the four stop conditions, so offered work proceeds without the owner starting or prompting sessions.
   [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
   Note: The owner, 2026-11-16: work should always continue wherever possible. Of three ways (the service starts sessions, enlisted sessions take their next task, an orchestrator session that starts sessions and messages existing ones) the owner prefers the last, and it could be made configurable. Open for the plan step: where the model per role is recorded, how many sessions run at once, and what wakes the orchestrator session. From the P3 line, which stays held (the owner, 2026-11-17): reuse the four stop conditions of sequence mode, which P3-N013 made decidable (docs/specs/p3-n005-sequence-mode.md): a failed check, a scope change, a decision that is the owner's, and a close that carries asks. They are when the orchestrator session returns to the owner. The plan step also says what is left of P3-N005 and P3-N016 once this node exists. Input from the owner, 2026-11-17: a session that attaches a second repository after it starts loses the service tools that .mcp.json gives it, and they do not return (seen in the session that executed P4-N031). So the orchestrator session attaches no repository mid-session, and work in another repository goes to a session started for it; the plan step says how that session reaches the service. Next step: break down (the plan's four slices; docs/specs/orchestrator-session.md, S8).
-- **View that updates itself and leads with what matters** (P2-N028, identified)
-  The view refreshes when the plan changes and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
+  - **Decision script and settings of the orchestrator** (P2-N030, done 2026-11-17)
+    A script prints the sessions to start and the reports to give as JSON, from the state file, the journal, the settings, the agent files and a session snapshot, and one session per role was started from its output.
+    [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    Note: Slice 1 of the plan (Children). Criteria 1 to 6, 8, 19 and 20 of the specification.
+  - **Orchestrator role and its watcher** (P2-N031, done 2026-11-17)
+    A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.
+    after P2-N030 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    Note: Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates.
+  - **Service repository enlisted for delegated sessions** (P2-N032, specified)
+    A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
+    after P2-N030 · [spec](specs/orchestrator-session.md)
+    Note: Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script.
+  - **Orchestrator fixes before its trial** (P2-N036, specified)
+    A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.
+    after P2-N031 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    Note: Added on the owner's answers of 2026-11-17 to D087 (on P2-N030), D088 and D089 (on P2-N031), which each name this node. Criteria: (1) D088: the keys of `decision` and `asks` reports carry the decisions' identifiers, so a second decision on a node changes a key; specification S1 and the two expected keys in test/orchestrate.test.ts follow, which the owner's answer to D088 allows. (2) D087: a verify start is exempt from the shared-document rule of S4, in lib/orchestrate.ts and its test, and S4 says so. (3) D089, in .claude/agents/orchestrator.md, still at most 120 lines: it tells the session to give the background watcher the two-hour limit and what to do if the watcher is stopped with no output; how the session learns its own identifier for --self; one rule for what it tells the owner at a wake, the time-limit wake included; and archive_session is used or dropped. (4) T159's other finding is settled: the status bucket that never says archived. (5) plugin/agents/ is regenerated and the checks pass.
+  - **Orchestrator trial with its measured cost** (P2-N033, specified)
+    A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.
+    after P2-N032, P4-N038, P2-N036 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    Note: Slice 4 of the plan (Children). Criteria 14 to 18. Its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027.
+- **View that updates itself and leads with what matters** (P2-N028, planned)
+  The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
+  [plan](plans/view-that-leads-and-updates.md)
   Note: The owner, 2026-11-16: the view is the best way to know that something waits on the owner, so it must update dynamically and show more useful information. The owner's earlier notes belong here too: the node page as a detail panel beside the tree, feedback after a click, and single-page behaviour. The view allows no script today; updating by itself needs one. From the P3 line, which stays held (the owner, 2026-11-17): the comprehension model (docs/specs/p3-n002-comprehension-model.md) describes each part of a project and what depends on it. The plan step decides what of it the view shows, such as what a node's work touches and what depends on that.
 - **Rework cost measured against the reviews it replaces** (P2-N029, identified)
   The cost of each rework is set against the verifications and owner reviews it replaced, from the tasks' measured costs, so the owner sees whether longer runs of work without review pay.
@@ -408,3 +429,9 @@ Documents: [plan](plans/orchestration-service.md).
 - D081 on P4-N038 (2026-11-17): Criterion 3: is the repository setting "Automatically delete head branches" on in majodali/project-orchestrator and in majodali/project-orchestrator-service? Head branches of pull requests 57 to 60 and 62 are already gone from this repository, and the service has no code that deletes a branch. Pull request 63 records the setting as the mechanism. Chosen: The owner turns the setting on in both repositories (or confirms it is on); the service is not changed
 - D082 on P4-N038 (2026-11-17): The branch claude/relaxed-meitner-6i6cbh is left on this repository's remote. Its last pull request, 56, merged on 2026-11-17 and its tip is that merge commit. Delete it, with any merged branches left in the service repository? Chosen: Yes, the owner deletes them
 - D083 on P4-N038 (2026-11-17): Criterion 4 asks for a trial: two tasks in a row from one session produce two branches, and the first is gone after its merge. A session delegated one task cannot run it, and it must leave no scratch node. Who runs it? Chosen: The delegating session records it from its next two real tasks that each carry a pull request, and the next execute task on P4-N038 writes it into the record
+- D084 on P4-N038 (2026-11-17): Criterion 4: D083 chose the delegating session's next two tasks as the trial. It reported two earlier ones instead: T140 (pull request 52, from claude/zealous-einstein-1rw9kw, the branch that was reused for pull requests 49 to 57) and T144 (pull request 58, from a branch made for it). Both branches are gone now. Only the second shows the rule followed. Does this stand as the trial? Chosen: Yes: accept the record with its limits and tick criterion 4
+- D085 on P2-N028 (2026-11-17): May the view run one script of its own, served from the view's origin, and may the test that asserts no script (test/viewPages.test.ts in the service repository) be rewritten to assert no inline and no third-party script? The rule "No script" is in the archived specification of P2-N003. Chosen: yes, one first-party script, with the test rewritten
+- D086 on P2-N028 (2026-11-17): Should the view notify the owner outside its browser tab when something new waits on the owner? Chosen: no, the tab's title count only, and the orchestrator's report is the notice; decide again after the trial of criterion 19
+- D087 on P2-N030 (2026-11-17): The decision script holds a verification back while another node has an open execute or planning task on the same plan document (specification S4, as written). S4's own reason, that a reviewer edits nothing, would let the verification start. Every P4 node links docs/plans/rebuild.md, so a verification there waits for any execute task on the line. Should a verify start be exempt from the shared-document rule? Chosen: exempt a verify start; P2-N031's task changes lib/orchestrate.ts and its test
+- D088 on P2-N031 (2026-11-17): A report of open decisions has the key `report:<node>:<condition>:<reason>` (specification S1), so a new decision on a node already reported changes no key and does not wake the watcher (T159's finding). Adding the decisions' identifiers to the keys of `decision` and `asks` reports changes S1 and two expected keys in test/orchestrate.test.ts, which the plan does not name. Pull request 67 leaves the keys as they are; its acted file covers the case where the first decision is answered before the next is asked. Change the keys? Chosen: yes, in a new node after P2-N031, which also carries D087's change to lib/orchestrate.ts if the owner chooses it
+- D089 on P2-N031 (2026-11-17): T161 found four places where .claude/agents/orchestrator.md leaves a cold session to guess: (1) it never says to give the background watcher the two-hour limit, and the default is 30 minutes, after which the command is stopped with no output, a case the role does not cover; (2) it does not say how the session learns its own identifier for --self; (3) it says both to tell results at each wake and to say nothing more at the time-limit wake; (4) it lists archive_session and never uses it. Fix these before P2-N033's trial? Chosen: yes, in a new node that P2-N033 waits for (the same node as D088's change, if the owner chooses that)

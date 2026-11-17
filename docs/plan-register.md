@@ -53,7 +53,7 @@ Dependencies are in the state file, not in sibling order.
     - P4-N023 [done] Role agents on the task loop — plan: plans/rebuild.md
     - P4-N024 [done] Pruned document set — plan: plans/rebuild.md
     - P4-N025 [done] README and generated Backlog — plan: plans/rebuild.md
-    - P4-N026 [verifying] [gated: the owner reviews the proposals (RU-005)] Upstream proposals batch — plan: plans/rebuild.md
+    - P4-N026 [done] Upstream proposals batch — plan: plans/rebuild.md
     - P4-N027 [specified] Pilot enlistment of methodology-tools — plan: plans/rebuild.md
     - P4-N031 [done] Document paths changed through the service — plan: plans/rebuild.md
     - P4-N032 [done] Linked plans and specs archived — plan: plans/rebuild.md
@@ -84,6 +84,11 @@ Dependencies are in the state file, not in sibling order.
   - P2-N006 [identified] Pilot on methodology-tools: sessions on the task loop
   - P2-N025 [identified] Faster writes, a bounded journal and a deploy write test
   - P2-N026 [identified] Several projects and repositories in one instance
-  - P2-N027 [specified] Orchestrator session that keeps work moving — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
-  - P2-N028 [identified] View that updates itself and leads with what matters
+  - P2-N027 [broken-down] Orchestrator session that keeps work moving — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
+    - P2-N030 [done] Decision script and settings of the orchestrator — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
+    - P2-N031 [done] Orchestrator role and its watcher — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
+    - P2-N032 [specified] Service repository enlisted for delegated sessions — spec: specs/orchestrator-session.md
+    - P2-N036 [specified] Orchestrator fixes before its trial — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
+    - P2-N033 [specified] Orchestrator trial with its measured cost — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
+  - P2-N028 [planned] View that updates itself and leads with what matters — plan: plans/view-that-leads-and-updates.md
   - P2-N029 [identified] Rework cost measured against the reviews it replaces

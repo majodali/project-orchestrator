@@ -44,6 +44,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Role agents on the task loop** (P4-N023) — When: 2026-11-13. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Pruned document set** (P4-N024) — When: 2026-11-16. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **README and generated Backlog** (P4-N025) — When: 2026-11-16. Status: done. Pointer: [plan](plans/rebuild.md).
+- [x] **Upstream proposals batch** (P4-N026) — When: 2026-11-17. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Document paths changed through the service** (P4-N031) — When: 2026-11-17. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Linked plans and specs archived** (P4-N032) — When: 2026-11-17. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Task cost capture** (P4-N010) — When: 2026-11-11. Status: done. Pointer: [plan](plans/rebuild.md).
@@ -67,6 +68,8 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Owner questions and the plan view** (P2-N003) — When: 2026-11-11. Status: done. Pointer: [plan](archive/plans/p2-n003-owner-questions-and-plan-view.md), [spec](archive/specs/p2-n003-owner-questions-and-plan-view.md).
 - [x] **Web view v1** (P2-N021) — When: 2026-11-02. Status: done. Pointer: [spec](archive/specs/p2-n003-owner-questions-and-plan-view.md).
 - [x] **Web view UX refinement** (P2-N023) — When: 2026-11-07. Status: done. Pointer: [plan](archive/plans/p2-n023-web-view-ux-refinement.md).
+- [x] **Decision script and settings of the orchestrator** (P2-N030) — When: 2026-11-17. Status: done. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
+- [x] **Orchestrator role and its watcher** (P2-N031) — When: 2026-11-17. Status: done. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 
 ## Upcoming
 
@@ -83,14 +86,16 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Determination on W-001 sequence mode** (P3-N016) — When: after P3-N015. Status: identified, paused by a hold or a park above. Pointer: `orchestration/state.json`.
 - [ ] **Rebuild: the orchestrator runs on a checked data model** (P4-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Re-plan, prune and hand back** (P4-N008) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
-- [ ] **Upstream proposals batch** (P4-N026) — When: not dated. Status: verifying, waiting on the owner. Pointer: [plan](plans/rebuild.md).
 - [ ] **Pilot enlistment of methodology-tools** (P4-N027) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
-- [ ] **One branch for each pull request** (P4-N038) — When: not dated. Status: executing, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
+- [ ] **One branch for each pull request** (P4-N038) — When: not dated. Status: executing, in flight. Pointer: [plan](plans/rebuild.md).
 - [ ] **Pin migrated to the release with the K-003 amendment** (P4-N042) — When: not dated. Status: identified, blocked. Pointer: `orchestration/state.json`.
 - [ ] **Orchestration service** (P2-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestration-service.md).
 - [ ] **Pilot on methodology-tools: sessions on the task loop** (P2-N006) — When: after P4-N027. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Faster writes, a bounded journal and a deploy write test** (P2-N025) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Several projects and repositories in one instance** (P2-N026) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
-- [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
-- [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: identified, ready, starts automatically. Pointer: `orchestration/state.json`.
+- [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
+- [ ] **Service repository enlisted for delegated sessions** (P2-N032) — When: not dated. Status: specified, ready, starts automatically. Pointer: [spec](specs/orchestrator-session.md).
+- [ ] **Orchestrator fixes before its trial** (P2-N036) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
+- [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: after P2-N032, P4-N038, P2-N036. Status: specified, waiting on a dependency. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
+- [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: planned, ready, starts automatically. Pointer: [plan](plans/view-that-leads-and-updates.md).
 - [ ] **Rework cost measured against the reviews it replaces** (P2-N029) — When: not dated. Status: identified, ready, starts automatically. Pointer: `orchestration/state.json`.

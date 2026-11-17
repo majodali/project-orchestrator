@@ -935,19 +935,16 @@
       "kind": "work",
       "title": "Upstream proposals batch",
       "outcome": "Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N008",
       "after": [],
-      "hold": {
-        "kind": "gated",
-        "reason": "the owner reviews the proposals (RU-005)"
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-17",
       "note": "Added by the owner's answer to D073 (on P4-N032), 2026-11-17: the batch also carries a request to methodology-tools for a way to exempt methodology text that a document quotes verbatim (RU-015) from mtool links check, so the tool can exit zero over this tree. Evidence: the 8 findings P4-N032 dispositioned. Add it as a criterion to the node's list in docs/plans/rebuild.md in the same pull request."
     },
     {
@@ -955,7 +952,7 @@
       "kind": "check",
       "title": "Verification of Upstream proposals batch",
       "outcome": "P4-N026 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N026",
       "after": [],
       "hold": null,
@@ -964,7 +961,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-17",
       "note": null
     },
     {
@@ -1671,7 +1668,7 @@
       "kind": "work",
       "title": "Orchestrator session that keeps work moving",
       "outcome": "One restartable session starts a session for each offered task on its role's model, messages stalled ones, and returns to the owner only on the four stop conditions, so offered work proceeds without the owner starting or prompting sessions.",
-      "stage": "specified",
+      "stage": "broken-down",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
@@ -1684,17 +1681,147 @@
       "note": "The owner, 2026-11-16: work should always continue wherever possible. Of three ways (the service starts sessions, enlisted sessions take their next task, an orchestrator session that starts sessions and messages existing ones) the owner prefers the last, and it could be made configurable. Open for the plan step: where the model per role is recorded, how many sessions run at once, and what wakes the orchestrator session. From the P3 line, which stays held (the owner, 2026-11-17): reuse the four stop conditions of sequence mode, which P3-N013 made decidable (docs/specs/p3-n005-sequence-mode.md): a failed check, a scope change, a decision that is the owner's, and a close that carries asks. They are when the orchestrator session returns to the owner. The plan step also says what is left of P3-N005 and P3-N016 once this node exists. Input from the owner, 2026-11-17: a session that attaches a second repository after it starts loses the service tools that .mcp.json gives it, and they do not return (seen in the session that executed P4-N031). So the orchestrator session attaches no repository mid-session, and work in another repository goes to a session started for it; the plan step says how that session reaches the service. Next step: break down (the plan's four slices; docs/specs/orchestrator-session.md, S8)."
     },
     {
+      "id": "P2-N030",
+      "kind": "work",
+      "title": "Decision script and settings of the orchestrator",
+      "outcome": "A script prints the sessions to start and the reports to give as JSON, from the state file, the journal, the settings, the agent files and a session snapshot, and one session per role was started from its output.",
+      "stage": "done",
+      "parent": "P2-N027",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/orchestrator-session.md",
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": "2026-11-17",
+      "note": "Slice 1 of the plan (Children). Criteria 1 to 6, 8, 19 and 20 of the specification."
+    },
+    {
+      "id": "P2-N034",
+      "kind": "check",
+      "title": "Verification of Decision script and settings of the orchestrator",
+      "outcome": "P2-N030 is verified against its outcome.",
+      "stage": "done",
+      "parent": "P2-N030",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/orchestrator-session.md",
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": "2026-11-17",
+      "note": null
+    },
+    {
+      "id": "P2-N031",
+      "kind": "work",
+      "title": "Orchestrator role and its watcher",
+      "outcome": "A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.",
+      "stage": "done",
+      "parent": "P2-N027",
+      "after": [
+        "P2-N030"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/orchestrator-session.md",
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": "2026-11-17",
+      "note": "Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates."
+    },
+    {
+      "id": "P2-N035",
+      "kind": "check",
+      "title": "Verification of Orchestrator role and its watcher",
+      "outcome": "P2-N031 is verified against its outcome.",
+      "stage": "done",
+      "parent": "P2-N031",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/orchestrator-session.md",
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": "2026-11-17",
+      "note": null
+    },
+    {
+      "id": "P2-N032",
+      "kind": "work",
+      "title": "Service repository enlisted for delegated sessions",
+      "outcome": "A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.",
+      "stage": "specified",
+      "parent": "P2-N027",
+      "after": [
+        "P2-N030"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": null,
+      "note": "Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script."
+    },
+    {
+      "id": "P2-N036",
+      "kind": "work",
+      "title": "Orchestrator fixes before its trial",
+      "outcome": "A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.",
+      "stage": "specified",
+      "parent": "P2-N027",
+      "after": [
+        "P2-N031"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/orchestrator-session.md",
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": null,
+      "note": "Added on the owner's answers of 2026-11-17 to D087 (on P2-N030), D088 and D089 (on P2-N031), which each name this node. Criteria: (1) D088: the keys of `decision` and `asks` reports carry the decisions' identifiers, so a second decision on a node changes a key; specification S1 and the two expected keys in test/orchestrate.test.ts follow, which the owner's answer to D088 allows. (2) D087: a verify start is exempt from the shared-document rule of S4, in lib/orchestrate.ts and its test, and S4 says so. (3) D089, in .claude/agents/orchestrator.md, still at most 120 lines: it tells the session to give the background watcher the two-hour limit and what to do if the watcher is stopped with no output; how the session learns its own identifier for --self; one rule for what it tells the owner at a wake, the time-limit wake included; and archive_session is used or dropped. (4) T159's other finding is settled: the status bucket that never says archived. (5) plugin/agents/ is regenerated and the checks pass."
+    },
+    {
+      "id": "P2-N033",
+      "kind": "work",
+      "title": "Orchestrator trial with its measured cost",
+      "outcome": "A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.",
+      "stage": "specified",
+      "parent": "P2-N027",
+      "after": [
+        "P2-N031",
+        "P2-N032",
+        "P4-N038",
+        "P2-N036"
+      ],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/orchestrator-session.md",
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": null,
+      "note": "Slice 4 of the plan (Children). Criteria 14 to 18. Its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027."
+    },
+    {
       "id": "P2-N028",
       "kind": "work",
       "title": "View that updates itself and leads with what matters",
-      "outcome": "The view refreshes when the plan changes and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.",
-      "stage": "identified",
+      "outcome": "The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.",
+      "stage": "planned",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/plans/view-that-leads-and-updates.md",
         "spec": null
       },
       "done": null,
@@ -4579,6 +4706,198 @@
       "pr": "majodali/project-orchestrator#63",
       "summary": "Criteria 1 and 2 met: the process page, CLAUDE.md and three agents state the branch rule and the start on main. Criterion 3 unmet: merged branches are gone here since pull request 57, cause unconfirmed, service repository unseen. Criterion 4 unmet: one delegated task cannot run two in a row.",
       "notes": null
+    },
+    {
+      "id": "T154",
+      "node": "P4-N038",
+      "step": "execute",
+      "status": "needs-judgment",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T22:22:12Z",
+      "closed": "2026-11-17T22:22:51Z",
+      "base": "4557122c719ee97d59f8e81dc971f2d5919941e4",
+      "ref": null,
+      "pr": "majodali/project-orchestrator#63",
+      "summary": "Criterion 3 met: the repository setting is the mechanism in both repositories (D081), and only open pull requests' branches remain here. Criterion 4 recorded but not ticked: the trial offered is tasks T140 and T144, which ran before the rule, and T140's branch was the reused one. One ask.",
+      "notes": null
+    },
+    {
+      "id": "T155",
+      "node": "P2-N027",
+      "step": "break down",
+      "status": "closed",
+      "role": "planner",
+      "model": "claude-fable-5-2",
+      "tokens": {
+        "in": 22,
+        "out": 10424,
+        "cacheRead": 2149908,
+        "cacheWrite": 24999
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-17T22:22:20Z",
+      "closed": "2026-11-17T22:24:12Z",
+      "base": "00700a0f3184a5b34e4fa189bcd4f56e25b0bf83",
+      "ref": null,
+      "pr": "majodali/project-orchestrator#64",
+      "summary": "Four specified children: P2-N030 (decision script and settings), P2-N031 (role and watcher, after N030), P2-N032 (service repository enlisted, after N030, start approve), P2-N033 (trial, after N031, N032 and P4-N038). The plan names each child's criteria and that N031 and N032 may run together. Vocabulary rows for the four terms of D080.",
+      "notes": null
+    },
+    {
+      "id": "T156",
+      "node": "P4-N041",
+      "step": "verify",
+      "status": "closed",
+      "role": "reviewer",
+      "model": "claude-fable-5-2",
+      "tokens": {
+        "in": 13,
+        "out": 5743,
+        "cacheRead": 1422232,
+        "cacheWrite": 25696
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-17T22:23:41Z",
+      "closed": "2026-11-17T22:24:46Z",
+      "base": "17fcd3e501f2ce77c090cbb1dd726bb8de6e7987",
+      "ref": null,
+      "pr": null,
+      "summary": "Every criterion of P4-N026 is met at ea191b4. T151's four points are fixed in IR and prose; all five verbatim quotes match methodology 4c7b1dd; the two further fixes are real errors. mtool: links 8 findings as on main, IR and style 0 violations. Pull request check passes. Minor: recorded style warning counts do not reproduce (59, not 153).",
+      "notes": null
+    },
+    {
+      "id": "T157",
+      "node": "P2-N030",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": "claude-fable-5-2",
+      "tokens": {
+        "in": 52,
+        "out": 66914,
+        "cacheRead": 5358852,
+        "cacheWrite": 182019
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-17T22:25:36Z",
+      "closed": "2026-11-17T22:38:49Z",
+      "base": "bfe0052cff489a0a0a9696b03ce4809fc6618840",
+      "ref": "d10e38d28b4c3d7af923e1164a5e0d5cf99a5b60",
+      "pr": "majodali/project-orchestrator#66",
+      "summary": "Criteria 1 to 6, 8, 19 and 20 met. orchestrate_next.ts, lib/orchestrate.ts and orchestration/orchestrator.json with 76 tests; CI passes. Trial: create_session accepts claude-opus-5 and claude-sonnet-5, each role ran on its model, list_sessions returned all three titles. No agent file changed. Six readings of the specification are listed in the pull request for the reviewer.",
+      "notes": null
+    },
+    {
+      "id": "T158",
+      "node": "P2-N028",
+      "step": "plan",
+      "status": "closed",
+      "role": "planner",
+      "model": "claude-fable-5-2",
+      "tokens": {
+        "in": 26,
+        "out": 20179,
+        "cacheRead": 1814300,
+        "cacheWrite": 95799
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-17T22:26:28Z",
+      "closed": "2026-11-17T22:30:36Z",
+      "base": "7ba626c988e0ae33342a928e8dfb39ba123d3846",
+      "ref": null,
+      "pr": "majodali/project-orchestrator#65",
+      "summary": "Plan written: four lists ahead of the tree, one first-party script that polls a version route and updates the page, feedback in place, a node panel, and session, duration and criteria on pages. It splits the view from the orchestrator's reports, names five slices and twenty criteria, and carries two asks.",
+      "notes": null
+    },
+    {
+      "id": "T159",
+      "node": "P2-N034",
+      "step": "verify",
+      "status": "closed",
+      "role": "reviewer",
+      "model": "claude-fable-5-2",
+      "tokens": {
+        "in": 19,
+        "out": 15962,
+        "cacheRead": 1149067,
+        "cacheWrite": 94006
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-17T22:40:41Z",
+      "closed": "2026-11-17T22:44:00Z",
+      "base": "739ab424f8327c97a9dcb5be0b8b4433717ca3f8",
+      "ref": "d10e38d28b4c3d7af923e1164a5e0d5cf99a5b60",
+      "pr": "majodali/project-orchestrator#66",
+      "summary": "Criteria 1 to 6, 8, 19 and 20 met at d10e38d. npm test, check, lint and format pass; CI passes. Run on main's state file, the script's actions match the specification. Five readings supported; reading 3 is asked. Findings for P2-N031: the status bucket never says archived; report keys carry no decision identifier.",
+      "notes": null
+    },
+    {
+      "id": "T160",
+      "node": "P2-N031",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": "claude-fable-5-2",
+      "tokens": {
+        "in": 57,
+        "out": 74181,
+        "cacheRead": 5608665,
+        "cacheWrite": 175666
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-17T22:45:55Z",
+      "closed": "2026-11-17T23:01:15Z",
+      "base": "4bfb0b5453062a09e94b5f7a81c25e4c1df4b1af",
+      "ref": "6a860044bbf9e5f949b50fc11dc7419741104e0b",
+      "pr": "majodali/project-orchestrator#67",
+      "summary": "Criteria 7 and 9 to 12 met. orchestrator.md (120 lines), plan_watch.ts with 12 tests, 17 tests for S3 in decide, how-we-work.md at 200 lines; CI passes. lib/orchestrate.ts unchanged: D087 was still open, so its change is left out. Seven readings and the how-we-work.md lines touched are in the pull request. No session has followed the role yet.",
+      "notes": null
+    },
+    {
+      "id": "T161",
+      "node": "P2-N035",
+      "step": "verify",
+      "status": "closed",
+      "role": "reviewer",
+      "model": "claude-fable-5-2",
+      "tokens": {
+        "in": 34,
+        "out": 21433,
+        "cacheRead": 2268258,
+        "cacheWrite": 86897
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-17T23:02:57Z",
+      "closed": "2026-11-17T23:09:18Z",
+      "base": "e84c7a14418193c5f7d6558f7c5ffd6b85acf855",
+      "ref": null,
+      "pr": "majodali/project-orchestrator#67",
+      "summary": "Criteria 7 and 9 to 12 met at 6a86004. npm test (215), check, lint, format, sync_agents --check and CI pass. Watcher run by hand: waits, exits on an added key only. Seven readings supported. Findings: role never sets the background limit, so the watcher is stopped at 30 minutes without output; three smaller guesses. Pull request 63 conflicts in how-we-work.md.",
+      "notes": null
+    },
+    {
+      "id": "T162",
+      "node": "P4-N038",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T23:35:07Z",
+      "closed": null,
+      "base": "a908150a76dfc69e7a71c93c51d59d1a33a969fd",
+      "ref": null,
+      "pr": null,
+      "summary": "Continue P4-N038 on pull request 63 after D084: tick criterion 4 if the owner accepted the record, merge main and resolve the conflict in how-we-work.md, and settle whether the rule belongs in the orchestrator agent. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "notes": null
     }
   ],
   "decisions": [
@@ -5432,6 +5751,97 @@
       "chosen": "The delegating session records it from its next two real tasks that each carry a pull request, and the next execute task on P4-N038 writes it into the record",
       "decided": "2026-11-17",
       "rationale": "Asked by T153 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D084",
+      "node": "P4-N038",
+      "question": "Criterion 4: D083 chose the delegating session's next two tasks as the trial. It reported two earlier ones instead: T140 (pull request 52, from claude/zealous-einstein-1rw9kw, the branch that was reused for pull requests 49 to 57) and T144 (pull request 58, from a branch made for it). Both branches are gone now. Only the second shows the rule followed. Does this stand as the trial?",
+      "options": [
+        "Yes: accept the record with its limits and tick criterion 4",
+        "No: wait until one session has run two tasks in a row under the new rule, then record that",
+        "Drop criterion 4: the reviewer's branch check at each verification is the trial"
+      ],
+      "default": "Yes: accept the record with its limits and tick criterion 4",
+      "chosen": "Yes: accept the record with its limits and tick criterion 4",
+      "decided": "2026-11-17",
+      "rationale": "Asked by T154 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D085",
+      "node": "P2-N028",
+      "question": "May the view run one script of its own, served from the view's origin, and may the test that asserts no script (test/viewPages.test.ts in the service repository) be rewritten to assert no inline and no third-party script? The rule \"No script\" is in the archived specification of P2-N003.",
+      "options": [
+        "yes, one first-party script, with the test rewritten",
+        "no, the view updates by a timed page reload instead"
+      ],
+      "default": "yes, one first-party script, with the test rewritten",
+      "chosen": "yes, one first-party script, with the test rewritten",
+      "decided": "2026-11-17",
+      "rationale": "Asked by T158 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D086",
+      "node": "P2-N028",
+      "question": "Should the view notify the owner outside its browser tab when something new waits on the owner?",
+      "options": [
+        "no, the tab's title count only, and the orchestrator's report is the notice; decide again after the trial of criterion 19",
+        "yes, a browser notification the owner switches on"
+      ],
+      "default": "no, the tab's title count only, and the orchestrator's report is the notice; decide again after the trial of criterion 19",
+      "chosen": "no, the tab's title count only, and the orchestrator's report is the notice; decide again after the trial of criterion 19",
+      "decided": "2026-11-17",
+      "rationale": "Asked by T158 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D087",
+      "node": "P2-N030",
+      "question": "The decision script holds a verification back while another node has an open execute or planning task on the same plan document (specification S4, as written). S4's own reason, that a reviewer edits nothing, would let the verification start. Every P4 node links docs/plans/rebuild.md, so a verification there waits for any execute task on the line. Should a verify start be exempt from the shared-document rule?",
+      "options": [
+        "exempt a verify start; P2-N031's task changes lib/orchestrate.ts and its test",
+        "keep the rule as written"
+      ],
+      "default": "exempt a verify start; P2-N031's task changes lib/orchestrate.ts and its test",
+      "chosen": "exempt a verify start; P2-N031's task changes lib/orchestrate.ts and its test",
+      "decided": "2026-11-17",
+      "rationale": "Asked by T159 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D088",
+      "node": "P2-N031",
+      "question": "A report of open decisions has the key `report:<node>:<condition>:<reason>` (specification S1), so a new decision on a node already reported changes no key and does not wake the watcher (T159's finding). Adding the decisions' identifiers to the keys of `decision` and `asks` reports changes S1 and two expected keys in test/orchestrate.test.ts, which the plan does not name. Pull request 67 leaves the keys as they are; its acted file covers the case where the first decision is answered before the next is asked. Change the keys?",
+      "options": [
+        "yes, in a new node after P2-N031, which also carries D087's change to lib/orchestrate.ts if the owner chooses it",
+        "no, keep the keys of S1"
+      ],
+      "default": "yes, in a new node after P2-N031, which also carries D087's change to lib/orchestrate.ts if the owner chooses it",
+      "chosen": "yes, in a new node after P2-N031, which also carries D087's change to lib/orchestrate.ts if the owner chooses it",
+      "decided": "2026-11-17",
+      "rationale": "Asked by T160 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D089",
+      "node": "P2-N031",
+      "question": "T161 found four places where .claude/agents/orchestrator.md leaves a cold session to guess: (1) it never says to give the background watcher the two-hour limit, and the default is 30 minutes, after which the command is stopped with no output, a case the role does not cover; (2) it does not say how the session learns its own identifier for --self; (3) it says both to tell results at each wake and to say nothing more at the time-limit wake; (4) it lists archive_session and never uses it. Fix these before P2-N033's trial?",
+      "options": [
+        "yes, in a new node that P2-N033 waits for (the same node as D088's change, if the owner chooses that)",
+        "no, let P2-N033's trial find them"
+      ],
+      "default": "yes, in a new node that P2-N033 waits for (the same node as D088's change, if the owner chooses that)",
+      "chosen": "yes, in a new node that P2-N033 waits for (the same node as D088's change, if the owner chooses that)",
+      "decided": "2026-11-17",
+      "rationale": "Asked by T161 at close.",
       "standing": false,
       "source": null
     }
