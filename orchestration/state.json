@@ -4399,14 +4399,14 @@
         "cacheRead": 1052807,
         "cacheWrite": 61444
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T21:02:03Z",
       "closed": "2026-11-17T21:05:08Z",
       "base": "7e78f28fd7432c89c4c74f62a56537e50d1ac80a",
       "ref": "652cf63e3fef8fcd558d504e642889fa3d27adb6",
       "pr": "majodali/project-orchestrator#59",
       "summary": "All six criteria met at 652cf63. 22 moved files differ from base only by status block and links; 25 docsOnMerge paths resolve; word count 76,401; ten P3 documents over 300 lines listed. mtool exits 1 on 8 findings, all in verbatim methodology text (RU-015), unchanged by the pull request; judged dispositioned under the criterion's wording.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
@@ -5092,8 +5092,8 @@
         "strike it in a later task"
       ],
       "default": "keep it",
-      "chosen": null,
-      "decided": null,
+      "chosen": "keep it",
+      "decided": "2026-11-17",
       "rationale": "Asked by T145 at close.",
       "standing": false,
       "source": null
