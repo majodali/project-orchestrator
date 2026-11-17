@@ -8,9 +8,7 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D073 on Linked plans and specs archived (P4-N032): `mtool links check` still exits non-zero on 8 links inside methodology text that archived proposals carry verbatim (RU-015). The verification read P4-N032's criterion as met by the stated disposition rule. Should the upstream proposals batch (P4-N026) ask methodology-tools for a way to exempt quoted upstream text, so the tool can exit zero over this tree? Default: yes, add it to P4-N026
+Nothing.
 
 ## Ready, starting automatically when the loop runs
 
@@ -239,7 +237,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     Note: Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7.
   - **Linked plans and specs archived** (P4-N032, done 2026-11-17)
     The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.
-    after P4-N031, P4-N024 · [plan](plans/rebuild.md) · 1 open decision
+    after P4-N031, P4-N024 · [plan](plans/rebuild.md)
     Note: Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8.
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
@@ -392,3 +390,4 @@ Documents: [plan](plans/orchestration-service.md).
 - D070 on P4-N025 (2026-11-16): Orientation test, the owner's half: do you confirm from the view within one minute that 53 nodes are done, P4-N026, P4-N027 and P4-N031 are next, and only P3-N008 waits on you? Chosen: confirmed
 - D071 on P4-N025 (2026-11-16): The service repository's docs/classification.md says its own Backlog becomes a rendering at milestone 6, but that repository has no state file. Reword that sentence to say its Backlog stays frozen and its nodes are in the coordinating repository's generated Backlog? Chosen: yes, reword it in a later node
 - D072 on P4-N031 (2026-11-17): Pull request 58 adds a 'delegation brief' row to docs/vocabulary.md, citing the owner's ratification in conversation on 2026-11-17. The row is outside P4-N031's criteria and the reviewer could not confirm the ratification. Keep the row? Chosen: keep it
+- D073 on P4-N032 (2026-11-17): `mtool links check` still exits non-zero on 8 links inside methodology text that archived proposals carry verbatim (RU-015). The verification read P4-N032's criterion as met by the stated disposition rule. Should the upstream proposals batch (P4-N026) ask methodology-tools for a way to exempt quoted upstream text, so the tool can exit zero over this tree? Chosen: yes, add it to P4-N026

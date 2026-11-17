@@ -5107,8 +5107,8 @@
         "no, accept the standing non-zero exit on these 8"
       ],
       "default": "yes, add it to P4-N026",
-      "chosen": null,
-      "decided": null,
+      "chosen": "yes, add it to P4-N026",
+      "decided": "2026-11-17",
       "rationale": "Asked by T147 at close.",
       "standing": false,
       "source": null
