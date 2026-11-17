@@ -5061,7 +5061,7 @@
       "id": "T164",
       "node": "P2-N036",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": "claude-fable-5-2",
       "tokens": {
@@ -5069,11 +5069,11 @@
         "out": null
       },
       "opened": "2026-11-17T23:35:26Z",
-      "closed": null,
+      "closed": "2026-11-17T23:40:14Z",
       "base": "05251bd7baf3e684f2c7eb5739c2be938a21c951",
-      "ref": null,
-      "pr": null,
-      "summary": "Execute P2-N036: meet its five criteria from decisions D087, D088 and D089, in the decision script, its tests and the orchestrator role, on a new branch with a pull request.",
+      "ref": "e471e3a",
+      "pr": "majodali/project-orchestrator#69",
+      "summary": "Criteria 2, 3 and 4 met; orchestrator.md is 119 lines, plugin/agents regenerated. Criterion 1 is built, but an existing test outside D088's clearance, test/plan-watch.test.ts (\"does not exit on a commit that adds no key\"), fails on its setup key, so criterion 5 is unmet: 217 tests pass, 1 fails. Check, lint, format pass.",
       "notes": null
     },
     {
@@ -6057,6 +6057,21 @@
       "chosen": "yes, in a new node that P2-N033 waits for (the same node as D088's change, if the owner chooses that)",
       "decided": "2026-11-17",
       "rationale": "Asked by T161 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D090",
+      "node": "P2-N036",
+      "question": "Criterion 1 of P2-N036 (D088) makes the asks key `report:P1-N002:4:asks:D001`. One existing test in test/plan-watch.test.ts, \"does not exit on a commit that adds no key, or only removes one\", writes the old key `report:P1-N002:4:asks` to its acted file as setup and now fails. D088 clears only two expected keys in test/orchestrate.test.ts. May that test's constant ASKS_KEY follow the new key, with nothing else in it changed?",
+      "options": [
+        "yes, change the constant ASKS_KEY to the new key in pull request 69",
+        "no, keep the keys of S1 and take criterion 1 out"
+      ],
+      "default": "yes, change the constant ASKS_KEY to the new key in pull request 69",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T164 at close.",
       "standing": false,
       "source": null
     }
