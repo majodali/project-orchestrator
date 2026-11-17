@@ -4741,10 +4741,12 @@
       "step": "plan",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 26,
+        "out": 20179,
+        "cacheRead": 1814300,
+        "cacheWrite": 95799
       },
       "opened": "2026-11-17T22:26:28Z",
       "closed": "2026-11-17T22:30:36Z",
@@ -4752,7 +4754,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#65",
       "summary": "Plan written: four lists ahead of the tree, one first-party script that polls a version route and updates the page, feedback in place, a node panel, and session, duration and criteria on pages. It splits the view from the orchestrator's reports, names five slices and twenty criteria, and carries two asks.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
