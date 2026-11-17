@@ -938,7 +938,10 @@
       "stage": "executing",
       "parent": "P4-N008",
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "gated",
+        "reason": "the owner reviews the proposals (RU-005)"
+      },
       "start": "auto",
       "docs": {
         "plan": "docs/plans/rebuild.md",
@@ -4421,14 +4424,14 @@
         "cacheRead": 1558754,
         "cacheWrite": 77723
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T21:38:32Z",
       "closed": "2026-11-17T21:42:57Z",
       "base": "2e8a94bee921215a0e6cc6c8ffabfa95985e8ab5",
       "ref": null,
       "pr": "majodali/project-orchestrator#60",
       "summary": "Plan delivered in docs/plans/orchestrator-session.md: an orchestrator role that carries out actions a decision script prints, a watcher that wakes it, one settings file, models read from the agent files, other-repository sessions started in that repository, four stop conditions per node, eighteen criteria, four slices. Three asks.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T149",
