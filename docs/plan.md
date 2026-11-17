@@ -8,21 +8,21 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
+Gated nodes:
 
-- D080 on Orchestrator session that keeps work moving (P2-N027): Ratify the four terms the specification of P2-N027 introduces (snapshot, mark, pending start, acted file; docs/specs/orchestrator-session.md, Terms introduced)? Default: ratify all four
+- Upstream proposals batch (P4-N026): the owner reviews the proposals (RU-005)
 
 ## Ready, starting automatically when the loop runs
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
+- One branch for each pull request (P4-N038) [executing]
 - Orchestrator session that keeps work moving (P2-N027) [specified]
 - View that updates itself and leads with what matters (P2-N028) [identified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-- Upstream proposals batch (P4-N026) [verifying] — T152
-- One branch for each pull request (P4-N038) [executing] — T153
+None.
 
 ## In progress, children carry the work
 
@@ -39,7 +39,6 @@ Open decisions:
 ## Blocked
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
-- Verification of Upstream proposals batch (P4-N041) [specified] — T151: Not met. Criterion 2: Backlog at b1c8b9f has 79 rows in 95 lines, not 95 rows (proposal two L214, IR C31, E9; proposal one IR E10). Criterion 4: proposal one IR C38 says "or artifact"; prose says "or custom artifact types". Criterion 6: K-012 makes the declaration name the check; this Classification does not. Also: methodology PR 73 merged 2026-10-31.
 - Pin migrated to the release with the K-003 amendment (P4-N042) [identified] — Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.
 
 ## Paused by a hold or a park above
@@ -227,13 +226,10 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
     after P4-N024 · [plan](plans/rebuild.md)
     Note: The service part is majodali/project-orchestrator-service#41, merged at cb9d727 and deployed on 2026-11-16. From that deploy the service writes docs/backlog.md with every state commit.
-  - **Upstream proposals batch** (P4-N026, verifying)
+  - **Upstream proposals batch** (P4-N026, verifying, gated: the owner reviews the proposals (RU-005))
     Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.
     [plan](plans/rebuild.md)
     Note: Added by the owner's answer to D073 (on P4-N032), 2026-11-17: the batch also carries a request to methodology-tools for a way to exempt methodology text that a document quotes verbatim (RU-015) from mtool links check, so the tool can exit zero over this tree. Evidence: the 8 findings P4-N032 dispositioned. Add it as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
-    - check: **Verification of Upstream proposals batch** (P4-N041, specified, blocked: T151: Not met. Criterion 2: Backlog at b1c8b9f has 79 rows in 95 lines, not 95 rows (proposal two L214, IR C31, E9; proposal one IR E10). Criterion 4: proposal one IR C38 says "or artifact"; prose says "or custom artifact types". Criterion 6: K-012 makes the declaration name the check; this Classification does not. Also: methodology PR 73 merged 2026-10-31.)
-      P4-N026 is verified against its outcome.
-      [plan](plans/rebuild.md)
   - **Pilot enlistment of methodology-tools** (P4-N027, specified)
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
     after P4-N022, P4-N024 · [plan](plans/rebuild.md)
@@ -335,7 +331,7 @@ Documents: [plan](plans/orchestration-service.md).
   after P4-N008
 - **Orchestrator session that keeps work moving** (P2-N027, specified)
   One restartable session starts a session for each offered task on its role's model, messages stalled ones, and returns to the owner only on the four stop conditions, so offered work proceeds without the owner starting or prompting sessions.
-  [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 1 open decision
+  [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
   Note: The owner, 2026-11-16: work should always continue wherever possible. Of three ways (the service starts sessions, enlisted sessions take their next task, an orchestrator session that starts sessions and messages existing ones) the owner prefers the last, and it could be made configurable. Open for the plan step: where the model per role is recorded, how many sessions run at once, and what wakes the orchestrator session. From the P3 line, which stays held (the owner, 2026-11-17): reuse the four stop conditions of sequence mode, which P3-N013 made decidable (docs/specs/p3-n005-sequence-mode.md): a failed check, a scope change, a decision that is the owner's, and a close that carries asks. They are when the orchestrator session returns to the owner. The plan step also says what is left of P3-N005 and P3-N016 once this node exists. Input from the owner, 2026-11-17: a session that attaches a second repository after it starts loses the service tools that .mcp.json gives it, and they do not return (seen in the session that executed P4-N031). So the orchestrator session attaches no repository mid-session, and work in another repository goes to a session started for it; the plan step says how that session reaches the service. Next step: break down (the plan's four slices; docs/specs/orchestrator-session.md, S8).
 - **View that updates itself and leads with what matters** (P2-N028, identified)
   The view refreshes when the plan changes and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
@@ -408,3 +404,7 @@ Documents: [plan](plans/orchestration-service.md).
 - D077 on P4-N026 (2026-11-17): Ratify or strike the term 'criteria list', which proposal three introduces (a Specification given as a list of criteria, each one statement of an observable result that a reviewer judges met or unmet)? Chosen: ratify
 - D078 on P4-N026 (2026-11-17): In which order do you carry the batch to majodali/methodology? Chosen: two and three first, then the release (one migration here, no deviation left)
 - D079 on P4-N026 (2026-11-17): Add a node for migrating this repository's pin to the release that carries the K-003 amendment (declare the state file as the planning/execution model, end the K-003 deviation, adopt or deviate from the four other unreleased amendments)? P4-N026 does not cover it. Chosen: add a node, to start when the release is tagged
+- D080 on P2-N027 (2026-11-17): Ratify the four terms the specification of P2-N027 introduces (snapshot, mark, pending start, acted file; docs/specs/orchestrator-session.md, Terms introduced)? Chosen: ratify all four
+- D081 on P4-N038 (2026-11-17): Criterion 3: is the repository setting "Automatically delete head branches" on in majodali/project-orchestrator and in majodali/project-orchestrator-service? Head branches of pull requests 57 to 60 and 62 are already gone from this repository, and the service has no code that deletes a branch. Pull request 63 records the setting as the mechanism. Chosen: The owner turns the setting on in both repositories (or confirms it is on); the service is not changed
+- D082 on P4-N038 (2026-11-17): The branch claude/relaxed-meitner-6i6cbh is left on this repository's remote. Its last pull request, 56, merged on 2026-11-17 and its tip is that merge commit. Delete it, with any merged branches left in the service repository? Chosen: Yes, the owner deletes them
+- D083 on P4-N038 (2026-11-17): Criterion 4 asks for a trial: two tasks in a row from one session produce two branches, and the first is gone after its merge. A session delegated one task cannot run it, and it must leave no scratch node. Who runs it? Chosen: The delegating session records it from its next two real tasks that each carry a pull request, and the next execute task on P4-N038 writes it into the record
