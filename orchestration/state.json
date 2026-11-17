@@ -4783,10 +4783,12 @@
       "step": "verify",
       "status": "closed",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 19,
+        "out": 15962,
+        "cacheRead": 1149067,
+        "cacheWrite": 94006
       },
       "opened": "2026-11-17T22:40:41Z",
       "closed": "2026-11-17T22:44:00Z",
@@ -4794,7 +4796,8 @@
       "ref": "d10e38d28b4c3d7af923e1164a5e0d5cf99a5b60",
       "pr": "majodali/project-orchestrator#66",
       "summary": "Criteria 1 to 6, 8, 19 and 20 met at d10e38d. npm test, check, lint and format pass; CI passes. Run on main's state file, the script's actions match the specification. Five readings supported; reading 3 is asked. Findings for P2-N031: the status bucket never says archived; report keys carry no decision identifier.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
