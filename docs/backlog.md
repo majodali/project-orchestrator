@@ -70,7 +70,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 
 - [ ] **Project comprehension and continuous implementation** (P3-N001) — When: not dated. Status: broken-down, blocked. Pointer: [plan](plans/comprehension-and-continuous-implementation.md), [spec](specs/p3-n001-comprehension-and-continuous-implementation.md).
 - [ ] **Comprehension model** (P3-N002) — When: not dated. Status: broken-down, paused by a hold or a park above. Pointer: [plan](plans/p3-n002-comprehension-model.md), [spec](specs/p3-n002-comprehension-model.md).
-- [ ] **Project model instance for this repository** (P3-N008) — When: not dated. Status: planned, waiting on the owner. Pointer: [plan](plans/p3-n008-instance-over-this-repository.md), [spec](specs/p3-n002-comprehension-model.md).
+- [ ] **Project model instance for this repository** (P3-N008) — When: not dated. Status: planned, paused by a hold or a park above. Pointer: [plan](plans/p3-n008-instance-over-this-repository.md), [spec](specs/p3-n002-comprehension-model.md).
 - [ ] **Replacement of sibling ordering by recorded dependencies** (P3-N009) — When: after P3-N008. Status: identified, paused by a hold or a park above. Pointer: `orchestration/state.json`.
 - [ ] **Common risk catalogue** (P3-N003) — When: not dated. Status: broken-down, paused by a hold or a park above. Pointer: [plan](plans/p3-n003-common-risk-catalogue.md), [spec](specs/p3-n003-common-risk-catalogue.md).
 - [ ] **Article 8 amendment proposal** (P3-N012) — When: not dated. Status: identified, paused by a hold or a park above. Pointer: `orchestration/state.json`.
@@ -89,3 +89,4 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Pilot on methodology-tools: sessions on the task loop** (P2-N006) — When: after P4-N027. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Faster writes, a bounded journal and a deploy write test** (P2-N025) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Several projects and repositories in one instance** (P2-N026) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
+- [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: identified, ready, starts automatically. Pointer: `orchestration/state.json`.

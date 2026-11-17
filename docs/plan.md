@@ -8,15 +8,14 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Gated nodes:
-
-- Project model instance for this repository (P3-N008): owner review of the plan
+Nothing.
 
 ## Ready, starting automatically when the loop runs
 
 - Upstream proposals batch (P4-N026) [specified]
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - Document paths changed through the service (P4-N031) [specified]
+- Orchestrator session that keeps work moving (P2-N027) [identified]
 
 ## In flight
 
@@ -42,6 +41,7 @@ None.
 ## Paused by a hold or a park above
 
 - Comprehension model (P3-N002) [broken-down] — under Project comprehension and continuous implementation (P3-N001)
+- Project model instance for this repository (P3-N008) [planned] — under Project comprehension and continuous implementation (P3-N001)
 - Replacement of sibling ordering by recorded dependencies (P3-N009) [identified] — under Project comprehension and continuous implementation (P3-N001)
 - Common risk catalogue (P3-N003) [broken-down] — under Project comprehension and continuous implementation (P3-N001)
 - Article 8 amendment proposal (P3-N012) [identified] — under Project comprehension and continuous implementation (P3-N001)
@@ -318,6 +318,9 @@ Documents: [plan](plans/orchestration-service.md).
 - **Several projects and repositories in one instance** (P2-N026, identified)
   One instance of the orchestrator and the service serves several projects and their repositories; the pilot's separate instance is retired into it.
   after P4-N008
+- **Orchestrator session that keeps work moving** (P2-N027, identified)
+  One long-lived session starts a session for each offered task on its role's model and messages running ones, so offered work proceeds without the owner starting or prompting sessions.
+  Note: The owner, 2026-11-16: work should always continue wherever possible. Of three ways (the service starts sessions, enlisted sessions take their next task, an orchestrator session that starts sessions and messages existing ones) the owner prefers the last, and it could be made configurable. Open for the plan step: where the model per role is recorded, how many sessions run at once, and what wakes the orchestrator session.
 
 ## Decisions taken
 
