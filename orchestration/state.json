@@ -5800,8 +5800,8 @@
         "no, let P2-N033's trial find them"
       ],
       "default": "yes, in a new node that P2-N033 waits for (the same node as D088's change, if the owner chooses that)",
-      "chosen": null,
-      "decided": null,
+      "chosen": "yes, in a new node that P2-N033 waits for (the same node as D088's change, if the owner chooses that)",
+      "decided": "2026-11-17",
       "rationale": "Asked by T161 at close.",
       "standing": false,
       "source": null
