@@ -51,7 +51,11 @@ writing).
   `break down` steps), `implementer` (claude-sonnet-5; `execute`) and
   `reviewer` (claude-opus-5; `verify` on a check node). The loop is
   specified in
-  [`docs/process/task-loop.md`](../docs/process/task-loop.md).
+  [`docs/process/task-loop.md`](../docs/process/task-loop.md). A
+  fourth, `orchestrator` (claude-sonnet-5), takes no task: it starts
+  and messages the sessions of the other three, as
+  `scripts/orchestrate_next.ts` decides, and `scripts/plan_watch.ts`
+  wakes it.
 - **Skills**: none. The last one, `journal-tail`, was archived on
   2026-11-14 (P4-N024, Pruned document set).
 - **Scripts** (`scripts/`): `session_start.ts` (the session start
