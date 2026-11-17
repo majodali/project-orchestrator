@@ -958,10 +958,7 @@
       "stage": "specified",
       "parent": "P4-N026",
       "after": [],
-      "hold": {
-        "kind": "blocked",
-        "reason": "T151: Not met. Criterion 2: Backlog at b1c8b9f has 79 rows in 95 lines, not 95 rows (proposal two L214, IR C31, E9; proposal one IR E10). Criterion 4: proposal one IR C38 says \"or artifact\"; prose says \"or custom artifact types\". Criterion 6: K-012 makes the declaration name the check; this Classification does not. Also: methodology PR 73 merged 2026-10-31."
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": "docs/plans/rebuild.md",
@@ -4543,7 +4540,7 @@
       "id": "T152",
       "node": "P4-N026",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -4551,11 +4548,11 @@
         "out": null
       },
       "opened": "2026-11-17T22:10:54Z",
-      "closed": null,
+      "closed": "2026-11-17T22:13:37Z",
       "base": "8c626cca717ab9d9a560bd09afb8d637c329e605",
-      "ref": null,
-      "pr": null,
-      "summary": "Rework after T151: correct the Backlog row count, align proposal one's IR C38 with its prose, settle the K-012 check-naming duty against this Classification, correct the merge date of methodology pull request 73, and re-check every cited figure and quote.",
+      "ref": "ea191b4b07faacf685ebee923c99b460ed2ea5ca",
+      "pr": "majodali/project-orchestrator#61",
+      "summary": "Rework of T151's four points: Backlog is 79 rows in 95 lines; IR C38 says \"or custom artifact types\"; K-012's declaration names the schema only; pull request 73 dated 2026-10-31 beside the 2026-11-02 acceptance. Two more errors found on re-check and fixed. Hold set again: the rule text changed after the owner's review.",
       "notes": null
     },
     {
