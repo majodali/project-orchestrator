@@ -79,7 +79,6 @@ Documents: [plan](plans/orchestrator-v1.md).
   A decision-ready proposal to methodology-tools for one generic capability: a checker that a project declares beside its custom type and that mtool audit form runs.
 - **Plugin tooling on the portfolio stack** (P1-N009, done 2026-08-30)
   The plugin's tooling runs on the portfolio's declared stack, Node and TypeScript, and the Plan register grammar has one implementation that both repositories share.
-  [plan](plans/p1-n009-plugin-tooling-portfolio-stack.md), [spec](specs/p1-n009-plugin-tooling-portfolio-stack.md)
   - **Node toolchain and shared register grammar** (P1-N010, done 2026-08-30)
     The plugin's tooling runs on Node, and the Plan register grammar has one TypeScript implementation, proven by the journal_tail port.
   - **Conformance corpus and vendoring generator** (P1-N011, done 2026-08-30)

@@ -13,7 +13,7 @@ Dependencies are in the state file, not in sibling order.
   - P1-N004 [done] Role contracts v1
   - P1-N005 [done] Plugin v1 and self-hosted trial
   - P1-N008 [done] Proposal: mtool checker extension point
-  - P1-N009 [done] Plugin tooling on the portfolio stack — plan: plans/p1-n009-plugin-tooling-portfolio-stack.md · spec: specs/p1-n009-plugin-tooling-portfolio-stack.md
+  - P1-N009 [done] Plugin tooling on the portfolio stack
     - P1-N010 [done] Node toolchain and shared register grammar
     - P1-N011 [done] Conformance corpus and vendoring generator
     - P1-N012 [done] Form checker ported to TypeScript

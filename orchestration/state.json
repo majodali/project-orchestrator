@@ -115,8 +115,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p1-n009-plugin-tooling-portfolio-stack.md",
-        "spec": "docs/specs/p1-n009-plugin-tooling-portfolio-stack.md"
+        "plan": null,
+        "spec": null
       },
       "done": "2026-08-30",
       "note": null
@@ -4292,6 +4292,11 @@
           "node": "P1-N008",
           "plan": "docs/archive/plans/p1-n008-mtool-checker-extension-point.md",
           "spec": "docs/archive/specs/p1-n008-mtool-checker-extension-point.md"
+        },
+        {
+          "node": "P1-N009",
+          "plan": "docs/archive/plans/p1-n009-plugin-tooling-portfolio-stack.md",
+          "spec": "docs/archive/specs/p1-n009-plugin-tooling-portfolio-stack.md"
         }
       ]
     }
