@@ -89,5 +89,5 @@ Dependencies are in the state file, not in sibling order.
     - P2-N031 [specified] Orchestrator role and its watcher — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N032 [specified] Service repository enlisted for delegated sessions — spec: specs/orchestrator-session.md
     - P2-N033 [specified] Orchestrator trial with its measured cost — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
-  - P2-N028 [identified] View that updates itself and leads with what matters
+  - P2-N028 [planned] View that updates itself and leads with what matters — plan: plans/view-that-leads-and-updates.md
   - P2-N029 [identified] Rework cost measured against the reviews it replaces

@@ -1760,14 +1760,14 @@
       "id": "P2-N028",
       "kind": "work",
       "title": "View that updates itself and leads with what matters",
-      "outcome": "The view refreshes when the plan changes and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.",
-      "stage": "identified",
+      "outcome": "The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.",
+      "stage": "planned",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/plans/view-that-leads-and-updates.md",
         "spec": null
       },
       "done": null,
@@ -4739,7 +4739,7 @@
       "id": "T158",
       "node": "P2-N028",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -4747,11 +4747,11 @@
         "out": null
       },
       "opened": "2026-11-17T22:26:28Z",
-      "closed": null,
+      "closed": "2026-11-17T22:30:36Z",
       "base": "7ba626c988e0ae33342a928e8dfb39ba123d3846",
       "ref": null,
-      "pr": null,
-      "summary": "Plan the view that updates itself and leads with what the owner must act on: a new plan document under docs/plans/ with outcome and criteria, delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "pr": "majodali/project-orchestrator#65",
+      "summary": "Plan written: four lists ahead of the tree, one first-party script that polls a version route and updates the page, feedback in place, a node panel, and session, duration and criteria on pages. It splits the view from the orchestrator's reports, names five slices and twenty criteria, and carries two asks.",
       "notes": null
     }
   ],
@@ -5622,6 +5622,36 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T154 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D085",
+      "node": "P2-N028",
+      "question": "May the view run one script of its own, served from the view's origin, and may the test that asserts no script (test/viewPages.test.ts in the service repository) be rewritten to assert no inline and no third-party script? The rule \"No script\" is in the archived specification of P2-N003.",
+      "options": [
+        "yes, one first-party script, with the test rewritten",
+        "no, the view updates by a timed page reload instead"
+      ],
+      "default": "yes, one first-party script, with the test rewritten",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T158 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D086",
+      "node": "P2-N028",
+      "question": "Should the view notify the owner outside its browser tab when something new waits on the owner?",
+      "options": [
+        "no, the tab's title count only, and the orchestrator's report is the notice; decide again after the trial of criterion 19",
+        "yes, a browser notification the owner switches on"
+      ],
+      "default": "no, the tab's title count only, and the orchestrator's report is the notice; decide again after the trial of criterion 19",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T158 at close.",
       "standing": false,
       "source": null
     }

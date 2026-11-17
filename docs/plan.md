@@ -11,17 +11,19 @@ its stage and its outcome. The state file holds the rest.
 Open decisions:
 
 - D084 on One branch for each pull request (P4-N038): Criterion 4: D083 chose the delegating session's next two tasks as the trial. It reported two earlier ones instead: T140 (pull request 52, from claude/zealous-einstein-1rw9kw, the branch that was reused for pull requests 49 to 57) and T144 (pull request 58, from a branch made for it). Both branches are gone now. Only the second shows the rule followed. Does this stand as the trial? Default: Yes: accept the record with its limits and tick criterion 4
+- D085 on View that updates itself and leads with what matters (P2-N028): May the view run one script of its own, served from the view's origin, and may the test that asserts no script (test/viewPages.test.ts in the service repository) be rewritten to assert no inline and no third-party script? The rule "No script" is in the archived specification of P2-N003. Default: yes, one first-party script, with the test rewritten
+- D086 on View that updates itself and leads with what matters (P2-N028): Should the view notify the owner outside its browser tab when something new waits on the owner? Default: no, the tab's title count only, and the orchestrator's report is the notice; decide again after the trial of criterion 19
 
 ## Ready, starting automatically when the loop runs
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - One branch for each pull request (P4-N038) [executing]
+- View that updates itself and leads with what matters (P2-N028) [planned]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
 - Decision script and settings of the orchestrator (P2-N030) [executing] — T157
-- View that updates itself and leads with what matters (P2-N028) [identified] — T158
 
 ## In progress, children carry the work
 
@@ -352,8 +354,9 @@ Documents: [plan](plans/orchestration-service.md).
     A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.
     after P2-N031, P2-N032, P4-N038 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 4 of the plan (Children). Criteria 14 to 18. Its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027.
-- **View that updates itself and leads with what matters** (P2-N028, identified)
-  The view refreshes when the plan changes and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
+- **View that updates itself and leads with what matters** (P2-N028, planned)
+  The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
+  [plan](plans/view-that-leads-and-updates.md) · 2 open decisions
   Note: The owner, 2026-11-16: the view is the best way to know that something waits on the owner, so it must update dynamically and show more useful information. The owner's earlier notes belong here too: the node page as a detail panel beside the tree, feedback after a click, and single-page behaviour. The view allows no script today; updating by itself needs one. From the P3 line, which stays held (the owner, 2026-11-17): the comprehension model (docs/specs/p3-n002-comprehension-model.md) describes each part of a project and what depends on it. The plan step decides what of it the view shows, such as what a node's work touches and what depends on that.
 - **Rework cost measured against the reviews it replaces** (P2-N029, identified)
   The cost of each rework is set against the verifications and owner reviews it replaced, from the tasks' measured costs, so the owner sees whether longer runs of work without review pay.
