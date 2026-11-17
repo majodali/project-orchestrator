@@ -4542,10 +4542,12 @@
       "step": "execute",
       "status": "closed",
       "role": "implementer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 24,
+        "out": 15787,
+        "cacheRead": 4293848,
+        "cacheWrite": 31768
       },
       "opened": "2026-11-17T22:10:54Z",
       "closed": "2026-11-17T22:13:37Z",
@@ -4553,7 +4555,8 @@
       "ref": "ea191b4b07faacf685ebee923c99b460ed2ea5ca",
       "pr": "majodali/project-orchestrator#61",
       "summary": "Rework of T151's four points: Backlog is 79 rows in 95 lines; IR C38 says \"or custom artifact types\"; K-012's declaration names the schema only; pull request 73 dated 2026-10-31 beside the 2026-11-02 acceptance. Two more errors found on re-check and fixed. Hold set again: the rule text changed after the owner's review.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T153",
