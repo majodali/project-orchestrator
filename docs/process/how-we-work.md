@@ -78,7 +78,8 @@ Every other write to the plan (`node_update`, `node_add`,
 `node_remove`, `decision_open`, `decision_close`) names the open task
 it is part of. The one exception is a change the owner dictated in the
 conversation, passed in their words as `ownerInstruction`. An obsolete
-node is removed, never parked: git keeps its history.
+node is removed, never parked. A linked document moves only as
+[the state model](state-model.md#changing-and-moving-a-nodes-documents) says.
 
 The full specification is [the task loop](task-loop.md).
 

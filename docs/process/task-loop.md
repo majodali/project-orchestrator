@@ -276,7 +276,8 @@ journal event say which it was. The loop's own tools and the view's
 actions, which are the owner's, are unchanged.
 
 A pull request that changes one of the five files the service owns
-fails this repository's checks.
+fails this repository's checks. Document paths change, and a linked
+file moves, as [the state model](state-model.md#changing-and-moving-a-nodes-documents) says.
 
 What this does not do: every caller holds the same token, so
 `ownerInstruction` rests on the session's honesty, not on a

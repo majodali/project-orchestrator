@@ -197,18 +197,22 @@ through the service, in an order that lets a pull request move a
 linked document without `main` failing `plan-state check`. Depends
 on: nothing.
 
-- [ ] A session changes a node's `docs.plan` and `docs.spec` through
+- [x] A session changes a node's `docs.plan` and `docs.spec` through
       the service, under an open task or the owner's words; each is a
-      path or null, and the change is journaled.
-- [ ] The plan states the order of the re-pointing and the move, given
+      path or null, and the change is journaled. `docs` on
+      `node_update`.
+- [x] The plan states the order of the re-pointing and the move, given
       that an execute step's pull request merges only when its
       verification closes. Invariant 8 holds on `main` and on the
-      pull request at every commit of that order.
-- [ ] A test moves a linked document through that order end to end.
+      pull request at every commit of that order. The order is in
+      `docs/process/state-model.md`: `docsOnMerge` clears the path,
+      the pull request moves the file, the done decision sets it.
+- [x] A test moves a linked document through that order end to end:
+      `test/documentPaths.test.ts` in the service repository.
 - [ ] The change is its own pull request in
       majodali/project-orchestrator-service (standing, RU-016) and is
-      deployed before this repository pins it.
-- [ ] `docs/process/task-loop.md` and the agents say how a document
+      deployed before this repository pins it. Pull request 43.
+- [x] `docs/process/task-loop.md` and the agents say how a document
       path is changed.
 
 **8. Linked plans and specs archived** (P4-N032)
