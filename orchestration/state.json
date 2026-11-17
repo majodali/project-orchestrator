@@ -1511,7 +1511,7 @@
       "start": "auto",
       "docs": {
         "plan": null,
-        "spec": "docs/specs/p2-n003-owner-questions-and-plan-view.md"
+        "spec": null
       },
       "done": "2026-11-02",
       "note": "independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8)"
@@ -4325,6 +4325,10 @@
         {
           "node": "P2-N003",
           "plan": "docs/archive/plans/p2-n003-owner-questions-and-plan-view.md",
+          "spec": "docs/archive/specs/p2-n003-owner-questions-and-plan-view.md"
+        },
+        {
+          "node": "P2-N021",
           "spec": "docs/archive/specs/p2-n003-owner-questions-and-plan-view.md"
         }
       ]

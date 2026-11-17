@@ -301,7 +301,6 @@ Documents: [plan](plans/orchestration-service.md).
   Note: Chunk 2 of the parent plan; split into the web view's first version and the owner question queue (owner, 2026-10-29)
   - **Web view v1** (P2-N021, done 2026-11-02)
     A signed-in owner sees the plan tree at one commit and drills to node and task pages, with the Project model's renderings beside them.
-    [spec](specs/p2-n003-owner-questions-and-plan-view.md)
     Note: independent of P2-N005 and P2-N004 (RU-018; owner, 2026-10-29); its task E3 waits on P3-N007 done, its tasks E1 and E2 do not (plan decision 8)
   - **Web view UX refinement** (P2-N023, done 2026-11-07)
     At V30 the owner decided that the web view does not replace docs/plan.md yet.
