@@ -49,8 +49,9 @@ and minimizing model and context cost.
 `npm ci` then `npm run check` — `plan-state check` over
 `orchestration/state.json`, the state file (schema, invariants, the
 renderings current). `npm run render` rewrites `docs/plan-register.md`,
-`docs/plan.md` and `docs/backlog.md` from it; never edit those three
-by hand. `npm test`, `npm run lint` and `npm run format` cover the
+`docs/plan.md` and `docs/backlog.md` from it, to see what the service
+would write; never edit those three by hand or commit them in a pull
+request. `npm test`, `npm run lint` and `npm run format` cover the
 scripts.
 `node plugin/scripts/form_check.ts` — the old process's form checks,
 runnable by hand; the registers it reads are archived, so over this
@@ -88,7 +89,10 @@ those five (a pull
 request that does fails the checks), and the service refuses a change
 to a node or a decision that is not under an open task. Never merge a
 pull request by hand that a task carries, because the
-service merges it when the result is accepted. A session start hook
+service merges it when the result is accepted. Commit to a task's
+pull request only while the task is open, and close a task `closed`
+only when every criterion is met (docs/process/how-we-work.md, The
+task loop). A session start hook
 (`plugin/scripts/session_start.ts`) fetches `origin/main`, fast-forwards
 a clean checkout on `main`, runs `npm ci` in a cloud session that has
 no dependencies yet, shows the person a short summary on screen, and
@@ -103,8 +107,8 @@ docs/plans/orchestrator-v1.md.
 - All agent execution surfaces must bill to the owner's Claude
   subscription, never API credits (standing constraint; see the
   founding plan).
-- methodology-tools (`mtool`) is upstream: the Auditor role complies
-  with whatever it determines.
+- methodology-tools (`mtool`) is upstream: a session complies with
+  whatever it determines.
 
 ## Delegated tasks
 

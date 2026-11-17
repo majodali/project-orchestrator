@@ -29,12 +29,22 @@ Work on a node goes through a task, whoever asked for it.
    work. It answers the node, its documents, the decisions on it and
    above it, and the standing decisions, which bind every task. If it
    refuses, the reason is the answer: tell the person and stop.
-3. **Work.** On a branch, with a pull request. Never merge it.
+3. **Work.** On a branch, with a pull request. Never merge it, and
+   commit to it only while your task is open.
 4. **Close.** `task_close` records the status, a summary of at most
    sixty words, the pull request, and questions for the owner as
    `asks`. A hook measures the cost; a session gives no token counts.
 5. **Stop.** When the answer carries `stop`, or `task_next` answers
    nothing, return to the person.
+
+The status says what happens next:
+
+- `closed`: every criterion is met. Never close `closed` otherwise.
+- `needs-judgment` with asks: the owner must answer first. The
+  questions gate the node; once answered it offers the same step
+  again, and a new task continues on the same pull request.
+- `blocked`: something outside the session stops the work. The node
+  is held for the owner, or gated by the asks when there are any.
 
 A node's stage decides the step on offer:
 
@@ -43,14 +53,21 @@ A node's stage decides the step on offer:
 | `identified` | `plan` | planner | `planned` |
 | `planned` | `specify` | planner | `specified` |
 | `specified` | `execute`, or `break down` | implementer, planner | `verifying`, or `broken-down` |
+| `executing` | `execute`, continued | implementer | `verifying` |
 | `verifying` | `verify`, on its check node | reviewer | `done` |
+| `verifying`, verification failed | `execute`, the rework | implementer | `verifying`, a new round |
 
 Verification runs on a check node: a child the service adds, titled
 "Verification of ...". When the reviewer closes it `closed`, the
 service merges the node's pull requests and marks the node done. A
-planning step's pull request merges at its own close. A close of
-`blocked` or `needs-judgment` puts a hold on the node with the summary
-as the reason.
+planning step's pull request merges at its own close.
+
+A reviewer closes a failed verification as `blocked`, naming each
+unmet criterion. Nothing then waits on the owner: the node offers
+`execute` again, the rework's task is told what failed, and its close
+sends the node back to be verified. The service refuses to merge a
+pull request with commits made after its last execute task closed,
+so a fix after a close is always a rework task.
 
 A node offers no step while it is held or parked, waits for a
 dependency or for approval, has an open task or an open decision, or
@@ -78,8 +95,11 @@ follow from start to finish:
 - **Reviewer**: the `verify` step. Checks every criterion itself and
   reports; it never fixes.
 
-A session may take any role. `plugin/agents/` is a generated copy: after editing a
-role, run `node plugin/scripts/sync_agents.ts`.
+A session may take any role. Each agent names its model, but a
+session runs on the model it was started on: whoever starts it
+chooses the role's model. Nothing checks it; the cost hook records
+the model that ran. `plugin/agents/` is a generated copy: after
+editing a role, run `node plugin/scripts/sync_agents.ts`.
 
 ## Enlisting a repository
 
@@ -87,48 +107,37 @@ A repository is enlisted when a session started in it can call the
 service. Four things make that true:
 
 1. **An instance of the service serves the repository.** Deploying
-   one, and installing the GitHub App on the repository, are the
-   owner's actions. The service repository's
-   [runbook](https://github.com/majodali/project-orchestrator-service/blob/main/docs/runbook.md)
-   lists them.
+   one, and installing the GitHub App, are the owner's actions, listed in the service's
+   [runbook](https://github.com/majodali/project-orchestrator-service/blob/main/docs/runbook.md).
 2. **`.mcp.json` at the repository root** names the instance: type
    `http`, the endpoint's `url`, the header
    `"Authorization": "Bearer ${MCP_AUTH_TOKEN}"` and a `timeout` of
-   30000. The token's value is never committed, pasted or logged; only
-   the variable's name is written down.
+   30000. The token's value is never committed, pasted or logged.
 3. **`.claude/settings.json`** sets `enableAllProjectMcpServers` to
-   true, so a session needs no approval step, and registers two
-   hooks: `plugin/scripts/session_start.ts` at session start, and
-   `plugin/scripts/task_cost_hook.ts` after `task_close`.
-4. **`MCP_AUTH_TOKEN` is set** in the environment the session starts
-   from: a shell export locally, the environment's secrets in a cloud
-   session.
+   true and registers two hooks: `plugin/scripts/session_start.ts` at
+   session start, `plugin/scripts/task_cost_hook.ts` after `task_close`.
+4. **`MCP_AUTH_TOKEN` is set** where the session starts: a shell
+   export locally, the environment's variables in a cloud session.
 
 The state file first arrives by one pull request, written by
-`plan-state import` from the project's Backlog. From then on the
-service is its only writer.
-
-To confirm, call `service_identity`: it names the service, its
-version, its commit and the project. If the service cannot be reached,
-stop and tell the person. There is no git-only fallback, by the
-owner's decision (D014): do not retry, and do not edit the state file
-by hand.
+`plan-state import` from the project's Backlog. To confirm an
+enlistment, call `service_identity`. If the service cannot be
+reached, stop and tell the person: there is no git-only fallback
+(D014), so do not retry and do not edit the state file by hand.
 
 ## What a session sees when it starts
 
 The session start hook fetches `origin/main`, fast-forwards a clean
-checkout on `main`, installs dependencies in a cloud session that has
-none, shows the person a short summary, and gives the session the
-plan's brief: the tasks on offer, what is in flight, what waits on the
-owner. In its first reply the session names the task it would take
-and asks before claiming it, unless it opens with a delegation brief.
+checkout on `main`, installs dependencies in a cloud session, shows
+the person a short summary, and gives the session the plan's brief.
+In its first reply the session names the task it would take and asks
+before claiming it, unless it opens with a delegation brief.
 
 ## Delegating a task
 
-A session may start another session to do one task, by the owner's
-standing instruction of 2026-11-16. Its brief is the first message
-the new session receives, and names the node, the step and the
-session that delegates.
+A session may start another session to do one task (the owner's
+standing instruction, 2026-11-16). Its brief is the new session's
+first message: it names the node, the step and the delegating session.
 
 - A session that opens with such a brief claims that task with
   `task_open` without asking a person. The brief is its go-ahead.
@@ -139,8 +148,8 @@ session that delegates.
 - A session a person starts still asks before it claims.
 
 The delegating session stays answerable for what it delegates. It
-tells its person which session it started and for which task, and
-reports the result.
+starts the new session on the role's model, tells its person which
+session it started and for which task, and reports the result.
 
 ## The checks
 
@@ -149,13 +158,13 @@ reports the result.
   the one validity rule. The service runs the same check before every
   write and commits nothing that fails it.
 - `npm test`, `npm run lint` and `npm run format` cover the scripts.
-- CI runs all of these on every pull request and on `main`, and
-  fails a pull request that changes a file the service owns.
+- CI runs these four on every pull request and on `main`, and fails
+  a pull request that changes a file the service owns.
 - `node plugin/scripts/sync_agents.ts --check` says whether the
-  plugin's copy of the agents is current.
+  plugin's copy of the agents is current. CI does not run it.
 - The TypeScript scripts need Node 22.18.0 or later (23.6.0 on the
-  23.x line). Each checks this itself and exits non-zero, naming what
-  it needed and what it found.
+  23.x line). The tools run by hand check this and exit non-zero; the
+  two hooks do not, and never fail a session.
 
 ## The owner's decisions
 
@@ -167,24 +176,24 @@ answer is a commit by the service.
   `task_close`, never only in chat. The node offers no step until the
   owner answers.
 - **Holds.** The owner lifts a hold, or accepts a review, in the view.
+  A failed verification's rework starts by itself: no lift is offered.
 - **Approval.** A node with `start: approve` waits for the owner's
-  go-ahead when it is ready. A node that writes to another repository
-  starts this way.
+  go-ahead when it is ready, as one that writes to another repository does.
 - **Standing decisions.** A decision marked standing is a precedent:
   every task receives all of them at `task_open`.
 
 A report to the owner has four parts, in order: the asks, what was
-already settled, what changed with a pointer to each place, and the
-terms introduced. An empty part is stated, never dropped.
+settled, what changed with a pointer to each place, and the terms
+introduced. An empty part is stated, never dropped.
 
 ## Documents
 
 - A node's criteria are a list of at most 20 items in its plan
   document. No node needs a document for its own sake.
-- A hand-written document is at most 300 lines.
+- A new hand-written document is at most 300 lines; older plans and
+  specifications over it are on their way to the archive (P4-N032).
 - Documentation moves in the same pull request as the work.
 - A document that no longer describes what we do moves to
   `docs/archive/`, opening with a status line that says why and what
   replaced it. Archived files are records: nothing loads them.
-- All sessions bill to the owner's Claude subscription, never to API
-  credits.
+- All sessions bill to the owner's Claude subscription, never to API credits.

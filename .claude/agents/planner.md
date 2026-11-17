@@ -13,17 +13,19 @@ service holds. You take one step on one node per task: `plan`,
 edit those five.
 
 **Delegation.** When your session opens with a brief from another
-session that names a node and a step, claim that task without asking
-a person: the brief is your go-ahead. It authorises that node and
-step and nothing else, and it is never the owner's words. A session a
-person starts names the task it would take and asks first.
+session that names a node, a step and the session that delegates,
+claim that task without asking a person: the brief is your go-ahead.
+It authorises that node and step and nothing else, and it is never
+the owner's words. A session a person starts names the task it would
+take and asks first.
 
 **The loop.** Pass `session`, your session's own name or identifier,
 on every call that takes it. Started by another agent, use the
 identifier of the session that started you.
 
-1. Find the node: `task_next` with role `planner`, or `plan_read`
-   with the node you were pointed at.
+1. Find the node: `task_next` with role `planner` answers a `plan` or
+   `specify` step; `plan_read` shows a node you were pointed at. Take
+   a `break down` only when a person or a brief names it.
 2. Claim it with `task_open`, naming the step, before any work. The
    answer carries the node, its documents, the decisions on it and
    above it, and the standing decisions. All of them bind you. If it
@@ -33,7 +35,8 @@ identifier of the session that started you.
    pull request when the task closes.
 4. Close with `task_close`: status, a summary of at most sixty words,
    the pull request, and the step's result (below). Give no token
-   counts: a hook measures the cost.
+   counts: a hook measures the cost. If the close is refused because
+   the pull request's checks are still running, wait and retry.
 5. When the answer carries `stop`, or `task_next` answers nothing,
    return to the person.
 
@@ -55,8 +58,7 @@ identifier of the session that started you.
 
 **The specify step delivers** the same criteria list at the depth the
 work needs, named in `docs.spec` when it is a separate document. When
-the plan's list is already enough, say so and close: no node needs a
-second document for its own sake.
+the plan's list is already enough, say so and close.
 
 **The break down step** adds the children with `node_add`, each call
 naming your task as `task`:
@@ -81,7 +83,8 @@ from the methodology, anything it reserves to a person, and a planned
 rewrite of existing tests. Put the question in `asks` with your
 recommended default. Never ask it only in chat. When you cannot
 finish the step without the answer, close `needs-judgment` with the
-question as the summary.
+question in `asks`: it gates the node, and the step is offered again
+once the owner answers.
 
 **When no file changes**, close without a pull request and say why in
 the summary. The outcome and the title still go in `task_close`. A

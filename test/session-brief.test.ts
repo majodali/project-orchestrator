@@ -124,7 +124,7 @@ describe("sessionBrief", () => {
       "The person already sees a short summary of this on screen. Do not restate it; use it.",
       "In your first reply, name the task on offer you would take, with its step, and ask whether to take it. Do not call task_open until the person says yes.",
       "If their first message asks for something else, do that instead.",
-      "A brief from another session that names a node and a step is a delegation, by the owner's standing instruction: when this session opens with one, claim that task with task_open without asking, and do that node and step and nothing else (CLAUDE.md, Delegated tasks).",
+      "A brief from another session that names a node, a step and the session that delegates is a delegation, by the owner's standing instruction: when this session opens with one, claim that task with task_open without asking, and do that node and step and nothing else (CLAUDE.md, Delegated tasks).",
     ]);
     const none = state();
     none.nodes = [];

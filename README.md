@@ -10,9 +10,10 @@ Its two goals, in order:
 1. **Streamline and standardize development.** Every managed project
    moves through the same node lifecycle, with the same roles and the
    same task loop.
-2. **Spend less.** Each role runs on the least expensive model tier
-   and the smallest context that does the job, and the cost of every
-   task is recorded.
+2. **Spend less.** Each role names the least expensive model tier
+   that does the job, and a hook measures what each task cost. Nothing
+   yet makes a session run on its role's model: it runs on the model
+   it was started on.
 
 ## What is here
 
@@ -41,7 +42,7 @@ owner. All three show the same state file.
 - **The view**, a web page the service serves:
   <https://025si0pve6.execute-api.us-west-2.amazonaws.com/view>. It
   asks for the view token at sign-in. The owner answers decisions,
-  lifts holds and approves starts there.
+  lifts holds, approves starts and accepts reviews there.
 - **[docs/plan.md](docs/plan.md)**, the plan as a person reads it:
   what waits on the owner, what is ready, what is in flight, and every
   node with its outcome.
@@ -57,7 +58,8 @@ them by hand.
 A session started in this repository receives the plan's brief from a
 session start hook: the tasks on offer, what is in flight and what
 waits on the owner. It names the task it would take and asks before
-claiming it. Work on a node then goes through the service's task
+claiming it, unless another session started it with a delegation
+brief. Work on a node then goes through the service's task
 loop: `task_next`, `task_open`, a branch with a pull request, and
 `task_close`. The service merges the pull request when the result is
 accepted. [How we work](docs/process/how-we-work.md) gives the loop,
@@ -88,17 +90,19 @@ Run `npm ci` once, then:
   schema, the invariants, and that the three renderings are current.
   It is the one validity rule.
 - `npm test`, `npm run lint` and `npm run format` cover the scripts.
-- `node plugin/scripts/sync_agents.ts --check` says whether the
-  plugin's copy of the agents is current.
 
-CI runs these on every pull request and on `main`. It also fails a
-pull request that changes a file the service owns:
+CI runs these four on every pull request and on `main`. It also fails
+a pull request that changes a file the service owns:
 `orchestration/state.json`, `orchestration/journal.jsonl`,
 `docs/plan.md`, `docs/plan-register.md` or `docs/backlog.md`.
 
-The scripts need Node 22.18.0 or later (23.6.0 on the 23.x line).
-Each checks this itself and exits non-zero, naming what it needed and
-what it found.
+`node plugin/scripts/sync_agents.ts --check` says whether the plugin's
+copy of the agents is current. CI does not run it.
+
+The scripts need Node 22.18.0 or later (23.6.0 on the 23.x line). The
+tools run by hand check this themselves and exit non-zero, naming
+what they needed and what they found. The two hooks do not, and never
+fail a session.
 
 ## Pointers
 

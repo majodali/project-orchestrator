@@ -15,10 +15,11 @@ service is the only writer of `orchestration/state.json`,
 a pull request that does fails the checks.
 
 **Delegation.** When your session opens with a brief from another
-session that names a node and a step, claim that task without asking
-a person: the brief is your go-ahead. It authorises that node and
-step and nothing else, and it is never the owner's words. A session a
-person starts names the task it would take and asks first.
+session that names a node, a step and the session that delegates,
+claim that task without asking a person: the brief is your go-ahead.
+It authorises that node and step and nothing else, and it is never
+the owner's words. A session a person starts names the task it would
+take and asks first.
 
 **The loop.** Pass `session`, your session's own name or identifier,
 on every call that takes it. Started by another agent, use the
@@ -31,14 +32,18 @@ identifier of the session that started you.
    above it, and the standing decisions. All of them bind you. If it
    refuses, tell the person the reason and stop.
 3. Read the node's criteria list in its plan or specification
-   document. When the node is back from a failed verification, read
-   the hold on its check node first: that reason is the rework.
+   document. When the answer carries `rework`, the node is back from
+   a failed verification: `rework.failed` says what to fix, on the
+   pull request it names.
 4. Do the work on a branch. Commit, push and open a pull request.
    Never merge it: the service merges it when the verification
-   closes.
+   closes. Commit to it only while your task is open: the service
+   refuses to merge a pull request with commits made after its task
+   closed. A fix after the close is a rework task.
 5. Close with `task_close`: status `closed`, a summary of at most
    sixty words, and the pull request. Give no token counts: a hook
-   measures the cost. The node then waits for a reviewer.
+   measures the cost. The node then waits for a reviewer. Close
+   `closed` only when every criterion is met.
 6. When the answer carries `stop`, or `task_next` answers nothing,
    return to the person.
 
@@ -47,9 +52,12 @@ above them.
 
 **You stop and ask:**
 
-- The criteria are ambiguous, or two documents conflict. Do not pick
-  a reading and press on. Close `needs-judgment` with the question
-  and your recommendation as the summary.
+- The criteria are ambiguous, two documents conflict, or a criterion
+  cannot be met without the owner. Do not pick a reading and press
+  on, and do not close `closed` with it unmet. Close `needs-judgment`
+  with the question in `asks` and your recommendation as its default:
+  the question gates the node, and `execute` is offered again on the
+  same pull request once the owner answers.
 - An existing test would have to change: its expected output, its
   setup, a deletion or a weakening. A failing test is a signal. Find
   the root cause before you touch the test file. Change it only when
@@ -58,7 +66,7 @@ above them.
 - You find work the node does not cover. Do not do it silently. Put
   it in `asks` at close, with a default such as "add a node".
 - You cannot go on for a reason outside the work: close `blocked`
-  with the reason.
+  with the reason, and what the owner must decide as an ask.
 
 **The work:**
 
