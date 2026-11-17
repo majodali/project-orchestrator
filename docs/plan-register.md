@@ -93,4 +93,5 @@ Dependencies are in the state file, not in sibling order.
   - P2-N028 [broken-down] View that updates itself and leads with what matters — plan: plans/view-that-leads-and-updates.md
     - P2-N037 [specified] Tree page that updates itself
     - P2-N038 [specified] Four lists ahead of the tree
+    - P2-N039 [specified] Session, duration and criteria on pages
   - P2-N029 [identified] Rework cost measured against the reviews it replaces
