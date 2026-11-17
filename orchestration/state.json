@@ -1832,7 +1832,7 @@
       "kind": "work",
       "title": "View that updates itself and leads with what matters",
       "outcome": "The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.",
-      "stage": "specified",
+      "stage": "broken-down",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
@@ -1843,6 +1843,25 @@
       },
       "done": null,
       "note": "The owner, 2026-11-16: the view is the best way to know that something waits on the owner, so it must update dynamically and show more useful information. The owner's earlier notes belong here too: the node page as a detail panel beside the tree, feedback after a click, and single-page behaviour. The view allows no script today; updating by itself needs one. From the P3 line, which stays held (the owner, 2026-11-17): the comprehension model (docs/specs/p3-n002-comprehension-model.md) describes each part of a project and what depends on it. The plan step decides what of it the view shows, such as what a node's work touches and what depends on that."
+    },
+    {
+      "id": "P2-N037",
+      "kind": "work",
+      "title": "Tree page that updates itself",
+      "outcome": "An open view page shows a plan change within 30 seconds without a reload, through one first-party script and a version route, and never replaces a form that holds typed text.",
+      "stage": "specified",
+      "parent": "P2-N028",
+      "after": [
+        "P2-N032"
+      ],
+      "hold": null,
+      "start": "approve",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Slice A of docs/plans/view-that-leads-and-updates.md: section 3, criteria 1 to 4 and 6. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. Links no plan document because it edits none here."
     },
     {
       "id": "P2-N029",
