@@ -4392,10 +4392,12 @@
       "step": "verify",
       "status": "closed",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 19,
+        "out": 11549,
+        "cacheRead": 1052807,
+        "cacheWrite": 61444
       },
       "opened": "2026-11-17T21:02:03Z",
       "closed": "2026-11-17T21:05:08Z",
@@ -4403,7 +4405,8 @@
       "ref": "652cf63e3fef8fcd558d504e642889fa3d27adb6",
       "pr": "majodali/project-orchestrator#59",
       "summary": "All six criteria met at 652cf63. 22 moved files differ from base only by status block and links; 25 docsOnMerge paths resolve; word count 76,401; ten P3 documents over 300 lines listed. mtool exits 1 on 8 findings, all in verbatim methodology text (RU-015), unchanged by the pull request; judged dispositioned under the criterion's wording.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
