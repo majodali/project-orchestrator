@@ -22,6 +22,7 @@ Open decisions:
 
 ## In flight
 
+- Verification of Upstream proposals batch (P4-N041) [specified] — T156
 - Orchestrator session that keeps work moving (P2-N027) [broken-down] — T155
 
 ## In progress, children carry the work
@@ -234,6 +235,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.
     [plan](plans/rebuild.md)
     Note: Added by the owner's answer to D073 (on P4-N032), 2026-11-17: the batch also carries a request to methodology-tools for a way to exempt methodology text that a document quotes verbatim (RU-015) from mtool links check, so the tool can exit zero over this tree. Evidence: the 8 findings P4-N032 dispositioned. Add it as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.
+    - check: **Verification of Upstream proposals batch** (P4-N041, specified)
+      P4-N026 is verified against its outcome.
+      [plan](plans/rebuild.md)
   - **Pilot enlistment of methodology-tools** (P4-N027, specified)
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
     after P4-N022, P4-N024 · [plan](plans/rebuild.md)

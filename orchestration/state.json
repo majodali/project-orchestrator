@@ -4690,6 +4690,25 @@
       "pr": null,
       "summary": "Break P2-N027 into the plan's four slices as specified children with real dependencies, write each child's criteria into the plan, and add vocabulary rows for the four terms ratified by D080. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
       "notes": null
+    },
+    {
+      "id": "T156",
+      "node": "P4-N041",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T22:23:41Z",
+      "closed": null,
+      "base": "17fcd3e501f2ce77c090cbb1dd726bb8de6e7987",
+      "ref": null,
+      "pr": null,
+      "summary": "Second verification of P4-N026 (Upstream proposals batch) after rework T152, pull request #61 at its new head: every criterion again, the four failed points, the two further fixes, and agreement of proposal two's IR, prose, evidence and cover note.",
+      "notes": null
     }
   ],
   "decisions": [
