@@ -15,13 +15,12 @@ Nothing.
 - Upstream proposals batch (P4-N026) [specified]
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - One branch for each pull request (P4-N038) [specified]
-- Orchestrator session that keeps work moving (P2-N027) [identified]
 - View that updates itself and leads with what matters (P2-N028) [identified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-None.
+- Orchestrator session that keeps work moving (P2-N027) [identified] — T148
 
 ## In progress, children carry the work
 
