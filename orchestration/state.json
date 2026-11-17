@@ -1245,6 +1245,23 @@
       "note": null
     },
     {
+      "id": "P4-N038",
+      "kind": "work",
+      "title": "One branch for each pull request",
+      "outcome": "Every pull request comes from a branch of its own, made for that task and deleted after the merge, so two sessions never push to the same branch.",
+      "stage": "specified",
+      "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": "Asked for by the owner, 2026-11-17, after a second session worked on another session's branch (claude/zealous-einstein-1rw9kw) and both opened pull requests from it. Criteria: (1) docs/process/how-we-work.md and the three role agents say a task's pull request comes from a new branch named for the task, never from a branch another pull request used; (2) a delegating session starts the new session on main, never on its own work branch, unless the brief says the work is on that branch; (3) head branches are deleted after merge in this repository and the service repository, by the repository setting or by the service at merge, and the record says which; (4) the rule is tried once: two tasks in a row from one session produce two branches, and the first is gone after its merge."
+    },
+    {
       "id": "P2-N001",
       "kind": "work",
       "title": "Orchestration service",
