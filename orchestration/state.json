@@ -1300,7 +1300,7 @@
       "kind": "work",
       "title": "One branch for each pull request",
       "outcome": "Every pull request comes from a branch of its own, made for that task and deleted after the merge, so two sessions never push to the same branch.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1311,6 +1311,23 @@
       },
       "done": null,
       "note": "Asked for by the owner, 2026-11-17, after a second session worked on another session's branch (claude/zealous-einstein-1rw9kw) and both opened pull requests from it. Criteria: (1) docs/process/how-we-work.md and the three role agents say a task's pull request comes from a new branch named for the task, never from a branch another pull request used; (2) a delegating session starts the new session on main, never on its own work branch, unless the brief says the work is on that branch; (3) head branches are deleted after merge in this repository and the service repository, by the repository setting or by the service at merge, and the record says which; (4) the rule is tried once: two tasks in a row from one session produce two branches, and the first is gone after its merge."
+    },
+    {
+      "id": "P4-N043",
+      "kind": "check",
+      "title": "Verification of One branch for each pull request",
+      "outcome": "P4-N038 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N038",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/rebuild.md",
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P4-N042",
@@ -4884,7 +4901,7 @@
       "id": "T162",
       "node": "P4-N038",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -4892,11 +4909,11 @@
         "out": null
       },
       "opened": "2026-11-17T23:35:07Z",
-      "closed": null,
+      "closed": "2026-11-17T23:37:18Z",
       "base": "a908150a76dfc69e7a71c93c51d59d1a33a969fd",
-      "ref": null,
-      "pr": null,
-      "summary": "Continue P4-N038 on pull request 63 after D084: tick criterion 4 if the owner accepted the record, merge main and resolve the conflict in how-we-work.md, and settle whether the rule belongs in the orchestrator agent. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "ref": "e863c53cc9d99424eeffc70abe7612c13a6d5ff3",
+      "pr": "majodali/project-orchestrator#63",
+      "summary": "All four criteria met. Criterion 4 ticked on D084. Main merged into the branch, both sides kept; how-we-work.md stays at 200 lines. The orchestrator agent is not edited: it opens no pull request and starts sessions on the default branch already. Checks pass: 215 tests, 0 violations.",
       "notes": null
     },
     {
@@ -4912,14 +4929,14 @@
         "cacheRead": 1474593,
         "cacheWrite": 118039
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T23:35:21Z",
       "closed": "2026-11-17T23:36:14Z",
       "base": "29eea3d7d06a5153095c1650b981aa3e2fc308fe",
       "ref": null,
       "pr": "majodali/project-orchestrator#68",
       "summary": "The plan's twenty criteria are the specification; no second document. Revised in place: D085 and D086 recorded, the split with the orchestrator's reports checked against stateReports as built, criterion 8 tightened to the same rules, and the settings line the break down must add for children in the service repository.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T164",
