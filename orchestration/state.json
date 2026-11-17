@@ -935,7 +935,7 @@
       "kind": "work",
       "title": "Upstream proposals batch",
       "outcome": "Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N008",
       "after": [],
       "hold": null,
@@ -4425,6 +4425,25 @@
       "ref": null,
       "pr": null,
       "summary": "Plan the orchestrator session role: a new plan document under docs/plans/ with outcome and criteria, delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "notes": null
+    },
+    {
+      "id": "T149",
+      "node": "P4-N026",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T21:38:37Z",
+      "closed": null,
+      "base": "cc1cc3e9e4f05763be5b5ba936d6b50ae33035b7",
+      "ref": null,
+      "pr": null,
+      "summary": "Write the upstream proposals batch for majodali/methodology per section 5 of docs/plans/rebuild.md and decision D073, on a new branch, and open the pull request.",
       "notes": null
     }
   ],
