@@ -5085,10 +5085,12 @@
       "step": "break down",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 26,
+        "out": 10149,
+        "cacheRead": 2785437,
+        "cacheWrite": 22611
       },
       "opened": "2026-11-17T23:37:35Z",
       "closed": "2026-11-17T23:41:36Z",
@@ -5096,7 +5098,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#70",
       "summary": "Six children added, P2-N037 to P2-N042, each specified with its criteria named in the plan. Five write to the service repository, wait on P2-N032 and need the owner's approval to start; the settings file lists them, and the test that pins its node list follows. The plan says which pairs run together.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T166",
