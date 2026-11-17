@@ -5414,8 +5414,8 @@
         "Keep them"
       ],
       "default": "Yes, the owner deletes them",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Yes, the owner deletes them",
+      "decided": "2026-11-17",
       "rationale": "Asked by T153 at close.",
       "standing": false,
       "source": null
