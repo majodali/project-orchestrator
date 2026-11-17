@@ -144,7 +144,7 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
   Note: Chunk 4 of the parent plan; independent of P3-N002 (RU-018)
   - **Decidable stop conditions** (P3-N013, done 2026-10-30)
     W-001's four stop conditions exist as committed predicates that two blind readings apply identically to this project's past task results.
-    [plan](plans/p3-n013-stop-conditions-decidable.md), [spec](specs/p3-n005-sequence-mode.md)
+    [spec](specs/p3-n005-sequence-mode.md)
   - **Sequence mode in the dispatch loop** (P3-N014, done 2026-10-30)
     This project's dispatch loop can run methodology W-001 (two delivery modes, human-gated)'s pre-ratified sequence.
     after P3-N013, P1-N014 · [plan](plans/p3-n014-loop-runs-sequence-mode.md), [spec](specs/p3-n005-sequence-mode.md)
