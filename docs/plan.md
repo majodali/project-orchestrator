@@ -14,7 +14,6 @@ Nothing.
 
 - Upstream proposals batch (P4-N026) [specified]
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
-- Document paths changed through the service (P4-N031) [specified]
 - One branch for each pull request (P4-N038) [specified]
 - Orchestrator session that keeps work moving (P2-N027) [identified]
 - View that updates itself and leads with what matters (P2-N028) [identified]
@@ -22,7 +21,7 @@ Nothing.
 
 ## In flight
 
-None.
+- Document paths changed through the service (P4-N031) [executing] — T144
 
 ## In progress, children carry the work
 
@@ -233,7 +232,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
     after P4-N022, P4-N024 · [plan](plans/rebuild.md)
     Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
-  - **Document paths changed through the service** (P4-N031, specified)
+  - **Document paths changed through the service** (P4-N031, executing)
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
     [plan](plans/rebuild.md)
     Note: Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7.

@@ -83,7 +83,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Re-plan, prune and hand back** (P4-N008) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Upstream proposals batch** (P4-N026) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
 - [ ] **Pilot enlistment of methodology-tools** (P4-N027) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
-- [ ] **Document paths changed through the service** (P4-N031) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
+- [ ] **Document paths changed through the service** (P4-N031) — When: not dated. Status: executing, in flight. Pointer: [plan](plans/rebuild.md).
 - [ ] **Linked plans and specs archived** (P4-N032) — When: after P4-N031. Status: specified, waiting on a dependency. Pointer: [plan](plans/rebuild.md).
 - [ ] **One branch for each pull request** (P4-N038) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/rebuild.md).
 - [ ] **Orchestration service** (P2-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestration-service.md).

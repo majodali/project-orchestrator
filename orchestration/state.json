@@ -972,7 +972,7 @@
       "kind": "work",
       "title": "Document paths changed through the service",
       "outcome": "A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N008",
       "after": [],
       "hold": null,
@@ -4209,6 +4209,25 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#53",
       "summary": "README rewritten for a new reader (121 lines). The service renders docs/backlog.md as a fifth owned file (project-orchestrator-service#41, merged and deployed at cb9d727); this repository pins it, and CI guards the file. Nine criteria met. Orientation test: a fresh session answered from the README in three tool calls; the owner's confirmation is open.",
+      "notes": null
+    },
+    {
+      "id": "T144",
+      "node": "P4-N031",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T17:55:08Z",
+      "closed": null,
+      "base": "d9bbb8c4ec17e54bbab2a7da6a0ed6e9cff68f1f",
+      "ref": null,
+      "pr": null,
+      "summary": "Add a way for a task to change a node's plan and specification paths through the service, with an order that lets a pull request move a linked document while plan-state check stays green on main and on the pull request, tested end to end, deployed, pinned and documented.",
       "notes": null
     }
   ],
