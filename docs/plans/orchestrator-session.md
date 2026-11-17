@@ -1,7 +1,6 @@
 # Orchestrator session that keeps work moving (P2-N027)
 
-Status: draft (plan step, task T148, 2026-11-17; active when the
-owner answers the asks below)
+Status: draft (plan step, task T148, 2026-11-17)
 
 Reader: the owner, and the sessions that specify, build and verify
 this node. The reader knows
@@ -295,8 +294,6 @@ sequence. That loop is retired. Its durable result is P3-N013
 
 ## Terms introduced
 
-- **Orchestrator session**: the session that follows the
-  orchestrator role of section 2.
+- **Orchestrator session**: a session that follows section 2's role.
 - **Watcher**: the background command of section 5.
-- **Action**: one line of the decision script's output: `start`,
-  `message`, `report` or `check`.
+- **Action**: one line of the decision script's output (section 1).
