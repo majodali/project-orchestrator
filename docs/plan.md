@@ -38,6 +38,7 @@ Open decisions:
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Orchestrator role and its watcher (P2-N031) [specified] — after Decision script and settings of the orchestrator (P2-N030)
 - Service repository enlisted for delegated sessions (P2-N032) [specified] — after Decision script and settings of the orchestrator (P2-N030)
+- Orchestrator trial with its measured cost (P2-N033) [specified] — after Orchestrator role and its watcher (P2-N031), Service repository enlisted for delegated sessions (P2-N032), One branch for each pull request (P4-N038)
 
 ## Blocked
 
@@ -348,6 +349,10 @@ Documents: [plan](plans/orchestration-service.md).
     A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
     after P2-N030 · [spec](specs/orchestrator-session.md)
     Note: Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script.
+  - **Orchestrator trial with its measured cost** (P2-N033, specified)
+    A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.
+    after P2-N031, P2-N032, P4-N038 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    Note: Slice 4 of the plan (Children). Criteria 14 to 18. Its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027.
 - **View that updates itself and leads with what matters** (P2-N028, identified)
   The view refreshes when the plan changes and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
   Note: The owner, 2026-11-16: the view is the best way to know that something waits on the owner, so it must update dynamically and show more useful information. The owner's earlier notes belong here too: the node page as a detail panel beside the tree, feedback after a click, and single-page behaviour. The view allows no script today; updating by itself needs one. From the P3 line, which stays held (the owner, 2026-11-17): the comprehension model (docs/specs/p3-n002-comprehension-model.md) describes each part of a project and what depends on it. The plan step decides what of it the view shows, such as what a node's work touches and what depends on that.
