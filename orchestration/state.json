@@ -4507,6 +4507,25 @@
       "pr": null,
       "summary": "Judge whether the eighteen criteria of docs/plans/orchestrator-session.md are at the depth the work needs, and deliver a separate specification only where they are not. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
       "notes": null
+    },
+    {
+      "id": "T151",
+      "node": "P4-N041",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T22:05:12Z",
+      "closed": null,
+      "base": "26f738bfdf09bf654512c6a337e3202964c40bab",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P4-N026 (Upstream proposals batch), task T149, pull request #61, against its criteria in docs/plans/rebuild.md and the D073 criterion: quotes checked against upstream text, provenance, the K-003 claim, scope and evidence of each proposal.",
+      "notes": null
     }
   ],
   "decisions": [
