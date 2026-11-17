@@ -93,7 +93,6 @@ Documents: [plan](plans/orchestrator-v1.md).
   Four adjudicable amendment proposals to majodali/methodology, drafted in this repository and hand-carried upstream by the owner.
 - **Process specification maintenance** (P1-N016, done 2026-11-05)
   Every Backlog row routed to this node is either landed in the process specification, or closed with a stated reason.
-  [plan](plans/p1-n016-process-spec-maintenance.md)
   Note: plan gate crossed 2026-11-03, the plan's criteria are its specification (decision 2); does not wait on P3-N009 (decision 3); E1 (T103) accepted 2026-11-03, E2 (T104) accepted 2026-11-05 under the owner's rulings A26 to A28; verifying gate crossed 2026-11-08
 
 ### Project comprehension and continuous implementation (P3-N001)

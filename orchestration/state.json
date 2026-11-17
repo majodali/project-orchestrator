@@ -234,7 +234,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p1-n016-process-spec-maintenance.md",
+        "plan": null,
         "spec": null
       },
       "done": "2026-11-05",
@@ -4307,6 +4307,10 @@
           "node": "P1-N015",
           "plan": "docs/archive/plans/p1-n015-methodology-amendments-delegated-work.md",
           "spec": "docs/archive/specs/p1-n015-methodology-amendments-delegated-work.md"
+        },
+        {
+          "node": "P1-N016",
+          "plan": "docs/archive/plans/p1-n016-process-spec-maintenance.md"
         }
       ]
     }
