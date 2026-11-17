@@ -217,8 +217,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p1-n015-methodology-amendments-delegated-work.md",
-        "spec": "docs/specs/p1-n015-methodology-amendments-delegated-work.md"
+        "plan": null,
+        "spec": null
       },
       "done": "2026-09-01",
       "note": null
@@ -4302,6 +4302,11 @@
           "node": "P1-N014",
           "plan": "docs/archive/plans/p1-n014-role-contracts-adopt-v140-rules.md",
           "spec": "docs/archive/specs/p1-n014-role-contracts-adopt-conduct-rules.md"
+        },
+        {
+          "node": "P1-N015",
+          "plan": "docs/archive/plans/p1-n015-methodology-amendments-delegated-work.md",
+          "spec": "docs/archive/specs/p1-n015-methodology-amendments-delegated-work.md"
         }
       ]
     }

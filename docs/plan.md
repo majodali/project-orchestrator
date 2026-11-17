@@ -91,7 +91,6 @@ Documents: [plan](plans/orchestrator-v1.md).
   Every conduct duty that methodology v1.4.0 named is stated once, in the document that owns it, and reaches the roles through the artifacts they actually load.
 - **Methodology amendments for delegated multi-agent work** (P1-N015, done 2026-09-01)
   Four adjudicable amendment proposals to majodali/methodology, drafted in this repository and hand-carried upstream by the owner.
-  [plan](plans/p1-n015-methodology-amendments-delegated-work.md), [spec](specs/p1-n015-methodology-amendments-delegated-work.md)
 - **Process specification maintenance** (P1-N016, done 2026-11-05)
   Every Backlog row routed to this node is either landed in the process specification, or closed with a stated reason.
   [plan](plans/p1-n016-process-spec-maintenance.md)

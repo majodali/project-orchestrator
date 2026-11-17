@@ -23,7 +23,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Form checker ported to TypeScript** (P1-N012) — When: 2026-08-30. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Cutover to the TypeScript tools** (P1-N013) — When: 2026-08-30. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Role contracts adopt the methodology's conduct rules** (P1-N014) — When: 2026-10-29. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Methodology amendments for delegated multi-agent work** (P1-N015) — When: 2026-09-01. Status: done. Pointer: [plan](plans/p1-n015-methodology-amendments-delegated-work.md), [spec](specs/p1-n015-methodology-amendments-delegated-work.md).
+- [x] **Methodology amendments for delegated multi-agent work** (P1-N015) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Process specification maintenance** (P1-N016) — When: 2026-11-05. Status: done. Pointer: [plan](plans/p1-n016-process-spec-maintenance.md).
 - [x] **Thin end-to-end slice of the model** (P3-N006) — When: 2026-10-30. Status: done. Pointer: [plan](plans/p3-n006-thin-end-to-end-slice.md), [spec](specs/p3-n002-comprehension-model.md).
 - [x] **Project model type and K-003 amendment draft** (P3-N007) — When: 2026-10-31. Status: done. Pointer: [plan](plans/p3-n007-type-declared-amendment-drafted.md), [spec](specs/p3-n002-comprehension-model.md).
