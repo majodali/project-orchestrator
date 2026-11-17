@@ -5186,8 +5186,8 @@
         "claude-opus-5"
       ],
       "default": "claude-sonnet-5",
-      "chosen": null,
-      "decided": null,
+      "chosen": "claude-sonnet-5",
+      "decided": "2026-11-17",
       "rationale": "Asked by T148 at close.",
       "standing": false,
       "source": null

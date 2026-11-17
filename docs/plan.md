@@ -10,7 +10,6 @@ its stage and its outcome. The state file holds the rest.
 
 Open decisions:
 
-- D074 on Orchestrator session that keeps work moving (P2-N027): Which model runs the orchestrator session? Default: claude-sonnet-5
 - D075 on Orchestrator session that keeps work moving (P2-N027): When P2-N027 is done, remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027 instead of P3-N015? Default: yes
 - D076 on Orchestrator session that keeps work moving (P2-N027): Set a weekly limit on the measured cost of delegated tasks now? Default: no limit until the trial records a week's figure
 
@@ -333,7 +332,7 @@ Documents: [plan](plans/orchestration-service.md).
   after P4-N008
 - **Orchestrator session that keeps work moving** (P2-N027, planned)
   One restartable session starts a session for each offered task on its role's model, messages stalled ones, and returns to the owner only on the four stop conditions, so offered work proceeds without the owner starting or prompting sessions.
-  [plan](plans/orchestrator-session.md) · 3 open decisions
+  [plan](plans/orchestrator-session.md) · 2 open decisions
   Note: The owner, 2026-11-16: work should always continue wherever possible. Of three ways (the service starts sessions, enlisted sessions take their next task, an orchestrator session that starts sessions and messages existing ones) the owner prefers the last, and it could be made configurable. Open for the plan step: where the model per role is recorded, how many sessions run at once, and what wakes the orchestrator session. From the P3 line, which stays held (the owner, 2026-11-17): reuse the four stop conditions of sequence mode, which P3-N013 made decidable (docs/specs/p3-n005-sequence-mode.md): a failed check, a scope change, a decision that is the owner's, and a close that carries asks. They are when the orchestrator session returns to the owner. The plan step also says what is left of P3-N005 and P3-N016 once this node exists. Input from the owner, 2026-11-17: a session that attaches a second repository after it starts loses the service tools that .mcp.json gives it, and they do not return (seen in the session that executed P4-N031). So the orchestrator session attaches no repository mid-session, and work in another repository goes to a session started for it; the plan step says how that session reaches the service.
 - **View that updates itself and leads with what matters** (P2-N028, identified)
   The view refreshes when the plan changes and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
@@ -400,6 +399,7 @@ Documents: [plan](plans/orchestration-service.md).
 - D071 on P4-N025 (2026-11-16): The service repository's docs/classification.md says its own Backlog becomes a rendering at milestone 6, but that repository has no state file. Reword that sentence to say its Backlog stays frozen and its nodes are in the coordinating repository's generated Backlog? Chosen: yes, reword it in a later node
 - D072 on P4-N031 (2026-11-17): Pull request 58 adds a 'delegation brief' row to docs/vocabulary.md, citing the owner's ratification in conversation on 2026-11-17. The row is outside P4-N031's criteria and the reviewer could not confirm the ratification. Keep the row? Chosen: keep it
 - D073 on P4-N032 (2026-11-17): `mtool links check` still exits non-zero on 8 links inside methodology text that archived proposals carry verbatim (RU-015). The verification read P4-N032's criterion as met by the stated disposition rule. Should the upstream proposals batch (P4-N026) ask methodology-tools for a way to exempt quoted upstream text, so the tool can exit zero over this tree? Chosen: yes, add it to P4-N026
+- D074 on P2-N027 (2026-11-17): Which model runs the orchestrator session? Chosen: claude-sonnet-5
 - D077 on P4-N026 (2026-11-17): Ratify or strike the term 'criteria list', which proposal three introduces (a Specification given as a list of criteria, each one statement of an observable result that a reviewer judges met or unmet)? Chosen: ratify
 - D078 on P4-N026 (2026-11-17): In which order do you carry the batch to majodali/methodology? Chosen: two and three first, then the release (one migration here, no deviation left)
 - D079 on P4-N026 (2026-11-17): Add a node for migrating this repository's pin to the release that carries the K-003 amendment (declare the state file as the planning/execution model, end the K-003 deviation, adopt or deviate from the four other unreleased amendments)? P4-N026 does not cover it. Chosen: add a node, to start when the release is tagged
