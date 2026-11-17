@@ -4598,7 +4598,7 @@
       "id": "T154",
       "node": "P4-N038",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -4606,11 +4606,11 @@
         "out": null
       },
       "opened": "2026-11-17T22:22:12Z",
-      "closed": null,
+      "closed": "2026-11-17T22:22:51Z",
       "base": "4557122c719ee97d59f8e81dc971f2d5919941e4",
       "ref": null,
-      "pr": null,
-      "summary": "Continue P4-N038 on pull request 63 after D081 to D083: record the deletion mechanism and the trial the delegating session reported, with what this session could check. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "pr": "majodali/project-orchestrator#63",
+      "summary": "Criterion 3 met: the repository setting is the mechanism in both repositories (D081), and only open pull requests' branches remain here. Criterion 4 recorded but not ticked: the trial offered is tasks T140 and T144, which ran before the rule, and T140's branch was the reused one. One ask.",
       "notes": null
     },
     {
@@ -5484,6 +5484,22 @@
       "chosen": "The delegating session records it from its next two real tasks that each carry a pull request, and the next execute task on P4-N038 writes it into the record",
       "decided": "2026-11-17",
       "rationale": "Asked by T153 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D084",
+      "node": "P4-N038",
+      "question": "Criterion 4: D083 chose the delegating session's next two tasks as the trial. It reported two earlier ones instead: T140 (pull request 52, from claude/zealous-einstein-1rw9kw, the branch that was reused for pull requests 49 to 57) and T144 (pull request 58, from a branch made for it). Both branches are gone now. Only the second shows the rule followed. Does this stand as the trial?",
+      "options": [
+        "Yes: accept the record with its limits and tick criterion 4",
+        "No: wait until one session has run two tasks in a row under the new rule, then record that",
+        "Drop criterion 4: the reviewer's branch check at each verification is the trial"
+      ],
+      "default": "Yes: accept the record with its limits and tick criterion 4",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T154 at close.",
       "standing": false,
       "source": null
     }

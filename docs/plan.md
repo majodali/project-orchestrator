@@ -8,18 +8,20 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Nothing.
+Open decisions:
+
+- D084 on One branch for each pull request (P4-N038): Criterion 4: D083 chose the delegating session's next two tasks as the trial. It reported two earlier ones instead: T140 (pull request 52, from claude/zealous-einstein-1rw9kw, the branch that was reused for pull requests 49 to 57) and T144 (pull request 58, from a branch made for it). Both branches are gone now. Only the second shows the rule followed. Does this stand as the trial? Default: Yes: accept the record with its limits and tick criterion 4
 
 ## Ready, starting automatically when the loop runs
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
+- One branch for each pull request (P4-N038) [executing]
 - Decision script and settings of the orchestrator (P2-N030) [specified]
 - View that updates itself and leads with what matters (P2-N028) [identified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-- One branch for each pull request (P4-N038) [executing] — T154
 - Orchestrator session that keeps work moving (P2-N027) [broken-down] — T155
 
 ## In progress, children carry the work
@@ -267,7 +269,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   Note: Asked for by the owner, 2026-11-16, after a reviewer session launched for P4-N033 stopped to ask before claiming. Criteria: (1) the session start hook's text, CLAUDE.md, docs/process/how-we-work.md and the three role agents state one rule; (2) the rule says how a session recognises a delegation brief, and that the brief authorises the named node and step and nothing else; (3) owner decisions stay asks at task_close; (4) a trial is recorded: a session launched with a brief claims its task without asking, and a session started without one still asks.
 - **One branch for each pull request** (P4-N038, executing)
   Every pull request comes from a branch of its own, made for that task and deleted after the merge, so two sessions never push to the same branch.
-  [plan](plans/rebuild.md)
+  [plan](plans/rebuild.md) · 1 open decision
   Note: Asked for by the owner, 2026-11-17, after a second session worked on another session's branch (claude/zealous-einstein-1rw9kw) and both opened pull requests from it. Criteria: (1) docs/process/how-we-work.md and the three role agents say a task's pull request comes from a new branch named for the task, never from a branch another pull request used; (2) a delegating session starts the new session on main, never on its own work branch, unless the brief says the work is on that branch; (3) head branches are deleted after merge in this repository and the service repository, by the repository setting or by the service at merge, and the record says which; (4) the rule is tried once: two tasks in a row from one session produce two branches, and the first is gone after its merge.
 - **Pin migrated to the release with the K-003 amendment** (P4-N042, identified, blocked: Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.)
   This repository pins the methodology release that carries the K-003 amendment, declares the state file as its planning/execution model, ends the K-003 deviation, and adopts or deviates from each other amendment in that release.
