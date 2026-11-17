@@ -5094,6 +5094,25 @@
       "pr": null,
       "summary": "Break the view node down into its slices as children, each with its criteria named in the plan, waiting on P2-N032 where it writes to the service repository, with the settings lines for them. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
       "notes": null
+    },
+    {
+      "id": "T166",
+      "node": "P4-N043",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T23:39:06Z",
+      "closed": null,
+      "base": "a352dd61473e884f3f453ed968817e5304a07d95",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P4-N038 (One branch for each pull request), tasks T153, T154 and T162, pull request #63, against the node's four criteria and decisions D081-D084.",
+      "notes": null
     }
   ],
   "decisions": [
