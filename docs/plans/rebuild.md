@@ -141,55 +141,10 @@ instance must later serve several projects and repositories (the
 owner, 2026-11-12; P2-N026), so the pilot adds no code path of its
 own. Criteria written on 2026-11-12, after D067 was answered.
 
-The second instance:
-
-- [ ] It is a second stack from the same `template.yaml` at the same
-      commit. It differs only in parameters: the stack name and
-      `ProjectName` (majodali/methodology-tools). No code branches on
-      the project.
-- [ ] It shares the first instance's two secrets, the MCP bearer
-      token and the view token (the owner, 2026-11-13). No secret is
-      created. The token therefore opens both instances; the endpoint
-      in `.mcp.json` is what ties a session to one repository.
-- [ ] The same GitHub App serves it: the owner adds methodology-tools
-      to the App's installation. The App's permissions and the path
-      allowlist in the service's `src/model/store.ts` are unchanged.
-- [ ] The service's deploy workflow deploys, smoke-tests and promotes
-      both instances from every merge, and fails when either fails,
-      so the two never run different commits.
-- [ ] The deploy role reaches the second stack: the owner widens its
-      policy, and the service's `docs/deploy-role-permissions.md`
-      records the change. Nothing else in the role changes.
-- [ ] The service's `docs/runbook.md` lists the steps and the owner's
-      actions for adding an instance. The implementer names those
-      actions to the owner before the first deploy.
-
-The enlistment and the import:
-
-- [ ] The enlistment steps in child 3's page are followed as written;
-      steps that needed correction are corrected in that page.
-- [ ] The state file first arrives in methodology-tools by one pull
-      request, written by `plan-state import`. From then on the
-      service is its only writer.
-- [ ] `orchestration/state.json` in methodology-tools passes
-      `plan-state check`.
-- [ ] Every Backlog row of methodology-tools is a node, or is listed
-      in an import record as not mapped, with the reason.
-- [ ] The owner reviews the import record; hand corrections go in an
-      overrides file, as at M1.
-- [ ] `.mcp.json` in methodology-tools names the second instance's
-      endpoint and the same environment variable for the token as
-      this repository's. No token is committed.
-- [ ] `task_next` through the second instance answers a node of
-      methodology-tools, and one write through it commits to
-      methodology-tools as the App, with its journal line.
-- [ ] Repository access: majodali/methodology-tools is new to this
-      project, so the owner grants it before the node starts (D065).
-      Also majodali/project-orchestrator-service (standing, RU-016),
-      for the deploy workflow and the runbook.
-- [ ] Adoption of the loop by that project's own sessions, with the
-      session start hook and the task-cost hook, is a separate node
-      (RU-017), not part of this one.
+Broken down on 2026-11-17 (task T168) into four children, cut by
+repository and by who can act. Its criteria, the owner's four
+actions, the order they force and the children's criteria lists are
+in [the pilot's plan](pilot-enlistment-methodology-tools.md).
 
 **7. Document paths changed through the service** (P4-N031)
 Outcome: a task can re-point a node's plan and specification paths
