@@ -23,13 +23,12 @@ Gated nodes:
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - One branch for each pull request (P4-N038) [executing]
-- Orchestrator role and its watcher (P2-N031) [specified]
 - View that updates itself and leads with what matters (P2-N028) [planned]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-None.
+- Orchestrator role and its watcher (P2-N031) [executing] — T160
 
 ## In progress, children carry the work
 
@@ -346,7 +345,7 @@ Documents: [plan](plans/orchestration-service.md).
     A script prints the sessions to start and the reports to give as JSON, from the state file, the journal, the settings, the agent files and a session snapshot, and one session per role was started from its output.
     [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 1 open decision
     Note: Slice 1 of the plan (Children). Criteria 1 to 6, 8, 19 and 20 of the specification.
-  - **Orchestrator role and its watcher** (P2-N031, specified)
+  - **Orchestrator role and its watcher** (P2-N031, executing)
     A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.
     after P2-N030 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates.

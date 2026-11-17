@@ -1719,7 +1719,7 @@
       "kind": "work",
       "title": "Orchestrator role and its watcher",
       "outcome": "A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N027",
       "after": [
         "P2-N030"
@@ -4790,14 +4790,33 @@
         "cacheRead": 1149067,
         "cacheWrite": 94006
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T22:40:41Z",
       "closed": "2026-11-17T22:44:00Z",
       "base": "739ab424f8327c97a9dcb5be0b8b4433717ca3f8",
       "ref": "d10e38d28b4c3d7af923e1164a5e0d5cf99a5b60",
       "pr": "majodali/project-orchestrator#66",
       "summary": "Criteria 1 to 6, 8, 19 and 20 met at d10e38d. npm test, check, lint and format pass; CI passes. Run on main's state file, the script's actions match the specification. Five readings supported; reading 3 is asked. Findings for P2-N031: the status bucket never says archived; report keys carry no decision identifier.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
+    },
+    {
+      "id": "T160",
+      "node": "P2-N031",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T22:45:55Z",
+      "closed": null,
+      "base": "4bfb0b5453062a09e94b5f7a81c25e4c1df4b1af",
+      "ref": null,
+      "pr": null,
+      "summary": "Write the orchestrator role agent and its watcher against docs/plans/orchestrator-session.md, delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "notes": null
     }
   ],
   "decisions": [
