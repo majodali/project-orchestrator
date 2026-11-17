@@ -261,15 +261,17 @@ merge, so two sessions never push to the same branch.
 - [x] A delegating session starts the new session on `main`, never
       on its own work branch, unless the brief says the work is on
       that branch (`docs/process/how-we-work.md`, `CLAUDE.md`).
-- [ ] Head branches are deleted after merge in this repository and
+- [x] Head branches are deleted after merge in this repository and
       the service repository, by the repository setting or by the
-      service at merge, and the record says which. Recorded for
-      this repository only; the rest is the owner's (asks of T153).
+      service at merge, and the record says which. The repository
+      setting, in both (D081); the service is not changed.
 - [ ] The rule is tried once: two tasks in a row from one session
       produce two branches, and the first is gone after its merge.
+      Recorded from tasks T140 and T144, which ran before the rule;
+      whether that stands is an ask of T154.
 
-Executed 2026-11-17 (task T153), criteria 1 and 2. What was observed
-for criterion 3, and why criterion 4 is open: the
+Executed 2026-11-17 (tasks T153 and T154). What was observed for
+criterion 3, and the trial with its limits: the
 [record of the finished parts](../archive/plans/rebuild-record.md),
 "One branch for each pull request".
 

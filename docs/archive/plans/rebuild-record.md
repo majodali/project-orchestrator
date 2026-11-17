@@ -651,10 +651,51 @@ head branches" is on, or a person deleted them. The session could
 not read the setting, and could not list the service repository's
 branches. Both, and the one leftover branch, are asks of task T153.
 
-**The trial** (criterion 4) is open. The session that ran T153 was
-delegated one task, so it could not run two in a row. The journal
-shows no session since the rule was written that ran two tasks with
-a pull request each.
+**The owner's answers**, 2026-11-17. D081: the repository setting
+"Automatically delete head branches" is the mechanism in both
+repositories, and the service is not changed. D082: the owner deletes
+the leftover branches. D083: the delegating session records the trial
+from its real tasks, and the next execute task writes it here.
+
+**Deletion after merge, second observation** (task T154, 2026-11-17
+at 22:22 UTC). `git ls-remote --heads origin` in this repository
+answered three heads: `main`, `p4-n026-upstream-proposals-batch`
+(pull request 61, open) and `t153-p4-n038-one-branch` (pull request
+63, open). `claude/relaxed-meitner-6i6cbh` was gone. The delegating
+session reported one head, `main`, in the service repository, and
+that no session it started deleted the branches of pull requests 58,
+59, 60 and 62 here or 43 there. T154's session could not see the
+service repository, and no session read the setting itself: that it
+is on rests on D081.
+
+**The trial** (criterion 4), as the delegating session
+(session_015Vm2MuBeQZve9M2xraAqcj) reported it from its own tasks:
+
+- Task T140 on P4-N034, closed 2026-11-16: pull request 52, from
+  `claude/zealous-einstein-1rw9kw`, merged 2026-11-16.
+- Task T144 on P4-N031, closed 2026-11-17: pull request 58, from
+  `claude/p4-n031-document-paths`, merged 2026-11-17, with service
+  pull request 43 from a branch of the same name there.
+
+Checked by T154's session: the journal gives both tasks to that
+session, with no task of its own between them; the state file gives
+them pull requests 52 and 58; the pull request list gives those head
+branches and merge dates; neither branch is on this remote. Not
+checked: service pull request 43 and its branch.
+
+Conclusion: two tasks in a row from one session produced two
+branches, and neither is on its remote. Limits:
+
+- Both tasks ran before the rule was written, and before D083 asked
+  for the session's next two tasks.
+- The first branch was not made for T140. It carried pull requests
+  49 to 53 and 57, the last two from another session. It was deleted
+  after pull request 57 merged, not after 52.
+- Only the second branch shows the rule followed: made for its task,
+  one pull request, gone after its merge. So do the branches of pull
+  requests 59, 60 and 62, each from a session with one task.
+
+Whether this stands as the trial is an ask of task T154.
 
 ## GitHub interaction changes
 
