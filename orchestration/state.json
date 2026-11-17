@@ -4488,6 +4488,25 @@
       "pr": "majodali/project-orchestrator#61",
       "summary": "Batch in docs/proposals/: K-003 release request (the amendment is accepted upstream, unreleased), registers as data files, bounded documents and specifications, each IR first with verbatim quotes and provenance; cover note; mtool quote-exemption request (D073). All nine criteria met; hold set. mtool links: 8 findings, unchanged. No stranger rounds run.",
       "notes": null
+    },
+    {
+      "id": "T150",
+      "node": "P2-N027",
+      "step": "specify",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-17T22:05:07Z",
+      "closed": null,
+      "base": "b6188c76488ed87c4ce6e7139b80c6ce8628073f",
+      "ref": null,
+      "pr": null,
+      "summary": "Judge whether the eighteen criteria of docs/plans/orchestrator-session.md are at the depth the work needs, and deliver a separate specification only where they are not. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "notes": null
     }
   ],
   "decisions": [
