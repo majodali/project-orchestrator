@@ -102,10 +102,11 @@ is a rendering of the state file. Depends on: 3.
 - [x] The K-003 deviation stays recorded in `docs/classification.md`;
       its end is recorded only when the methodology releases the
       amendment.
-- [ ] The orientation test passes: a fresh session given only the
+- [x] The orientation test passes: a fresh session given only the
       README states what is done, what is next and what waits on the
       owner within five minutes, and the owner confirms it from the
-      view within one minute.
+      view within one minute. Met 2026-11-16: the session answered in
+      three tool calls and the owner confirmed (D070).
 
 **5. Upstream proposals batch** (P4-N026)
 Outcome: three proposals, each with evidence from this rebuild, are
