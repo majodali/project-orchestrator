@@ -1062,7 +1062,17 @@ describe("orchestration/orchestrator.json (criterion 5)", () => {
         weeklyBudget: null,
         repositories: [
           { repository: PROJECT, nodes: [] },
-          { repository: SERVICE, nodes: ["P2-N032"] },
+          {
+            repository: SERVICE,
+            nodes: [
+              "P2-N032",
+              "P2-N037",
+              "P2-N038",
+              "P2-N039",
+              "P2-N040",
+              "P2-N041",
+            ],
+          },
         ],
       },
     });
