@@ -288,7 +288,6 @@ Documents: [plan](plans/orchestration-service.md).
     A session works with the service unreachable, and the enlistment documentation says how a repository enlists.
 - **Deploy from CI on merge** (P2-N012, done 2026-09-01)
   A merge to main in the service repository deploys the service, proves it against a real endpoint, and only then promotes it, with a red workflow on failure.
-  [plan](plans/p2-n012-deploy-from-ci-on-merge.md), [spec](specs/p2-n012-deploy-from-ci-on-merge.md)
   - **Lambda alias assumptions check** (P2-N013, done 2026-09-01)
     The Lambda alias assumptions the deploy relies on are verified against AWS documentation and recorded.
   - **Pull request checks** (P2-N014, done 2026-09-01)

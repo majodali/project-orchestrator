@@ -1408,8 +1408,8 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p2-n012-deploy-from-ci-on-merge.md",
-        "spec": "docs/specs/p2-n012-deploy-from-ci-on-merge.md"
+        "plan": null,
+        "spec": null
       },
       "done": "2026-09-01",
       "note": null
@@ -4316,6 +4316,11 @@
           "node": "P2-N002",
           "plan": "docs/archive/plans/p2-n002-service-skeleton.md",
           "spec": "docs/archive/specs/p2-n002-service-skeleton.md"
+        },
+        {
+          "node": "P2-N012",
+          "plan": "docs/archive/plans/p2-n012-deploy-from-ci-on-merge.md",
+          "spec": "docs/archive/specs/p2-n012-deploy-from-ci-on-merge.md"
         }
       ]
     }

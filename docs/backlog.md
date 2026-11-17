@@ -58,7 +58,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Plan state read** (P2-N009) — When: 2026-08-29. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Plan state update with advisory lease** (P2-N010) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Git-only fallback and enlistment documentation** (P2-N011) — When: 2026-09-07. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Deploy from CI on merge** (P2-N012) — When: 2026-09-01. Status: done. Pointer: [plan](plans/p2-n012-deploy-from-ci-on-merge.md), [spec](specs/p2-n012-deploy-from-ci-on-merge.md).
+- [x] **Deploy from CI on merge** (P2-N012) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Lambda alias assumptions check** (P2-N013) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Pull request checks** (P2-N014) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Alias-aware lease table selection** (P2-N015) — When: 2026-09-01. Status: done. Pointer: `orchestration/state.json`.

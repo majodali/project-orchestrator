@@ -72,7 +72,7 @@ Dependencies are in the state file, not in sibling order.
     - P2-N009 [done] Plan state read
     - P2-N010 [done] Plan state update with advisory lease
     - P2-N011 [done] Git-only fallback and enlistment documentation
-  - P2-N012 [done] Deploy from CI on merge — plan: plans/p2-n012-deploy-from-ci-on-merge.md · spec: specs/p2-n012-deploy-from-ci-on-merge.md
+  - P2-N012 [done] Deploy from CI on merge
     - P2-N013 [done] Lambda alias assumptions check
     - P2-N014 [done] Pull request checks
     - P2-N015 [done] Alias-aware lease table selection
