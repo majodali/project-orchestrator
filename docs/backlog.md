@@ -87,7 +87,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Determination on W-001 sequence mode** (P3-N016) — When: after P3-N015. Status: identified, paused by a hold or a park above. Pointer: `orchestration/state.json`.
 - [ ] **Rebuild: the orchestrator runs on a checked data model** (P4-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Re-plan, prune and hand back** (P4-N008) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
-- [ ] **Pilot enlistment of methodology-tools** (P4-N027) — When: not dated. Status: broken-down, in flight. Pointer: [plan](plans/rebuild.md).
+- [ ] **Pilot enlistment of methodology-tools** (P4-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/pilot-enlistment-methodology-tools.md).
 - [ ] **Backlog reader in the state importer** (P4-N044) — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
 - [ ] **methodology-tools' plan as a state file** (P4-N045) — When: after P4-N044. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Second instance on the deploy path** (P4-N046) — When: after P4-N045. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
