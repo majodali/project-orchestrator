@@ -5740,8 +5740,8 @@
         "no, the view updates by a timed page reload instead"
       ],
       "default": "yes, one first-party script, with the test rewritten",
-      "chosen": null,
-      "decided": null,
+      "chosen": "yes, one first-party script, with the test rewritten",
+      "decided": "2026-11-17",
       "rationale": "Asked by T158 at close.",
       "standing": false,
       "source": null
