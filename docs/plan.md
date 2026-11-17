@@ -12,6 +12,10 @@ Open decisions:
 
 - D080 on Orchestrator session that keeps work moving (P2-N027): Ratify the four terms the specification of P2-N027 introduces (snapshot, mark, pending start, acted file; docs/specs/orchestrator-session.md, Terms introduced)? Default: ratify all four
 
+Gated nodes:
+
+- Upstream proposals batch (P4-N026): the owner reviews the proposals (RU-005)
+
 ## Ready, starting automatically when the loop runs
 
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
@@ -21,7 +25,6 @@ Open decisions:
 
 ## In flight
 
-- Upstream proposals batch (P4-N026) [verifying] — T152
 - One branch for each pull request (P4-N038) [executing] — T153
 
 ## In progress, children carry the work
@@ -39,7 +42,6 @@ Open decisions:
 ## Blocked
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
-- Verification of Upstream proposals batch (P4-N041) [specified] — T151: Not met. Criterion 2: Backlog at b1c8b9f has 79 rows in 95 lines, not 95 rows (proposal two L214, IR C31, E9; proposal one IR E10). Criterion 4: proposal one IR C38 says "or artifact"; prose says "or custom artifact types". Criterion 6: K-012 makes the declaration name the check; this Classification does not. Also: methodology PR 73 merged 2026-10-31.
 - Pin migrated to the release with the K-003 amendment (P4-N042) [identified] — Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.
 
 ## Paused by a hold or a park above
@@ -53,6 +55,7 @@ Open decisions:
 - Sequence mode (P3-N005) [broken-down] — under Project comprehension and continuous implementation (P3-N001)
 - Sequence mode demonstration (P3-N015) [broken-down] — under Project comprehension and continuous implementation (P3-N001)
 - Determination on W-001 sequence mode (P3-N016) [identified] — under Project comprehension and continuous implementation (P3-N001)
+- Verification of Upstream proposals batch (P4-N041) [specified] — under Upstream proposals batch (P4-N026)
 
 ## The plan
 
@@ -227,7 +230,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     The README tells a new reader what this is, where the view is, how a session enlists and how to run the checks, and the Backlog is a rendering of the state file.
     after P4-N024 · [plan](plans/rebuild.md)
     Note: The service part is majodali/project-orchestrator-service#41, merged at cb9d727 and deployed on 2026-11-16. From that deploy the service writes docs/backlog.md with every state commit.
-  - **Upstream proposals batch** (P4-N026, verifying)
+  - **Upstream proposals batch** (P4-N026, verifying, gated: the owner reviews the proposals (RU-005))
     Three proposals, each with evidence from this rebuild, are ready for the owner to carry to majodali/methodology in one batch.
     [plan](plans/rebuild.md)
     Note: Added by the owner's answer to D073 (on P4-N032), 2026-11-17: the batch also carries a request to methodology-tools for a way to exempt methodology text that a document quotes verbatim (RU-015) from mtool links check, so the tool can exit zero over this tree. Evidence: the 8 findings P4-N032 dispositioned. Add it as a criterion to the node's list in docs/plans/rebuild.md in the same pull request.

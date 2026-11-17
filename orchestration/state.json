@@ -938,7 +938,10 @@
       "stage": "verifying",
       "parent": "P4-N008",
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "gated",
+        "reason": "the owner reviews the proposals (RU-005)"
+      },
       "start": "auto",
       "docs": {
         "plan": "docs/plans/rebuild.md",
