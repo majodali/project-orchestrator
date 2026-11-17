@@ -15,6 +15,7 @@ Open decisions:
 - D086 on View that updates itself and leads with what matters (P2-N028): Should the view notify the owner outside its browser tab when something new waits on the owner? Default: no, the tab's title count only, and the orchestrator's report is the notice; decide again after the trial of criterion 19
 - D087 on Decision script and settings of the orchestrator (P2-N030): The decision script holds a verification back while another node has an open execute or planning task on the same plan document (specification S4, as written). S4's own reason, that a reviewer edits nothing, would let the verification start. Every P4 node links docs/plans/rebuild.md, so a verification there waits for any execute task on the line. Should a verify start be exempt from the shared-document rule? Default: exempt a verify start; P2-N031's task changes lib/orchestrate.ts and its test
 - D088 on Orchestrator role and its watcher (P2-N031): A report of open decisions has the key `report:<node>:<condition>:<reason>` (specification S1), so a new decision on a node already reported changes no key and does not wake the watcher (T159's finding). Adding the decisions' identifiers to the keys of `decision` and `asks` reports changes S1 and two expected keys in test/orchestrate.test.ts, which the plan does not name. Pull request 67 leaves the keys as they are; its acted file covers the case where the first decision is answered before the next is asked. Change the keys? Default: yes, in a new node after P2-N031, which also carries D087's change to lib/orchestrate.ts if the owner chooses it
+- D089 on Orchestrator role and its watcher (P2-N031): T161 found four places where .claude/agents/orchestrator.md leaves a cold session to guess: (1) it never says to give the background watcher the two-hour limit, and the default is 30 minutes, after which the command is stopped with no output, a case the role does not cover; (2) it does not say how the session learns its own identifier for --self; (3) it says both to tell results at each wake and to say nothing more at the time-limit wake; (4) it lists archive_session and never uses it. Fix these before P2-N033's trial? Default: yes, in a new node that P2-N033 waits for (the same node as D088's change, if the owner chooses that)
 
 Gated nodes:
 
@@ -29,7 +30,7 @@ Gated nodes:
 
 ## In flight
 
-- Verification of Orchestrator role and its watcher (P2-N035) [specified] — T161
+None.
 
 ## In progress, children carry the work
 
@@ -37,14 +38,13 @@ Gated nodes:
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
-- Orchestrator role and its watcher (P2-N031) [verifying]
 
 ## Waiting on a dependency
 
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
-- Orchestrator trial with its measured cost (P2-N033) [specified] — after Orchestrator role and its watcher (P2-N031), Service repository enlisted for delegated sessions (P2-N032), One branch for each pull request (P4-N038)
+- Orchestrator trial with its measured cost (P2-N033) [specified] — after Service repository enlisted for delegated sessions (P2-N032), One branch for each pull request (P4-N038)
 
 ## Blocked
 
@@ -347,20 +347,17 @@ Documents: [plan](plans/orchestration-service.md).
     A script prints the sessions to start and the reports to give as JSON, from the state file, the journal, the settings, the agent files and a session snapshot, and one session per role was started from its output.
     [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 1 open decision
     Note: Slice 1 of the plan (Children). Criteria 1 to 6, 8, 19 and 20 of the specification.
-  - **Orchestrator role and its watcher** (P2-N031, verifying)
+  - **Orchestrator role and its watcher** (P2-N031, done 2026-11-17)
     A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.
-    after P2-N030 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 1 open decision
+    after P2-N030 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 2 open decisions
     Note: Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates.
-    - check: **Verification of Orchestrator role and its watcher** (P2-N035, specified)
-      P2-N031 is verified against its outcome.
-      [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
   - **Service repository enlisted for delegated sessions** (P2-N032, specified)
     A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
     after P2-N030 · [spec](specs/orchestrator-session.md)
     Note: Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script.
   - **Orchestrator trial with its measured cost** (P2-N033, specified)
     A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.
-    after P2-N031, P2-N032, P4-N038 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    after P2-N032, P4-N038 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 4 of the plan (Children). Criteria 14 to 18. Its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027.
 - **View that updates itself and leads with what matters** (P2-N028, planned)
   The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.

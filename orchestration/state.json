@@ -1719,7 +1719,7 @@
       "kind": "work",
       "title": "Orchestrator role and its watcher",
       "outcome": "A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N027",
       "after": [
         "P2-N030"
@@ -1730,7 +1730,7 @@
         "plan": "docs/plans/orchestrator-session.md",
         "spec": "docs/specs/orchestrator-session.md"
       },
-      "done": null,
+      "done": "2026-11-17",
       "note": "Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates."
     },
     {
@@ -1738,7 +1738,7 @@
       "kind": "check",
       "title": "Verification of Orchestrator role and its watcher",
       "outcome": "P2-N031 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N031",
       "after": [],
       "hold": null,
@@ -1747,7 +1747,7 @@
         "plan": "docs/plans/orchestrator-session.md",
         "spec": "docs/specs/orchestrator-session.md"
       },
-      "done": null,
+      "done": "2026-11-17",
       "note": null
     },
     {
@@ -4842,7 +4842,7 @@
       "id": "T161",
       "node": "P2-N035",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": null,
       "tokens": {
@@ -4850,11 +4850,11 @@
         "out": null
       },
       "opened": "2026-11-17T23:02:57Z",
-      "closed": null,
+      "closed": "2026-11-17T23:09:18Z",
       "base": "e84c7a14418193c5f7d6558f7c5ffd6b85acf855",
       "ref": null,
-      "pr": null,
-      "summary": "Verify P2-N031 (task T160, pull request 67) against its criteria in docs/plans/orchestrator-session.md: the Orchestrator role agent and plan_watch.ts. Delegated by session_015Vm2MuBeQZve9M2xraAqcj.",
+      "pr": "majodali/project-orchestrator#67",
+      "summary": "Criteria 7 and 9 to 12 met at 6a86004. npm test (215), check, lint, format, sync_agents --check and CI pass. Watcher run by hand: waits, exits on an added key only. Seven readings supported. Findings: role never sets the background limit, so the watcher is stopped at 30 minutes without output; three smaller guesses. Pull request 63 conflicts in how-we-work.md.",
       "notes": null
     }
   ],
@@ -5785,6 +5785,21 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T160 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D089",
+      "node": "P2-N031",
+      "question": "T161 found four places where .claude/agents/orchestrator.md leaves a cold session to guess: (1) it never says to give the background watcher the two-hour limit, and the default is 30 minutes, after which the command is stopped with no output, a case the role does not cover; (2) it does not say how the session learns its own identifier for --self; (3) it says both to tell results at each wake and to say nothing more at the time-limit wake; (4) it lists archive_session and never uses it. Fix these before P2-N033's trial?",
+      "options": [
+        "yes, in a new node that P2-N033 waits for (the same node as D088's change, if the owner chooses that)",
+        "no, let P2-N033's trial find them"
+      ],
+      "default": "yes, in a new node that P2-N033 waits for (the same node as D088's change, if the owner chooses that)",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T161 at close.",
       "standing": false,
       "source": null
     }
