@@ -130,7 +130,7 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
     [spec](specs/p3-n003-common-risk-catalogue.md)
   - **Catalogue sweep and omission list** (P3-N011, done 2026-10-31)
     Every candidate in the five sources that criterion B1 (one recorded pass per source) names is dispositioned on the record.
-    after P3-N010 · [plan](plans/p3-n011-sweep-and-omission-list.md), [spec](specs/p3-n003-common-risk-catalogue.md)
+    after P3-N010 · [spec](specs/p3-n003-common-risk-catalogue.md)
     Note: depends on P3-N010
   - **Article 8 amendment proposal** (P3-N012, identified)
     after P3-N011

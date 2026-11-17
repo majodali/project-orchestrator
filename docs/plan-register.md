@@ -29,7 +29,7 @@ Dependencies are in the state file, not in sibling order.
     - P3-N009 [identified] Replacement of sibling ordering by recorded dependencies
   - P3-N003 [broken-down] Common risk catalogue — plan: plans/p3-n003-common-risk-catalogue.md · spec: specs/p3-n003-common-risk-catalogue.md
     - P3-N010 [done] First risk class end to end — spec: specs/p3-n003-common-risk-catalogue.md
-    - P3-N011 [done] Catalogue sweep and omission list — plan: plans/p3-n011-sweep-and-omission-list.md · spec: specs/p3-n003-common-risk-catalogue.md
+    - P3-N011 [done] Catalogue sweep and omission list — spec: specs/p3-n003-common-risk-catalogue.md
     - P3-N012 [identified] Article 8 amendment proposal
   - P3-N004 [identified] Reversibility and its measurement
   - P3-N005 [broken-down] Sequence mode — plan: plans/p3-n005-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md

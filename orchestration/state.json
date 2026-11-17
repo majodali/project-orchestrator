@@ -418,7 +418,7 @@
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": "docs/plans/p3-n011-sweep-and-omission-list.md",
+        "plan": null,
         "spec": "docs/specs/p3-n003-common-risk-catalogue.md"
       },
       "done": "2026-10-31",
@@ -4351,6 +4351,10 @@
         {
           "node": "P3-N010",
           "plan": "docs/archive/plans/p3-n010-one-class-end-to-end.md"
+        },
+        {
+          "node": "P3-N011",
+          "plan": "docs/archive/plans/p3-n011-sweep-and-omission-list.md"
         }
       ]
     }
