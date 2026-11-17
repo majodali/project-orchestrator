@@ -23,7 +23,7 @@ Open decisions:
 
 ## In flight
 
-None.
+- Verification of Linked plans and specs archived (P4-N040) [specified] — T147
 
 ## In progress, children carry the work
 
@@ -237,6 +237,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.
     after P4-N031, P4-N024 · [plan](plans/rebuild.md)
     Note: Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8.
+    - check: **Verification of Linked plans and specs archived** (P4-N040, specified)
+      P4-N032 is verified against its outcome.
+      [plan](plans/rebuild.md)
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
   [plan](plans/rebuild.md)
