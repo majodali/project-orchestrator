@@ -36,6 +36,7 @@ Open decisions:
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
+- Orchestrator role and its watcher (P2-N031) [specified] — after Decision script and settings of the orchestrator (P2-N030)
 
 ## Blocked
 
@@ -338,6 +339,10 @@ Documents: [plan](plans/orchestration-service.md).
     A script prints the sessions to start and the reports to give as JSON, from the state file, the journal, the settings, the agent files and a session snapshot, and one session per role was started from its output.
     [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 1 of the plan (Children). Criteria 1 to 6, 8, 19 and 20 of the specification.
+  - **Orchestrator role and its watcher** (P2-N031, specified)
+    A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.
+    after P2-N030 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    Note: Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates.
 - **View that updates itself and leads with what matters** (P2-N028, identified)
   The view refreshes when the plan changes and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
   Note: The owner, 2026-11-16: the view is the best way to know that something waits on the owner, so it must update dynamically and show more useful information. The owner's earlier notes belong here too: the node page as a detail panel beside the tree, feedback after a click, and single-page behaviour. The view allows no script today; updating by itself needs one. From the P3 line, which stays held (the owner, 2026-11-17): the comprehension model (docs/specs/p3-n002-comprehension-model.md) describes each part of a project and what depends on it. The plan step decides what of it the view shows, such as what a node's work touches and what depends on that.
