@@ -90,3 +90,4 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Faster writes, a bounded journal and a deploy write test** (P2-N025) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Several projects and repositories in one instance** (P2-N026) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: identified, ready, starts automatically. Pointer: `orchestration/state.json`.
+- [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: identified, ready, starts automatically. Pointer: `orchestration/state.json`.

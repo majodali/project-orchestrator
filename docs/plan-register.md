@@ -83,3 +83,4 @@ Dependencies are in the state file, not in sibling order.
   - P2-N025 [identified] Faster writes, a bounded journal and a deploy write test
   - P2-N026 [identified] Several projects and repositories in one instance
   - P2-N027 [identified] Orchestrator session that keeps work moving
+  - P2-N028 [identified] View that updates itself and leads with what matters

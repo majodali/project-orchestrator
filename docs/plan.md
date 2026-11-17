@@ -16,6 +16,7 @@ Nothing.
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
 - Document paths changed through the service (P4-N031) [specified]
 - Orchestrator session that keeps work moving (P2-N027) [identified]
+- View that updates itself and leads with what matters (P2-N028) [identified]
 
 ## In flight
 
@@ -321,6 +322,9 @@ Documents: [plan](plans/orchestration-service.md).
 - **Orchestrator session that keeps work moving** (P2-N027, identified)
   One long-lived session starts a session for each offered task on its role's model and messages running ones, so offered work proceeds without the owner starting or prompting sessions.
   Note: The owner, 2026-11-16: work should always continue wherever possible. Of three ways (the service starts sessions, enlisted sessions take their next task, an orchestrator session that starts sessions and messages existing ones) the owner prefers the last, and it could be made configurable. Open for the plan step: where the model per role is recorded, how many sessions run at once, and what wakes the orchestrator session.
+- **View that updates itself and leads with what matters** (P2-N028, identified)
+  The view refreshes when the plan changes and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
+  Note: The owner, 2026-11-16: the view is the best way to know that something waits on the owner, so it must update dynamically and show more useful information. The owner's earlier notes belong here too: the node page as a detail panel beside the tree, feedback after a click, and single-page behaviour. The view allows no script today; updating by itself needs one.
 
 ## Decisions taken
 
