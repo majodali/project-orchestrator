@@ -4571,14 +4571,14 @@
         "cacheRead": 1866768,
         "cacheWrite": 69021
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T22:11:38Z",
       "closed": "2026-11-17T22:15:20Z",
       "base": "1bcf97ab04fee1cd7497a92d395727aedc5ba4f3",
       "ref": null,
       "pr": "majodali/project-orchestrator#63",
       "summary": "Criteria 1 and 2 met: the process page, CLAUDE.md and three agents state the branch rule and the start on main. Criterion 3 unmet: merged branches are gone here since pull request 57, cause unconfirmed, service repository unseen. Criterion 4 unmet: one delegated task cannot run two in a row.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
@@ -5399,8 +5399,8 @@
         "The service deletes the head branch at merge: add a node for the change in the service repository"
       ],
       "default": "The owner turns the setting on in both repositories (or confirms it is on); the service is not changed",
-      "chosen": null,
-      "decided": null,
+      "chosen": "The owner turns the setting on in both repositories (or confirms it is on); the service is not changed",
+      "decided": "2026-11-17",
       "rationale": "Asked by T153 at close.",
       "standing": false,
       "source": null
