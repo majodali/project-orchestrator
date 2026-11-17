@@ -94,5 +94,6 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: broken-down, in flight. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Decision script and settings of the orchestrator** (P2-N030) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Orchestrator role and its watcher** (P2-N031) — When: after P2-N030. Status: specified, waiting on a dependency. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
+- [ ] **Service repository enlisted for delegated sessions** (P2-N032) — When: after P2-N030. Status: specified, waiting on a dependency. Pointer: [spec](specs/orchestrator-session.md).
 - [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: identified, ready, starts automatically. Pointer: `orchestration/state.json`.
 - [ ] **Rework cost measured against the reviews it replaces** (P2-N029) — When: not dated. Status: identified, ready, starts automatically. Pointer: `orchestration/state.json`.

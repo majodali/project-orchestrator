@@ -1717,6 +1717,25 @@
       "note": "Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates."
     },
     {
+      "id": "P2-N032",
+      "kind": "work",
+      "title": "Service repository enlisted for delegated sessions",
+      "outcome": "A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.",
+      "stage": "specified",
+      "parent": "P2-N027",
+      "after": [
+        "P2-N030"
+      ],
+      "hold": null,
+      "start": "approve",
+      "docs": {
+        "plan": null,
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": null,
+      "note": "Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script."
+    },
+    {
       "id": "P2-N028",
       "kind": "work",
       "title": "View that updates itself and leads with what matters",
