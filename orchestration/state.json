@@ -5216,8 +5216,8 @@
         "a figure the owner names"
       ],
       "default": "no limit until the trial records a week's figure",
-      "chosen": null,
-      "decided": null,
+      "chosen": "no limit until the trial records a week's figure",
+      "decided": "2026-11-17",
       "rationale": "Asked by T148 at close.",
       "standing": false,
       "source": null
