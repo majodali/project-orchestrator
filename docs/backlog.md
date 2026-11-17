@@ -27,7 +27,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Process specification maintenance** (P1-N016) — When: 2026-11-05. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Thin end-to-end slice of the model** (P3-N006) — When: 2026-10-30. Status: done. Pointer: [spec](specs/p3-n002-comprehension-model.md).
 - [x] **Project model type and K-003 amendment draft** (P3-N007) — When: 2026-10-31. Status: done. Pointer: [spec](specs/p3-n002-comprehension-model.md).
-- [x] **First risk class end to end** (P3-N010) — When: 2026-10-30. Status: done. Pointer: [plan](plans/p3-n010-one-class-end-to-end.md), [spec](specs/p3-n003-common-risk-catalogue.md).
+- [x] **First risk class end to end** (P3-N010) — When: 2026-10-30. Status: done. Pointer: [spec](specs/p3-n003-common-risk-catalogue.md).
 - [x] **Catalogue sweep and omission list** (P3-N011) — When: 2026-10-31. Status: done. Pointer: [plan](plans/p3-n011-sweep-and-omission-list.md), [spec](specs/p3-n003-common-risk-catalogue.md).
 - [x] **Decidable stop conditions** (P3-N013) — When: 2026-10-30. Status: done. Pointer: [plan](plans/p3-n013-stop-conditions-decidable.md), [spec](specs/p3-n005-sequence-mode.md).
 - [x] **Sequence mode in the dispatch loop** (P3-N014) — When: 2026-10-30. Status: done. Pointer: [plan](plans/p3-n014-loop-runs-sequence-mode.md), [spec](specs/p3-n005-sequence-mode.md).

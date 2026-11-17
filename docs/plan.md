@@ -127,7 +127,7 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
   Note: Chunk 2 of the parent plan; independent of P3-N002 (RU-018)
   - **First risk class end to end** (P3-N010, done 2026-10-30)
     The catalogue exists with one entry.
-    [plan](plans/p3-n010-one-class-end-to-end.md), [spec](specs/p3-n003-common-risk-catalogue.md)
+    [spec](specs/p3-n003-common-risk-catalogue.md)
   - **Catalogue sweep and omission list** (P3-N011, done 2026-10-31)
     Every candidate in the five sources that criterion B1 (one recorded pass per source) names is dispositioned on the record.
     after P3-N010 · [plan](plans/p3-n011-sweep-and-omission-list.md), [spec](specs/p3-n003-common-risk-catalogue.md)

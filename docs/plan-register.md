@@ -28,7 +28,7 @@ Dependencies are in the state file, not in sibling order.
     - P3-N008 [planned] [gated: owner review of the plan] Project model instance for this repository — plan: plans/p3-n008-instance-over-this-repository.md · spec: specs/p3-n002-comprehension-model.md
     - P3-N009 [identified] Replacement of sibling ordering by recorded dependencies
   - P3-N003 [broken-down] Common risk catalogue — plan: plans/p3-n003-common-risk-catalogue.md · spec: specs/p3-n003-common-risk-catalogue.md
-    - P3-N010 [done] First risk class end to end — plan: plans/p3-n010-one-class-end-to-end.md · spec: specs/p3-n003-common-risk-catalogue.md
+    - P3-N010 [done] First risk class end to end — spec: specs/p3-n003-common-risk-catalogue.md
     - P3-N011 [done] Catalogue sweep and omission list — plan: plans/p3-n011-sweep-and-omission-list.md · spec: specs/p3-n003-common-risk-catalogue.md
     - P3-N012 [identified] Article 8 amendment proposal
   - P3-N004 [identified] Reversibility and its measurement
