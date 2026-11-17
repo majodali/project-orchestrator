@@ -5109,8 +5109,10 @@
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 48,
+        "out": 14220,
+        "cacheRead": 2667172,
+        "cacheWrite": 72783
       },
       "opened": "2026-11-17T23:39:06Z",
       "closed": "2026-11-17T23:43:18Z",
@@ -5118,7 +5120,8 @@
       "ref": "e863c53cc9d99424eeffc70abe7612c13a6d5ff3",
       "pr": null,
       "summary": "All four criteria met. Both remotes hold only main and open pull requests' branches. Branch t153-p4-n038-one-branch is its own, mergeable, CI green; npm test, check, lint, format and sync_agents --check pass. Finding: the archive record's two new sections sit inside Milestones, so M6 child 5 nests under them.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T167",
