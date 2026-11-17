@@ -4517,10 +4517,12 @@
       "step": "verify",
       "status": "blocked",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-fable-5-2",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 43,
+        "out": 21616,
+        "cacheRead": 3321503,
+        "cacheWrite": 123676
       },
       "opened": "2026-11-17T22:05:12Z",
       "closed": "2026-11-17T22:09:43Z",
@@ -4528,7 +4530,8 @@
       "ref": null,
       "pr": null,
       "summary": "Not met. Criterion 2: Backlog at b1c8b9f has 79 rows in 95 lines, not 95 rows (proposal two L214, IR C31, E9; proposal one IR E10). Criterion 4: proposal one IR C38 says \"or artifact\"; prose says \"or custom artifact types\". Criterion 6: K-012 makes the declaration name the check; this Classification does not. Also: methodology PR 73 merged 2026-10-31.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
