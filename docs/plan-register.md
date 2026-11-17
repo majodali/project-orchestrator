@@ -55,7 +55,7 @@ Dependencies are in the state file, not in sibling order.
     - P4-N025 [done] README and generated Backlog — plan: plans/rebuild.md
     - P4-N026 [specified] Upstream proposals batch — plan: plans/rebuild.md
     - P4-N027 [specified] Pilot enlistment of methodology-tools — plan: plans/rebuild.md
-    - P4-N031 [verifying] Document paths changed through the service — plan: plans/rebuild.md
+    - P4-N031 [done] Document paths changed through the service — plan: plans/rebuild.md
     - P4-N032 [specified] Linked plans and specs archived — plan: plans/rebuild.md
   - P4-N010 [done] Task cost capture — plan: plans/rebuild.md
   - P4-N012 [done] Task required for session writes — plan: plans/rebuild.md

@@ -972,7 +972,7 @@
       "kind": "work",
       "title": "Document paths changed through the service",
       "outcome": "A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N008",
       "after": [],
       "hold": null,
@@ -981,7 +981,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-17",
       "note": "Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7."
     },
     {
@@ -989,7 +989,7 @@
       "kind": "check",
       "title": "Verification of Document paths changed through the service",
       "outcome": "P4-N031 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N031",
       "after": [],
       "hold": null,
@@ -998,7 +998,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-17",
       "note": null
     },
     {
@@ -4251,7 +4251,7 @@
       "id": "T145",
       "node": "P4-N039",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": null,
       "tokens": {
@@ -4259,11 +4259,11 @@
         "out": null
       },
       "opened": "2026-11-17T20:48:36Z",
-      "closed": null,
+      "closed": "2026-11-17T20:50:59Z",
       "base": "df4d0a67ae05d6ca3a66e1ddd3473b625cde4bab",
       "ref": null,
       "pr": null,
-      "summary": "Verify P4-N031 (task T144) against the criteria under \"7. Document paths changed through the service\" in docs/plans/rebuild.md: pull request majodali/project-orchestrator#58 and the service's part merged at 6f2b9f7.",
+      "summary": "All five criteria of P4-N031 met. Service at 6f2b9f7: 249 tests pass, test/documentPaths.test.ts moves a linked document through the stated order; deployed commit matches. Pull request 58: check green, plan-state check, tests, lint, format, sync_agents pass; link check reports the same 21 findings as main. One low finding: a vocabulary row outside the node.",
       "notes": null
     }
   ],
@@ -4938,6 +4938,21 @@
       "chosen": "yes, reword it in a later node",
       "decided": "2026-11-16",
       "rationale": "Asked by T143 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D072",
+      "node": "P4-N031",
+      "question": "Pull request 58 adds a 'delegation brief' row to docs/vocabulary.md, citing the owner's ratification in conversation on 2026-11-17. The row is outside P4-N031's criteria and the reviewer could not confirm the ratification. Keep the row?",
+      "options": [
+        "keep it",
+        "strike it in a later task"
+      ],
+      "default": "keep it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T145 at close.",
       "standing": false,
       "source": null
     }

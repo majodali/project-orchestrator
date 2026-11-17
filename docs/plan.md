@@ -8,12 +8,15 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Nothing.
+Open decisions:
+
+- D072 on Document paths changed through the service (P4-N031): Pull request 58 adds a 'delegation brief' row to docs/vocabulary.md, citing the owner's ratification in conversation on 2026-11-17. The row is outside P4-N031's criteria and the reviewer could not confirm the ratification. Keep the row? Default: keep it
 
 ## Ready, starting automatically when the loop runs
 
 - Upstream proposals batch (P4-N026) [specified]
 - Pilot enlistment of methodology-tools (P4-N027) [specified]
+- Linked plans and specs archived (P4-N032) [specified]
 - One branch for each pull request (P4-N038) [specified]
 - Orchestrator session that keeps work moving (P2-N027) [identified]
 - View that updates itself and leads with what matters (P2-N028) [identified]
@@ -21,18 +24,16 @@ Nothing.
 
 ## In flight
 
-- Verification of Document paths changed through the service (P4-N039) [specified] — T145
+None.
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
-- Document paths changed through the service (P4-N031) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 
 ## Waiting on a dependency
 
-- Linked plans and specs archived (P4-N032) [specified] — after Document paths changed through the service (P4-N031)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
@@ -233,16 +234,13 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
     after P4-N022, P4-N024 · [plan](plans/rebuild.md)
     Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
-  - **Document paths changed through the service** (P4-N031, verifying)
+  - **Document paths changed through the service** (P4-N031, done 2026-11-17)
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
-    [plan](plans/rebuild.md)
+    [plan](plans/rebuild.md) · 1 open decision
     Note: Split from P4-N024 by the owner, 2026-11-15. Writes to majodali/project-orchestrator-service (standing, RU-016). Criteria: docs/plans/rebuild.md, child 7.
-    - check: **Verification of Document paths changed through the service** (P4-N039, specified)
-      P4-N031 is verified against its outcome.
-      [plan](plans/rebuild.md)
   - **Linked plans and specs archived** (P4-N032, specified)
     The superseded plans and specs the state file links are in docs/archive/ with a status line each, the state file names their new paths, and the word count and the 300-line bound are measured.
-    after P4-N031 · [plan](plans/rebuild.md)
+    after P4-N031, P4-N024 · [plan](plans/rebuild.md)
     Note: Split from P4-N024 by the owner, 2026-11-15: it carries the three criteria P4-N024 could not meet. Criteria: docs/plans/rebuild.md, child 8.
 - **Task cost capture** (P4-N010, done 2026-11-11)
   A task's tokens by type and its model are measured and recorded when the task closes, without the session estimating them.
