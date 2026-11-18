@@ -5558,10 +5558,12 @@
       "step": "verify",
       "status": "blocked",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 62,
+        "out": 27461,
+        "cacheRead": 4015602,
+        "cacheWrite": 98073
       },
       "opened": "2026-11-18T15:33:12Z",
       "closed": "2026-11-18T15:42:30Z",
@@ -5569,7 +5571,8 @@
       "ref": null,
       "pr": null,
       "summary": "Criterion 13 not met: its record clause. docs/plans/orchestrator-session-record.md, which says each trial a criterion asks for is recorded there, has no P2-N032 section; only T179's close summary and the journal carry the trial, and neither states the source_url or the --check result. All other clauses met; S7's result is present; #71 is sound.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T181",
