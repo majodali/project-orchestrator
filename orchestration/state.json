@@ -5229,14 +5229,14 @@
         "cacheRead": 10163293,
         "cacheWrite": 205666
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T23:43:14Z",
       "closed": "2026-11-17T23:55:32Z",
       "base": "d5b9eec39714a5a3c6a19cc9f88e6ba2e53776b0",
       "ref": null,
       "pr": "majodali/project-orchestrator#72",
       "summary": "Four children cut by repository and by who can act: P4-N044 (Backlog reader in the importer), P4-N045 (import into methodology-tools), P4-N046 (second instance on the deploy path), P4-N047 (enlistment and trial). Two findings force that chain: the importer needs a Plan register; the smoke test's plan_read needs the state file. Owner actions O1-O4 named in the plan.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
@@ -6193,8 +6193,8 @@
         "no, keep the keys of S1 and take criterion 1 out"
       ],
       "default": "yes, change the constant ASKS_KEY to the new key in pull request 69",
-      "chosen": null,
-      "decided": null,
+      "chosen": "yes, change the constant ASKS_KEY to the new key in pull request 69",
+      "decided": "2026-11-18",
       "rationale": "Asked by T164 at close.",
       "standing": false,
       "source": null
