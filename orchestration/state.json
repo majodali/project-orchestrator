@@ -1023,7 +1023,7 @@
       "kind": "work",
       "title": "State directory created by the importer",
       "outcome": "`plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N027",
       "after": [],
       "hold": null,
@@ -1034,6 +1034,23 @@
       },
       "done": null,
       "note": "Child 5 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 5 (the parent's plan document; this node links none of its own, as children 1 to 4 do not). Specified on that list by T181, which added no document: the seven criteria are at the depth the work needs. Found by the reviewer of P4-N044 (T174) and raised by T175 as D097; D099 made P4-N045 wait for this node and D100 kept start: auto. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys, and to this repository for the pin. Observed by T181 at service commit b93c139, over a temporary repository holding only docs/backlog.md: the import throws ENOENT on orchestration/state.json at src/model/cli.ts:149 and exits 1 with a stack trace, so criterion 1's \"exits on the import's own result\" means the import reports instead of throwing. src/model/cli.ts self-executes (process.exit(main(...)) at module scope), so a test drives it as a subprocess; `npx tsx src/model/cli.ts import --repo <tmp> --project <owner/name> --write` works, and --project is needed because a temporary repository has no git remote."
+    },
+    {
+      "id": "P4-N052",
+      "kind": "check",
+      "title": "Verification of State directory created by the importer",
+      "outcome": "P4-N049 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N049",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P4-N045",
@@ -5741,7 +5758,7 @@
       "id": "T187",
       "node": "P4-N049",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -5749,11 +5766,11 @@
         "out": null
       },
       "opened": "2026-11-18T16:25:57Z",
-      "closed": null,
+      "closed": "2026-11-18T16:36:04Z",
       "base": "57ce17928cea6f254ab4e19c7e5f320e96d538a8",
-      "ref": null,
-      "pr": null,
-      "summary": "Move the project-orchestrator-service pin to the T183 merge commit (24639d8, the ENOENT fix for plan-state import --write) and keep npm run check green.",
+      "ref": "3d59fe2eedd79fa7c5ae16c8a69064ebc0ad7d60",
+      "pr": "majodali/project-orchestrator#78",
+      "summary": "Pinned project-orchestrator-service to 24639d8 (deployed, confirmed via service_identity); npm ci/check/test/lint/format all pass. The canonical-format warning is unchanged by the pin, unrelated. PR #78. Read the service at that commit: section 5's other criteria look met; did not re-run the service's own suite, relying on T183's report and PR #48's green CI.",
       "notes": null
     },
     {
@@ -5769,14 +5786,14 @@
         "cacheRead": 3460741,
         "cacheWrite": 19255
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T16:28:05Z",
       "closed": "2026-11-18T16:29:51Z",
       "base": "59fdda481d44127bd090751dabdcc494a9d95eae",
       "ref": null,
       "pr": null,
       "summary": "No file changed, so no pull request: docs/plans/rebuild.md is at 295 of its 300 lines, so four criteria are in the node's note instead, and the ask settles where the plan lives. Checked the rest: only README item 3 states the rule; the service repository states no hook rule, at its commit 24639d8.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
