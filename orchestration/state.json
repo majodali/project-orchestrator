@@ -1865,7 +1865,7 @@
       "kind": "work",
       "title": "Orchestrator fixes before its trial",
       "outcome": "A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N027",
       "after": [
         "P2-N031"
@@ -1878,6 +1878,23 @@
       },
       "done": null,
       "note": "Added on the owner's answers of 2026-11-17 to D087 (on P2-N030), D088 and D089 (on P2-N031), which each name this node. Criteria: (1) D088: the keys of `decision` and `asks` reports carry the decisions' identifiers, so a second decision on a node changes a key; specification S1 and the two expected keys in test/orchestrate.test.ts follow, which the owner's answer to D088 allows. (2) D087: a verify start is exempt from the shared-document rule of S4, in lib/orchestrate.ts and its test, and S4 says so. (3) D089, in .claude/agents/orchestrator.md, still at most 120 lines: it tells the session to give the background watcher the two-hour limit and what to do if the watcher is stopped with no output; how the session learns its own identifier for --self; one rule for what it tells the owner at a wake, the time-limit wake included; and archive_session is used or dropped. (4) T159's other finding is settled: the status bucket that never says archived. (5) plugin/agents/ is regenerated and the checks pass."
+    },
+    {
+      "id": "P2-N043",
+      "kind": "check",
+      "title": "Verification of Orchestrator fixes before its trial",
+      "outcome": "P2-N036 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N036",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/orchestrator-session.md",
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N033",
@@ -5242,7 +5259,7 @@
       "id": "T169",
       "node": "P2-N036",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": "claude-fable-5-2",
       "tokens": {
@@ -5250,11 +5267,11 @@
         "out": null
       },
       "opened": "2026-11-18T00:04:22Z",
-      "closed": null,
+      "closed": "2026-11-18T00:06:19Z",
       "base": "582b70da65b48256d8429cf36b73bbc6ff2b2d9a",
-      "ref": null,
-      "pr": null,
-      "summary": "Continue P2-N036 on pull request 69 after D090: change the constant ASKS_KEY in test/plan-watch.test.ts, merge main, re-run every check.",
+      "ref": "f6870e9c8da760fb50e106350f9a4d5a29d11729",
+      "pr": "majodali/project-orchestrator#69",
+      "summary": "All five criteria met at f6870e9. Under D090 the constant ASKS_KEY in test/plan-watch.test.ts follows the new key, nothing else in it changed. main merged, no conflict. npm test 218 pass; check, lint, format and sync_agents --check pass. orchestrator.md 119 lines. mtool not run; no session has followed the changed role yet.",
       "notes": null
     }
   ],
