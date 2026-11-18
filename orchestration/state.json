@@ -5842,10 +5842,12 @@
       "step": "specify",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 16,
+        "out": 3966,
+        "cacheRead": 1898798,
+        "cacheWrite": 209191
       },
       "opened": "2026-11-18T19:44:58Z",
       "closed": "2026-11-18T19:45:30Z",
@@ -5853,7 +5855,8 @@
       "ref": null,
       "pr": null,
       "summary": "No file changed, so no pull request, as D105 settled: the note now records that this node's plan needs no file and carries the four criteria as both plan and specification. They are enough to execute from. Nothing else in the note changed, and the criteria are untouched.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
