@@ -5222,8 +5222,10 @@
       "role": "implementer",
       "model": "claude-sonnet-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 104,
+        "out": 59444,
+        "cacheRead": 9395752,
+        "cacheWrite": 314230
       },
       "opened": "2026-11-17T23:41:52Z",
       "closed": "2026-11-18T03:59:08Z",
@@ -5231,7 +5233,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#71",
       "summary": "Added plugin/scripts/vendor_cost_hook.ts (RU-012 generator, --check mode), PR #71. A helper session vendored its two files into project-orchestrator-service via PR #45 (not touching settings/mcp, already correct there by the owner's own commits); verified byte-for-byte with this generator's --check and that repo's own lint/format/test/build. Criterion 13's trial needs a session started there after both pull requests merge.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T168",
