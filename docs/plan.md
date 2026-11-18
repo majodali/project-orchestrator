@@ -8,10 +8,13 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Nothing.
+Open decisions:
+
+- D106 on State directory created by the importer (P4-N049): `npm run check` in this repository reports `WARNING invariant 1 orchestration/state.json is not in the canonical format; rewrite it with plan-state render --write`. It is not caused by P4-N049's pin move: I ran the check at #78's head (pin 24639d8) and at its merge base (pin b93c139) over the byte-identical state file and got the same single warning. The whole difference is one key's position in task T188's record: `costSource` sits after `notes`, where `formatState` puts it directly after `tokens`. The state file is one of the five files only the service writes, so no session can correct it. Leave it to the service, or give it a node? Default: leave it: the next service write that rewrites T188's record clears it, and the warning is cosmetic and does not fail the check
 
 ## Ready, starting automatically when the loop runs
 
+- methodology-tools' plan as a state file (P4-N045) [specified]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
@@ -19,7 +22,6 @@ Nothing.
 
 ## In flight
 
-- Verification of State directory created by the importer (P4-N052) [specified] — T190
 - Plan rendering that survives a decision on a hidden check node (P4-N050) [executing] — T189
 - Verification of README enlistment item matching the conditional hook rule (P4-N053) [specified] — T193
 
@@ -28,7 +30,6 @@ Nothing.
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Pilot enlistment of methodology-tools (P4-N027) [broken-down]
-- State directory created by the importer (P4-N049) [verifying]
 - README enlistment item matching the conditional hook rule (P4-N051) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
@@ -36,7 +37,6 @@ Nothing.
 
 ## Waiting on a dependency
 
-- methodology-tools' plan as a state file (P4-N045) [specified] — after State directory created by the importer (P4-N049)
 - Second instance on the deploy path (P4-N046) [specified] — after methodology-tools' plan as a state file (P4-N045)
 - The pilot's first task through its own instance (P4-N047) [specified] — after Second instance on the deploy path (P4-N046)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
@@ -248,14 +248,13 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     - **Backlog reader in the state importer** (P4-N044, done 2026-11-18)
       `plan-state import` builds a state file from a project's K-004 Backlog when that project has no Plan register, and its import record names every row it did not map and why.
       Note: Child 1 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 1 (the parent's plan document; this node links none of its own). Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, and to this repository for the pin. The importer requires docs/plan-register.md today and methodology-tools has none, which is why this child precedes the import.
-    - **State directory created by the importer** (P4-N049, verifying)
+    - **State directory created by the importer** (P4-N049, done 2026-11-18)
       `plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.
+      1 open decision
       Note: Child 5 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 5 (the parent's plan document; this node links none of its own, as children 1 to 4 do not). Specified on that list by T181, which added no document: the seven criteria are at the depth the work needs. Found by the reviewer of P4-N044 (T174) and raised by T175 as D097; D099 made P4-N045 wait for this node and D100 kept start: auto. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys, and to this repository for the pin. Observed by T181 at service commit b93c139, over a temporary repository holding only docs/backlog.md: the import throws ENOENT on orchestration/state.json at src/model/cli.ts:149 and exits 1 with a stack trace, so criterion 1's "exits on the import's own result" means the import reports instead of throwing. src/model/cli.ts self-executes (process.exit(main(...)) at module scope), so a test drives it as a subprocess; `npx tsx src/model/cli.ts import --repo <tmp> --project <owner/name> --write` works, and --project is needed because a temporary repository has no git remote.
-      - check: **Verification of State directory created by the importer** (P4-N052, specified)
-        P4-N049 is verified against its outcome.
     - **methodology-tools' plan as a state file** (P4-N045, specified)
       methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.
-      after P4-N049
+      after P4-N044, P4-N049
       Note: Child 2 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 2. Writes to majodali/methodology-tools, new to this project and granted by D065 for P4-N027 only, so it starts on approval; the owner adds that repository to the GitHub App's installation (O1) and merges there after reviewing the import record. Waits for P4-N044: the importer cannot read a Backlog until then.
     - **Second instance on the deploy path** (P4-N046, specified)
       Every merge in the service repository deploys, smoke-tests and promotes both instances from one template at one commit, and the runbook and the deploy role's record carry the second instance.
