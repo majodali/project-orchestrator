@@ -5697,6 +5697,25 @@
       "pr": null,
       "summary": "Criterion 13 met: the record now carries P2-N032's trial, and the owner's session is confirmed started with source_url majodali/project-orchestrator-service (get_session). S7's result is present; D101's amendment matches it. --check in sync against b93c139; checks pass at #71's head; no service-owned file or test touched. README item 3 is stale.",
       "notes": null
+    },
+    {
+      "id": "T186",
+      "node": "P4-N050",
+      "step": "specify",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T16:22:27Z",
+      "closed": null,
+      "base": "493c899f0353aedeadb27cef36eacffcd9c0afd6",
+      "ref": null,
+      "pr": null,
+      "summary": "Specify P4-N050 against the criteria list in docs/plans/rebuild.md, now that D104 keeps the view criterion in this node, closing on that list if it is enough to execute from.",
+      "notes": null
     }
   ],
   "decisions": [

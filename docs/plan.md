@@ -21,13 +21,12 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - State directory created by the importer (P4-N049) [executing]
-- Plan rendering that survives a decision on a hidden check node (P4-N050) [planned]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-None.
+- Plan rendering that survives a decision on a hidden check node (P4-N050) [planned] — T186
 
 ## In progress, children carry the work
 
