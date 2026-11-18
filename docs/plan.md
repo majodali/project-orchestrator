@@ -11,9 +11,11 @@ its stage and its outcome. The state file holds the rest.
 Open decisions:
 
 - D106 on State directory created by the importer (P4-N049): `npm run check` in this repository reports `WARNING invariant 1 orchestration/state.json is not in the canonical format; rewrite it with plan-state render --write`. It is not caused by P4-N049's pin move: I ran the check at #78's head (pin 24639d8) and at its merge base (pin b93c139) over the byte-identical state file and got the same single warning. The whole difference is one key's position in task T188's record: `costSource` sits after `notes`, where `formatState` puts it directly after `tokens`. The state file is one of the five files only the service writes, so no session can correct it. Leave it to the service, or give it a node? Default: leave it: the next service write that rewrites T188's record clears it, and the warning is cosmetic and does not fail the check
+- D107 on Plan rendering that survives a decision on a hidden check node (P4-N050): Merge majodali/project-orchestrator-service#49 (CI green, mergeable, not yet deployed)? Default: merge it
 
 ## Ready, starting automatically when the loop runs
 
+- Plan rendering that survives a decision on a hidden check node (P4-N050) [executing]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
@@ -22,7 +24,6 @@ Open decisions:
 ## In flight
 
 - methodology-tools' plan as a state file (P4-N045) [executing] — T194
-- Plan rendering that survives a decision on a hidden check node (P4-N050) [executing] — T189
 
 ## In progress, children carry the work
 
@@ -303,7 +304,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   Note: Added by the owner's answer to D079 (on P4-N026), 2026-11-17. It starts when majodali/methodology tags the release; until then nothing can be done. The owner carries the batch in the order D078 gives: proposals two and three first, then the release.
 - **Plan rendering that survives a decision on a hidden check node** (P4-N050, executing)
   A write that leaves an open decision on a hidden check node succeeds, and the decision is named where the owner reads it.
-  [plan](plans/rebuild.md)
+  [plan](plans/rebuild.md) · 1 open decision
   Note: Found on P2-N032, task T182: task_close failed with "Cannot read properties of undefined (reading 'title')" and committed nothing. Criteria: docs/plans/rebuild.md, the section named for this node; specified on that list by T186, which added no document. D104 kept the criterion on the view in this node. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows. Observed by T184 at service commit b93c139, by running the renderings over this repository's state file with one open decision added on a hidden check node: renderPlan throws because it builds its node map from shownNodes while decisionLine asserts the decision's node is in it; renderRegister and renderBacklog do not, mapping over the full state and rendering no decisions; renderPlan runs on every service write (src/model/store.ts) and in invariant 9 (src/model/check.ts), so while such a decision stands every write and plan-state check fail. A check node is hidden when it has no hold and no open task, which a rework close produces. The view's tree page does not throw: it keys open decisions by node and visits only shown nodes, so the page counts the decision and shows no row; the obvious route is to key a hidden check node's decision to the node it verifies, since the hidden node's own page already renders the decision with a working form, reached by its identifier in the URL. Test homes: test/modelRender.test.ts for the renderings, the tests over the task tools and the loop for the close path, and test/viewPages.test.ts, which drives pages through createApp with the helpers in test/support/states.ts.
 - **README enlistment item matching the conditional hook rule** (P4-N051, done 2026-11-18)
   README.md, Enlisting a repository, item 3 states the rule how-we-work.md states: the session start hook only where a repository carries its own state file, the cost hook in every enlisted repository.

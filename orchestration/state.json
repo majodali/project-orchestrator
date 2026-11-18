@@ -5819,7 +5819,7 @@
       "id": "T189",
       "node": "P4-N050",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -5827,11 +5827,11 @@
         "out": null
       },
       "opened": "2026-11-18T19:42:20Z",
-      "closed": null,
+      "closed": "2026-11-18T19:53:18Z",
       "base": "163b7cbf6a6b67ff446af0ca1e243f1d627185d4",
-      "ref": null,
-      "pr": null,
-      "summary": "Fix plan rendering so it survives an open decision on a hidden check node, per rebuild.md's P4-N050 section.",
+      "ref": "ba33308b38c881e3000c9175166208c87277301f",
+      "pr": "majodali/project-orchestrator-service#49",
+      "summary": "`renderPlan` built its node map from `shownNodes`, so a decision on a hidden check node crashed every write and `plan-state check`. `decisionLine` now looks the node up in the full state; the view keys such a decision to the node its check verifies. New tests in all three layers, failing pre-fix. Build, tests, lint, format clean; PR #49 CI green.",
       "notes": null
     },
     {
@@ -7138,6 +7138,21 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T190 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D107",
+      "node": "P4-N050",
+      "question": "Merge majodali/project-orchestrator-service#49 (CI green, mergeable, not yet deployed)?",
+      "options": [
+        "merge it",
+        "hold for further review"
+      ],
+      "default": "merge it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T189 at close.",
       "standing": false,
       "source": null
     }
