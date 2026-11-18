@@ -5679,10 +5679,12 @@
       "step": "verify",
       "status": "closed",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 26,
+        "out": 17412,
+        "cacheRead": 2295676,
+        "cacheWrite": 29762
       },
       "opened": "2026-11-18T15:54:34Z",
       "closed": "2026-11-18T15:59:06Z",
@@ -5690,7 +5692,8 @@
       "ref": null,
       "pr": null,
       "summary": "Criterion 13 met: the record now carries P2-N032's trial, and the owner's session is confirmed started with source_url majodali/project-orchestrator-service (get_session). S7's result is present; D101's amendment matches it. --check in sync against b93c139; checks pass at #71's head; no service-owned file or test touched. README item 3 is stale.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
