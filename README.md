@@ -73,9 +73,11 @@ service. Four things make that true:
 1. An instance of the service serves the repository, and the GitHub
    App is installed on it. Both are the owner's actions.
 2. `.mcp.json` at the repository root names the instance.
-3. `.claude/settings.json` enables the project's MCP servers and
-   registers the two hooks, `plugin/scripts/session_start.ts` and
-   `plugin/scripts/task_cost_hook.ts`.
+3. `.claude/settings.json` enables the project's MCP servers,
+   registers `plugin/scripts/task_cost_hook.ts` after `task_close`
+   in every enlisted repository, and registers
+   `plugin/scripts/session_start.ts` at session start only where
+   the repository carries its own `orchestration/state.json`.
 4. `MCP_AUTH_TOKEN` is set in the environment the session starts
    from. Its value is never committed.
 
