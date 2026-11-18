@@ -5567,6 +5567,25 @@
       "pr": null,
       "summary": "Verify P2-N032 (Service repository enlisted for delegated sessions) against criterion 13 and section S7 of docs/specs/orchestrator-session.md, and its outcome.",
       "notes": null
+    },
+    {
+      "id": "T181",
+      "node": "P4-N049",
+      "step": "specify",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T15:33:24Z",
+      "closed": null,
+      "base": "4383648b01ed9eaf7cac7ebd95d7c8ab2d34b35e",
+      "ref": null,
+      "pr": null,
+      "summary": "Specify P4-N049 against section 5 of the pilot's plan document, closing on that criteria list if it is enough to execute from.",
+      "notes": null
     }
   ],
   "decisions": [

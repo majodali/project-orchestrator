@@ -14,11 +14,11 @@ Open decisions:
 
 ## Ready, starting automatically when the loop runs
 
-- State directory created by the importer (P4-N049) [planned]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
+- State directory created by the importer (P4-N049) [planned] — T181
 - Verification of Service repository enlisted for delegated sessions (P2-N045) [specified] — T180
 
 ## In progress, children carry the work
