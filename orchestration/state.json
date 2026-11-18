@@ -6268,6 +6268,25 @@
       "pr": null,
       "summary": "Eleven criteria met; criterion 7's pin is child 5's merged commit (24639d8, P4-N049's ENOENT fix the import needed), not child 1's, so it is met in substance and its wording is superseded. Re-ran the import: state file and record byte-identical. check 0 violations, renderings identical, links clean, audit form's one finding is D112's.",
       "notes": null
+    },
+    {
+      "id": "T205",
+      "node": "P4-N057",
+      "step": "specify",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T23:50:39Z",
+      "closed": null,
+      "base": "2304cf6c2c63e564c3eb743246169a0c00f40408",
+      "ref": null,
+      "pr": null,
+      "summary": "Specify P4-N057 on the note's seven criteria, recording what D114 settled: this node's plan needs no file, and the note carries the plan and the specification.",
+      "notes": null
     }
   ],
   "decisions": [
