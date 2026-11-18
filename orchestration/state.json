@@ -5398,14 +5398,33 @@
         "cacheRead": 5069076,
         "cacheWrite": 98340
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T04:26:59Z",
       "closed": "2026-11-18T04:36:14Z",
       "base": "c9fbf18c19045703f3040a226419563cd8e0710c",
       "ref": null,
       "pr": null,
       "summary": "Verification failed. Criterion 1: the reader requires the em dash directly after the bolded lead, so 0 of 96 rows of this repository's service-rendered Backlog map and 45 of 272 archived rows. Criterion 5: two methodology-tools rows yielding title and outcome are excluded. Criterion 3: the record maps no row to its identifier. Criterion 7: gated by the ask.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
+    },
+    {
+      "id": "T175",
+      "node": "P4-N044",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T04:39:36Z",
+      "closed": null,
+      "base": "a93d57ae6214d162a6a79de6aae841f3b349e612",
+      "ref": null,
+      "pr": null,
+      "summary": "Rework after failed verification: loosen the K-004 shape to tolerate an annotation between the bolded lead and the em dash (matching this service's own renderBacklog output), add the row-to-identifier mapping to the import record, and fix the malformed-row test.",
+      "notes": null
     }
   ],
   "decisions": [
