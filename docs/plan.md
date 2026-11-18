@@ -17,7 +17,6 @@ Nothing.
 
 ## In flight
 
-- Backlog reader in the state importer (P4-N044) [executing] — T173
 - Service repository enlisted for delegated sessions (P2-N032) [broken-down] — T172
 
 ## In progress, children carry the work
@@ -25,6 +24,7 @@ Nothing.
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Pilot enlistment of methodology-tools (P4-N027) [broken-down]
+- Backlog reader in the state importer (P4-N044) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
@@ -243,7 +243,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
     after P4-N022, P4-N024 · [plan](plans/pilot-enlistment-methodology-tools.md)
     Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
-    - **Backlog reader in the state importer** (P4-N044, executing)
+    - **Backlog reader in the state importer** (P4-N044, verifying)
       `plan-state import` builds a state file from a project's K-004 Backlog when that project has no Plan register, and its import record names every row it did not map and why.
       Note: Child 1 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 1 (the parent's plan document; this node links none of its own). Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, and to this repository for the pin. The importer requires docs/plan-register.md today and methodology-tools has none, which is why this child precedes the import.
     - **methodology-tools' plan as a state file** (P4-N045, specified)
