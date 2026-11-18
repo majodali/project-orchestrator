@@ -5500,14 +5500,14 @@
         "cacheRead": 6633181,
         "cacheWrite": 86241
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T05:19:58Z",
       "closed": "2026-11-18T05:29:01Z",
       "base": "0c05f809a7c5a569b01c22c72ba8ac9e14d71ffa",
       "ref": null,
       "pr": "majodali/project-orchestrator#74",
       "summary": "Section 5 of the pilot's plan document carries this node: the fault in `plan-state import --write`, its scope in the service's src/model/cli.ts, and seven criteria. That list is the specification too, so specify closes on it. Two lines the state file contradicted are corrected. The document is 299 lines; `npm run check` is clean.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
@@ -6595,8 +6595,8 @@
         "P4-N045 runs first and its session creates the directory in its own pull request"
       ],
       "default": "P4-N045 waits for P4-N049: add P4-N049 to its after list, because P4-N045's criteria say the state file is the importer's output and the first arrival of orchestration/ there, and the fix is small",
-      "chosen": null,
-      "decided": null,
+      "chosen": "P4-N045 waits for P4-N049: add P4-N049 to its after list, because P4-N045's criteria say the state file is the importer's output and the first arrival of orchestration/ there, and the fix is small",
+      "decided": "2026-11-18",
       "rationale": "Asked by T178 at close.",
       "standing": false,
       "source": null
