@@ -72,7 +72,7 @@ Dependencies are in the state file, not in sibling order.
   - P4-N038 [done] One branch for each pull request — plan: plans/rebuild.md
   - P4-N042 [identified] [blocked: Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.] Pin migrated to the release with the K-003 amendment
   - P4-N050 [executing] Plan rendering that survives a decision on a hidden check node — plan: plans/rebuild.md
-  - P4-N051 [specified] README enlistment item matching the conditional hook rule
+  - P4-N051 [executing] README enlistment item matching the conditional hook rule
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
   - P2-N002 [done] Service skeleton and plan state — plan: archive/plans/p2-n002-service-skeleton.md · spec: archive/specs/p2-n002-service-skeleton.md
     - P2-N007 [done] Service repository bootstrap

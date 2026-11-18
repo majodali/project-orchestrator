@@ -12,7 +12,6 @@ Nothing.
 
 ## Ready, starting automatically when the loop runs
 
-- README enlistment item matching the conditional hook rule (P4-N051) [specified]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
@@ -22,6 +21,7 @@ Nothing.
 
 - Verification of State directory created by the importer (P4-N052) [specified] — T190
 - Plan rendering that survives a decision on a hidden check node (P4-N050) [executing] — T189
+- README enlistment item matching the conditional hook rule (P4-N051) [executing] — T192
 
 ## In progress, children carry the work
 
@@ -307,7 +307,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   A write that leaves an open decision on a hidden check node succeeds, and the decision is named where the owner reads it.
   [plan](plans/rebuild.md)
   Note: Found on P2-N032, task T182: task_close failed with "Cannot read properties of undefined (reading 'title')" and committed nothing. Criteria: docs/plans/rebuild.md, the section named for this node; specified on that list by T186, which added no document. D104 kept the criterion on the view in this node. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows. Observed by T184 at service commit b93c139, by running the renderings over this repository's state file with one open decision added on a hidden check node: renderPlan throws because it builds its node map from shownNodes while decisionLine asserts the decision's node is in it; renderRegister and renderBacklog do not, mapping over the full state and rendering no decisions; renderPlan runs on every service write (src/model/store.ts) and in invariant 9 (src/model/check.ts), so while such a decision stands every write and plan-state check fail. A check node is hidden when it has no hold and no open task, which a rework close produces. The view's tree page does not throw: it keys open decisions by node and visits only shown nodes, so the page counts the decision and shows no row; the obvious route is to key a hidden check node's decision to the node it verifies, since the hidden node's own page already renders the decision with a working form, reached by its identifier in the URL. Test homes: test/modelRender.test.ts for the renderings, the tests over the task tools and the loop for the close path, and test/viewPages.test.ts, which drives pages through createApp with the helpers in test/support/states.ts.
-- **README enlistment item matching the conditional hook rule** (P4-N051, specified)
+- **README enlistment item matching the conditional hook rule** (P4-N051, executing)
   README.md, Enlisting a repository, item 3 states the rule how-we-work.md states: the session start hook only where a repository carries its own state file, the cost hook in every enlisted repository.
   Note: Raised by the reviewer of P2-N032 (T185) as D103, after D101 amended docs/process/how-we-work.md item 3. README.md item 3 still says an enlisted repository "registers the two hooks". One sentence in this repository; no other repository is written. Repository: this one only. This node's plan needs no file (D105): docs/plans/rebuild.md stands at 295 lines of its 300-line bound, so the criteria below are both the plan, by T188, and the specification, by T191, and neither task wrote a file. Criteria. (1) README.md, Enlisting a repository, item 3 states what how-we-work.md item 3 states: .claude/settings.json enables the project's MCP servers, registers plugin/scripts/task_cost_hook.ts after task_close in every enlisted repository, and registers plugin/scripts/session_start.ts at session start only where the repository carries its own orchestration/state.json. (2) Item 3 stays a summary: the section keeps its four-item shape and its closing pointer to how-we-work.md, and nothing else in it changes. (3) No other page is changed. README.md's note that the two hooks never fail a session, and docs/process/task-loop.md's "the repository's two hooks", both speak of this repository's own hooks, not of what an enlisted repository registers; the service repository states no hook rule at all, verified by T188 at service commit 24639d8. Any further page a session finds stating the unconditional rule is reported, not changed. (4) README.md stays at most 150 lines, its bound in docs/plans/rebuild.md, and npm run check is green, in one pull request in this repository. The execute step works from this list; README.md was 125 lines when T188 measured it.
 
