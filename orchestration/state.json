@@ -5967,10 +5967,12 @@
       "step": "plan",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 35,
+        "out": 18861,
+        "cacheRead": 5137869,
+        "cacheWrite": 31643
       },
       "opened": "2026-11-18T19:58:14Z",
       "closed": "2026-11-18T20:02:35Z",
@@ -5978,7 +5980,8 @@
       "ref": null,
       "pr": null,
       "summary": "No file changed, so no pull request: rebuild.md is at 295 of 300 lines, so seven criteria and the evidence are in the node's note. Ran it: all 18 cost-record commits are non-canonical and no others, because recordCost appends costSource to a task that lacks it and formatState preserves that order. Two asks.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T196",
