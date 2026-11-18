@@ -1578,6 +1578,23 @@
       "note": null
     },
     {
+      "id": "P4-N057",
+      "kind": "work",
+      "title": "Key order set once where the state file is serialised",
+      "outcome": "`formatState` writes every object's fields in schema order, the per-site rebuilding in `setCostSource` is gone, and no write can drop or misorder a field the schema carries.",
+      "stage": "identified",
+      "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Raised by the reviewer of P4-N054 (T201) as D113. P4-N054's fix, `setCostSource` in the service's src/model/loop.ts, deletes every key of a task and reassigns a hard-coded list of the schema's sixteen fields; the reviewer tested that a field present in the object but absent from that list is dropped, not merely misordered. Nothing is at risk today: no such field exists and zod strips unknown keys on read. The hazard is a field added to taskSchema and not to the list. Two other places assign an optional key onto a parsed object and are in schema order only because each is its object's last field: task.docsOnMerge (src/model/mutations.ts, near line 168) and state.highWater (src/model/loop.ts, near line 287). Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows."
+    },
+    {
       "id": "P2-N001",
       "kind": "work",
       "title": "Orchestration service",

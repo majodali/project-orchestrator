@@ -74,6 +74,7 @@ Dependencies are in the state file, not in sibling order.
   - P4-N050 [done] Plan rendering that survives a decision on a hidden check node — plan: plans/rebuild.md
   - P4-N051 [done] README enlistment item matching the conditional hook rule
   - P4-N054 [done] State file kept in canonical form by every service write
+  - P4-N057 [identified] Key order set once where the state file is serialised
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
   - P2-N002 [done] Service skeleton and plan state — plan: archive/plans/p2-n002-service-skeleton.md · spec: archive/specs/p2-n002-service-skeleton.md
     - P2-N007 [done] Service repository bootstrap
