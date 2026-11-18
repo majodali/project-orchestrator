@@ -6295,7 +6295,7 @@
       "id": "T206",
       "node": "P2-N033",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -6303,11 +6303,11 @@
         "out": null
       },
       "opened": "2026-11-18T23:55:47Z",
-      "closed": null,
+      "closed": "2026-11-18T23:56:17Z",
       "base": "50b884d15cbdac9b9fc77e4047077474fb7b7f51",
       "ref": null,
       "pr": null,
-      "summary": "Judge whether the trial criterion 14 words can run now, given the nodes the plan currently offers; close needs-judgment if not.",
+      "summary": "Checked what the plan offers against criterion 14. P4-N057, P2-N037 and P2-N038 each need the owner's hand-merge in the service repository to reach done; P4-N046 and P4-N059 wait on approval; only P2-N029 needs no owner, and it is far from done. Fewer than three qualifying nodes exist now.",
       "notes": null
     }
   ],
@@ -7660,6 +7660,22 @@
       "chosen": "yes - a node of its own to bring methodology-tools' Binding block to the Classification's pinned 1.6.0, under P4-N027",
       "decided": "2026-11-18",
       "rationale": "Asked by T204 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D117",
+      "node": "P2-N033",
+      "question": "Criterion 14 needs at least three nodes carried from an offered step to done without the owner, two of them at once. Right now the only actionable nodes besides this one are P4-N057, P2-N037 and P2-N038 — each needs the owner to hand-merge its pull request in majodali/project-orchestrator-service before it reaches done — and P4-N046 and P4-N059, which wait on the owner's approval to start at all. Only P2-N029 needs no owner, and it only offers `plan`, several steps short of `done`. Should the trial run now on what the plan offers?",
+      "options": [
+        "Wait: hold the trial until the plan offers at least three nodes that reach done without the owner, and run it then.",
+        "Run the trial now, reading a node's own hand-merge by the owner on GitHub (no message to a session) as not counting against criterion 14, using P4-N057, P2-N037 and P2-N038.",
+        "Plan enough qualifying nodes now so the trial has three to carry."
+      ],
+      "default": "Wait: hold the trial until the plan offers at least three nodes that reach done without the owner, and run it then.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T206 at close.",
       "standing": false,
       "source": null
     }

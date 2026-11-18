@@ -8,6 +8,10 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
+Open decisions:
+
+- D117 on Orchestrator trial with its measured cost (P2-N033): Criterion 14 needs at least three nodes carried from an offered step to done without the owner, two of them at once. Right now the only actionable nodes besides this one are P4-N057, P2-N037 and P2-N038 — each needs the owner to hand-merge its pull request in majodali/project-orchestrator-service before it reaches done — and P4-N046 and P4-N059, which wait on the owner's approval to start at all. Only P2-N029 needs no owner, and it only offers `plan`, several steps short of `done`. Should the trial run now on what the plan offers? Default: Wait: hold the trial until the plan offers at least three nodes that reach done without the owner, and run it then.
+
 Gated nodes:
 
 - Second instance on the deploy path (P4-N046): start needs the owner's approval
@@ -16,13 +20,14 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Key order set once where the state file is serialised (P4-N057) [specified]
+- Orchestrator trial with its measured cost (P2-N033) [executing]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-- Orchestrator trial with its measured cost (P2-N033) [executing] — T206
+None.
 
 ## In progress, children carry the work
 
@@ -393,7 +398,7 @@ Documents: [plan](plans/orchestration-service.md).
     Note: Added on the owner's answers of 2026-11-17 to D087 (on P2-N030), D088 and D089 (on P2-N031), which each name this node. Criteria: (1) D088: the keys of `decision` and `asks` reports carry the decisions' identifiers, so a second decision on a node changes a key; specification S1 and the two expected keys in test/orchestrate.test.ts follow, which the owner's answer to D088 allows. (2) D087: a verify start is exempt from the shared-document rule of S4, in lib/orchestrate.ts and its test, and S4 says so. (3) D089, in .claude/agents/orchestrator.md, still at most 120 lines: it tells the session to give the background watcher the two-hour limit and what to do if the watcher is stopped with no output; how the session learns its own identifier for --self; one rule for what it tells the owner at a wake, the time-limit wake included; and archive_session is used or dropped. (4) T159's other finding is settled: the status bucket that never says archived. (5) plugin/agents/ is regenerated and the checks pass.
   - **Orchestrator trial with its measured cost** (P2-N033, executing)
     A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.
-    after P2-N031, P2-N032, P4-N038, P2-N036 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    after P2-N031, P2-N032, P4-N038, P2-N036 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 1 open decision
     Note: Slice 4 of the plan (Children). Criteria 14 to 18. Its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027.
 - **View that updates itself and leads with what matters** (P2-N028, broken-down)
   The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
