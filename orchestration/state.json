@@ -5478,14 +5478,33 @@
         "cacheRead": 4247455,
         "cacheWrite": 36429
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T05:13:33Z",
       "closed": "2026-11-18T05:18:33Z",
       "base": "51689ffec5d5595ed17e73e93a7ac9008f74ab7a",
       "ref": null,
       "pr": null,
       "summary": "Verification passed. All twelve criteria met at b93c139 and #73's head. The rework fixed criteria 1, 3 and 5: 21 of 21 methodology-tools rows map, 96 of 96 of this repository's rendered Backlog, 272 of 272 archived; the record carries the row-to-identifier list and counts. Register import byte-identical to pre-#46. One ask on criterion 8's wording.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
+    },
+    {
+      "id": "T178",
+      "node": "P4-N049",
+      "step": "plan",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T05:19:58Z",
+      "closed": null,
+      "base": "0c05f809a7c5a569b01c22c72ba8ac9e14d71ffa",
+      "ref": null,
+      "pr": null,
+      "summary": "Plan the ENOENT fix: plan-state import --write must create the state directory when the target repository has none. Revise the parent plan document with a short section and criteria list.",
+      "notes": null
     }
   ],
   "decisions": [
