@@ -5660,10 +5660,12 @@
       "step": "plan",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 80,
+        "out": 24137,
+        "cacheRead": 7864922,
+        "cacheWrite": 44179
       },
       "opened": "2026-11-18T15:51:50Z",
       "closed": "2026-11-18T16:00:12Z",
@@ -5671,7 +5673,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#76",
       "summary": "A section in the rebuild plan, where P4-N038's section set the shape: the fault T182 hit, the cause run at service commit b93c139, what is and is not affected, and seven criteria. Ran it: renderPlan throws, the register and Backlog do not, and the view counts the decision without showing a row. rebuild.md is 296 lines.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T185",
