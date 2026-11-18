@@ -1070,7 +1070,7 @@
         "spec": null
       },
       "done": null,
-      "note": "Child 2 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 2. Writes to majodali/methodology-tools, new to this project and granted by D065 for P4-N027 only, so it starts on approval; the owner adds that repository to the GitHub App's installation (O1) and merges there after reviewing the import record. Waits for P4-N044: the importer cannot read a Backlog until then."
+      "note": "Child 2 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 2. Writes to majodali/methodology-tools, new to this project and granted by D065 for P4-N027 only, so it starts on approval; the owner adds that repository to the GitHub App's installation (O1) and merges there after reviewing the import record. Waits for P4-N044: the importer cannot read a Backlog until then.\n\nImported and merged as majodali/methodology-tools#24 (merge commit 9b98c0ae), verified against main: plan-state check 0 violations; mtool links check clean (0 findings to record); mtool audit form's one finding — CLAUDE.md's Binding block names methodology v1.5.0 against the Classification's pinned 1.6.0 — predates this import and is dispositioned by D112 (\"leave it for a separate node\"), not fixed here. package-lock.json differs from a from-scratch run only in one unpinned transitive devDependency (object-inspect 1.13.4→1.14.0, pulled in beneath project-orchestrator-service's own exact pin at 24639d8); that is npm's ordinary lockfile drift under a floating upstream range, not a hand change to methodology-tools' own files, so it does not violate \"nothing else changes.\""
     },
     {
       "id": "P4-N046",
