@@ -255,8 +255,7 @@ nodes, so the page counts the decision and shows no row for it. The
 check node's own page does show it with its form, reached only by
 typing that node's identifier in the URL.
 
-The criterion on the view stands here or moves to a node of its own,
-by the ask at this plan's close.
+D104 kept the criterion on the view in this node.
 
 - [ ] A decision on a hidden check node is named in `docs/plan.md`'s
       "Waiting on the owner": the rendering looks its node up in the
