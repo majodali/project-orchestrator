@@ -1548,7 +1548,7 @@
       "kind": "work",
       "title": "State file kept in canonical form by every service write",
       "outcome": "The service writes orchestration/state.json in canonical form on every write, the cost record included, so `plan-state check` reports no invariant-1 warning.",
-      "stage": "planned",
+      "stage": "specified",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -6045,7 +6045,7 @@
       "id": "T198",
       "node": "P4-N054",
       "step": "specify",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -6053,11 +6053,11 @@
         "out": null
       },
       "opened": "2026-11-18T20:14:07Z",
-      "closed": null,
+      "closed": "2026-11-18T20:14:43Z",
       "base": "3171aa107982cee416470383741b99a940fd2f67",
       "ref": null,
       "pr": null,
-      "summary": "Specify P4-N054 on the note's seven criteria, recording what D108 and D109 settled: no file for this node's plan, and check keeps a non-canonical file a warning.",
+      "summary": "No file changed, so no pull request, as D108 settled. The note now records that this node's plan needs no file and that a non-canonical file stays a warning (D109), which was criterion 5's open end. The seven criteria are otherwise untouched and the execute step works from them.",
       "notes": null
     }
   ],
