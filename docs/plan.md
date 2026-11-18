@@ -8,16 +8,19 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Nothing.
+Open decisions:
+
+- D094 on Service repository enlisted for delegated sessions (P2-N032): Criterion 13 needs a task_open/task_close round trip from a session started in majodali/project-orchestrator-service, but Claude Code's own auto-mode classifier blocks that write from an unsupervised session, including when the delegating session tries to pre-approve the tool for it. How should the trial proceed? Default: the owner runs the trial personally in such a session, approving the permission prompt in place
+- D095 on Service repository enlisted for delegated sessions (P2-N032): After the scratch trial node (P2-N044) was added and removed under this task, P2-N032 is stage "broken-down" with no children, not "executing" as before. How should this be corrected? Default: the owner or the service corrects the stage directly
 
 ## Ready, starting automatically when the loop runs
 
-- Backlog reader in the state importer (P4-N044) [executing]
+- State directory created by the importer (P4-N049) [identified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-- Service repository enlisted for delegated sessions (P2-N032) [executing] — T172
+- Backlog reader in the state importer (P4-N044) [verifying] — T176
 
 ## In progress, children carry the work
 
@@ -26,6 +29,7 @@ Nothing.
 - Pilot enlistment of methodology-tools (P4-N027) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
+- Service repository enlisted for delegated sessions (P2-N032) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
 
 ## Waiting on a dependency
@@ -47,6 +51,7 @@ Nothing.
 ## Blocked
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
+- Verification of Backlog reader in the state importer (P4-N048) [specified] — T174: Verification failed. Criterion 1: the reader requires the em dash directly after the bolded lead, so 0 of 96 rows of this repository's service-rendered Backlog map and 45 of 272 archived rows. Criterion 5: two methodology-tools rows yielding title and outcome are excluded. Criterion 3: the record maps no row to its identifier. Criterion 7: gated by the ask.
 - Pin migrated to the release with the K-003 amendment (P4-N042) [identified] — Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.
 
 ## Paused by a hold or a park above
@@ -242,9 +247,11 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
     after P4-N022, P4-N024 · [plan](plans/pilot-enlistment-methodology-tools.md)
     Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
-    - **Backlog reader in the state importer** (P4-N044, executing)
+    - **Backlog reader in the state importer** (P4-N044, verifying)
       `plan-state import` builds a state file from a project's K-004 Backlog when that project has no Plan register, and its import record names every row it did not map and why.
       Note: Child 1 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 1 (the parent's plan document; this node links none of its own). Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, and to this repository for the pin. The importer requires docs/plan-register.md today and methodology-tools has none, which is why this child precedes the import.
+      - check: **Verification of Backlog reader in the state importer** (P4-N048, specified, blocked: T174: Verification failed. Criterion 1: the reader requires the em dash directly after the bolded lead, so 0 of 96 rows of this repository's service-rendered Backlog map and 45 of 272 archived rows. Criterion 5: two methodology-tools rows yielding title and outcome are excluded. Criterion 3: the record maps no row to its identifier. Criterion 7: gated by the ask.)
+        P4-N044 is verified against its outcome.
     - **methodology-tools' plan as a state file** (P4-N045, specified)
       methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.
       after P4-N044
@@ -257,6 +264,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
       A session started in methodology-tools reaches the pilot instance, `task_next` answers a node of methodology-tools, and one write commits there as the GitHub App with its journal line.
       after P4-N046
       Note: Child 4 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 4. Writes .mcp.json and .claude/settings.json to majodali/methodology-tools (D065) and the enlistment corrections to this repository's docs/process/how-we-work.md, so it starts on approval; the owner sets MCP_AUTH_TOKEN in that repository's cloud environment first (O3). Waits for P4-N046: .mcp.json names an endpoint the second instance's first deploy creates. The two hooks stay with P2-N006 (RU-017).
+    - **State directory created by the importer** (P4-N049, identified)
+      `plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.
+      Note: Found by the reviewer of P4-N044 (T174) and raised by T175 as D097. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys. methodology-tools has no orchestration/ directory today, so P4-N045's import meets this.
   - **Document paths changed through the service** (P4-N031, done 2026-11-17)
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
     [plan](plans/rebuild.md)
@@ -364,9 +374,9 @@ Documents: [plan](plans/orchestration-service.md).
     A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.
     after P2-N030 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates.
-  - **Service repository enlisted for delegated sessions** (P2-N032, executing)
+  - **Service repository enlisted for delegated sessions** (P2-N032, broken-down)
     A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
-    after P2-N030 · [spec](specs/orchestrator-session.md)
+    after P2-N030 · [spec](specs/orchestrator-session.md) · 2 open decisions
     Note: Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script.
   - **Orchestrator fixes before its trial** (P2-N036, done 2026-11-18)
     A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.
@@ -486,3 +496,5 @@ Documents: [plan](plans/orchestration-service.md).
 - D091 on P2-N032 (2026-11-18): Merge majodali/project-orchestrator-service#45 (vendors plugin/scripts/task_cost_hook.ts and plugin/scripts/lib/task-cost.ts there; a merge deploys the live service)? Chosen: merge it
 - D092 on P2-N032 (2026-11-18): Merge majodali/project-orchestrator#71 (adds the vendoring generator in this repository)? Chosen: merge it
 - D093 on P4-N044 (2026-11-18): Merge pull request #46 (the Backlog reader for plan-state import) in majodali/project-orchestrator-service? The merge deploys. The last section-1 criterion (moving this repository's pin in majodali/project-orchestrator) is a separate later task in a session started there. Chosen: merge it
+- D096 on P4-N048 (2026-11-18): Criterion 7 of section 1 ("the state file the reader produces passes plan-state check with no violations"): over methodology-tools' real Backlog the reader's output has 8 invariant-4 violations (P1-N001 title "Bootstrap" is 1 word; 7 done nodes have outcomes of 42 to 131 words), all taken verbatim from the rows, and the import record flags every one under "Titles to review" and "Outcomes over the forty-word bound". Does criterion 7 ask only that the reader's output over a well-formed Backlog be structurally valid, with methodology-tools' content violations left to child 2's overrides file (section 2: "Hand corrections are only in the overrides file, applied last"), or does it ask that methodology-tools' own Backlog import clean, which the reader cannot do without inventing shorter titles and outcomes? Chosen: the narrower reading: criterion 7 is met, and the 8 content violations are child 2's overrides file (P4-N045)
+- D097 on P4-N044 (2026-11-18): Merge pull request #47 (rework of the Backlog reader) in majodali/project-orchestrator-service? The merge deploys. Separately, plan-state import --write throws ENOENT when the target repository has no orchestration/ directory yet (confirmed against a fresh checkout) — this will block P4-N045's real import of methodology-tools, which has no orchestration/ directory today. Not part of this node's criteria, so raised here rather than fixed silently. Chosen: merge PR #47; add a node for the ENOENT fix

@@ -55,10 +55,11 @@ Dependencies are in the state file, not in sibling order.
     - P4-N025 [done] README and generated Backlog — plan: plans/rebuild.md
     - P4-N026 [done] Upstream proposals batch — plan: plans/rebuild.md
     - P4-N027 [broken-down] Pilot enlistment of methodology-tools — plan: plans/pilot-enlistment-methodology-tools.md
-      - P4-N044 [executing] Backlog reader in the state importer
+      - P4-N044 [verifying] Backlog reader in the state importer
       - P4-N045 [specified] methodology-tools' plan as a state file
       - P4-N046 [specified] Second instance on the deploy path
       - P4-N047 [specified] The pilot's first task through its own instance
+      - P4-N049 [identified] State directory created by the importer
     - P4-N031 [done] Document paths changed through the service — plan: plans/rebuild.md
     - P4-N032 [done] Linked plans and specs archived — plan: plans/rebuild.md
   - P4-N010 [done] Task cost capture — plan: plans/rebuild.md
@@ -91,7 +92,7 @@ Dependencies are in the state file, not in sibling order.
   - P2-N027 [broken-down] Orchestrator session that keeps work moving — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N030 [done] Decision script and settings of the orchestrator — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N031 [done] Orchestrator role and its watcher — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
-    - P2-N032 [executing] Service repository enlisted for delegated sessions — spec: specs/orchestrator-session.md
+    - P2-N032 [broken-down] Service repository enlisted for delegated sessions — spec: specs/orchestrator-session.md
     - P2-N036 [done] Orchestrator fixes before its trial — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N033 [specified] Orchestrator trial with its measured cost — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
   - P2-N028 [broken-down] View that updates itself and leads with what matters — plan: plans/view-that-leads-and-updates.md

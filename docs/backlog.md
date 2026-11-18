@@ -89,17 +89,18 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Rebuild: the orchestrator runs on a checked data model** (P4-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Re-plan, prune and hand back** (P4-N008) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Pilot enlistment of methodology-tools** (P4-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/pilot-enlistment-methodology-tools.md).
-- [ ] **Backlog reader in the state importer** (P4-N044) — When: not dated. Status: executing, ready, starts automatically. Pointer: `orchestration/state.json`.
+- [ ] **Backlog reader in the state importer** (P4-N044) — When: not dated. Status: verifying, in flight. Pointer: `orchestration/state.json`.
 - [ ] **methodology-tools' plan as a state file** (P4-N045) — When: after P4-N044. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Second instance on the deploy path** (P4-N046) — When: after P4-N045. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **The pilot's first task through its own instance** (P4-N047) — When: after P4-N046. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
+- [ ] **State directory created by the importer** (P4-N049) — When: not dated. Status: identified, ready, starts automatically. Pointer: `orchestration/state.json`.
 - [ ] **Pin migrated to the release with the K-003 amendment** (P4-N042) — When: not dated. Status: identified, blocked. Pointer: `orchestration/state.json`.
 - [ ] **Orchestration service** (P2-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestration-service.md).
 - [ ] **Pilot on methodology-tools: sessions on the task loop** (P2-N006) — When: after P4-N027. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Faster writes, a bounded journal and a deploy write test** (P2-N025) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Several projects and repositories in one instance** (P2-N026) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
-- [ ] **Service repository enlisted for delegated sessions** (P2-N032) — When: not dated. Status: executing, in flight. Pointer: [spec](specs/orchestrator-session.md).
+- [ ] **Service repository enlisted for delegated sessions** (P2-N032) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [spec](specs/orchestrator-session.md).
 - [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: after P2-N032. Status: specified, waiting on a dependency. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/view-that-leads-and-updates.md).
 - [ ] **Tree page that updates itself** (P2-N037) — When: after P2-N032. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
