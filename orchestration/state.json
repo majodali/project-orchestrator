@@ -1531,7 +1531,7 @@
       "kind": "work",
       "title": "State file kept in canonical form by every service write",
       "outcome": "The service writes orchestration/state.json in canonical form on every write, the cost record included, so `plan-state check` reports no invariant-1 warning.",
-      "stage": "identified",
+      "stage": "planned",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -5965,7 +5965,7 @@
       "id": "T195",
       "node": "P4-N054",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -5973,11 +5973,11 @@
         "out": null
       },
       "opened": "2026-11-18T19:58:14Z",
-      "closed": null,
+      "closed": "2026-11-18T20:02:35Z",
       "base": "e01fd70b0e8e017526c586a2fbddf60e1f9b3c4e",
       "ref": null,
       "pr": null,
-      "summary": "Plan the canonical-form fix: establish by running it which write puts a task record's keys out of order, whether every service write goes through formatState, why the warning comes and goes, and whether check should call it a violation.",
+      "summary": "No file changed, so no pull request: rebuild.md is at 295 of 300 lines, so seven criteria and the evidence are in the node's note. Ran it: all 18 cost-record commits are non-canonical and no others, because recordCost appends costSource to a task that lacks it and formatState preserves that order. Two asks.",
       "notes": null
     },
     {
@@ -7211,6 +7211,36 @@
       "chosen": "merge it",
       "decided": "2026-11-18",
       "rationale": "Asked by T189 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D108",
+      "node": "P4-N054",
+      "question": "Where does P4-N054's plan live, given docs/plans/rebuild.md stands at 295 lines of its 300-line bound?",
+      "options": [
+        "no file: the node's note carries the criteria and the evidence, and the note records that this node's plan needs no file",
+        "make room first by moving a finished section of rebuild.md to docs/archive/plans/rebuild-record.md, then add a section"
+      ],
+      "default": "no file: the node's note carries the seven criteria and what T195 ran, as it now does, and the note records that this node's plan needs no file. This follows D105 on P4-N051, which is a precedent and not a standing decision",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T195 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D109",
+      "node": "P4-N054",
+      "question": "Should plan-state check treat a non-canonical state file as a violation rather than a warning, once the service writes canonically?",
+      "options": [
+        "keep it a warning",
+        "make it a violation, so CI fails on a non-canonical state file"
+      ],
+      "default": "keep it a warning: a violation would turn CI red whenever the checker's pinned build and the build that wrote the file order the schema's fields differently, which is a pin that has not yet moved after a deploy, not a fault in the commit being checked. With the writer fixed, the warning should not fire in normal operation",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T195 at close.",
       "standing": false,
       "source": null
     }
