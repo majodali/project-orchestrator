@@ -5493,10 +5493,12 @@
       "step": "plan",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 106,
+        "out": 30779,
+        "cacheRead": 6633181,
+        "cacheWrite": 86241
       },
       "opened": "2026-11-18T05:19:58Z",
       "closed": "2026-11-18T05:29:01Z",
@@ -5504,7 +5506,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#74",
       "summary": "Section 5 of the pilot's plan document carries this node: the fault in `plan-state import --write`, its scope in the service's src/model/cli.ts, and seven criteria. That list is the specification too, so specify closes on it. Two lines the state file contradicted are corrected. The document is 299 lines; `npm run check` is clean.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
