@@ -5842,8 +5842,10 @@
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 60,
+        "out": 20159,
+        "cacheRead": 6744985,
+        "cacheWrite": 185873
       },
       "opened": "2026-11-18T19:44:51Z",
       "closed": "2026-11-18T19:50:35Z",
@@ -5851,7 +5853,8 @@
       "ref": null,
       "pr": null,
       "summary": "Verification passed. All seven criteria met at 24639d8 and #78's head. I reproduced the ENOENT fault at b93c139 and its absence after: a fresh methodology-tools clone with no orchestration/ now imports, creating the directory. The new subprocess test fails at the parent commit. One shared writeOutput covers import's two writes and render's four. One ask on a pre-existing warning.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T191",
