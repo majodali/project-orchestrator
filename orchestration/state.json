@@ -5268,14 +5268,33 @@
         "cacheRead": 1242063,
         "cacheWrite": 11738
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T00:04:22Z",
       "closed": "2026-11-18T00:06:19Z",
       "base": "582b70da65b48256d8429cf36b73bbc6ff2b2d9a",
       "ref": "f6870e9c8da760fb50e106350f9a4d5a29d11729",
       "pr": "majodali/project-orchestrator#69",
       "summary": "All five criteria met at f6870e9. Under D090 the constant ASKS_KEY in test/plan-watch.test.ts follows the new key, nothing else in it changed. main merged, no conflict. npm test 218 pass; check, lint, format and sync_agents --check pass. orchestrator.md 119 lines. mtool not run; no session has followed the changed role yet.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
+    },
+    {
+      "id": "T170",
+      "node": "P2-N043",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T00:07:59Z",
+      "closed": null,
+      "base": "f60806d14191fca160a4c5af5b789b057dbf400a",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N036 (tasks T164, T169, PR #69) against the node's five criteria before the Orchestrator's trial.",
+      "notes": null
     }
   ],
   "decisions": [

@@ -19,6 +19,7 @@ Gated nodes:
 ## In flight
 
 - Service repository enlisted for delegated sessions (P2-N032) [executing] — T167
+- Verification of Orchestrator fixes before its trial (P2-N043) [specified] — T170
 
 ## In progress, children carry the work
 
@@ -374,6 +375,9 @@ Documents: [plan](plans/orchestration-service.md).
     A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.
     after P2-N031 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Added on the owner's answers of 2026-11-17 to D087 (on P2-N030), D088 and D089 (on P2-N031), which each name this node. Criteria: (1) D088: the keys of `decision` and `asks` reports carry the decisions' identifiers, so a second decision on a node changes a key; specification S1 and the two expected keys in test/orchestrate.test.ts follow, which the owner's answer to D088 allows. (2) D087: a verify start is exempt from the shared-document rule of S4, in lib/orchestrate.ts and its test, and S4 says so. (3) D089, in .claude/agents/orchestrator.md, still at most 120 lines: it tells the session to give the background watcher the two-hour limit and what to do if the watcher is stopped with no output; how the session learns its own identifier for --self; one rule for what it tells the owner at a wake, the time-limit wake included; and archive_session is used or dropped. (4) T159's other finding is settled: the status bucket that never says archived. (5) plugin/agents/ is regenerated and the checks pass.
+    - check: **Verification of Orchestrator fixes before its trial** (P2-N043, specified)
+      P2-N036 is verified against its outcome.
+      [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
   - **Orchestrator trial with its measured cost** (P2-N033, specified)
     A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.
     after P2-N032, P2-N036 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
