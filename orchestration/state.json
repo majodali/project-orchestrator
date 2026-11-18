@@ -6070,7 +6070,7 @@
       "id": "T199",
       "node": "P4-N054",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -6078,11 +6078,11 @@
         "out": null
       },
       "opened": "2026-11-18T21:29:43Z",
-      "closed": null,
+      "closed": "2026-11-18T21:39:22Z",
       "base": "a484aff53be7d6010a104932ffa28b7e12abea22",
-      "ref": null,
-      "pr": null,
-      "summary": "Fix the state file's canonical form after a cost-recording write, per the P4-N054 note.",
+      "ref": "15342a1e27a052a550a60b46d34fa4a6fd8e408a",
+      "pr": "majodali/project-orchestrator-service#50",
+      "summary": "`costSource` assigned on a task that lacked it was appended out of schema order, causing the canonical-form warning after every cost write. `setCostSource` now rebuilds the task's key order in place on first assignment. New canonical-form assertions at both sites, failing pre-fix. Build, tests, lint, format clean; PR #50 CI green.",
       "notes": null
     }
   ],
@@ -7327,6 +7327,21 @@
       "chosen": "keep it a warning: a violation would turn CI red whenever the checker's pinned build and the build that wrote the file order the schema's fields differently, which is a pin that has not yet moved after a deploy, not a fault in the commit being checked. With the writer fixed, the warning should not fire in normal operation",
       "decided": "2026-11-18",
       "rationale": "Asked by T195 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D110",
+      "node": "P4-N054",
+      "question": "Merge majodali/project-orchestrator-service#50 (CI green, mergeable, not yet deployed)?",
+      "options": [
+        "merge it",
+        "hold for further review"
+      ],
+      "default": "merge it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T199 at close.",
       "standing": false,
       "source": null
     }
