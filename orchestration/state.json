@@ -6087,6 +6087,25 @@
       "pr": "majodali/project-orchestrator-service#50",
       "summary": "`costSource` assigned on a task that lacked it was appended out of schema order, causing the canonical-form warning after every cost write. `setCostSource` now rebuilds the task's key order in place on first assignment. New canonical-form assertions at both sites, failing pre-fix. Build, tests, lint, format clean; PR #50 CI green.",
       "notes": null
+    },
+    {
+      "id": "T200",
+      "node": "P4-N054",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T22:31:21Z",
+      "closed": null,
+      "base": "bd0f71033c3c38b24f21ccb7be4d043809a0725b",
+      "ref": null,
+      "pr": null,
+      "summary": "Move the project-orchestrator-service pin to the T199 merge commit (95b4fb8, the cost-record key-order fix) and keep npm run check green.",
+      "notes": null
     }
   ],
   "decisions": [
