@@ -5393,8 +5393,10 @@
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 80,
+        "out": 30497,
+        "cacheRead": 5069076,
+        "cacheWrite": 98340
       },
       "opened": "2026-11-18T04:26:59Z",
       "closed": "2026-11-18T04:36:14Z",
@@ -5402,7 +5404,8 @@
       "ref": null,
       "pr": null,
       "summary": "Verification failed. Criterion 1: the reader requires the em dash directly after the bolded lead, so 0 of 96 rows of this repository's service-rendered Backlog map and 45 of 272 archived rows. Criterion 5: two methodology-tools rows yielding title and outcome are excluded. Criterion 3: the record maps no row to its identifier. Criterion 7: gated by the ask.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
