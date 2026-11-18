@@ -1047,7 +1047,7 @@
         "P4-N049"
       ],
       "hold": null,
-      "start": "approve",
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
