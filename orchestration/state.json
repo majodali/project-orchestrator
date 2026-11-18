@@ -2068,7 +2068,7 @@
         "P2-N032"
       ],
       "hold": null,
-      "start": "approve",
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -5849,14 +5849,14 @@
         "cacheRead": 1898798,
         "cacheWrite": 209191
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T19:44:58Z",
       "closed": "2026-11-18T19:45:30Z",
       "base": "16a693208fd8c4dd399349e14d3487abe758c656",
       "ref": null,
       "pr": null,
       "summary": "No file changed, so no pull request, as D105 settled: the note now records that this node's plan needs no file and carries the four criteria as both plan and specification. They are enough to execute from. Nothing else in the note changed, and the criteria are untouched.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
