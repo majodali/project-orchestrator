@@ -5532,10 +5532,12 @@
       "step": "execute",
       "status": "closed",
       "role": "implementer",
-      "model": null,
+      "model": "claude-opus-5-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 12,
+        "out": 1317,
+        "cacheRead": 409458,
+        "cacheWrite": 29602
       },
       "opened": "2026-11-18T15:16:54Z",
       "closed": "2026-11-18T15:17:11Z",
@@ -5543,7 +5545,8 @@
       "ref": "ca73a8ad4d0eee253df71a77747d08475f04020c",
       "pr": "majodali/project-orchestrator#71",
       "summary": "Owner-run trial per D094. service_identity answered project-orchestrator-service 0.1.0, commit b93c139, project majodali/project-orchestrator, live. Loaded: the service's MCP tools (deferred, fetched via ToolSearch), CLAUDE.md, and .claude/settings.json with the PostToolUse task_close cost hook. Nothing failed to load. task_open T179 succeeded without a block. No files changed.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
