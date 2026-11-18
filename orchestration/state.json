@@ -6030,8 +6030,10 @@
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 78,
+        "out": 24669,
+        "cacheRead": 10899649,
+        "cacheWrite": 53408
       },
       "opened": "2026-11-18T20:10:03Z",
       "closed": "2026-11-18T20:16:40Z",
@@ -6039,7 +6041,8 @@
       "ref": null,
       "pr": null,
       "summary": "Verification passed. All seven criteria met at d9eebd0 and #80's head. I reproduced the fault at the parent commit (renderPlan and plan-state check throw, the tree page shows no row) and its absence after: render and check pass, the decision is named in plan.md, and the view shows it under the verified node, answerable.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T198",
