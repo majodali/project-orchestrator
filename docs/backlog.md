@@ -57,6 +57,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Session start summary and the offer to act** (P4-N020) — When: 2026-11-12. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **Delegated tasks claimed without asking** (P4-N034) — When: 2026-11-16. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **One branch for each pull request** (P4-N038) — When: 2026-11-17. Status: done. Pointer: [plan](plans/rebuild.md).
+- [x] **README enlistment item matching the conditional hook rule** (P4-N051) — When: 2026-11-18. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Service skeleton and plan state** (P2-N002) — When: 2026-08-26. Status: done. Pointer: [plan](archive/plans/p2-n002-service-skeleton.md), [spec](archive/specs/p2-n002-service-skeleton.md).
 - [x] **Service repository bootstrap** (P2-N007) — When: 2026-08-27. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Deployed MCP server (reachability slice)** (P2-N008) — When: 2026-08-28. Status: done. Pointer: `orchestration/state.json`.
@@ -97,7 +98,6 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **The pilot's first task through its own instance** (P4-N047) — When: after P4-N046. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Pin migrated to the release with the K-003 amendment** (P4-N042) — When: not dated. Status: identified, blocked. Pointer: `orchestration/state.json`.
 - [ ] **Plan rendering that survives a decision on a hidden check node** (P4-N050) — When: not dated. Status: executing, in flight. Pointer: [plan](plans/rebuild.md).
-- [ ] **README enlistment item matching the conditional hook rule** (P4-N051) — When: not dated. Status: verifying, in progress, its children carry the work. Pointer: `orchestration/state.json`.
 - [ ] **Orchestration service** (P2-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestration-service.md).
 - [ ] **Pilot on methodology-tools: sessions on the task loop** (P2-N006) — When: after P4-N027. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Faster writes, a bounded journal and a deploy write test** (P2-N025) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.

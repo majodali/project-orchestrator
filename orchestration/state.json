@@ -1497,7 +1497,7 @@
       "kind": "work",
       "title": "README enlistment item matching the conditional hook rule",
       "outcome": "README.md, Enlisting a repository, item 3 states the rule how-we-work.md states: the session start hook only where a repository carries its own state file, the cost hook in every enlisted repository.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1506,7 +1506,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-18",
       "note": "Raised by the reviewer of P2-N032 (T185) as D103, after D101 amended docs/process/how-we-work.md item 3. README.md item 3 still says an enlisted repository \"registers the two hooks\". One sentence in this repository; no other repository is written. Repository: this one only. This node's plan needs no file (D105): docs/plans/rebuild.md stands at 295 lines of its 300-line bound, so the criteria below are both the plan, by T188, and the specification, by T191, and neither task wrote a file. Criteria. (1) README.md, Enlisting a repository, item 3 states what how-we-work.md item 3 states: .claude/settings.json enables the project's MCP servers, registers plugin/scripts/task_cost_hook.ts after task_close in every enlisted repository, and registers plugin/scripts/session_start.ts at session start only where the repository carries its own orchestration/state.json. (2) Item 3 stays a summary: the section keeps its four-item shape and its closing pointer to how-we-work.md, and nothing else in it changes. (3) No other page is changed. README.md's note that the two hooks never fail a session, and docs/process/task-loop.md's \"the repository's two hooks\", both speak of this repository's own hooks, not of what an enlisted repository registers; the service repository states no hook rule at all, verified by T188 at service commit 24639d8. Any further page a session finds stating the unconditional rule is reported, not changed. (4) README.md stays at most 150 lines, its bound in docs/plans/rebuild.md, and npm run check is green, in one pull request in this repository. The execute step works from this list; README.md was 125 lines when T188 measured it."
     },
     {
@@ -1514,7 +1514,7 @@
       "kind": "check",
       "title": "Verification of README enlistment item matching the conditional hook rule",
       "outcome": "P4-N051 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N051",
       "after": [],
       "hold": null,
@@ -1523,7 +1523,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-18",
       "note": null
     },
     {
@@ -5847,14 +5847,14 @@
         "cacheRead": 6744985,
         "cacheWrite": 185873
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T19:44:51Z",
       "closed": "2026-11-18T19:50:35Z",
       "base": "eb9407ae975f7a6f20ec2f40188af6728418b227",
       "ref": null,
       "pr": null,
       "summary": "Verification passed. All seven criteria met at 24639d8 and #78's head. I reproduced the ENOENT fault at b93c139 and its absence after: a fresh methodology-tools clone with no orchestration/ now imports, creating the directory. The new subprocess test fails at the parent commit. One shared writeOutput covers import's two writes and render's four. One ask on a pre-existing warning.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T191",
@@ -5904,7 +5904,7 @@
       "id": "T193",
       "node": "P4-N053",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": null,
       "tokens": {
@@ -5912,11 +5912,11 @@
         "out": null
       },
       "opened": "2026-11-18T19:49:28Z",
-      "closed": null,
+      "closed": "2026-11-18T19:51:55Z",
       "base": "c42b737dc95fc3ea5c293cb39cf7bb0e5de663f2",
       "ref": null,
       "pr": null,
-      "summary": "Verify P4-N051 (README enlistment item matching the conditional hook rule) against the four criteria in its note and its outcome, at the head of #79.",
+      "summary": "All four criteria met. README item 3 now states how-we-work.md's conditional rule, in the criterion's own words; the section keeps its four items and its pointer; only README.md changed, 127 lines of its 150 bound; typecheck, lint, format, test (218) and check pass at #79's head, which merges into main clean. No other page states the unconditional rule.",
       "notes": null
     }
   ],
