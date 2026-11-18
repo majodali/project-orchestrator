@@ -5473,8 +5473,10 @@
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 46,
+        "out": 19212,
+        "cacheRead": 4247455,
+        "cacheWrite": 36429
       },
       "opened": "2026-11-18T05:13:33Z",
       "closed": "2026-11-18T05:18:33Z",
@@ -5482,7 +5484,8 @@
       "ref": null,
       "pr": null,
       "summary": "Verification passed. All twelve criteria met at b93c139 and #73's head. The rework fixed criteria 1, 3 and 5: 21 of 21 methodology-tools rows map, 96 of 96 of this repository's rendered Backlog, 272 of 272 archived; the record carries the row-to-identifier list and counts. Register import byte-identical to pre-#46. One ask on criterion 8's wording.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
