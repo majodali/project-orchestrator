@@ -5888,14 +5888,33 @@
         "cacheRead": 4491601,
         "cacheWrite": 156595
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T19:46:21Z",
       "closed": "2026-11-18T19:48:33Z",
       "base": "13ed143258f6bb4bb77cf55e6aebc4afddf3f738",
       "ref": "b395c2526687fb2de6aef473e1cb031ed925382c",
       "pr": "majodali/project-orchestrator#79",
       "summary": "README item 3 now states how-we-work.md's conditional hook rule (cost hook always, session-start hook only where orchestration/state.json exists). Section shape and pointer unchanged; README stays 127 lines. No other page states the unconditional rule. npm run check/test/lint/format all pass. PR #79.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
+    },
+    {
+      "id": "T193",
+      "node": "P4-N053",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T19:49:28Z",
+      "closed": null,
+      "base": "c42b737dc95fc3ea5c293cb39cf7bb0e5de663f2",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P4-N051 (README enlistment item matching the conditional hook rule) against the four criteria in its note and its outcome, at the head of #79.",
+      "notes": null
     }
   ],
   "decisions": [
