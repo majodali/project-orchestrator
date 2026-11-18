@@ -1480,7 +1480,7 @@
       "kind": "work",
       "title": "README enlistment item matching the conditional hook rule",
       "outcome": "README.md, Enlisting a repository, item 3 states the rule how-we-work.md states: the session start hook only where a repository carries its own state file, the cost hook in every enlisted repository.",
-      "stage": "identified",
+      "stage": "planned",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -5760,7 +5760,7 @@
       "id": "T188",
       "node": "P4-N051",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -5768,11 +5768,11 @@
         "out": null
       },
       "opened": "2026-11-18T16:28:05Z",
-      "closed": null,
+      "closed": "2026-11-18T16:29:51Z",
       "base": "59fdda481d44127bd090751dabdcc494a9d95eae",
       "ref": null,
       "pr": null,
-      "summary": "Plan the README enlistment fix: item 3 must state the conditional hook rule D101 put in how-we-work.md. Check every other page that repeats the unconditional rule, and find where this node's criteria can live.",
+      "summary": "No file changed, so no pull request: docs/plans/rebuild.md is at 295 of its 300 lines, so four criteria are in the node's note instead, and the ask settles where the plan lives. Checked the rest: only README item 3 states the rule; the service repository states no hook rule, at its commit 24639d8.",
       "notes": null
     }
   ],
@@ -6941,6 +6941,21 @@
       "chosen": "keep it in P4-N050: the same lookup through shownNodes causes both, one pull request, one deploy and one pin move cover both, and a separate node costs another plan, specify, execute and verify cycle for a few lines. If you move it, the specify step narrows this node's outcome to the plan rendering alone and strikes that criterion",
       "decided": "2026-11-18",
       "rationale": "Asked by T184 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D105",
+      "node": "P4-N051",
+      "question": "Where does P4-N051's plan live, given docs/plans/rebuild.md stands at 295 lines of its 300-line bound and a section would take it over?",
+      "options": [
+        "no file: the node's note carries the criteria, and the note records that this node's plan needs no file",
+        "make room first by moving a finished section of rebuild.md to docs/archive/plans/rebuild-record.md, then add a section for this node"
+      ],
+      "default": "no file: the node's note carries the four criteria, as it now does, and the note records that this node's plan needs no file. The work is one sentence in README.md, and moving a finished section of the rebuild plan to the archive record is a separate piece of work that this node would otherwise carry",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T188 at close.",
       "standing": false,
       "source": null
     }
