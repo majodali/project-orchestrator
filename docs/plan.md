@@ -8,7 +8,10 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Nothing.
+Open decisions:
+
+- D094 on Service repository enlisted for delegated sessions (P2-N032): Criterion 13 needs a task_open/task_close round trip from a session started in majodali/project-orchestrator-service, but Claude Code's own auto-mode classifier blocks that write from an unsupervised session, including when the delegating session tries to pre-approve the tool for it. How should the trial proceed? Default: the owner runs the trial personally in such a session, approving the permission prompt in place
+- D095 on Service repository enlisted for delegated sessions (P2-N032): After the scratch trial node (P2-N044) was added and removed under this task, P2-N032 is stage "broken-down" with no children, not "executing" as before. How should this be corrected? Default: the owner or the service corrects the stage directly
 
 ## Ready, starting automatically when the loop runs
 
@@ -17,7 +20,6 @@ Nothing.
 ## In flight
 
 - Verification of Backlog reader in the state importer (P4-N048) [specified] — T174
-- Service repository enlisted for delegated sessions (P2-N032) [broken-down] — T172
 
 ## In progress, children carry the work
 
@@ -27,6 +29,7 @@ Nothing.
 - Backlog reader in the state importer (P4-N044) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
+- Service repository enlisted for delegated sessions (P2-N032) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
 
 ## Waiting on a dependency
@@ -369,7 +372,7 @@ Documents: [plan](plans/orchestration-service.md).
     Note: Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates.
   - **Service repository enlisted for delegated sessions** (P2-N032, broken-down)
     A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
-    after P2-N030 · [spec](specs/orchestrator-session.md)
+    after P2-N030 · [spec](specs/orchestrator-session.md) · 2 open decisions
     Note: Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script.
   - **Orchestrator fixes before its trial** (P2-N036, done 2026-11-18)
     A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.
