@@ -6040,6 +6040,25 @@
       "pr": null,
       "summary": "Verify P4-N050 (plan rendering that survives a decision on a hidden check node) against the seven criteria in docs/plans/rebuild.md: the fix merged at d9eebd0, reproducing the fault and its absence in render, check and the view, and T196's pin move on #80.",
       "notes": null
+    },
+    {
+      "id": "T198",
+      "node": "P4-N054",
+      "step": "specify",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T20:14:07Z",
+      "closed": null,
+      "base": "3171aa107982cee416470383741b99a940fd2f67",
+      "ref": null,
+      "pr": null,
+      "summary": "Specify P4-N054 on the note's seven criteria, recording what D108 and D109 settled: no file for this node's plan, and check keeps a non-canonical file a warning.",
+      "notes": null
     }
   ],
   "decisions": [

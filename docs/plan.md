@@ -12,7 +12,6 @@ Nothing.
 
 ## Ready, starting automatically when the loop runs
 
-- State file kept in canonical form by every service write (P4-N054) [planned]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
@@ -22,6 +21,7 @@ Nothing.
 
 - methodology-tools' plan as a state file (P4-N045) [executing] — T194
 - Verification of Plan rendering that survives a decision on a hidden check node (P4-N055) [specified] — T197
+- State file kept in canonical form by every service write (P4-N054) [planned] — T198
 
 ## In progress, children carry the work
 
