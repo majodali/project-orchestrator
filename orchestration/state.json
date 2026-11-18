@@ -5963,7 +5963,7 @@
       "id": "T194",
       "node": "P4-N045",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -5971,11 +5971,11 @@
         "out": null
       },
       "opened": "2026-11-18T19:52:31Z",
-      "closed": null,
+      "closed": "2026-11-18T22:36:42Z",
       "base": "0719023769b27ce031cf54738ac4d154fd1738ac",
-      "ref": null,
-      "pr": null,
-      "summary": "Give methodology-tools orchestration/state.json via plan-state import, with overrides, renderings, archived Backlog, K-003 recorded; PR only, never merge.",
+      "ref": "234dafe180232a376ae30df23d3577e5c863e3e2",
+      "pr": "majodali/methodology-tools#24",
+      "summary": "methodology-tools' 21-row Backlog imported into orchestration/state.json via plan-state import, 0 not mapped. 8 content violations (1 title, 7 outcomes) corrected in orchestration/import-overrides.json, never invented. Backlog archived; renderings written; K-003 recorded. plan-state check: 0 violations. mtool links check: clean. Helper's PR verified byte-identical to my own run.",
       "notes": null
     },
     {
@@ -7364,6 +7364,36 @@
       "chosen": "merge it",
       "decided": "2026-11-18",
       "rationale": "Asked by T199 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D111",
+      "node": "P4-N045",
+      "question": "Merge majodali/methodology-tools#24 (the Backlog import into orchestration/state.json) after reviewing the import record? 21 Backlog rows read, 21 mapped, 0 not mapped. 8 overrides applied, each a shortening of the row's own stated text, never invented content: P1-N001's title (1 word to 2); the outcomes of P1-N003, P1-N004, P1-N005, P1-N007, P1-N008, P1-N009 and P1-N015 (42-131 words down to the 40-word bound). Informational only, not violations: P1-N018 and P1-N021's outcomes are over the 40-word bound but exempt (they are identified-stage, not done); P1-N001 and P1-N018's titles are flagged short but pass the 2-word minimum; P1-N016, P1-N018, P1-N020 and P1-N021 are open nodes whose previous Backlog sibling the import proposes, unconfirmed, as a dependency.",
+      "options": [
+        "merge it",
+        "hold for further review"
+      ],
+      "default": "merge it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T194 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D112",
+      "node": "P4-N045",
+      "question": "mtool audit form over methodology-tools (post-import) reports one violation unrelated to this node: CLAUDE.md's Binding block still names methodology v1.5.0 while docs/classification.md pins 1.6.0. It predates this import and is left as found, per this node's criterion that nothing else in methodology-tools changes. Leave it for a separate node, or fix it now in a follow-up to this PR?",
+      "options": [
+        "leave it for a separate node",
+        "open a node to fix it now"
+      ],
+      "default": "leave it for a separate node",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T194 at close.",
       "standing": false,
       "source": null
     }

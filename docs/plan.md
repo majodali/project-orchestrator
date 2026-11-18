@@ -8,10 +8,14 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Nothing.
+Open decisions:
+
+- D111 on methodology-tools' plan as a state file (P4-N045): Merge majodali/methodology-tools#24 (the Backlog import into orchestration/state.json) after reviewing the import record? 21 Backlog rows read, 21 mapped, 0 not mapped. 8 overrides applied, each a shortening of the row's own stated text, never invented content: P1-N001's title (1 word to 2); the outcomes of P1-N003, P1-N004, P1-N005, P1-N007, P1-N008, P1-N009 and P1-N015 (42-131 words down to the 40-word bound). Informational only, not violations: P1-N018 and P1-N021's outcomes are over the 40-word bound but exempt (they are identified-stage, not done); P1-N001 and P1-N018's titles are flagged short but pass the 2-word minimum; P1-N016, P1-N018, P1-N020 and P1-N021 are open nodes whose previous Backlog sibling the import proposes, unconfirmed, as a dependency. Default: merge it
+- D112 on methodology-tools' plan as a state file (P4-N045): mtool audit form over methodology-tools (post-import) reports one violation unrelated to this node: CLAUDE.md's Binding block still names methodology v1.5.0 while docs/classification.md pins 1.6.0. It predates this import and is left as found, per this node's criterion that nothing else in methodology-tools changes. Leave it for a separate node, or fix it now in a follow-up to this PR? Default: leave it for a separate node
 
 ## Ready, starting automatically when the loop runs
 
+- methodology-tools' plan as a state file (P4-N045) [executing]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
@@ -19,7 +23,6 @@ Nothing.
 
 ## In flight
 
-- methodology-tools' plan as a state file (P4-N045) [executing] — T194
 - State file kept in canonical form by every service write (P4-N054) [executing] — T200
 
 ## In progress, children carry the work
@@ -249,7 +252,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
       Note: Child 5 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 5 (the parent's plan document; this node links none of its own, as children 1 to 4 do not). Specified on that list by T181, which added no document: the seven criteria are at the depth the work needs. Found by the reviewer of P4-N044 (T174) and raised by T175 as D097; D099 made P4-N045 wait for this node and D100 kept start: auto. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys, and to this repository for the pin. Observed by T181 at service commit b93c139, over a temporary repository holding only docs/backlog.md: the import throws ENOENT on orchestration/state.json at src/model/cli.ts:149 and exits 1 with a stack trace, so criterion 1's "exits on the import's own result" means the import reports instead of throwing. src/model/cli.ts self-executes (process.exit(main(...)) at module scope), so a test drives it as a subprocess; `npx tsx src/model/cli.ts import --repo <tmp> --project <owner/name> --write` works, and --project is needed because a temporary repository has no git remote.
     - **methodology-tools' plan as a state file** (P4-N045, executing)
       methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.
-      after P4-N044, P4-N049
+      after P4-N044, P4-N049 · 2 open decisions
       Note: Child 2 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 2. Writes to majodali/methodology-tools, new to this project and granted by D065 for P4-N027 only, so it starts on approval; the owner adds that repository to the GitHub App's installation (O1) and merges there after reviewing the import record. Waits for P4-N044: the importer cannot read a Backlog until then.
     - **Second instance on the deploy path** (P4-N046, specified)
       Every merge in the service repository deploys, smoke-tests and promotes both instances from one template at one commit, and the runbook and the deploy role's record carry the second instance.
