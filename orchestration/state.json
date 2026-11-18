@@ -7583,8 +7583,8 @@
         "the owner names another resolution"
       ],
       "default": "amend section 2's criterion 7 to read \"pinned at a merged commit of the service carrying child 1's work and every later child the import needs\"",
-      "chosen": null,
-      "decided": null,
+      "chosen": "amend section 2's criterion 7 to read \"pinned at a merged commit of the service carrying child 1's work and every later child the import needs\"",
+      "decided": "2026-11-18",
       "rationale": "Asked by T204 at close.",
       "standing": false,
       "source": null
