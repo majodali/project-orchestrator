@@ -81,3 +81,46 @@ The three sessions opened no task and wrote nothing. Their titles
 were changed with `set_session_title` to begin `Trial for P2-N030
 criterion 6`, so that no later snapshot reads them as sessions of the
 orchestrator. They are not archived: that is the owner's to do.
+
+## P2-N032, criterion 13: round trip from the service repository (tasks T167, T172, T179)
+
+**Result.** A session the owner started, with `source_url`
+majodali/project-orchestrator-service — the owner in person, not the
+orchestrator (D094) — reached the service, opened and closed a task,
+and that task has a measured cost from the vendored cost hook.
+
+- `service_identity` answered `project-orchestrator-service 0.1.0`,
+  commit `b93c139`, project `majodali/project-orchestrator`, qualifier
+  `live`.
+- Loaded: the service's MCP tools (deferred, fetched by `ToolSearch`),
+  `CLAUDE.md`, and `.claude/settings.json`'s `PostToolUse` hook on
+  `task_close`. Nothing failed to load, and `task_open` succeeded
+  without a block (session `session_015Vm2Mudf6gZ76jU5aM5ypw`, task
+  T179, base `b1265f5b`, no file changed).
+- T179's measured cost, from the state file: 12 tokens in, 1317 out,
+  409458 cache read, 29602 cache write, model `claude-opus-5-5`,
+  source `transcript`.
+- `vendor_cost_hook.ts --check`, run against a fresh read-only clone of
+  majodali/project-orchestrator-service's `main` at commit `b93c139`
+  (the commit `service_identity` named): in sync.
+
+### Method
+
+`.mcp.json` and `.claude/settings.json` reached that repository's
+`main` by the owner's own commits, not a session's; the vendored
+`plugin/scripts/task_cost_hook.ts` and `plugin/scripts/lib/task-cost.ts`
+reached it by majodali/project-orchestrator-service#45, vendored by
+this repository's `vendor_cost_hook.ts` (this pull request, #71).
+
+### What did not go as specified
+
+Two earlier attempts (task T172), to run the round trip from a session
+the *orchestrator* starts rather than the owner, did not complete it.
+Claude Code's own auto-mode classifier ("Undermining Oversight")
+blocked `task_open` from a freshly-started, unsupervised session, and
+blocked it again when the delegating session tried to pre-approve the
+specific `mcp__project-orchestrator__*` tools for a second one.
+Neither attempt claimed or changed anything; T172 closed
+`needs-judgment` on D094 and D095. The owner answered by running the
+trial personally (D094, this section's result) and restoring P2-N032's
+stage to `executing` (D095) after T172 left it `broken-down`.

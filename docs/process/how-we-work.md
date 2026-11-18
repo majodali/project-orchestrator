@@ -119,9 +119,9 @@ service. Four things make that true:
    `http`, the endpoint's `url`, the header
    `"Authorization": "Bearer ${MCP_AUTH_TOKEN}"` and a `timeout` of
    30000. The token's value is never committed, pasted or logged.
-3. **`.claude/settings.json`** sets `enableAllProjectMcpServers` to
-   true and registers two hooks: `plugin/scripts/session_start.ts` at
-   session start, `plugin/scripts/task_cost_hook.ts` after `task_close`.
+3. **`.claude/settings.json`** sets `enableAllProjectMcpServers` to true and registers
+   `plugin/scripts/task_cost_hook.ts` after `task_close`, and `plugin/scripts/session_start.ts`
+   at session start where the repository carries its own `orchestration/state.json`.
 4. **`MCP_AUTH_TOKEN` is set** where the session starts: a shell
    export locally, the environment's variables in a cloud session.
 
