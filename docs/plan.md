@@ -12,10 +12,6 @@ Open decisions:
 
 - D098 on Backlog reader in the state importer (P4-N044): Criterion 8 of section 1 asks for tests over methodology-tools' Backlog as a fixture covering "the row count, the four open rows, and one malformed row that appears in the record as not mapped". The third clause presupposed that the two annotated rows ("Custom-type checker extension point", "W-008 bootstrap-cache drift check") were malformed; T174 found that presupposition wrong, and under the corrected shape methodology-tools' Backlog has no malformed row at all, so the fixture cannot carry one. T175 asserts the row count (21) and the four open rows on the fixture, and tests the exclusion path and its recorded reason on a synthetic two-row Backlog instead. I treated criterion 8 as met on that basis. Amend the plan's wording to match? Default: amend section 1's criterion 8 to read "the row count, the four open rows, and a malformed row that appears in the record as not mapped, on the fixture or on a synthetic row where the fixture has none"
 
-Gated nodes:
-
-- methodology-tools' plan as a state file (P4-N045): start needs the owner's approval
-
 ## Ready, starting automatically when the loop runs
 
 - State directory created by the importer (P4-N049) [planned]
@@ -37,6 +33,7 @@ None.
 
 ## Waiting on a dependency
 
+- methodology-tools' plan as a state file (P4-N045) [specified] — after State directory created by the importer (P4-N049)
 - Second instance on the deploy path (P4-N046) [specified] — after methodology-tools' plan as a state file (P4-N045)
 - The pilot's first task through its own instance (P4-N047) [specified] — after Second instance on the deploy path (P4-N046)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
@@ -252,9 +249,12 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
       `plan-state import` builds a state file from a project's K-004 Backlog when that project has no Plan register, and its import record names every row it did not map and why.
       1 open decision
       Note: Child 1 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 1 (the parent's plan document; this node links none of its own). Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, and to this repository for the pin. The importer requires docs/plan-register.md today and methodology-tools has none, which is why this child precedes the import.
+    - **State directory created by the importer** (P4-N049, planned)
+      `plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.
+      Note: Child 5 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 5 (the parent's plan document; this node links none of its own, as children 1 to 4 do not). That list is at the depth the work needs, so the specify step closes on it without a further document. Found by the reviewer of P4-N044 (T174) and raised by T175 as D097. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys, and to this repository for the pin. methodology-tools has no orchestration/ directory today, so P4-N045's import meets this.
     - **methodology-tools' plan as a state file** (P4-N045, specified)
       methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.
-      after P4-N044
+      after P4-N049
       Note: Child 2 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 2. Writes to majodali/methodology-tools, new to this project and granted by D065 for P4-N027 only, so it starts on approval; the owner adds that repository to the GitHub App's installation (O1) and merges there after reviewing the import record. Waits for P4-N044: the importer cannot read a Backlog until then.
     - **Second instance on the deploy path** (P4-N046, specified)
       Every merge in the service repository deploys, smoke-tests and promotes both instances from one template at one commit, and the runbook and the deploy role's record carry the second instance.
@@ -264,9 +264,6 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
       A session started in methodology-tools reaches the pilot instance, `task_next` answers a node of methodology-tools, and one write commits there as the GitHub App with its journal line.
       after P4-N046
       Note: Child 4 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 4. Writes .mcp.json and .claude/settings.json to majodali/methodology-tools (D065) and the enlistment corrections to this repository's docs/process/how-we-work.md, so it starts on approval; the owner sets MCP_AUTH_TOKEN in that repository's cloud environment first (O3). Waits for P4-N046: .mcp.json names an endpoint the second instance's first deploy creates. The two hooks stay with P2-N006 (RU-017).
-    - **State directory created by the importer** (P4-N049, planned)
-      `plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.
-      Note: Child 5 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 5 (the parent's plan document; this node links none of its own, as children 1 to 4 do not). That list is at the depth the work needs, so the specify step closes on it without a further document. Found by the reviewer of P4-N044 (T174) and raised by T175 as D097. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys, and to this repository for the pin. methodology-tools has no orchestration/ directory today, so P4-N045's import meets this.
   - **Document paths changed through the service** (P4-N031, done 2026-11-17)
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
     [plan](plans/rebuild.md)

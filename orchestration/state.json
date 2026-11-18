@@ -1019,6 +1019,23 @@
       "note": null
     },
     {
+      "id": "P4-N049",
+      "kind": "work",
+      "title": "State directory created by the importer",
+      "outcome": "`plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.",
+      "stage": "planned",
+      "parent": "P4-N027",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Child 5 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 5 (the parent's plan document; this node links none of its own, as children 1 to 4 do not). That list is at the depth the work needs, so the specify step closes on it without a further document. Found by the reviewer of P4-N044 (T174) and raised by T175 as D097. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys, and to this repository for the pin. methodology-tools has no orchestration/ directory today, so P4-N045's import meets this."
+    },
+    {
       "id": "P4-N045",
       "kind": "work",
       "title": "methodology-tools' plan as a state file",
@@ -1026,7 +1043,8 @@
       "stage": "specified",
       "parent": "P4-N027",
       "after": [
-        "P4-N044"
+        "P4-N044",
+        "P4-N049"
       ],
       "hold": null,
       "start": "approve",
@@ -1074,23 +1092,6 @@
       },
       "done": null,
       "note": "Child 4 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 4. Writes .mcp.json and .claude/settings.json to majodali/methodology-tools (D065) and the enlistment corrections to this repository's docs/process/how-we-work.md, so it starts on approval; the owner sets MCP_AUTH_TOKEN in that repository's cloud environment first (O3). Waits for P4-N046: .mcp.json names an endpoint the second instance's first deploy creates. The two hooks stay with P2-N006 (RU-017)."
-    },
-    {
-      "id": "P4-N049",
-      "kind": "work",
-      "title": "State directory created by the importer",
-      "outcome": "`plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.",
-      "stage": "planned",
-      "parent": "P4-N027",
-      "after": [],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": null,
-        "spec": null
-      },
-      "done": null,
-      "note": "Child 5 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 5 (the parent's plan document; this node links none of its own, as children 1 to 4 do not). That list is at the depth the work needs, so the specify step closes on it without a further document. Found by the reviewer of P4-N044 (T174) and raised by T175 as D097. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys, and to this repository for the pin. methodology-tools has no orchestration/ directory today, so P4-N045's import meets this."
     },
     {
       "id": "P4-N031",
@@ -5539,14 +5540,14 @@
         "cacheRead": 409458,
         "cacheWrite": 29602
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T15:16:54Z",
       "closed": "2026-11-18T15:17:11Z",
       "base": "b1265f5b8d32273cb5f51cdd2d4a2a393b16b1ac",
       "ref": "ca73a8ad4d0eee253df71a77747d08475f04020c",
       "pr": "majodali/project-orchestrator#71",
       "summary": "Owner-run trial per D094. service_identity answered project-orchestrator-service 0.1.0, commit b93c139, project majodali/project-orchestrator, live. Loaded: the service's MCP tools (deferred, fetched via ToolSearch), CLAUDE.md, and .claude/settings.json with the PostToolUse task_close cost hook. Nothing failed to load. task_open T179 succeeded without a block. No files changed.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
