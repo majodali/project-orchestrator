@@ -15,6 +15,7 @@ Open decisions:
 ## Ready, starting automatically when the loop runs
 
 - Plan rendering that survives a decision on a hidden check node (P4-N050) [executing]
+- State file kept in canonical form by every service write (P4-N054) [identified]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
@@ -307,6 +308,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **README enlistment item matching the conditional hook rule** (P4-N051, done 2026-11-18)
   README.md, Enlisting a repository, item 3 states the rule how-we-work.md states: the session start hook only where a repository carries its own state file, the cost hook in every enlisted repository.
   Note: Raised by the reviewer of P2-N032 (T185) as D103, after D101 amended docs/process/how-we-work.md item 3. README.md item 3 still says an enlisted repository "registers the two hooks". One sentence in this repository; no other repository is written. Repository: this one only. This node's plan needs no file (D105): docs/plans/rebuild.md stands at 295 lines of its 300-line bound, so the criteria below are both the plan, by T188, and the specification, by T191, and neither task wrote a file. Criteria. (1) README.md, Enlisting a repository, item 3 states what how-we-work.md item 3 states: .claude/settings.json enables the project's MCP servers, registers plugin/scripts/task_cost_hook.ts after task_close in every enlisted repository, and registers plugin/scripts/session_start.ts at session start only where the repository carries its own orchestration/state.json. (2) Item 3 stays a summary: the section keeps its four-item shape and its closing pointer to how-we-work.md, and nothing else in it changes. (3) No other page is changed. README.md's note that the two hooks never fail a session, and docs/process/task-loop.md's "the repository's two hooks", both speak of this repository's own hooks, not of what an enlisted repository registers; the service repository states no hook rule at all, verified by T188 at service commit 24639d8. Any further page a session finds stating the unconditional rule is reported, not changed. (4) README.md stays at most 150 lines, its bound in docs/plans/rebuild.md, and npm run check is green, in one pull request in this repository. The execute step works from this list; README.md was 125 lines when T188 measured it.
+- **State file kept in canonical form by every service write** (P4-N054, identified)
+  The service writes orchestration/state.json in canonical form on every write, the cost record included, so `plan-state check` reports no invariant-1 warning.
+  Note: Raised by the reviewer of P4-N049 (T190) as D106. `npm run check` reports "WARNING invariant 1 orchestration/state.json is not in the canonical format": in task T188's record `costSource` sits after `notes`, where `formatState` puts it directly after `tokens`. The reviewer found the same warning before and after the pin move, over a byte-identical state file. Not yet established: which write puts the key there (the cost record's write is the suspect) and whether the service's writes go through formatState. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows.
 
 ### Orchestration service (P2-N001)
 

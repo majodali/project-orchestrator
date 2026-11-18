@@ -1527,6 +1527,23 @@
       "note": null
     },
     {
+      "id": "P4-N054",
+      "kind": "work",
+      "title": "State file kept in canonical form by every service write",
+      "outcome": "The service writes orchestration/state.json in canonical form on every write, the cost record included, so `plan-state check` reports no invariant-1 warning.",
+      "stage": "identified",
+      "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Raised by the reviewer of P4-N049 (T190) as D106. `npm run check` reports \"WARNING invariant 1 orchestration/state.json is not in the canonical format\": in task T188's record `costSource` sits after `notes`, where `formatState` puts it directly after `tokens`. The reviewer found the same warning before and after the pin move, over a byte-identical state file. Not yet established: which write puts the key there (the cost record's write is the suspect) and whether the service's writes go through formatState. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows."
+    },
+    {
       "id": "P2-N001",
       "kind": "work",
       "title": "Orchestration service",
