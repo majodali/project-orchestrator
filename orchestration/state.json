@@ -5445,6 +5445,25 @@
       "pr": "majodali/project-orchestrator-service#47",
       "summary": "Rework: loosened the K-004 shape to find the first em dash anywhere after the lead, fixing re-import of this service's own renderBacklog output (0/95, 45/272 rows previously) and the two wrongly-excluded methodology-tools rows. Added backlogMapped and backlogRows to the record. CI green on PR #47.",
       "notes": null
+    },
+    {
+      "id": "T176",
+      "node": "P4-N044",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T05:08:29Z",
+      "closed": null,
+      "base": "1321be09609160eaedd8b0d5905720b6da6d8185",
+      "ref": null,
+      "pr": null,
+      "summary": "Rework: move the project-orchestrator-service pin to the T175 merge commit (b93c139) after the reviewer's T174 failure, keeping npm run check green.",
+      "notes": null
     }
   ],
   "decisions": [

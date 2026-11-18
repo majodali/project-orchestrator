@@ -15,13 +15,12 @@ Open decisions:
 
 ## Ready, starting automatically when the loop runs
 
-- Backlog reader in the state importer (P4-N044) [verifying]
 - State directory created by the importer (P4-N049) [identified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-None.
+- Backlog reader in the state importer (P4-N044) [verifying] — T176
 
 ## In progress, children carry the work
 
