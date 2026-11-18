@@ -1023,7 +1023,7 @@
       "kind": "work",
       "title": "State directory created by the importer",
       "outcome": "`plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N027",
       "after": [],
       "hold": null,
@@ -5630,6 +5630,25 @@
       "ref": null,
       "pr": null,
       "summary": "Rework after T180's blocked verification: add P2-N032's section to docs/plans/orchestrator-session-record.md recording criterion 13's trial (T179, the owner's session), what loaded, and the generator's --check result, on PR #71.",
+      "notes": null
+    },
+    {
+      "id": "T183",
+      "node": "P4-N049",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T15:51:27Z",
+      "closed": null,
+      "base": "98d3be79d7dea8040429e9f25f3dc6bf0b78cf94",
+      "ref": null,
+      "pr": null,
+      "summary": "Fix plan-state import --write to create orchestration/ when missing, per pilot-enlistment-methodology-tools.md section 5.",
       "notes": null
     }
   ],
