@@ -1463,7 +1463,7 @@
       "kind": "work",
       "title": "Plan rendering that survives a decision on a hidden check node",
       "outcome": "A write that leaves an open decision on a hidden check node succeeds, and the decision is named where the owner reads it.",
-      "stage": "planned",
+      "stage": "specified",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -5719,7 +5719,7 @@
       "id": "T186",
       "node": "P4-N050",
       "step": "specify",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -5727,11 +5727,11 @@
         "out": null
       },
       "opened": "2026-11-18T16:22:27Z",
-      "closed": null,
+      "closed": "2026-11-18T16:26:54Z",
       "base": "493c899f0353aedeadb27cef36eacffcd9c0afd6",
       "ref": null,
-      "pr": null,
-      "summary": "Specify P4-N050 against the criteria list in docs/plans/rebuild.md, now that D104 keeps the view criterion in this node, closing on that list if it is enough to execute from.",
+      "pr": "majodali/project-orchestrator#77",
+      "summary": "The seven criteria in the rebuild plan are the specification; no further document. One line had gone stale, deferring the view criterion to D104, which is now answered, so the section records the answer. The routes T184 ran and found are in the node's note. rebuild.md is 295 lines.",
       "notes": null
     },
     {
