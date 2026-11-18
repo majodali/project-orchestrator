@@ -5816,6 +5816,25 @@
       "pr": null,
       "summary": "Fix plan rendering so it survives an open decision on a hidden check node, per rebuild.md's P4-N050 section.",
       "notes": null
+    },
+    {
+      "id": "T190",
+      "node": "P4-N052",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T19:44:51Z",
+      "closed": null,
+      "base": "eb9407ae975f7a6f20ec2f40188af6728418b227",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P4-N049 (state directory created by the importer) against section 5 of the pilot-enlistment plan: the writeOutput helper merged at 24639d8 in the service repository, reproducing the ENOENT fault's absence myself, and T187's pin move on #78.",
+      "notes": null
     }
   ],
   "decisions": [

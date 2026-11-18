@@ -21,6 +21,7 @@ Gated nodes:
 
 ## In flight
 
+- Verification of State directory created by the importer (P4-N052) [specified] — T190
 - Plan rendering that survives a decision on a hidden check node (P4-N050) [executing] — T189
 
 ## In progress, children carry the work
@@ -250,6 +251,8 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     - **State directory created by the importer** (P4-N049, verifying)
       `plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.
       Note: Child 5 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 5 (the parent's plan document; this node links none of its own, as children 1 to 4 do not). Specified on that list by T181, which added no document: the seven criteria are at the depth the work needs. Found by the reviewer of P4-N044 (T174) and raised by T175 as D097; D099 made P4-N045 wait for this node and D100 kept start: auto. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys, and to this repository for the pin. Observed by T181 at service commit b93c139, over a temporary repository holding only docs/backlog.md: the import throws ENOENT on orchestration/state.json at src/model/cli.ts:149 and exits 1 with a stack trace, so criterion 1's "exits on the import's own result" means the import reports instead of throwing. src/model/cli.ts self-executes (process.exit(main(...)) at module scope), so a test drives it as a subprocess; `npx tsx src/model/cli.ts import --repo <tmp> --project <owner/name> --write` works, and --project is needed because a temporary repository has no git remote.
+      - check: **Verification of State directory created by the importer** (P4-N052, specified)
+        P4-N049 is verified against its outcome.
     - **methodology-tools' plan as a state file** (P4-N045, specified)
       methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.
       after P4-N049
