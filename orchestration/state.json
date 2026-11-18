@@ -1599,7 +1599,7 @@
       "kind": "work",
       "title": "Key order set once where the state file is serialised",
       "outcome": "`formatState` writes every object's fields in schema order, the per-site rebuilding in `setCostSource` is gone, and no write can drop or misorder a field the schema carries.",
-      "stage": "identified",
+      "stage": "planned",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -6190,7 +6190,7 @@
       "id": "T202",
       "node": "P4-N057",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -6198,11 +6198,11 @@
         "out": null
       },
       "opened": "2026-11-18T23:09:04Z",
-      "closed": null,
+      "closed": "2026-11-18T23:12:22Z",
       "base": "a9975d1e2e93f95d4bc10f052b1ca6ef72658ed1",
       "ref": null,
       "pr": null,
-      "summary": "Plan taking the state file's key order from the schema in formatState: confirm the hand-kept list and the append sites, settle how the order comes from the schema, measure the byte churn over today's state file, and name the test that fails when a field is added.",
+      "summary": "No file changed, so no pull request: rebuild.md is at 295 of 300 lines, so seven criteria and the evidence are in the node's note. Ran it all: the drop, the hazard with a field added, a zod parse restoring order at every level, and zero churn over this repository's 351,851-byte state file. One ask.",
       "notes": null
     },
     {
@@ -7549,6 +7549,21 @@
       "chosen": "add a node to canonicalise key order once in formatState and drop the per-site rebuilding",
       "decided": "2026-11-18",
       "rationale": "Asked by T201 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D114",
+      "node": "P4-N057",
+      "question": "Where does P4-N057's plan live, given docs/plans/rebuild.md stands at 295 lines of its 300-line bound?",
+      "options": [
+        "no file: the node's note carries the criteria and the evidence, and the note records that this node's plan needs no file",
+        "make room first by moving a finished section of rebuild.md to docs/archive/plans/rebuild-record.md, then add a section"
+      ],
+      "default": "no file: the node's note carries the seven criteria and what T202 ran, as it now does, and the note records that this node's plan needs no file. This follows D105 on P4-N051 and D108 on P4-N054, which are precedents and not standing decisions",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T202 at close.",
       "standing": false,
       "source": null
     }
