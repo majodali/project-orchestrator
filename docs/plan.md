@@ -15,6 +15,7 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
+- README enlistment item matching the conditional hook rule (P4-N051) [identified]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
@@ -304,6 +305,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   A write that leaves an open decision on a hidden check node succeeds, and the decision is named where the owner reads it.
   [plan](plans/rebuild.md)
   Note: Found on P2-N032, task T182: task_close failed with "Cannot read properties of undefined (reading 'title')" and committed nothing. Criteria: docs/plans/rebuild.md, the section named for this node; specified on that list by T186, which added no document. D104 kept the criterion on the view in this node. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows. Observed by T184 at service commit b93c139, by running the renderings over this repository's state file with one open decision added on a hidden check node: renderPlan throws because it builds its node map from shownNodes while decisionLine asserts the decision's node is in it; renderRegister and renderBacklog do not, mapping over the full state and rendering no decisions; renderPlan runs on every service write (src/model/store.ts) and in invariant 9 (src/model/check.ts), so while such a decision stands every write and plan-state check fail. A check node is hidden when it has no hold and no open task, which a rework close produces. The view's tree page does not throw: it keys open decisions by node and visits only shown nodes, so the page counts the decision and shows no row; the obvious route is to key a hidden check node's decision to the node it verifies, since the hidden node's own page already renders the decision with a working form, reached by its identifier in the URL. Test homes: test/modelRender.test.ts for the renderings, the tests over the task tools and the loop for the close path, and test/viewPages.test.ts, which drives pages through createApp with the helpers in test/support/states.ts.
+- **README enlistment item matching the conditional hook rule** (P4-N051, identified)
+  README.md, Enlisting a repository, item 3 states the rule how-we-work.md states: the session start hook only where a repository carries its own state file, the cost hook in every enlisted repository.
+  Note: Raised by the reviewer of P2-N032 (T185) as D103, after D101 amended docs/process/how-we-work.md item 3. README.md still says an enlisted repository "registers the two hooks". One sentence in this repository; no other repository is written.
 
 ### Orchestration service (P2-N001)
 
