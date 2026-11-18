@@ -23,7 +23,7 @@
     "eslint": "^10.9.1",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.6",
-    "project-orchestrator-service": "github:majodali/project-orchestrator-service#6f2b9f77126a58936a9625120e1b48f0a6bddf6b",
+    "project-orchestrator-service": "github:majodali/project-orchestrator-service#86337ba80c76eb1883c0f08e125fb7adc306a184",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.68.0",
     "vitest": "^4.1.11"
