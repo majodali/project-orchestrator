@@ -5721,10 +5721,12 @@
       "step": "specify",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 36,
+        "out": 8303,
+        "cacheRead": 4132793,
+        "cacheWrite": 18350
       },
       "opened": "2026-11-18T16:22:27Z",
       "closed": "2026-11-18T16:26:54Z",
@@ -5732,7 +5734,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#77",
       "summary": "The seven criteria in the rebuild plan are the specification; no further document. One line had gone stale, deferring the view criterion to D104, which is now answered, so the section records the answer. The routes T184 ran and found are in the node's note. rebuild.md is 295 lines.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T187",
