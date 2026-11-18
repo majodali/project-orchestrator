@@ -5716,6 +5716,25 @@
       "pr": null,
       "summary": "Specify P4-N050 against the criteria list in docs/plans/rebuild.md, now that D104 keeps the view criterion in this node, closing on that list if it is enough to execute from.",
       "notes": null
+    },
+    {
+      "id": "T187",
+      "node": "P4-N049",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T16:25:57Z",
+      "closed": null,
+      "base": "57ce17928cea6f254ab4e19c7e5f320e96d538a8",
+      "ref": null,
+      "pr": null,
+      "summary": "Move the project-orchestrator-service pin to the T183 merge commit (24639d8, the ENOENT fix for plan-state import --write) and keep npm run check green.",
+      "notes": null
     }
   ],
   "decisions": [
