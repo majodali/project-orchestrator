@@ -19,14 +19,13 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- Plan rendering that survives a decision on a hidden check node (P4-N050) [specified]
 - README enlistment item matching the conditional hook rule (P4-N051) [planned]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-None.
+- Plan rendering that survives a decision on a hidden check node (P4-N050) [executing] — T189
 
 ## In progress, children carry the work
 
@@ -306,7 +305,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Pin migrated to the release with the K-003 amendment** (P4-N042, identified, blocked: Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.)
   This repository pins the methodology release that carries the K-003 amendment, declares the state file as its planning/execution model, ends the K-003 deviation, and adopts or deviates from each other amendment in that release.
   Note: Added by the owner's answer to D079 (on P4-N026), 2026-11-17. It starts when majodali/methodology tags the release; until then nothing can be done. The owner carries the batch in the order D078 gives: proposals two and three first, then the release.
-- **Plan rendering that survives a decision on a hidden check node** (P4-N050, specified)
+- **Plan rendering that survives a decision on a hidden check node** (P4-N050, executing)
   A write that leaves an open decision on a hidden check node succeeds, and the decision is named where the owner reads it.
   [plan](plans/rebuild.md)
   Note: Found on P2-N032, task T182: task_close failed with "Cannot read properties of undefined (reading 'title')" and committed nothing. Criteria: docs/plans/rebuild.md, the section named for this node; specified on that list by T186, which added no document. D104 kept the criterion on the view in this node. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows. Observed by T184 at service commit b93c139, by running the renderings over this repository's state file with one open decision added on a hidden check node: renderPlan throws because it builds its node map from shownNodes while decisionLine asserts the decision's node is in it; renderRegister and renderBacklog do not, mapping over the full state and rendering no decisions; renderPlan runs on every service write (src/model/store.ts) and in invariant 9 (src/model/check.ts), so while such a decision stands every write and plan-state check fail. A check node is hidden when it has no hold and no open task, which a rework close produces. The view's tree page does not throw: it keys open decisions by node and visits only shown nodes, so the page counts the decision and shows no row; the obvious route is to key a hidden check node's decision to the node it verifies, since the hidden node's own page already renders the decision with a working form, reached by its identifier in the URL. Test homes: test/modelRender.test.ts for the renderings, the tests over the task tools and the loop for the close path, and test/viewPages.test.ts, which drives pages through createApp with the helpers in test/support/states.ts.

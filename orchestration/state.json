@@ -1480,7 +1480,7 @@
       "kind": "work",
       "title": "Plan rendering that survives a decision on a hidden check node",
       "outcome": "A write that leaves an open decision on a hidden check node succeeds, and the decision is named where the owner reads it.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -5767,14 +5767,14 @@
         "cacheRead": 7295033,
         "cacheWrite": 136470
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T16:25:57Z",
       "closed": "2026-11-18T16:36:04Z",
       "base": "57ce17928cea6f254ab4e19c7e5f320e96d538a8",
       "ref": "3d59fe2eedd79fa7c5ae16c8a69064ebc0ad7d60",
       "pr": "majodali/project-orchestrator#78",
       "summary": "Pinned project-orchestrator-service to 24639d8 (deployed, confirmed via service_identity); npm ci/check/test/lint/format all pass. The canonical-format warning is unchanged by the pin, unrelated. PR #78. Read the service at that commit: section 5's other criteria look met; did not re-run the service's own suite, relying on T183's report and PR #48's green CI.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T188",
@@ -5796,6 +5796,25 @@
       "ref": null,
       "pr": null,
       "summary": "No file changed, so no pull request: docs/plans/rebuild.md is at 295 of its 300 lines, so four criteria are in the node's note instead, and the ask settles where the plan lives. Checked the rest: only README item 3 states the rule; the service repository states no hook rule, at its commit 24639d8.",
+      "notes": null
+    },
+    {
+      "id": "T189",
+      "node": "P4-N050",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T19:42:20Z",
+      "closed": null,
+      "base": "163b7cbf6a6b67ff446af0ca1e243f1d627185d4",
+      "ref": null,
+      "pr": null,
+      "summary": "Fix plan rendering so it survives an open decision on a hidden check node, per rebuild.md's P4-N050 section.",
       "notes": null
     }
   ],
