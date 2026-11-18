@@ -279,7 +279,7 @@ describe("the watcher wakes on a new action key (criterion 9, S6)", () => {
       done: "2026-11-17",
     });
     const r = repo(state([HELD, done], [], [asked]));
-    const ASKS_KEY = "report:P1-N002:4:asks";
+    const ASKS_KEY = "report:P1-N002:4:asks:D001";
     writeFileSync(r.acted, JSON.stringify([HELD_KEY, ASKS_KEY]));
     const run = watcher(r);
     await sleep(SEVERAL_POLLS);
