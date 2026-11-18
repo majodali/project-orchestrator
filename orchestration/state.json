@@ -7438,8 +7438,8 @@
         "hold for further review"
       ],
       "default": "merge it",
-      "chosen": null,
-      "decided": null,
+      "chosen": "merge it",
+      "decided": "2026-11-18",
       "rationale": "Asked by T194 at close.",
       "standing": false,
       "source": null
