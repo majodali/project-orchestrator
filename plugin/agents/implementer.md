@@ -35,7 +35,10 @@ identifier of the session that started you.
    document. When the answer carries `rework`, the node is back from
    a failed verification: `rework.failed` says what to fix, on the
    pull request it names.
-4. Do the work on a branch. Commit, push and open a pull request.
+4. Do the work on a new branch from `main`, named for the task
+   (such as `t153-p4-n038-one-branch`). Never use a branch another
+   pull request used: only a rework, or a step offered again, stays
+   on its pull request. Commit, push and open a pull request.
    Never merge it: the service merges it when the verification
    closes. Commit to it only while your task is open: the service
    refuses to merge a pull request with commits made after its task
@@ -76,7 +79,8 @@ above them.
   it showed, and say which criteria you did not check.
 - Tick a criterion in the plan document only with what was done
   beside it. The reviewer checks the work, not the tick.
-- One branch per task. A branch that will never merge, you delete.
+- One branch per task. GitHub deletes it after the merge; a branch
+  that will never merge, you delete.
 
 **Writes to the plan.** A change to another node that your node's
 criteria call for goes through `node_update`, `node_add` or

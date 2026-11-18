@@ -141,55 +141,10 @@ instance must later serve several projects and repositories (the
 owner, 2026-11-12; P2-N026), so the pilot adds no code path of its
 own. Criteria written on 2026-11-12, after D067 was answered.
 
-The second instance:
-
-- [ ] It is a second stack from the same `template.yaml` at the same
-      commit. It differs only in parameters: the stack name and
-      `ProjectName` (majodali/methodology-tools). No code branches on
-      the project.
-- [ ] It shares the first instance's two secrets, the MCP bearer
-      token and the view token (the owner, 2026-11-13). No secret is
-      created. The token therefore opens both instances; the endpoint
-      in `.mcp.json` is what ties a session to one repository.
-- [ ] The same GitHub App serves it: the owner adds methodology-tools
-      to the App's installation. The App's permissions and the path
-      allowlist in the service's `src/model/store.ts` are unchanged.
-- [ ] The service's deploy workflow deploys, smoke-tests and promotes
-      both instances from every merge, and fails when either fails,
-      so the two never run different commits.
-- [ ] The deploy role reaches the second stack: the owner widens its
-      policy, and the service's `docs/deploy-role-permissions.md`
-      records the change. Nothing else in the role changes.
-- [ ] The service's `docs/runbook.md` lists the steps and the owner's
-      actions for adding an instance. The implementer names those
-      actions to the owner before the first deploy.
-
-The enlistment and the import:
-
-- [ ] The enlistment steps in child 3's page are followed as written;
-      steps that needed correction are corrected in that page.
-- [ ] The state file first arrives in methodology-tools by one pull
-      request, written by `plan-state import`. From then on the
-      service is its only writer.
-- [ ] `orchestration/state.json` in methodology-tools passes
-      `plan-state check`.
-- [ ] Every Backlog row of methodology-tools is a node, or is listed
-      in an import record as not mapped, with the reason.
-- [ ] The owner reviews the import record; hand corrections go in an
-      overrides file, as at M1.
-- [ ] `.mcp.json` in methodology-tools names the second instance's
-      endpoint and the same environment variable for the token as
-      this repository's. No token is committed.
-- [ ] `task_next` through the second instance answers a node of
-      methodology-tools, and one write through it commits to
-      methodology-tools as the App, with its journal line.
-- [ ] Repository access: majodali/methodology-tools is new to this
-      project, so the owner grants it before the node starts (D065).
-      Also majodali/project-orchestrator-service (standing, RU-016),
-      for the deploy workflow and the runbook.
-- [ ] Adoption of the loop by that project's own sessions, with the
-      session start hook and the task-cost hook, is a separate node
-      (RU-017), not part of this one.
+Broken down on 2026-11-17 (task T168) into four children, cut by
+repository and by who can act. Its criteria, the owner's four
+actions, the order they force and the children's criteria lists are
+in [the pilot's plan](pilot-enlistment-methodology-tools.md).
 
 **7. Document paths changed through the service** (P4-N031)
 Outcome: a task can re-point a node's plan and specification paths
@@ -247,49 +202,42 @@ Acceptance of the milestone: the orientation test passes for both
 repositories; the word count under `docs/` is below 100,000 excluding
 `docs/archive/`; no node outside the P3 line holds on this milestone.
 
-## Delegated tasks claimed without asking (P4-N034)
+## One branch for each pull request (P4-N038)
 
-Added by the owner on 2026-11-16, after a reviewer session launched
-for P4-N033 stopped to ask before claiming. Outcome: a session that an
-orchestrating session starts with a brief naming a node and a step
-claims that task without asking a person first, and a session a
-person starts still asks before it claims.
+Asked for by the owner on 2026-11-17, after a second session worked
+on another session's branch, `claude/zealous-einstein-1rw9kw`, and
+both opened pull requests from it. Outcome: every pull request comes
+from a branch of its own, made for that task and deleted after the
+merge, so two sessions never push to the same branch.
 
-- [x] The session start hook's text, `CLAUDE.md`,
-      `docs/process/how-we-work.md` and the three role agents state
-      one rule. `docs/process/task-loop.md` states it too.
-- [x] The rule says how a session recognises a delegation brief, and
-      that the brief authorises the named node and step and nothing
-      else. The brief is the first message a session receives; it
-      names the node, the step and the delegating session.
-- [x] Decisions that are the owner's stay asks at `task_close`. A
-      brief is never the owner's words: it does not justify
-      `ownerInstruction` or a merge.
-- [x] A trial is recorded: a session launched with a brief claims its
-      task without asking, and a session started without one still
-      asks. Recorded below.
+- [x] `docs/process/how-we-work.md` and the three role agents say a
+      task's pull request comes from a new branch named for the
+      task, never from a branch another pull request used.
+- [x] A delegating session starts the new session on `main`, never
+      on its own work branch, unless the brief says the work is on
+      that branch (`docs/process/how-we-work.md`, `CLAUDE.md`).
+- [x] Head branches are deleted after merge in this repository and
+      the service repository, by the repository setting or by the
+      service at merge, and the record says which. The repository
+      setting, in both (D081); the service is not changed.
+- [x] The rule is tried once: two tasks in a row from one session
+      produce two branches, and the first is gone after its merge.
+      Recorded from tasks T140 and T144, which ran before the rule;
+      the owner accepted the record with its limits (D084).
 
-Executed 2026-11-16 (task T140). The hook's test pinned the old text
-line for line, so its expectation gained the new line.
-
-The trial, 2026-11-16. Two cloud sessions were started on the
-branch, each by the implementer's session. Trial A's first message
-was a brief of three lines: the delegating session, node P4-N035 (a
-scratch node, since removed) with step `plan`, and the planner role.
-It opened task T141 thirty seconds after launch, without asking,
-delivered an outcome and nine criteria, and closed. Trial B's first
-message was "Hello. What would you work on?". It named a task it
-would take, asked, and claimed nothing. Conclusion: both cases behave
-as the rule says. Limits: one run of each; both sessions were started
-by another session, so "a session a person starts" was tried only as
-"a session with no brief"; and nothing checks that a brief comes from
-the session it names.
+Executed 2026-11-17 (tasks T153, T154 and T162). What was observed for
+criterion 3, and the trial with its limits: the
+[record of the finished parts](../archive/plans/rebuild-record.md),
+"One branch for each pull request".
 
 ## Where the rest of this plan went
 
 Moved on 2026-11-14 (P4-N024, Pruned document set), unchanged:
 
 - **The loop and the close-out**: [the task loop](../process/task-loop.md).
+- **Delegated tasks claimed without asking** (P4-N034), moved on
+  2026-11-17 (P4-N038) with its criteria, all met, and its trial: the
+  [record of the finished parts](../archive/plans/rebuild-record.md).
 - **The data model** and **the invariants**:
   [the state model](../process/state-model.md).
 - **Decisions** 1 to 13, **GitHub interaction changes**, **What

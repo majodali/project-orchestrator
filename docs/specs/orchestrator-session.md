@@ -2,11 +2,10 @@
 
 Status: specify step, task T150, 2026-11-17.
 
-Reader: the sessions that break down, build and verify P2-N027, and
-the owner. The reader has read
-[the plan](../plans/orchestrator-session.md) and
-[how we work](../process/how-we-work.md). Section numbers below
-(S1 to S9) are this document's; "plan section" names the plan's.
+Reader: the sessions that break down, build and verify P2-N027, and the
+owner. The reader has read [the plan](../plans/orchestrator-session.md)
+and [how we work](../process/how-we-work.md). Section numbers below (S1
+to S9) are this document's; "plan section" names the plan's.
 
 ## Why a separate document
 
@@ -63,14 +62,17 @@ two runs that mean the same action print the same key.
 `new`: a later start on the same node is a different action. Which
 nodes offer a step comes from the service's `candidates(state)`, as
 in `plugin/scripts/lib/session-brief.ts`, never from a second rule.
+The key of a `decision` or `asks` report ends with one more part,
+the open decisions it names, as in `report:P2-N031:4:asks:D088,D089`:
+a further decision on the node is a new key (D088).
 
 ## S2. The session snapshot: where memory lives
 
 The orchestrator session writes a snapshot before each run of the
 script: a JSON list, one entry for each session whose title follows
 the grammar below, from `list_sessions` and `get_session`. Fields:
-`id`, `title`, `created`, `status` (the status bucket) and `model`
-(the model the session is set to run).
+`id`, `title`, `created`, `status` (the status bucket, or `archived`)
+and `model` (the model the session is set to run).
 
 The title of a session the orchestrator starts is the `title` of the
 `start` action: `<node> <step>`, as in `P4-N038 execute`. After it
@@ -80,8 +82,7 @@ in `P4-N038 execute; checked T152 2026-11-17T22:10Z`. A mark ends
 with the time it was made, which the action gives. The marks are:
 
 - `checked <task> <time>`: a `check` of that task was carried out;
-- `nudged <task> <time>`: the session was told its task is still
-  open;
+- `nudged <task> <time>`: the session was told its task is still open;
 - `continued <task> <time>`: the session was sent the rework, or the
   step offered again, that follows that closed task.
 
@@ -145,6 +146,7 @@ takes each node in turn. Reports come first in the output, then
   document also linked by a node with an open or pending task of any
   step but `verify`: a reviewer edits nothing. The plan named only
   execute tasks; a planner in the same file collides the same way.
+  A `verify` start is itself exempt, for the same reason (D087).
 - A node skipped for either reason gets no action until a later run.
 
 The `repository` of a `start` is the state file's `project`, unless

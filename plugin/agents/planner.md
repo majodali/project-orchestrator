@@ -31,9 +31,9 @@ identifier of the session that started you.
    answer carries the node, its documents, the decisions on it and
    above it, and the standing decisions. All of them bind you. If it
    refuses, tell the person the reason and stop.
-3. Do the step. Work on a branch, commit, push and open a pull
-   request. Never merge it: the service merges a planning step's
-   pull request when the task closes.
+3. Do the step on a new branch from `main`, named for the task,
+   never one another pull request used. Open a pull request. Never
+   merge it: the service merges it when the task closes.
 4. Close with `task_close`: status, a summary of at most sixty words,
    the pull request, and the step's result (below). Give no token
    counts: a hook measures the cost. If the close is refused because

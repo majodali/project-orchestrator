@@ -125,6 +125,10 @@ that delegates.
   those stay asks at `task_close`.
 - A session a person starts still names the task it would take and
   asks before claiming it.
+- The delegating session starts the new session on `main`, never on
+  its own work branch, unless the brief says the work is on that
+  branch. A task's pull request comes from a new branch named for
+  the task, never from one another pull request used.
 
 ## Pointers
 

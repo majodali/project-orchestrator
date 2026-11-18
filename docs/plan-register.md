@@ -54,7 +54,12 @@ Dependencies are in the state file, not in sibling order.
     - P4-N024 [done] Pruned document set — plan: plans/rebuild.md
     - P4-N025 [done] README and generated Backlog — plan: plans/rebuild.md
     - P4-N026 [done] Upstream proposals batch — plan: plans/rebuild.md
-    - P4-N027 [specified] Pilot enlistment of methodology-tools — plan: plans/rebuild.md
+    - P4-N027 [broken-down] Pilot enlistment of methodology-tools — plan: plans/pilot-enlistment-methodology-tools.md
+      - P4-N044 [done] Backlog reader in the state importer
+      - P4-N049 [specified] State directory created by the importer
+      - P4-N045 [specified] methodology-tools' plan as a state file
+      - P4-N046 [specified] Second instance on the deploy path
+      - P4-N047 [specified] The pilot's first task through its own instance
     - P4-N031 [done] Document paths changed through the service — plan: plans/rebuild.md
     - P4-N032 [done] Linked plans and specs archived — plan: plans/rebuild.md
   - P4-N010 [done] Task cost capture — plan: plans/rebuild.md
@@ -64,7 +69,7 @@ Dependencies are in the state file, not in sibling order.
   - P4-N017 [done] Session hooks run on Windows — plan: plans/rebuild.md
   - P4-N020 [done] Session start summary and the offer to act — plan: plans/rebuild.md
   - P4-N034 [done] Delegated tasks claimed without asking — plan: plans/rebuild.md
-  - P4-N038 [verifying] One branch for each pull request — plan: plans/rebuild.md
+  - P4-N038 [done] One branch for each pull request — plan: plans/rebuild.md
   - P4-N042 [identified] [blocked: Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.] Pin migrated to the release with the K-003 amendment
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
   - P2-N002 [done] Service skeleton and plan state — plan: archive/plans/p2-n002-service-skeleton.md · spec: archive/specs/p2-n002-service-skeleton.md
@@ -87,12 +92,14 @@ Dependencies are in the state file, not in sibling order.
   - P2-N027 [broken-down] Orchestrator session that keeps work moving — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N030 [done] Decision script and settings of the orchestrator — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N031 [done] Orchestrator role and its watcher — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
-    - P2-N032 [specified] Service repository enlisted for delegated sessions — spec: specs/orchestrator-session.md
-    - P2-N036 [executing] Orchestrator fixes before its trial — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
+    - P2-N032 [verifying] Service repository enlisted for delegated sessions — spec: specs/orchestrator-session.md
+    - P2-N036 [done] Orchestrator fixes before its trial — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N033 [specified] Orchestrator trial with its measured cost — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
   - P2-N028 [broken-down] View that updates itself and leads with what matters — plan: plans/view-that-leads-and-updates.md
     - P2-N037 [specified] Tree page that updates itself
     - P2-N038 [specified] Four lists ahead of the tree
     - P2-N039 [specified] Session, duration and criteria on pages
     - P2-N040 [specified] Feedback in place and the node panel
+    - P2-N041 [specified] View trial with its measured delay
+    - P2-N042 [specified] Session field adopted in this repository
   - P2-N029 [identified] Rework cost measured against the reviews it replaces
