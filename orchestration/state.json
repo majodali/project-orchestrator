@@ -6995,8 +6995,8 @@
         "make room first by moving a finished section of rebuild.md to docs/archive/plans/rebuild-record.md, then add a section for this node"
       ],
       "default": "no file: the node's note carries the four criteria, as it now does, and the note records that this node's plan needs no file. The work is one sentence in README.md, and moving a finished section of the rebuild plan to the archive record is a separate piece of work that this node would otherwise carry",
-      "chosen": null,
-      "decided": null,
+      "chosen": "no file: the node's note carries the four criteria, as it now does, and the note records that this node's plan needs no file. The work is one sentence in README.md, and moving a finished section of the rebuild plan to the archive record is a separate piece of work that this node would otherwise carry",
+      "decided": "2026-11-18",
       "rationale": "Asked by T188 at close.",
       "standing": false,
       "source": null
