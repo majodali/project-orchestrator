@@ -12,7 +12,6 @@ Nothing.
 
 ## Ready, starting automatically when the loop runs
 
-- Criterion 13 trial: round trip from a service-repo checkout (P2-N044) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
@@ -372,9 +371,6 @@ Documents: [plan](plans/orchestration-service.md).
     A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
     after P2-N030 · [spec](specs/orchestrator-session.md)
     Note: Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script.
-    - **Criterion 13 trial: round trip from a service-repo checkout** (P2-N044, specified)
-      A disposable round trip: a session started with source_url majodali/project-orchestrator-service opens and closes this node's execute step, so the vendored cost hook measures a task from that checkout (criterion 13, S7). Removed once the cost is confirmed.
-      Note: Scratch node for T172's criterion-13 trial only (the pattern lib/task-cost.ts's own doc comment anticipates: "a trial on a scratch node"). Remove after the trial closes and its cost is confirmed.
   - **Orchestrator fixes before its trial** (P2-N036, done 2026-11-18)
     A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.
     after P2-N031 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
