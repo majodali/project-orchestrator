@@ -5960,6 +5960,25 @@
       "pr": null,
       "summary": "Give methodology-tools orchestration/state.json via plan-state import, with overrides, renderings, archived Backlog, K-003 recorded; PR only, never merge.",
       "notes": null
+    },
+    {
+      "id": "T195",
+      "node": "P4-N054",
+      "step": "plan",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T19:58:14Z",
+      "closed": null,
+      "base": "e01fd70b0e8e017526c586a2fbddf60e1f9b3c4e",
+      "ref": null,
+      "pr": null,
+      "summary": "Plan the canonical-form fix: establish by running it which write puts a task record's keys out of order, whether every service write goes through formatState, why the warning comes and goes, and whether check should call it a violation.",
+      "notes": null
     }
   ],
   "decisions": [
