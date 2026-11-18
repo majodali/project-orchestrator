@@ -12,12 +12,12 @@ Nothing.
 
 ## Ready, starting automatically when the loop runs
 
-- Plan rendering that survives a decision on a hidden check node (P4-N050) [identified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
 - State directory created by the importer (P4-N049) [executing] — T183
+- Plan rendering that survives a decision on a hidden check node (P4-N050) [identified] — T184
 - Service repository enlisted for delegated sessions (P2-N032) [verifying] — T182
 
 ## In progress, children carry the work
