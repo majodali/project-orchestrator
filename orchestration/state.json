@@ -6658,8 +6658,8 @@
         "require a malformed row to be added to the fixture copy"
       ],
       "default": "amend section 1's criterion 8 to read \"the row count, the four open rows, and a malformed row that appears in the record as not mapped, on the fixture or on a synthetic row where the fixture has none\"",
-      "chosen": null,
-      "decided": null,
+      "chosen": "amend section 1's criterion 8 to read \"the row count, the four open rows, and a malformed row that appears in the record as not mapped, on the fixture or on a synthetic row where the fixture has none\"",
+      "decided": "2026-11-18",
       "rationale": "Asked by T177 at close.",
       "standing": false,
       "source": null
