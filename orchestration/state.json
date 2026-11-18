@@ -6493,8 +6493,8 @@
         "describe the exact transition needed and let a later task apply it"
       ],
       "default": "the owner or the service corrects the stage directly",
-      "chosen": null,
-      "decided": null,
+      "chosen": "the owner or the service corrects the stage directly",
+      "decided": "2026-11-18",
       "rationale": "Asked by T172 at close.",
       "standing": false,
       "source": null
