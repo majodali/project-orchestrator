@@ -1865,7 +1865,7 @@
       "kind": "work",
       "title": "Orchestrator fixes before its trial",
       "outcome": "A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N027",
       "after": [
         "P2-N031"
@@ -1876,7 +1876,7 @@
         "plan": "docs/plans/orchestrator-session.md",
         "spec": "docs/specs/orchestrator-session.md"
       },
-      "done": null,
+      "done": "2026-11-18",
       "note": "Added on the owner's answers of 2026-11-17 to D087 (on P2-N030), D088 and D089 (on P2-N031), which each name this node. Criteria: (1) D088: the keys of `decision` and `asks` reports carry the decisions' identifiers, so a second decision on a node changes a key; specification S1 and the two expected keys in test/orchestrate.test.ts follow, which the owner's answer to D088 allows. (2) D087: a verify start is exempt from the shared-document rule of S4, in lib/orchestrate.ts and its test, and S4 says so. (3) D089, in .claude/agents/orchestrator.md, still at most 120 lines: it tells the session to give the background watcher the two-hour limit and what to do if the watcher is stopped with no output; how the session learns its own identifier for --self; one rule for what it tells the owner at a wake, the time-limit wake included; and archive_session is used or dropped. (4) T159's other finding is settled: the status bucket that never says archived. (5) plugin/agents/ is regenerated and the checks pass."
     },
     {
@@ -1884,7 +1884,7 @@
       "kind": "check",
       "title": "Verification of Orchestrator fixes before its trial",
       "outcome": "P2-N036 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N036",
       "after": [],
       "hold": null,
@@ -1893,7 +1893,7 @@
         "plan": "docs/plans/orchestrator-session.md",
         "spec": "docs/specs/orchestrator-session.md"
       },
-      "done": null,
+      "done": "2026-11-18",
       "note": null
     },
     {
@@ -5281,7 +5281,7 @@
       "id": "T170",
       "node": "P2-N043",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": null,
       "tokens": {
@@ -5289,11 +5289,11 @@
         "out": null
       },
       "opened": "2026-11-18T00:07:59Z",
-      "closed": null,
+      "closed": "2026-11-18T00:15:37Z",
       "base": "f60806d14191fca160a4c5af5b789b057dbf400a",
-      "ref": null,
-      "pr": null,
-      "summary": "Verify P2-N036 (tasks T164, T169, PR #69) against the node's five criteria before the Orchestrator's trial.",
+      "ref": "f6870e9c8da760fb50e106350f9a4d5a29d11729",
+      "pr": "majodali/project-orchestrator#69",
+      "summary": "All five criteria met at f6870e9. I ran the watcher myself: it exits on a second decision (key report:P2-N029:4:asks:D200,D201); a verify start is offered beside an open execute task on the same plan document, an execute start still held. orchestrator.md, 119 lines, answers all four T161 guesses. npm test 218, check, lint, format, sync_agents, CI and mtool pass.",
       "notes": null
     }
   ],

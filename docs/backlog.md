@@ -71,6 +71,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Web view UX refinement** (P2-N023) — When: 2026-11-07. Status: done. Pointer: [plan](archive/plans/p2-n023-web-view-ux-refinement.md).
 - [x] **Decision script and settings of the orchestrator** (P2-N030) — When: 2026-11-17. Status: done. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [x] **Orchestrator role and its watcher** (P2-N031) — When: 2026-11-17. Status: done. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
+- [x] **Orchestrator fixes before its trial** (P2-N036) — When: 2026-11-18. Status: done. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 
 ## Upcoming
 
@@ -99,8 +100,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Several projects and repositories in one instance** (P2-N026) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Service repository enlisted for delegated sessions** (P2-N032) — When: not dated. Status: executing, in flight. Pointer: [spec](specs/orchestrator-session.md).
-- [ ] **Orchestrator fixes before its trial** (P2-N036) — When: not dated. Status: verifying, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
-- [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: after P2-N032, P2-N036. Status: specified, waiting on a dependency. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
+- [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: after P2-N032. Status: specified, waiting on a dependency. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/view-that-leads-and-updates.md).
 - [ ] **Tree page that updates itself** (P2-N037) — When: after P2-N032. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Four lists ahead of the tree** (P2-N038) — When: after P2-N032. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
