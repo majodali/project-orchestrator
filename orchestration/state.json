@@ -1880,7 +1880,7 @@
       "kind": "work",
       "title": "Service repository enlisted for delegated sessions",
       "outcome": "A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N027",
       "after": [
         "P2-N030"
@@ -1893,6 +1893,23 @@
       },
       "done": null,
       "note": "Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script."
+    },
+    {
+      "id": "P2-N045",
+      "kind": "check",
+      "title": "Verification of Service repository enlisted for delegated sessions",
+      "outcome": "P2-N032 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N032",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N036",
@@ -5513,7 +5530,7 @@
       "id": "T179",
       "node": "P2-N032",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -5521,11 +5538,11 @@
         "out": null
       },
       "opened": "2026-11-18T15:16:54Z",
-      "closed": null,
+      "closed": "2026-11-18T15:17:11Z",
       "base": "b1265f5b8d32273cb5f51cdd2d4a2a393b16b1ac",
-      "ref": null,
-      "pr": null,
-      "summary": "Owner-run trial per D094: confirm service_identity, the service's tools, CLAUDE.md and the post-task_close cost hook load in a cloud session. No file changes.",
+      "ref": "ca73a8ad4d0eee253df71a77747d08475f04020c",
+      "pr": "majodali/project-orchestrator#71",
+      "summary": "Owner-run trial per D094. service_identity answered project-orchestrator-service 0.1.0, commit b93c139, project majodali/project-orchestrator, live. Loaded: the service's MCP tools (deferred, fetched via ToolSearch), CLAUDE.md, and .claude/settings.json with the PostToolUse task_close cost hook. Nothing failed to load. task_open T179 succeeded without a block. No files changed.",
       "notes": null
     }
   ],
