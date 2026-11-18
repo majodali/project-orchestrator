@@ -6732,8 +6732,8 @@
         "the owner names another resolution"
       ],
       "default": "amend how-we-work.md item 3 to require plugin/scripts/session_start.ts only in a repository that carries its own orchestration/state.json, and the cost hook in every enlisted repository",
-      "chosen": null,
-      "decided": null,
+      "chosen": "amend how-we-work.md item 3 to require plugin/scripts/session_start.ts only in a repository that carries its own orchestration/state.json, and the cost hook in every enlisted repository",
+      "decided": "2026-11-18",
       "rationale": "Asked by T180 at close.",
       "standing": false,
       "source": null
