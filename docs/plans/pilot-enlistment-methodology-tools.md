@@ -148,10 +148,10 @@ this node only).
       proposed.
 - [ ] `plan-state check` over methodology-tools reports no
       violations, run from the pinned devDependency.
-- [ ] methodology-tools' `package.json` gains the
-      `project-orchestrator-service` devDependency pinned at child
-      1's merged commit, with `check` and `render` scripts matching
-      this repository's.
+- [ ] methodology-tools' `package.json` gains the `project-orchestrator-service`
+      devDependency pinned at a merged commit of the service carrying child 1's
+      work and every later child the import needs, with `check` and `render`
+      scripts matching this repository's.
 - [ ] `docs/backlog.md`, `docs/plan.md` and `docs/plan-register.md`
       in methodology-tools are `plan-state render`'s output.
 - [ ] The hand-written Backlog is archived there under
