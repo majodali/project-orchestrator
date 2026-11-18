@@ -230,6 +230,54 @@ criterion 3, and the trial with its limits: the
 [record of the finished parts](../archive/plans/rebuild-record.md),
 "One branch for each pull request".
 
+## Plan rendering that survives a decision on a hidden check node (P4-N050)
+
+Found on 2026-11-18 by task T182 on P2-N032: `task_close` failed with
+"Cannot read properties of undefined (reading 'title')" and committed
+nothing. Outcome: a write that leaves an open decision on a hidden
+check node succeeds, and the decision is named where the owner reads
+it. Repository: majodali/project-orchestrator-service (standing,
+RU-016), and this repository for the pin.
+
+The cause, run at service commit b93c139 over this repository's state
+file with one open decision added on a hidden check node: `renderPlan`
+(`src/model/render.ts`) builds its node map from `shownNodes`, and
+`decisionLine` asserts the decision's node is in it, so the lookup
+yields nothing and the render throws. A check node is hidden when it
+has no hold and no open task, which a rework close produces.
+`renderPlan` runs on every service write (`src/model/store.ts`) and in
+invariant 9 (`src/model/check.ts`), so while such a decision stands,
+every write and `plan-state check` fail. `renderRegister` and
+`renderBacklog` are unaffected: both map over the full state and
+render no decisions. The view does not throw but drops the decision:
+its tree page keys open decisions by node and visits only shown
+nodes, so the page counts the decision and shows no row for it. The
+check node's own page does show it with its form, reached only by
+typing that node's identifier in the URL.
+
+The criterion on the view stands here or moves to a node of its own,
+by the ask at this plan's close.
+
+- [ ] A decision on a hidden check node is named in `docs/plan.md`'s
+      "Waiting on the owner": the rendering looks its node up in the
+      full state, not in the shown subset.
+- [ ] No rendering throws on a state that `plan-state check` passes.
+      Where a decision's node is not found, the line names the
+      identifier instead of failing.
+- [ ] Tests cover both levels and fail against the code as it stands:
+      the rendering of an open decision on a hidden check node, and a
+      close that opens one, which must commit.
+- [ ] The view's plan page shows such a decision where the owner can
+      answer it, and its count and its rows agree.
+- [ ] Nothing else in the renderings moves: with no decision on a
+      hidden node, `plan-state render` over this repository's state
+      file produces the three files unchanged.
+- [ ] One pull request in majodali/project-orchestrator-service; the
+      owner merges it, and that merge deploys.
+- [ ] After that deploy, this repository's
+      `project-orchestrator-service` pin moves to the merged commit
+      and `npm run check` stays green.
+
 ## Where the rest of this plan went
 
 Moved on 2026-11-14 (P4-N024, Pruned document set), unchanged:
