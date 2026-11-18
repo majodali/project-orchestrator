@@ -10,7 +10,6 @@ its stage and its outcome. The state file holds the rest.
 
 Open decisions:
 
-- D092 on Service repository enlisted for delegated sessions (P2-N032): Merge majodali/project-orchestrator#71 (adds the vendoring generator in this repository)? Default: merge it
 - D093 on Backlog reader in the state importer (P4-N044): Merge pull request #46 (the Backlog reader for plan-state import) in majodali/project-orchestrator-service? The merge deploys. The last section-1 criterion (moving this repository's pin in majodali/project-orchestrator) is a separate later task in a session started there. Default: merge it
 
 ## Ready, starting automatically when the loop runs
@@ -371,7 +370,7 @@ Documents: [plan](plans/orchestration-service.md).
     Note: Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates.
   - **Service repository enlisted for delegated sessions** (P2-N032, executing)
     A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
-    after P2-N030 · [spec](specs/orchestrator-session.md) · 1 open decision
+    after P2-N030 · [spec](specs/orchestrator-session.md)
     Note: Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script.
   - **Orchestrator fixes before its trial** (P2-N036, done 2026-11-18)
     A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.
@@ -489,3 +488,4 @@ Documents: [plan](plans/orchestration-service.md).
 - D089 on P2-N031 (2026-11-17): T161 found four places where .claude/agents/orchestrator.md leaves a cold session to guess: (1) it never says to give the background watcher the two-hour limit, and the default is 30 minutes, after which the command is stopped with no output, a case the role does not cover; (2) it does not say how the session learns its own identifier for --self; (3) it says both to tell results at each wake and to say nothing more at the time-limit wake; (4) it lists archive_session and never uses it. Fix these before P2-N033's trial? Chosen: yes, in a new node that P2-N033 waits for (the same node as D088's change, if the owner chooses that)
 - D090 on P2-N036 (2026-11-18): Criterion 1 of P2-N036 (D088) makes the asks key `report:P1-N002:4:asks:D001`. One existing test in test/plan-watch.test.ts, "does not exit on a commit that adds no key, or only removes one", writes the old key `report:P1-N002:4:asks` to its acted file as setup and now fails. D088 clears only two expected keys in test/orchestrate.test.ts. May that test's constant ASKS_KEY follow the new key, with nothing else in it changed? Chosen: yes, change the constant ASKS_KEY to the new key in pull request 69
 - D091 on P2-N032 (2026-11-18): Merge majodali/project-orchestrator-service#45 (vendors plugin/scripts/task_cost_hook.ts and plugin/scripts/lib/task-cost.ts there; a merge deploys the live service)? Chosen: merge it
+- D092 on P2-N032 (2026-11-18): Merge majodali/project-orchestrator#71 (adds the vendoring generator in this repository)? Chosen: merge it
