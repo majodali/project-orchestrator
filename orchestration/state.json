@@ -5413,10 +5413,12 @@
       "step": "execute",
       "status": "needs-judgment",
       "role": "implementer",
-      "model": null,
+      "model": "claude-sonnet-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 112,
+        "out": 35938,
+        "cacheRead": 19549492,
+        "cacheWrite": 77811
       },
       "opened": "2026-11-18T04:39:36Z",
       "closed": "2026-11-18T04:46:16Z",
@@ -5424,7 +5426,8 @@
       "ref": null,
       "pr": "majodali/project-orchestrator-service#47",
       "summary": "Rework: loosened the K-004 shape to find the first em dash anywhere after the lead, fixing re-import of this service's own renderBacklog output (0/95, 45/272 rows previously) and the two wrongly-excluded methodology-tools rows. Added backlogMapped and backlogRows to the record. CI green on PR #47.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
