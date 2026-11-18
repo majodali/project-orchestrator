@@ -15,6 +15,7 @@ Open decisions:
 Gated nodes:
 
 - Second instance on the deploy path (P4-N046): start needs the owner's approval
+- methodology-tools' Binding block at the pinned methodology version (P4-N059): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
@@ -264,6 +265,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
       A session started in methodology-tools reaches the pilot instance, `task_next` answers a node of methodology-tools, and one write commits there as the GitHub App with its journal line.
       after P4-N046
       Note: Child 4 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 4. Writes .mcp.json and .claude/settings.json to majodali/methodology-tools (D065) and the enlistment corrections to this repository's docs/process/how-we-work.md, so it starts on approval; the owner sets MCP_AUTH_TOKEN in that repository's cloud environment first (O3). Waits for P4-N046: .mcp.json names an endpoint the second instance's first deploy creates. The two hooks stay with P2-N006 (RU-017).
+    - **methodology-tools' Binding block at the pinned methodology version** (P4-N059, identified)
+      methodology-tools' CLAUDE.md Binding block names methodology v1.6.0, the version its docs/classification.md pins, and `mtool audit form` over methodology-tools reports no violation for it.
+      Note: Raised by the reviewer of P4-N045 (T204) as D116, after D112 left the finding for a separate node. `mtool audit form` over majodali/methodology-tools reports one violation that predates the import: CLAUDE.md's Binding block names methodology v1.5.0 while docs/classification.md pins 1.6.0. Writes to majodali/methodology-tools (granted by D065 for P4-N027), where the owner merges, so it starts on approval. A session in this repository cannot push there, and a helper session in methodology-tools has needed the owner's go-ahead inside it (P4-N045, T194). Not yet established: whether the block is a cache the methodology says to refresh by a set procedure.
   - **Document paths changed through the service** (P4-N031, done 2026-11-17)
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
     [plan](plans/rebuild.md)
