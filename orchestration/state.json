@@ -5339,6 +5339,25 @@
       "pr": null,
       "summary": "Continuation: both pull requests merged (D091, D092). Run criterion 13's trial — a session started in majodali/project-orchestrator-service reaches the service, opens and closes a task with a measured cost — and record it on PR #71.",
       "notes": null
+    },
+    {
+      "id": "T173",
+      "node": "P4-N044",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T04:20:58Z",
+      "closed": null,
+      "base": "dba986850473bbe5b83f8eb66371e0440fed6427",
+      "ref": null,
+      "pr": null,
+      "summary": "Pin project-orchestrator-service to the merged T171 commit (86337ba) in package.json/package-lock.json and keep npm run check green.",
+      "notes": null
     }
   ],
   "decisions": [

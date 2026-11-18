@@ -12,11 +12,11 @@ Nothing.
 
 ## Ready, starting automatically when the loop runs
 
-- Backlog reader in the state importer (P4-N044) [executing]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
+- Backlog reader in the state importer (P4-N044) [executing] — T173
 - Service repository enlisted for delegated sessions (P2-N032) [executing] — T172
 
 ## In progress, children carry the work
