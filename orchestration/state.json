@@ -6275,11 +6275,14 @@
       "step": "specify",
       "status": "closed",
       "role": "planner",
-      "model": null,
+      "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 16,
+        "out": 4251,
+        "cacheRead": 2808201,
+        "cacheWrite": 18281
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T23:50:39Z",
       "closed": "2026-11-18T23:51:11Z",
       "base": "2304cf6c2c63e564c3eb743246169a0c00f40408",
