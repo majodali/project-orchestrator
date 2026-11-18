@@ -1616,7 +1616,7 @@
       "kind": "work",
       "title": "Key order set once where the state file is serialised",
       "outcome": "`formatState` writes every object's fields in schema order, the per-site rebuilding in `setCostSource` is gone, and no write can drop or misorder a field the schema carries.",
-      "stage": "planned",
+      "stage": "specified",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -6273,7 +6273,7 @@
       "id": "T205",
       "node": "P4-N057",
       "step": "specify",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -6281,11 +6281,11 @@
         "out": null
       },
       "opened": "2026-11-18T23:50:39Z",
-      "closed": null,
+      "closed": "2026-11-18T23:51:11Z",
       "base": "2304cf6c2c63e564c3eb743246169a0c00f40408",
       "ref": null,
       "pr": null,
-      "summary": "Specify P4-N057 on the note's seven criteria, recording what D114 settled: this node's plan needs no file, and the note carries the plan and the specification.",
+      "summary": "No file changed, so no pull request, as D114 settled: the note now records that this node's plan needs no file and carries the seven criteria as both plan and specification. They are enough to execute from. The criteria and the evidence are untouched.",
       "notes": null
     }
   ],
