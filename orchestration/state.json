@@ -2123,7 +2123,7 @@
       "kind": "work",
       "title": "Orchestrator trial with its measured cost",
       "outcome": "A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N027",
       "after": [
         "P2-N031",
@@ -6289,6 +6289,25 @@
       "ref": null,
       "pr": null,
       "summary": "No file changed, so no pull request, as D114 settled: the note now records that this node's plan needs no file and carries the seven criteria as both plan and specification. They are enough to execute from. The criteria and the evidence are untouched.",
+      "notes": null
+    },
+    {
+      "id": "T206",
+      "node": "P2-N033",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T23:55:47Z",
+      "closed": null,
+      "base": "50b884d15cbdac9b9fc77e4047077474fb7b7f51",
+      "ref": null,
+      "pr": null,
+      "summary": "Judge whether the trial criterion 14 words can run now, given the nodes the plan currently offers; close needs-judgment if not.",
       "notes": null
     }
   ],
