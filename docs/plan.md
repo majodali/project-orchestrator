@@ -8,12 +8,11 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Gated nodes:
-
-- Backlog reader in the state importer (P4-N044): start needs the owner's approval
+Nothing.
 
 ## Ready, starting automatically when the loop runs
 
+- Backlog reader in the state importer (P4-N044) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight

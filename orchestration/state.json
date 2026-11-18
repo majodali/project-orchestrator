@@ -993,7 +993,7 @@
       "parent": "P4-N027",
       "after": [],
       "hold": null,
-      "start": "approve",
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
@@ -5290,14 +5290,14 @@
         "cacheRead": 7732147,
         "cacheWrite": 101829
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T00:07:59Z",
       "closed": "2026-11-18T00:15:37Z",
       "base": "f60806d14191fca160a4c5af5b789b057dbf400a",
       "ref": "f6870e9c8da760fb50e106350f9a4d5a29d11729",
       "pr": "majodali/project-orchestrator#69",
       "summary": "All five criteria met at f6870e9. I ran the watcher myself: it exits on a second decision (key report:P2-N029:4:asks:D200,D201); a verify start is offered beside an open execute task on the same plan document, an execute start still held. orchestrator.md, 119 lines, answers all four T161 guesses. npm test 218, check, lint, format, sync_agents, CI and mtool pass.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
