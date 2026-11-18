@@ -1057,7 +1057,7 @@
       "kind": "work",
       "title": "methodology-tools' plan as a state file",
       "outcome": "methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N027",
       "after": [
         "P4-N044",
@@ -1071,6 +1071,23 @@
       },
       "done": null,
       "note": "Child 2 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 2. Writes to majodali/methodology-tools, new to this project and granted by D065 for P4-N027 only, so it starts on approval; the owner adds that repository to the GitHub App's installation (O1) and merges there after reviewing the import record. Waits for P4-N044: the importer cannot read a Backlog until then.\n\nImported and merged as majodali/methodology-tools#24 (merge commit 9b98c0ae), verified against main: plan-state check 0 violations; mtool links check clean (0 findings to record); mtool audit form's one finding — CLAUDE.md's Binding block names methodology v1.5.0 against the Classification's pinned 1.6.0 — predates this import and is dispositioned by D112 (\"leave it for a separate node\"), not fixed here. package-lock.json differs from a from-scratch run only in one unpinned transitive devDependency (object-inspect 1.13.4→1.14.0, pulled in beneath project-orchestrator-service's own exact pin at 24639d8); that is npm's ordinary lockfile drift under a floating upstream range, not a hand change to methodology-tools' own files, so it does not violate \"nothing else changes.\""
+    },
+    {
+      "id": "P4-N058",
+      "kind": "check",
+      "title": "Verification of methodology-tools' plan as a state file",
+      "outcome": "P4-N045 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N045",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P4-N046",
@@ -6192,7 +6209,7 @@
       "id": "T203",
       "node": "P4-N045",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -6200,11 +6217,11 @@
         "out": null
       },
       "opened": "2026-11-18T23:09:20Z",
-      "closed": null,
+      "closed": "2026-11-18T23:10:43Z",
       "base": "1c5ae9197c6115099351ee93be94c43c48b8b24a",
-      "ref": null,
-      "pr": null,
-      "summary": "Verify methodology-tools' merged main (#24) against section 2's criteria and close the node.",
+      "ref": "234dafe180232a376ae30df23d3577e5c863e3e2",
+      "pr": "majodali/methodology-tools#24",
+      "summary": "Verified majodali/methodology-tools main (9b98c0a, merge of #24) against every section-2 criterion: content identical to #24's head, byte-identical to my own run except an unpinned transitive dep bump in package-lock.json. plan-state check 0 violations; links check clean; the one audit-form finding dispositioned by D112, recorded in the node's note.",
       "notes": null
     }
   ],
