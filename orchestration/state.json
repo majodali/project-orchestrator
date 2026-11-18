@@ -1920,10 +1920,7 @@
       "stage": "specified",
       "parent": "P2-N032",
       "after": [],
-      "hold": {
-        "kind": "blocked",
-        "reason": "T180: Criterion 13 not met: its record clause. docs/plans/orchestrator-session-record.md, which says each trial a criterion asks for is recorded there, has no P2-N032 section; only T179's close summary and the journal carry the trial, and neither states the source_url or the --check result. All other clauses met; S7's result is present; #71 is sound."
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": null,
@@ -5617,7 +5614,7 @@
       "id": "T182",
       "node": "P2-N032",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": "claude-sonnet-5",
       "tokens": {
@@ -5625,11 +5622,11 @@
         "out": null
       },
       "opened": "2026-11-18T15:44:29Z",
-      "closed": null,
+      "closed": "2026-11-18T15:53:53Z",
       "base": "3b650bf4268dbb873107f882f7c19d5242925970",
-      "ref": null,
-      "pr": null,
-      "summary": "Rework after T180's blocked verification: add P2-N032's section to docs/plans/orchestrator-session-record.md recording criterion 13's trial (T179, the owner's session), what loaded, and the generator's --check result, on PR #71.",
+      "ref": "dff2abac44f560f43187489e47aa173320617cf1",
+      "pr": "majodali/project-orchestrator#71",
+      "summary": "Record section added (criterion 13: T179's trial, what loaded, measured cost, --check against the service repo's main). Applied D101: how-we-work.md item 3 requires session_start.ts only where a repository carries its own state file; cost hook stays universal. Checks pass, doc at its 200-line bound.",
       "notes": null
     },
     {
