@@ -11,16 +11,22 @@ its stage and its outcome. The state file holds the rest.
 Open decisions:
 
 - D102 on State directory created by the importer (P4-N049): Merge majodali/project-orchestrator-service#48 (CI green, mergeable, not yet deployed)? Default: merge it
+- D103 on Service repository enlisted for delegated sessions (P2-N032): README.md, Enlisting a repository, item 3 still requires both hooks unconditionally ("registers the two hooks, plugin/scripts/session_start.ts and plugin/scripts/task_cost_hook.ts"), which contradicts how-we-work.md item 3 as D101 amended it. README defers to that page for the detail, so the page governs and this verification stands; but the summary is now stale and a reader enlisting the next repository could take it as the rule. Amend it? Default: yes - a node of its own to amend README.md item 3 to the conditional rule how-we-work.md now states
+
+Gated nodes:
+
+- Tree page that updates itself (P2-N037): start needs the owner's approval
+- Four lists ahead of the tree (P2-N038): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
 - State directory created by the importer (P4-N049) [executing]
+- Orchestrator trial with its measured cost (P2-N033) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
 - Plan rendering that survives a decision on a hidden check node (P4-N050) [identified] — T184
-- Verification of Service repository enlisted for delegated sessions (P2-N045) [specified] — T185
 
 ## In progress, children carry the work
 
@@ -29,7 +35,6 @@ Open decisions:
 - Pilot enlistment of methodology-tools (P4-N027) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
-- Service repository enlisted for delegated sessions (P2-N032) [verifying]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
 
 ## Waiting on a dependency
@@ -40,9 +45,6 @@ Open decisions:
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
-- Orchestrator trial with its measured cost (P2-N033) [specified] — after Service repository enlisted for delegated sessions (P2-N032)
-- Tree page that updates itself (P2-N037) [specified] — after Service repository enlisted for delegated sessions (P2-N032)
-- Four lists ahead of the tree (P2-N038) [specified] — after Service repository enlisted for delegated sessions (P2-N032)
 - Session, duration and criteria on pages (P2-N039) [specified] — after Four lists ahead of the tree (P2-N038)
 - Feedback in place and the node panel (P2-N040) [specified] — after Tree page that updates itself (P2-N037), Four lists ahead of the tree (P2-N038)
 - View trial with its measured delay (P2-N041) [specified] — after Session, duration and criteria on pages (P2-N039), Feedback in place and the node panel (P2-N040)
@@ -375,20 +377,17 @@ Documents: [plan](plans/orchestration-service.md).
     A session that follows the orchestrator role carries out the script's actions, is woken by a background watcher when a new action appears, checks and nudges stalled sessions, continues reworks by message, and reports each stop to the owner.
     after P2-N030 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates.
-  - **Service repository enlisted for delegated sessions** (P2-N032, verifying)
+  - **Service repository enlisted for delegated sessions** (P2-N032, done 2026-11-18)
     A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
-    after P2-N030 · [spec](specs/orchestrator-session.md)
+    after P2-N030 · [spec](specs/orchestrator-session.md) · 1 open decision
     Note: Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script.
-    - check: **Verification of Service repository enlisted for delegated sessions** (P2-N045, specified)
-      P2-N032 is verified against its outcome.
-      [spec](specs/orchestrator-session.md)
   - **Orchestrator fixes before its trial** (P2-N036, done 2026-11-18)
     A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.
     after P2-N031 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Added on the owner's answers of 2026-11-17 to D087 (on P2-N030), D088 and D089 (on P2-N031), which each name this node. Criteria: (1) D088: the keys of `decision` and `asks` reports carry the decisions' identifiers, so a second decision on a node changes a key; specification S1 and the two expected keys in test/orchestrate.test.ts follow, which the owner's answer to D088 allows. (2) D087: a verify start is exempt from the shared-document rule of S4, in lib/orchestrate.ts and its test, and S4 says so. (3) D089, in .claude/agents/orchestrator.md, still at most 120 lines: it tells the session to give the background watcher the two-hour limit and what to do if the watcher is stopped with no output; how the session learns its own identifier for --self; one rule for what it tells the owner at a wake, the time-limit wake included; and archive_session is used or dropped. (4) T159's other finding is settled: the status bucket that never says archived. (5) plugin/agents/ is regenerated and the checks pass.
   - **Orchestrator trial with its measured cost** (P2-N033, specified)
     A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.
-    after P2-N032 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    after P2-N031, P2-N032, P4-N038, P2-N036 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 4 of the plan (Children). Criteria 14 to 18. Its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027.
 - **View that updates itself and leads with what matters** (P2-N028, broken-down)
   The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.

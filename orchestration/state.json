@@ -1898,7 +1898,7 @@
       "kind": "work",
       "title": "Service repository enlisted for delegated sessions",
       "outcome": "A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N027",
       "after": [
         "P2-N030"
@@ -1909,7 +1909,7 @@
         "plan": null,
         "spec": "docs/specs/orchestrator-session.md"
       },
-      "done": null,
+      "done": "2026-11-18",
       "note": "Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script."
     },
     {
@@ -1917,7 +1917,7 @@
       "kind": "check",
       "title": "Verification of Service repository enlisted for delegated sessions",
       "outcome": "P2-N032 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N032",
       "after": [],
       "hold": null,
@@ -1926,7 +1926,7 @@
         "plan": null,
         "spec": "docs/specs/orchestrator-session.md"
       },
-      "done": null,
+      "done": "2026-11-18",
       "note": null
     },
     {
@@ -5645,14 +5645,14 @@
         "cacheRead": 7699649,
         "cacheWrite": 106967
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T15:51:27Z",
       "closed": "2026-11-18T15:58:50Z",
       "base": "98d3be79d7dea8040429e9f25f3dc6bf0b78cf94",
       "ref": "ab84064c6c4781d4ee7122cad0ae43ee0bf13205",
       "pr": "majodali/project-orchestrator-service#48",
       "summary": "Fixed `plan-state import --write` throwing ENOENT when `orchestration/` is missing: a shared `writeOutput` helper creates each write's parent directory first, for both of import's writes and all four of render's. Added a subprocess test that fails pre-fix. Build, 269/269 tests, lint and format clean; PR #48 CI green.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T184",
@@ -5677,7 +5677,7 @@
       "id": "T185",
       "node": "P2-N045",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": null,
       "tokens": {
@@ -5685,11 +5685,11 @@
         "out": null
       },
       "opened": "2026-11-18T15:54:34Z",
-      "closed": null,
+      "closed": "2026-11-18T15:59:06Z",
       "base": "643bf8a854393d6dfd62c3ee347ed7b29f5a7f73",
       "ref": null,
       "pr": null,
-      "summary": "Second verification of P2-N032 against criterion 13, section S7 and its outcome, after T182's rework on #71: the trial record and D101's amendment to how-we-work.md.",
+      "summary": "Criterion 13 met: the record now carries P2-N032's trial, and the owner's session is confirmed started with source_url majodali/project-orchestrator-service (get_session). S7's result is present; D101's amendment matches it. --check in sync against b93c139; checks pass at #71's head; no service-owned file or test touched. README item 3 is stale.",
       "notes": null
     }
   ],
@@ -6827,6 +6827,22 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T183 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D103",
+      "node": "P2-N032",
+      "question": "README.md, Enlisting a repository, item 3 still requires both hooks unconditionally (\"registers the two hooks, plugin/scripts/session_start.ts and plugin/scripts/task_cost_hook.ts\"), which contradicts how-we-work.md item 3 as D101 amended it. README defers to that page for the detail, so the page governs and this verification stands; but the summary is now stale and a reader enlisting the next repository could take it as the rule. Amend it?",
+      "options": [
+        "yes - a node of its own to amend README.md item 3 to the same conditional rule",
+        "leave README's summary as it is; the page it points to governs",
+        "the owner names another resolution"
+      ],
+      "default": "yes - a node of its own to amend README.md item 3 to the conditional rule how-we-work.md now states",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T185 at close.",
       "standing": false,
       "source": null
     }
