@@ -5821,10 +5821,12 @@
       "step": "execute",
       "status": "needs-judgment",
       "role": "implementer",
-      "model": null,
+      "model": "claude-sonnet-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 184,
+        "out": 47701,
+        "cacheRead": 20705505,
+        "cacheWrite": 299292
       },
       "opened": "2026-11-18T19:42:20Z",
       "closed": "2026-11-18T19:53:18Z",
@@ -5832,7 +5834,8 @@
       "ref": "ba33308b38c881e3000c9175166208c87277301f",
       "pr": "majodali/project-orchestrator-service#49",
       "summary": "`renderPlan` built its node map from `shownNodes`, so a decision on a hidden check node crashed every write and `plan-state check`. `decisionLine` now looks the node up in the full state; the view keys such a decision to the node its check verifies. New tests in all three layers, failing pre-fix. Build, tests, lint, format clean; PR #49 CI green.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     },
     {
       "id": "T190",
