@@ -12,6 +12,7 @@ Open decisions:
 
 - D102 on State directory created by the importer (P4-N049): Merge majodali/project-orchestrator-service#48 (CI green, mergeable, not yet deployed)? Default: merge it
 - D103 on Service repository enlisted for delegated sessions (P2-N032): README.md, Enlisting a repository, item 3 still requires both hooks unconditionally ("registers the two hooks, plugin/scripts/session_start.ts and plugin/scripts/task_cost_hook.ts"), which contradicts how-we-work.md item 3 as D101 amended it. README defers to that page for the detail, so the page governs and this verification stands; but the summary is now stale and a reader enlisting the next repository could take it as the rule. Amend it? Default: yes - a node of its own to amend README.md item 3 to the conditional rule how-we-work.md now states
+- D104 on Plan rendering that survives a decision on a hidden check node (P4-N050): Does the criterion on the view's plan page (it shows a decision on a hidden check node where the owner can answer it, and its count and rows agree) stay in P4-N050, or move to a node of its own? Default: keep it in P4-N050: the same lookup through shownNodes causes both, one pull request, one deploy and one pin move cover both, and a separate node costs another plan, specify, execute and verify cycle for a few lines. If you move it, the specify step narrows this node's outcome to the plan rendering alone and strikes that criterion
 
 Gated nodes:
 
@@ -21,12 +22,13 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - State directory created by the importer (P4-N049) [executing]
+- Plan rendering that survives a decision on a hidden check node (P4-N050) [planned]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-- Plan rendering that survives a decision on a hidden check node (P4-N050) [identified] — T184
+None.
 
 ## In progress, children carry the work
 
@@ -306,8 +308,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Pin migrated to the release with the K-003 amendment** (P4-N042, identified, blocked: Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.)
   This repository pins the methodology release that carries the K-003 amendment, declares the state file as its planning/execution model, ends the K-003 deviation, and adopts or deviates from each other amendment in that release.
   Note: Added by the owner's answer to D079 (on P4-N026), 2026-11-17. It starts when majodali/methodology tags the release; until then nothing can be done. The owner carries the batch in the order D078 gives: proposals two and three first, then the release.
-- **Plan rendering that survives a decision on a hidden check node** (P4-N050, identified)
-  A write that leaves an open decision on a hidden check node succeeds: the plan rendering names the decision's node whether or not that node is shown.
+- **Plan rendering that survives a decision on a hidden check node** (P4-N050, planned)
+  A write that leaves an open decision on a hidden check node succeeds, and the decision is named where the owner reads it.
+  [plan](plans/rebuild.md) · 1 open decision
   Note: Found on P2-N032, task T182: task_close failed with "Cannot read properties of undefined (reading 'title')" and committed nothing. Cause, reproduced read-only at service commit b93c139: renderPlan in src/model/render.ts builds its node map from shownNodes, and decisionLine looks up each open decision's node there; a check node with no hold and no open task is hidden, so an open decision on it (D101 on P2-N045) has no node. A rework close clears the check node's hold and so meets it. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows.
 
 ### Orchestration service (P2-N001)

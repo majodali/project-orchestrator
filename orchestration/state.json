@@ -1462,14 +1462,14 @@
       "id": "P4-N050",
       "kind": "work",
       "title": "Plan rendering that survives a decision on a hidden check node",
-      "outcome": "A write that leaves an open decision on a hidden check node succeeds: the plan rendering names the decision's node whether or not that node is shown.",
-      "stage": "identified",
+      "outcome": "A write that leaves an open decision on a hidden check node succeeds, and the decision is named where the owner reads it.",
+      "stage": "planned",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/plans/rebuild.md",
         "spec": null
       },
       "done": null,
@@ -5658,7 +5658,7 @@
       "id": "T184",
       "node": "P4-N050",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -5666,11 +5666,11 @@
         "out": null
       },
       "opened": "2026-11-18T15:51:50Z",
-      "closed": null,
+      "closed": "2026-11-18T16:00:12Z",
       "base": "24e773e03094fb2743a1582c9937374c87c4ec7c",
       "ref": null,
-      "pr": null,
-      "summary": "Plan the plan-rendering fault: an open decision on a hidden check node must not break renderPlan. Verify the cause read-only, check the other renderings and the view, and find the plan document that fits.",
+      "pr": "majodali/project-orchestrator#76",
+      "summary": "A section in the rebuild plan, where P4-N038's section set the shape: the fault T182 hit, the cause run at service commit b93c139, what is and is not affected, and seven criteria. Ran it: renderPlan throws, the register and Backlog do not, and the view counts the decision without showing a row. rebuild.md is 296 lines.",
       "notes": null
     },
     {
@@ -5686,14 +5686,14 @@
         "cacheRead": 2295676,
         "cacheWrite": 29762
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T15:54:34Z",
       "closed": "2026-11-18T15:59:06Z",
       "base": "643bf8a854393d6dfd62c3ee347ed7b29f5a7f73",
       "ref": null,
       "pr": null,
       "summary": "Criterion 13 met: the record now carries P2-N032's trial, and the owner's session is confirmed started with source_url majodali/project-orchestrator-service (get_session). S7's result is present; D101's amendment matches it. --check in sync against b93c139; checks pass at #71's head; no service-owned file or test touched. README item 3 is stale.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
@@ -6846,6 +6846,21 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T185 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D104",
+      "node": "P4-N050",
+      "question": "Does the criterion on the view's plan page (it shows a decision on a hidden check node where the owner can answer it, and its count and rows agree) stay in P4-N050, or move to a node of its own?",
+      "options": [
+        "keep it in P4-N050",
+        "move it to a new node under P4-N001"
+      ],
+      "default": "keep it in P4-N050: the same lookup through shownNodes causes both, one pull request, one deploy and one pin move cover both, and a separate node costs another plan, specify, execute and verify cycle for a few lines. If you move it, the specify step narrows this node's outcome to the plan rendering alone and strikes that criterion",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T184 at close.",
       "standing": false,
       "source": null
     }
