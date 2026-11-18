@@ -1883,7 +1883,7 @@
       "kind": "work",
       "title": "Service repository enlisted for delegated sessions",
       "outcome": "A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.",
-      "stage": "broken-down",
+      "stage": "executing",
       "parent": "P2-N027",
       "after": [
         "P2-N030"
