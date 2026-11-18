@@ -1548,7 +1548,7 @@
       "kind": "work",
       "title": "State file kept in canonical form by every service write",
       "outcome": "The service writes orchestration/state.json in canonical form on every write, the cost record included, so `plan-state check` reports no invariant-1 warning.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1557,7 +1557,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-18",
       "note": "Raised by the reviewer of P4-N049 (T190) as D106. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows. Repository: that one and this one. This node's plan needs no file (D108): docs/plans/rebuild.md stands at 295 lines of its 300-line bound, so what follows is both the plan, by T195, and the specification, by T198, and neither task wrote a file. Established by T195, by running it, not read: a scan of the last 80 commits of orchestration/state.json, comparing each committed file with formatState of the state as checkState (zod) returns it, which is what plan-state check compares. Every one of the 18 \"Tnnn: cost recorded\" commits is non-canonical and no other commit is, and each differs in exactly one way: that task's costSource sits last, after notes, where the schema puts it directly after tokens. The mechanism: the store reads the file with JSON.parse and then checkState (src/model/store.ts), so the state the service mutates has keys in schema order; recordCost assigns task.costSource on a task that has no such key (src/model/loop.ts, at service main d9eebd0), so JavaScript appends it at the end; formatState is JSON.stringify(state, null, 2), which preserves that order; and check compares against the zod-parsed state, which restores schema order, so the comparison fails. It comes and goes because the next service write re-reads the file through the schema, restoring order for every task, so the warning stands only between a cost write and the write after it. T188 of this session met it at commit 643bf8a and then reported it as not reproducible at a later commit; that report was wrong in its conclusion, and this is why. task_close's fallback that sets costSource to \"reported\" (src/model/loop.ts, near line 704) is a second site of the same pattern. Criteria. (1) A cost write leaves the state file in the form plan-state check calls canonical, so no invariant-1 warning follows task_cost. (2) Either both sites that assign costSource onto an existing task are covered — recordCost and task_close's \"reported\" fallback — or the fix is made once where every write serialises, formatState in src/model/schema.ts, so no field added later can repeat it. (3) Nothing else in the file moves: over this repository's state file, the fixed write's output differs from what the service writes today only by costSource standing in schema order. (4) A test in the service repository fails against the code as it stands: a cost write produces a file that check reports clean, and the task_close reported-tokens path is covered too. (5) plan-state check keeps calling a non-canonical file a warning, not a violation (D109): a violation would turn CI red when the checker's pinned build and the writing build order the schema's fields differently, which is a pin not yet moved after a deploy. (6) One pull request in majodali/project-orchestrator-service; the owner merges it, and that merge deploys. (7) After that deploy this repository's project-orchestrator-service pin moves to the merged commit, and npm run check reports no violations and no warnings when run after a cost write, which is the state the warning showed in. The execute step works from this list. Service pull request #49 (P4-N050) is merged at service main d9eebd0 and touched src/model/render.ts, src/view/treePage.ts, test/loop.test.ts, test/modelRender.test.ts and test/viewPages.test.ts; this fix touches src/model/schema.ts or src/model/loop.ts and a test, so nothing is contended. The scan T195 ran is at /tmp/claude-0/-home-user-project-orchestrator/1d8b6bcb-e57e-51cd-9adf-5caf4240f5ba/scratchpad/canon2.mjs in that session's container, which is ephemeral; its method is stated above and takes a few lines to rewrite."
     },
     {
@@ -1565,7 +1565,7 @@
       "kind": "check",
       "title": "Verification of State file kept in canonical form by every service write",
       "outcome": "P4-N054 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N054",
       "after": [],
       "hold": null,
@@ -1574,7 +1574,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-18",
       "note": null
     },
     {
@@ -6134,7 +6134,7 @@
       "id": "T201",
       "node": "P4-N056",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -6142,11 +6142,11 @@
         "out": null
       },
       "opened": "2026-11-18T22:42:57Z",
-      "closed": null,
+      "closed": "2026-11-18T22:48:45Z",
       "base": "85d31e6cd5de7b1646f3ab4a89e926249ede8851",
       "ref": null,
       "pr": null,
-      "summary": "Verify P4-N054 (state file kept canonical by every service write) against the seven criteria in its note: the setCostSource fix merged at 95b4fb8, whether another write path can still leave a key out of schema order, the cost-record commits since the deploy, and T200's pin move on #81.",
+      "summary": "Verification passed. All seven criteria met at 95b4fb8 and #81's head. Over all 198 state-file commits, 43 are non-canonical, every one a cost record before the deploy, and both cost records since it are canonical. check reports no violations and no warnings after a post-deploy cost write. One ask on setCostSource's hard-coded field list.",
       "notes": null
     }
   ],
@@ -7436,6 +7436,22 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T194 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D113",
+      "node": "P4-N054",
+      "question": "Criterion 2 allowed either covering both costSource sites or one fix where every write serialises (formatState). T199 chose per site, which the criterion permits and which I verified. But setCostSource (src/model/loop.ts) deletes every key of the task and reassigns a hard-coded list of the schema's sixteen fields. I tested it: a task field present in the object but absent from that list is dropped, not merely misordered. No such field exists today, and zod strips unknown keys on read, so nothing is at risk now; the hazard is a field added to taskSchema without being added to that list, which would be silently deleted by the first cost record on each task. The two other places that assign an optional key onto a parsed object, task.docsOnMerge (src/model/mutations.ts:168) and state.highWater (src/model/loop.ts:287), are safe only because each is the last field of its object, so appending happens to be schema order. Should a follow-up node move the ordering into formatState, as criterion 2's second option described, so no field added later can repeat either fault?",
+      "options": [
+        "no new node: record the hazard in P4-N054's note, and revisit if the task schema gains a field",
+        "add a node to canonicalise key order once in formatState and drop the per-site rebuilding",
+        "keep the per-site fix and add a test that fails when taskSchema and setCostSource's field list disagree"
+      ],
+      "default": "no new node: record the hazard in P4-N054's note, and revisit if the task schema gains a field",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T201 at close.",
       "standing": false,
       "source": null
     }
