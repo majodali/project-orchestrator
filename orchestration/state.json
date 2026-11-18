@@ -1497,7 +1497,7 @@
       "kind": "work",
       "title": "README enlistment item matching the conditional hook rule",
       "outcome": "README.md, Enlisting a repository, item 3 states the rule how-we-work.md states: the session start hook only where a repository carries its own state file, the cost hook in every enlisted repository.",
-      "stage": "planned",
+      "stage": "specified",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -5840,7 +5840,7 @@
       "id": "T191",
       "node": "P4-N051",
       "step": "specify",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -5848,11 +5848,11 @@
         "out": null
       },
       "opened": "2026-11-18T19:44:58Z",
-      "closed": null,
+      "closed": "2026-11-18T19:45:30Z",
       "base": "16a693208fd8c4dd399349e14d3487abe758c656",
       "ref": null,
       "pr": null,
-      "summary": "Specify P4-N051 on the note's four criteria, now that D105 says this node's plan needs no file, and record that in the note.",
+      "summary": "No file changed, so no pull request, as D105 settled: the note now records that this node's plan needs no file and carries the four criteria as both plan and specification. They are enough to execute from. Nothing else in the note changed, and the criteria are untouched.",
       "notes": null
     }
   ],
