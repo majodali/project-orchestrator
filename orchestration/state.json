@@ -5320,6 +5320,25 @@
       "pr": "majodali/project-orchestrator-service#46",
       "summary": "Added a K-004 Backlog reader to plan-state import: builds a state file from docs/backlog.md when the register is absent, naming the source and any not-mapped row with its reason. Register import unchanged (full suite passes). Tested against a clean fixture (zero check violations) and methodology-tools' real Backlog (21 rows, 4 open, 2 rows excluded). CI green on PR #46.",
       "notes": null
+    },
+    {
+      "id": "T172",
+      "node": "P2-N032",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": "claude-sonnet-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T04:18:34Z",
+      "closed": null,
+      "base": "840ba82fc54c5d911f1d53ed220ef635a20bad9a",
+      "ref": null,
+      "pr": null,
+      "summary": "Continuation: both pull requests merged (D091, D092). Run criterion 13's trial — a session started in majodali/project-orchestrator-service reaches the service, opens and closes a task with a measured cost — and record it on PR #71.",
+      "notes": null
     }
   ],
   "decisions": [
