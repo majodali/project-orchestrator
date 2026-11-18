@@ -1023,7 +1023,7 @@
       "kind": "work",
       "title": "State directory created by the importer",
       "outcome": "`plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.",
-      "stage": "planned",
+      "stage": "specified",
       "parent": "P4-N027",
       "after": [],
       "hold": null,
@@ -5572,7 +5572,7 @@
       "id": "T181",
       "node": "P4-N049",
       "step": "specify",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -5580,11 +5580,11 @@
         "out": null
       },
       "opened": "2026-11-18T15:33:24Z",
-      "closed": null,
+      "closed": "2026-11-18T15:35:24Z",
       "base": "4383648b01ed9eaf7cac7ebd95d7c8ab2d34b35e",
       "ref": null,
       "pr": null,
-      "summary": "Specify P4-N049 against section 5 of the pilot's plan document, closing on that criteria list if it is enough to execute from.",
+      "summary": "No file changed, so no pull request: section 5's seven criteria are at the depth the work needs, as the plan step foresaw. Verified the fault first-hand — ENOENT at src/model/cli.ts:149 on orchestration/state.json, exit 1 with a stack trace — and that a test can drive the command as a subprocess. Both are in the node's note.",
       "notes": null
     }
   ],
