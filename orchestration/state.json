@@ -1497,7 +1497,7 @@
       "kind": "work",
       "title": "README enlistment item matching the conditional hook rule",
       "outcome": "README.md, Enlisting a repository, item 3 states the rule how-we-work.md states: the session start hook only where a repository carries its own state file, the cost hook in every enlisted repository.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1508,6 +1508,23 @@
       },
       "done": null,
       "note": "Raised by the reviewer of P2-N032 (T185) as D103, after D101 amended docs/process/how-we-work.md item 3. README.md item 3 still says an enlisted repository \"registers the two hooks\". One sentence in this repository; no other repository is written. Repository: this one only. This node's plan needs no file (D105): docs/plans/rebuild.md stands at 295 lines of its 300-line bound, so the criteria below are both the plan, by T188, and the specification, by T191, and neither task wrote a file. Criteria. (1) README.md, Enlisting a repository, item 3 states what how-we-work.md item 3 states: .claude/settings.json enables the project's MCP servers, registers plugin/scripts/task_cost_hook.ts after task_close in every enlisted repository, and registers plugin/scripts/session_start.ts at session start only where the repository carries its own orchestration/state.json. (2) Item 3 stays a summary: the section keeps its four-item shape and its closing pointer to how-we-work.md, and nothing else in it changes. (3) No other page is changed. README.md's note that the two hooks never fail a session, and docs/process/task-loop.md's \"the repository's two hooks\", both speak of this repository's own hooks, not of what an enlisted repository registers; the service repository states no hook rule at all, verified by T188 at service commit 24639d8. Any further page a session finds stating the unconditional rule is reported, not changed. (4) README.md stays at most 150 lines, its bound in docs/plans/rebuild.md, and npm run check is green, in one pull request in this repository. The execute step works from this list; README.md was 125 lines when T188 measured it."
+    },
+    {
+      "id": "P4-N053",
+      "kind": "check",
+      "title": "Verification of README enlistment item matching the conditional hook rule",
+      "outcome": "P4-N051 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N051",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N001",
@@ -5862,7 +5879,7 @@
       "id": "T192",
       "node": "P4-N051",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -5870,11 +5887,11 @@
         "out": null
       },
       "opened": "2026-11-18T19:46:21Z",
-      "closed": null,
+      "closed": "2026-11-18T19:48:33Z",
       "base": "13ed143258f6bb4bb77cf55e6aebc4afddf3f738",
-      "ref": null,
-      "pr": null,
-      "summary": "Fix README.md's \"Enlisting a repository\" item 3 to match D101's conditional hook rule (cost hook always, session-start hook only where orchestration/state.json exists).",
+      "ref": "b395c2526687fb2de6aef473e1cb031ed925382c",
+      "pr": "majodali/project-orchestrator#79",
+      "summary": "README item 3 now states how-we-work.md's conditional hook rule (cost hook always, session-start hook only where orchestration/state.json exists). Section shape and pointer unchanged; README stays 127 lines. No other page states the unconditional rule. npm run check/test/lint/format all pass. PR #79.",
       "notes": null
     }
   ],
