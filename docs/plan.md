@@ -10,13 +10,13 @@ its stage and its outcome. The state file holds the rest.
 
 Gated nodes:
 
-- Tree page that updates itself (P2-N037): start needs the owner's approval
 - Four lists ahead of the tree (P2-N038): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
 - README enlistment item matching the conditional hook rule (P4-N051) [specified]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
+- Tree page that updates itself (P2-N037) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
