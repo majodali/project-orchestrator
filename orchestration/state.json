@@ -5835,6 +5835,25 @@
       "pr": null,
       "summary": "Verify P4-N049 (state directory created by the importer) against section 5 of the pilot-enlistment plan: the writeOutput helper merged at 24639d8 in the service repository, reproducing the ENOENT fault's absence myself, and T187's pin move on #78.",
       "notes": null
+    },
+    {
+      "id": "T191",
+      "node": "P4-N051",
+      "step": "specify",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T19:44:58Z",
+      "closed": null,
+      "base": "16a693208fd8c4dd399349e14d3487abe758c656",
+      "ref": null,
+      "pr": null,
+      "summary": "Specify P4-N051 on the note's four criteria, now that D105 says this node's plan needs no file, and record that in the note.",
+      "notes": null
     }
   ],
   "decisions": [

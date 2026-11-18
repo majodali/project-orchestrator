@@ -15,7 +15,6 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- README enlistment item matching the conditional hook rule (P4-N051) [planned]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
@@ -23,6 +22,7 @@ Gated nodes:
 
 - Verification of State directory created by the importer (P4-N052) [specified] — T190
 - Plan rendering that survives a decision on a hidden check node (P4-N050) [executing] — T189
+- README enlistment item matching the conditional hook rule (P4-N051) [planned] — T191
 
 ## In progress, children carry the work
 
