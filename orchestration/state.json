@@ -5728,14 +5728,14 @@
         "cacheRead": 4132793,
         "cacheWrite": 18350
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T16:22:27Z",
       "closed": "2026-11-18T16:26:54Z",
       "base": "493c899f0353aedeadb27cef36eacffcd9c0afd6",
       "ref": null,
       "pr": "majodali/project-orchestrator#77",
       "summary": "The seven criteria in the rebuild plan are the specification; no further document. One line had gone stale, deferring the view criterion to D104, which is now answered, so the section records the answer. The routes T184 ran and found are in the node's note. rebuild.md is 295 lines.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T187",
@@ -5754,6 +5754,25 @@
       "ref": null,
       "pr": null,
       "summary": "Move the project-orchestrator-service pin to the T183 merge commit (24639d8, the ENOENT fix for plan-state import --write) and keep npm run check green.",
+      "notes": null
+    },
+    {
+      "id": "T188",
+      "node": "P4-N051",
+      "step": "plan",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T16:28:05Z",
+      "closed": null,
+      "base": "59fdda481d44127bd090751dabdcc494a9d95eae",
+      "ref": null,
+      "pr": null,
+      "summary": "Plan the README enlistment fix: item 3 must state the conditional hook rule D101 put in how-we-work.md. Check every other page that repeats the unconditional rule, and find where this node's criteria can live.",
       "notes": null
     }
   ],
