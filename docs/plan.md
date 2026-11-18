@@ -13,6 +13,7 @@ Nothing.
 ## Ready, starting automatically when the loop runs
 
 - State directory created by the importer (P4-N049) [specified]
+- Plan rendering that survives a decision on a hidden check node (P4-N050) [identified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
@@ -300,6 +301,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Pin migrated to the release with the K-003 amendment** (P4-N042, identified, blocked: Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.)
   This repository pins the methodology release that carries the K-003 amendment, declares the state file as its planning/execution model, ends the K-003 deviation, and adopts or deviates from each other amendment in that release.
   Note: Added by the owner's answer to D079 (on P4-N026), 2026-11-17. It starts when majodali/methodology tags the release; until then nothing can be done. The owner carries the batch in the order D078 gives: proposals two and three first, then the release.
+- **Plan rendering that survives a decision on a hidden check node** (P4-N050, identified)
+  A write that leaves an open decision on a hidden check node succeeds: the plan rendering names the decision's node whether or not that node is shown.
+  Note: Found on P2-N032, task T182: task_close failed with "Cannot read properties of undefined (reading 'title')" and committed nothing. Cause, reproduced read-only at service commit b93c139: renderPlan in src/model/render.ts builds its node map from shownNodes, and decisionLine looks up each open decision's node there; a check node with no hold and no open task is hidden, so an open decision on it (D101 on P2-N045) has no node. A rework close clears the check node's hold and so meets it. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows.
 
 ### Orchestration service (P2-N001)
 

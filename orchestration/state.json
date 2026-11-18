@@ -1459,6 +1459,23 @@
       "note": "Added by the owner's answer to D079 (on P4-N026), 2026-11-17. It starts when majodali/methodology tags the release; until then nothing can be done. The owner carries the batch in the order D078 gives: proposals two and three first, then the release."
     },
     {
+      "id": "P4-N050",
+      "kind": "work",
+      "title": "Plan rendering that survives a decision on a hidden check node",
+      "outcome": "A write that leaves an open decision on a hidden check node succeeds: the plan rendering names the decision's node whether or not that node is shown.",
+      "stage": "identified",
+      "parent": "P4-N001",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Found on P2-N032, task T182: task_close failed with \"Cannot read properties of undefined (reading 'title')\" and committed nothing. Cause, reproduced read-only at service commit b93c139: renderPlan in src/model/render.ts builds its node map from shownNodes, and decisionLine looks up each open decision's node there; a check node with no hold and no open task is hidden, so an open decision on it (D101 on P2-N045) has no node. A rework close clears the check node's hold and so meets it. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows."
+    },
+    {
       "id": "P2-N001",
       "kind": "work",
       "title": "Orchestration service",
