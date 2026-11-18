@@ -8,7 +8,13 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Nothing.
+Open decisions:
+
+- D098 on Backlog reader in the state importer (P4-N044): Criterion 8 of section 1 asks for tests over methodology-tools' Backlog as a fixture covering "the row count, the four open rows, and one malformed row that appears in the record as not mapped". The third clause presupposed that the two annotated rows ("Custom-type checker extension point", "W-008 bootstrap-cache drift check") were malformed; T174 found that presupposition wrong, and under the corrected shape methodology-tools' Backlog has no malformed row at all, so the fixture cannot carry one. T175 asserts the row count (21) and the four open rows on the fixture, and tests the exclusion path and its recorded reason on a synthetic two-row Backlog instead. I treated criterion 8 as met on that basis. Amend the plan's wording to match? Default: amend section 1's criterion 8 to read "the row count, the four open rows, and a malformed row that appears in the record as not mapped, on the fixture or on a synthetic row where the fixture has none"
+
+Gated nodes:
+
+- methodology-tools' plan as a state file (P4-N045): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
@@ -18,21 +24,19 @@ Nothing.
 
 ## In flight
 
-- Verification of Backlog reader in the state importer (P4-N048) [specified] — T177
+None.
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Pilot enlistment of methodology-tools (P4-N027) [broken-down]
-- Backlog reader in the state importer (P4-N044) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
 
 ## Waiting on a dependency
 
-- methodology-tools' plan as a state file (P4-N045) [specified] — after Backlog reader in the state importer (P4-N044)
 - Second instance on the deploy path (P4-N046) [specified] — after methodology-tools' plan as a state file (P4-N045)
 - The pilot's first task through its own instance (P4-N047) [specified] — after Second instance on the deploy path (P4-N046)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
@@ -244,11 +248,10 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     methodology-tools is enlisted in the service and its state file is imported from its Backlog, checked by plan-state.
     after P4-N022, P4-N024 · [plan](plans/pilot-enlistment-methodology-tools.md)
     Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
-    - **Backlog reader in the state importer** (P4-N044, verifying)
+    - **Backlog reader in the state importer** (P4-N044, done 2026-11-18)
       `plan-state import` builds a state file from a project's K-004 Backlog when that project has no Plan register, and its import record names every row it did not map and why.
+      1 open decision
       Note: Child 1 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 1 (the parent's plan document; this node links none of its own). Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, and to this repository for the pin. The importer requires docs/plan-register.md today and methodology-tools has none, which is why this child precedes the import.
-      - check: **Verification of Backlog reader in the state importer** (P4-N048, specified)
-        P4-N044 is verified against its outcome.
     - **methodology-tools' plan as a state file** (P4-N045, specified)
       methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.
       after P4-N044
