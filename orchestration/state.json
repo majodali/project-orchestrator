@@ -1080,7 +1080,7 @@
       "kind": "work",
       "title": "State directory created by the importer",
       "outcome": "`plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.",
-      "stage": "identified",
+      "stage": "planned",
       "parent": "P4-N027",
       "after": [],
       "hold": null,
@@ -5491,7 +5491,7 @@
       "id": "T178",
       "node": "P4-N049",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -5499,11 +5499,11 @@
         "out": null
       },
       "opened": "2026-11-18T05:19:58Z",
-      "closed": null,
+      "closed": "2026-11-18T05:29:01Z",
       "base": "0c05f809a7c5a569b01c22c72ba8ac9e14d71ffa",
       "ref": null,
-      "pr": null,
-      "summary": "Plan the ENOENT fix: plan-state import --write must create the state directory when the target repository has none. Revise the parent plan document with a short section and criteria list.",
+      "pr": "majodali/project-orchestrator#74",
+      "summary": "Section 5 of the pilot's plan document carries this node: the fault in `plan-state import --write`, its scope in the service's src/model/cli.ts, and seven criteria. That list is the specification too, so specify closes on it. Two lines the state file contradicted are corrected. The document is 299 lines; `npm run check` is clean.",
       "notes": null
     }
   ],
@@ -6580,6 +6580,36 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T177 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D099",
+      "node": "P4-N049",
+      "question": "Does P4-N045 (methodology-tools' plan as a state file) wait for P4-N049, or does its session create methodology-tools' orchestration/ directory by hand?",
+      "options": [
+        "P4-N045 waits for P4-N049: add P4-N049 to its after list",
+        "P4-N045 runs first and its session creates the directory in its own pull request"
+      ],
+      "default": "P4-N045 waits for P4-N049: add P4-N049 to its after list, because P4-N045's criteria say the state file is the importer's output and the first arrival of orchestration/ there, and the fix is small",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T178 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D100",
+      "node": "P4-N049",
+      "question": "Does P4-N049 start only on the owner's approval, since it writes to majodali/project-orchestrator-service?",
+      "options": [
+        "keep start: auto, as P4-N044 had",
+        "set start: approve"
+      ],
+      "default": "keep start: auto: the node needs no owner action before the work, only the merge at the end, which every service pull request needs",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T178 at close.",
       "standing": false,
       "source": null
     }

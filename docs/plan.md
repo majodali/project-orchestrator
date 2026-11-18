@@ -11,6 +11,8 @@ its stage and its outcome. The state file holds the rest.
 Open decisions:
 
 - D098 on Backlog reader in the state importer (P4-N044): Criterion 8 of section 1 asks for tests over methodology-tools' Backlog as a fixture covering "the row count, the four open rows, and one malformed row that appears in the record as not mapped". The third clause presupposed that the two annotated rows ("Custom-type checker extension point", "W-008 bootstrap-cache drift check") were malformed; T174 found that presupposition wrong, and under the corrected shape methodology-tools' Backlog has no malformed row at all, so the fixture cannot carry one. T175 asserts the row count (21) and the four open rows on the fixture, and tests the exclusion path and its recorded reason on a synthetic two-row Backlog instead. I treated criterion 8 as met on that basis. Amend the plan's wording to match? Default: amend section 1's criterion 8 to read "the row count, the four open rows, and a malformed row that appears in the record as not mapped, on the fixture or on a synthetic row where the fixture has none"
+- D099 on State directory created by the importer (P4-N049): Does P4-N045 (methodology-tools' plan as a state file) wait for P4-N049, or does its session create methodology-tools' orchestration/ directory by hand? Default: P4-N045 waits for P4-N049: add P4-N049 to its after list, because P4-N045's criteria say the state file is the importer's output and the first arrival of orchestration/ there, and the fix is small
+- D100 on State directory created by the importer (P4-N049): Does P4-N049 start only on the owner's approval, since it writes to majodali/project-orchestrator-service? Default: keep start: auto: the node needs no owner action before the work, only the merge at the end, which every service pull request needs
 
 Gated nodes:
 
@@ -18,12 +20,13 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
+- State directory created by the importer (P4-N049) [planned]
 - Service repository enlisted for delegated sessions (P2-N032) [executing]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-- State directory created by the importer (P4-N049) [identified] — T178
+None.
 
 ## In progress, children carry the work
 
@@ -263,8 +266,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
       A session started in methodology-tools reaches the pilot instance, `task_next` answers a node of methodology-tools, and one write commits there as the GitHub App with its journal line.
       after P4-N046
       Note: Child 4 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 4. Writes .mcp.json and .claude/settings.json to majodali/methodology-tools (D065) and the enlistment corrections to this repository's docs/process/how-we-work.md, so it starts on approval; the owner sets MCP_AUTH_TOKEN in that repository's cloud environment first (O3). Waits for P4-N046: .mcp.json names an endpoint the second instance's first deploy creates. The two hooks stay with P2-N006 (RU-017).
-    - **State directory created by the importer** (P4-N049, identified)
+    - **State directory created by the importer** (P4-N049, planned)
       `plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.
+      2 open decisions
       Note: Child 5 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 5 (the parent's plan document; this node links none of its own, as children 1 to 4 do not). That list is at the depth the work needs, so the specify step closes on it without a further document. Found by the reviewer of P4-N044 (T174) and raised by T175 as D097. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys, and to this repository for the pin. methodology-tools has no orchestration/ directory today, so P4-N045's import meets this.
   - **Document paths changed through the service** (P4-N031, done 2026-11-17)
     A task can re-point a node's plan and specification paths through the service, in an order that lets a pull request move a linked document without main failing plan-state check.
