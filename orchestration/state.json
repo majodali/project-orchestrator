@@ -1009,10 +1009,7 @@
       "stage": "specified",
       "parent": "P4-N044",
       "after": [],
-      "hold": {
-        "kind": "blocked",
-        "reason": "T174: Verification failed. Criterion 1: the reader requires the em dash directly after the bolded lead, so 0 of 96 rows of this repository's service-rendered Backlog map and 45 of 272 archived rows. Criterion 5: two methodology-tools rows yielding title and outcome are excluded. Criterion 3: the record maps no row to its identifier. Criterion 7: gated by the ask."
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": null,
@@ -5450,7 +5447,7 @@
       "id": "T176",
       "node": "P4-N044",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -5458,11 +5455,11 @@
         "out": null
       },
       "opened": "2026-11-18T05:08:29Z",
-      "closed": null,
+      "closed": "2026-11-18T05:11:54Z",
       "base": "1321be09609160eaedd8b0d5905720b6da6d8185",
-      "ref": null,
-      "pr": null,
-      "summary": "Rework: move the project-orchestrator-service pin to the T175 merge commit (b93c139) after the reviewer's T174 failure, keeping npm run check green.",
+      "ref": "41579ea3f1e6aa097b6a4e75cd03c203f77e292d",
+      "pr": "majodali/project-orchestrator#73",
+      "summary": "Rework: moved the pin to b93c139 (T175's merge, deployed, confirmed via service_identity); npm ci/check/test/lint/format all pass. PR #73 updated. Read the service at b93c139: T174's criteria 1, 3, 5 are addressed. Criterion 7 already settled by D096; not re-decided.",
       "notes": null
     }
   ],
