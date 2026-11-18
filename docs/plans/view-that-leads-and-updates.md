@@ -1,6 +1,6 @@
 # View that updates itself and leads with what matters (P2-N028)
 
-Status: planned (T158, 2026-11-17). Not yet specified or broken down.
+Status: broken down (T165, 2026-11-17). The criteria below specify it.
 
 Reader: the owner, and the sessions that work this node. The reader
 knows [how we work](../process/how-we-work.md), and nothing else.
@@ -161,20 +161,23 @@ P2-N027 (Orchestrator session that keeps work moving) reports to the
 owner on four stop conditions (docs/plans/orchestrator-session.md,
 section 8). The split, so the owner is not told the same thing twice:
 
-| Stop condition | The view shows | The orchestrator's report carries |
+| Stop condition | The view shows | Only the report carries |
 |---|---|---|
-| 1. A failed check | Each failed verification on the node page; the rework under "Running" or "Ready" | That the rework limit was reached, or that a session ended with its task open |
-| 2. A scope change | The gated node under "Needs you", with the reason | That the weekly budget was passed |
-| 3. A decision that is the owner's | The decision, hold or approval under "Needs you", with its form | One line: the node, the condition, a link to the view |
-| 4. A close that carries asks | Each ask as a decision under "Needs you" | One line, as for 3 |
+| 1. A failed check | Each failed verification on the node page; the rework under "Running" or "Ready" | `rework-limit`; a session that did not claim or close its task, or runs on another model; `input` |
+| 2. A scope change | The gated node under "Needs you", with the reason | `budget` |
+| 3. A decision that is the owner's | The decision, hold or approval under "Needs you", with its form | Nothing: one line with the node and the reason |
+| 4. A close that carries asks | Each ask as a decision under "Needs you" | Nothing, as for 3 |
 
-The rule: the view holds every question and every action. The
-report is the notice and never repeats a question's text or options.
-It alone carries a session that ended, a refused model, the budget.
+Checked against the orchestrator as built (`stateReports` in
+`plugin/scripts/lib/orchestrate.ts`; docs/specs/orchestrator-session.md,
+S5): a report names decisions by identifier and never gives a
+question's text or options. The view holds every question and
+action; the report is the notice. "Needs you" holds the same nodes
+as the reports with reason `scope`, `hold`, `decision`, `asks` and
+`approval`, so the two never disagree on what waits (criterion 8).
 
-The view does not notify outside its tab: the report arrives in a
-conversation, which already notifies the owner (ask 2). The view
-shows how long a task has been open and does not judge it stalled.
+The view does not notify outside its tab (D086). It shows how long a
+task has been open and does not judge it stalled.
 
 ## Where the work happens
 
@@ -190,26 +193,29 @@ to). Each child that writes there is entered `start: approve`.
   verification, and the node's result is live when it is merged.
 - Each pull request carries before and after screenshots from the
   service's preview (`npm run view:shots`).
-- One child writes here: it raises this repository's pinned service
-  version and adds the `session` line to docs/process/state-model.md.
-  It waits for slice C.
+- Each such child is listed in `orchestration/orchestrator.json`
+  under that repository (docs/specs/orchestrator-session.md, S4).
 
-## Slices
+## Children
 
-For the break down step. A is the thin slice that runs end to end.
+Each child's criteria are the items named. None links this plan.
 
-- **A. The tree page updates itself.** Section 3. Criteria 1 to 6.
-- **B. The four lists and the action sentences.** Sections 1 and 2.
-  Criteria 7 to 11. Needs nothing from A.
-- **C. Session, duration and criteria.** Sections 6 and 7. Criteria
-  12 to 15. Needs nothing from A or B.
-- **D. Feedback in place and the panel.** Sections 4 and 5. Criteria
-  16 to 18. Waits for A, whose script it extends, and B, whose rows
-  it opens.
-- **E. The trial.** Criteria 19 and 20. Waits for A to D.
+- **P2-N037, Tree page that updates itself.** Section 3. Criteria 1 to 4 and 6.
+- **P2-N038, Four lists ahead of the tree.** Sections 1 and 2.
+  Criteria 7 to 11.
+- **P2-N039, Session, duration and criteria on pages.** Sections 6
+  and 7. Criteria 12 to 15 and 18. Waits for P2-N038, whose "Running"
+  row shows the session.
+- **P2-N040, Feedback in place and the node panel.** Sections 4 and
+  5. Criteria 5, 16 and 17. Waits for P2-N037 and P2-N038.
+- **P2-N041, View trial with its measured delay.** Criteria 19 and
+  20. Waits for P2-N039 and P2-N040, merged and deployed.
+- **P2-N042, Session field adopted in this repository.** Writes
+  here: the service pin and a line in docs/process/state-model.md.
+  `npm run check` and `npm test` pass. Waits for P2-N039.
 
-All link this plan, so the shared-document rule runs them one at a
-time.
+Two run at a time: P2-N037 with P2-N038, then P2-N039 with P2-N040.
+Each pair edits `src/view/html.ts` and `test/viewPages.test.ts`.
 
 ## Criteria
 
@@ -232,10 +238,11 @@ A test is in the service repository's `npm test`.
    every form still commits.
 7. A test shows `/view` renders the four sections in order, each
    with its empty line when it has no row.
-8. A test shows "Needs you" holds exactly: the open decisions, the
-   gated nodes, and the ready nodes that need approval, in the order
-   of section 1; and a node held only by a failed verification is
-   not there.
+8. A test shows "Needs you" holds exactly, in the order of section
+   1: each open decision on a node; each node with a hold, except a
+   check node held `blocked`; and each node whose start waits for
+   approval. A node below a held or parked node has no row. These
+   are the rules of the orchestrator's `stateReports`.
 9. A test shows a decision's form is in its "Needs you" row and
    closes the decision from `/view`.
 10. A test shows a review row links the pull request and names the
@@ -269,23 +276,16 @@ A test is in the service repository's `npm test`.
     causes in an hour, counted from the service's log. Met by the
     recorded number (RU-019).
 
-## Asks
+## Decisions
 
-1. **May the view run one script of its own, and may the test that
-   asserts no script be rewritten?** The rule "No script" is in the
-   archived specification of P2-N003, and `test/viewPages.test.ts`
-   asserts it. Options: yes, one first-party script, with the test
-   rewritten to assert no inline and no third-party script; no, the
-   view updates by a timed page reload instead. Default: yes.
-2. **Should the view notify the owner outside its tab?** Options:
-   no, the tab's title count only, and the orchestrator's report is
-   the notice; yes, a browser notification the owner switches on.
-   Default: no, and decide again after the trial of criterion 19.
+- **D085**, 2026-11-17: the view runs one first-party script, and the
+  test that asserts no script is rewritten to assert no inline and
+  no third-party script.
+- **D086**, 2026-11-17: no notification outside the tab, the title
+  count only; decided again after the trial of criterion 19.
 
 ## Risks
 
-- **Ask 1 is answered "no".** Then sections 4 and 5 are dropped and
-  a reload discards typed text. Sections 1, 2 and 6 stand.
 - **Polling reaches GitHub's request limit.** The 10-second memory
   bounds it at six reads a minute for any number of tabs. Criterion
   20 records the real number.
