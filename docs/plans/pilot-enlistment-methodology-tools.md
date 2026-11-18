@@ -4,7 +4,7 @@ Status: active (broken down on 2026-11-17, task T168 on P4-N027; the
 owner approved the node's start on 2026-11-16 and said on 2026-11-17
 to start it when ready)
 
-Reader: the owner, and any session doing one of the four children
+Reader: the owner, and any session doing one of the five children
 below. It assumes this repository's README and
 [how we work](../process/how-we-work.md). The node this plans is
 child 6 of milestone 6 of the [rebuild](rebuild.md), P4-N027, whose
@@ -44,9 +44,11 @@ the chain comes from two facts the node's criteria in
 `.mcp.json` names an endpoint that does not exist until child 3
 deploys, so the enlistment and the trial are child 4, P4-N047.
 
-The four children were added on 2026-11-17 by task T168, each
-entered `specified` with its criteria section below named in its
-note.
+Children 1 to 4 were added on 2026-11-17 by task T168, each entered
+`specified` with its criteria section below named in its note. Child
+5, P4-N049, was added on 2026-11-18 by task T175 after the review of
+child 1 (D097). It waits for nothing and is not in the chain; what
+it changes for child 2 is section 5's ask.
 
 No child waits for P2-N032. Each child's task is held by a session
 started in this repository, which is the only session that has this
@@ -58,8 +60,8 @@ started in the service repository, which then commits directly.
 ## What the owner does, and when
 
 All four actions can be done in one sitting, before any child runs.
-Each child carries `start: approve`, and its session confirms the
-actions it needs are done before it works.
+Children 2, 3 and 4 carry `start: approve`; each session confirms
+the actions it needs are done before it works.
 
 - **O1. methodology-tools in the GitHub App's installation.** The
   App's permissions do not change, and the installation ID does not
@@ -75,8 +77,9 @@ actions it needs are done before it works.
   already uses, and it opens both. Needed for child 4's trial.
 - **O4. The merges.** The owner merges in
   majodali/project-orchestrator-service, where a merge deploys the
-  live service (children 1 and 3), and in majodali/methodology-tools
-  after reviewing the import record (children 2 and 4). Each child's
+  live service (children 1, 3 and 5), and in
+  majodali/methodology-tools after reviewing the import record
+  (children 2 and 4). Each child's
   task closes with this repository's pull request — the ticked
   criteria below — and names the other repository's pull request in
   its summary, the pattern tasks T143 and T144 followed.
@@ -246,6 +249,45 @@ on: 3. Repositories: majodali/methodology-tools (D065) and this one.
       lines (P4-N024's bound).
 - [ ] No hook and no adoption of the loop by methodology-tools'
       own sessions lands in that repository (RU-017, P2-N006).
+
+## 5. State directory created by the importer (P4-N049)
+
+Outcome: `plan-state import --write` creates the `orchestration/`
+directory when the target repository has none, instead of failing
+with ENOENT. Depends on: nothing. Repository:
+majodali/project-orchestrator-service (standing, RU-016), and this
+repository for the pin.
+
+The reviewer of child 1 found it (T174, raised as D097):
+`writeFileSync` creates no directory, so the `--write` branch of the
+`import` command in `src/model/cli.ts` throws where the target has
+no `orchestration/`. Such a target is legitimate — the import needs
+only `docs/plan-register.md` or `docs/backlog.md` — and
+methodology-tools is one. `render --write` has four writes of the
+same shape, reached only when the state file is already there. Those
+six are the service's only filesystem writes; the running service
+writes through git as the App.
+
+- [ ] `plan-state import --repo <path> --write` over a repository
+      with `docs/backlog.md` and no `orchestration/` creates the
+      directory, writes both files, and exits on the import's own
+      result.
+- [ ] Each write in `src/model/cli.ts` creates its target's parent
+      directory first, through one shared helper: the two of
+      `import` and the four of `render`.
+- [ ] Without `--write` nothing is created, and over a repository
+      that has `orchestration/` the import writes what it writes now.
+- [ ] A test drives the command over a temporary repository with no
+      `orchestration/`, in the `mkdtempSync` and `spawnSync` pattern
+      of `test/prepareScript.test.ts`, and fails against the code as
+      it stands.
+- [ ] No service code branches on the project name (D067), and the
+      path allowlist in `src/model/store.ts` is unchanged.
+- [ ] One pull request in majodali/project-orchestrator-service; the
+      owner merges it, and that merge deploys.
+- [ ] After that deploy, this repository's
+      `project-orchestrator-service` pin moves to the merged commit
+      and `npm run check` stays green.
 
 ## What this plan does not cover
 
