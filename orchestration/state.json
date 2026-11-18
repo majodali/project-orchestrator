@@ -6337,8 +6337,8 @@
       "question": "Merge pull request #46 (the Backlog reader for plan-state import) in majodali/project-orchestrator-service? The merge deploys. The last section-1 criterion (moving this repository's pin in majodali/project-orchestrator) is a separate later task in a session started there.",
       "options": [],
       "default": "merge it",
-      "chosen": null,
-      "decided": null,
+      "chosen": "merge it",
+      "decided": "2026-11-18",
       "rationale": "Asked by T171 at close.",
       "standing": false,
       "source": null

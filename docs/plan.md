@@ -8,9 +8,7 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D093 on Backlog reader in the state importer (P4-N044): Merge pull request #46 (the Backlog reader for plan-state import) in majodali/project-orchestrator-service? The merge deploys. The last section-1 criterion (moving this repository's pin in majodali/project-orchestrator) is a separate later task in a session started there. Default: merge it
+Nothing.
 
 ## Ready, starting automatically when the loop runs
 
@@ -246,7 +244,6 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
     - **Backlog reader in the state importer** (P4-N044, executing)
       `plan-state import` builds a state file from a project's K-004 Backlog when that project has no Plan register, and its import record names every row it did not map and why.
-      1 open decision
       Note: Child 1 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 1 (the parent's plan document; this node links none of its own). Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, and to this repository for the pin. The importer requires docs/plan-register.md today and methodology-tools has none, which is why this child precedes the import.
     - **methodology-tools' plan as a state file** (P4-N045, specified)
       methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.
@@ -488,3 +485,4 @@ Documents: [plan](plans/orchestration-service.md).
 - D090 on P2-N036 (2026-11-18): Criterion 1 of P2-N036 (D088) makes the asks key `report:P1-N002:4:asks:D001`. One existing test in test/plan-watch.test.ts, "does not exit on a commit that adds no key, or only removes one", writes the old key `report:P1-N002:4:asks` to its acted file as setup and now fails. D088 clears only two expected keys in test/orchestrate.test.ts. May that test's constant ASKS_KEY follow the new key, with nothing else in it changed? Chosen: yes, change the constant ASKS_KEY to the new key in pull request 69
 - D091 on P2-N032 (2026-11-18): Merge majodali/project-orchestrator-service#45 (vendors plugin/scripts/task_cost_hook.ts and plugin/scripts/lib/task-cost.ts there; a merge deploys the live service)? Chosen: merge it
 - D092 on P2-N032 (2026-11-18): Merge majodali/project-orchestrator#71 (adds the vendoring generator in this repository)? Chosen: merge it
+- D093 on P4-N044 (2026-11-18): Merge pull request #46 (the Backlog reader for plan-state import) in majodali/project-orchestrator-service? The merge deploys. The last section-1 criterion (moving this repository's pin in majodali/project-orchestrator) is a separate later task in a session started there. Chosen: merge it
