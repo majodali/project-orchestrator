@@ -6226,6 +6226,25 @@
       "pr": "majodali/methodology-tools#24",
       "summary": "Verified majodali/methodology-tools main (9b98c0a, merge of #24) against every section-2 criterion: content identical to #24's head, byte-identical to my own run except an unpinned transitive dep bump in package-lock.json. plan-state check 0 violations; links check clean; the one audit-form finding dispositioned by D112, recorded in the node's note.",
       "notes": null
+    },
+    {
+      "id": "T204",
+      "node": "P4-N058",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T23:11:41Z",
+      "closed": null,
+      "base": "551171940aafc1e97fadb65a7e6dcf475066c80c",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P4-N045 (methodology-tools' plan as a state file) against section 2 of the pilot-enlistment plan and its outcome, at methodology-tools' main in a read-only clone.",
+      "notes": null
     }
   ],
   "decisions": [
