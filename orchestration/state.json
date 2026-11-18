@@ -6610,8 +6610,8 @@
         "set start: approve"
       ],
       "default": "keep start: auto: the node needs no owner action before the work, only the merge at the end, which every service pull request needs",
-      "chosen": null,
-      "decided": null,
+      "chosen": "keep start: auto: the node needs no owner action before the work, only the merge at the end, which every service pull request needs",
+      "decided": "2026-11-18",
       "rationale": "Asked by T178 at close.",
       "standing": false,
       "source": null
