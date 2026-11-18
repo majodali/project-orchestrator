@@ -7453,8 +7453,8 @@
         "open a node to fix it now"
       ],
       "default": "leave it for a separate node",
-      "chosen": null,
-      "decided": null,
+      "chosen": "leave it for a separate node",
+      "decided": "2026-11-18",
       "rationale": "Asked by T194 at close.",
       "standing": false,
       "source": null
