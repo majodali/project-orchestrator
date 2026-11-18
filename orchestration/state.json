@@ -5237,6 +5237,25 @@
       "pr": "majodali/project-orchestrator#72",
       "summary": "Four children cut by repository and by who can act: P4-N044 (Backlog reader in the importer), P4-N045 (import into methodology-tools), P4-N046 (second instance on the deploy path), P4-N047 (enlistment and trial). Two findings force that chain: the importer needs a Plan register; the smoke test's plan_read needs the state file. Owner actions O1-O4 named in the plan.",
       "notes": null
+    },
+    {
+      "id": "T169",
+      "node": "P2-N036",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": "claude-fable-5-2",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T00:04:22Z",
+      "closed": null,
+      "base": "582b70da65b48256d8429cf36b73bbc6ff2b2d9a",
+      "ref": null,
+      "pr": null,
+      "summary": "Continue P2-N036 on pull request 69 after D090: change the constant ASKS_KEY in test/plan-watch.test.ts, merge main, re-run every check.",
+      "notes": null
     }
   ],
   "decisions": [
