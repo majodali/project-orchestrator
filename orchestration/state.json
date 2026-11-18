@@ -1057,7 +1057,7 @@
       "kind": "work",
       "title": "methodology-tools' plan as a state file",
       "outcome": "methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N027",
       "after": [
         "P4-N044",
@@ -5913,14 +5913,33 @@
         "cacheRead": 2137260,
         "cacheWrite": 151638
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T19:49:28Z",
       "closed": "2026-11-18T19:51:55Z",
       "base": "c42b737dc95fc3ea5c293cb39cf7bb0e5de663f2",
       "ref": null,
       "pr": null,
       "summary": "All four criteria met. README item 3 now states how-we-work.md's conditional rule, in the criterion's own words; the section keeps its four items and its pointer; only README.md changed, 127 lines of its 150 bound; typecheck, lint, format, test (218) and check pass at #79's head, which merges into main clean. No other page states the unconditional rule.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
+    },
+    {
+      "id": "T194",
+      "node": "P4-N045",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T19:52:31Z",
+      "closed": null,
+      "base": "0719023769b27ce031cf54738ac4d154fd1738ac",
+      "ref": null,
+      "pr": null,
+      "summary": "Give methodology-tools orchestration/state.json via plan-state import, with overrides, renderings, archived Backlog, K-003 recorded; PR only, never merge.",
+      "notes": null
     }
   ],
   "decisions": [
