@@ -5881,10 +5881,12 @@
       "step": "execute",
       "status": "closed",
       "role": "implementer",
-      "model": null,
+      "model": "claude-sonnet-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 42,
+        "out": 6752,
+        "cacheRead": 4491601,
+        "cacheWrite": 156595
       },
       "opened": "2026-11-18T19:46:21Z",
       "closed": "2026-11-18T19:48:33Z",
@@ -5892,7 +5894,8 @@
       "ref": "b395c2526687fb2de6aef473e1cb031ed925382c",
       "pr": "majodali/project-orchestrator#79",
       "summary": "README item 3 now states how-we-work.md's conditional hook rule (cost hook always, session-start hook only where orchestration/state.json exists). Section shape and pointer unchanged; README stays 127 lines. No other page states the unconditional rule. npm run check/test/lint/format all pass. PR #79.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
