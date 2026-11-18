@@ -5979,6 +5979,25 @@
       "pr": null,
       "summary": "Plan the canonical-form fix: establish by running it which write puts a task record's keys out of order, whether every service write goes through formatState, why the warning comes and goes, and whether check should call it a violation.",
       "notes": null
+    },
+    {
+      "id": "T196",
+      "node": "P4-N050",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T19:58:33Z",
+      "closed": null,
+      "base": "2263eda1200e3ff2d2045943591d4b1c08081c1c",
+      "ref": null,
+      "pr": null,
+      "summary": "Move the project-orchestrator-service pin to the T189 merge commit (d9eebd0, the plan-rendering/view fix for a decision on a hidden check node) and keep npm run check green.",
+      "notes": null
     }
   ],
   "decisions": [
