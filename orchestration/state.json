@@ -1057,7 +1057,7 @@
       "kind": "work",
       "title": "methodology-tools' plan as a state file",
       "outcome": "methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N027",
       "after": [
         "P4-N044",
@@ -1069,7 +1069,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-18",
       "note": "Child 2 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 2. Writes to majodali/methodology-tools, new to this project and granted by D065 for P4-N027 only, so it starts on approval; the owner adds that repository to the GitHub App's installation (O1) and merges there after reviewing the import record. Waits for P4-N044: the importer cannot read a Backlog until then.\n\nImported and merged as majodali/methodology-tools#24 (merge commit 9b98c0ae), verified against main: plan-state check 0 violations; mtool links check clean (0 findings to record); mtool audit form's one finding — CLAUDE.md's Binding block names methodology v1.5.0 against the Classification's pinned 1.6.0 — predates this import and is dispositioned by D112 (\"leave it for a separate node\"), not fixed here. package-lock.json differs from a from-scratch run only in one unpinned transitive devDependency (object-inspect 1.13.4→1.14.0, pulled in beneath project-orchestrator-service's own exact pin at 24639d8); that is npm's ordinary lockfile drift under a floating upstream range, not a hand change to methodology-tools' own files, so it does not violate \"nothing else changes.\""
     },
     {
@@ -1077,7 +1077,7 @@
       "kind": "check",
       "title": "Verification of methodology-tools' plan as a state file",
       "outcome": "P4-N045 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N045",
       "after": [],
       "hold": null,
@@ -1086,7 +1086,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-18",
       "note": null
     },
     {
@@ -6234,7 +6234,7 @@
       "id": "T204",
       "node": "P4-N058",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": null,
       "tokens": {
@@ -6242,11 +6242,11 @@
         "out": null
       },
       "opened": "2026-11-18T23:11:41Z",
-      "closed": null,
+      "closed": "2026-11-18T23:18:52Z",
       "base": "551171940aafc1e97fadb65a7e6dcf475066c80c",
       "ref": null,
       "pr": null,
-      "summary": "Verify P4-N045 (methodology-tools' plan as a state file) against section 2 of the pilot-enlistment plan and its outcome, at methodology-tools' main in a read-only clone.",
+      "summary": "Eleven criteria met; criterion 7's pin is child 5's merged commit (24639d8, P4-N049's ENOENT fix the import needed), not child 1's, so it is met in substance and its wording is superseded. Re-ran the import: state file and record byte-identical. check 0 violations, renderings identical, links clean, audit form's one finding is D112's.",
       "notes": null
     }
   ],
@@ -7567,6 +7567,38 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T202 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D115",
+      "node": "P4-N045",
+      "question": "Section 2's criterion 7 asks for the project-orchestrator-service devDependency \"pinned at child 1's merged commit\". methodology-tools pins github:majodali/project-orchestrator-service#24639d8, which is the merge of service #48 for child 5 (P4-N049, the importer creating the orchestration/ directory). methodology-tools had no orchestration/ directory, so plan-state import --write could not have run at child 1's commit; 24639d8 carries both of child 1's merges (86337ba, b93c139) as ancestors. I treated criterion 7 as met on that basis. Amend the wording to match?",
+      "options": [
+        "amend criterion 7's wording as in the default",
+        "leave the wording and record this verification's reading in the node's note",
+        "the owner names another resolution"
+      ],
+      "default": "amend section 2's criterion 7 to read \"pinned at a merged commit of the service carrying child 1's work and every later child the import needs\"",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T204 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D116",
+      "node": "P4-N045",
+      "question": "D112 dispositioned mtool audit form's one finding in methodology-tools (CLAUDE.md's Binding block names methodology v1.5.0 while docs/classification.md pins 1.6.0) as \"leave it for a separate node\". No such node exists in the plan: the only node whose text mentions it is P4-N045 itself, whose note records the disposition. Add the node now, so the finding is not lost?",
+      "options": [
+        "yes - a node of its own to bring methodology-tools' Binding block to 1.6.0",
+        "no - leave it recorded in P4-N045's note until the pilot needs it",
+        "the owner names another resolution"
+      ],
+      "default": "yes - a node of its own to bring methodology-tools' Binding block to the Classification's pinned 1.6.0, under P4-N027",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T204 at close.",
       "standing": false,
       "source": null
     }

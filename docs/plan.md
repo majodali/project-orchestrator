@@ -11,6 +11,12 @@ its stage and its outcome. The state file holds the rest.
 Open decisions:
 
 - D114 on Key order set once where the state file is serialised (P4-N057): Where does P4-N057's plan live, given docs/plans/rebuild.md stands at 295 lines of its 300-line bound? Default: no file: the node's note carries the seven criteria and what T202 ran, as it now does, and the note records that this node's plan needs no file. This follows D105 on P4-N051 and D108 on P4-N054, which are precedents and not standing decisions
+- D115 on methodology-tools' plan as a state file (P4-N045): Section 2's criterion 7 asks for the project-orchestrator-service devDependency "pinned at child 1's merged commit". methodology-tools pins github:majodali/project-orchestrator-service#24639d8, which is the merge of service #48 for child 5 (P4-N049, the importer creating the orchestration/ directory). methodology-tools had no orchestration/ directory, so plan-state import --write could not have run at child 1's commit; 24639d8 carries both of child 1's merges (86337ba, b93c139) as ancestors. I treated criterion 7 as met on that basis. Amend the wording to match? Default: amend section 2's criterion 7 to read "pinned at a merged commit of the service carrying child 1's work and every later child the import needs"
+- D116 on methodology-tools' plan as a state file (P4-N045): D112 dispositioned mtool audit form's one finding in methodology-tools (CLAUDE.md's Binding block names methodology v1.5.0 while docs/classification.md pins 1.6.0) as "leave it for a separate node". No such node exists in the plan: the only node whose text mentions it is P4-N045 itself, whose note records the disposition. Add the node now, so the finding is not lost? Default: yes - a node of its own to bring methodology-tools' Binding block to the Classification's pinned 1.6.0, under P4-N027
+
+Gated nodes:
+
+- Second instance on the deploy path (P4-N046): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
@@ -22,21 +28,19 @@ Open decisions:
 
 ## In flight
 
-- Verification of methodology-tools' plan as a state file (P4-N058) [specified] — T204
+None.
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Pilot enlistment of methodology-tools (P4-N027) [broken-down]
-- methodology-tools' plan as a state file (P4-N045) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
 
 ## Waiting on a dependency
 
-- Second instance on the deploy path (P4-N046) [specified] — after methodology-tools' plan as a state file (P4-N045)
 - The pilot's first task through its own instance (P4-N047) [specified] — after Second instance on the deploy path (P4-N046)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
@@ -250,12 +254,10 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     - **State directory created by the importer** (P4-N049, done 2026-11-18)
       `plan-state import --write` creates the `orchestration/` directory when the target repository has none, instead of failing with ENOENT.
       Note: Child 5 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 5 (the parent's plan document; this node links none of its own, as children 1 to 4 do not). Specified on that list by T181, which added no document: the seven criteria are at the depth the work needs. Found by the reviewer of P4-N044 (T174) and raised by T175 as D097; D099 made P4-N045 wait for this node and D100 kept start: auto. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys, and to this repository for the pin. Observed by T181 at service commit b93c139, over a temporary repository holding only docs/backlog.md: the import throws ENOENT on orchestration/state.json at src/model/cli.ts:149 and exits 1 with a stack trace, so criterion 1's "exits on the import's own result" means the import reports instead of throwing. src/model/cli.ts self-executes (process.exit(main(...)) at module scope), so a test drives it as a subprocess; `npx tsx src/model/cli.ts import --repo <tmp> --project <owner/name> --write` works, and --project is needed because a temporary repository has no git remote.
-    - **methodology-tools' plan as a state file** (P4-N045, verifying)
+    - **methodology-tools' plan as a state file** (P4-N045, done 2026-11-18)
       methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.
-      after P4-N044, P4-N049
+      after P4-N044, P4-N049 · 2 open decisions
       Note: Child 2 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 2. Writes to majodali/methodology-tools, new to this project and granted by D065 for P4-N027 only, so it starts on approval; the owner adds that repository to the GitHub App's installation (O1) and merges there after reviewing the import record. Waits for P4-N044: the importer cannot read a Backlog until then. Imported and merged as majodali/methodology-tools#24 (merge commit 9b98c0ae), verified against main: plan-state check 0 violations; mtool links check clean (0 findings to record); mtool audit form's one finding — CLAUDE.md's Binding block names methodology v1.5.0 against the Classification's pinned 1.6.0 — predates this import and is dispositioned by D112 ("leave it for a separate node"), not fixed here. package-lock.json differs from a from-scratch run only in one unpinned transitive devDependency (object-inspect 1.13.4→1.14.0, pulled in beneath project-orchestrator-service's own exact pin at 24639d8); that is npm's ordinary lockfile drift under a floating upstream range, not a hand change to methodology-tools' own files, so it does not violate "nothing else changes."
-      - check: **Verification of methodology-tools' plan as a state file** (P4-N058, specified)
-        P4-N045 is verified against its outcome.
     - **Second instance on the deploy path** (P4-N046, specified)
       Every merge in the service repository deploys, smoke-tests and promotes both instances from one template at one commit, and the runbook and the deploy role's record carry the second instance.
       after P4-N045
