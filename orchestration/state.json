@@ -1090,7 +1090,7 @@
         "spec": null
       },
       "done": null,
-      "note": "Found by the reviewer of P4-N044 (T174) and raised by T175 as D097. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys. methodology-tools has no orchestration/ directory today, so P4-N045's import meets this."
+      "note": "Child 5 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 5 (the parent's plan document; this node links none of its own, as children 1 to 4 do not). That list is at the depth the work needs, so the specify step closes on it without a further document. Found by the reviewer of P4-N044 (T174) and raised by T175 as D097. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys, and to this repository for the pin. methodology-tools has no orchestration/ directory today, so P4-N045's import meets this."
     },
     {
       "id": "P4-N031",
