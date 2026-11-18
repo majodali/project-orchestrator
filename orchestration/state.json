@@ -5283,10 +5283,12 @@
       "step": "verify",
       "status": "closed",
       "role": "reviewer",
-      "model": null,
+      "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 112,
+        "out": 24354,
+        "cacheRead": 7732147,
+        "cacheWrite": 101829
       },
       "opened": "2026-11-18T00:07:59Z",
       "closed": "2026-11-18T00:15:37Z",
@@ -5294,7 +5296,8 @@
       "ref": "f6870e9c8da760fb50e106350f9a4d5a29d11729",
       "pr": "majodali/project-orchestrator#69",
       "summary": "All five criteria met at f6870e9. I ran the watcher myself: it exits on a second decision (key report:P2-N029:4:asks:D200,D201); a verify start is offered beside an open execute task on the same plan document, an execute start still held. orchestrator.md, 119 lines, answers all four T161 guesses. npm test 218, check, lint, format, sync_agents, CI and mtool pass.",
-      "notes": null
+      "notes": null,
+      "costSource": "transcript"
     }
   ],
   "decisions": [
