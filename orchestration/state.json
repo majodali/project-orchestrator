@@ -6478,8 +6478,8 @@
         "the owner names another approach"
       ],
       "default": "the owner runs the trial personally in such a session, approving the permission prompt in place",
-      "chosen": null,
-      "decided": null,
+      "chosen": "the owner runs the trial personally in such a session, approving the permission prompt in place",
+      "decided": "2026-11-18",
       "rationale": "Asked by T172 at close.",
       "standing": false,
       "source": null
