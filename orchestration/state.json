@@ -6079,14 +6079,14 @@
         "cacheRead": 22089047,
         "cacheWrite": 324658
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T21:29:43Z",
       "closed": "2026-11-18T21:39:22Z",
       "base": "a484aff53be7d6010a104932ffa28b7e12abea22",
       "ref": "15342a1e27a052a550a60b46d34fa4a6fd8e408a",
       "pr": "majodali/project-orchestrator-service#50",
       "summary": "`costSource` assigned on a task that lacked it was appended out of schema order, causing the canonical-form warning after every cost write. `setCostSource` now rebuilds the task's key order in place on first assignment. New canonical-form assertions at both sites, failing pre-fix. Build, tests, lint, format clean; PR #50 CI green.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
@@ -7342,8 +7342,8 @@
         "hold for further review"
       ],
       "default": "merge it",
-      "chosen": null,
-      "decided": null,
+      "chosen": "merge it",
+      "decided": "2026-11-18",
       "rationale": "Asked by T199 at close.",
       "standing": false,
       "source": null
