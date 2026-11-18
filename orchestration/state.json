@@ -7280,8 +7280,8 @@
         "make it a violation, so CI fails on a non-canonical state file"
       ],
       "default": "keep it a warning: a violation would turn CI red whenever the checker's pinned build and the build that wrote the file order the schema's fields differently, which is a pin that has not yet moved after a deploy, not a fault in the commit being checked. With the writer fixed, the warning should not fire in normal operation",
-      "chosen": null,
-      "decided": null,
+      "chosen": "keep it a warning: a violation would turn CI red whenever the checker's pinned build and the build that wrote the file order the schema's fields differently, which is a pin that has not yet moved after a deploy, not a fault in the commit being checked. With the writer fixed, the warning should not fire in normal operation",
+      "decided": "2026-11-18",
       "rationale": "Asked by T195 at close.",
       "standing": false,
       "source": null
