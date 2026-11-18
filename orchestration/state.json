@@ -5411,7 +5411,7 @@
       "id": "T175",
       "node": "P4-N044",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -5419,11 +5419,11 @@
         "out": null
       },
       "opened": "2026-11-18T04:39:36Z",
-      "closed": null,
+      "closed": "2026-11-18T04:46:16Z",
       "base": "a93d57ae6214d162a6a79de6aae841f3b349e612",
       "ref": null,
-      "pr": null,
-      "summary": "Rework after failed verification: loosen the K-004 shape to tolerate an annotation between the bolded lead and the em dash (matching this service's own renderBacklog output), add the row-to-identifier mapping to the import record, and fix the malformed-row test.",
+      "pr": "majodali/project-orchestrator-service#47",
+      "summary": "Rework: loosened the K-004 shape to find the first em dash anywhere after the lead, fixing re-import of this service's own renderBacklog output (0/95, 45/272 rows previously) and the two wrongly-excluded methodology-tools rows. Added backlogMapped and backlogRows to the record. CI green on PR #47.",
       "notes": null
     }
   ],
@@ -6472,6 +6472,18 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T174 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D097",
+      "node": "P4-N044",
+      "question": "Merge pull request #47 (rework of the Backlog reader) in majodali/project-orchestrator-service? The merge deploys. Separately, plan-state import --write throws ENOENT when the target repository has no orchestration/ directory yet (confirmed against a fresh checkout) — this will block P4-N045's real import of methodology-tools, which has no orchestration/ directory today. Not part of this node's criteria, so raised here rather than fixed silently.",
+      "options": [],
+      "default": "merge PR #47; add a node for the ENOENT fix",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T175 at close.",
       "standing": false,
       "source": null
     }
