@@ -13,7 +13,6 @@ Nothing.
 ## Ready, starting automatically when the loop runs
 
 - methodology-tools' plan as a state file (P4-N045) [executing]
-- Key order set once where the state file is serialised (P4-N057) [identified]
 - Orchestrator trial with its measured cost (P2-N033) [specified]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
@@ -21,7 +20,7 @@ Nothing.
 
 ## In flight
 
-None.
+- Key order set once where the state file is serialised (P4-N057) [identified] — T202
 
 ## In progress, children carry the work
 

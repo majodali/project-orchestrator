@@ -6168,6 +6168,25 @@
       "pr": null,
       "summary": "Verification passed. All seven criteria met at 95b4fb8 and #81's head. Over all 198 state-file commits, 43 are non-canonical, every one a cost record before the deploy, and both cost records since it are canonical. check reports no violations and no warnings after a post-deploy cost write. One ask on setCostSource's hard-coded field list.",
       "notes": null
+    },
+    {
+      "id": "T202",
+      "node": "P4-N057",
+      "step": "plan",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T23:09:04Z",
+      "closed": null,
+      "base": "a9975d1e2e93f95d4bc10f052b1ca6ef72658ed1",
+      "ref": null,
+      "pr": null,
+      "summary": "Plan taking the state file's key order from the schema in formatState: confirm the hand-kept list and the append sites, settle how the order comes from the schema, measure the byte churn over today's state file, and name the test that fails when a field is added.",
+      "notes": null
     }
   ],
   "decisions": [
