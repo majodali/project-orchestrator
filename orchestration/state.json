@@ -5227,14 +5227,14 @@
         "cacheRead": 9395752,
         "cacheWrite": 314230
       },
+      "costSource": "transcript",
       "opened": "2026-11-17T23:41:52Z",
       "closed": "2026-11-18T03:59:08Z",
       "base": "0d2806f03df0f1627e7496ff0fd1951ab902b31a",
       "ref": null,
       "pr": "majodali/project-orchestrator#71",
       "summary": "Added plugin/scripts/vendor_cost_hook.ts (RU-012 generator, --check mode), PR #71. A helper session vendored its two files into project-orchestrator-service via PR #45 (not touching settings/mcp, already correct there by the owner's own commits); verified byte-for-byte with this generator's --check and that repo's own lint/format/test/build. Criterion 13's trial needs a session started there after both pull requests merge.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T168",
@@ -5306,7 +5306,7 @@
       "id": "T171",
       "node": "P4-N044",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -5314,11 +5314,11 @@
         "out": null
       },
       "opened": "2026-11-18T03:57:19Z",
-      "closed": null,
+      "closed": "2026-11-18T04:16:42Z",
       "base": "aba6dbc8a37d593655e4c69986310fb98363299c",
       "ref": null,
-      "pr": null,
-      "summary": "Add a Backlog reader to plan-state import so it builds a state file from a K-004 Backlog when a project has no Plan register, recording every unmapped row and why.",
+      "pr": "majodali/project-orchestrator-service#46",
+      "summary": "Added a K-004 Backlog reader to plan-state import: builds a state file from docs/backlog.md when the register is absent, naming the source and any not-mapped row with its reason. Register import unchanged (full suite passes). Tested against a clean fixture (zero check violations) and methodology-tools' real Backlog (21 rows, 4 open, 2 rows excluded). CI green on PR #46.",
       "notes": null
     }
   ],
@@ -6309,6 +6309,18 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T167 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D093",
+      "node": "P4-N044",
+      "question": "Merge pull request #46 (the Backlog reader for plan-state import) in majodali/project-orchestrator-service? The merge deploys. The last section-1 criterion (moving this repository's pin in majodali/project-orchestrator) is a separate later task in a session started there.",
+      "options": [],
+      "default": "merge it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T171 at close.",
       "standing": false,
       "source": null
     }

@@ -12,15 +12,17 @@ Open decisions:
 
 - D091 on Service repository enlisted for delegated sessions (P2-N032): Merge majodali/project-orchestrator-service#45 (vendors plugin/scripts/task_cost_hook.ts and plugin/scripts/lib/task-cost.ts there; a merge deploys the live service)? Default: merge it
 - D092 on Service repository enlisted for delegated sessions (P2-N032): Merge majodali/project-orchestrator#71 (adds the vendoring generator in this repository)? Default: merge it
+- D093 on Backlog reader in the state importer (P4-N044): Merge pull request #46 (the Backlog reader for plan-state import) in majodali/project-orchestrator-service? The merge deploys. The last section-1 criterion (moving this repository's pin in majodali/project-orchestrator) is a separate later task in a session started there. Default: merge it
 
 ## Ready, starting automatically when the loop runs
 
+- Backlog reader in the state importer (P4-N044) [executing]
 - Service repository enlisted for delegated sessions (P2-N032) [executing]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-- Backlog reader in the state importer (P4-N044) [executing] — T171
+None.
 
 ## In progress, children carry the work
 
@@ -247,6 +249,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     Note: The pilot's instance is the same code and template with different parameters, with no fork, because one instance must later serve several projects (P2-N026).
     - **Backlog reader in the state importer** (P4-N044, executing)
       `plan-state import` builds a state file from a project's K-004 Backlog when that project has no Plan register, and its import record names every row it did not map and why.
+      1 open decision
       Note: Child 1 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 1 (the parent's plan document; this node links none of its own). Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, and to this repository for the pin. The importer requires docs/plan-register.md today and methodology-tools has none, which is why this child precedes the import.
     - **methodology-tools' plan as a state file** (P4-N045, specified)
       methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.
