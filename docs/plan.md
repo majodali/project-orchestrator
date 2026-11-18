@@ -8,16 +8,19 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Nothing.
+Open decisions:
+
+- D101 on Verification of Service repository enlisted for delegated sessions (P2-N045): Section S7 of docs/specs/orchestrator-session.md asks the service repository's .claude/settings.json for one hook (PostToolUse on task_close), and that is what it carries; docs/process/how-we-work.md, Enlisting a repository, item 3 requires two, including plugin/scripts/session_start.ts, which is neither vendored nor registered there and which the generator does not vendor. session_start.ts reads origin/main:orchestration/state.json of the repository it runs in, which project-orchestrator-service does not carry, so a copy there would tell the session its brief could not be produced. Which document is amended? Default: amend how-we-work.md item 3 to require plugin/scripts/session_start.ts only in a repository that carries its own orchestration/state.json, and the cost hook in every enlisted repository
 
 ## Ready, starting automatically when the loop runs
 
 - State directory created by the importer (P4-N049) [specified]
+- Service repository enlisted for delegated sessions (P2-N032) [verifying]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-- Verification of Service repository enlisted for delegated sessions (P2-N045) [specified] — T180
+None.
 
 ## In progress, children carry the work
 
@@ -26,7 +29,6 @@ Nothing.
 - Pilot enlistment of methodology-tools (P4-N027) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
-- Service repository enlisted for delegated sessions (P2-N032) [verifying]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
 
 ## Waiting on a dependency
@@ -49,6 +51,7 @@ Nothing.
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
 - Pin migrated to the release with the K-003 amendment (P4-N042) [identified] — Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.
+- Verification of Service repository enlisted for delegated sessions (P2-N045) [specified] — T180: Criterion 13 not met: its record clause. docs/plans/orchestrator-session-record.md, which says each trial a criterion asks for is recorded there, has no P2-N032 section; only T179's close summary and the journal carry the trial, and neither states the source_url or the --check result. All other clauses met; S7's result is present; #71 is sound.
 
 ## Paused by a hold or a park above
 
@@ -372,9 +375,9 @@ Documents: [plan](plans/orchestration-service.md).
     A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
     after P2-N030 · [spec](specs/orchestrator-session.md)
     Note: Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script.
-    - check: **Verification of Service repository enlisted for delegated sessions** (P2-N045, specified)
+    - check: **Verification of Service repository enlisted for delegated sessions** (P2-N045, specified, blocked: T180: Criterion 13 not met: its record clause. docs/plans/orchestrator-session-record.md, which says each trial a criterion asks for is recorded there, has no P2-N032 section; only T179's close summary and the journal carry the trial, and neither states the source_url or the --check result. All other clauses met; S7's result is present; #71 is sound.)
       P2-N032 is verified against its outcome.
-      [spec](specs/orchestrator-session.md)
+      [spec](specs/orchestrator-session.md) · 1 open decision
   - **Orchestrator fixes before its trial** (P2-N036, done 2026-11-18)
     A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.
     after P2-N031 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
