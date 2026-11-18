@@ -5218,7 +5218,7 @@
       "id": "T167",
       "node": "P2-N032",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": "claude-sonnet-5",
       "tokens": {
@@ -5226,11 +5226,11 @@
         "out": null
       },
       "opened": "2026-11-17T23:41:52Z",
-      "closed": null,
+      "closed": "2026-11-18T03:59:08Z",
       "base": "0d2806f03df0f1627e7496ff0fd1951ab902b31a",
       "ref": null,
-      "pr": null,
-      "summary": "Add this repo's generator that vendors the cost hook (RU-012), then delegate the push to majodali/project-orchestrator-service to a helper session, per criterion 13 and S7.",
+      "pr": "majodali/project-orchestrator#71",
+      "summary": "Added plugin/scripts/vendor_cost_hook.ts (RU-012 generator, --check mode), PR #71. A helper session vendored its two files into project-orchestrator-service via PR #45 (not touching settings/mcp, already correct there by the owner's own commits); verified byte-for-byte with this generator's --check and that repo's own lint/format/test/build. Criterion 13's trial needs a session started there after both pull requests merge.",
       "notes": null
     },
     {
@@ -6276,6 +6276,36 @@
       "chosen": "yes, change the constant ASKS_KEY to the new key in pull request 69",
       "decided": "2026-11-18",
       "rationale": "Asked by T164 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D091",
+      "node": "P2-N032",
+      "question": "Merge majodali/project-orchestrator-service#45 (vendors plugin/scripts/task_cost_hook.ts and plugin/scripts/lib/task-cost.ts there; a merge deploys the live service)?",
+      "options": [
+        "merge it",
+        "hold for changes"
+      ],
+      "default": "merge it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T167 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D092",
+      "node": "P2-N032",
+      "question": "Merge majodali/project-orchestrator#71 (adds the vendoring generator in this repository)?",
+      "options": [
+        "merge it",
+        "hold for changes"
+      ],
+      "default": "merge it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T167 at close.",
       "standing": false,
       "source": null
     }

@@ -8,16 +8,19 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Nothing.
+Open decisions:
+
+- D091 on Service repository enlisted for delegated sessions (P2-N032): Merge majodali/project-orchestrator-service#45 (vendors plugin/scripts/task_cost_hook.ts and plugin/scripts/lib/task-cost.ts there; a merge deploys the live service)? Default: merge it
+- D092 on Service repository enlisted for delegated sessions (P2-N032): Merge majodali/project-orchestrator#71 (adds the vendoring generator in this repository)? Default: merge it
 
 ## Ready, starting automatically when the loop runs
 
+- Service repository enlisted for delegated sessions (P2-N032) [executing]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
 - Backlog reader in the state importer (P4-N044) [executing] — T171
-- Service repository enlisted for delegated sessions (P2-N032) [executing] — T167
 
 ## In progress, children carry the work
 
@@ -366,7 +369,7 @@ Documents: [plan](plans/orchestration-service.md).
     Note: Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates.
   - **Service repository enlisted for delegated sessions** (P2-N032, executing)
     A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
-    after P2-N030 · [spec](specs/orchestrator-session.md)
+    after P2-N030 · [spec](specs/orchestrator-session.md) · 2 open decisions
     Note: Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script.
   - **Orchestrator fixes before its trial** (P2-N036, done 2026-11-18)
     A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.
