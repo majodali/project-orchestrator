@@ -110,9 +110,9 @@ and this repository for the pin.
       links a file that exists in the repository (invariant 8).
 - [ ] The state file the reader produces passes `plan-state check`
       with no violations.
-- [ ] Tests over methodology-tools' Backlog as a fixture: the row
-      count, the four open rows, and one malformed row that appears
-      in the record as not mapped.
+- [ ] Tests over methodology-tools' Backlog as a fixture: the row count, the
+      four open rows, and a malformed row that appears in the record as not
+      mapped, on the fixture or on a synthetic row where the fixture has none.
 - [ ] The register import is unchanged: the milestone 1 fixtures
       produce the same state file as before.
 - [ ] No service code branches on the project name (D067).
