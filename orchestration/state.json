@@ -5828,14 +5828,14 @@
         "cacheRead": 20705505,
         "cacheWrite": 299292
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T19:42:20Z",
       "closed": "2026-11-18T19:53:18Z",
       "base": "163b7cbf6a6b67ff446af0ca1e243f1d627185d4",
       "ref": "ba33308b38c881e3000c9175166208c87277301f",
       "pr": "majodali/project-orchestrator-service#49",
       "summary": "`renderPlan` built its node map from `shownNodes`, so a decision on a hidden check node crashed every write and `plan-state check`. `decisionLine` now looks the node up in the full state; the view keys such a decision to the node its check verifies. New tests in all three layers, failing pre-fix. Build, tests, lint, format clean; PR #49 CI green.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T190",
@@ -7138,8 +7138,8 @@
         "treat a persistent invariant-1 warning as a check failure in future tasks"
       ],
       "default": "leave it: the next service write that rewrites T188's record clears it, and the warning is cosmetic and does not fail the check",
-      "chosen": null,
-      "decided": null,
+      "chosen": "add a node to have the service rewrite orchestration/state.json in canonical form",
+      "decided": "2026-11-18",
       "rationale": "Asked by T190 at close.",
       "standing": false,
       "source": null
