@@ -5456,14 +5456,33 @@
         "cacheRead": 4306884,
         "cacheWrite": 26976
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T05:08:29Z",
       "closed": "2026-11-18T05:11:54Z",
       "base": "1321be09609160eaedd8b0d5905720b6da6d8185",
       "ref": "41579ea3f1e6aa097b6a4e75cd03c203f77e292d",
       "pr": "majodali/project-orchestrator#73",
       "summary": "Rework: moved the pin to b93c139 (T175's merge, deployed, confirmed via service_identity); npm ci/check/test/lint/format all pass. PR #73 updated. Read the service at b93c139: T174's criteria 1, 3, 5 are addressed. Criterion 7 already settled by D096; not re-decided.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
+    },
+    {
+      "id": "T177",
+      "node": "P4-N048",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T05:13:33Z",
+      "closed": null,
+      "base": "51689ffec5d5595ed17e73e93a7ac9008f74ab7a",
+      "ref": null,
+      "pr": null,
+      "summary": "Second verification of P4-N044 against section 1 of the pilot-enlistment plan, after the T175 rework merged at b93c139 and T176's pin move on #73: every criterion checked again, including whether the looser em-dash rule now accepts rows it should refuse.",
+      "notes": null
     }
   ],
   "decisions": [
