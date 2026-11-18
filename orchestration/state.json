@@ -5420,14 +5420,14 @@
         "cacheRead": 19549492,
         "cacheWrite": 77811
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T04:39:36Z",
       "closed": "2026-11-18T04:46:16Z",
       "base": "a93d57ae6214d162a6a79de6aae841f3b349e612",
       "ref": null,
       "pr": "majodali/project-orchestrator-service#47",
       "summary": "Rework: loosened the K-004 shape to find the first em dash anywhere after the lead, fixing re-import of this service's own renderBacklog output (0/95, 45/272 rows previously) and the two wrongly-excluded methodology-tools rows. Added backlogMapped and backlogRows to the record. CI green on PR #47.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
@@ -6484,8 +6484,8 @@
       "question": "Merge pull request #47 (rework of the Backlog reader) in majodali/project-orchestrator-service? The merge deploys. Separately, plan-state import --write throws ENOENT when the target repository has no orchestration/ directory yet (confirmed against a fresh checkout) — this will block P4-N045's real import of methodology-tools, which has no orchestration/ directory today. Not part of this node's criteria, so raised here rather than fixed silently.",
       "options": [],
       "default": "merge PR #47; add a node for the ENOENT fix",
-      "chosen": null,
-      "decided": null,
+      "chosen": "merge PR #47; add a node for the ENOENT fix",
+      "decided": "2026-11-18",
       "rationale": "Asked by T175 at close.",
       "standing": false,
       "source": null
