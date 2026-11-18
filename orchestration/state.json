@@ -6187,6 +6187,25 @@
       "pr": null,
       "summary": "Plan taking the state file's key order from the schema in formatState: confirm the hand-kept list and the append sites, settle how the order comes from the schema, measure the byte churn over today's state file, and name the test that fails when a field is added.",
       "notes": null
+    },
+    {
+      "id": "T203",
+      "node": "P4-N045",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T23:09:20Z",
+      "closed": null,
+      "base": "1c5ae9197c6115099351ee93be94c43c48b8b24a",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify methodology-tools' merged main (#24) against section 2's criteria and close the node.",
+      "notes": null
     }
   ],
   "decisions": [
