@@ -1480,7 +1480,7 @@
       "kind": "work",
       "title": "Plan rendering that survives a decision on a hidden check node",
       "outcome": "A write that leaves an open decision on a hidden check node succeeds, and the decision is named where the owner reads it.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1489,7 +1489,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-18",
       "note": "Found on P2-N032, task T182: task_close failed with \"Cannot read properties of undefined (reading 'title')\" and committed nothing. Criteria: docs/plans/rebuild.md, the section named for this node; specified on that list by T186, which added no document. D104 kept the criterion on the view in this node. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows. Observed by T184 at service commit b93c139, by running the renderings over this repository's state file with one open decision added on a hidden check node: renderPlan throws because it builds its node map from shownNodes while decisionLine asserts the decision's node is in it; renderRegister and renderBacklog do not, mapping over the full state and rendering no decisions; renderPlan runs on every service write (src/model/store.ts) and in invariant 9 (src/model/check.ts), so while such a decision stands every write and plan-state check fail. A check node is hidden when it has no hold and no open task, which a rework close produces. The view's tree page does not throw: it keys open decisions by node and visits only shown nodes, so the page counts the decision and shows no row; the obvious route is to key a hidden check node's decision to the node it verifies, since the hidden node's own page already renders the decision with a working form, reached by its identifier in the URL. Test homes: test/modelRender.test.ts for the renderings, the tests over the task tools and the loop for the close path, and test/viewPages.test.ts, which drives pages through createApp with the helpers in test/support/states.ts."
     },
     {
@@ -1497,7 +1497,7 @@
       "kind": "check",
       "title": "Verification of Plan rendering that survives a decision on a hidden check node",
       "outcome": "P4-N050 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P4-N050",
       "after": [],
       "hold": null,
@@ -1506,7 +1506,7 @@
         "plan": "docs/plans/rebuild.md",
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-18",
       "note": null
     },
     {
@@ -6026,7 +6026,7 @@
       "id": "T197",
       "node": "P4-N055",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -6034,11 +6034,11 @@
         "out": null
       },
       "opened": "2026-11-18T20:10:03Z",
-      "closed": null,
+      "closed": "2026-11-18T20:16:40Z",
       "base": "0a133280cea924b9aa475cb6dacb0b7fc72bf932",
       "ref": null,
       "pr": null,
-      "summary": "Verify P4-N050 (plan rendering that survives a decision on a hidden check node) against the seven criteria in docs/plans/rebuild.md: the fix merged at d9eebd0, reproducing the fault and its absence in render, check and the view, and T196's pin move on #80.",
+      "summary": "Verification passed. All seven criteria met at d9eebd0 and #80's head. I reproduced the fault at the parent commit (renderPlan and plan-state check throw, the tree page shows no row) and its absence after: render and check pass, the decision is named in plan.md, and the view shows it under the verified node, answerable.",
       "notes": null
     },
     {
@@ -6054,14 +6054,14 @@
         "cacheRead": 2466354,
         "cacheWrite": 14598
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T20:14:07Z",
       "closed": "2026-11-18T20:14:43Z",
       "base": "3171aa107982cee416470383741b99a940fd2f67",
       "ref": null,
       "pr": null,
       "summary": "No file changed, so no pull request, as D108 settled. The note now records that this node's plan needs no file and that a non-canonical file stays a warning (D109), which was criterion 5's open end. The seven criteria are otherwise untouched and the execute step works from them.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     }
   ],
   "decisions": [
