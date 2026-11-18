@@ -7599,8 +7599,8 @@
         "the owner names another resolution"
       ],
       "default": "yes - a node of its own to bring methodology-tools' Binding block to the Classification's pinned 1.6.0, under P4-N027",
-      "chosen": null,
-      "decided": null,
+      "chosen": "yes - a node of its own to bring methodology-tools' Binding block to the Classification's pinned 1.6.0, under P4-N027",
+      "decided": "2026-11-18",
       "rationale": "Asked by T204 at close.",
       "standing": false,
       "source": null
