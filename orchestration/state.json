@@ -989,7 +989,7 @@
       "kind": "work",
       "title": "Backlog reader in the state importer",
       "outcome": "`plan-state import` builds a state file from a project's K-004 Backlog when that project has no Plan register, and its import record names every row it did not map and why.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N027",
       "after": [],
       "hold": null,
@@ -5297,6 +5297,25 @@
       "ref": "f6870e9c8da760fb50e106350f9a4d5a29d11729",
       "pr": "majodali/project-orchestrator#69",
       "summary": "All five criteria met at f6870e9. I ran the watcher myself: it exits on a second decision (key report:P2-N029:4:asks:D200,D201); a verify start is offered beside an open execute task on the same plan document, an execute start still held. orchestrator.md, 119 lines, answers all four T161 guesses. npm test 218, check, lint, format, sync_agents, CI and mtool pass.",
+      "notes": null
+    },
+    {
+      "id": "T171",
+      "node": "P4-N044",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T03:57:19Z",
+      "closed": null,
+      "base": "aba6dbc8a37d593655e4c69986310fb98363299c",
+      "ref": null,
+      "pr": null,
+      "summary": "Add a Backlog reader to plan-state import so it builds a state file from a K-004 Backlog when a project has no Plan register, recording every unmapped row and why.",
       "notes": null
     }
   ],
