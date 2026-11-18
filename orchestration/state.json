@@ -6489,8 +6489,8 @@
         "the broader reading: criterion 7 is not met until methodology-tools' import is check-clean"
       ],
       "default": "the narrower reading: criterion 7 is met, and the 8 content violations are child 2's overrides file (P4-N045)",
-      "chosen": null,
-      "decided": null,
+      "chosen": "the narrower reading: criterion 7 is met, and the 8 content violations are child 2's overrides file (P4-N045)",
+      "decided": "2026-11-18",
       "rationale": "Asked by T174 at close.",
       "standing": false,
       "source": null
