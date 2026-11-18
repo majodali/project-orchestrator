@@ -5565,14 +5565,14 @@
         "cacheRead": 4015602,
         "cacheWrite": 98073
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T15:33:12Z",
       "closed": "2026-11-18T15:42:30Z",
       "base": "31fb88d7f3c526c30d169de734a805edc5290aea",
       "ref": null,
       "pr": null,
       "summary": "Criterion 13 not met: its record clause. docs/plans/orchestrator-session-record.md, which says each trial a criterion asks for is recorded there, has no P2-N032 section; only T179's close summary and the journal carry the trial, and neither states the source_url or the --check result. All other clauses met; S7's result is present; #71 is sound.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T181",
@@ -5594,6 +5594,25 @@
       "ref": null,
       "pr": null,
       "summary": "No file changed, so no pull request: section 5's seven criteria are at the depth the work needs, as the plan step foresaw. Verified the fault first-hand — ENOENT at src/model/cli.ts:149 on orchestration/state.json, exit 1 with a stack trace — and that a test can drive the command as a subprocess. Both are in the node's note.",
+      "notes": null
+    },
+    {
+      "id": "T182",
+      "node": "P2-N032",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": "claude-sonnet-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T15:44:29Z",
+      "closed": null,
+      "base": "3b650bf4268dbb873107f882f7c19d5242925970",
+      "ref": null,
+      "pr": null,
+      "summary": "Rework after T180's blocked verification: add P2-N032's section to docs/plans/orchestrator-session-record.md recording criterion 13's trial (T179, the owner's session), what loaded, and the generator's --check result, on PR #71.",
       "notes": null
     }
   ],
