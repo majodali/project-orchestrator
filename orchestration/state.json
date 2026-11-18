@@ -1548,7 +1548,7 @@
       "kind": "work",
       "title": "State file kept in canonical form by every service write",
       "outcome": "The service writes orchestration/state.json in canonical form on every write, the cost record included, so `plan-state check` reports no invariant-1 warning.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -6035,14 +6035,14 @@
         "cacheRead": 10899649,
         "cacheWrite": 53408
       },
+      "costSource": "transcript",
       "opened": "2026-11-18T20:10:03Z",
       "closed": "2026-11-18T20:16:40Z",
       "base": "0a133280cea924b9aa475cb6dacb0b7fc72bf932",
       "ref": null,
       "pr": null,
       "summary": "Verification passed. All seven criteria met at d9eebd0 and #80's head. I reproduced the fault at the parent commit (renderPlan and plan-state check throw, the tree page shows no row) and its absence after: render and check pass, the decision is named in plan.md, and the view shows it under the verified node, answerable.",
-      "notes": null,
-      "costSource": "transcript"
+      "notes": null
     },
     {
       "id": "T198",
@@ -6064,6 +6064,25 @@
       "ref": null,
       "pr": null,
       "summary": "No file changed, so no pull request, as D108 settled. The note now records that this node's plan needs no file and that a non-canonical file stays a warning (D109), which was criterion 5's open end. The seven criteria are otherwise untouched and the execute step works from them.",
+      "notes": null
+    },
+    {
+      "id": "T199",
+      "node": "P4-N054",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-18T21:29:43Z",
+      "closed": null,
+      "base": "a484aff53be7d6010a104932ffa28b7e12abea22",
+      "ref": null,
+      "pr": null,
+      "summary": "Fix the state file's canonical form after a cost-recording write, per the P4-N054 note.",
       "notes": null
     }
   ],
