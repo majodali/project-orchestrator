@@ -12,21 +12,22 @@ Open decisions:
 
 - D094 on Service repository enlisted for delegated sessions (P2-N032): Criterion 13 needs a task_open/task_close round trip from a session started in majodali/project-orchestrator-service, but Claude Code's own auto-mode classifier blocks that write from an unsupervised session, including when the delegating session tries to pre-approve the tool for it. How should the trial proceed? Default: the owner runs the trial personally in such a session, approving the permission prompt in place
 - D095 on Service repository enlisted for delegated sessions (P2-N032): After the scratch trial node (P2-N044) was added and removed under this task, P2-N032 is stage "broken-down" with no children, not "executing" as before. How should this be corrected? Default: the owner or the service corrects the stage directly
+- D096 on Verification of Backlog reader in the state importer (P4-N048): Criterion 7 of section 1 ("the state file the reader produces passes plan-state check with no violations"): over methodology-tools' real Backlog the reader's output has 8 invariant-4 violations (P1-N001 title "Bootstrap" is 1 word; 7 done nodes have outcomes of 42 to 131 words), all taken verbatim from the rows, and the import record flags every one under "Titles to review" and "Outcomes over the forty-word bound". Does criterion 7 ask only that the reader's output over a well-formed Backlog be structurally valid, with methodology-tools' content violations left to child 2's overrides file (section 2: "Hand corrections are only in the overrides file, applied last"), or does it ask that methodology-tools' own Backlog import clean, which the reader cannot do without inventing shorter titles and outcomes? Default: the narrower reading: criterion 7 is met, and the 8 content violations are child 2's overrides file (P4-N045)
 
 ## Ready, starting automatically when the loop runs
 
+- Backlog reader in the state importer (P4-N044) [verifying]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-- Verification of Backlog reader in the state importer (P4-N048) [specified] — T174
+None.
 
 ## In progress, children carry the work
 
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Pilot enlistment of methodology-tools (P4-N027) [broken-down]
-- Backlog reader in the state importer (P4-N044) [verifying]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - Service repository enlisted for delegated sessions (P2-N032) [broken-down]
@@ -51,6 +52,7 @@ Open decisions:
 ## Blocked
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
+- Verification of Backlog reader in the state importer (P4-N048) [specified] — T174: Verification failed. Criterion 1: the reader requires the em dash directly after the bolded lead, so 0 of 96 rows of this repository's service-rendered Backlog map and 45 of 272 archived rows. Criterion 5: two methodology-tools rows yielding title and outcome are excluded. Criterion 3: the record maps no row to its identifier. Criterion 7: gated by the ask.
 - Pin migrated to the release with the K-003 amendment (P4-N042) [identified] — Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.
 
 ## Paused by a hold or a park above
@@ -249,8 +251,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     - **Backlog reader in the state importer** (P4-N044, verifying)
       `plan-state import` builds a state file from a project's K-004 Backlog when that project has no Plan register, and its import record names every row it did not map and why.
       Note: Child 1 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 1 (the parent's plan document; this node links none of its own). Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, and to this repository for the pin. The importer requires docs/plan-register.md today and methodology-tools has none, which is why this child precedes the import.
-      - check: **Verification of Backlog reader in the state importer** (P4-N048, specified)
+      - check: **Verification of Backlog reader in the state importer** (P4-N048, specified, blocked: T174: Verification failed. Criterion 1: the reader requires the em dash directly after the bolded lead, so 0 of 96 rows of this repository's service-rendered Backlog map and 45 of 272 archived rows. Criterion 5: two methodology-tools rows yielding title and outcome are excluded. Criterion 3: the record maps no row to its identifier. Criterion 7: gated by the ask.)
         P4-N044 is verified against its outcome.
+        1 open decision
     - **methodology-tools' plan as a state file** (P4-N045, specified)
       methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.
       after P4-N044
