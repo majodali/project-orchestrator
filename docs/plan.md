@@ -19,12 +19,11 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - State directory created by the importer (P4-N049) [planned]
-- Service repository enlisted for delegated sessions (P2-N032) [executing]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-None.
+- Service repository enlisted for delegated sessions (P2-N032) [executing] — T179
 
 ## In progress, children carry the work
 
