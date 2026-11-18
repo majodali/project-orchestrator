@@ -6865,8 +6865,8 @@
         "the owner names another resolution"
       ],
       "default": "yes - a node of its own to amend README.md item 3 to the conditional rule how-we-work.md now states",
-      "chosen": null,
-      "decided": null,
+      "chosen": "yes - a node of its own to amend README.md item 3 to the conditional rule how-we-work.md now states",
+      "decided": "2026-11-18",
       "rationale": "Asked by T185 at close.",
       "standing": false,
       "source": null

@@ -8,10 +8,6 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D103 on Service repository enlisted for delegated sessions (P2-N032): README.md, Enlisting a repository, item 3 still requires both hooks unconditionally ("registers the two hooks, plugin/scripts/session_start.ts and plugin/scripts/task_cost_hook.ts"), which contradicts how-we-work.md item 3 as D101 amended it. README defers to that page for the detail, so the page governs and this verification stands; but the summary is now stale and a reader enlisting the next repository could take it as the rule. Amend it? Default: yes - a node of its own to amend README.md item 3 to the conditional rule how-we-work.md now states
-
 Gated nodes:
 
 - Tree page that updates itself (P2-N037): start needs the owner's approval
@@ -378,7 +374,7 @@ Documents: [plan](plans/orchestration-service.md).
     Note: Slice 2 of the plan (Children). Criteria 7 and 9 to 12 of the specification. Waits for P2-N030: it extends the decision function that node creates.
   - **Service repository enlisted for delegated sessions** (P2-N032, done 2026-11-18)
     A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.
-    after P2-N030 · [spec](specs/orchestrator-session.md) · 1 open decision
+    after P2-N030 · [spec](specs/orchestrator-session.md)
     Note: Slice 3 of the plan docs/plans/orchestrator-session.md (Children). Criterion 13 and section S7 of the specification. Writes to majodali/project-orchestrator-service (in scope by RU-016), where a merge deploys and the owner merges by hand. Links no plan document, so it may run beside P2-N031 under the specification's shared-document rule (S4): the two edit different files. Waits for P2-N030: its trial starts a session from that node's script.
   - **Orchestrator fixes before its trial** (P2-N036, done 2026-11-18)
     A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.
@@ -507,4 +503,5 @@ Documents: [plan](plans/orchestration-service.md).
 - D100 on P4-N049 (2026-11-18): Does P4-N049 start only on the owner's approval, since it writes to majodali/project-orchestrator-service? Chosen: keep start: auto: the node needs no owner action before the work, only the merge at the end, which every service pull request needs
 - D101 on P2-N045 (2026-11-18): Section S7 of docs/specs/orchestrator-session.md asks the service repository's .claude/settings.json for one hook (PostToolUse on task_close), and that is what it carries; docs/process/how-we-work.md, Enlisting a repository, item 3 requires two, including plugin/scripts/session_start.ts, which is neither vendored nor registered there and which the generator does not vendor. session_start.ts reads origin/main:orchestration/state.json of the repository it runs in, which project-orchestrator-service does not carry, so a copy there would tell the session its brief could not be produced. Which document is amended? Chosen: amend how-we-work.md item 3 to require plugin/scripts/session_start.ts only in a repository that carries its own orchestration/state.json, and the cost hook in every enlisted repository
 - D102 on P4-N049 (2026-11-18): Merge majodali/project-orchestrator-service#48 (CI green, mergeable, not yet deployed)? Chosen: merge it
+- D103 on P2-N032 (2026-11-18): README.md, Enlisting a repository, item 3 still requires both hooks unconditionally ("registers the two hooks, plugin/scripts/session_start.ts and plugin/scripts/task_cost_hook.ts"), which contradicts how-we-work.md item 3 as D101 amended it. README defers to that page for the detail, so the page governs and this verification stands; but the summary is now stale and a reader enlisting the next repository could take it as the rule. Amend it? Chosen: yes - a node of its own to amend README.md item 3 to the conditional rule how-we-work.md now states
 - D104 on P4-N050 (2026-11-18): Does the criterion on the view's plan page (it shows a decision on a hidden check node where the owner can answer it, and its count and rows agree) stay in P4-N050, or move to a node of its own? Chosen: keep it in P4-N050: the same lookup through shownNodes causes both, one pull request, one deploy and one pin move cover both, and a separate node costs another plan, specify, execute and verify cycle for a few lines. If you move it, the specify step narrows this node's outcome to the plan rendering alone and strikes that criterion
