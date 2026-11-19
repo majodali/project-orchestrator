@@ -30,6 +30,7 @@ Gated nodes:
 - Scratch run eight of the permission-check test (P4-N068) [specified]
 - Scratch run nine of the permission-check test (P4-N069) [specified]
 - Scratch run ten of the permission-check test (P4-N070) [specified]
+- Scratch run eleven of the permission-check test (P4-N071) [specified]
 - Orchestrator trial with its measured cost (P2-N033) [executing]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
@@ -362,6 +363,9 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
     One test session calls task_open on this node and reports what the auto-mode check answered; no work is done.
     Note: Scratch. One run of the permission-check test: a session claims the execute step, does no work, and closes blocked. Removed with its parent P4-N060.
   - **Scratch run ten of the permission-check test** (P4-N070, specified)
+    One test session calls task_open on this node and reports what the auto-mode check answered; no work is done.
+    Note: Scratch. One run of the permission-check test: a session claims the execute step, does no work, and closes blocked. Removed with its parent P4-N060.
+  - **Scratch run eleven of the permission-check test** (P4-N071, specified)
     One test session calls task_open on this node and reports what the auto-mode check answered; no work is done.
     Note: Scratch. One run of the permission-check test: a session claims the execute step, does no work, and closes blocked. Removed with its parent P4-N060.
 
