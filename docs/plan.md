@@ -38,7 +38,7 @@ Gated nodes:
 
 ## In flight
 
-- Scratch run eleven of the permission-check test (P4-N071) [executing] — T207
+None.
 
 ## In progress, children carry the work
 
@@ -65,6 +65,7 @@ Gated nodes:
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
 - Pin migrated to the release with the K-003 amendment (P4-N042) [identified] — Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.
+- Scratch run eleven of the permission-check test (P4-N071) [executing] — T207: Permission-check test run
 
 ## Paused by a hold or a park above
 
@@ -365,7 +366,7 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
   - **Scratch run ten of the permission-check test** (P4-N070, specified)
     One test session calls task_open on this node and reports what the auto-mode check answered; no work is done.
     Note: Scratch. One run of the permission-check test: a session claims the execute step, does no work, and closes blocked. Removed with its parent P4-N060.
-  - **Scratch run eleven of the permission-check test** (P4-N071, executing)
+  - **Scratch run eleven of the permission-check test** (P4-N071, executing, blocked: T207: Permission-check test run)
     One test session calls task_open on this node and reports what the auto-mode check answered; no work is done.
     Note: Scratch. One run of the permission-check test: a session claims the execute step, does no work, and closes blocked. Removed with its parent P4-N060.
   - **Scratch run twelve of the permission-check test** (P4-N072, specified)

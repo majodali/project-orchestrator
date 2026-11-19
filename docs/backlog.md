@@ -112,7 +112,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Scratch run eight of the permission-check test** (P4-N068) — When: not dated. Status: specified, ready, starts automatically. Pointer: `orchestration/state.json`.
 - [ ] **Scratch run nine of the permission-check test** (P4-N069) — When: not dated. Status: specified, ready, starts automatically. Pointer: `orchestration/state.json`.
 - [ ] **Scratch run ten of the permission-check test** (P4-N070) — When: not dated. Status: specified, ready, starts automatically. Pointer: `orchestration/state.json`.
-- [ ] **Scratch run eleven of the permission-check test** (P4-N071) — When: not dated. Status: executing, in flight. Pointer: `orchestration/state.json`.
+- [ ] **Scratch run eleven of the permission-check test** (P4-N071) — When: not dated. Status: executing, blocked. Pointer: `orchestration/state.json`.
 - [ ] **Scratch run twelve of the permission-check test** (P4-N072) — When: not dated. Status: specified, ready, starts automatically. Pointer: `orchestration/state.json`.
 - [ ] **Orchestration service** (P2-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestration-service.md).
 - [ ] **Pilot on methodology-tools: sessions on the task loop** (P2-N006) — When: after P4-N027. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.

@@ -1823,7 +1823,10 @@
       "stage": "executing",
       "parent": "P4-N060",
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "T207: Permission-check test run"
+      },
       "start": "auto",
       "docs": {
         "plan": null,
@@ -6538,7 +6541,7 @@
       "id": "T207",
       "node": "P4-N071",
       "step": "execute",
-      "status": "open",
+      "status": "blocked",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -6546,11 +6549,11 @@
         "out": null
       },
       "opened": "2026-11-19T21:35:55Z",
-      "closed": null,
+      "closed": "2026-11-19T21:36:05Z",
       "base": "5bcec8ea13f7e259344ee679b3a3a91d5c253de5",
       "ref": null,
       "pr": null,
-      "summary": "Permission-check test run: claim the execute step, do no work, close blocked.",
+      "summary": "Permission-check test run",
       "notes": null
     }
   ],
