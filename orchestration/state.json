@@ -6368,6 +6368,25 @@
       "pr": "majodali/project-orchestrator#84",
       "summary": "A plan document of its own, 298 lines: the design, the owner's three set-up actions, the evidence slice first, what becomes of the rest of P2-N027, five slices, nine criteria and the risks. Both documentation pages read, not taken from the note. Next step: break down. Five asks.",
       "notes": null
+    },
+    {
+      "id": "T209",
+      "node": "P2-N046",
+      "step": "specify",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-19T23:29:00Z",
+      "closed": null,
+      "base": "3e5c139029fa228f94c7ef02618d86c473e82cdf",
+      "ref": null,
+      "pr": null,
+      "summary": "Specify P2-N046: record what D118 to D122 settle everywhere the plan document still defers to those asks, and close on the plan's nine criteria if they are at the depth the work needs.",
+      "notes": null
     }
   ],
   "decisions": [
