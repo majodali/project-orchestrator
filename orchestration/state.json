@@ -7730,8 +7730,8 @@
         "a section inside docs/plans/orchestrator-session.md"
       ],
       "default": "the node's own document, as delivered: P2-N027's plan stands at 280 lines of its 300-line bound and this plan is longer than the room left, so a section there cannot hold it without moving finished parts out first",
-      "chosen": null,
-      "decided": null,
+      "chosen": "the node's own document, as delivered: P2-N027's plan stands at 280 lines of its 300-line bound and this plan is longer than the room left, so a section there cannot hold it without moving finished parts out first",
+      "decided": "2026-11-19",
       "rationale": "Asked by T208 at close.",
       "standing": false,
       "source": null
