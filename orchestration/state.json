@@ -1697,6 +1697,23 @@
       "note": "Scratch. One run of the permission-check test: a session claims the execute step, does no work, and closes blocked. Removed with its parent P4-N060."
     },
     {
+      "id": "P4-N064",
+      "kind": "work",
+      "title": "Scratch run four of the permission-check test",
+      "outcome": "One test session calls task_open on this node and reports what the auto-mode check answered; no work is done.",
+      "stage": "specified",
+      "parent": "P4-N060",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Scratch. One run of the permission-check test: a session claims the execute step, does no work, and closes blocked. Removed with its parent P4-N060."
+    },
+    {
       "id": "P2-N001",
       "kind": "work",
       "title": "Orchestration service",
