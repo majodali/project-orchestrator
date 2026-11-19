@@ -111,6 +111,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Tasks started by the service through scheduled tasks** (P2-N046) — When: not dated. Status: broken-down, in flight. Pointer: [plan](plans/p2-n046-service-fired-sessions.md).
 - [ ] **Fired-session trial by hand** (P2-N047) — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
 - [ ] **The fire in the service** (P2-N048) — When: after P2-N047. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
+- [ ] **The owner's setup recorded** (P2-N049) — When: after P2-N048. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/view-that-leads-and-updates.md).
 - [ ] **Tree page that updates itself** (P2-N037) — When: not dated. Status: specified, ready, starts automatically. Pointer: `orchestration/state.json`.
 - [ ] **Four lists ahead of the tree** (P2-N038) — When: not dated. Status: specified, ready, starts automatically. Pointer: `orchestration/state.json`.
