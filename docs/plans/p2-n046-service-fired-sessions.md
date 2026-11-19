@@ -62,9 +62,8 @@ the shapes may change.
   directs it to push to another branch"; branch protection is the
   control over what it may push.
 - Runs draw on the Claude Code subscription, not on platform credits,
-  which is what this project requires of every surface. No public API
-  lists tasks, tokens or past runs; the task's page carries its
-  History.
+  which this project requires of every surface. No public API lists
+  tasks, tokens or past runs.
 
 ## Design
 
@@ -117,7 +116,7 @@ settings file gains fire limits under the documented caps, counted from
 the journal's `fired` lines in the last hour: per task, per account,
 and a daily cap, so a fault cannot spend the subscription. On 429 the
 service records `Retry-After` and fires nothing for that task until it
-passes. At most two fires leave one write; the next takes the rest.
+passes. At most two fires leave one write.
 
 ### 5. How a fired session finds its node
 
@@ -174,8 +173,8 @@ nodes, and the record answers:
   for the same step.
 
 Met by its numbers whichever way they fall (RU-019). If the check
-refuses a fired session's writes, the rest of this node does not
-proceed and the plan changes.
+refuses a fired session's writes, the rest of this node stops and the
+plan changes.
 
 ## What becomes of the rest of P2-N027
 
@@ -205,18 +204,28 @@ down carries that out on the node and in P2-N027's plan.
 ## Children
 
 Five slices in order; the first is evidence and the rest wait on it.
+Four are children of this node, added by task T210, each entered
+`specified` with its criteria list in its own note: this document has
+no room for five such lists under its bound. Slice 4 is P2-N033, which
+stays a sibling, because a node's parent cannot be changed through the
+service's tools.
 
-1. **The fired-session trial by hand.** The slice above; no code.
-2. **The fire in the service**: designs 1 to 5, its ledger, its limits
-   and its tests, behind a setting that is off until slice 1 passes.
-3. **The owner's setup recorded**: the settings file's `fire` section,
-   the runbook's steps for adding a task, and the deploy role's
-   resources written before the owner applies them.
-4. **The end-to-end run**: three nodes from an offered step to done,
-   two at once, with no message from the owner, and the cost recorded.
-   This is P2-N033 re-pointed (D119).
-5. **The disposition**: the delegation rule, the role page, the watcher
-   and the helper pattern, once slice 4 has passed (D120).
+1. **P2-N047, Fired-session trial by hand.** The slice above; no code.
+   Its note says what only the owner can do and what a session records.
+2. **P2-N048, The fire in the service**: designs 1 to 5, its ledger,
+   its limits and its tests, behind a setting that is off until slice
+   1 passes. After P2-N047.
+3. **P2-N049, The owner's setup recorded**: the settings file's `fire`
+   section, the runbook's steps for adding a task, and the deploy
+   role's resources written before the owner applies them. After
+   P2-N048.
+4. **P2-N033, the end-to-end run**: three nodes from an offered step to
+   done, two at once, with no message from the owner, the cost
+   recorded. Re-pointed by D119, with criteria 14 to 16 restated and 18
+   struck in [P2-N027's plan](orchestrator-session.md). After P2-N049.
+5. **P2-N050, The old orchestrator parts retired**: the delegation
+   rule, the role page, the watcher, the script and the helper pattern,
+   once P2-N033 has passed (D120). After P2-N033.
 
 ## Criteria
 
@@ -252,10 +261,10 @@ Five slices in order; the first is evidence and the rest wait on it.
 ## What the owner settled
 
 The plan's five asks were answered on 2026-11-19, each with its
-default, and this document is written to those answers.
+default, and this document is written to them. D118 keeps the plan
+here, named for the node as the `p3-n*` plans are, with a pointer from
+P2-N027's plan.
 
-- **D118.** This plan lives in this document, named for the node as
-  the `p3-n*` plans are, with a pointer from P2-N027's plan.
 - **D119.** P2-N033 is re-pointed at the fired mechanism: criteria 15
   and 16 are restated as the fired sessions' costs against the same
   work started by hand, and criterion 18 is struck.
@@ -270,9 +279,8 @@ default, and this document is written to those answers.
 ## Risks
 
 - **A research preview.** The endpoint, its limits and its token
-  semantics may change. The design keeps the call in one place and the
-  identifiers in the settings file; the pages are re-read before slice
-  2 is built.
+  semantics may change. The call stays in one place and the
+  identifiers in the settings file; the pages are re-read in slice 2.
 - **A leaked token starts sessions with text.** Scoped to firing one
   task and nothing else, per the documentation, and the text arrives
   labelled untrusted. The token lives only in Secrets Manager.

@@ -218,8 +218,10 @@ numbered items named here: 14, 15, 16 and 18 below, the rest in
    Here it adds only the generator that vendors the cost hook. Waits
    for P2-N030, whose script starts its trial's session.
 4. **P2-N033, Orchestrator trial with its measured cost.** Criteria
-   14 to 18. Waits for P2-N031, P2-N032 and P4-N038 (One branch for
-   each pull request). Its last act carries out D075, the answer to ask 2.
+   14 to 17, re-pointed by D119 at the sessions the service fires. It
+   waits for P2-N031, P2-N032, P4-N038 (One branch for each pull
+   request), P2-N036 and P2-N049, the owner's setup. Its last act
+   carries out D075, the answer to ask 2.
 
 5. **P2-N046, Tasks started by the service through scheduled tasks.**
    Added 2026-11-19, after a controlled test showed that a session
@@ -236,20 +238,25 @@ runs together: P2-N030 comes first and P2-N033 last.
 
 Criteria 1 to 13, 17, 19 and 20 are in the specification.
 
-14. A recorded trial: the orchestrator session carries at least three
+Criteria 14 to 16 were re-pointed and 18 struck on 2026-11-19 by
+D119, the answer to an ask of
+[P2-N046](p2-n046-service-fired-sessions.md): the service fires the
+owner's scheduled task, so the trial has no orchestrator session whose
+cost or writes could be measured.
+
+14. A recorded trial: sessions the service fired carry at least three
     nodes from an offered step to done, two of them at the same time,
     with no message from the owner to any session in between. The
-    record lists each session, its task, its model and each stop.
-15. The trial's record gives the orchestrator session's own cost,
-    measured from its transcript with `plugin/scripts/lib/task-cost.ts`:
-    tokens by type, the number of wakes, the cost of an idle wake and
-    of a wake that acts. Met by the recorded numbers, whichever way
-    they fall (RU-019, a measurement is met by its record).
-16. The record sets the orchestrator's cost in the trial beside the
-    sum of its delegated tasks' recorded costs, as a ratio, by the
-    same method.
-18. The orchestrator session makes no write to the plan: the journal
-    of the trial holds no line whose `session` is the orchestrator's.
+    record lists each session, its node, its model and each stop.
+15. The record gives each fired session's own cost, measured from its
+    transcript with `plugin/scripts/lib/task-cost.ts`, tokens by type,
+    and the cost of the firing itself. Met by the recorded numbers,
+    whichever way they fall (RU-019, a measurement is met by its
+    record).
+16. The record sets those costs beside the same work started by hand,
+    as a ratio, by the same method.
+18. Struck by D119. It counted an orchestrator session's writes to the
+    plan, and there is no such session.
 
 ## Asks
 
