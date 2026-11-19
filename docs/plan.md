@@ -20,7 +20,7 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Key order set once where the state file is serialised (P4-N057) [specified]
-- Scratch node for the permission-check test (P4-N060) [identified]
+- Scratch run one of the permission-check test (P4-N061) [specified]
 - Orchestrator trial with its measured cost (P2-N033) [executing]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
@@ -35,6 +35,7 @@ None.
 - Rebuild: the orchestrator runs on a checked data model (P4-N001) [broken-down]
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Pilot enlistment of methodology-tools (P4-N027) [broken-down]
+- Scratch node for the permission-check test (P4-N060) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
@@ -321,9 +322,12 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
 - **Key order set once where the state file is serialised** (P4-N057, specified)
   `formatState` writes every object's fields in schema order, the per-site rebuilding in `setCostSource` is gone, and no write can drop or misorder a field the schema carries.
   Note: Raised by the reviewer of P4-N054 (T201) as D113. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a pin move in this repository follows. Repository: that one and this one. This node's plan needs no file (D114): docs/plans/rebuild.md stands at 295 lines of its 300-line bound, so what follows is both the plan, by T202, and the specification, by T205, and neither task wrote a file. Confirmed by T202 in a throwaway clone at service main 95b4fb8, by running it. setCostSource (src/model/loop.ts, line 656) destructures sixteen named fields, deletes every key of the task and reassigns them; its callers are recordCost (line 1069) and task_close's "reported" fallback (line 761). A task carrying a field the list does not name loses it: recordCost over a task with an extra key returned the task without it, which is the reviewer's finding. The list matches taskSchema's sixteen fields exactly, order included, so nothing is at risk today. The hazard is real: with one optional field added to taskSchema and setCostSource untouched, the field is dropped by a cost write. Settled by running it: a zod parse restores field order at every level, so nested objects and arrays of objects need no separate handling — a task with reversed keys came back in schema order and a nested docs object with spec before plan came back plan, spec. A field the schema does not declare does not survive a parse, which is what the service already does on read, so nothing changes there. stateSchema.shape is available in zod 4, so the order can also be taken from the shape without validating. Churn: none. formatState of the schema-parsed state is byte-identical to this repository's committed state file, 351,851 bytes, 0 changed. Criteria. (1) formatState takes every object's field order from the schema, at every level, so no list of the schema's field names is kept by hand anywhere in the service. (2) setCostSource's destructure, delete and reassign is gone, and its two callers simply set the field; task.docsOnMerge (src/model/mutations.ts near line 168) and state.highWater (src/model/loop.ts near line 287) keep appending and need no change, because order no longer depends on where a key is assigned. (3) No field the schema declares is dropped by any write: a task carrying every field taskSchema declares keeps them all through a cost write. (4) A test asserts criterion 3 and that each object's serialised key order equals its schema's field order. T202 ran both arms: as the code stands it passes, because the hand list is complete; with one field added to taskSchema alone it fails. With the fix it cannot fail, because both sides come from the schema. (5) A state that does not satisfy the schema is still serialised rather than thrown on, so plan-state import --write over such input writes its import record and reports its findings as it does today; the service's own writes are already protected, since the store refuses a write when checkState reports a violation (src/model/store.ts, line 182). (6) Nothing churns: plan-state render --write over this repository's state file as it stands rewrites it byte for byte. (7) One pull request in majodali/project-orchestrator-service; the owner merges it and that merge deploys; then this repository's project-orchestrator-service pin moves to the merged commit and npm run check reports no violations and no warnings. The execute step works from this list. T202's probes ran in that session's container, which is ephemeral; each is a few lines, and the method is stated above.
-- **Scratch node for the permission-check test** (P4-N060, identified)
+- **Scratch node for the permission-check test** (P4-N060, broken-down)
   A controlled test records whether the auto-mode check accepts task_open in each repository, with and without a plan_read first; this node and its children are removed when the test is read.
   Note: Scratch, at the owner's instruction of 2026-11-19. Holds one child per test run, because a node carries one open task at a time. No work is done under it. Remove it and its children when the test's result is reported.
+  - **Scratch run one of the permission-check test** (P4-N061, specified)
+    One test session calls task_open on this node and reports what the auto-mode check answered; no work is done.
+    Note: Scratch. One run of the permission-check test: a session claims the execute step, does no work, and closes blocked. Removed with its parent P4-N060.
 
 ### Orchestration service (P2-N001)
 

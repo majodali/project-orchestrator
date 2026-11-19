@@ -1633,7 +1633,7 @@
       "kind": "work",
       "title": "Scratch node for the permission-check test",
       "outcome": "A controlled test records whether the auto-mode check accepts task_open in each repository, with and without a plan_read first; this node and its children are removed when the test is read.",
-      "stage": "identified",
+      "stage": "broken-down",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1644,6 +1644,23 @@
       },
       "done": null,
       "note": "Scratch, at the owner's instruction of 2026-11-19. Holds one child per test run, because a node carries one open task at a time. No work is done under it. Remove it and its children when the test's result is reported."
+    },
+    {
+      "id": "P4-N061",
+      "kind": "work",
+      "title": "Scratch run one of the permission-check test",
+      "outcome": "One test session calls task_open on this node and reports what the auto-mode check answered; no work is done.",
+      "stage": "specified",
+      "parent": "P4-N060",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Scratch. One run of the permission-check test: a session claims the execute step, does no work, and closes blocked. Removed with its parent P4-N060."
     },
     {
       "id": "P2-N001",
