@@ -1820,7 +1820,7 @@
       "kind": "work",
       "title": "Scratch run eleven of the permission-check test",
       "outcome": "One test session calls task_open on this node and reports what the auto-mode check answered; no work is done.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N060",
       "after": [],
       "hold": null,
@@ -6532,6 +6532,25 @@
       "ref": null,
       "pr": null,
       "summary": "Checked what the plan offers against criterion 14. P4-N057, P2-N037 and P2-N038 each need the owner's hand-merge in the service repository to reach done; P4-N046 and P4-N059 wait on approval; only P2-N029 needs no owner, and it is far from done. Fewer than three qualifying nodes exist now.",
+      "notes": null
+    },
+    {
+      "id": "T207",
+      "node": "P4-N071",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-19T21:35:55Z",
+      "closed": null,
+      "base": "5bcec8ea13f7e259344ee679b3a3a91d5c253de5",
+      "ref": null,
+      "pr": null,
+      "summary": "Permission-check test run: claim the execute step, do no work, close blocked.",
       "notes": null
     }
   ],
