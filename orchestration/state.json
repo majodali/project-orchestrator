@@ -7941,8 +7941,8 @@
         "a specification document for P2-N046, docs/specs/p2-n046-service-fired-sessions.md, carrying all five lists, with the children's docs.spec pointing at it"
       ],
       "default": "each child's note, as delivered, following D105, D108 and D114, which put a small node's criteria in its note. A specification document would read better for five slices at once, so if you prefer that, the next task writes it and points each child at it",
-      "chosen": null,
-      "decided": null,
+      "chosen": "each child's note, as delivered, following D105, D108 and D114, which put a small node's criteria in its note. A specification document would read better for five slices at once, so if you prefer that, the next task writes it and points each child at it",
+      "decided": "2026-11-19",
       "rationale": "Asked by T210 at close.",
       "standing": false,
       "source": null
