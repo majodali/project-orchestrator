@@ -7745,8 +7745,8 @@
         "keep P2-N033 as written for the orchestrator session, and make slice 4 a new node"
       ],
       "default": "re-point P2-N033 at the fired mechanism, restating 15 and 16 and striking 18. Changing a node's approved criteria is the owner's, which is why this is asked rather than done",
-      "chosen": null,
-      "decided": null,
+      "chosen": "re-point P2-N033 at the fired mechanism, restating 15 and 16 and striking 18. Changing a node's approved criteria is the owner's, which is why this is asked rather than done",
+      "decided": "2026-11-19",
       "rationale": "Asked by T208 at close.",
       "standing": false,
       "source": null
