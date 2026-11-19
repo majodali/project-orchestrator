@@ -78,6 +78,7 @@ Dependencies are in the state file, not in sibling order.
   - P4-N057 [specified] Key order set once where the state file is serialised
   - P4-N060 [broken-down] Scratch node for the permission-check test
     - P4-N061 [specified] Scratch run one of the permission-check test
+    - P4-N062 [specified] Scratch run two of the permission-check test
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
   - P2-N002 [done] Service skeleton and plan state — plan: archive/plans/p2-n002-service-skeleton.md · spec: archive/specs/p2-n002-service-skeleton.md
     - P2-N007 [done] Service repository bootstrap
