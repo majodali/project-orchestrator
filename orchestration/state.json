@@ -2230,6 +2230,25 @@
       "note": "Slice 3 of P2-N046. Criteria: docs/plans/p2-n046-service-fired-sessions.md, \"What the owner sets up\" and Design 2 and 6, and this note. Writes orchestration/orchestrator.json here and docs in majodali/project-orchestrator-service (standing, RU-016), so it starts on approval. Waits for P2-N048, whose code decides what the settings file must carry.\n\nCriteria. (1) orchestration/orchestrator.json gains a `fire` section: per repository, per role, the task's trig_ identifier and the name of its AWS Secrets Manager secret, with the fire limits of slice 2. No token is in it. (2) Its shape is checked where the settings file is already checked, and a missing task for an offered step is reported, not fired. (3) The service's docs/runbook.md gains \"Adding a scheduled task\": the owner's actions O1 and O2 in order, where the token is generated and stored, how it is rotated, and that regenerating revokes the previous one at once. (4) The service's docs/deploy-role-permissions.md records the exact resources the IAM change of design 6 needs, written before the owner applies them, as P4-N046 did. (5) The runbook says what to do when firing stops: the 429 and Retry-After, a rotated token, and the setting that turns firing off. (6) One pull request in each repository; the owner merges the service's, and that merge deploys."
     },
     {
+      "id": "P2-N050",
+      "kind": "work",
+      "title": "The old orchestrator parts retired",
+      "outcome": "Both repositories say a fired session claims its task with task_next, and the orchestrator role, its watcher and its decision script are retired or recorded as the owner's fallback, with nothing left telling a session to start another's task.",
+      "stage": "specified",
+      "parent": "P2-N046",
+      "after": [
+        "P2-N033"
+      ],
+      "hold": null,
+      "start": "approve",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Slice 5 of P2-N046, carrying out D120. Criteria: docs/plans/p2-n046-service-fired-sessions.md, \"What becomes of the rest of P2-N027\" and criterion 9, and this note. Writes CLAUDE.md, .claude/agents/ and docs/process/ here, and CLAUDE.md in majodali/project-orchestrator-service (standing, RU-016), so it starts on approval. Waits for P2-N033, slice 4: nothing done is undone until the end-to-end run has passed (D120).\n\nCriteria. (1) The \"Delegated tasks\" rule in this repository's CLAUDE.md says what the 2026-11-19 test showed: a session does not start another session's task, and a session fired by a scheduled task claims with task_next without asking a person. The service repository's CLAUDE.md says the same. (2) The role pages under .claude/agents/ and their generated copies say the same, by node plugin/scripts/sync_agents.ts, and docs/process/how-we-work.md's one page on how work starts agrees with them. (3) No page in either repository still tells a session to start another session's task or to send it a brief. (4) The orchestrator role, plugin/scripts/orchestrate_next.ts and plugin/scripts/plan_watch.ts are either removed, with git keeping the history, or kept and recorded as the owner's fallback and as the only time-based nudge; whichever is done, the pages say which and why. (5) The helper-session pattern for a second repository is struck from docs/process/how-we-work.md, since a scheduled task per repository replaces it. (6) Each page stays within its line bound: how-we-work.md at or below 200 lines, CLAUDE.md and the role pages as they stand. (7) One pull request in each repository."
+    },
+    {
       "id": "P2-N028",
       "kind": "work",
       "title": "View that updates itself and leads with what matters",

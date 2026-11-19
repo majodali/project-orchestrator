@@ -105,6 +105,7 @@ Dependencies are in the state file, not in sibling order.
       - P2-N047 [specified] Fired-session trial by hand
       - P2-N048 [specified] The fire in the service
       - P2-N049 [specified] The owner's setup recorded
+      - P2-N050 [specified] The old orchestrator parts retired
   - P2-N028 [broken-down] View that updates itself and leads with what matters — plan: plans/view-that-leads-and-updates.md
     - P2-N037 [specified] Tree page that updates itself
     - P2-N038 [specified] Four lists ahead of the tree
