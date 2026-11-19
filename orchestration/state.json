@@ -7760,8 +7760,8 @@
         "now, in slice 2, with the fire"
       ],
       "default": "in slice 5, after slice 4 passes. Removing work already done on evidence not yet gathered is the risk the permission test itself showed, and the watcher is the only time-based nudge until something replaces it",
-      "chosen": null,
-      "decided": null,
+      "chosen": "in slice 5, after slice 4 passes. Removing work already done on evidence not yet gathered is the risk the permission test itself showed, and the watcher is the only time-based nudge until something replaces it",
+      "decided": "2026-11-19",
       "rationale": "Asked by T208 at close.",
       "standing": false,
       "source": null
