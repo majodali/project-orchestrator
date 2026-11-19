@@ -7956,8 +7956,8 @@
         "keep it, and let P2-N033's trial record why it cannot be met"
       ],
       "default": "strike it, with the reason recorded where it stands, for the reason D119 gave for 18: there is no orchestrator session in the fired mechanism, so the criterion measures nothing. The edit falls to P2-N033's execute task, since docs/specs/orchestrator-session.md stands at its 300-line bound",
-      "chosen": null,
-      "decided": null,
+      "chosen": "strike it, with the reason recorded where it stands, for the reason D119 gave for 18: there is no orchestrator session in the fired mechanism, so the criterion measures nothing. The edit falls to P2-N033's execute task, since docs/specs/orchestrator-session.md stands at its 300-line bound",
+      "decided": "2026-11-19",
       "rationale": "Asked by T210 at close.",
       "standing": false,
       "source": null
