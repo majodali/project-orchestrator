@@ -12,8 +12,7 @@ P2-N027's plan.
 
 When a node offers a step, the service fires the owner's scheduled
 task for that role and repository, and the fired session pulls its
-task from the plan and completes it with no message from the owner or
-from another session.
+task and completes it with no message from any person or session.
 
 ## Why
 
