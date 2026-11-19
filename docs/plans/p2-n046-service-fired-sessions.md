@@ -148,7 +148,8 @@ three secrets use, and a rotation then needs a deploy.
   app: its repositories, the role's model as the settings file records
   it, and a saved prompt that names the role, says to call `task_next`
   and claim what it answers, and directs the push to the branch named
-  for the task rather than a `claude/` branch.
+  for the task rather than a `claude/` branch. Two first, planner and
+  implementer in majodali/project-orchestrator (D122).
 - **O2. A token for each**, generated once in the task's API trigger
   row and put straight into AWS Secrets Manager, never committed,
   pasted into a session or logged. Its secret's name goes into the
@@ -197,9 +198,9 @@ them, and they stand until slice 4 passes:
   scheduled task per repository, struck once slice 4 covers it.
 
 P2-N033, the trial, is held on D117 ("Wait"). Its criteria 15, 16 and
-18 measure an orchestrator session's own cost and its writes; fired by
-the service there is no such session, so they measure nothing. Ask 2
-settles what replaces them.
+18 measured an orchestrator session's own cost and its writes; fired by
+the service there is no such session. D119 re-points it, and the break
+down carries that out on the node and in P2-N027's plan.
 
 ## Children
 
@@ -207,15 +208,15 @@ Five slices in order; the first is evidence and the rest wait on it.
 
 1. **The fired-session trial by hand.** The slice above; no code.
 2. **The fire in the service**: designs 1 to 5, its ledger, its limits
-   and its tests, behind a setting that is off until the trial passes.
+   and its tests, behind a setting that is off until slice 1 passes.
 3. **The owner's setup recorded**: the settings file's `fire` section,
    the runbook's steps for adding a task, and the deploy role's
    resources written before the owner applies them.
 4. **The end-to-end run**: three nodes from an offered step to done,
    two at once, with no message from the owner, and the cost recorded.
-   This is P2-N033 re-pointed, or its successor, by ask 2.
+   This is P2-N033 re-pointed (D119).
 5. **The disposition**: the delegation rule, the role page, the watcher
-   and the helper pattern, settled by ask 3 once slice 4 has passed.
+   and the helper pattern, once slice 4 has passed (D120).
 
 ## Criteria
 
@@ -243,36 +244,28 @@ Five slices in order; the first is evidence and the rest wait on it.
    each session, its node, its model and each stop. Firing costs no
    tokens, and the record sets the fired sessions' costs beside the
    same work started by hand.
-9. Once ask 3 is carried out, no page in either repository still tells
-   a session to start another session's task, and
+9. Once slice 5 is done, no page in either repository still tells a
+   session to start another session's task, and
    `docs/plans/orchestrator-session.md` points at this document and
    stays under 300 lines.
 
-## Asks
+## What the owner settled
 
-1. **Where does this plan live?** Options: this document, named for
-   the node as the `p3-n*` plans are, with a pointer from P2-N027's
-   plan; a section inside `docs/plans/orchestrator-session.md`.
-   Default: this document, because P2-N027's plan stands at 274 lines
-   of its 300-line bound and this plan is longer than the room left.
-2. **What replaces P2-N033's criteria 15, 16 and 18?** Options:
-   re-point P2-N033 at the fired mechanism, restating 15 and 16 as the
-   fired sessions' costs against work started by hand and striking 18;
-   keep it as written and make slice 4 a new node. Default: re-point
-   it. Changing a node's approved criteria is the owner's.
-3. **When is the delegation rule amended, and the role, the watcher
-   and the script retired?** Options: after slice 4 passes, in slice 5;
-   now, in slice 2. Default: after slice 4. Removing work already done
-   on evidence not yet gathered is the risk the test itself showed.
-4. **Does any saved prompt act on the fire's text?** Options: no, the
-   session pulls with `task_next` and the text is for the record; yes,
-   the prompt names the node from the text. Default: no. The
-   documentation labels the text untrusted, and anyone holding the
-   token can send it.
-5. **How many scheduled tasks are set up first?** Options: planner and
-   implementer in majodali/project-orchestrator only, the rest once
-   slice 1 passes; all roles in both repositories at once. Default: the
-   first, because each task is a token and a secret by hand.
+The plan's five asks were answered on 2026-11-19, each with its
+default, and this document is written to those answers.
+
+- **D118.** This plan lives in this document, named for the node as
+  the `p3-n*` plans are, with a pointer from P2-N027's plan.
+- **D119.** P2-N033 is re-pointed at the fired mechanism: criteria 15
+  and 16 are restated as the fired sessions' costs against the same
+  work started by hand, and criterion 18 is struck.
+- **D120.** The delegation rule is amended, and the role, the watcher
+  and the decision script retired, in slice 5, after slice 4 passes.
+- **D121.** No saved prompt acts on the fire's text. A fired session
+  calls `task_next` and claims what it answers.
+- **D122.** Two scheduled tasks are set up first, planner and
+  implementer in majodali/project-orchestrator, and the rest once
+  slice 1 passes.
 
 ## Risks
 
