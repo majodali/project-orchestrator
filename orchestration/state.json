@@ -2192,6 +2192,25 @@
       "note": "Slice 1 of P2-N046, the evidence that comes before anything is built. Criteria: docs/plans/p2-n046-service-fired-sessions.md, \"The first slice: the evidence\", and this note. Writes only a record, in this repository. Starts on approval because it cannot run until the owner's O1 and O2 are done.\n\nWhat the owner does, and nothing else can: create the two scheduled tasks of D122 (planner and implementer in majodali/project-orchestrator) with their repositories, the role's model and the saved prompt of O1; generate each token once and put it in AWS Secrets Manager; then fire each task for a real offered node, by Run now or by the documented call from the owner's own machine. A session cannot fire: the token must never be pasted into a session or logged, so no session holds one. A session can do the rest — it reads the fired run's result from the plan, the journal and the fired session's own transcript, and writes the record.\n\nCriteria. (1) Each of the two tasks is fired for a real offered node at least three times, and the record names each fire, its node and its answer. (2) The record says for each run whether task_open was accepted, refused by the check, or stopped by the session's own choice, with the wording observed. (3) It says what each run pushed and whether it opened a pull request unattended, and under which branch name, against the documentation's \"claude/\" default. (4) It says what happened to at least one run that stopped on a permission prompt: whether the fire was spent, whether the node stayed claimed, and what it cost. (5) It gives each fired session's measured cost beside a session the owner started by hand for the same step, by plugin/scripts/lib/task-cost.ts. (6) Met by its numbers whichever way they fall (RU-019): a record showing the check refusing a fired session's writes meets this node and stops the rest of P2-N046 until the plan changes. (7) No token appears in the record, in a commit, in a log or in any session's transcript."
     },
     {
+      "id": "P2-N048",
+      "kind": "work",
+      "title": "The fire in the service",
+      "outcome": "The service fires the scheduled task for an offered step after a write of its own, keeping its journal ledger and its limits, behind a setting that is off until the trial has passed.",
+      "stage": "specified",
+      "parent": "P2-N046",
+      "after": [
+        "P2-N047"
+      ],
+      "hold": null,
+      "start": "approve",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Slice 2 of P2-N046. Criteria: docs/plans/p2-n046-service-fired-sessions.md, Design 1 to 5 and criteria 1 to 6, and this note. Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, so it starts on approval; a pin move in this repository follows. Waits for P2-N047: nothing is built until the trial's record stands.\n\nCriteria. (1) The service fires only after a write of its own commits, never on a timer or a poll. (2) It writes the journal's `fired` line before the HTTP call, naming the node, the step, the task and the session answered. (3) It does not fire for a node and step while the node has an open task, within checkAfterMinutes of a `fired` line for that pair, or when two such lines stand since the node's last close; the third case is reported to the owner. (4) The fire limits come from orchestration/orchestrator.json, are counted from the journal's last hour, stay under the documented caps of 30 an hour per task and 100 an hour per account, and a 429 stops firing for that task until Retry-After has passed. (5) At most two fires leave one write. (6) The call carries the documented headers, including anthropic-version, and the node, step and commit as `text`; nothing the session does depends on that text (D121). (7) The token is read at runtime from AWS Secrets Manager and cached briefly; no token is in git, in a log or in the function's configuration. (8) The whole path is behind one setting that is off until P2-N047's record stands, and the tests cover the ledger, the three no-fire rules, the limits and a 429. (9) No model inference runs in the service. (10) One pull request there; the owner merges it and that merge deploys; then this repository's project-orchestrator-service pin moves to the merged commit and npm run check stays green."
+    },
+    {
       "id": "P2-N028",
       "kind": "work",
       "title": "View that updates itself and leads with what matters",
