@@ -7790,8 +7790,8 @@
         "every role in both repositories at once"
       ],
       "default": "planner and implementer in majodali/project-orchestrator only, adding the rest once slice 1 passes, because each task costs the owner a token generated once and a secret stored by hand",
-      "chosen": null,
-      "decided": null,
+      "chosen": "planner and implementer in majodali/project-orchestrator only, adding the rest once slice 1 passes, because each task costs the owner a token generated once and a secret stored by hand",
+      "decided": "2026-11-19",
       "rationale": "Asked by T208 at close.",
       "standing": false,
       "source": null
