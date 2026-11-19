@@ -7676,8 +7676,8 @@
         "Plan enough qualifying nodes now so the trial has three to carry."
       ],
       "default": "Wait: hold the trial until the plan offers at least three nodes that reach done without the owner, and run it then.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Wait: hold the trial until the plan offers at least three nodes that reach done without the owner, and run it then.",
+      "decided": "2026-11-19",
       "rationale": "Asked by T206 at close.",
       "standing": false,
       "source": null
