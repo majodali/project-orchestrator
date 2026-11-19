@@ -6390,6 +6390,25 @@
       "pr": "majodali/project-orchestrator#85",
       "summary": "The plan's Asks section becomes what the owner settled, naming D118 to D122, and the five places that deferred now state the answer. The nine criteria are unchanged and at the depth the work needs, so no separate specification. 291 lines, check clean. Break down is next.",
       "notes": null
+    },
+    {
+      "id": "T210",
+      "node": "P2-N046",
+      "step": "break down",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-19T23:33:20Z",
+      "closed": null,
+      "base": "96f7451ca7f31e67c3551f21a5ba4ae2cee55a1f",
+      "ref": null,
+      "pr": null,
+      "summary": "Break P2-N046 into its slices: add the four children the plan names, re-point P2-N033 at the fired mechanism as D119 says, and sequence it behind them.",
+      "notes": null
     }
   ],
   "decisions": [

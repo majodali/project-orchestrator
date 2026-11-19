@@ -18,14 +18,13 @@ Gated nodes:
 - Key order set once where the state file is serialised (P4-N057) [specified]
 - Close validated before its pull request is merged (P4-N073) [identified]
 - Orchestrator trial with its measured cost (P2-N033) [executing]
-- Tasks started by the service through scheduled tasks (P2-N046) [specified]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-None.
+- Tasks started by the service through scheduled tasks (P2-N046) [specified] — T210
 
 ## In progress, children carry the work
 
