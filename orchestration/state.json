@@ -2162,7 +2162,7 @@
       "kind": "work",
       "title": "Tasks started by the service through scheduled tasks",
       "outcome": "When a node offers a step, the service fires the owner's scheduled task for that role and repository, and the fired session pulls its task and completes it with no message from any person or session.",
-      "stage": "planned",
+      "stage": "specified",
       "parent": "P2-N027",
       "after": [],
       "hold": null,
@@ -6373,7 +6373,7 @@
       "id": "T209",
       "node": "P2-N046",
       "step": "specify",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -6381,11 +6381,11 @@
         "out": null
       },
       "opened": "2026-11-19T23:29:00Z",
-      "closed": null,
+      "closed": "2026-11-19T23:32:08Z",
       "base": "3e5c139029fa228f94c7ef02618d86c473e82cdf",
       "ref": null,
-      "pr": null,
-      "summary": "Specify P2-N046: record what D118 to D122 settle everywhere the plan document still defers to those asks, and close on the plan's nine criteria if they are at the depth the work needs.",
+      "pr": "majodali/project-orchestrator#85",
+      "summary": "The plan's Asks section becomes what the owner settled, naming D118 to D122, and the five places that deferred now state the answer. The nine criteria are unchanged and at the depth the work needs, so no separate specification. 291 lines, check clean. Break down is next.",
       "notes": null
     }
   ],
