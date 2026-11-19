@@ -81,6 +81,7 @@ Dependencies are in the state file, not in sibling order.
     - P4-N062 [specified] Scratch run two of the permission-check test
     - P4-N063 [specified] Scratch run three of the permission-check test
     - P4-N064 [specified] Scratch run four of the permission-check test
+    - P4-N065 [specified] Scratch run five of the permission-check test
 - P2-N001 [broken-down] Orchestration service — plan: plans/orchestration-service.md
   - P2-N002 [done] Service skeleton and plan state — plan: archive/plans/p2-n002-service-skeleton.md · spec: archive/specs/p2-n002-service-skeleton.md
     - P2-N007 [done] Service repository bootstrap
