@@ -221,6 +221,12 @@ numbered items named here: 14, 15, 16 and 18 below, the rest in
    14 to 18. Waits for P2-N031, P2-N032 and P4-N038 (One branch for
    each pull request). Its last act carries out D075, the answer to ask 2.
 
+5. **P2-N046, Tasks started by the service through scheduled tasks.**
+   Added 2026-11-19, after a controlled test showed that a session
+   started by another session opens no task. It moves the start of
+   work from the orchestrator session to the service, and its plan is
+   [its own document](p2-n046-service-fired-sessions.md).
+
 P2-N031 and P2-N032 may run together: they edit different files, and
 P2-N032 links no plan document, so the shared-document rule of the
 specification's S4 does not hold one for the other. Nothing else
