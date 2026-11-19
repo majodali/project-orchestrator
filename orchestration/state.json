@@ -7775,8 +7775,8 @@
         "yes: the prompt reads the node and step from the fire's text"
       ],
       "default": "no. The documentation labels fire text untrusted and says the stored prompt must opt in before a session acts on it, and anyone holding the token can send text, so correctness should not depend on it",
-      "chosen": null,
-      "decided": null,
+      "chosen": "no. The documentation labels fire text untrusted and says the stored prompt must opt in before a session acts on it, and anyone holding the token can send text, so correctness should not depend on it",
+      "decided": "2026-11-19",
       "rationale": "Asked by T208 at close.",
       "standing": false,
       "source": null
