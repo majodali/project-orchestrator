@@ -2144,14 +2144,14 @@
       "id": "P2-N046",
       "kind": "work",
       "title": "Tasks started by the service through scheduled tasks",
-      "outcome": "When a node offers a step, the service fires the owner's scheduled task for that role and repository, and the fired session pulls its task from the plan and completes it with no message from the owner or from another session.",
-      "stage": "identified",
+      "outcome": "When a node offers a step, the service fires the owner's scheduled task for that role and repository, and the fired session pulls its task and completes it with no message from any person or session.",
+      "stage": "planned",
       "parent": "P2-N027",
       "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/plans/p2-n046-service-fired-sessions.md",
         "spec": null
       },
       "done": null,
@@ -6334,7 +6334,7 @@
       "id": "T208",
       "node": "P2-N046",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -6342,11 +6342,11 @@
         "out": null
       },
       "opened": "2026-11-19T22:58:03Z",
-      "closed": null,
+      "closed": "2026-11-19T23:16:22Z",
       "base": "4a0b1069026fd25c06e69ed3d72331d131c560fb",
       "ref": null,
-      "pr": null,
-      "summary": "Plan the service firing the owner's scheduled tasks: the mechanism and its limits, what the owner sets up by hand, the standing constraints, what becomes of the rest of P2-N027, the trial that must come first, and the risks.",
+      "pr": "majodali/project-orchestrator#84",
+      "summary": "A plan document of its own, 298 lines: the design, the owner's three set-up actions, the evidence slice first, what becomes of the rest of P2-N027, five slices, nine criteria and the risks. Both documentation pages read, not taken from the note. Next step: break down. Five asks.",
       "notes": null
     }
   ],
@@ -7715,6 +7715,81 @@
       "chosen": "Wait: hold the trial until the plan offers at least three nodes that reach done without the owner, and run it then.",
       "decided": "2026-11-19",
       "rationale": "Asked by T206 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D118",
+      "node": "P2-N046",
+      "question": "Where does P2-N046's plan live?",
+      "options": [
+        "docs/plans/p2-n046-service-fired-sessions.md, named for the node as the p3-n* plans are, with a pointer from P2-N027's plan",
+        "a section inside docs/plans/orchestrator-session.md"
+      ],
+      "default": "the node's own document, as delivered: P2-N027's plan stands at 280 lines of its 300-line bound and this plan is longer than the room left, so a section there cannot hold it without moving finished parts out first",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T208 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D119",
+      "node": "P2-N046",
+      "question": "What replaces P2-N033's criteria 15, 16 and 18, which measure an orchestrator session's own cost and its writes, now that the service fires and there is no such session?",
+      "options": [
+        "re-point P2-N033 at the fired mechanism: restate 15 and 16 as the fired sessions' costs against the same work started by hand, and strike 18",
+        "keep P2-N033 as written for the orchestrator session, and make slice 4 a new node"
+      ],
+      "default": "re-point P2-N033 at the fired mechanism, restating 15 and 16 and striking 18. Changing a node's approved criteria is the owner's, which is why this is asked rather than done",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T208 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D120",
+      "node": "P2-N046",
+      "question": "When is the delegation rule in both repositories' CLAUDE.md amended, and the orchestrator role, its watcher and its decision script retired?",
+      "options": [
+        "in slice 5, after slice 4's end-to-end run has passed",
+        "now, in slice 2, with the fire"
+      ],
+      "default": "in slice 5, after slice 4 passes. Removing work already done on evidence not yet gathered is the risk the permission test itself showed, and the watcher is the only time-based nudge until something replaces it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T208 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D121",
+      "node": "P2-N046",
+      "question": "Does any of the owner's saved prompts act on the fire's text, so that the service can name the node a session must take?",
+      "options": [
+        "no: the session calls task_next and claims what it answers; the text is for the run's History",
+        "yes: the prompt reads the node and step from the fire's text"
+      ],
+      "default": "no. The documentation labels fire text untrusted and says the stored prompt must opt in before a session acts on it, and anyone holding the token can send text, so correctness should not depend on it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T208 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D122",
+      "node": "P2-N046",
+      "question": "How many scheduled tasks are set up by hand first, each being a token and a Secrets Manager entry?",
+      "options": [
+        "planner and implementer in majodali/project-orchestrator only, the rest once slice 1 passes",
+        "every role in both repositories at once"
+      ],
+      "default": "planner and implementer in majodali/project-orchestrator only, adding the rest once slice 1 passes, because each task costs the owner a token generated once and a secret stored by hand",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T208 at close.",
       "standing": false,
       "source": null
     }

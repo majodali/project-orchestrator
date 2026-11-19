@@ -107,7 +107,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Several projects and repositories in one instance** (P2-N026) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: not dated. Status: executing, ready, starts automatically. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
-- [ ] **Tasks started by the service through scheduled tasks** (P2-N046) — When: not dated. Status: identified, in flight. Pointer: `orchestration/state.json`.
+- [ ] **Tasks started by the service through scheduled tasks** (P2-N046) — When: not dated. Status: planned, ready, starts automatically. Pointer: [plan](plans/p2-n046-service-fired-sessions.md).
 - [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/view-that-leads-and-updates.md).
 - [ ] **Tree page that updates itself** (P2-N037) — When: not dated. Status: specified, ready, starts automatically. Pointer: `orchestration/state.json`.
 - [ ] **Four lists ahead of the tree** (P2-N038) — When: not dated. Status: specified, ready, starts automatically. Pointer: `orchestration/state.json`.

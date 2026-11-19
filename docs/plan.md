@@ -8,6 +8,14 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
+Open decisions:
+
+- D118 on Tasks started by the service through scheduled tasks (P2-N046): Where does P2-N046's plan live? Default: the node's own document, as delivered: P2-N027's plan stands at 280 lines of its 300-line bound and this plan is longer than the room left, so a section there cannot hold it without moving finished parts out first
+- D119 on Tasks started by the service through scheduled tasks (P2-N046): What replaces P2-N033's criteria 15, 16 and 18, which measure an orchestrator session's own cost and its writes, now that the service fires and there is no such session? Default: re-point P2-N033 at the fired mechanism, restating 15 and 16 and striking 18. Changing a node's approved criteria is the owner's, which is why this is asked rather than done
+- D120 on Tasks started by the service through scheduled tasks (P2-N046): When is the delegation rule in both repositories' CLAUDE.md amended, and the orchestrator role, its watcher and its decision script retired? Default: in slice 5, after slice 4 passes. Removing work already done on evidence not yet gathered is the risk the permission test itself showed, and the watcher is the only time-based nudge until something replaces it
+- D121 on Tasks started by the service through scheduled tasks (P2-N046): Does any of the owner's saved prompts act on the fire's text, so that the service can name the node a session must take? Default: no. The documentation labels fire text untrusted and says the stored prompt must opt in before a session acts on it, and anyone holding the token can send text, so correctness should not depend on it
+- D122 on Tasks started by the service through scheduled tasks (P2-N046): How many scheduled tasks are set up by hand first, each being a token and a Secrets Manager entry? Default: planner and implementer in majodali/project-orchestrator only, adding the rest once slice 1 passes, because each task costs the owner a token generated once and a secret stored by hand
+
 Gated nodes:
 
 - Second instance on the deploy path (P4-N046): start needs the owner's approval
@@ -17,13 +25,14 @@ Gated nodes:
 
 - Key order set once where the state file is serialised (P4-N057) [specified]
 - Orchestrator trial with its measured cost (P2-N033) [executing]
+- Tasks started by the service through scheduled tasks (P2-N046) [planned]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
 
 ## In flight
 
-- Tasks started by the service through scheduled tasks (P2-N046) [identified] — T208
+None.
 
 ## In progress, children carry the work
 
@@ -396,8 +405,9 @@ Documents: [plan](plans/orchestration-service.md).
     A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.
     after P2-N031, P2-N032, P4-N038, P2-N036 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 4 of the plan (Children). Criteria 14 to 18. Its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027.
-  - **Tasks started by the service through scheduled tasks** (P2-N046, identified)
-    When a node offers a step, the service fires the owner's scheduled task for that role and repository, and the fired session pulls its task from the plan and completes it with no message from the owner or from another session.
+  - **Tasks started by the service through scheduled tasks** (P2-N046, planned)
+    When a node offers a step, the service fires the owner's scheduled task for that role and repository, and the fired session pulls its task and completes it with no message from any person or session.
+    [plan](plans/p2-n046-service-fired-sessions.md) · 5 open decisions
     Note: Asked for by the owner on 2026-11-19 after the permission-check test. Decided by the owner: the fire tokens are stored in AWS Secrets Manager. What the test established. A session started by another session (create_session, or a later send_message) has no request from a person: the harness delivers the brief marked as not user input. In 12 runs on scratch nodes, 11 started by a session opened no task: 8 had task_open refused by Claude Code's auto-mode check ("Destructive or Unwanted Actions"), 3 stopped by the session's own choice. They covered both repositories, with and without a plan_read first, and a branch whose .claude/settings.json carried permissions.allow rules for the task tools: the rules were present in the file and not applied (plan_read stayed decided by the check, not by rule). The account has no organisation-managed settings. One run started by a scheduled task the owner wrote in the app, with the same wording and model as a session-started control, had task_open and task_close accepted; the control stopped to ask a person. Earlier owner involvement inside delegated sessions (P4-N049, P4-N050, P4-N054, P4-N045's helper) had the same causes. What the documentation says (research preview; code.claude.com/docs/en/routines and the routines-fire API reference): POST .../v1/claude_code/routines/{trig_id}/fire with a per-task bearer token shown once; answers the new session's id and URL; each fire is a fresh session with no idempotency key; text sent with the fire is wrapped as untrusted unless the saved prompt says to use it; runs draw on subscription usage; 30 fires per task per hour and 100 per account per hour, refused with Retry-After beyond that; repositories and model are set on the scheduled task; the saved prompt is the session's assignment but "can't act as approval or consent for actions during the run", so the check still judges each write. Not yet established: that real work passes the check this way, repeatedly, in each repository (one scratch run only, in majodali/project-orchestrator); what a fired session may push and open as a pull request unattended; what happens to a fire when a run stops on a permission prompt. The plan step should say what becomes of the rest of P2-N027: the orchestrator session, its watcher and briefs (P2-N030, P2-N031, P2-N036, done), the trial P2-N033 (held on D117, answered Wait), the delegation rule in CLAUDE.md and the role pages, and the helper-session pattern for a second repository. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys.
 - **View that updates itself and leads with what matters** (P2-N028, broken-down)
   The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
