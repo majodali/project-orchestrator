@@ -101,7 +101,8 @@ Dependencies are in the state file, not in sibling order.
     - P2-N032 [done] Service repository enlisted for delegated sessions — spec: specs/orchestrator-session.md
     - P2-N036 [done] Orchestrator fixes before its trial — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N033 [executing] Orchestrator trial with its measured cost — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
-    - P2-N046 [specified] Tasks started by the service through scheduled tasks — plan: plans/p2-n046-service-fired-sessions.md
+    - P2-N046 [broken-down] Tasks started by the service through scheduled tasks — plan: plans/p2-n046-service-fired-sessions.md
+      - P2-N047 [specified] Fired-session trial by hand
   - P2-N028 [broken-down] View that updates itself and leads with what matters — plan: plans/view-that-leads-and-updates.md
     - P2-N037 [specified] Tree page that updates itself
     - P2-N038 [specified] Four lists ahead of the tree
