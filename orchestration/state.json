@@ -6470,7 +6470,7 @@
       "id": "T210",
       "node": "P2-N046",
       "step": "break down",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -6478,11 +6478,11 @@
         "out": null
       },
       "opened": "2026-11-19T23:33:20Z",
-      "closed": null,
+      "closed": "2026-11-19T23:39:44Z",
       "base": "96f7451ca7f31e67c3551f21a5ba4ae2cee55a1f",
       "ref": null,
-      "pr": null,
-      "summary": "Break P2-N046 into its slices: add the four children the plan names, re-point P2-N033 at the fired mechanism as D119 says, and sequence it behind them.",
+      "pr": "majodali/project-orchestrator#86",
+      "summary": "Four children added, P2-N047 to P2-N050, each specified with its criteria in its own note. Slice 4 is P2-N033, which stays a sibling, re-pointed by D119 and waiting on P2-N049; criteria 14 to 16 restated and 18 struck in P2-N027's plan. Two asks.",
       "notes": null
     }
   ],
@@ -7926,6 +7926,36 @@
       "chosen": "planner and implementer in majodali/project-orchestrator only, adding the rest once slice 1 passes, because each task costs the owner a token generated once and a secret stored by hand",
       "decided": "2026-11-19",
       "rationale": "Asked by T208 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D123",
+      "node": "P2-N046",
+      "question": "Where do P2-N046's children's criteria belong? Each of the four now carries its list in its own note, because the plan document stands at 299 lines of its 300-line bound and five lists do not fit.",
+      "options": [
+        "each child's note, as delivered",
+        "a specification document for P2-N046, docs/specs/p2-n046-service-fired-sessions.md, carrying all five lists, with the children's docs.spec pointing at it"
+      ],
+      "default": "each child's note, as delivered, following D105, D108 and D114, which put a small node's criteria in its note. A specification document would read better for five slices at once, so if you prefer that, the next task writes it and points each child at it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T210 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D124",
+      "node": "P2-N046",
+      "question": "Criterion 17 of P2-N027's specification measures the orchestrator session being replaced mid-trial, the same session D119 found no longer exists. Is it struck as 18 was?",
+      "options": [
+        "strike it, with the reason recorded where it stands",
+        "keep it, and let P2-N033's trial record why it cannot be met"
+      ],
+      "default": "strike it, with the reason recorded where it stands, for the reason D119 gave for 18: there is no orchestrator session in the fired mechanism, so the criterion measures nothing. The edit falls to P2-N033's execute task, since docs/specs/orchestrator-session.md stands at its 300-line bound",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T210 at close.",
       "standing": false,
       "source": null
     }
