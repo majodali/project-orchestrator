@@ -2139,14 +2139,15 @@
       "id": "P2-N033",
       "kind": "work",
       "title": "Orchestrator trial with its measured cost",
-      "outcome": "A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.",
+      "outcome": "A recorded trial shows three nodes carried to done by sessions the service fired, two at once, with no message from the owner, and the fired sessions' costs set beside the same work started by hand.",
       "stage": "executing",
       "parent": "P2-N027",
       "after": [
         "P2-N031",
         "P2-N032",
         "P4-N038",
-        "P2-N036"
+        "P2-N036",
+        "P2-N049"
       ],
       "hold": null,
       "start": "auto",
@@ -2155,7 +2156,7 @@
         "spec": "docs/specs/orchestrator-session.md"
       },
       "done": null,
-      "note": "Slice 4 of the plan (Children). Criteria 14 to 18. Its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027."
+      "note": "Slice 4 of P2-N046's sequence, re-pointed at the fired mechanism by D119: the trial is of sessions the service fires, not of an orchestrator session. Criteria 14 to 16 in docs/plans/orchestrator-session.md, restated by task T210; criterion 18 struck there, because there is no orchestrator session whose writes to the plan could be counted. Criterion 17, the orchestrator session's replacement mid-trial (docs/specs/orchestrator-session.md), measures the same vanished session and is T210's ask. Waits for P2-N049 as well as its earlier dependencies: the fire must be built and the owner's setup recorded before the run. Its last act still carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027. D117's answer, \"Wait\", is now structural: the node waits for P2-N049."
     },
     {
       "id": "P2-N046",

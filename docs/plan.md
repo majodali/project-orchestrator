@@ -18,7 +18,6 @@ Gated nodes:
 
 - Key order set once where the state file is serialised (P4-N057) [specified]
 - Close validated before its pull request is merged (P4-N073) [identified]
-- Orchestrator trial with its measured cost (P2-N033) [executing]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
@@ -42,6 +41,7 @@ Gated nodes:
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
+- Orchestrator trial with its measured cost (P2-N033) [executing] — after The owner's setup recorded (P2-N049)
 - The fire in the service (P2-N048) [specified] — after Fired-session trial by hand (P2-N047)
 - The owner's setup recorded (P2-N049) [specified] — after The fire in the service (P2-N048)
 - The old orchestrator parts retired (P2-N050) [specified] — after Orchestrator trial with its measured cost (P2-N033)
@@ -401,9 +401,9 @@ Documents: [plan](plans/orchestration-service.md).
     after P2-N031 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Added on the owner's answers of 2026-11-17 to D087 (on P2-N030), D088 and D089 (on P2-N031), which each name this node. Criteria: (1) D088: the keys of `decision` and `asks` reports carry the decisions' identifiers, so a second decision on a node changes a key; specification S1 and the two expected keys in test/orchestrate.test.ts follow, which the owner's answer to D088 allows. (2) D087: a verify start is exempt from the shared-document rule of S4, in lib/orchestrate.ts and its test, and S4 says so. (3) D089, in .claude/agents/orchestrator.md, still at most 120 lines: it tells the session to give the background watcher the two-hour limit and what to do if the watcher is stopped with no output; how the session learns its own identifier for --self; one rule for what it tells the owner at a wake, the time-limit wake included; and archive_session is used or dropped. (4) T159's other finding is settled: the status bucket that never says archived. (5) plugin/agents/ is regenerated and the checks pass.
   - **Orchestrator trial with its measured cost** (P2-N033, executing)
-    A recorded trial shows the orchestrator session carrying three nodes to done without the owner, being replaced once, and writing nothing to the plan, with its own cost set beside the cost of the tasks it delegated.
-    after P2-N031, P2-N032, P4-N038, P2-N036 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
-    Note: Slice 4 of the plan (Children). Criteria 14 to 18. Its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027.
+    A recorded trial shows three nodes carried to done by sessions the service fired, two at once, with no message from the owner, and the fired sessions' costs set beside the same work started by hand.
+    after P2-N049 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    Note: Slice 4 of P2-N046's sequence, re-pointed at the fired mechanism by D119: the trial is of sessions the service fires, not of an orchestrator session. Criteria 14 to 16 in docs/plans/orchestrator-session.md, restated by task T210; criterion 18 struck there, because there is no orchestrator session whose writes to the plan could be counted. Criterion 17, the orchestrator session's replacement mid-trial (docs/specs/orchestrator-session.md), measures the same vanished session and is T210's ask. Waits for P2-N049 as well as its earlier dependencies: the fire must be built and the owner's setup recorded before the run. Its last act still carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027. D117's answer, "Wait", is now structural: the node waits for P2-N049.
   - **Tasks started by the service through scheduled tasks** (P2-N046, broken-down)
     When a node offers a step, the service fires the owner's scheduled task for that role and repository, and the fired session pulls its task and completes it with no message from any person or session.
     [plan](plans/p2-n046-service-fired-sessions.md)
