@@ -6719,6 +6719,25 @@
       "pr": null,
       "summary": "Verified this repository's side of P4-N073 complete: PR #52 merged, Deploy workflow succeeded (run 44787111820, commit cc2bc14). Criteria 1-9 and 11's first half hold. Criterion 10 (task-loop.md) and 11's pin move are a pull request in majodali/project-orchestrator, outside this session's repository scope.",
       "notes": null
+    },
+    {
+      "id": "T220",
+      "node": "P4-N074",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-20T18:30:31Z",
+      "closed": null,
+      "base": "ce9c053dd5f5ccfa748fd26037d0edab238fdc94",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P4-N057 \"Key order set once where the state file is serialised\" against its seven criteria and its outcome, reading the service repository read-only.",
+      "notes": null
     }
   ],
   "decisions": [
