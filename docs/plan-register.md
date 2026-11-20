@@ -114,3 +114,4 @@ Dependencies are in the state file, not in sibling order.
     - P2-N041 [specified] View trial with its measured delay
     - P2-N042 [specified] Session field adopted in this repository
   - P2-N029 [planned] Rework cost measured against the reviews it replaces — plan: plans/p2-n029-rework-cost.md
+  - P2-N051 [identified] Scratch project that compares review regimes
