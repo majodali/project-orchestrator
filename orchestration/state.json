@@ -6680,7 +6680,7 @@
       "id": "T218",
       "node": "P4-N073",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -6688,11 +6688,11 @@
         "out": null
       },
       "opened": "2026-11-20T08:43:47Z",
-      "closed": null,
+      "closed": "2026-11-20T09:01:49Z",
       "base": "f720125febb73545b63ca5c6f81b6b597534d952",
       "ref": null,
-      "pr": null,
-      "summary": "Fix StateStore.write at the three merge sites so task_close, node_update(done) and the view's done action trial the close against checkState before creating or merging any pull request.",
+      "pr": "majodali/project-orchestrator-service#52",
+      "summary": "StateStore.write takes an optional step, run once per call after mutate trials clean against the invariants and before it runs for real: all three merge sites move pull-request creation and merging into it. Fixes T208. 5 new tests, all green; PR #52.",
       "notes": null
     }
   ],
@@ -8213,6 +8213,21 @@
       "chosen": "Identify which of those runs were fires and supply their session transcripts and costs, so the next execute task can finish the record with at least three fires per role",
       "decided": "2026-11-20",
       "rationale": "Asked by T216 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D128",
+      "node": "P4-N073",
+      "question": "Merge majodali/project-orchestrator-service#52 (CI green, mergeable, not yet deployed)? Criteria 10 and 11's second half — docs/process/task-loop.md's sentence and this repository's project-orchestrator-service pin moving to the merged commit — need the merge and the deploy first, as T199/T200 did on P4-N054 and T212/T217 did on P4-N057.",
+      "options": [
+        "merge it",
+        "hold for further review"
+      ],
+      "default": "merge it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T218 at close.",
       "standing": false,
       "source": null
     }
