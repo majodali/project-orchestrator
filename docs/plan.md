@@ -16,14 +16,13 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Fired-session trial by hand (P2-N047) [executing]
-- Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [specified]
 - Scratch project that compares review regimes (P2-N051) [identified]
 
 ## In flight
 
-None.
+- Tree page that updates itself (P2-N037) [executing] — T222
 
 ## In progress, children carry the work
 
@@ -428,7 +427,7 @@ Documents: [plan](plans/orchestration-service.md).
   The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
   [plan](plans/view-that-leads-and-updates.md)
   Note: The owner, 2026-11-16: the view is the best way to know that something waits on the owner, so it must update dynamically and show more useful information. The owner's earlier notes belong here too: the node page as a detail panel beside the tree, feedback after a click, and single-page behaviour. The view allows no script today; updating by itself needs one. From the P3 line, which stays held (the owner, 2026-11-17): the comprehension model (docs/specs/p3-n002-comprehension-model.md) describes each part of a project and what depends on it. The plan step decides what of it the view shows, such as what a node's work touches and what depends on that.
-  - **Tree page that updates itself** (P2-N037, specified)
+  - **Tree page that updates itself** (P2-N037, executing)
     An open view page shows a plan change within 30 seconds without a reload, through one first-party script and a version route, and never replaces a form that holds typed text.
     after P2-N032
     Note: Slice A of docs/plans/view-that-leads-and-updates.md: section 3, criteria 1 to 4 and 6. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. Links no plan document because it edits none here.

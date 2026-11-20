@@ -2305,7 +2305,7 @@
       "kind": "work",
       "title": "Tree page that updates itself",
       "outcome": "An open view page shows a plan change within 30 seconds without a reload, through one first-party script and a version route, and never replaces a form that holds typed text.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N028",
       "after": [
         "P2-N032"
@@ -6779,6 +6779,25 @@
       "ref": "2dfecf2f8213d5c5abbc2caf231613eb4e55c4a1",
       "pr": "majodali/project-orchestrator#90",
       "summary": "Finished P4-N073 in this repository: package.json/package-lock.json pin moved af920bb→cc2bc14 (PR #52, deployed); task-loop.md's two named bullets now state merge-validates-first and name-what-merged, file stays at 300 lines. npm run check: 0/0; test, lint, format pass.",
+      "notes": null
+    },
+    {
+      "id": "T222",
+      "node": "P2-N037",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": "claude-sonnet-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-20T21:24:21Z",
+      "closed": null,
+      "base": "4871901413bfc8549f8e29af9f5447cb1dafc6e9",
+      "ref": null,
+      "pr": null,
+      "summary": "Implement the view's self-updating script: GET /view/version route, a strict CSP, client polling that refreshes the tree page in place without disturbing typed text, and graceful degradation without the script.",
       "notes": null
     }
   ],
