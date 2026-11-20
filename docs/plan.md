@@ -8,10 +8,6 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D126 on Rework cost measured against the reviews it replaces (P2-N029): How do owner reviews enter the comparison, given that no token count exists for them? A verification costs tokens; an owner review costs attention and wall-clock. The plan invents no exchange rate. Default: Count and time them, with no exchange rate: the report gives the number of owner decisions a run raised and how long each waited, from the close of the task that raised it to its decision_close line in the journal, beside the token figures
-
 Gated nodes:
 
 - Second instance on the deploy path (P4-N046): start needs the owner's approval
@@ -458,7 +454,7 @@ Documents: [plan](plans/orchestration-service.md).
     Note: Child F of docs/plans/view-that-leads-and-updates.md, Where the work happens. Writes here only: package.json and its lock file for the pin, and one line in docs/process/state-model.md. Criteria: npm run check and npm test pass on the new pin; state-model.md names the field and says who writes it. Needs P2-N039 merged in the service repository.
 - **Rework cost measured against the reviews it replaces** (P2-N029, planned)
   The cost of each rework is set against the verifications and owner reviews it replaced, from the tasks' measured costs, so the owner sees whether longer runs of work without review pay.
-  [plan](plans/p2-n029-rework-cost.md) · 1 open decision
+  [plan](plans/p2-n029-rework-cost.md)
   Note: The owner, 2026-11-17: pull reversibility forward from the P3 line. P3-N004 "Reversibility and its measurement" stays under the hold on P3-N001 until that line is re-planned; this node takes its measurement half onto the task loop. The data it needs now exists: a rework is its own task (an execute task on a node whose verification failed), and each task has a measured cost. Source for the argument: docs/plans/comprehension-and-continuous-implementation.md, Chunk 3. The plan step says what remains of P3-N004 once this node exists, and whether making work cheap to undo needs work of its own. The owner, 2026-11-20, on D126: "What we really want to work out is the cost of rework vs the cost of waiting." The owner takes D126's default, widened as the delegating session recommended, and the specify step folds this into the criteria: (1) the time from the close of the task that raised a decision to its decision_close line is reported as waiting, the time the node was blocked, never as the owner's effort; (2) the report gives the share of decisions answered with their default, as the nearest figure for what a review changed; (3) merge requests are counted apart from judgement questions. No exchange rate. The owner also said a scratch project is needed later, where different approaches are tested directly against each other; that is not this node.
 
 ## Decisions taken
@@ -571,3 +567,4 @@ Documents: [plan](plans/orchestration-service.md).
 - D123 on P2-N046 (2026-11-19): Where do P2-N046's children's criteria belong? Each of the four now carries its list in its own note, because the plan document stands at 299 lines of its 300-line bound and five lists do not fit. Chosen: each child's note, as delivered, following D105, D108 and D114, which put a small node's criteria in its note. A specification document would read better for five slices at once, so if you prefer that, the next task writes it and points each child at it
 - D124 on P2-N046 (2026-11-19): Criterion 17 of P2-N027's specification measures the orchestrator session being replaced mid-trial, the same session D119 found no longer exists. Is it struck as 18 was? Chosen: strike it, with the reason recorded where it stands, for the reason D119 gave for 18: there is no orchestrator session in the fired mechanism, so the criterion measures nothing. The edit falls to P2-N033's execute task, since docs/specs/orchestrator-session.md stands at its 300-line bound
 - D125 on P4-N057 (2026-11-20): Merge majodali/project-orchestrator-service#51 (CI green, mergeable, not yet deployed)? Criterion 7's second half — this repository's project-orchestrator-service pin moving to the merged commit, and npm run check reporting no violations and no warnings — needs the merge and the deploy first, as T199 and T200 did on P4-N054. Chosen: merge it
+- D126 on P2-N029 (2026-11-20): How do owner reviews enter the comparison, given that no token count exists for them? A verification costs tokens; an owner review costs attention and wall-clock. The plan invents no exchange rate. Chosen: Count and time them, with no exchange rate: the report gives the number of owner decisions a run raised and how long each waited, from the close of the task that raised it to its decision_close line in the journal, beside the token figures

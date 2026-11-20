@@ -8075,8 +8075,8 @@
         "Leave the owner side out: compare a rework against the agent verification it replaced, and nothing else"
       ],
       "default": "Count and time them, with no exchange rate: the report gives the number of owner decisions a run raised and how long each waited, from the close of the task that raised it to its decision_close line in the journal, beside the token figures",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Count and time them, with no exchange rate: the report gives the number of owner decisions a run raised and how long each waited, from the close of the task that raised it to its decision_close line in the journal, beside the token figures",
+      "decided": "2026-11-20",
       "rationale": "Asked by T214 at close.",
       "standing": false,
       "source": null
