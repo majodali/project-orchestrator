@@ -157,13 +157,13 @@ never merges it.
 - An `execute` step's pull request stays open at its close and merges
   when the verification closes `closed`, with every other unmerged
   pull request of the node's closed tasks.
-- The owner's acceptance in the view, and `node_update` to `done`,
-  merge the same way before they commit.
+- The owner's acceptance in the view, and `node_update` to `done`, merge the
+  same way before they commit: validated first, so a refusal merges nothing.
 - The merge goes through GitHub's merge endpoint, so branch protection
   decides. The service also refuses a pull request whose checks are
-  failing or still running, that conflicts with its base, or that is
-  a draft. A refusal commits nothing and names the reason; the close
-  is called again when the pull request can merge.
+  failing or still running, that conflicts with its base, or that is a
+  draft. A refusal commits nothing and names the reason and what already
+  merged; the close is called again when the pull request can merge.
 - Work on a pull request needs an open task (owner, 2026-11-16, after
   three commits landed on one with none). When an `execute` task
   closes `closed`, the service records the pull request's head as the
