@@ -6514,7 +6514,7 @@
       "id": "T212",
       "node": "P4-N057",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": "claude-opus-5",
       "tokens": {
@@ -6522,11 +6522,11 @@
         "out": null
       },
       "opened": "2026-11-20T05:16:20Z",
-      "closed": null,
+      "closed": "2026-11-20T05:27:46Z",
       "base": "ff366d06ea83cb270e342d219d6686a5bdea709a",
-      "ref": null,
-      "pr": null,
-      "summary": "Take key order from the schema at serialisation: formatState orders every object's fields by its schema at every level, setCostSource's destructure-delete-reassign goes, and a test asserts no schema field is dropped by a cost write.",
+      "ref": "80ce32a857b588f6e6aed5b766f72a57da18c2d9",
+      "pr": "majodali/project-orchestrator-service#51",
+      "summary": "formatState now takes every object's field order from its schema; setCostSource is gone and its callers just assign. A test asserts no declared field is dropped by a cost write, and that key order is the schema's. Tests, lint, format, build and PR #51 CI green. Criterion 7 awaits the merge, the deploy and the pin move.",
       "notes": null
     }
   ],
@@ -8000,6 +8000,21 @@
       "chosen": "strike it, with the reason recorded where it stands, for the reason D119 gave for 18: there is no orchestrator session in the fired mechanism, so the criterion measures nothing. The edit falls to P2-N033's execute task, since docs/specs/orchestrator-session.md stands at its 300-line bound",
       "decided": "2026-11-19",
       "rationale": "Asked by T210 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D125",
+      "node": "P4-N057",
+      "question": "Merge majodali/project-orchestrator-service#51 (CI green, mergeable, not yet deployed)? Criterion 7's second half — this repository's project-orchestrator-service pin moving to the merged commit, and npm run check reporting no violations and no warnings — needs the merge and the deploy first, as T199 and T200 did on P4-N054.",
+      "options": [
+        "merge it",
+        "hold for further review"
+      ],
+      "default": "merge it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T212 at close.",
       "standing": false,
       "source": null
     }
