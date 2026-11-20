@@ -8303,8 +8303,8 @@
         "add a node to record the clone method as the rule"
       ],
       "default": "leave it: a reviewer re-runs the checks in a read-only clone and says so, as this task did",
-      "chosen": null,
-      "decided": null,
+      "chosen": "leave it: a reviewer re-runs the checks in a read-only clone and says so, as this task did",
+      "decided": "2026-11-20",
       "rationale": "Asked by T220 at close.",
       "standing": false,
       "source": null
