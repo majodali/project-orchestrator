@@ -6601,9 +6601,12 @@
       "role": "planner",
       "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 112,
+        "out": 53119,
+        "cacheRead": 7033011,
+        "cacheWrite": 133441
       },
+      "costSource": "transcript",
       "opened": "2026-11-20T07:04:26Z",
       "closed": "2026-11-20T07:16:04Z",
       "base": "d2a6050c9e6b38c760aeec56248eb9a06c26fd02",
