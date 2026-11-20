@@ -2387,13 +2387,13 @@
       "kind": "work",
       "title": "Rework cost measured against the reviews it replaces",
       "outcome": "The cost of each rework is set against the verifications and owner reviews it replaced, from the tasks' measured costs, so the owner sees whether longer runs of work without review pay.",
-      "stage": "identified",
+      "stage": "planned",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/plans/p2-n029-rework-cost.md",
         "spec": null
       },
       "done": null,
@@ -6558,7 +6558,7 @@
       "id": "T214",
       "node": "P2-N029",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": "claude-opus-5",
       "tokens": {
@@ -6566,11 +6566,11 @@
         "out": null
       },
       "opened": "2026-11-20T06:09:45Z",
-      "closed": null,
+      "closed": "2026-11-20T06:18:39Z",
       "base": "1cd8de68a3e30eba9457998d981332a3e68bbb18",
       "ref": null,
-      "pr": null,
-      "summary": "Plan the node: say how a rework's cost is set against the verifications and owner reviews it replaced, from measured task costs, and what remains of P3-N004 once this node exists.",
+      "pr": "majodali/project-orchestrator#87",
+      "summary": "Planned P2-N029 in a new file, nineteen criteria. A rework round derives from fields the schema already carries, so no field is added: the Cost log's missing field is not needed on the task loop. Deliverable: a script here plus one committed reading. Says what remains of P3-N004. One ask: how owner reviews enter the comparison.",
       "notes": null
     }
   ],
@@ -8059,6 +8059,22 @@
       "chosen": "merge it",
       "decided": "2026-11-20",
       "rationale": "Asked by T212 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D126",
+      "node": "P2-N029",
+      "question": "How do owner reviews enter the comparison, given that no token count exists for them? A verification costs tokens; an owner review costs attention and wall-clock. The plan invents no exchange rate.",
+      "options": [
+        "Count and time them, with no exchange rate: the report gives the number of owner decisions a run raised and how long each waited, from the close of the task that raised it to its decision_close line in the journal, beside the token figures",
+        "Name an exchange rate: you give a token-equivalent for one owner review, and the report prints one net figure",
+        "Leave the owner side out: compare a rework against the agent verification it replaced, and nothing else"
+      ],
+      "default": "Count and time them, with no exchange rate: the report gives the number of owner decisions a run raised and how long each waited, from the close of the task that raised it to its decision_close line in the journal, beside the token figures",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T214 at close.",
       "standing": false,
       "source": null
     }
