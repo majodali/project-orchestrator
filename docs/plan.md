@@ -8,6 +8,10 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
+Open decisions:
+
+- D131 on Tree page that updates itself (P2-N037): Criteria 3, 4 and 6 of P2-N037 are "browser test" criteria, and the Criteria section's header says "A test is in the service repository's npm test." This repository's established convention (src/view/preview/shots.ts) deliberately keeps Playwright out of package.json — pre-installed in Claude Code sessions, run by hand — and the implementer treats a new dependency as the owner's decision. I wrote src/view/preview/selfUpdateCheck.ts, a hand-run Playwright script in that same spirit, and ran it against the real server with the real CSP in force: all ten of its checks pass (30-second update with scroll and fold state kept; typed unsent text kept with "The plan changed" shown instead, until Update is clicked; the page renders and a form still commits with scripts disabled). Should criteria 3, 4 and 6 be met this way, with the passing run recorded in the pull request, or should Playwright become a devDependency so they run inside npm test and CI? Default: Keep the browser checks dependency-free and hand-run, as src/view/preview/selfUpdateCheck.ts already does; their passing is recorded in the pull request, the same way criteria 19-20 record a trial
+
 Gated nodes:
 
 - Second instance on the deploy path (P4-N046): start needs the owner's approval
@@ -16,13 +20,14 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Fired-session trial by hand (P2-N047) [executing]
+- Tree page that updates itself (P2-N037) [executing]
 - Four lists ahead of the tree (P2-N038) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [specified]
 - Scratch project that compares review regimes (P2-N051) [identified]
 
 ## In flight
 
-- Tree page that updates itself (P2-N037) [executing] — T222
+None.
 
 ## In progress, children carry the work
 
@@ -429,7 +434,7 @@ Documents: [plan](plans/orchestration-service.md).
   Note: The owner, 2026-11-16: the view is the best way to know that something waits on the owner, so it must update dynamically and show more useful information. The owner's earlier notes belong here too: the node page as a detail panel beside the tree, feedback after a click, and single-page behaviour. The view allows no script today; updating by itself needs one. From the P3 line, which stays held (the owner, 2026-11-17): the comprehension model (docs/specs/p3-n002-comprehension-model.md) describes each part of a project and what depends on it. The plan step decides what of it the view shows, such as what a node's work touches and what depends on that.
   - **Tree page that updates itself** (P2-N037, executing)
     An open view page shows a plan change within 30 seconds without a reload, through one first-party script and a version route, and never replaces a form that holds typed text.
-    after P2-N032
+    after P2-N032 · 1 open decision
     Note: Slice A of docs/plans/view-that-leads-and-updates.md: section 3, criteria 1 to 4 and 6. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. Links no plan document because it edits none here.
   - **Four lists ahead of the tree** (P2-N038, specified)
     The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.

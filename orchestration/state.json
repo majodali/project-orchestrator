@@ -6785,7 +6785,7 @@
       "id": "T222",
       "node": "P2-N037",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": "claude-sonnet-5",
       "tokens": {
@@ -6793,11 +6793,11 @@
         "out": null
       },
       "opened": "2026-11-20T21:24:21Z",
-      "closed": null,
+      "closed": "2026-11-20T21:44:27Z",
       "base": "4871901413bfc8549f8e29af9f5447cb1dafc6e9",
       "ref": null,
-      "pr": null,
-      "summary": "Implement the view's self-updating script: GET /view/version route, a strict CSP, client polling that refreshes the tree page in place without disturbing typed text, and graceful degradation without the script.",
+      "pr": "majodali/project-orchestrator-service#53",
+      "summary": "GET /view/version answers the default SHA, cached 10 seconds. The CSP allows one first-party script, app.js: polls while visible, replaces the page in place, keeps scroll and fold state, shows \"The plan changed\" when text is unsent. Criteria 1, 2, half of 6 are tested; 3, 4 and the rest of 6 pass a hand-run script only, per the ask.",
       "notes": null
     }
   ],
@@ -8364,6 +8364,21 @@
       "chosen": "leave it: a reviewer re-runs the checks in a read-only clone and says so, as this task did",
       "decided": "2026-11-20",
       "rationale": "Asked by T220 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D131",
+      "node": "P2-N037",
+      "question": "Criteria 3, 4 and 6 of P2-N037 are \"browser test\" criteria, and the Criteria section's header says \"A test is in the service repository's npm test.\" This repository's established convention (src/view/preview/shots.ts) deliberately keeps Playwright out of package.json — pre-installed in Claude Code sessions, run by hand — and the implementer treats a new dependency as the owner's decision. I wrote src/view/preview/selfUpdateCheck.ts, a hand-run Playwright script in that same spirit, and ran it against the real server with the real CSP in force: all ten of its checks pass (30-second update with scroll and fold state kept; typed unsent text kept with \"The plan changed\" shown instead, until Update is clicked; the page renders and a form still commits with scripts disabled). Should criteria 3, 4 and 6 be met this way, with the passing run recorded in the pull request, or should Playwright become a devDependency so they run inside npm test and CI?",
+      "options": [
+        "Keep the browser checks dependency-free and hand-run, as src/view/preview/selfUpdateCheck.ts already does; their passing is recorded in the pull request, the same way criteria 19-20 record a trial",
+        "Add Playwright (or @vitest/browser-playwright) as a devDependency so criteria 3, 4 and 6 run automatically in npm test and CI, which also needs a CI change to install a browser"
+      ],
+      "default": "Keep the browser checks dependency-free and hand-run, as src/view/preview/selfUpdateCheck.ts already does; their passing is recorded in the pull request, the same way criteria 19-20 record a trial",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T222 at close.",
       "standing": false,
       "source": null
     }
