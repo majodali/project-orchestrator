@@ -1616,7 +1616,7 @@
       "kind": "work",
       "title": "Key order set once where the state file is serialised",
       "outcome": "`formatState` writes every object's fields in schema order, the per-site rebuilding in `setCostSource` is gone, and no write can drop or misorder a field the schema carries.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -6508,6 +6508,25 @@
       "ref": null,
       "pr": null,
       "summary": "Planned P4-N073 without a file (D105, D108, D114): the note carries eleven criteria. Established that every checkState violation and a stale task follow the merge in task_close, while the scope-change stop already merges nothing, so a trial close at the base commit is the fix, in one place the three merge sites share.",
+      "notes": null
+    },
+    {
+      "id": "T212",
+      "node": "P4-N057",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-20T05:16:20Z",
+      "closed": null,
+      "base": "ff366d06ea83cb270e342d219d6686a5bdea709a",
+      "ref": null,
+      "pr": null,
+      "summary": "Take key order from the schema at serialisation: formatState orders every object's fields by its schema at every level, setCostSource's destructure-delete-reassign goes, and a test asserts no schema field is dropped by a cost write.",
       "notes": null
     }
   ],
