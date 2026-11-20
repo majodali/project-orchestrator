@@ -6575,6 +6575,25 @@
       "pr": "majodali/project-orchestrator#87",
       "summary": "Planned P2-N029 in a new file, nineteen criteria. A rework round derives from fields the schema already carries, so no field is added: the Cost log's missing field is not needed on the task loop. Deliverable: a script here plus one committed reading. Says what remains of P3-N004. One ask: how owner reviews enter the comparison.",
       "notes": null
+    },
+    {
+      "id": "T215",
+      "node": "P2-N029",
+      "step": "specify",
+      "status": "open",
+      "role": "planner",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-20T07:04:26Z",
+      "closed": null,
+      "base": "d2a6050c9e6b38c760aeec56248eb9a06c26fd02",
+      "ref": null,
+      "pr": null,
+      "summary": "Specify P2-N029: fold the owner's D126 answer, widened, into the criteria list — waiting time per decision, share of decisions answered with their default, merge requests counted apart from judgement questions, no exchange rate.",
+      "notes": null
     }
   ],
   "decisions": [

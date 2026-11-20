@@ -120,4 +120,4 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Feedback in place and the node panel** (P2-N040) — When: after P2-N037, P2-N038. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **View trial with its measured delay** (P2-N041) — When: after P2-N039, P2-N040. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Session field adopted in this repository** (P2-N042) — When: after P2-N039. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
-- [ ] **Rework cost measured against the reviews it replaces** (P2-N029) — When: not dated. Status: planned, ready, starts automatically. Pointer: [plan](plans/p2-n029-rework-cost.md).
+- [ ] **Rework cost measured against the reviews it replaces** (P2-N029) — When: not dated. Status: planned, in flight. Pointer: [plan](plans/p2-n029-rework-cost.md).

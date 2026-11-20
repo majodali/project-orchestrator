@@ -20,11 +20,10 @@ Gated nodes:
 - Fired-session trial by hand (P2-N047) [specified]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
-- Rework cost measured against the reviews it replaces (P2-N029) [planned]
 
 ## In flight
 
-None.
+- Rework cost measured against the reviews it replaces (P2-N029) [planned] — T215
 
 ## In progress, children carry the work
 
