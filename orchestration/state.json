@@ -1650,7 +1650,7 @@
       "kind": "work",
       "title": "Close validated before its pull request is merged",
       "outcome": "A task_close that the invariants would refuse creates and merges no pull request: the service applies the close and checks the invariants before it creates or merges anything, so a refusal changes nothing.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -1661,6 +1661,23 @@
       },
       "done": null,
       "note": "Raised on P2-N046, task T208 (planner, 2026-11-19): the first task_close was refused on invariant 4 (an outcome of 41 words) and answered that nothing was committed, but the service had already merged majodali/project-orchestrator#83 at 23:09:09 in the same call. Main carried the plan document while the plan knew nothing of it and T208 stayed open; the planner recovered with pull request #84. Writes to majodali/project-orchestrator-service, where the owner merges and a merge deploys; a sentence in docs/process/task-loop.md and a pin move in this repository follow. Repository: that one and this one, both in the project's approved scope (RU-016), so nothing is asked of the owner. This node needs no plan file and no specification file, following D105 on P4-N051, D108 on P4-N054 and D114 on P4-N057, which are precedents and not standing decisions: docs/plans/rebuild.md stands at 295 lines of its 300-line bound. The plan is T211's, the specification T213's, and both are this note.\n\nTHE FAULT. Established by T211 at 95b4fb8, the commit this repository's pin names, and re-established by T213 against the service's main at af920bb (which carries pull request #51 and is ahead of the pin), by reading the source, not by running it. Anchors are symbols, because loop.ts line numbers moved between those two commits (mergesAtClose 1023 to 968; closeTask at 663; scopeOf still 517). In src/stateTools.ts the task_close handler computes `accepted` from the state it read at the start of the handler and from the node's scope at the task's base commit, then creates the pull request when the close gives a branch, then merges what `mergesAtClose` (src/model/loop.ts) names, and only then calls `store().write` (src/model/store.ts), which re-resolves the head, applies the close, runs `checkState` and throws `WriteRefusedError` on a violation. Every refusal the write raises therefore follows the merge. Which refusals those are: (a) any checkState violation in the state the close produces, which is the T208 case (invariant 4 on a 41-word outcome) and every other invariant a close's title, outcome, docs or stage move can break; (b) `closeTask`'s NotFoundError when the task is no longer open in the state the write read, which a concurrent `task_next` can cause, since task_next closes tasks open past the time limit as stale; (c) GitConflictError when the branch moves twice, after the write's two attempts. The scope-change stop needs no change: `accepted` already excludes a node whose scope moved since the task's base commit (`scopeOf`: title, outcome, parent, after, docs), so that close merges nothing; the narrow exception is a scope change inside the window between the handler's read and the write's read, which `closeTask` turns into needs-judgment and commits, after the merge. `ensureMerged` (src/planRegister/pullRequests.ts) is sequential and keeps earlier merges when a later pull request is refused, so a close over several pull requests can still merge some and commit nothing. Two other sites merge before their commit the same way and carry the same fault: `node_update` with stage \"done\" (src/stateTools.ts) and the view's node action with stage \"done\" (src/view/routes.ts).\n\nTHE SHAPE, fixed by T213; the execute step may deviate only by recording why in its pull request. The order is fixed inside `StateStore.write`, the one place all three sites already call. `write` takes the irreversible step as an optional argument and, per call: resolves the head and parses the state at that commit; applies `mutate` to a copy and runs `checkState`, so a violation, or a NotFoundError `mutate` raises, refuses before anything irreversible happens; runs the step once and keeps its result; applies `mutate` again to a fresh copy of the same state, with that result, checks again, and commits conditionally on the head it read. The trial is faithful for refusals because the only invariant that reads a task's pull request is a warning (src/model/check.ts, invariant 6: closed with no pull request and no summary) and the write refuses on violations alone; so the trial, which does not yet know the pull request the step will create, can differ from the commit in warnings only, and the warnings reported stay the commit's. The step runs at most once per `write` call: after a GitConflictError the write's second attempt re-reads and re-trials but reuses the stored result, so no second pull request is created and no merge is attempted twice. task_close's step creates the pull request, merges, and reads an execute step's head, and returns the pull request, the merged list and that head for `mutate` to record; the step of the two \"done\" sites is `requirePendingDocs` followed by `ensureMerged`. What the step needs — `accepted`, `mergesAtClose`, `expectedHeads`, `pullRequestsOf`, `requirePendingDocs` — is computed from the state the write read, not from an earlier read, and that is what closes the handler's window; the node's scope at the task's base is still read from `task.base`, an immutable commit, so it needs no window.\n\nCRITERIA. Eleven, from T213; they replace T211's list and keep it in substance. The execute step works from this list. (1) No pull request is created and none is merged until the close has been applied to a copy of the state the write read and that result has passed `checkState` with no violation and raised none of `closeTask`'s own refusals: the creation and the `ensureMerged` call run after that trial, never before. (2) The order is fixed in `StateStore.write`, which all three sites use, not per site. No site keeps the old order. If one place cannot serve all three, each site is covered and the pull request records why. (3) The step runs at most once per `write` call: a test makes the first `commitFiles` conflict (FakeRepository's `afterResolve` moves the head, test/support/view.ts) and asserts that the second attempt commits, that `FakePullRequests.created` holds one entry, and that `merges` names each pull request once. (4) A test reproduces T208 and fails against the code as it stands: a plan close whose outcome is 41 words is refused on invariant 4, `FakePullRequests.merges` is empty, the task is still open, and `FakeRepository.commits` has gained nothing. (5) A test covers refusal (b): the task is no longer open in the state the write reads, because the head moved between the handler's read and the write's (through `afterResolve`); the close is refused and nothing is merged. (6) A refusal that follows a merge the same call performed names each merged pull request. The refusal text that today says \"nothing was committed\" (the WriteRefusedError branch of the error mapper in src/stateTools.ts) says what was merged when a merge preceded it, on the tool path and on the view path (src/view/routes.ts). A test asserts that message. (7) The residual is recorded in the service pull request's description: a state change landing between the write's read and its commit still diverts or refuses a close after the step ran, since the commit then conflicts and the second attempt re-trials, and a scope change in that window still becomes needs-judgment; `ensureMerged` over several pull requests can still merge some and commit none. Criterion 6 is how a session learns of it. (8) An accepted close behaves as it does today: npm test, npm run lint and npm run format pass in the service repository, and no existing test is changed except one that asserted the old order, each such change named in the pull request. (9) A close whose pull request cannot be merged still refuses with nothing committed, now after the validation and still before any commit: shown by the existing test in test/loopFixes.test.ts, \"refuses the verification's close, with nothing committed, while the pull request cannot be merged\", kept or renamed in the pull request. (10) docs/process/task-loop.md, under \"Pull requests and done\", states that the service validates a change before it merges anything, so a refused close merges nothing, and that a refusal after a merge names what merged. That file stands at exactly 300 lines, its bound, so the change is carried by the existing bullets — \"The owner's acceptance in the view, and `node_update` to `done`, merge the same way before they commit.\" and \"A refusal commits nothing and names the reason\" — and the file stays at or under 300 lines. (11) One pull request in majodali/project-orchestrator-service, branched from that repository's main at the time (af920bb or later, never this repository's pin), carries the code, the tests and the description criterion 7 asks for; the owner merges it and that merge deploys. After the deploy, this repository's project-orchestrator-service pin in package.json (95b4fb860d2f9dfe449b3a8174cf72e415441114 on 2026-11-20; re-read it before moving it) moves to the merged commit in a pull request of this repository, together with the change criterion 10 asks for, and npm run check reports no violations and no warnings."
+    },
+    {
+      "id": "P4-N075",
+      "kind": "check",
+      "title": "Verification of Close validated before its pull request is merged",
+      "outcome": "P4-N073 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P4-N073",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N001",
@@ -6746,7 +6763,7 @@
       "id": "T221",
       "node": "P4-N073",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -6754,11 +6771,11 @@
         "out": null
       },
       "opened": "2026-11-20T21:06:55Z",
-      "closed": null,
+      "closed": "2026-11-20T21:14:30Z",
       "base": "5331a4aab7c10c1f82be182b130e138e5e9c5472",
-      "ref": null,
-      "pr": null,
-      "summary": "Finish P4-N073 in this repository: task-loop.md's criterion-10 sentence and the project-orchestrator-service pin move to cc2bc14, per D129.",
+      "ref": "2dfecf2f8213d5c5abbc2caf231613eb4e55c4a1",
+      "pr": "majodali/project-orchestrator#90",
+      "summary": "Finished P4-N073 in this repository: package.json/package-lock.json pin moved af920bb→cc2bc14 (PR #52, deployed); task-loop.md's two named bullets now state merge-validates-first and name-what-merged, file stays at 300 lines. npm run check: 0/0; test, lint, format pass.",
       "notes": null
     }
   ],
