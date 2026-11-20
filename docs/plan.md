@@ -15,7 +15,6 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- Close validated before its pull request is merged (P4-N073) [executing]
 - Fired-session trial by hand (P2-N047) [executing]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
@@ -24,7 +23,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Close validated before its pull request is merged (P4-N073) [executing] — T219
 
 ## In progress, children carry the work
 
