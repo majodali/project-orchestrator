@@ -6702,7 +6702,7 @@
       "id": "T219",
       "node": "P4-N073",
       "step": "execute",
-      "status": "open",
+      "status": "blocked",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -6710,11 +6710,11 @@
         "out": null
       },
       "opened": "2026-11-20T17:52:55Z",
-      "closed": null,
+      "closed": "2026-11-20T17:55:37Z",
       "base": "4399f1a0f934ba5a631ad035cb2a423f48967192",
       "ref": null,
       "pr": null,
-      "summary": "Continue P4-N073 execute on PR #52 now that D128 (merge it) is answered: confirm the fix still meets all eleven criteria and close out this repository's side of the work.",
+      "summary": "Verified this repository's side of P4-N073 complete: PR #52 merged, Deploy workflow succeeded (run 44787111820, commit cc2bc14). Criteria 1-9 and 11's first half hold. Criterion 10 (task-loop.md) and 11's pin move are a pull request in majodali/project-orchestrator, outside this session's repository scope.",
       "notes": null
     }
   ],
@@ -8250,6 +8250,21 @@
       "chosen": "merge it",
       "decided": "2026-11-20",
       "rationale": "Asked by T218 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D129",
+      "node": "P4-N073",
+      "question": "Continue P4-N073 with a pull request in majodali/project-orchestrator (the task-loop.md sentence and the package.json pin move to cc2bc14), as T200 did on P4-N054 and T217 did on P4-N057?",
+      "options": [
+        "delegate to a project-orchestrator-scoped session",
+        "extend this session's scope to project-orchestrator now"
+      ],
+      "default": "Delegate to an implementer session scoped to majodali/project-orchestrator to do the pin move and docs edit, following the T200/T217 pattern.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T219 at close.",
       "standing": false,
       "source": null
     }
