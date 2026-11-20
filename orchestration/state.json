@@ -1632,8 +1632,8 @@
       "id": "P4-N073",
       "kind": "work",
       "title": "Close validated before its pull request is merged",
-      "outcome": "A task_close whose state change would be refused merges nothing: the service validates the close against the state before it merges any pull request, so a refusal leaves the repository as it was.",
-      "stage": "identified",
+      "outcome": "A task_close whose state change would be refused creates and merges no pull request: the service validates the close against the state at its base commit before it creates or merges a pull request, so a refusal changes nothing.",
+      "stage": "planned",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -6492,7 +6492,7 @@
       "id": "T211",
       "node": "P4-N073",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": "claude-opus-5",
       "tokens": {
@@ -6500,11 +6500,11 @@
         "out": null
       },
       "opened": "2026-11-20T00:08:27Z",
-      "closed": null,
+      "closed": "2026-11-20T00:14:50Z",
       "base": "c4f94a8fd61c6547150d935cec8cc4acf9c12b3d",
       "ref": null,
       "pr": null,
-      "summary": "Plan P4-N073: make task_close validate the whole close against the state before the service merges or creates any pull request, so a refused close leaves the repositories untouched. Deliver title, outcome, a plan document and a criteria list.",
+      "summary": "Planned P4-N073 without a file (D105, D108, D114): the note carries eleven criteria. Established that every checkState violation and a stale task follow the merge in task_close, while the scope-change stop already merges nothing, so a trial close at the base commit is the fix, in one place the three merge sites share.",
       "notes": null
     }
   ],
