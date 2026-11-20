@@ -101,7 +101,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **methodology-tools' Binding block at the pinned methodology version** (P4-N059) — When: not dated. Status: identified, waiting on the owner. Pointer: `orchestration/state.json`.
 - [ ] **Pin migrated to the release with the K-003 amendment** (P4-N042) — When: not dated. Status: identified, blocked. Pointer: `orchestration/state.json`.
 - [ ] **Key order set once where the state file is serialised** (P4-N057) — When: not dated. Status: executing, ready, starts automatically. Pointer: `orchestration/state.json`.
-- [ ] **Close validated before its pull request is merged** (P4-N073) — When: not dated. Status: planned, in flight. Pointer: `orchestration/state.json`.
+- [ ] **Close validated before its pull request is merged** (P4-N073) — When: not dated. Status: specified, ready, starts automatically. Pointer: `orchestration/state.json`.
 - [ ] **Orchestration service** (P2-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestration-service.md).
 - [ ] **Pilot on methodology-tools: sessions on the task loop** (P2-N006) — When: after P4-N027. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Faster writes, a bounded journal and a deploy write test** (P2-N025) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.

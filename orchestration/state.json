@@ -1632,8 +1632,8 @@
       "id": "P4-N073",
       "kind": "work",
       "title": "Close validated before its pull request is merged",
-      "outcome": "A task_close whose state change would be refused creates and merges no pull request: the service validates the close against the state at its base commit before it creates or merges a pull request, so a refusal changes nothing.",
-      "stage": "planned",
+      "outcome": "A task_close that the invariants would refuse creates and merges no pull request: the service applies the close and checks the invariants before it creates or merges anything, so a refusal changes nothing.",
+      "stage": "specified",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -6536,7 +6536,7 @@
       "id": "T213",
       "node": "P4-N073",
       "step": "specify",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": "claude-opus-5",
       "tokens": {
@@ -6544,11 +6544,11 @@
         "out": null
       },
       "opened": "2026-11-20T05:33:49Z",
-      "closed": null,
+      "closed": "2026-11-20T05:40:11Z",
       "base": "408d75c5671cd1c17dbd32308750dcb9607f0390",
       "ref": null,
       "pr": null,
-      "summary": "Specify P4-N073: judge whether the eleven criteria T211 wrote into the node's note are at the depth the execute step needs, and deepen or confirm them.",
+      "summary": "Specified P4-N073 in the note, no file (D105, D108, D114): the trial's place is fixed in StateStore.write, the one call site all three merge sites share, with the irreversible step run once per call. Eleven criteria replace T211's, adding the retry test, the named harness and the existing unmergeable-close test. Re-verified against service main af920bb.",
       "notes": null
     }
   ],
