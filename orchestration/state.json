@@ -6741,6 +6741,25 @@
       "pr": null,
       "summary": "All seven criteria met. orderBySchema is the one ordering site; setCostSource gone; a task with every declared field, and a newly declared seventeenth, survive a cost write; the test asserts both from the schema; import --write still serialises a schema-failing state; formatState over this repository's state file is byte-identical; pin at af920bb, deployed, check 0/0.",
       "notes": null
+    },
+    {
+      "id": "T221",
+      "node": "P4-N073",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-20T21:06:55Z",
+      "closed": null,
+      "base": "5331a4aab7c10c1f82be182b130e138e5e9c5472",
+      "ref": null,
+      "pr": null,
+      "summary": "Finish P4-N073 in this repository: task-loop.md's criterion-10 sentence and the project-orchestrator-service pin move to cc2bc14, per D129.",
+      "notes": null
     }
   ],
   "decisions": [
