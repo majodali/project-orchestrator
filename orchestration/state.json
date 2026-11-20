@@ -8228,8 +8228,8 @@
         "hold for further review"
       ],
       "default": "merge it",
-      "chosen": null,
-      "decided": null,
+      "chosen": "merge it",
+      "decided": "2026-11-20",
       "rationale": "Asked by T218 at close.",
       "standing": false,
       "source": null
