@@ -1650,7 +1650,7 @@
       "kind": "work",
       "title": "Close validated before its pull request is merged",
       "outcome": "A task_close that the invariants would refuse creates and merges no pull request: the service applies the close and checks the invariants before it creates or merges anything, so a refusal changes nothing.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P4-N001",
       "after": [],
       "hold": null,
@@ -6674,6 +6674,25 @@
       "ref": "7662a66814b23513c3d1d140d8254341eb091723",
       "pr": "majodali/project-orchestrator#89",
       "summary": "Confirmed PR #51 merged in the service repo (main at af920bb). Moved this repository's project-orchestrator-service pin from 95b4fb8 to af920bb in package.json and package-lock.json. npm run check: 0 violations, 0 warnings. Tests, lint, format green; render shows zero churn. Criterion 7 is fully met.",
+      "notes": null
+    },
+    {
+      "id": "T218",
+      "node": "P4-N073",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-20T08:43:47Z",
+      "closed": null,
+      "base": "f720125febb73545b63ca5c6f81b6b597534d952",
+      "ref": null,
+      "pr": null,
+      "summary": "Fix StateStore.write at the three merge sites so task_close, node_update(done) and the view's done action trial the close against checkState before creating or merging any pull request.",
       "notes": null
     }
   ],
