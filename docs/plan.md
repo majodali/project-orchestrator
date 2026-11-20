@@ -15,7 +15,6 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- Key order set once where the state file is serialised (P4-N057) [executing]
 - Close validated before its pull request is merged (P4-N073) [specified]
 - Fired-session trial by hand (P2-N047) [executing]
 - Tree page that updates itself (P2-N037) [specified]
@@ -25,7 +24,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Key order set once where the state file is serialised (P4-N057) [executing] — T217
 
 ## In progress, children carry the work
 
