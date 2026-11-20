@@ -6616,7 +6616,7 @@
       "id": "T216",
       "node": "P2-N047",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -6624,11 +6624,11 @@
         "out": null
       },
       "opened": "2026-11-20T07:04:56Z",
-      "closed": null,
+      "closed": "2026-11-20T07:10:30Z",
       "base": "b2c617e832930e7c14932823300ab100ec64d913",
       "ref": null,
       "pr": null,
-      "summary": "Write the slice-1 record: fire history for the planner and implementer scheduled tasks, from the plan, journal and transcripts — task_open acceptance, what each pushed, stalled-run cost, and fired vs by-hand cost.",
+      "summary": "Confirmed one implementer fire (this session, T216): task_open accepted at once, no asking. The journal marks who claimed a task, never how the session started, so a scheduled fire, a hand-started session and a delegated one look identical. Can't confirm 3 fires per role, push/branch detail, a stalled run, or fired-vs-hand cost for any other run without the owner.",
       "notes": null
     }
   ],
@@ -8133,6 +8133,22 @@
       "chosen": "Count and time them, with no exchange rate: the report gives the number of owner decisions a run raised and how long each waited, from the close of the task that raised it to its decision_close line in the journal, beside the token figures",
       "decided": "2026-11-20",
       "rationale": "Asked by T214 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D127",
+      "node": "P2-N047",
+      "question": "Since the owner's approval to start this node (c4f94a8, 2026-11-20T00:07:02Z), five role-bearing tasks have opened: T211 (plan, P4-N073), T213 (specify, P4-N073), T214 (plan, P2-N029), T212 (execute, P4-N057), and T216 (execute, P2-N047, this task — a confirmed implementer fire). The journal records no marker for how a session was started, so I can't tell which of T211/T213/T214/T212 were fires of the O1 scheduled tasks versus hand-started or delegated sessions, and I have no tool access to their transcripts. How should the record meet criterion 1's three-fires-per-role bar?",
+      "options": [
+        "Identify which of those runs were fires and supply their session transcripts and costs, so the next execute task can finish the record with at least three fires per role",
+        "Fire each scheduled task (planner, implementer) a few more times for real offered nodes now, and tell the session exactly which runs to read",
+        "Accept a narrower record: only T216 is a confirmed implementer fire (no planner fire is confirmed); name the provenance gap as a finding, and rely on P2-N048's journaled fire line to close it for future runs"
+      ],
+      "default": "Identify which of those runs were fires and supply their session transcripts and costs, so the next execute task can finish the record with at least three fires per role",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T216 at close.",
       "standing": false,
       "source": null
     }
