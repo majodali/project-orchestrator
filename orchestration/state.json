@@ -8152,8 +8152,8 @@
         "Accept a narrower record: only T216 is a confirmed implementer fire (no planner fire is confirmed); name the provenance gap as a finding, and rely on P2-N048's journaled fire line to close it for future runs"
       ],
       "default": "Identify which of those runs were fires and supply their session transcripts and costs, so the next execute task can finish the record with at least three fires per role",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Identify which of those runs were fires and supply their session transcripts and costs, so the next execute task can finish the record with at least three fires per role",
+      "decided": "2026-11-20",
       "rationale": "Asked by T216 at close.",
       "standing": false,
       "source": null
