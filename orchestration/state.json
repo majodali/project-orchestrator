@@ -6789,9 +6789,12 @@
       "role": "implementer",
       "model": "claude-sonnet-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 272,
+        "out": 91488,
+        "cacheRead": 28196451,
+        "cacheWrite": 251985
       },
+      "costSource": "transcript",
       "opened": "2026-11-20T21:24:21Z",
       "closed": "2026-11-20T21:44:27Z",
       "base": "4871901413bfc8549f8e29af9f5447cb1dafc6e9",
