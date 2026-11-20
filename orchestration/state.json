@@ -2387,7 +2387,7 @@
       "kind": "work",
       "title": "Rework cost measured against the reviews it replaces",
       "outcome": "The cost of each rework is set against the verifications and owner reviews it replaced, from the tasks' measured costs, so the owner sees whether longer runs of work without review pay.",
-      "stage": "planned",
+      "stage": "specified",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
@@ -6597,7 +6597,7 @@
       "id": "T215",
       "node": "P2-N029",
       "step": "specify",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": "claude-opus-5",
       "tokens": {
@@ -6605,11 +6605,11 @@
         "out": null
       },
       "opened": "2026-11-20T07:04:26Z",
-      "closed": null,
+      "closed": "2026-11-20T07:16:04Z",
       "base": "d2a6050c9e6b38c760aeec56248eb9a06c26fd02",
       "ref": null,
-      "pr": null,
-      "summary": "Specify P2-N029: fold the owner's D126 answer, widened, into the criteria list — waiting time per decision, share of decisions answered with their default, merge requests counted apart from judgement questions, no exchange rate.",
+      "pr": "majodali/project-orchestrator#88",
+      "summary": "Specified P2-N029: nineteen criteria in the plan document now carry D126 and the owner's widening — waiting rather than effort, the share of decisions answered with their default, merge requests apart from judgement questions, no exchange rate. A new section derives the answer line, the raising task and the merge class from existing fields.",
       "notes": null
     },
     {
