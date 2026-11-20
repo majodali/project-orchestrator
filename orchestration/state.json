@@ -2180,7 +2180,7 @@
       "kind": "work",
       "title": "Fired-session trial by hand",
       "outcome": "A record shows what a fired session does in each repository: whether its task_open is accepted every time, what it pushes and opens unattended, what a stalled run costs, and its cost against work started by hand.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N046",
       "after": [],
       "hold": null,
@@ -6593,6 +6593,25 @@
       "ref": null,
       "pr": null,
       "summary": "Specify P2-N029: fold the owner's D126 answer, widened, into the criteria list — waiting time per decision, share of decisions answered with their default, merge requests counted apart from judgement questions, no exchange rate.",
+      "notes": null
+    },
+    {
+      "id": "T216",
+      "node": "P2-N047",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-20T07:04:56Z",
+      "closed": null,
+      "base": "b2c617e832930e7c14932823300ab100ec64d913",
+      "ref": null,
+      "pr": null,
+      "summary": "Write the slice-1 record: fire history for the planner and implementer scheduled tasks, from the plan, journal and transcripts — task_open acceptance, what each pushed, stalled-run cost, and fired vs by-hand cost.",
       "notes": null
     }
   ],

@@ -109,7 +109,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: after P2-N049. Status: executing, waiting on a dependency. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Tasks started by the service through scheduled tasks** (P2-N046) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/p2-n046-service-fired-sessions.md).
-- [ ] **Fired-session trial by hand** (P2-N047) — When: not dated. Status: specified, ready, starts automatically. Pointer: `orchestration/state.json`.
+- [ ] **Fired-session trial by hand** (P2-N047) — When: not dated. Status: executing, in flight. Pointer: `orchestration/state.json`.
 - [ ] **The fire in the service** (P2-N048) — When: after P2-N047. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **The owner's setup recorded** (P2-N049) — When: after P2-N048. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **The old orchestrator parts retired** (P2-N050) — When: after P2-N033. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
