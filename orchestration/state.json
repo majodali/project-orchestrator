@@ -2184,7 +2184,7 @@
       "parent": "P2-N046",
       "after": [],
       "hold": null,
-      "start": "approve",
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null

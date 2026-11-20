@@ -12,12 +12,12 @@ Gated nodes:
 
 - Second instance on the deploy path (P4-N046): start needs the owner's approval
 - methodology-tools' Binding block at the pinned methodology version (P4-N059): start needs the owner's approval
-- Fired-session trial by hand (P2-N047): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
 - Key order set once where the state file is serialised (P4-N057) [specified]
 - Close validated before its pull request is merged (P4-N073) [identified]
+- Fired-session trial by hand (P2-N047) [specified]
 - Tree page that updates itself (P2-N037) [specified]
 - Four lists ahead of the tree (P2-N038) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [identified]
