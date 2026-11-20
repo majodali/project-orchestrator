@@ -8265,8 +8265,8 @@
         "extend this session's scope to project-orchestrator now"
       ],
       "default": "Delegate to an implementer session scoped to majodali/project-orchestrator to do the pin move and docs edit, following the T200/T217 pattern.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Delegate to an implementer session scoped to majodali/project-orchestrator to do the pin move and docs edit, following the T200/T217 pattern.",
+      "decided": "2026-11-20",
       "rationale": "Asked by T219 at close.",
       "standing": false,
       "source": null
