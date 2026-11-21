@@ -2439,7 +2439,10 @@
       "stage": "planned",
       "parent": "P2-N001",
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "gated",
+        "reason": "Held by the owner, 2026-11-21, until the discussion of what the test includes is settled: outcomes in place of planned deliverables, larger leaf nodes, and one review for several nodes"
+      },
       "start": "auto",
       "docs": {
         "plan": "docs/plans/p2-n051-review-regimes.md",
