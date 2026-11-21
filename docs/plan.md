@@ -15,6 +15,7 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
+- Several projects and repositories in one instance (P2-N026) [identified]
 - Fired-session trial by hand (P2-N047) [executing]
 - Tree page that updates itself (P2-N037) [executing]
 - Four lists ahead of the tree (P2-N038) [specified]
@@ -41,7 +42,6 @@ None.
 - The pilot's first task through its own instance (P4-N047) [specified] — after Second instance on the deploy path (P4-N046)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
-- Several projects and repositories in one instance (P2-N026) [identified] — after Re-plan, prune and hand back (P4-N008)
 - Orchestrator trial with its measured cost (P2-N033) [executing] — after The owner's setup recorded (P2-N049)
 - The fire in the service (P2-N048) [specified] — after Fired-session trial by hand (P2-N047)
 - The owner's setup recorded (P2-N049) [specified] — after The fire in the service (P2-N048)
@@ -380,7 +380,6 @@ Documents: [plan](plans/orchestration-service.md).
   after P4-N008
 - **Several projects and repositories in one instance** (P2-N026, identified)
   One instance of the orchestrator and the service serves several projects and their repositories; the pilot's separate instance is retired into it.
-  after P4-N008
 - **Orchestrator session that keeps work moving** (P2-N027, broken-down)
   One restartable session starts a session for each offered task on its role's model, messages stalled ones, and returns to the owner only on the four stop conditions, so offered work proceeds without the owner starting or prompting sessions.
   [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
