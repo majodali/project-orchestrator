@@ -8,10 +8,6 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D137: Where does a node's plan live when its criteria fit in its note? Default: in the node's note: no plan file is needed, and the note says so
-
 Gated nodes:
 
 - Second instance on the deploy path (P4-N046): start needs the owner's approval
@@ -586,3 +582,4 @@ Documents: [plan](plans/orchestration-service.md).
 - D134 on P2-N051 (2026-11-21): Who answers a scratch run's open decisions, given that a run at night has no owner to answer and waiting is half of what is being measured? Chosen: A stand-in answerer: a scheduled task that answers every open decision with its default on a fixed cadence identical across runs, which measures waiting but never the judgement a real review adds
 - D135 on P2-N051 (2026-11-21): How much subscription usage the comparison may spend, and whether regime A is run twice to measure variance? Observed task costs here run about $1 to $7, so one run of twelve to fifteen tasks is roughly $50 and four runs roughly $200. Chosen: Four runs: A, B, C and a repeat of A for variance
 - D136 on P2-N051 (2026-11-21): What this node waits for, besides whatever the instance answer adds. Chosen: P2-N029, whose script the report extends, and P2-N047, which proves the fired-session route
+- D137 (2026-11-21, standing): Where does a node's plan live when its criteria fit in its note? Chosen: in the node's note: no plan file is needed, and the note says so. A plan gets a document of its own when it carries more than a criteria list and a short reason

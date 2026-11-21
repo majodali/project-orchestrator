@@ -8496,10 +8496,10 @@
         "always in a plan document"
       ],
       "default": "in the node's note: no plan file is needed, and the note says so",
-      "chosen": null,
-      "decided": null,
-      "rationale": "Asked and answered the same way three times (D105 on P4-N051, D108 on P4-N054, D114 on P4-N057), and since decided on precedent by planners without asking (T211, T213). The owner, 2026-11-21: \"I agree, make it a standing decision\".",
-      "standing": false,
+      "chosen": "in the node's note: no plan file is needed, and the note says so. A plan gets a document of its own when it carries more than a criteria list and a short reason",
+      "decided": "2026-11-21",
+      "rationale": "The owner, 2026-11-21: \"I agree, make it a standing decision\". Precedents: D105, D108, D114.",
+      "standing": true,
       "source": null
     }
   ],
