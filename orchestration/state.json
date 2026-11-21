@@ -8449,8 +8449,8 @@
         "Regimes designed so only regime A raises decisions, and the owner answers those by hand"
       ],
       "default": "A stand-in answerer: a scheduled task that answers every open decision with its default on a fixed cadence identical across runs, which measures waiting but never the judgement a real review adds",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A stand-in answerer: a scheduled task that answers every open decision with its default on a fixed cadence identical across runs, which measures waiting but never the judgement a real review adds",
+      "decided": "2026-11-21",
       "rationale": "Asked by T223 at close.",
       "standing": false,
       "source": null
