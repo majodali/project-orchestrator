@@ -8465,8 +8465,8 @@
         "Two regimes only, A and B"
       ],
       "default": "Four runs: A, B, C and a repeat of A for variance",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Four runs: A, B, C and a repeat of A for variance",
+      "decided": "2026-11-21",
       "rationale": "Asked by T223 at close.",
       "standing": false,
       "source": null
