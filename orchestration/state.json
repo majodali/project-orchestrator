@@ -6825,6 +6825,25 @@
       "pr": "majodali/project-orchestrator#91",
       "summary": "Planned P2-N051 in a new file: a regime is three things carried by prompts, criteria and two settings values, with the service's rules unchanged; three regimes; a fixed node set with an acceptance suite and a withheld check; eighteen criteria. Five asks: repository, instance, who answers decisions, spend, dependencies.",
       "notes": null
+    },
+    {
+      "id": "T224",
+      "node": "P4-N075",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-21T23:04:05Z",
+      "closed": null,
+      "base": "851e1e46abb20114bd19209b3dbed582122eb2a4",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P4-N073 \"Close validated before its pull request is merged\" against its outcome and criteria, including the project-orchestrator pin move and task-loop.md sentence.",
+      "notes": null
     }
   ],
   "decisions": [
