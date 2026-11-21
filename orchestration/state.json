@@ -2303,7 +2303,7 @@
       "kind": "work",
       "title": "Tree page that updates itself",
       "outcome": "An open view page shows a plan change within 30 seconds without a reload, through one first-party script and a version route, and never replaces a form that holds typed text.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N028",
       "after": [
         "P2-N032"
@@ -2316,6 +2316,23 @@
       },
       "done": null,
       "note": "Slice A of docs/plans/view-that-leads-and-updates.md: section 3, criteria 1 to 4 and 6. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. Links no plan document because it edits none here."
+    },
+    {
+      "id": "P2-N052",
+      "kind": "check",
+      "title": "Verification of Tree page that updates itself",
+      "outcome": "P2-N037 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N037",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N038",
@@ -6868,7 +6885,7 @@
       "id": "T226",
       "node": "P2-N037",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": "claude-sonnet-5",
       "tokens": {
@@ -6876,11 +6893,11 @@
         "out": null
       },
       "opened": "2026-11-21T23:05:02Z",
-      "closed": null,
+      "closed": "2026-11-21T23:07:32Z",
       "base": "f51c41bfde521ca6d14fa48bfee996ab6adba124",
-      "ref": null,
-      "pr": null,
-      "summary": "Finish P2-N037: criteria 3, 4 and 6 (browser-tested behaviors) are met by the hand-run Playwright script per D131; verify and close out the remaining work on PR #53.",
+      "ref": "246c8b80dd2acf11b0ab9ec9e44144b6ba13bb6b",
+      "pr": "majodali/project-orchestrator-service#53",
+      "summary": "D131 resolved: criteria 3, 4, 6 stay dependency-free and hand-run. Re-verified independently on PR #53's branch: npm run build, npm test (290 passed), lint, format all pass; re-ran src/view/preview/selfUpdateCheck.ts, all ten checks pass. No further change needed; PR #53 already matches the chosen option.",
       "notes": null
     }
   ],
