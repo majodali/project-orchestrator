@@ -2437,14 +2437,14 @@
       "id": "P2-N051",
       "kind": "work",
       "title": "Scratch project that compares review regimes",
-      "outcome": "A scratch project runs the same small set of nodes under different review regimes, and a record sets each regime's rework cost against its waiting.",
-      "stage": "identified",
+      "outcome": "A scratch project runs one fixed node set under three review regimes from the same starting state, and a record sets each regime's cost, rework and waiting against the quality of the work it produced.",
+      "stage": "planned",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/plans/p2-n051-review-regimes.md",
         "spec": null
       },
       "done": null,
@@ -6807,7 +6807,7 @@
       "id": "T223",
       "node": "P2-N051",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": "claude-opus-5",
       "tokens": {
@@ -6815,11 +6815,11 @@
         "out": null
       },
       "opened": "2026-11-21T01:41:53Z",
-      "closed": null,
+      "closed": "2026-11-21T01:56:25Z",
       "base": "d1a1c9e83ad73d70915c9ea658fa710c6cd1879e",
       "ref": null,
-      "pr": null,
-      "summary": "Plan the scratch project that compares review regimes: settle the regimes, the fixed task set, what each run records, how runs stay comparable, and where it lives, with a criteria list and the owner's asks.",
+      "pr": "majodali/project-orchestrator#91",
+      "summary": "Planned P2-N051 in a new file: a regime is three things carried by prompts, criteria and two settings values, with the service's rules unchanged; three regimes; a fixed node set with an acceptance suite and a withheld check; eighteen criteria. Five asks: repository, instance, who answers decisions, spend, dependencies.",
       "notes": null
     }
   ],
@@ -8401,6 +8401,86 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T222 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D132",
+      "node": "P2-N051",
+      "question": "The repository for the scratch project, which is new to this project and so the owner's to grant.",
+      "options": [
+        "A new repository majodali/orchestrator-scratch, granted for this node",
+        "Reuse an enlisted repository, which a reset would rewrite the real plan of",
+        "A second state file in this repository, against one project being one state file"
+      ],
+      "default": "A new repository majodali/orchestrator-scratch, granted for this node",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T223 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D133",
+      "node": "P2-N051",
+      "question": "How the scratch project gets an instance of the service, since one instance serves one project today.",
+      "options": [
+        "A third instance from the template P4-N046 puts on the deploy path, so this node waits on P4-N046",
+        "Wait for P2-N026, several projects in one instance, which is not yet planned and waits on P4-N008",
+        "A service run locally, which a fired cloud session cannot reach"
+      ],
+      "default": "A third instance from the template P4-N046 puts on the deploy path, so this node waits on P4-N046",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T223 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D134",
+      "node": "P2-N051",
+      "question": "Who answers a scratch run's open decisions, given that a run at night has no owner to answer and waiting is half of what is being measured?",
+      "options": [
+        "A stand-in answerer: a scheduled task that answers every open decision with its default on a fixed cadence identical across runs, which measures waiting but never the judgement a real review adds",
+        "The owner answers for real, which makes each run as slow as the owner's day and spends the attention the node is measuring",
+        "Regimes designed so only regime A raises decisions, and the owner answers those by hand"
+      ],
+      "default": "A stand-in answerer: a scheduled task that answers every open decision with its default on a fixed cadence identical across runs, which measures waiting but never the judgement a real review adds",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T223 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D135",
+      "node": "P2-N051",
+      "question": "How much subscription usage the comparison may spend, and whether regime A is run twice to measure variance? Observed task costs here run about $1 to $7, so one run of twelve to fifteen tasks is roughly $50 and four runs roughly $200.",
+      "options": [
+        "Four runs: A, B, C and a repeat of A for variance",
+        "Three runs, one per regime, with variance between runs left unmeasured",
+        "Two regimes only, A and B"
+      ],
+      "default": "Four runs: A, B, C and a repeat of A for variance",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T223 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D136",
+      "node": "P2-N051",
+      "question": "What this node waits for, besides whatever the instance answer adds.",
+      "options": [
+        "P2-N029, whose script the report extends, and P2-N047, which proves the fired-session route",
+        "P2-N029 only",
+        "Neither, and the slices find their own way"
+      ],
+      "default": "P2-N029, whose script the report extends, and P2-N047, which proves the fired-session route",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T223 at close.",
       "standing": false,
       "source": null
     }
