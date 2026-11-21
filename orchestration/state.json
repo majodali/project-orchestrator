@@ -8481,8 +8481,8 @@
         "Neither, and the slices find their own way"
       ],
       "default": "P2-N029, whose script the report extends, and P2-N047, which proves the fired-session route",
-      "chosen": null,
-      "decided": null,
+      "chosen": "P2-N029, whose script the report extends, and P2-N047, which proves the fired-session route",
+      "decided": "2026-11-21",
       "rationale": "Asked by T223 at close.",
       "standing": false,
       "source": null
