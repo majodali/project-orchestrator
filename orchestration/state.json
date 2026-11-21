@@ -8417,8 +8417,8 @@
         "A second state file in this repository, against one project being one state file"
       ],
       "default": "A new repository majodali/orchestrator-scratch, granted for this node",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A new repository majodali/orchestrator-scratch, granted for this node",
+      "decided": "2026-11-21",
       "rationale": "Asked by T223 at close.",
       "standing": false,
       "source": null
