@@ -8,6 +8,10 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
+Open decisions:
+
+- D137: Where does a node's plan live when its criteria fit in its note? Default: in the node's note: no plan file is needed, and the note says so
+
 Gated nodes:
 
 - Second instance on the deploy path (P4-N046): start needs the owner's approval

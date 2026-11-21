@@ -8486,6 +8486,21 @@
       "rationale": "Asked by T223 at close.",
       "standing": false,
       "source": null
+    },
+    {
+      "id": "D137",
+      "node": null,
+      "question": "Where does a node's plan live when its criteria fit in its note?",
+      "options": [
+        "in the node's note: no plan file is needed, and the note says so",
+        "always in a plan document"
+      ],
+      "default": "in the node's note: no plan file is needed, and the note says so",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked and answered the same way three times (D105 on P4-N051, D108 on P4-N054, D114 on P4-N057), and since decided on precedent by planners without asking (T211, T213). The owner, 2026-11-21: \"I agree, make it a standing decision\".",
+      "standing": false,
+      "source": null
     }
   ],
   "highWater": {
