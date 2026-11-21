@@ -6863,6 +6863,25 @@
       "pr": null,
       "summary": "Finish the fired-session trial record: resolve D127 by identifying which journaled tasks were real fires, add transcript/cost detail, and meet criteria 1-7 of P2-N047's note.",
       "notes": null
+    },
+    {
+      "id": "T226",
+      "node": "P2-N037",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": "claude-sonnet-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-21T23:05:02Z",
+      "closed": null,
+      "base": "f51c41bfde521ca6d14fa48bfee996ab6adba124",
+      "ref": null,
+      "pr": null,
+      "summary": "Finish P2-N037: criteria 3, 4 and 6 (browser-tested behaviors) are met by the hand-run Playwright script per D131; verify and close out the remaining work on PR #53.",
+      "notes": null
     }
   ],
   "decisions": [
