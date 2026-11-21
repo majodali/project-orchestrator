@@ -8401,8 +8401,8 @@
         "Add Playwright (or @vitest/browser-playwright) as a devDependency so criteria 3, 4 and 6 run automatically in npm test and CI, which also needs a CI change to install a browser"
       ],
       "default": "Keep the browser checks dependency-free and hand-run, as src/view/preview/selfUpdateCheck.ts already does; their passing is recorded in the pull request, the same way criteria 19-20 record a trial",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Keep the browser checks dependency-free and hand-run, as src/view/preview/selfUpdateCheck.ts already does; their passing is recorded in the pull request, the same way criteria 19-20 record a trial",
+      "decided": "2026-11-21",
       "rationale": "Asked by T222 at close.",
       "standing": false,
       "source": null
