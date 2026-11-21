@@ -8433,8 +8433,8 @@
         "A service run locally, which a fired cloud session cannot reach"
       ],
       "default": "A third instance from the template P4-N046 puts on the deploy path, so this node waits on P4-N046",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Wait for P2-N026, several projects in one instance, which is not yet planned and waits on P4-N008",
+      "decided": "2026-11-21",
       "rationale": "Asked by T223 at close.",
       "standing": false,
       "source": null
