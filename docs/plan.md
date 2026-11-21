@@ -17,7 +17,6 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Several projects and repositories in one instance (P2-N026) [identified]
-- Fired-session trial by hand (P2-N047) [executing]
 - Tree page that updates itself (P2-N037) [executing]
 - Four lists ahead of the tree (P2-N038) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [specified]
@@ -25,6 +24,7 @@ Gated nodes:
 ## In flight
 
 - Verification of Close validated before its pull request is merged (P4-N075) [specified] — T224
+- Fired-session trial by hand (P2-N047) [executing] — T225
 
 ## In progress, children carry the work
 

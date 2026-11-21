@@ -6844,6 +6844,25 @@
       "pr": null,
       "summary": "Verify P4-N073 \"Close validated before its pull request is merged\" against its outcome and criteria, including the project-orchestrator pin move and task-loop.md sentence.",
       "notes": null
+    },
+    {
+      "id": "T225",
+      "node": "P2-N047",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-21T23:04:16Z",
+      "closed": null,
+      "base": "d5707ad507623299676aee0f4d74aabc7c6cb1c7",
+      "ref": null,
+      "pr": null,
+      "summary": "Finish the fired-session trial record: resolve D127 by identifying which journaled tasks were real fires, add transcript/cost detail, and meet criteria 1-7 of P2-N047's note.",
+      "notes": null
     }
   ],
   "decisions": [
