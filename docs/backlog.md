@@ -121,4 +121,4 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **View trial with its measured delay** (P2-N041) — When: after P2-N039, P2-N040. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Session field adopted in this repository** (P2-N042) — When: after P2-N039. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Rework cost measured against the reviews it replaces** (P2-N029) — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/p2-n029-rework-cost.md).
-- [ ] **Scratch project that compares review regimes** (P2-N051) — When: not dated. Status: identified, ready, starts automatically. Pointer: `orchestration/state.json`.
+- [ ] **Scratch project that compares review regimes** (P2-N051) — When: not dated. Status: identified, in flight. Pointer: `orchestration/state.json`.

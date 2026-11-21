@@ -23,11 +23,10 @@ Gated nodes:
 - Tree page that updates itself (P2-N037) [executing]
 - Four lists ahead of the tree (P2-N038) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [specified]
-- Scratch project that compares review regimes (P2-N051) [identified]
 
 ## In flight
 
-None.
+- Scratch project that compares review regimes (P2-N051) [identified] — T223
 
 ## In progress, children carry the work
 
