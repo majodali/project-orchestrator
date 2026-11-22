@@ -8749,8 +8749,8 @@
         "B: P4-N046 and P4-N047 run as written and P2-N026 retires the second instance afterwards"
       ],
       "default": "A: it joins this deployment as its second project; P4-N046 is removed and P4-N047 is re-pointed at a project path here. Neither has started, both hold your approval, methodology-tools carries its state file already (P4-N045, done), and A needs no second stack, no widened deploy role and no second smoke-test path. B strikes child 4 and renames the second project in criteria 1 and 2.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: it joins this deployment as its second project; P4-N046 is removed and P4-N047 is re-pointed at a project path here. Neither has started, both hold your approval, methodology-tools carries its state file already (P4-N045, done), and A needs no second stack, no widened deploy role and no second smoke-test path. B strikes child 4 and renames the second project in criteria 1 and 2.",
+      "decided": "2026-11-22",
       "rationale": "Asked by T228 at close.",
       "standing": false,
       "source": null
