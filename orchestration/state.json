@@ -8764,8 +8764,8 @@
         "B: no, P2-N048 is built first and the routing follows"
       ],
       "default": "A: yes, P2-N048 waits on that child. Its own note says what it needs - task_next answering a session only the steps of the repository it was fired for - and firing before that repeats the two misclaims the trial by hand recorded (T216, T219; D129).",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: yes, P2-N048 waits on that child. Its own note says what it needs - task_next answering a session only the steps of the repository it was fired for - and firing before that repeats the two misclaims the trial by hand recorded (T216, T219; D129).",
+      "decided": "2026-11-22",
       "rationale": "Asked by T228 at close.",
       "standing": false,
       "source": null
