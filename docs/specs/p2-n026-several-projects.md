@@ -136,10 +136,10 @@ token appears in git, in a log or in a refusal message.
 
 Six, in place of the plan's four, by its own rule: "Where the second
 commit must wait on the first — a pin move after a deploy — the plan
-makes it its own node." Each child writing to another repository
-starts on the owner's approval (RU-016).
+makes it its own node." T234 added them below as P2-N054 to P2-N059;
+each writing to another repository starts on approval (RU-016).
 
-### 1. The project on the endpoint path
+### 1. The project on the endpoint path (P2-N054)
 
 Designs 1 and 2, S1 and S2. In majodali/project-orchestrator-service.
 Waits for nothing. Starts on approval.
@@ -173,7 +173,7 @@ Waits for nothing. Starts on approval.
 9. The owner merges the pull request, that merge deploys, and criteria
    1 to 3 are recorded against the deployed commit.
 
-### 2. The repository on a node
+### 2. The repository on a node (P2-N055)
 
 Design 3, S3 and S4, in the service. In
 majodali/project-orchestrator-service. After child 1. Starts on
@@ -199,7 +199,7 @@ approval.
    `task_next` answers only that repository's steps (S4).
 8. The owner merges the pull request and that merge deploys.
 
-### 3. The node's repository in this project
+### 3. The node's repository in this project (P2-N056)
 
 Design 3 in this repository: the pin, the settings file and the one
 reader of its node lists. In majodali/project-orchestrator. After
@@ -225,7 +225,7 @@ child 2. Starts automatically.
    `majodali/project-orchestrator-service` in the field, written under
    this child's own task (plan 12).
 
-### 4. The view over several projects
+### 4. The view over several projects (P2-N057)
 
 Design 4. In majodali/project-orchestrator-service. After child 1, and
 not after P2-N037, which is done (F6). Starts on approval.
@@ -245,7 +245,7 @@ not after P2-N037, which is done (F6). Starts on approval.
    (plan 15).
 6. The owner merges the pull request and that merge deploys.
 
-### 5. The pilot on this deployment
+### 5. The pilot on this deployment (P2-N058)
 
 The owner's D140, answer A. In majodali/methodology-tools. After
 child 1. Starts on approval.
@@ -261,7 +261,7 @@ child 1. Starts on approval.
    project's `.mcp.json` names its own project path, and the file
    stays at or below 200 lines (plan 19, F8).
 
-### 6. The bare endpoint path retired
+### 6. The bare endpoint path retired (P2-N059)
 
 In majodali/project-orchestrator-service, with an accompanying pull
 request in majodali/project-orchestrator. After child 5. Starts on
