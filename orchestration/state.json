@@ -2232,10 +2232,7 @@
       "stage": "specified",
       "parent": "P2-N047",
       "after": [],
-      "hold": {
-        "kind": "blocked",
-        "reason": "T227: Criterion 5 not met: the cost tables match the state file, but the record's conclusion (\"inside the range\", \"no outlier\") contradicts them. Fired output tokens exceed the same step's hand baseline in four of six fires (26,945/53,119 vs 8,084; 32,280 vs 17,056; 44,244 vs 8,478/6,752), and one baseline per step is no range. Criteria 1-4, 6, 7 met."
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": null,
@@ -6974,7 +6971,7 @@
       "id": "T229",
       "node": "P2-N047",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": "claude-sonnet-5",
       "tokens": {
@@ -6982,11 +6979,11 @@
         "out": null
       },
       "opened": "2026-11-22T19:10:49Z",
-      "closed": null,
+      "closed": "2026-11-22T19:15:55Z",
       "base": "63d88081620e49a7d2b42d08aa844658dacdaf2d",
-      "ref": null,
-      "pr": null,
-      "summary": "Rework of T225: fix the record's criterion-5 conclusion, which contradicts its own cost tables (claims \"inside the range\"/\"no outlier\" when fired output tokens exceed hand baselines in 4 of 6 fires and there is one baseline per step, not a range).",
+      "ref": "8cab8a3c49e118947002fda8f36a6e16da78ff96",
+      "pr": "majodali/project-orchestrator#92",
+      "summary": "Fixed criterion 5's conclusion against its own tables: fired output tokens exceed the one-task-per-step hand/delegated baseline in four of six measured fires (T213, T215, T216, T212); only two (T211, T214, both planner `plan`) fall below. Removed \"range\"/\"no outlier\" language since each step but one has a single baseline task. Same PR #92, CI green.",
       "notes": null
     },
     {
