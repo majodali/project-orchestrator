@@ -295,5 +295,6 @@ writes through git as the App.
   session start hook and the task-cost hook: P2-N006, which waits for
   P4-N027 and needs its own repository grant (D065 covers this node
   only).
-- **One instance serving several projects**: P2-N026, which retires
-  the pilot's separate instance.
+- **One instance serving several projects**:
+  [P2-N026](p2-n026-several-projects.md), whose plan asks whether the
+  pilot joins that one deployment instead of children 3 and 4's.
