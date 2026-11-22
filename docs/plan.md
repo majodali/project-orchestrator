@@ -10,7 +10,7 @@ its stage and its outcome. The state file holds the rest.
 
 Gated nodes:
 
-- Second instance on the deploy path (P4-N046): start needs the owner's approval
+- The pilot's first task through its own instance (P4-N047): start needs the owner's approval
 - methodology-tools' Binding block at the pinned methodology version (P4-N059): start needs the owner's approval
 - The project on the endpoint path (P2-N054): start needs the owner's approval
 - The fire in the service (P2-N048): start needs the owner's approval
@@ -38,7 +38,6 @@ None.
 
 ## Waiting on a dependency
 
-- The pilot's first task through its own instance (P4-N047) [specified] — after Second instance on the deploy path (P4-N046)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - The repository on a node (P2-N055) [specified] — after The project on the endpoint path (P2-N054)
@@ -262,13 +261,8 @@ Note: Six milestones ratified as one sequence by the owner on 2026-11-09
       methodology-tools carries orchestration/state.json, imported from its Backlog by `plan-state import` and passing `plan-state check`, with its hand-written Backlog archived and the K-003 deviation recorded.
       after P4-N044, P4-N049
       Note: Child 2 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 2. Writes to majodali/methodology-tools, new to this project and granted by D065 for P4-N027 only, so it starts on approval; the owner adds that repository to the GitHub App's installation (O1) and merges there after reviewing the import record. Waits for P4-N044: the importer cannot read a Backlog until then. Imported and merged as majodali/methodology-tools#24 (merge commit 9b98c0ae), verified against main: plan-state check 0 violations; mtool links check clean (0 findings to record); mtool audit form's one finding — CLAUDE.md's Binding block names methodology v1.5.0 against the Classification's pinned 1.6.0 — predates this import and is dispositioned by D112 ("leave it for a separate node"), not fixed here. package-lock.json differs from a from-scratch run only in one unpinned transitive devDependency (object-inspect 1.13.4→1.14.0, pulled in beneath project-orchestrator-service's own exact pin at 24639d8); that is npm's ordinary lockfile drift under a floating upstream range, not a hand change to methodology-tools' own files, so it does not violate "nothing else changes."
-    - **Second instance on the deploy path** (P4-N046, specified)
-      Every merge in the service repository deploys, smoke-tests and promotes both instances from one template at one commit, and the runbook and the deploy role's record carry the second instance.
-      after P4-N045
-      Note: Child 3 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 3. Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and that merge is the deploy, so it starts on approval; the owner widens the deploy role's policy first (O2). Waits for P4-N045 because check 3 of scripts/smoke-test.sh calls plan_read: the second instance's smoke test fails until methodology-tools carries a state file, and a failing instance reddens the whole run.
     - **The pilot's first task through its own instance** (P4-N047, specified)
       A session started in methodology-tools reaches the pilot instance, `task_next` answers a node of methodology-tools, and one write commits there as the GitHub App with its journal line.
-      after P4-N046
       Note: Child 4 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 4. Writes .mcp.json and .claude/settings.json to majodali/methodology-tools (D065) and the enlistment corrections to this repository's docs/process/how-we-work.md, so it starts on approval; the owner sets MCP_AUTH_TOKEN in that repository's cloud environment first (O3). Waits for P4-N046: .mcp.json names an endpoint the second instance's first deploy creates. The two hooks stay with P2-N006 (RU-017).
     - **methodology-tools' Binding block at the pinned methodology version** (P4-N059, identified)
       methodology-tools' CLAUDE.md Binding block names methodology v1.6.0, the version its docs/classification.md pins, and `mtool audit form` over methodology-tools reports no violation for it.

@@ -1090,34 +1090,13 @@
       "note": null
     },
     {
-      "id": "P4-N046",
-      "kind": "work",
-      "title": "Second instance on the deploy path",
-      "outcome": "Every merge in the service repository deploys, smoke-tests and promotes both instances from one template at one commit, and the runbook and the deploy role's record carry the second instance.",
-      "stage": "specified",
-      "parent": "P4-N027",
-      "after": [
-        "P4-N045"
-      ],
-      "hold": null,
-      "start": "approve",
-      "docs": {
-        "plan": null,
-        "spec": null
-      },
-      "done": null,
-      "note": "Child 3 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 3. Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and that merge is the deploy, so it starts on approval; the owner widens the deploy role's policy first (O2). Waits for P4-N045 because check 3 of scripts/smoke-test.sh calls plan_read: the second instance's smoke test fails until methodology-tools carries a state file, and a failing instance reddens the whole run."
-    },
-    {
       "id": "P4-N047",
       "kind": "work",
       "title": "The pilot's first task through its own instance",
       "outcome": "A session started in methodology-tools reaches the pilot instance, `task_next` answers a node of methodology-tools, and one write commits there as the GitHub App with its journal line.",
       "stage": "specified",
       "parent": "P4-N027",
-      "after": [
-        "P4-N046"
-      ],
+      "after": [],
       "hold": null,
       "start": "approve",
       "docs": {

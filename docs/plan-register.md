@@ -58,7 +58,6 @@ Dependencies are in the state file, not in sibling order.
       - P4-N044 [done] Backlog reader in the state importer
       - P4-N049 [done] State directory created by the importer
       - P4-N045 [done] methodology-tools' plan as a state file
-      - P4-N046 [specified] Second instance on the deploy path
       - P4-N047 [specified] The pilot's first task through its own instance
       - P4-N059 [identified] methodology-tools' Binding block at the pinned methodology version
     - P4-N031 [done] Document paths changed through the service — plan: plans/rebuild.md
