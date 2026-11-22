@@ -2064,6 +2064,25 @@
       "note": "Child 3 of P2-N026. Criteria: docs/specs/p2-n026-several-projects.md, \"The children\", child 3, and this note. It is design 3 in this repository: the pin that must move after child 2's deploy, the settings file, and the one reader of its node lists. Writes to majodali/project-orchestrator only, so it starts automatically. After P2-N055, because the pin cannot move before that child's commit is merged.\n\nCriteria. (1) package.json's project-orchestrator-service pin names child 2's merged commit, and npm run check, npm test, npm run lint and npm run format are green. (2) This project's orchestration/state.json passes plan-state check with the field set on at least one node, and the renderings are current. (3) orchestration/orchestrator.json no longer lists node identifiers per repository. (4) repositoryOf in plugin/scripts/lib/orchestrate.ts reads the node's repository, falling back to state.project; the settings-file validator and the project check there no longer read a repositories key; test/orchestrate.test.ts covers both. (5) docs/process/state-model.md carries the field in its data model and says what null means. (6) The nodes the retired list named - P2-N032, P2-N037, P2-N038, P2-N039, P2-N040 and P2-N041 - carry majodali/project-orchestrator-service in the field, written under this child's own task.\n\nCriterion 4 is the specification's finding F7: the repositories list has a reader, plugin/scripts/lib/orchestrate.ts, which validates it (lines 265-290), refuses to run when it omits the state file's project (line 602) and routes by it in repositoryOf (lines 832-845). P2-N049 retires that script altogether but waits on P2-N048, so this child re-points repositoryOf rather than waiting for it.\n\nThe specification's C-a, C-b and C-c bind this child as well as its own list, insofar as they reach this repository."
     },
     {
+      "id": "P2-N057",
+      "kind": "work",
+      "title": "The view over several projects",
+      "outcome": "The view's first page indexes the deployment's projects with their counts, each project's tree, node, task and form pages serve it under its own path, and the old paths redirect.",
+      "stage": "specified",
+      "parent": "P2-N026",
+      "after": [
+        "P2-N054"
+      ],
+      "hold": null,
+      "start": "approve",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Child 4 of P2-N026. Criteria: docs/specs/p2-n026-several-projects.md, \"The children\", child 4, and this note. It builds design 4 of docs/plans/p2-n026-several-projects.md. Writes to majodali/project-orchestrator-service (standing scope, RU-016), where the owner merges and a merge deploys, so it starts on approval. After P2-N054, and after nothing else: the plan makes this child wait for P2-N037, which is already done, so that dependency and the risk naming it are both spent (the specification's finding F6).\n\nCriteria. (1) /view indexes the deployment's projects, one row each with its offered, in-flight and waiting-on-the-owner counts and a link to its tree. (2) /view/<owner>/<repo> and its node, task and form paths serve each project, and acceptsPost's two regexes (src/view/routes.ts:130-131) match at the new depth. (3) The old /view, /view/node/:id and /view/task/:id redirect to the first project's paths. (4) One view cookie covers every project, with no change to how it is issued: it is already sent with Path=/view (src/view/viewAuth.ts:105) and isViewPath already matches every path under /view/ (src/view/routes.ts:141). (5) A decision answered or a hold lifted in one project's view commits to that project's repository alone, with its journal line there. (6) The owner merges the pull request and that merge deploys.\n\nThe specification's C-a, C-b and C-c bind this child as well as its own list. PREVIEW_REPO in src/view/fixtureReader.ts is a project literal in preview and test wiring, not the request path (finding F1): criterion C-a is met by naming it and the reason it stays, or by parameterising it."
+    },
+    {
       "id": "P2-N027",
       "kind": "work",
       "title": "Orchestrator session that keeps work moving",

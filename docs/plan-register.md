@@ -98,6 +98,7 @@ Dependencies are in the state file, not in sibling order.
     - P2-N054 [specified] The project on the endpoint path
     - P2-N055 [specified] The repository on a node
     - P2-N056 [specified] The node's repository in this project
+    - P2-N057 [specified] The view over several projects
   - P2-N027 [broken-down] Orchestrator session that keeps work moving — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N030 [done] Decision script and settings of the orchestrator — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N031 [done] Orchestrator role and its watcher — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
