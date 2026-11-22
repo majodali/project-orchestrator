@@ -7022,9 +7022,12 @@
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 24,
+        "out": 10593,
+        "cacheRead": 933274,
+        "cacheWrite": 73592
       },
+      "costSource": "transcript",
       "opened": "2026-11-22T22:47:32Z",
       "closed": "2026-11-22T22:50:18Z",
       "base": "810b230ab9dc390834a8c03656de372b800ab9c4",
