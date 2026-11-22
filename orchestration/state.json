@@ -8612,8 +8612,8 @@
         "Fire the implementer scheduled task at least once more for a real offered node before P2-N048 starts"
       ],
       "default": "Proceed to P2-N048 on this record as it stands (RU-019: the number is recorded, not held)",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Proceed to P2-N048 on this record as it stands (RU-019: the number is recorded, not held)",
+      "decided": "2026-11-22",
       "rationale": "Asked by T225 at close.",
       "standing": false,
       "source": null
