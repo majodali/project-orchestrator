@@ -210,7 +210,7 @@ repository each writes to.
    was required and what was found (RU-013); both `DEFAULT_PROJECT`
    constants are gone.
 5. `/mcp` with no project segment serves the list's first project
-   until the specification's child 6 removes it.
+   until P2-N059 removes it.
 6. The reader, writer, pull request client and commit checks are keyed
    by repository, the installation is resolved per repository through
    the App, and `GITHUB_APP_INSTALLATION_ID` is gone from the code,
@@ -263,8 +263,7 @@ repository each writes to.
 - **A session reaching the wrong project.** A repository whose
   `.mcp.json` still names the bare `/mcp` reads and writes the first
   project's plan. Bounded by `service_identity` answering the resolved
-  project, the enlistment step checking it, and the specification's
-  child 6.
+  project, the enlistment step checking it, and P2-N059.
 - **One App token for several repositories.** The installation is
   account-level, so a minted token can write any repository in the
   account. Bounded by the five-path allowlist, the project list
@@ -283,12 +282,10 @@ Both answered by the owner on 2026-11-22, each at its default.
    deployment's second project, P4-N046 is removed and P4-N047 is
    re-pointed at a project path here.
 2. **Does P2-N048 wait on the child that puts the repository on a
-   node?** D141, answer A: yes. That child is the specification's
-   child 2.
+   node?** D141, answer A: yes. That child is P2-N055.
 
 ## Terms introduced
 
 - **Project path**: the `/<owner>/<repo>` segment of an endpoint that
   names which project a call is for. A node's repository is a field,
-  not a term: the specification's child 3 defines it in the state
-  model.
+  not a term: P2-N056 defines it in the state model.
