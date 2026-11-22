@@ -2356,7 +2356,7 @@
       "kind": "work",
       "title": "Four lists ahead of the tree",
       "outcome": "The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N028",
       "after": [
         "P2-N032"
@@ -7053,6 +7053,25 @@
       "ref": null,
       "pr": null,
       "summary": "Specify P2-N026: carry the plan's four slices and 20 criteria to the depth the work needs, settling the project list, repository keying, the node's repository field and the view's index against the service's code.",
+      "notes": null
+    },
+    {
+      "id": "T233",
+      "node": "P2-N038",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-22T23:26:42Z",
+      "closed": null,
+      "base": "fb65f4a18217bd7deb39e0a2d02ff1f8313bc87a",
+      "ref": null,
+      "pr": null,
+      "summary": "Implement section 1 (four lists) and section 2 (action sentences) for /view, criteria 7-11",
       "notes": null
     }
   ],

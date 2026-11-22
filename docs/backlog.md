@@ -115,7 +115,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **The owner's setup recorded** (P2-N049) — When: after P2-N048. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **The old orchestrator parts retired** (P2-N050) — When: after P2-N033. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/view-that-leads-and-updates.md).
-- [ ] **Four lists ahead of the tree** (P2-N038) — When: not dated. Status: specified, ready, starts automatically. Pointer: `orchestration/state.json`.
+- [ ] **Four lists ahead of the tree** (P2-N038) — When: not dated. Status: executing, in flight. Pointer: `orchestration/state.json`.
 - [ ] **Session, duration and criteria on pages** (P2-N039) — When: after P2-N038. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Feedback in place and the node panel** (P2-N040) — When: after P2-N038. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **View trial with its measured delay** (P2-N041) — When: after P2-N039, P2-N040. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
