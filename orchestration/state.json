@@ -2320,7 +2320,7 @@
       "kind": "work",
       "title": "Tree page that updates itself",
       "outcome": "An open view page shows a plan change within 30 seconds without a reload, through one first-party script and a version route, and never replaces a form that holds typed text.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N028",
       "after": [
         "P2-N032"
@@ -2331,7 +2331,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-22",
       "note": "Slice A of docs/plans/view-that-leads-and-updates.md: section 3, criteria 1 to 4 and 6. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. Links no plan document because it edits none here."
     },
     {
@@ -2339,7 +2339,7 @@
       "kind": "check",
       "title": "Verification of Tree page that updates itself",
       "outcome": "P2-N037 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N037",
       "after": [],
       "hold": null,
@@ -2348,7 +2348,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-22",
       "note": null
     },
     {
@@ -6993,7 +6993,7 @@
       "id": "T230",
       "node": "P2-N052",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -7001,11 +7001,11 @@
         "out": null
       },
       "opened": "2026-11-22T19:11:23Z",
-      "closed": null,
+      "closed": "2026-11-22T19:16:51Z",
       "base": "a79269857d0e2718447a7f42d46ea4a87d9a03a9",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N037 \"Tree page that updates itself\" against its outcome and criteria, reading the work in a read-only clone of the service repository. Report the verdict at close; change no file and merge nothing.",
+      "summary": "P2-N037 verified at PR #53 head 246c8b8. Criteria 1, 2, 3, 4, 6 all met. I re-ran build, 290 tests, lint, format: all pass. I re-ran selfUpdateCheck.ts myself: all ten checks pass. No service-owned file touched; no commits after T226. GitHub's check-run API was refused to this session; the checks were run locally instead.",
       "notes": null
     }
   ],
@@ -8697,6 +8697,21 @@
       "chosen": "Proceed to P2-N048 on this record as it stands (RU-019: the number is recorded, not held)",
       "decided": "2026-11-22",
       "rationale": "Asked by T225 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D139",
+      "node": "P2-N037",
+      "question": "Criterion 6 of P2-N037 reads \"A browser test with scripts disabled shows every page renders and every form still commits\". src/view/preview/selfUpdateCheck.ts checks the tree page (/view) and the project decision's form only; the node page, the task page and the node action forms are never loaded with scripts disabled. D131's wording, which you accepted, described this check as \"the page renders and a form still commits with scripts disabled\", so I read criterion 6 as met at that scope. Does the narrower check satisfy criterion 6, or should a later slice extend it?",
+      "options": [
+        "Yes: the tree page and one form satisfy criterion 6, as D131's wording described; the node and task pages rest on the server-rendered page tests and on script-src 'self'",
+        "No: extend the scripts-disabled check to the node page, the task page and the node action forms, in the slice that carries criteria 16 and 17"
+      ],
+      "default": "Yes: the tree page and one form satisfy criterion 6, as D131's wording described; the node and task pages rest on the server-rendered page tests and on script-src 'self'",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T230 at close.",
       "standing": false,
       "source": null
     }

@@ -8,6 +8,10 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
+Open decisions:
+
+- D139 on Tree page that updates itself (P2-N037): Criterion 6 of P2-N037 reads "A browser test with scripts disabled shows every page renders and every form still commits". src/view/preview/selfUpdateCheck.ts checks the tree page (/view) and the project decision's form only; the node page, the task page and the node action forms are never loaded with scripts disabled. D131's wording, which you accepted, described this check as "the page renders and a form still commits with scripts disabled", so I read criterion 6 as met at that scope. Does the narrower check satisfy criterion 6, or should a later slice extend it? Default: Yes: the tree page and one form satisfy criterion 6, as D131's wording described; the node and task pages rest on the server-rendered page tests and on script-src 'self'
+
 Gated nodes:
 
 - Second instance on the deploy path (P4-N046): start needs the owner's approval
@@ -22,7 +26,6 @@ Gated nodes:
 ## In flight
 
 - Several projects and repositories in one instance (P2-N026) [identified] — T228
-- Verification of Tree page that updates itself (P2-N052) [specified] — T230
 
 ## In progress, children carry the work
 
@@ -34,7 +37,6 @@ Gated nodes:
 - Tasks started by the service through scheduled tasks (P2-N046) [broken-down]
 - Fired-session trial by hand (P2-N047) [verifying]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
-- Tree page that updates itself (P2-N037) [verifying]
 
 ## Waiting on a dependency
 
@@ -46,7 +48,7 @@ Gated nodes:
 - The owner's setup recorded (P2-N049) [specified] — after The fire in the service (P2-N048)
 - The old orchestrator parts retired (P2-N050) [specified] — after Orchestrator trial with its measured cost (P2-N033)
 - Session, duration and criteria on pages (P2-N039) [specified] — after Four lists ahead of the tree (P2-N038)
-- Feedback in place and the node panel (P2-N040) [specified] — after Tree page that updates itself (P2-N037), Four lists ahead of the tree (P2-N038)
+- Feedback in place and the node panel (P2-N040) [specified] — after Four lists ahead of the tree (P2-N038)
 - View trial with its measured delay (P2-N041) [specified] — after Session, duration and criteria on pages (P2-N039), Feedback in place and the node panel (P2-N040)
 - Session field adopted in this repository (P2-N042) [specified] — after Session, duration and criteria on pages (P2-N039)
 
@@ -427,12 +429,10 @@ Documents: [plan](plans/orchestration-service.md).
   The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
   [plan](plans/view-that-leads-and-updates.md)
   Note: The owner, 2026-11-16: the view is the best way to know that something waits on the owner, so it must update dynamically and show more useful information. The owner's earlier notes belong here too: the node page as a detail panel beside the tree, feedback after a click, and single-page behaviour. The view allows no script today; updating by itself needs one. From the P3 line, which stays held (the owner, 2026-11-17): the comprehension model (docs/specs/p3-n002-comprehension-model.md) describes each part of a project and what depends on it. The plan step decides what of it the view shows, such as what a node's work touches and what depends on that.
-  - **Tree page that updates itself** (P2-N037, verifying)
+  - **Tree page that updates itself** (P2-N037, done 2026-11-22)
     An open view page shows a plan change within 30 seconds without a reload, through one first-party script and a version route, and never replaces a form that holds typed text.
-    after P2-N032
+    after P2-N032 · 1 open decision
     Note: Slice A of docs/plans/view-that-leads-and-updates.md: section 3, criteria 1 to 4 and 6. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. Links no plan document because it edits none here.
-    - check: **Verification of Tree page that updates itself** (P2-N052, specified)
-      P2-N037 is verified against its outcome.
   - **Four lists ahead of the tree** (P2-N038, specified)
     The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.
     after P2-N032
@@ -443,7 +443,7 @@ Documents: [plan](plans/orchestration-service.md).
     Note: Slice C of docs/plans/view-that-leads-and-updates.md: sections 6 and 7, criteria 12 to 15 and 18. Waits for P2-N038, whose "Running" row shows the session. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside the panel slice: it edits the schema, nodePage.ts and taskPage.ts. Links no plan document because it edits none here.
   - **Feedback in place and the node panel** (P2-N040, specified)
     A submitted form shows its result on the page without a reload, the tab's title counts what needs the owner, and on a wide window a node opens in a panel beside the tree.
-    after P2-N037, P2-N038
+    after P2-N038
     Note: Slice D of docs/plans/view-that-leads-and-updates.md: sections 4 and 5, criteria 5, 16 and 17. Waits for P2-N037, whose script it extends, and P2-N038, whose rows it counts and opens. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside the session slice: it edits the script and src/view/html.ts. Links no plan document because it edits none here.
   - **View trial with its measured delay** (P2-N041, specified)
     A record in the service's runbook gives, for five plan changes on the deployed view, the time from commit to shown, and the number of GitHub reads one open tab causes in an hour.
