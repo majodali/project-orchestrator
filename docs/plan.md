@@ -17,11 +17,11 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- Several projects and repositories in one instance (P2-N026) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [specified]
 
 ## In flight
 
+- Several projects and repositories in one instance (P2-N026) [specified] — T234
 - Four lists ahead of the tree (P2-N038) [executing] — T233
 
 ## In progress, children carry the work

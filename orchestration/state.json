@@ -7076,6 +7076,25 @@
       "pr": null,
       "summary": "Implement section 1 (four lists) and section 2 (action sentences) for /view, criteria 7-11",
       "notes": null
+    },
+    {
+      "id": "T234",
+      "node": "P2-N026",
+      "step": "break down",
+      "status": "open",
+      "role": "planner",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-22T23:38:10Z",
+      "closed": null,
+      "base": "9847a58b26abf98c25d2ed2bc559684182eb1aea",
+      "ref": null,
+      "pr": null,
+      "summary": "Break down P2-N026 into the six children the specification names, each with its outcome, its criteria in its note, its repository, its dependencies and its start mode.",
+      "notes": null
     }
   ],
   "decisions": [
