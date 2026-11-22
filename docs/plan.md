@@ -22,7 +22,6 @@ Gated nodes:
 
 ## In flight
 
-- Several projects and repositories in one instance (P2-N026) [broken-down] — T234
 - Four lists ahead of the tree (P2-N038) [executing] — T233
 
 ## In progress, children carry the work
@@ -31,6 +30,7 @@ Gated nodes:
 - Re-plan, prune and hand back (P4-N008) [broken-down]
 - Pilot enlistment of methodology-tools (P4-N027) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
+- Several projects and repositories in one instance (P2-N026) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - Tasks started by the service through scheduled tasks (P2-N046) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
