@@ -1995,14 +1995,14 @@
       "id": "P2-N026",
       "kind": "work",
       "title": "Several projects and repositories in one instance",
-      "outcome": "One instance of the orchestrator and the service serves several projects and their repositories; the pilot's separate instance is retired into it.",
-      "stage": "identified",
+      "outcome": "One deployment of the service serves several projects, each named by its own endpoint path and state file, and knows which repository every offered step belongs to, so a session reaches only its own project and repository.",
+      "stage": "planned",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/plans/p2-n026-several-projects.md",
         "spec": null
       },
       "done": null,
@@ -6952,7 +6952,7 @@
       "id": "T228",
       "node": "P2-N026",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": "claude-opus-5",
       "tokens": {
@@ -6960,11 +6960,11 @@
         "out": null
       },
       "opened": "2026-11-22T18:59:50Z",
-      "closed": null,
+      "closed": "2026-11-22T19:17:39Z",
       "base": "979e360be32de3a6ac77227141afc12ebecc88be",
       "ref": null,
-      "pr": null,
-      "summary": "Plan how one instance of the orchestrator and the service serves several projects and their repositories: where a single project is built in today, how a call names its project, how the view shows several, and how existing projects keep working through the change.",
+      "pr": "majodali/project-orchestrator#93",
+      "summary": "Planned: the project moves onto the endpoint path against a deployment project list, credentials are keyed by repository, a node gains the repository its work is claimed from, and the view indexes the deployment's projects. Four slices, 20 criteria, in docs/plans/p2-n026-several-projects.md. Two asks: the pilot's instance, and whether P2-N048 waits on the repository field.",
       "notes": null
     },
     {
@@ -8715,6 +8715,36 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T230 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D140",
+      "node": "P2-N026",
+      "question": "Does the pilot, majodali/methodology-tools, join this one deployment instead of taking its own instance?",
+      "options": [
+        "A: it joins this deployment as its second project; P4-N046 is removed and P4-N047 is re-pointed at a project path here",
+        "B: P4-N046 and P4-N047 run as written and P2-N026 retires the second instance afterwards"
+      ],
+      "default": "A: it joins this deployment as its second project; P4-N046 is removed and P4-N047 is re-pointed at a project path here. Neither has started, both hold your approval, methodology-tools carries its state file already (P4-N045, done), and A needs no second stack, no widened deploy role and no second smoke-test path. B strikes child 4 and renames the second project in criteria 1 and 2.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T228 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D141",
+      "node": "P2-N026",
+      "question": "Does P2-N048, the fire in the service, wait on the child that puts the repository on a node?",
+      "options": [
+        "A: yes, P2-N048 waits on that child",
+        "B: no, P2-N048 is built first and the routing follows"
+      ],
+      "default": "A: yes, P2-N048 waits on that child. Its own note says what it needs - task_next answering a session only the steps of the repository it was fired for - and firing before that repeats the two misclaims the trial by hand recorded (T216, T219; D129).",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T228 at close.",
       "standing": false,
       "source": null
     }

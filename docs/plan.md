@@ -11,6 +11,8 @@ its stage and its outcome. The state file holds the rest.
 Open decisions:
 
 - D139 on Tree page that updates itself (P2-N037): Criterion 6 of P2-N037 reads "A browser test with scripts disabled shows every page renders and every form still commits". src/view/preview/selfUpdateCheck.ts checks the tree page (/view) and the project decision's form only; the node page, the task page and the node action forms are never loaded with scripts disabled. D131's wording, which you accepted, described this check as "the page renders and a form still commits with scripts disabled", so I read criterion 6 as met at that scope. Does the narrower check satisfy criterion 6, or should a later slice extend it? Default: Yes: the tree page and one form satisfy criterion 6, as D131's wording described; the node and task pages rest on the server-rendered page tests and on script-src 'self'
+- D140 on Several projects and repositories in one instance (P2-N026): Does the pilot, majodali/methodology-tools, join this one deployment instead of taking its own instance? Default: A: it joins this deployment as its second project; P4-N046 is removed and P4-N047 is re-pointed at a project path here. Neither has started, both hold your approval, methodology-tools carries its state file already (P4-N045, done), and A needs no second stack, no widened deploy role and no second smoke-test path. B strikes child 4 and renames the second project in criteria 1 and 2.
+- D141 on Several projects and repositories in one instance (P2-N026): Does P2-N048, the fire in the service, wait on the child that puts the repository on a node? Default: A: yes, P2-N048 waits on that child. Its own note says what it needs - task_next answering a session only the steps of the repository it was fired for - and firing before that repeats the two misclaims the trial by hand recorded (T216, T219; D129).
 
 Gated nodes:
 
@@ -20,12 +22,13 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
+- Several projects and repositories in one instance (P2-N026) [planned]
 - Four lists ahead of the tree (P2-N038) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [specified]
 
 ## In flight
 
-- Several projects and repositories in one instance (P2-N026) [identified] — T228
+None.
 
 ## In progress, children carry the work
 
@@ -379,8 +382,9 @@ Documents: [plan](plans/orchestration-service.md).
 - **Faster writes, a bounded journal and a deploy write test** (P2-N025, identified)
   A state write returns faster, the journal stops growing without bound, and the deploy check proves a write end to end: the review's service findings (D068).
   after P4-N008
-- **Several projects and repositories in one instance** (P2-N026, identified)
-  One instance of the orchestrator and the service serves several projects and their repositories; the pilot's separate instance is retired into it.
+- **Several projects and repositories in one instance** (P2-N026, planned)
+  One deployment of the service serves several projects, each named by its own endpoint path and state file, and knows which repository every offered step belongs to, so a session reaches only its own project and repository.
+  [plan](plans/p2-n026-several-projects.md) · 2 open decisions
   Note: Recorded at the owner's instruction, 2026-11-22 ("Note it on P2-N026"), for the plan step. 1. The owner moved this node ahead of the scratch project test on 2026-11-21 ("I'd also like to move forward with making the service multi-project before the scratch project test"), so it no longer waits for P4-N008. 2. The scratch project, P2-N051, waits for this node (the owner's D133) and would be its second project. P2-N051 is held while its direction is re-planned; its note says what it now needs, including replays of this project's own past nodes from their base commits in a separate repository. 3. This node's outcome still says "the pilot's separate instance is retired into it", which assumed the pilot on majodali/methodology-tools would get its own instance first (P4-N046, then P4-N047). Neither has started and the owner is holding their approval. The plan step says whether the pilot joins this one instance instead, which would make P4-N046 and P4-N047 unnecessary as written. That is the owner's to decide: make it an ask with a default. 4. It must fit the fired-session design of P2-N046 (docs/plans/p2-n046-service-fired-sessions.md): one scheduled task per role and repository, set up by the owner, and a service that knows which project and which repository each offered step belongs to. P2-N048's note records why sessions cannot judge that from a node's note, and that `task_next` should answer a session only the steps of the repository it was fired for. 5. The standing constraints hold: no model inference in the service; no secret committed, pasted or logged; the service writes a project's repository only through its GitHub App, under its allowlist, one commit per change, and holds no state of its own. For the plan step to establish by reading the service's code, not assumed here: where a single project is built in today (the reviewer of P4-N044 named project-name constants in src/githubAppConfig.ts, src/serviceInfo.ts and src/model/importState.ts, and D067 forbids code that branches on the project name); how a call names its project (the endpoint, the token, `.mcp.json`); how the view shows several projects; what one node whose work spans two repositories means across projects; and how an existing project and its sessions keep working through the change.
 - **Orchestrator session that keeps work moving** (P2-N027, broken-down)
   One restartable session starts a session for each offered task on its role's model, messages stalled ones, and returns to the owner only on the four stop conditions, so offered work proceeds without the owner starting or prompting sessions.
