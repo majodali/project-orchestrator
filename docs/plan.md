@@ -16,13 +16,13 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- Fired-session trial by hand (P2-N047) [verifying]
 - Four lists ahead of the tree (P2-N038) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [specified]
 
 ## In flight
 
 - Several projects and repositories in one instance (P2-N026) [identified] — T228
+- Fired-session trial by hand (P2-N047) [verifying] — T229
 
 ## In progress, children carry the work
 

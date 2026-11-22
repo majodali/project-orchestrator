@@ -6969,6 +6969,25 @@
       "pr": null,
       "summary": "Plan how one instance of the orchestrator and the service serves several projects and their repositories: where a single project is built in today, how a call names its project, how the view shows several, and how existing projects keep working through the change.",
       "notes": null
+    },
+    {
+      "id": "T229",
+      "node": "P2-N047",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": "claude-sonnet-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-22T19:10:49Z",
+      "closed": null,
+      "base": "63d88081620e49a7d2b42d08aa844658dacdaf2d",
+      "ref": null,
+      "pr": null,
+      "summary": "Rework of T225: fix the record's criterion-5 conclusion, which contradicts its own cost tables (claims \"inside the range\"/\"no outlier\" when fired output tokens exceed hand baselines in 4 of 6 fires and there is one baseline per step, not a range).",
+      "notes": null
     }
   ],
   "decisions": [
