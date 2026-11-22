@@ -138,8 +138,9 @@ Depends on: 1, 3.
 
 The pilot runs on a second instance of the service (D067). One
 instance must later serve several projects and repositories (the
-owner, 2026-11-12; P2-N026), so the pilot adds no code path of its
-own. Criteria written on 2026-11-12, after D067 was answered.
+owner, 2026-11-12;
+[P2-N026](p2-n026-several-projects.md)), so the pilot adds no code
+path of its own. Criteria written on 2026-11-12, after D067 was answered.
 
 Broken down on 2026-11-17 (task T168) into four children, cut by
 repository and by who can act. Its criteria, the owner's four

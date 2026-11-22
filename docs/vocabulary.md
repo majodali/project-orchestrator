@@ -81,3 +81,9 @@ Defined in [the task loop](process/task-loop.md) and
 | <a id="def-mark"></a>mark | Text the orchestrator session adds to a delegated session's title to record an action it carried out on that session. | [specification of P2-N027](specs/orchestrator-session.md), S2; D080, 2026-11-17 |
 | <a id="def-pending-start"></a>pending start | A session that was started or sent work for a node and has not yet opened its task. | [specification of P2-N027](specs/orchestrator-session.md), S2; D080, 2026-11-17 |
 | <a id="def-acted-file"></a>acted file | The watcher's local list of the action keys the orchestrator session has already carried out. | [specification of P2-N027](specs/orchestrator-session.md), S6; D080, 2026-11-17 |
+
+## Proposed 2026-11-22
+
+| Term | Meaning | Proposed in |
+|---|---|---|
+| <a id="def-project-path"></a>project path | The `/<owner>/<repo>` segment of a service endpoint that names which project a call is for. | [plan of P2-N026](plans/p2-n026-several-projects.md#terms-introduced), T228, 2026-11-22; the plan's report asks the owner to ratify or strike it |
