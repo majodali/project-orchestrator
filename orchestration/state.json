@@ -6950,6 +6950,25 @@
       "pr": null,
       "summary": "Criterion 5 not met: the cost tables match the state file, but the record's conclusion (\"inside the range\", \"no outlier\") contradicts them. Fired output tokens exceed the same step's hand baseline in four of six fires (26,945/53,119 vs 8,084; 32,280 vs 17,056; 44,244 vs 8,478/6,752), and one baseline per step is no range. Criteria 1-4, 6, 7 met.",
       "notes": null
+    },
+    {
+      "id": "T228",
+      "node": "P2-N026",
+      "step": "plan",
+      "status": "open",
+      "role": "planner",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-22T18:59:50Z",
+      "closed": null,
+      "base": "979e360be32de3a6ac77227141afc12ebecc88be",
+      "ref": null,
+      "pr": null,
+      "summary": "Plan how one instance of the orchestrator and the service serves several projects and their repositories: where a single project is built in today, how a call names its project, how the view shows several, and how existing projects keep working through the change.",
+      "notes": null
     }
   ],
   "decisions": [
