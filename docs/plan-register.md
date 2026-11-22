@@ -94,7 +94,7 @@ Dependencies are in the state file, not in sibling order.
     - P2-N023 [done] Web view UX refinement — plan: archive/plans/p2-n023-web-view-ux-refinement.md
   - P2-N006 [identified] Pilot on methodology-tools: sessions on the task loop
   - P2-N025 [identified] Faster writes, a bounded journal and a deploy write test
-  - P2-N026 [planned] Several projects and repositories in one instance — plan: plans/p2-n026-several-projects.md
+  - P2-N026 [specified] Several projects and repositories in one instance — plan: plans/p2-n026-several-projects.md · spec: specs/p2-n026-several-projects.md
   - P2-N027 [broken-down] Orchestrator session that keeps work moving — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N030 [done] Decision script and settings of the orchestrator — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N031 [done] Orchestrator role and its watcher — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
