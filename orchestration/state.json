@@ -2468,7 +2468,7 @@
       "kind": "work",
       "title": "Four lists ahead of the tree",
       "outcome": "The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N028",
       "after": [
         "P2-N032"
@@ -2481,6 +2481,23 @@
       },
       "done": null,
       "note": "Slice B of docs/plans/view-that-leads-and-updates.md: sections 1 and 2, criteria 7 to 11. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside P2-N037; both edit src/view/html.ts and test/viewPages.test.ts, in different places. Links no plan document because it edits none here."
+    },
+    {
+      "id": "P2-N060",
+      "kind": "check",
+      "title": "Verification of Four lists ahead of the tree",
+      "outcome": "P2-N038 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N038",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N039",
@@ -7174,7 +7191,7 @@
       "id": "T233",
       "node": "P2-N038",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -7182,11 +7199,11 @@
         "out": null
       },
       "opened": "2026-11-22T23:26:42Z",
-      "closed": null,
+      "closed": "2026-11-22T23:48:08Z",
       "base": "fb65f4a18217bd7deb39e0a2d02ff1f8313bc87a",
-      "ref": null,
-      "pr": null,
-      "summary": "Implement section 1 (four lists) and section 2 (action sentences) for /view, criteria 7-11",
+      "ref": "f4a9f25601e427d8b9a135b0dc63d33f4e1e3f7e",
+      "pr": "majodali/project-orchestrator-service#54",
+      "summary": "Implemented P2-N028 sections 1 and 2 (criteria 7-11): /view opens with Needs you, Ready, Running and Just finished ahead of the tree, each with its empty-line fallback, and every lifecycle action now carries a sentence naming what it changes next. New tests cover each criterion; full suite, lint, format and build pass.",
       "notes": null
     },
     {

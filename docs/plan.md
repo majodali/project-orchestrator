@@ -22,7 +22,7 @@ Gated nodes:
 
 ## In flight
 
-- Four lists ahead of the tree (P2-N038) [executing] — T233
+None.
 
 ## In progress, children carry the work
 
@@ -34,6 +34,7 @@ Gated nodes:
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - Tasks started by the service through scheduled tasks (P2-N046) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
+- Four lists ahead of the tree (P2-N038) [verifying]
 
 ## Waiting on a dependency
 
@@ -458,7 +459,7 @@ Documents: [plan](plans/orchestration-service.md).
     An open view page shows a plan change within 30 seconds without a reload, through one first-party script and a version route, and never replaces a form that holds typed text.
     after P2-N032
     Note: Slice A of docs/plans/view-that-leads-and-updates.md: section 3, criteria 1 to 4 and 6. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. Links no plan document because it edits none here.
-  - **Four lists ahead of the tree** (P2-N038, executing)
+  - **Four lists ahead of the tree** (P2-N038, verifying)
     The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.
     after P2-N032
     Note: Slice B of docs/plans/view-that-leads-and-updates.md: sections 1 and 2, criteria 7 to 11. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside P2-N037; both edit src/view/html.ts and test/viewPages.test.ts, in different places. Links no plan document because it edits none here.
