@@ -8734,8 +8734,8 @@
         "No: extend the scripts-disabled check to the node page, the task page and the node action forms, in the slice that carries criteria 16 and 17"
       ],
       "default": "Yes: the tree page and one form satisfy criterion 6, as D131's wording described; the node and task pages rest on the server-rendered page tests and on script-src 'self'",
-      "chosen": null,
-      "decided": null,
+      "chosen": "No: extend the scripts-disabled check to the node page, the task page and the node action forms, in the slice that carries criteria 16 and 17",
+      "decided": "2026-11-22",
       "rationale": "Asked by T230 at close.",
       "standing": false,
       "source": null

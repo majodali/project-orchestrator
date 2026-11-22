@@ -8,10 +8,6 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
-Open decisions:
-
-- D139 on Tree page that updates itself (P2-N037): Criterion 6 of P2-N037 reads "A browser test with scripts disabled shows every page renders and every form still commits". src/view/preview/selfUpdateCheck.ts checks the tree page (/view) and the project decision's form only; the node page, the task page and the node action forms are never loaded with scripts disabled. D131's wording, which you accepted, described this check as "the page renders and a form still commits with scripts disabled", so I read criterion 6 as met at that scope. Does the narrower check satisfy criterion 6, or should a later slice extend it? Default: Yes: the tree page and one form satisfy criterion 6, as D131's wording described; the node and task pages rest on the server-rendered page tests and on script-src 'self'
-
 Gated nodes:
 
 - Second instance on the deploy path (P4-N046): start needs the owner's approval
@@ -435,7 +431,7 @@ Documents: [plan](plans/orchestration-service.md).
   Note: The owner, 2026-11-16: the view is the best way to know that something waits on the owner, so it must update dynamically and show more useful information. The owner's earlier notes belong here too: the node page as a detail panel beside the tree, feedback after a click, and single-page behaviour. The view allows no script today; updating by itself needs one. From the P3 line, which stays held (the owner, 2026-11-17): the comprehension model (docs/specs/p3-n002-comprehension-model.md) describes each part of a project and what depends on it. The plan step decides what of it the view shows, such as what a node's work touches and what depends on that.
   - **Tree page that updates itself** (P2-N037, done 2026-11-22)
     An open view page shows a plan change within 30 seconds without a reload, through one first-party script and a version route, and never replaces a form that holds typed text.
-    after P2-N032 · 1 open decision
+    after P2-N032
     Note: Slice A of docs/plans/view-that-leads-and-updates.md: section 3, criteria 1 to 4 and 6. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. Links no plan document because it edits none here.
   - **Four lists ahead of the tree** (P2-N038, specified)
     The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.
@@ -589,5 +585,6 @@ Documents: [plan](plans/orchestration-service.md).
 - D136 on P2-N051 (2026-11-21): What this node waits for, besides whatever the instance answer adds. Chosen: P2-N029, whose script the report extends, and P2-N047, which proves the fired-session route
 - D137 (2026-11-21, standing): Where does a node's plan live when its criteria fit in its note? Chosen: in the node's note: no plan file is needed, and the note says so. A plan gets a document of its own when it carries more than a criteria list and a short reason
 - D138 on P2-N047 (2026-11-22): The implementer task fired only twice in this repository (T216, T225), short of criterion 1's three. T217, T218, T219, T221, T222 and T223 opened afterward with unestablished origin. Should P2-N048 (the fire built into the service) proceed on this record as it stands, or should the owner fire the implementer task at least once more first? Chosen: Proceed to P2-N048 on this record as it stands (RU-019: the number is recorded, not held)
+- D139 on P2-N037 (2026-11-22): Criterion 6 of P2-N037 reads "A browser test with scripts disabled shows every page renders and every form still commits". src/view/preview/selfUpdateCheck.ts checks the tree page (/view) and the project decision's form only; the node page, the task page and the node action forms are never loaded with scripts disabled. D131's wording, which you accepted, described this check as "the page renders and a form still commits with scripts disabled", so I read criterion 6 as met at that scope. Does the narrower check satisfy criterion 6, or should a later slice extend it? Chosen: No: extend the scripts-disabled check to the node page, the task page and the node action forms, in the slice that carries criteria 16 and 17
 - D140 on P2-N026 (2026-11-22): Does the pilot, majodali/methodology-tools, join this one deployment instead of taking its own instance? Chosen: A: it joins this deployment as its second project; P4-N046 is removed and P4-N047 is re-pointed at a project path here. Neither has started, both hold your approval, methodology-tools carries its state file already (P4-N045, done), and A needs no second stack, no widened deploy role and no second smoke-test path. B strikes child 4 and renames the second project in criteria 1 and 2.
 - D141 on P2-N026 (2026-11-22): Does P2-N048, the fire in the service, wait on the child that puts the repository on a node? Chosen: A: yes, P2-N048 waits on that child. Its own note says what it needs - task_next answering a session only the steps of the repository it was fired for - and firing before that repeats the two misclaims the trial by hand recorded (T216, T219; D129).
