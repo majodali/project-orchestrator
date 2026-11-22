@@ -2102,6 +2102,25 @@
       "note": "Child 5 of P2-N026. Criteria: docs/specs/p2-n026-several-projects.md, \"The children\", child 5, and this note. It carries the owner's D140, answer A: the pilot joins this deployment as its second project instead of taking its own instance, which makes P4-N046 unnecessary as written and re-points P4-N047 at a project path here. Writes to majodali/methodology-tools, which carries its state file already (P4-N045, done) and is not new to the project, and to docs/process/how-we-work.md in majodali/project-orchestrator: two pull requests under one task, neither waiting on the other. Starts on approval, because it writes to another repository. After P2-N054.\n\nCriteria. (1) .mcp.json in majodali/methodology-tools names /mcp/majodali/methodology-tools, with the bearer header and the 30000 timeout unchanged and no token in the file. (2) A session started in that repository calls service_identity and it answers majodali/methodology-tools. (3) plan_read there answers that repository's own orchestration/state.json. (4) docs/process/how-we-work.md, \"Enlisting a repository\", says a project's .mcp.json names its own project path, and the file stays at or below 200 lines.\n\nCriterion 4's ceiling is already reached: how-we-work.md stands at exactly 200 lines (the specification's finding F8), so the sentence replaces a line there rather than being added to one.\n\nThis node does not carry adoption of the task loop by methodology-tools' own sessions, which is P2-N006 (RU-017).\n\nThe specification's C-a, C-b and C-c bind this child as well as its own list, insofar as they reach it."
     },
     {
+      "id": "P2-N059",
+      "kind": "work",
+      "title": "The bare endpoint path retired",
+      "outcome": "No enlisted repository names the bare endpoint any more, the route that served the first project without a project segment is gone, and the smoke test calls a project path.",
+      "stage": "specified",
+      "parent": "P2-N026",
+      "after": [
+        "P2-N058"
+      ],
+      "hold": null,
+      "start": "approve",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": "Child 6 of P2-N026. Criteria: docs/specs/p2-n026-several-projects.md, \"The children\", child 6, and this note. It closes the compatibility the first child kept: criterion 5 there has /mcp with no project segment serve the list's first project, and this child removes it. A separate node because the service change must wait on this repository's .mcp.json being merged first, which is the plan's own rule on a second commit. Writes to majodali/project-orchestrator-service (standing scope, RU-016), with an accompanying pull request in majodali/project-orchestrator, so it starts on approval. After P2-N058, so that no enlisted repository is left on the bare path.\n\nCriteria. (1) This repository's .mcp.json names /mcp/majodali/project-orchestrator, merged before the service change. (2) The /mcp route with no project segment is gone, and a call to it is refused naming that a project path is required. (3) scripts/smoke-test.sh calls a project path and its four checks pass against the deployed commit; it posts to ${BASE_URL}/mcp today (the specification's finding F9). (4) No enlisted .mcp.json names the bare path, and docs/mcp-enlistment.template.json carries a project path. (5) The owner merges the pull request and that merge deploys.\n\nThis child closes the plan's risk \"a session reaching the wrong project\": until it is done, a repository whose .mcp.json still names the bare path reads and writes the first project's plan, bounded by service_identity answering the resolved project and by the enlistment step checking it.\n\nThe specification's C-a, C-b and C-c bind this child as well as its own list."
+    },
+    {
       "id": "P2-N027",
       "kind": "work",
       "title": "Orchestrator session that keeps work moving",

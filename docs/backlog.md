@@ -113,6 +113,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **The node's repository in this project** (P2-N056) — When: after P2-N055. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **The view over several projects** (P2-N057) — When: after P2-N054. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **The pilot on this deployment** (P2-N058) — When: after P2-N054. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
+- [ ] **The bare endpoint path retired** (P2-N059) — When: after P2-N058. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: after P2-N049. Status: executing, waiting on a dependency. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Tasks started by the service through scheduled tasks** (P2-N046) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/p2-n046-service-fired-sessions.md).
