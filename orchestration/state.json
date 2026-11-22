@@ -7035,6 +7035,25 @@
       "pr": null,
       "summary": "Verified P2-N047 at PR #92 head 8cab8a3 (T229's rework): all seven criteria met. Criterion 5's conclusion now matches its tables — four of six fires cost more output tokens than their step's single hand baseline. Every token figure matches the state file. One file changed, CI green, branch used by no other pull request.",
       "notes": null
+    },
+    {
+      "id": "T232",
+      "node": "P2-N026",
+      "step": "specify",
+      "status": "open",
+      "role": "planner",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-22T23:25:48Z",
+      "closed": null,
+      "base": "53c365fdd2115a44f74548cb82aa8d5eb53636f7",
+      "ref": null,
+      "pr": null,
+      "summary": "Specify P2-N026: carry the plan's four slices and 20 criteria to the depth the work needs, settling the project list, repository keying, the node's repository field and the view's index against the service's code.",
+      "notes": null
     }
   ],
   "decisions": [
