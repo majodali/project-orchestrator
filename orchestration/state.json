@@ -2232,7 +2232,10 @@
       "stage": "specified",
       "parent": "P2-N047",
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "T227: Criterion 5 not met: the cost tables match the state file, but the record's conclusion (\"inside the range\", \"no outlier\") contradicts them. Fired output tokens exceed the same step's hand baseline in four of six fires (26,945/53,119 vs 8,084; 32,280 vs 17,056; 44,244 vs 8,478/6,752), and one baseline per step is no range. Criteria 1-4, 6, 7 met."
+      },
       "start": "auto",
       "docs": {
         "plan": null,
@@ -6930,7 +6933,7 @@
       "id": "T227",
       "node": "P2-N053",
       "step": "verify",
-      "status": "open",
+      "status": "blocked",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -6938,11 +6941,11 @@
         "out": null
       },
       "opened": "2026-11-22T18:56:26Z",
-      "closed": null,
+      "closed": "2026-11-22T18:59:38Z",
       "base": "47f633cea1eff4a4371ee4629f4cd0a1b9223462",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N047 (Fired-session trial by hand) against its criteria and outcome: check each criterion itself against the pull requests at their heads, the files and the state as they are.",
+      "summary": "Criterion 5 not met: the cost tables match the state file, but the record's conclusion (\"inside the range\", \"no outlier\") contradicts them. Fired output tokens exceed the same step's hand baseline in four of six fires (26,945/53,119 vs 8,084; 32,280 vs 17,056; 44,244 vs 8,478/6,752), and one baseline per step is no range. Criteria 1-4, 6, 7 met.",
       "notes": null
     }
   ],
