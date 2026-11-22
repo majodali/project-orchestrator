@@ -13,9 +13,14 @@ asking of a person. Four of the seven confirmed fires pushed a branch
 named for the task, never one prefixed `claude/`, and opened a pull
 request unattended; the other three claimed and closed without
 pushing. No fired run has yet stopped on a permission prompt, so
-criterion 4 has nothing to report but that absence. A fired
-implementer session's token cost sits in the same range as a
-session not started by a fire, for the same step. The planner task
+criterion 4 has nothing to report but that absence. Measured by
+output tokens against the one hand/delegated task per step this
+project has for comparison, a fired task costs more in four of the
+six fires measured — both implementer fires, in each repository, and
+two of the four planner fires (`specify`) — and less in the other two
+(planner `plan`); one task per step is a baseline, not a range, so
+the fired and hand-started sessions do not cost the same for a step.
+The planner task
 reaches three fires; the implementer task in this repository reaches
 two, not three, and this record says so rather than holding for a
 fire this task cannot make (RU-019; "met by its numbers whichever way
@@ -149,12 +154,21 @@ delegation, never by a fire.
 | T192 | hand/delegated | P4-N051 | 42 | 6752 | 4491601 | 156595 | claude-sonnet-5 |
 | T212 | fired | P4-N057 | 140 | 44244 | 7970607 | 129668 | claude-opus-5 (owner's setting error, since corrected) |
 
-A fired task's output tokens fall inside the range the hand/delegated
-tasks for the same step already show on this project; none of the six
-fires is an outlier against its own step's baseline. T212 ran on the
-wrong model (an owner setting, since corrected to claude-sonnet-5),
-so it is not compared against the sonnet-5 baseline rows by model;
-its cost is still its task's own, against the same step.
+Fired output tokens exceed the hand/delegated baseline for the same
+step in four of the six fires measured: T213 (26,945) and T215
+(53,119) exceed T209 (8,084) by about 3x and 6.5x; T216 (32,280)
+exceeds T206 (17,056) by about 1.9x; T212 (44,244) exceeds both T200
+(8,478) and T192 (6,752) by about 5x and 6.5x. The other two, T211
+(27,610) and T214 (30,901), fall below T208 (56,730). Every step but
+the service repository's implementer `execute` has exactly one
+hand/delegated task to compare against, so "range" overstates what
+the data gives: each is a single baseline point, not a spread. Read
+plainly, the six fires do not cost the same as a hand-started task
+for the same step; four of six cost more, by a wide margin, and two
+cost less. T212 ran on the wrong model (an owner setting, since
+corrected to claude-sonnet-5), so it is not compared against the
+sonnet-5 baseline rows by model; its cost is still its task's own,
+against the same step.
 
 T225's own cost is measured the same way once this task closes; it is
 not in the table above because the hook has not yet run.
