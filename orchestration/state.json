@@ -1096,7 +1096,9 @@
       "outcome": "A session started in methodology-tools reaches the pilot instance, `task_next` answers a node of methodology-tools, and one write commits there as the GitHub App with its journal line.",
       "stage": "specified",
       "parent": "P4-N027",
-      "after": [],
+      "after": [
+        "P2-N058"
+      ],
       "hold": null,
       "start": "approve",
       "docs": {
@@ -1104,7 +1106,7 @@
         "spec": null
       },
       "done": null,
-      "note": "Child 4 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 4. Writes .mcp.json and .claude/settings.json to majodali/methodology-tools (D065) and the enlistment corrections to this repository's docs/process/how-we-work.md, so it starts on approval; the owner sets MCP_AUTH_TOKEN in that repository's cloud environment first (O3). Waits for P4-N046: .mcp.json names an endpoint the second instance's first deploy creates. The two hooks stay with P2-N006 (RU-017)."
+      "note": "Child 4 of P4-N027. Criteria: docs/plans/pilot-enlistment-methodology-tools.md, section 4. Writes .mcp.json and .claude/settings.json to majodali/methodology-tools (D065) and the enlistment corrections to this repository's docs/process/how-we-work.md, so it starts on approval; the owner sets MCP_AUTH_TOKEN in that repository's cloud environment first (O3). Waits for P4-N046: .mcp.json names an endpoint the second instance's first deploy creates. The two hooks stay with P2-N006 (RU-017).\n\nRe-pointed by D140, answered A by the owner on 2026-11-22: the pilot joins this deployment as its second project, P4-N046 is removed, and this node is re-pointed at a project path here. It now waits for P2-N058 (The pilot on this deployment), which makes majodali/methodology-tools reachable on its own project path. This node's title, its outcome and section 4 of docs/plans/pilot-enlistment-methodology-tools.md still speak of the pilot's own instance and of a second instance's endpoint; they have not been rewritten, and a planning step should do so, saying what of this node remains once P2-N058 exists. Owner action O2, the deploy role's wider policy, falls away with P4-N046."
     },
     {
       "id": "P4-N059",
