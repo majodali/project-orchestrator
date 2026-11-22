@@ -23,6 +23,7 @@ Gated nodes:
 
 - Several projects and repositories in one instance (P2-N026) [identified] — T228
 - Fired-session trial by hand (P2-N047) [verifying] — T229
+- Verification of Tree page that updates itself (P2-N052) [specified] — T230
 
 ## In progress, children carry the work
 
@@ -433,6 +434,8 @@ Documents: [plan](plans/orchestration-service.md).
     An open view page shows a plan change within 30 seconds without a reload, through one first-party script and a version route, and never replaces a form that holds typed text.
     after P2-N032
     Note: Slice A of docs/plans/view-that-leads-and-updates.md: section 3, criteria 1 to 4 and 6. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. Links no plan document because it edits none here.
+    - check: **Verification of Tree page that updates itself** (P2-N052, specified)
+      P2-N037 is verified against its outcome.
   - **Four lists ahead of the tree** (P2-N038, specified)
     The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.
     after P2-N032
