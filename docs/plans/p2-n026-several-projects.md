@@ -1,8 +1,10 @@
 # Several projects and repositories in one instance (P2-N026)
 
-Status: planned (T228, 2026-11-22). Child of
-[the orchestration service](orchestration-service.md), P2-N001. Next
-step: break down.
+Status: specified (T232, 2026-11-22) by
+[the specification](../specs/p2-n026-several-projects.md), which cuts
+these criteria across six children and corrects this file where it
+says so. Child of
+[the orchestration service](orchestration-service.md), P2-N001.
 
 Reader: the owner, and the sessions that break down, build and verify
 this node. It assumes [how we work](../process/how-we-work.md), the
@@ -172,7 +174,8 @@ in its own coordinating repository.
 - **O1. The GitHub App installed on every project's repository.** One
   account-level installation serves them all and design 2 resolves it,
   so no identifier is configured. To be confirmed for
-  majodali/methodology-tools before child 4.
+  majodali/methodology-tools before the first child is verified, which
+  criterion 1 needs; the specification corrects this file on that.
 - **O2. The project list on the deployment**, as a parameter override,
   and the merge of each service pull request, which is the deploy.
 
@@ -185,19 +188,13 @@ methodology-tools' own sessions (P2-N006, RU-017).
 
 ## Children
 
-Four slices, added by the break down, each with its criteria in its
-own note. The first runs end to end and the rest follow it.
-
-1. **The project on the endpoint.** Designs 1 and 2: one deployment
-   answering `service_identity` and `plan_read` for two projects. In
-   majodali/project-orchestrator-service, where a merge deploys.
-2. **The repository on a node.** Design 3, in the service and in each
-   project's pin, with the settings file's node lists retired. After 1.
-3. **The view over several projects.** Design 4. After 1, and after
-   P2-N037, whose pull request changes the same pages.
-4. **The pilot on this deployment.** methodology-tools' `.mcp.json`
-   names its project path, a session there reaches it, and the bare
-   `/mcp` path goes. After 1; struck if ask 1 is answered B.
+Six slices, each with its criteria in its own note. The first runs end
+to end and the rest follow it. The four this plan proposed became six:
+the rule below, that a second commit waiting on the first is its own
+node, splits the node's repository from the pin that follows it, and
+the pilot's enlistment from the bare path's retirement. The
+specification names them, their criteria, their order and the
+repository each writes to.
 
 ## Criteria
 
@@ -213,7 +210,7 @@ own note. The first runs end to end and the rest follow it.
    was required and what was found (RU-013); both `DEFAULT_PROJECT`
    constants are gone.
 5. `/mcp` with no project segment serves the list's first project
-   until child 4 removes it.
+   until the specification's child 6 removes it.
 6. The reader, writer, pull request client and commit checks are keyed
    by repository, the installation is resolved per repository through
    the App, and `GITHUB_APP_INSTALLATION_ID` is gone from the code,
@@ -266,7 +263,8 @@ own note. The first runs end to end and the rest follow it.
 - **A session reaching the wrong project.** A repository whose
   `.mcp.json` still names the bare `/mcp` reads and writes the first
   project's plan. Bounded by `service_identity` answering the resolved
-  project, the enlistment step checking it, and child 4.
+  project, the enlistment step checking it, and the specification's
+  child 6.
 - **One App token for several repositories.** The installation is
   account-level, so a minted token can write any repository in the
   account. Bounded by the five-path allowlist, the project list
@@ -275,26 +273,22 @@ own note. The first runs end to end and the rest follow it.
 - **The pin and the field out of order.** A project whose pinned
   `plan-state` predates the field renders without it and
   `npm run check` fails until the pin moves. Bounded by criterion 20.
-- **P2-N037 changes the view's pages.** Child 3 waits for it.
 
 ## Asks
 
+Both answered by the owner on 2026-11-22, each at its default.
+
 1. **Does the pilot join this deployment instead of taking its own
-   instance?** A: methodology-tools joins as this deployment's second
-   project; P4-N046 is removed and P4-N047 re-pointed at a project
-   path here. B: P4-N046 and P4-N047 run as written and this node
-   retires the second instance afterwards. **Default: A** — neither
-   has started, both hold the owner's approval, methodology-tools
-   carries its state file already, and A needs no second stack, no
-   widened deploy role and no second smoke-test path. B strikes child
-   4 and renames the second project in criteria 1 and 2.
-2. **Does P2-N048 wait on child 2?** A: yes, the fire waits for the
-   repository on a node. B: no, P2-N048 is built first and the routing
-   follows. **Default: A** — P2-N048's own note says what it needs,
-   and firing before it repeats the trial's two misclaims.
+   instance?** D140, answer A: methodology-tools joins as this
+   deployment's second project, P4-N046 is removed and P4-N047 is
+   re-pointed at a project path here.
+2. **Does P2-N048 wait on the child that puts the repository on a
+   node?** D141, answer A: yes. That child is the specification's
+   child 2.
 
 ## Terms introduced
 
 - **Project path**: the `/<owner>/<repo>` segment of an endpoint that
   names which project a call is for. A node's repository is a field,
-  not a term: child 2 defines it in the state model.
+  not a term: the specification's child 3 defines it in the state
+  model.
