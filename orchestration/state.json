@@ -6925,6 +6925,25 @@
       "pr": "majodali/project-orchestrator-service#53",
       "summary": "D131 resolved: criteria 3, 4, 6 stay dependency-free and hand-run. Re-verified independently on PR #53's branch: npm run build, npm test (290 passed), lint, format all pass; re-ran src/view/preview/selfUpdateCheck.ts, all ten checks pass. No further change needed; PR #53 already matches the chosen option.",
       "notes": null
+    },
+    {
+      "id": "T227",
+      "node": "P2-N053",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-22T18:56:26Z",
+      "closed": null,
+      "base": "47f633cea1eff4a4371ee4629f4cd0a1b9223462",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N047 (Fired-session trial by hand) against its criteria and outcome: check each criterion itself against the pull requests at their heads, the files and the state as they are.",
+      "notes": null
     }
   ],
   "decisions": [
