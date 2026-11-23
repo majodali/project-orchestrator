@@ -127,3 +127,4 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **View trial with its measured delay** (P2-N041) — When: after P2-N039, P2-N040. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Session field adopted in this repository** (P2-N042) — When: after P2-N039. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Scratch project that compares review regimes** (P2-N051) — When: not dated. Status: planned, waiting on the owner. Pointer: [plan](plans/p2-n051-review-regimes.md).
+- [ ] **Service change verified before it is deployed** (P2-N063) — When: not dated. Status: identified, ready, starts automatically. Pointer: `orchestration/state.json`.
