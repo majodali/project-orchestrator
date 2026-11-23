@@ -11,11 +11,11 @@ its stage and its outcome. The state file holds the rest.
 Gated nodes:
 
 - methodology-tools' Binding block at the pinned methodology version (P4-N059): start needs the owner's approval
-- The project on the endpoint path (P2-N054): start needs the owner's approval
 - Scratch project that compares review regimes (P2-N051): Held by the owner, 2026-11-21, until the discussion of what the test includes is settled: outcomes in place of planned deliverables, larger leaf nodes, and one review for several nodes
 
 ## Ready, starting automatically when the loop runs
 
+- The project on the endpoint path (P2-N054) [specified]
 - Rework cost measured against the reviews it replaces (P2-N029) [specified]
 
 ## In flight
