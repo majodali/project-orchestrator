@@ -17,11 +17,11 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- The project on the endpoint path (P2-N054) [verifying]
+None.
 
 ## In flight
 
-None.
+- The project on the endpoint path (P2-N054) [verifying] — T241
 
 ## In progress, children carry the work
 

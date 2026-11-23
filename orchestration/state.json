@@ -7381,6 +7381,25 @@
       "pr": null,
       "summary": "Criteria 1, 2 and 9 not met. At deployed commit 499737d both /mcp/majodali/project-orchestrator and /mcp/majodali/methodology-tools answer API Gateway's 404: template.yaml declares only \"ANY /mcp\", with no /mcp/{owner}/{repo} route. src/httpApp.ts handles the path; the route is missing. Criteria 3 to 8 met; build, lint, format and 326 tests pass.",
       "notes": null
+    },
+    {
+      "id": "T241",
+      "node": "P2-N054",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-23T14:41:21Z",
+      "closed": null,
+      "base": "00ff32d54e606807880bcf408917622457f3d295",
+      "ref": null,
+      "pr": null,
+      "summary": "Rework of T238/P2-N054: add the missing /mcp/{owner}/{repo} API Gateway route in template.yaml so criteria 1, 2 and 9 are met at a deployed commit.",
+      "notes": null
     }
   ],
   "decisions": [
