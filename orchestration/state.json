@@ -1994,7 +1994,7 @@
       "kind": "work",
       "title": "The project on the endpoint path",
       "outcome": "One deployment serves two projects on their own endpoint paths, with the reader, writer, pull request client and commit checks keyed by repository and the installation resolved per repository, and a path outside its project list refused.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N026",
       "after": [],
       "hold": null,
@@ -7291,6 +7291,25 @@
       "ref": null,
       "pr": null,
       "summary": "Verify P2-N029 (Rework cost measured against the reviews it replaces) against its outcome and the criteria in docs/plans/p2-n029-rework-cost.md, at the head of each of its execute pull requests.",
+      "notes": null
+    },
+    {
+      "id": "T238",
+      "node": "P2-N054",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-23T01:39:00Z",
+      "closed": null,
+      "base": "0762038a1179c347ed7f6c1c5ea1eb4aecf0d439",
+      "ref": null,
+      "pr": null,
+      "summary": "Add project path routing to the Lambda/local deployment so one instance serves two projects (project-orchestrator and methodology-tools) on their own /mcp/<owner>/<repo> paths, keying the reader/writer/PR client/commit checks by repository and resolving the installation per repository.",
       "notes": null
     }
   ],
