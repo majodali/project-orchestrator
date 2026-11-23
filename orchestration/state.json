@@ -9294,10 +9294,10 @@
         "it stays with sessions, prompts or the owner's hand"
       ],
       "default": "into the service: what is hard to automate is built into the orchestration service",
-      "chosen": null,
-      "decided": null,
-      "rationale": "The owner, 2026-11-23: \"Anything we find hard to automate in the current system, we should build into the service. In this case, we should have agent tasks triggered by the service when there's a task waiting.\" Said after a session could not fire the owner's scheduled tasks and each fire stayed the owner's hand.",
-      "standing": false,
+      "chosen": "into the service: anything we find hard to automate in the current system, we build into the service",
+      "decided": "2026-11-23",
+      "rationale": "The owner, 2026-11-23: \"Anything we find hard to automate in the current system, we should build into the service.\" Made standing at the owner's word (\"make it standing\").",
+      "standing": true,
       "source": null
     }
   ],
