@@ -9384,8 +9384,8 @@
         "C: do not accept it, which leaves the node at decision 1's option C"
       ],
       "default": "A: accept it with those four bounds. B buys isolation this service's survivable outage does not earn (P2-N012, constraint 3).",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Accept it with the four bounds, and only with preview-only secrets: a second GitHub App installed on the fixture repository alone, and its own bearer token. No preview holds the production App key or the production token.",
+      "decided": "2026-11-23",
       "rationale": "Asked by T243 at close.",
       "standing": false,
       "source": null
