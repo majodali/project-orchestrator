@@ -9400,8 +9400,8 @@
         "C: the owner dispatches each preview by hand"
       ],
       "default": "A: grant it and the service dispatches. D148 (standing) sends hard-to-automate work into the service, and B puts a minutes-long infrastructure chore inside a review.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: grant it and the service dispatches. D148 (standing) sends hard-to-automate work into the service, and B puts a minutes-long infrastructure chore inside a review.",
+      "decided": "2026-11-23",
       "rationale": "Asked by T243 at close.",
       "standing": false,
       "source": null
