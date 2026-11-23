@@ -9036,8 +9036,8 @@
         "Count a still-open decision as unmeasured (wait) and as carrying no default match, folded into the existing buckets"
       ],
       "default": "Keep it: an unanswered decision is not yet a review that changed anything or didn't, so it belongs in neither bucket",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Keep it: an unanswered decision is not yet a review that changed anything or didn't, so it belongs in neither bucket",
+      "decided": "2026-11-23",
       "rationale": "Asked by T236 at close.",
       "standing": false,
       "source": null
