@@ -9352,8 +9352,8 @@
         "C: no preview stack, and service nodes keep merging by the owner's hand"
       ],
       "default": "A: a second role scoped to the preview stack. It keeps a pull request's own code away from the production stack, which B would hand it.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: a second role scoped to the preview stack. It keeps a pull request's own code away from the production stack, which B would hand it.",
+      "decided": "2026-11-23",
       "rationale": "Asked by T243 at close.",
       "standing": false,
       "source": null
