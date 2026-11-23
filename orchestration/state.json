@@ -9112,8 +9112,8 @@
         "Leave the record as it stands: the script's output printed beside the prose is right and reproducible, and the slips mislead nobody who reads the output"
       ],
       "default": "Correct them in a short follow-up task on a new node: three prose edits to docs/plans/p2-n029-rework-cost-record.md, no change to the script, the figures or the conclusion",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Correct them, without a new node",
+      "decided": "2026-11-23",
       "rationale": "Asked by T237 at close.",
       "standing": false,
       "source": null
