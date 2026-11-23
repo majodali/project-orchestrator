@@ -2564,7 +2564,7 @@
       "kind": "work",
       "title": "Rework cost measured against the reviews it replaces",
       "outcome": "The cost of each rework is set against the verifications and owner reviews it replaced, from the tasks' measured costs, so the owner sees whether longer runs of work without review pay.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
@@ -7230,6 +7230,25 @@
       "ref": null,
       "pr": null,
       "summary": "Verify P2-N038 \"Four lists ahead of the tree\" against its outcome and criteria: check the service repository's pull requests at head, every criterion, checks, branch naming and scope.",
+      "notes": null
+    },
+    {
+      "id": "T236",
+      "node": "P2-N029",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-23T00:27:44Z",
+      "closed": null,
+      "base": "10680fc94c6253044512083dd88f90241e357c81",
+      "ref": null,
+      "pr": null,
+      "summary": "Build plugin/scripts/rework_cost.ts and the committed reading docs/plans/p2-n029-rework-cost-record.md per the 19 criteria in docs/plans/p2-n029-rework-cost.md.",
       "notes": null
     }
   ],
