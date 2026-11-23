@@ -8,9 +8,16 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
+Open decisions:
+
+- D147 on The project on the endpoint path (P2-N054): The service's README.md environment-variable table is stale after criterion 6: it still lists GITHUB_APP_INSTALLATION_ID as "yes, for plan_read", still says MCP_PROJECT "Defaults to majodali/project-orchestrator" (both DEFAULT_PROJECT constants are gone), has no MCP_PROJECTS row although a deployment with no list refuses every call, and still says "none of the three GITHUB_APP_* variables" where there are now two. docs/runbook.md is correct; criterion 6 names only the code, the template and the deploy script, so this does not fail the node. Where should the README fix land? Default: A: a Backlog row picked up by P2-N055. It is three table rows and one sentence, in a file that child 2 already touches, and it needs no node of its own.
+
 Gated nodes:
 
 - methodology-tools' Binding block at the pinned methodology version (P4-N059): start needs the owner's approval
+- The repository on a node (P2-N055): start needs the owner's approval
+- The view over several projects (P2-N057): start needs the owner's approval
+- The pilot on this deployment (P2-N058): start needs the owner's approval
 - Session, duration and criteria on pages (P2-N039): start needs the owner's approval
 - Feedback in place and the node panel (P2-N040): start needs the owner's approval
 - Scratch project that compares review regimes (P2-N051): Held by the owner, 2026-11-21, until the discussion of what the test includes is settled: outcomes in place of planned deliverables, larger leaf nodes, and one review for several nodes
@@ -21,7 +28,7 @@ Gated nodes:
 
 ## In flight
 
-- Verification of The project on the endpoint path (P2-N062) [specified] — T242
+None.
 
 ## In progress, children carry the work
 
@@ -30,7 +37,6 @@ Gated nodes:
 - Pilot enlistment of methodology-tools (P4-N027) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Several projects and repositories in one instance (P2-N026) [broken-down]
-- The project on the endpoint path (P2-N054) [verifying]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - Tasks started by the service through scheduled tasks (P2-N046) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
@@ -40,10 +46,7 @@ Gated nodes:
 - The pilot's first task through its own instance (P4-N047) [specified] — after The pilot on this deployment (P2-N058)
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
-- The repository on a node (P2-N055) [specified] — after The project on the endpoint path (P2-N054)
 - The node's repository in this project (P2-N056) [specified] — after The repository on a node (P2-N055)
-- The view over several projects (P2-N057) [specified] — after The project on the endpoint path (P2-N054)
-- The pilot on this deployment (P2-N058) [specified] — after The project on the endpoint path (P2-N054)
 - The bare endpoint path retired (P2-N059) [specified] — after The pilot on this deployment (P2-N058)
 - Orchestrator trial with its measured cost (P2-N033) [executing] — after The owner's setup recorded (P2-N049)
 - The fire in the service (P2-N048) [specified] — after The repository on a node (P2-N055)
@@ -379,11 +382,10 @@ Documents: [plan](plans/orchestration-service.md).
   One deployment of the service serves several projects, each named by its own endpoint path and state file, and knows which repository every offered step belongs to, so a session reaches only its own project and repository.
   [plan](plans/p2-n026-several-projects.md), [spec](specs/p2-n026-several-projects.md)
   Note: Recorded at the owner's instruction, 2026-11-22 ("Note it on P2-N026"), for the plan step. 1. The owner moved this node ahead of the scratch project test on 2026-11-21 ("I'd also like to move forward with making the service multi-project before the scratch project test"), so it no longer waits for P4-N008. 2. The scratch project, P2-N051, waits for this node (the owner's D133) and would be its second project. P2-N051 is held while its direction is re-planned; its note says what it now needs, including replays of this project's own past nodes from their base commits in a separate repository. 3. This node's outcome still says "the pilot's separate instance is retired into it", which assumed the pilot on majodali/methodology-tools would get its own instance first (P4-N046, then P4-N047). Neither has started and the owner is holding their approval. The plan step says whether the pilot joins this one instance instead, which would make P4-N046 and P4-N047 unnecessary as written. That is the owner's to decide: make it an ask with a default. 4. It must fit the fired-session design of P2-N046 (docs/plans/p2-n046-service-fired-sessions.md): one scheduled task per role and repository, set up by the owner, and a service that knows which project and which repository each offered step belongs to. P2-N048's note records why sessions cannot judge that from a node's note, and that `task_next` should answer a session only the steps of the repository it was fired for. 5. The standing constraints hold: no model inference in the service; no secret committed, pasted or logged; the service writes a project's repository only through its GitHub App, under its allowlist, one commit per change, and holds no state of its own. For the plan step to establish by reading the service's code, not assumed here: where a single project is built in today (the reviewer of P4-N044 named project-name constants in src/githubAppConfig.ts, src/serviceInfo.ts and src/model/importState.ts, and D067 forbids code that branches on the project name); how a call names its project (the endpoint, the token, `.mcp.json`); how the view shows several projects; what one node whose work spans two repositories means across projects; and how an existing project and its sessions keep working through the change.
-  - **The project on the endpoint path** (P2-N054, verifying)
+  - **The project on the endpoint path** (P2-N054, done 2026-11-23)
     One deployment serves two projects on their own endpoint paths, with the reader, writer, pull request client and commit checks keyed by repository and the installation resolved per repository, and a path outside its project list refused.
+    1 open decision
     Note: Child 1 of P2-N026, the slice that runs end to end. Criteria: docs/specs/p2-n026-several-projects.md, "The children", child 1, and this note. It builds designs 1 and 2 of docs/plans/p2-n026-several-projects.md as the specification's S1 and S2 settle them. Writes to majodali/project-orchestrator-service (standing scope, RU-016), where the owner merges and a merge deploys, so it starts on approval. Waits for nothing. The owner's O1 and O2 come before this node is verified, not before the pilot child as the plan says: criterion 1 names majodali/methodology-tools, so the App must be installed there and the project list must be set on the deployment first. Criteria. (1) One deployment answers service_identity for two projects: /mcp/majodali/project-orchestrator and /mcp/majodali/methodology-tools each answer their own project, at the same service commit. (2) plan_read through each path answers that project's own orchestration/state.json at a commit of that repository. (3) A path naming a repository outside the list is refused, nothing is read, no token is minted, and the refusal names neither a token nor the other projects. (4) A deployment with no list, with a malformed or duplicated item, or with MCP_PROJECT and MCP_PROJECTS disagreeing, refuses every call naming what was required and what was found (RU-013); both DEFAULT_PROJECT constants, in src/githubAppConfig.ts and src/serviceInfo.ts, are gone. (5) /mcp with no project segment serves the list's first project. (6) The five getters of src/planRegister/defaultFetcher.ts are keyed by repository, the installation is resolved per repository through the App, and GITHUB_APP_INSTALLATION_ID is gone from the code, the template and the deploy script. (7) A call for a repository the App is not installed on fails naming that repository and the missing installation, and no other repository's call is affected. (8) The service's docs/runbook.md says how a project is added: the list parameter, the App installation, and the state file first, because check 3 of scripts/smoke-test.sh calls plan_read. (9) The owner merges the pull request, that merge deploys, and criteria 1 to 3 are recorded against the deployed commit. Every child of P2-N026 is verified against the specification's C-a, C-b and C-c as well as its own list: no code in src/ branches on a project name (D067) and a literal left there is named with the reason it stays; the write allowlist in src/model/store.ts is unchanged at five paths; no model inference runs in the service and no token appears in git, in a log or in a refusal message.
-    - check: **Verification of The project on the endpoint path** (P2-N062, specified)
-      P2-N054 is verified against its outcome.
   - **The repository on a node** (P2-N055, specified)
     A node carries the repository its work is claimed from, and task_next answers only that repository's candidates while task_open refuses a claim naming another, so neither misclaim of the trial by hand can repeat.
     after P2-N054

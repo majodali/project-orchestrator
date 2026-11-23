@@ -1994,7 +1994,7 @@
       "kind": "work",
       "title": "The project on the endpoint path",
       "outcome": "One deployment serves two projects on their own endpoint paths, with the reader, writer, pull request client and commit checks keyed by repository and the installation resolved per repository, and a path outside its project list refused.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N026",
       "after": [],
       "hold": null,
@@ -2003,7 +2003,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-23",
       "note": "Child 1 of P2-N026, the slice that runs end to end. Criteria: docs/specs/p2-n026-several-projects.md, \"The children\", child 1, and this note. It builds designs 1 and 2 of docs/plans/p2-n026-several-projects.md as the specification's S1 and S2 settle them. Writes to majodali/project-orchestrator-service (standing scope, RU-016), where the owner merges and a merge deploys, so it starts on approval. Waits for nothing.\n\nThe owner's O1 and O2 come before this node is verified, not before the pilot child as the plan says: criterion 1 names majodali/methodology-tools, so the App must be installed there and the project list must be set on the deployment first.\n\nCriteria. (1) One deployment answers service_identity for two projects: /mcp/majodali/project-orchestrator and /mcp/majodali/methodology-tools each answer their own project, at the same service commit. (2) plan_read through each path answers that project's own orchestration/state.json at a commit of that repository. (3) A path naming a repository outside the list is refused, nothing is read, no token is minted, and the refusal names neither a token nor the other projects. (4) A deployment with no list, with a malformed or duplicated item, or with MCP_PROJECT and MCP_PROJECTS disagreeing, refuses every call naming what was required and what was found (RU-013); both DEFAULT_PROJECT constants, in src/githubAppConfig.ts and src/serviceInfo.ts, are gone. (5) /mcp with no project segment serves the list's first project. (6) The five getters of src/planRegister/defaultFetcher.ts are keyed by repository, the installation is resolved per repository through the App, and GITHUB_APP_INSTALLATION_ID is gone from the code, the template and the deploy script. (7) A call for a repository the App is not installed on fails naming that repository and the missing installation, and no other repository's call is affected. (8) The service's docs/runbook.md says how a project is added: the list parameter, the App installation, and the state file first, because check 3 of scripts/smoke-test.sh calls plan_read. (9) The owner merges the pull request, that merge deploys, and criteria 1 to 3 are recorded against the deployed commit.\n\nEvery child of P2-N026 is verified against the specification's C-a, C-b and C-c as well as its own list: no code in src/ branches on a project name (D067) and a literal left there is named with the reason it stays; the write allowlist in src/model/store.ts is unchanged at five paths; no model inference runs in the service and no token appears in git, in a log or in a refusal message."
     },
     {
@@ -2011,7 +2011,7 @@
       "kind": "check",
       "title": "Verification of The project on the endpoint path",
       "outcome": "P2-N054 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N054",
       "after": [],
       "hold": null,
@@ -2020,7 +2020,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-23",
       "note": null
     },
     {
@@ -7422,7 +7422,7 @@
       "id": "T242",
       "node": "P2-N062",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -7430,11 +7430,11 @@
         "out": null
       },
       "opened": "2026-11-23T15:20:45Z",
-      "closed": null,
+      "closed": "2026-11-23T15:26:47Z",
       "base": "e8af132324f3b5f74977d68f976e7051c7638abc",
-      "ref": null,
+      "ref": "fb7de3a00bc05dee7fdda335cc91037aa5a836eb",
       "pr": null,
-      "summary": "Verify P2-N054, the project on the endpoint path, against its criteria at the deployed commit, now that D146 chose the variable and App installation before the merge.",
+      "summary": "P2-N054 verified at deployed commit fb7de3a: all nine criteria met. Both /mcp/majodali/project-orchestrator and /mcp/majodali/methodology-tools answer their own project and state file (22cf6901, 9b98c0ae); the bare path serves the first; outside paths refused 404. PRs #55 and #56 checks green; Deploy run 52 succeeded; build, lint, format and 326 tests pass.",
       "notes": null
     }
   ],
@@ -9244,6 +9244,22 @@
       "chosen": "A: the variable and the App installation first, then the merge. B spends a red deploy run and deploys nothing; A matches the order the service's own runbook now gives under \"Adding a project\" (the state file, the App, then the list). Keep majodali/project-orchestrator first in the list: the bare /mcp path and the view both serve the first entry, and every repository enlisted today names the bare path.",
       "decided": "2026-11-23",
       "rationale": "Asked by T239 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D147",
+      "node": "P2-N054",
+      "question": "The service's README.md environment-variable table is stale after criterion 6: it still lists GITHUB_APP_INSTALLATION_ID as \"yes, for plan_read\", still says MCP_PROJECT \"Defaults to majodali/project-orchestrator\" (both DEFAULT_PROJECT constants are gone), has no MCP_PROJECTS row although a deployment with no list refuses every call, and still says \"none of the three GITHUB_APP_* variables\" where there are now two. docs/runbook.md is correct; criterion 6 names only the code, the template and the deploy script, so this does not fail the node. Where should the README fix land?",
+      "options": [
+        "A: a Backlog row in majodali/project-orchestrator-service, picked up by child 2 (P2-N055), which already changes that area",
+        "B: its own node under P2-N026",
+        "C: leave the README as it is"
+      ],
+      "default": "A: a Backlog row picked up by P2-N055. It is three table rows and one sentence, in a file that child 2 already touches, and it needs no node of its own.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T242 at close.",
       "standing": false,
       "source": null
     }
