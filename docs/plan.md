@@ -21,7 +21,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Verification of Rework cost measured against the reviews it replaces (P2-N061) [specified] — T237
 
 ## In progress, children carry the work
 
@@ -477,6 +477,9 @@ Documents: [plan](plans/orchestration-service.md).
   The cost of each rework is set against the verifications and owner reviews it replaced, from the tasks' measured costs, so the owner sees whether longer runs of work without review pay.
   [plan](plans/p2-n029-rework-cost.md)
   Note: The owner, 2026-11-17: pull reversibility forward from the P3 line. P3-N004 "Reversibility and its measurement" stays under the hold on P3-N001 until that line is re-planned; this node takes its measurement half onto the task loop. The data it needs now exists: a rework is its own task (an execute task on a node whose verification failed), and each task has a measured cost. Source for the argument: docs/plans/comprehension-and-continuous-implementation.md, Chunk 3. The plan step says what remains of P3-N004 once this node exists, and whether making work cheap to undo needs work of its own. The owner, 2026-11-20, on D126: "What we really want to work out is the cost of rework vs the cost of waiting." The owner takes D126's default, widened as the delegating session recommended, and the specify step folds this into the criteria: (1) the time from the close of the task that raised a decision to its decision_close line is reported as waiting, the time the node was blocked, never as the owner's effort; (2) the report gives the share of decisions answered with their default, as the nearest figure for what a review changed; (3) merge requests are counted apart from judgement questions. No exchange rate. The owner also said a scratch project is needed later, where different approaches are tested directly against each other; that is not this node.
+  - check: **Verification of Rework cost measured against the reviews it replaces** (P2-N061, specified)
+    P2-N029 is verified against its outcome.
+    [plan](plans/p2-n029-rework-cost.md)
 - **Scratch project that compares review regimes** (P2-N051, planned, gated: Held by the owner, 2026-11-21, until the discussion of what the test includes is settled: outcomes in place of planned deliverables, larger leaf nodes, and one review for several nodes)
   A scratch project runs one fixed node set under three review regimes from the same starting state, and a record sets each regime's cost, rework and waiting against the quality of the work it produced.
   [plan](plans/p2-n051-review-regimes.md)

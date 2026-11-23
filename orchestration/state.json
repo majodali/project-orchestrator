@@ -7273,6 +7273,25 @@
       "pr": "majodali/project-orchestrator#96",
       "summary": "Built plugin/scripts/rework_cost.ts and lib/rework-cost.ts: rework-round derivation, per-round and per-project token costs, and the owner side (D126) read with no exchange rate. Committed the reading at cdfc03b: 5 rounds, by-hand check of the merge/judgement rule over all 125 decisions (none wrong). All 19 criteria met.",
       "notes": null
+    },
+    {
+      "id": "T237",
+      "node": "P2-N061",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-23T01:38:15Z",
+      "closed": null,
+      "base": "82ee389e84b94df6387af44acdd1018bb25b5f79",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N029 (Rework cost measured against the reviews it replaces) against its outcome and the criteria in docs/plans/p2-n029-rework-cost.md, at the head of each of its execute pull requests.",
+      "notes": null
     }
   ],
   "decisions": [
