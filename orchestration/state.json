@@ -2028,7 +2028,7 @@
       "kind": "work",
       "title": "The repository on a node",
       "outcome": "A node carries the repository its work is claimed from, and task_next answers only that repository's candidates while task_open refuses a claim naming another, so neither misclaim of the trial by hand can repeat.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N026",
       "after": [
         "P2-N054"
@@ -2041,6 +2041,23 @@
       },
       "done": null,
       "note": "Child 2 of P2-N026. Criteria: docs/specs/p2-n026-several-projects.md, \"The children\", child 2, and this note. It builds design 3 of docs/plans/p2-n026-several-projects.md as the specification's S3 and S4 settle it, in the service only; the pin and the settings file follow in child 3. Writes to majodali/project-orchestrator-service (standing scope, RU-016), where the owner merges and a merge deploys, so it starts on approval. After P2-N054.\n\nThis is the child P2-N048 waits on, by the owner's D141 answer A.\n\nCriteria. (1) nodeSchema carries repository, owner/name or null for the project's coordinating repository, defaulting to null, and SCHEMA_VERSION stays 0. (2) A state file validates and renders both with the field absent and with it set, and plan-state check passes over both. (3) task_next with a repository answers only candidates resolving to it, and every candidate without one, with tests over the trial's two cases: a first-in-line step in the asking repository, and one in another repository passed over (T216, T219; D129). (4) task_open refuses a node whose resolved repository is not the one the claim names, saying which repository it belongs to. (5) task_close defaults a branch's repository to the node's repository, and to state.project only when it is null; today it defaults to state.project (src/stateTools.ts:828). (6) The renderings of docs/plan.md and docs/backlog.md, and the view's node page, print a node's repository when it is not the coordinating one and nothing when it is. (7) SERVER_INSTRUCTIONS says a session passes its repository and task_next answers only that repository's steps. (8) The owner merges the pull request and that merge deploys.\n\nThe schema version stays 0 because the field is additive and zod strips what it does not declare, so a plan-state pinned before this change reads a file carrying the field and renders without it. Hence the order: this child merges and deploys, then child 3 moves the pin, and only then may a write set the field.\n\nThe specification's C-a, C-b and C-c bind this child as well as its own list."
+    },
+    {
+      "id": "P2-N064",
+      "kind": "check",
+      "title": "Verification of The repository on a node",
+      "outcome": "P2-N055 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N055",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N056",
@@ -7466,7 +7483,7 @@
       "id": "T244",
       "node": "P2-N055",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -7474,11 +7491,11 @@
         "out": null
       },
       "opened": "2026-11-23T17:54:10Z",
-      "closed": null,
+      "closed": "2026-11-23T18:11:15Z",
       "base": "0846e6b8bf5957282e7f005b1baac16b067a9402",
-      "ref": null,
-      "pr": null,
-      "summary": "Add optional repository field to node schema so task_next/task_open resolve and scope by repository, per P2-N055 criteria.",
+      "ref": "a82e0c694d36f8a9ebf72359f509b14ce2543ab9",
+      "pr": "majodali/project-orchestrator-service#57",
+      "summary": "nodeSchema gains repository (null = coordinating repo). task_next/task_open filter and refuse by it; task_close defaults a branch's repo to it (F4). Renderings and the view print it. SERVER_INSTRUCTIONS updated.",
       "notes": null
     }
   ],
@@ -9383,6 +9400,21 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T243 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D153",
+      "node": "P2-N055",
+      "question": "node_update has no way to set a node's repository field (only node_add and enterVerifying set it, by inheriting the parent's). P2-N056's criterion 6 needs to write majodali/project-orchestrator-service onto six existing nodes \"under its own task\" — which needs a node_update capability this child did not add, since P2-N055's 8 criteria do not mention one. Add repository to node_update's input now (a follow-up task on this node, or a small addition to P2-N056), or some other way for P2-N056 to set it?",
+      "options": [
+        "Add a `repository` field to node_update's input now, as a small follow-up task on P2-N055",
+        "Fold it into P2-N056 itself, since that is the child that first needs to write the field"
+      ],
+      "default": "Add a `repository` field to node_update's input now, as a small follow-up task on P2-N055, since node_update is this service's general-purpose node editor and P2-N056 should not need to extend it across a repository boundary",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T244 at close.",
       "standing": false,
       "source": null
     }
