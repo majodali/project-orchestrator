@@ -2014,7 +2014,10 @@
       "stage": "specified",
       "parent": "P2-N054",
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "T240: Criteria 1, 2 and 9 not met. At deployed commit 499737d both /mcp/majodali/project-orchestrator and /mcp/majodali/methodology-tools answer API Gateway's 404: template.yaml declares only \"ANY /mcp\", with no /mcp/{owner}/{repo} route. src/httpApp.ts handles the path; the route is missing. Criteria 3 to 8 met; build, lint, format and 326 tests pass."
+      },
       "start": "auto",
       "docs": {
         "plan": null,
@@ -7361,7 +7364,7 @@
       "id": "T240",
       "node": "P2-N062",
       "step": "verify",
-      "status": "open",
+      "status": "blocked",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -7369,11 +7372,11 @@
         "out": null
       },
       "opened": "2026-11-23T03:23:27Z",
-      "closed": null,
+      "closed": "2026-11-23T03:28:59Z",
       "base": "42034026067888f79d1bbf924a6cce648cd43c18",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N054, the project on the endpoint path, against its criteria, now that D146 has answered the order of the owner's merge and the MCP_PROJECTS variable.",
+      "summary": "Criteria 1, 2 and 9 not met. At deployed commit 499737d both /mcp/majodali/project-orchestrator and /mcp/majodali/methodology-tools answer API Gateway's 404: template.yaml declares only \"ANY /mcp\", with no /mcp/{owner}/{repo} route. src/httpApp.ts handles the path; the route is missing. Criteria 3 to 8 met; build, lint, format and 326 tests pass.",
       "notes": null
     }
   ],

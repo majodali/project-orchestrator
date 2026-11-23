@@ -17,11 +17,11 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-None.
+- The project on the endpoint path (P2-N054) [verifying]
 
 ## In flight
 
-- Verification of The project on the endpoint path (P2-N062) [specified] — T240
+None.
 
 ## In progress, children carry the work
 
@@ -30,7 +30,6 @@ None.
 - Pilot enlistment of methodology-tools (P4-N027) [broken-down]
 - Orchestration service (P2-N001) [broken-down]
 - Several projects and repositories in one instance (P2-N026) [broken-down]
-- The project on the endpoint path (P2-N054) [verifying]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - Tasks started by the service through scheduled tasks (P2-N046) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
@@ -56,6 +55,7 @@ None.
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
 - Pin migrated to the release with the K-003 amendment (P4-N042) [identified] — Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.
+- Verification of The project on the endpoint path (P2-N062) [specified] — T240: Criteria 1, 2 and 9 not met. At deployed commit 499737d both /mcp/majodali/project-orchestrator and /mcp/majodali/methodology-tools answer API Gateway's 404: template.yaml declares only "ANY /mcp", with no /mcp/{owner}/{repo} route. src/httpApp.ts handles the path; the route is missing. Criteria 3 to 8 met; build, lint, format and 326 tests pass.
 
 ## Paused by a hold or a park above
 
@@ -382,7 +382,7 @@ Documents: [plan](plans/orchestration-service.md).
   - **The project on the endpoint path** (P2-N054, verifying)
     One deployment serves two projects on their own endpoint paths, with the reader, writer, pull request client and commit checks keyed by repository and the installation resolved per repository, and a path outside its project list refused.
     Note: Child 1 of P2-N026, the slice that runs end to end. Criteria: docs/specs/p2-n026-several-projects.md, "The children", child 1, and this note. It builds designs 1 and 2 of docs/plans/p2-n026-several-projects.md as the specification's S1 and S2 settle them. Writes to majodali/project-orchestrator-service (standing scope, RU-016), where the owner merges and a merge deploys, so it starts on approval. Waits for nothing. The owner's O1 and O2 come before this node is verified, not before the pilot child as the plan says: criterion 1 names majodali/methodology-tools, so the App must be installed there and the project list must be set on the deployment first. Criteria. (1) One deployment answers service_identity for two projects: /mcp/majodali/project-orchestrator and /mcp/majodali/methodology-tools each answer their own project, at the same service commit. (2) plan_read through each path answers that project's own orchestration/state.json at a commit of that repository. (3) A path naming a repository outside the list is refused, nothing is read, no token is minted, and the refusal names neither a token nor the other projects. (4) A deployment with no list, with a malformed or duplicated item, or with MCP_PROJECT and MCP_PROJECTS disagreeing, refuses every call naming what was required and what was found (RU-013); both DEFAULT_PROJECT constants, in src/githubAppConfig.ts and src/serviceInfo.ts, are gone. (5) /mcp with no project segment serves the list's first project. (6) The five getters of src/planRegister/defaultFetcher.ts are keyed by repository, the installation is resolved per repository through the App, and GITHUB_APP_INSTALLATION_ID is gone from the code, the template and the deploy script. (7) A call for a repository the App is not installed on fails naming that repository and the missing installation, and no other repository's call is affected. (8) The service's docs/runbook.md says how a project is added: the list parameter, the App installation, and the state file first, because check 3 of scripts/smoke-test.sh calls plan_read. (9) The owner merges the pull request, that merge deploys, and criteria 1 to 3 are recorded against the deployed commit. Every child of P2-N026 is verified against the specification's C-a, C-b and C-c as well as its own list: no code in src/ branches on a project name (D067) and a literal left there is named with the reason it stays; the write allowlist in src/model/store.ts is unchanged at five paths; no model inference runs in the service and no token appears in git, in a log or in a refusal message.
-    - check: **Verification of The project on the endpoint path** (P2-N062, specified)
+    - check: **Verification of The project on the endpoint path** (P2-N062, specified, blocked: T240: Criteria 1, 2 and 9 not met. At deployed commit 499737d both /mcp/majodali/project-orchestrator and /mcp/majodali/methodology-tools answer API Gateway's 404: template.yaml declares only "ANY /mcp", with no /mcp/{owner}/{repo} route. src/httpApp.ts handles the path; the route is missing. Criteria 3 to 8 met; build, lint, format and 326 tests pass.)
       P2-N054 is verified against its outcome.
   - **The repository on a node** (P2-N055, specified)
     A node carries the repository its work is claimed from, and task_next answers only that repository's candidates while task_open refuses a claim naming another, so neither misclaim of the trial by hand can repeat.
