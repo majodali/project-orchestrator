@@ -7339,7 +7339,7 @@
       "id": "T239",
       "node": "P2-N062",
       "step": "verify",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -7347,11 +7347,11 @@
         "out": null
       },
       "opened": "2026-11-23T02:08:46Z",
-      "closed": null,
+      "closed": "2026-11-23T02:17:02Z",
       "base": "f09f9e2168d5b6bbcf8d601b37878d615a66e0f4",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N054, The project on the endpoint path, against its outcome and criteria.",
+      "summary": "Verified P2-N054 at PR #55 head b0e5794: criteria 4-8 met, 3 met at the build, 1, 2 and 9 await the owner's merge and deploy. Build, lint, test (326) and format pass; two project paths, the bare path and five refusals checked on a local run. Ask: set vars.MCP_PROJECTS before merging.",
       "notes": null
     }
   ],
@@ -9146,6 +9146,21 @@
       "chosen": "Proceed now: do O1 (install the App on majodali/methodology-tools) and O2 (set MCP_PROJECTS on the deployment) once this PR merges, per the specification's correction that both come before this child is verified, not before the pilot child.",
       "decided": "2026-11-23",
       "rationale": "Asked by T238 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D146",
+      "node": "P2-N062",
+      "question": "P2-N054's criterion 9 needs your merge of majodali/project-orchestrator-service#55 and your O1/O2 before this verification can finish. Order matters now: scripts/deploy.sh requires MCP_PROJECTS and .github/workflows/deploy.yml reads it from the repository variable vars.MCP_PROJECTS, which does not exist yet, so a merge made before that variable is set runs the deploy job and fails at the guard, leaving live on the current version. D145's wording says to do O1/O2 once the pull request merges, which is that order. Which order do you want?",
+      "options": [
+        "A: set vars.MCP_PROJECTS to \"majodali/project-orchestrator,majodali/methodology-tools\" and install the App on majodali/methodology-tools, then merge #55; the merge deploys, the smoke test runs on the bare path, and this check node offers verify again so criteria 1 to 3 are recorded against the deployed commit",
+        "B: merge #55 first, as D145 reads, let that deploy run fail closed at the MCP_PROJECTS guard, then set the variable and re-run the Deploy workflow"
+      ],
+      "default": "A: the variable and the App installation first, then the merge. B spends a red deploy run and deploys nothing; A matches the order the service's own runbook now gives under \"Adding a project\" (the state file, the App, then the list). Keep majodali/project-orchestrator first in the list: the bare /mcp path and the view both serve the first entry, and every repository enlisted today names the bare path.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T239 at close.",
       "standing": false,
       "source": null
     }

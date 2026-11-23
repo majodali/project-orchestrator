@@ -8,6 +8,10 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
+Open decisions:
+
+- D146 on Verification of The project on the endpoint path (P2-N062): P2-N054's criterion 9 needs your merge of majodali/project-orchestrator-service#55 and your O1/O2 before this verification can finish. Order matters now: scripts/deploy.sh requires MCP_PROJECTS and .github/workflows/deploy.yml reads it from the repository variable vars.MCP_PROJECTS, which does not exist yet, so a merge made before that variable is set runs the deploy job and fails at the guard, leaving live on the current version. D145's wording says to do O1/O2 once the pull request merges, which is that order. Which order do you want? Default: A: the variable and the App installation first, then the merge. B spends a red deploy run and deploys nothing; A matches the order the service's own runbook now gives under "Adding a project" (the state file, the App, then the list). Keep majodali/project-orchestrator first in the list: the bare /mcp path and the view both serve the first entry, and every repository enlisted today names the bare path.
+
 Gated nodes:
 
 - methodology-tools' Binding block at the pinned methodology version (P4-N059): start needs the owner's approval
@@ -21,7 +25,7 @@ None.
 
 ## In flight
 
-- Verification of The project on the endpoint path (P2-N062) [specified] — T239
+None.
 
 ## In progress, children carry the work
 
@@ -382,8 +386,6 @@ Documents: [plan](plans/orchestration-service.md).
   - **The project on the endpoint path** (P2-N054, verifying)
     One deployment serves two projects on their own endpoint paths, with the reader, writer, pull request client and commit checks keyed by repository and the installation resolved per repository, and a path outside its project list refused.
     Note: Child 1 of P2-N026, the slice that runs end to end. Criteria: docs/specs/p2-n026-several-projects.md, "The children", child 1, and this note. It builds designs 1 and 2 of docs/plans/p2-n026-several-projects.md as the specification's S1 and S2 settle them. Writes to majodali/project-orchestrator-service (standing scope, RU-016), where the owner merges and a merge deploys, so it starts on approval. Waits for nothing. The owner's O1 and O2 come before this node is verified, not before the pilot child as the plan says: criterion 1 names majodali/methodology-tools, so the App must be installed there and the project list must be set on the deployment first. Criteria. (1) One deployment answers service_identity for two projects: /mcp/majodali/project-orchestrator and /mcp/majodali/methodology-tools each answer their own project, at the same service commit. (2) plan_read through each path answers that project's own orchestration/state.json at a commit of that repository. (3) A path naming a repository outside the list is refused, nothing is read, no token is minted, and the refusal names neither a token nor the other projects. (4) A deployment with no list, with a malformed or duplicated item, or with MCP_PROJECT and MCP_PROJECTS disagreeing, refuses every call naming what was required and what was found (RU-013); both DEFAULT_PROJECT constants, in src/githubAppConfig.ts and src/serviceInfo.ts, are gone. (5) /mcp with no project segment serves the list's first project. (6) The five getters of src/planRegister/defaultFetcher.ts are keyed by repository, the installation is resolved per repository through the App, and GITHUB_APP_INSTALLATION_ID is gone from the code, the template and the deploy script. (7) A call for a repository the App is not installed on fails naming that repository and the missing installation, and no other repository's call is affected. (8) The service's docs/runbook.md says how a project is added: the list parameter, the App installation, and the state file first, because check 3 of scripts/smoke-test.sh calls plan_read. (9) The owner merges the pull request, that merge deploys, and criteria 1 to 3 are recorded against the deployed commit. Every child of P2-N026 is verified against the specification's C-a, C-b and C-c as well as its own list: no code in src/ branches on a project name (D067) and a literal left there is named with the reason it stays; the write allowlist in src/model/store.ts is unchanged at five paths; no model inference runs in the service and no token appears in git, in a log or in a refusal message.
-    - check: **Verification of The project on the endpoint path** (P2-N062, specified)
-      P2-N054 is verified against its outcome.
   - **The repository on a node** (P2-N055, specified)
     A node carries the repository its work is claimed from, and task_next answers only that repository's candidates while task_open refuses a claim naming another, so neither misclaim of the trial by hand can repeat.
     after P2-N054
