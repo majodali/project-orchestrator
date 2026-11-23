@@ -15,7 +15,6 @@ Open decisions:
 Gated nodes:
 
 - methodology-tools' Binding block at the pinned methodology version (P4-N059): start needs the owner's approval
-- The repository on a node (P2-N055): start needs the owner's approval
 - The view over several projects (P2-N057): start needs the owner's approval
 - The pilot on this deployment (P2-N058): start needs the owner's approval
 - Session, duration and criteria on pages (P2-N039): start needs the owner's approval
@@ -24,6 +23,7 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
+- The repository on a node (P2-N055) [specified]
 - Service change verified before it is deployed (P2-N063) [identified]
 
 ## In flight

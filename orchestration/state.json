@@ -2034,7 +2034,7 @@
         "P2-N054"
       ],
       "hold": null,
-      "start": "approve",
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
