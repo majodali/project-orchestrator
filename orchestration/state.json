@@ -2363,7 +2363,7 @@
         "P2-N055"
       ],
       "hold": null,
-      "start": "approve",
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
