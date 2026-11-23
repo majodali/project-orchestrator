@@ -2634,14 +2634,14 @@
       "id": "P2-N063",
       "kind": "work",
       "title": "Service change verified before it is deployed",
-      "outcome": "A service pull request whose criteria need a running deployment is verified against a pre-production deployment before it is merged and promoted, so the node needs no merge by the owner's hand.",
-      "stage": "identified",
+      "outcome": "A reviewer verifies a service pull request against a preview deployment of that pull request, API Gateway included, before it is merged, so a node whose criteria need a running deployment completes with no merge by the owner's hand.",
+      "stage": "planned",
       "parent": "P2-N001",
       "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
-        "plan": null,
+        "plan": "docs/plans/p2-n063-verify-before-deploy.md",
         "spec": null
       },
       "done": null,
@@ -7444,7 +7444,7 @@
       "id": "T243",
       "node": "P2-N063",
       "step": "plan",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": "claude-opus-5",
       "tokens": {
@@ -7452,11 +7452,11 @@
         "out": null
       },
       "opened": "2026-11-23T17:06:17Z",
-      "closed": null,
+      "closed": "2026-11-23T17:19:19Z",
       "base": "0d9c5d275b11ccd4c06ed09aa173ed5b2252500d",
       "ref": null,
-      "pr": null,
-      "summary": "Plan how a service pull request whose criteria need a running deployment is verified against a pre-production deployment, gateway included, before it is merged and promoted.",
+      "pr": "majodali/project-orchestrator#98",
+      "summary": "Planned in a new file: route coverage proved in the pull-request checks; a preview deployment of an unmerged pull request on its own stack, gateway included, same-repository only, torn down daily; the service dispatches it and answers its endpoint at task_open (D148). Twenty criteria, four children, four decisions.",
       "notes": null
     }
   ],
@@ -9298,6 +9298,70 @@
       "decided": "2026-11-23",
       "rationale": "The owner, 2026-11-23: \"Anything we find hard to automate in the current system, we should build into the service.\" Made standing at the owner's word (\"make it standing\").",
       "standing": true,
+      "source": null
+    },
+    {
+      "id": "D149",
+      "node": "P2-N063",
+      "question": "The preview's credential. The deploy role cannot create a second CloudFormation stack: its permission is scoped to stack/project-orchestrator-service/* and the SAM managed stack (the service's docs/deploy-role-permissions.md). What deploys the preview stack?",
+      "options": [
+        "A: a second role, project-orchestrator-service-preview-deploy, trusted for the same OIDC subject (this repository's main ref) and scoped to the preview stack, the SAM managed stack and the three secrets",
+        "B: widen the existing deploy role to stack/project-orchestrator-service-preview/*",
+        "C: no preview stack, and service nodes keep merging by the owner's hand"
+      ],
+      "default": "A: a second role scoped to the preview stack. It keeps a pull request's own code away from the production stack, which B would hand it.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T243 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D150",
+      "node": "P2-N063",
+      "question": "What the preview deployment serves. Every write tool commits to a project's default branch, and a preview holds the real GitHub App key, so a write call against it would commit to the real plan at untested code (the service's runbook, Step 6, says why its curls include no write).",
+      "options": [
+        "A: a fixture repository, majodali/orchestrator-preview, with its own orchestration/state.json and the App installed, as the preview's only project",
+        "B: reuse majodali/orchestrator-scratch, already granted by D132, accepting that a preview write and a scratch run could collide",
+        "C: the real project list, with the reviewer calling reads and refusals only"
+      ],
+      "default": "A: a fixture repository, majodali/orchestrator-preview. It keeps the real plan and P2-N051's measurements out of reach and makes a write criterion verifiable before the merge. A repository new to the project is the owner's (RU-016).",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T243 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D151",
+      "node": "P2-N063",
+      "question": "Running an unmerged pull request's code with the deployment's secrets. A preview runs the pull request's own application code, template and scripts/deploy.sh with the App private key, the bearer token and a deploy role - the boundary P2-N012's gate decision 3 drew (a pull request must not reach the deploy credentials). Accept that for a preview?",
+      "options": [
+        "A: accept it, bounded by explicit dispatch and never a pull-request event, the workflow definition always from main, same-repository pull requests only (a fork refused by head repository), and decision 1's preview-scoped credential",
+        "B: accept it only in a second AWS account for previews",
+        "C: do not accept it, which leaves the node at decision 1's option C"
+      ],
+      "default": "A: accept it with those four bounds. B buys isolation this service's survivable outage does not earn (P2-N012, constraint 3).",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T243 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D152",
+      "node": "P2-N063",
+      "question": "The App permission for the dispatch. The service starting a preview run needs the GitHub App to hold Actions: Read and write on majodali/project-orchestrator-service; it holds Contents and Pull requests today. Who starts a preview?",
+      "options": [
+        "A: grant the App Actions: Read and write, and the service dispatches the preview at task_open of a verify step",
+        "B: no App change, and the reviewer's session dispatches the run with its own GitHub access",
+        "C: the owner dispatches each preview by hand"
+      ],
+      "default": "A: grant it and the service dispatches. D148 (standing) sends hard-to-automate work into the service, and B puts a minutes-long infrastructure chore inside a review.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T243 at close.",
+      "standing": false,
       "source": null
     }
   ],
