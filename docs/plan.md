@@ -24,11 +24,10 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - The repository on a node (P2-N055) [specified]
-- Service change verified before it is deployed (P2-N063) [identified]
 
 ## In flight
 
-None.
+- Service change verified before it is deployed (P2-N063) [identified] — T243
 
 ## In progress, children carry the work
 
