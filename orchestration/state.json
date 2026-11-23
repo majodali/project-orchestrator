@@ -9368,8 +9368,8 @@
         "C: the real project list, with the reviewer calling reads and refusals only"
       ],
       "default": "A: a fixture repository, majodali/orchestrator-preview. It keeps the real plan and P2-N051's measurements out of reach and makes a write criterion verifiable before the merge. A repository new to the project is the owner's (RU-016).",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: a fixture repository, majodali/orchestrator-preview. It keeps the real plan and P2-N051's measurements out of reach and makes a write criterion verifiable before the merge. A repository new to the project is the owner's (RU-016).",
+      "decided": "2026-11-23",
       "rationale": "Asked by T243 at close.",
       "standing": false,
       "source": null
