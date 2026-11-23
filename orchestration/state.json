@@ -9124,8 +9124,8 @@
       "question": "Criterion 1 needs the GitHub App installed on majodali/methodology-tools and this deployment's MCP_PROJECTS set to include it, before this node can be verified against a real deployment. Proceed with that setup now, or hold verification until the pilot child (P2-N058) is further along?",
       "options": [],
       "default": "Proceed now: do O1 (install the App on majodali/methodology-tools) and O2 (set MCP_PROJECTS on the deployment) once this PR merges, per the specification's correction that both come before this child is verified, not before the pilot child.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Proceed now: do O1 (install the App on majodali/methodology-tools) and O2 (set MCP_PROJECTS on the deployment) once this PR merges, per the specification's correction that both come before this child is verified, not before the pilot child.",
+      "decided": "2026-11-23",
       "rationale": "Asked by T238 at close.",
       "standing": false,
       "source": null
