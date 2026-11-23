@@ -120,11 +120,11 @@ Checked against the text of all 125 decisions:
   is — a merge request, with a second question riding on the same
   decision. Not a misclassification, a decision with two questions
   under one id.
-- Eleven decisions mention "merge" or carry a `#<number>` without
-  beginning "Merge": D009, D082, D083, D106, D113, D115, D117 and
-  D142 (a `#<number>` that is a commit hash, a past merge, a branch
+- Ten decisions mention "merge" or carry a `#<number>` without
+  beginning "Merge": D009, D082, D083, D106, D113, D115, D117, D130
+  and D142 (a `#<number>` that is a commit hash, a past merge, a branch
   question, or a review question that names a pull request only in
-  passing), D072 (a pull request named `58`, not `#58`). All eight are
+  passing), D072 (a pull request named `58`, not `#58`). All ten are
   genuine judgement questions; the rule places every one correctly.
 
 Over 125 decisions, the rule places none wrongly.
@@ -155,8 +155,8 @@ The instrument's limits (task-loop.md, Cost capture), named here
 rather than assumed away:
 
 - A task closed before 2026-11-11 (D013) carries no measured cost at
-  all and is counted unmeasured, never as zero; 89 of 132 execute
-  tasks fall unmeasured (90 of 132), most of them from before that
+  all and is counted unmeasured, never as zero; 90 of 132 execute
+  tasks fall unmeasured, most of them from before that
   date.
 - A task opened in one session and closed in another is not measured
   by the transcript hook, and is likewise counted unmeasured.
