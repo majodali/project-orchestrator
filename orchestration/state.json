@@ -1994,7 +1994,7 @@
       "kind": "work",
       "title": "The project on the endpoint path",
       "outcome": "One deployment serves two projects on their own endpoint paths, with the reader, writer, pull request client and commit checks keyed by repository and the installation resolved per repository, and a path outside its project list refused.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N026",
       "after": [],
       "hold": null,
@@ -2005,6 +2005,23 @@
       },
       "done": null,
       "note": "Child 1 of P2-N026, the slice that runs end to end. Criteria: docs/specs/p2-n026-several-projects.md, \"The children\", child 1, and this note. It builds designs 1 and 2 of docs/plans/p2-n026-several-projects.md as the specification's S1 and S2 settle them. Writes to majodali/project-orchestrator-service (standing scope, RU-016), where the owner merges and a merge deploys, so it starts on approval. Waits for nothing.\n\nThe owner's O1 and O2 come before this node is verified, not before the pilot child as the plan says: criterion 1 names majodali/methodology-tools, so the App must be installed there and the project list must be set on the deployment first.\n\nCriteria. (1) One deployment answers service_identity for two projects: /mcp/majodali/project-orchestrator and /mcp/majodali/methodology-tools each answer their own project, at the same service commit. (2) plan_read through each path answers that project's own orchestration/state.json at a commit of that repository. (3) A path naming a repository outside the list is refused, nothing is read, no token is minted, and the refusal names neither a token nor the other projects. (4) A deployment with no list, with a malformed or duplicated item, or with MCP_PROJECT and MCP_PROJECTS disagreeing, refuses every call naming what was required and what was found (RU-013); both DEFAULT_PROJECT constants, in src/githubAppConfig.ts and src/serviceInfo.ts, are gone. (5) /mcp with no project segment serves the list's first project. (6) The five getters of src/planRegister/defaultFetcher.ts are keyed by repository, the installation is resolved per repository through the App, and GITHUB_APP_INSTALLATION_ID is gone from the code, the template and the deploy script. (7) A call for a repository the App is not installed on fails naming that repository and the missing installation, and no other repository's call is affected. (8) The service's docs/runbook.md says how a project is added: the list parameter, the App installation, and the state file first, because check 3 of scripts/smoke-test.sh calls plan_read. (9) The owner merges the pull request, that merge deploys, and criteria 1 to 3 are recorded against the deployed commit.\n\nEvery child of P2-N026 is verified against the specification's C-a, C-b and C-c as well as its own list: no code in src/ branches on a project name (D067) and a literal left there is named with the reason it stays; the write allowlist in src/model/store.ts is unchanged at five paths; no model inference runs in the service and no token appears in git, in a log or in a refusal message."
+    },
+    {
+      "id": "P2-N062",
+      "kind": "check",
+      "title": "Verification of The project on the endpoint path",
+      "outcome": "P2-N054 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N054",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N055",
@@ -7300,7 +7317,7 @@
       "id": "T238",
       "node": "P2-N054",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -7308,11 +7325,11 @@
         "out": null
       },
       "opened": "2026-11-23T01:39:00Z",
-      "closed": null,
+      "closed": "2026-11-23T02:01:49Z",
       "base": "0762038a1179c347ed7f6c1c5ea1eb4aecf0d439",
-      "ref": null,
-      "pr": null,
-      "summary": "Add project path routing to the Lambda/local deployment so one instance serves two projects (project-orchestrator and methodology-tools) on their own /mcp/<owner>/<repo> paths, keying the reader/writer/PR client/commit checks by repository and resolving the installation per repository.",
+      "ref": "b0e5794c95c3d4bd3cf2551afa44e877420095f8",
+      "pr": "majodali/project-orchestrator-service#55",
+      "summary": "Built designs 1 and 2 (S1/S2): /mcp/&lt;owner&gt;/&lt;repo&gt; resolves the project before any tool runs against MCP_PROJECTS (MCP_PROJECT as a list of one); bare /mcp serves the first. Credentials keyed per repository in defaultFetcher.ts, installation resolved through the App. Updated template.yaml, deploy.sh, deploy.yml, runbook.md.",
       "notes": null
     }
   ],
@@ -9095,6 +9112,18 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T237 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D145",
+      "node": "P2-N054",
+      "question": "Criterion 1 needs the GitHub App installed on majodali/methodology-tools and this deployment's MCP_PROJECTS set to include it, before this node can be verified against a real deployment. Proceed with that setup now, or hold verification until the pilot child (P2-N058) is further along?",
+      "options": [],
+      "default": "Proceed now: do O1 (install the App on majodali/methodology-tools) and O2 (set MCP_PROJECTS on the deployment) once this PR merges, per the specification's correction that both come before this child is verified, not before the pilot child.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T238 at close.",
       "standing": false,
       "source": null
     }

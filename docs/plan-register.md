@@ -94,7 +94,7 @@ Dependencies are in the state file, not in sibling order.
   - P2-N006 [identified] Pilot on methodology-tools: sessions on the task loop
   - P2-N025 [identified] Faster writes, a bounded journal and a deploy write test
   - P2-N026 [broken-down] Several projects and repositories in one instance — plan: plans/p2-n026-several-projects.md · spec: specs/p2-n026-several-projects.md
-    - P2-N054 [executing] The project on the endpoint path
+    - P2-N054 [verifying] The project on the endpoint path
     - P2-N055 [specified] The repository on a node
     - P2-N056 [specified] The node's repository in this project
     - P2-N057 [specified] The view over several projects
