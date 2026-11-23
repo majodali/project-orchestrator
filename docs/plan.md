@@ -10,7 +10,6 @@ its stage and its outcome. The state file holds the rest.
 
 Open decisions:
 
-- D142 on Four lists ahead of the tree (P2-N038): Section 1 of docs/plans/view-that-leads-and-updates.md also says the commit header shrinks to one line still carrying the full SHA. No criterion 7-11 carries it, and PR #54 leaves the header at three lines. Where should that be done? Default: add it to P2-N040 (Feedback in place and the node panel), the remaining child that edits the tree page
 - D143 on Rework cost measured against the reviews it replaces (P2-N029): The committed reading excludes a still-open decision (here, D142, raised after the plan was written when its own sample read "all closed") from the default share and the wait totals, rather than counting it as unmeasured or as "didn't match." Keep that reading, or change it? Default: Keep it: an unanswered decision is not yet a review that changed anything or didn't, so it belongs in neither bucket
 
 Gated nodes:
@@ -460,7 +459,7 @@ Documents: [plan](plans/orchestration-service.md).
     Note: Slice A of docs/plans/view-that-leads-and-updates.md: section 3, criteria 1 to 4 and 6. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. Links no plan document because it edits none here.
   - **Four lists ahead of the tree** (P2-N038, done 2026-11-23)
     The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.
-    after P2-N032 · 1 open decision
+    after P2-N032
     Note: Slice B of docs/plans/view-that-leads-and-updates.md: sections 1 and 2, criteria 7 to 11. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside P2-N037; both edit src/view/html.ts and test/viewPages.test.ts, in different places. Links no plan document because it edits none here.
   - **Session, duration and criteria on pages** (P2-N039, specified)
     A task records the session that opened it, and the view shows each task's session and duration, each node's criteria from its documents, and the other nodes that link the same documents.
@@ -613,3 +612,4 @@ Documents: [plan](plans/orchestration-service.md).
 - D139 on P2-N037 (2026-11-22): Criterion 6 of P2-N037 reads "A browser test with scripts disabled shows every page renders and every form still commits". src/view/preview/selfUpdateCheck.ts checks the tree page (/view) and the project decision's form only; the node page, the task page and the node action forms are never loaded with scripts disabled. D131's wording, which you accepted, described this check as "the page renders and a form still commits with scripts disabled", so I read criterion 6 as met at that scope. Does the narrower check satisfy criterion 6, or should a later slice extend it? Chosen: No: extend the scripts-disabled check to the node page, the task page and the node action forms, in the slice that carries criteria 16 and 17
 - D140 on P2-N026 (2026-11-22): Does the pilot, majodali/methodology-tools, join this one deployment instead of taking its own instance? Chosen: A: it joins this deployment as its second project; P4-N046 is removed and P4-N047 is re-pointed at a project path here. Neither has started, both hold your approval, methodology-tools carries its state file already (P4-N045, done), and A needs no second stack, no widened deploy role and no second smoke-test path. B strikes child 4 and renames the second project in criteria 1 and 2.
 - D141 on P2-N026 (2026-11-22): Does P2-N048, the fire in the service, wait on the child that puts the repository on a node? Chosen: A: yes, P2-N048 waits on that child. Its own note says what it needs - task_next answering a session only the steps of the repository it was fired for - and firing before that repeats the two misclaims the trial by hand recorded (T216, T219; D129).
+- D142 on P2-N038 (2026-11-23): Section 1 of docs/plans/view-that-leads-and-updates.md also says the commit header shrinks to one line still carrying the full SHA. No criterion 7-11 carries it, and PR #54 leaves the header at three lines. Where should that be done? Chosen: add it to P2-N040 (Feedback in place and the node panel), the remaining child that edits the tree page

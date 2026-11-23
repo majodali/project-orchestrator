@@ -9021,8 +9021,8 @@
         "drop it: the header stays as it is"
       ],
       "default": "add it to P2-N040 (Feedback in place and the node panel), the remaining child that edits the tree page",
-      "chosen": null,
-      "decided": null,
+      "chosen": "add it to P2-N040 (Feedback in place and the node panel), the remaining child that edits the tree page",
+      "decided": "2026-11-23",
       "rationale": "Asked by T235 at close.",
       "standing": false,
       "source": null
