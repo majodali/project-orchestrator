@@ -2028,7 +2028,7 @@
       "kind": "work",
       "title": "The repository on a node",
       "outcome": "A node carries the repository its work is claimed from, and task_next answers only that repository's candidates while task_open refuses a claim naming another, so neither misclaim of the trial by hand can repeat.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N026",
       "after": [
         "P2-N054"
@@ -7460,6 +7460,25 @@
       "ref": null,
       "pr": "majodali/project-orchestrator#98",
       "summary": "Planned in a new file: route coverage proved in the pull-request checks; a preview deployment of an unmerged pull request on its own stack, gateway included, same-repository only, torn down daily; the service dispatches it and answers its endpoint at task_open (D148). Twenty criteria, four children, four decisions.",
+      "notes": null
+    },
+    {
+      "id": "T244",
+      "node": "P2-N055",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-23T17:54:10Z",
+      "closed": null,
+      "base": "0846e6b8bf5957282e7f005b1baac16b067a9402",
+      "ref": null,
+      "pr": null,
+      "summary": "Add optional repository field to node schema so task_next/task_open resolve and scope by repository, per P2-N055 criteria.",
       "notes": null
     }
   ],
