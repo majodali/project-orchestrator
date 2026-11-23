@@ -7520,6 +7520,25 @@
       "pr": "majodali/project-orchestrator-service#57",
       "summary": "nodeSchema gains repository (null = coordinating repo). task_next/task_open filter and refuse by it; task_close defaults a branch's repo to it (F4). Renderings and the view print it. SERVER_INSTRUCTIONS updated.",
       "notes": null
+    },
+    {
+      "id": "T245",
+      "node": "P2-N064",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-23T19:16:30Z",
+      "closed": null,
+      "base": "739dd3dc0eb3c90ca0b2dd376ecc928c4feb0181",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N055, \"The repository on a node\", against its outcome and criteria: every pull request at its head, every criterion checked directly, the service-owned files untouched, the branch new and named for its task, and the pull request's checks green.",
+      "notes": null
     }
   ],
   "decisions": [
