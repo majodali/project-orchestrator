@@ -113,7 +113,7 @@ Dependencies are in the state file, not in sibling order.
       - P2-N050 [specified] The old orchestrator parts retired
   - P2-N028 [broken-down] View that updates itself and leads with what matters — plan: plans/view-that-leads-and-updates.md
     - P2-N037 [done] Tree page that updates itself
-    - P2-N038 [verifying] Four lists ahead of the tree
+    - P2-N038 [done] Four lists ahead of the tree
     - P2-N039 [specified] Session, duration and criteria on pages
     - P2-N040 [specified] Feedback in place and the node panel
     - P2-N041 [specified] View trial with its measured delay

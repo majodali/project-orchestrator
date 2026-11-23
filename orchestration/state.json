@@ -2450,7 +2450,7 @@
       "kind": "work",
       "title": "Four lists ahead of the tree",
       "outcome": "The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N028",
       "after": [
         "P2-N032"
@@ -2461,7 +2461,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-23",
       "note": "Slice B of docs/plans/view-that-leads-and-updates.md: sections 1 and 2, criteria 7 to 11. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside P2-N037; both edit src/view/html.ts and test/viewPages.test.ts, in different places. Links no plan document because it edits none here."
     },
     {
@@ -2469,7 +2469,7 @@
       "kind": "check",
       "title": "Verification of Four lists ahead of the tree",
       "outcome": "P2-N038 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N038",
       "after": [],
       "hold": null,
@@ -2478,7 +2478,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-23",
       "note": null
     },
     {
@@ -7217,7 +7217,7 @@
       "id": "T235",
       "node": "P2-N060",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -7225,11 +7225,11 @@
         "out": null
       },
       "opened": "2026-11-23T00:27:18Z",
-      "closed": null,
+      "closed": "2026-11-23T00:32:29Z",
       "base": "40deda182f28a6efa88bbffc9865eef61c9b97cd",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N038 \"Four lists ahead of the tree\" against its outcome and criteria: check the service repository's pull requests at head, every criterion, checks, branch naming and scope.",
+      "summary": "Verified P2-N038 at majodali/project-orchestrator-service#54 (f4a9f25). Criteria 7-11 all met: four sections in order with empty lines, Needs you matching stateReports, decision form closing from /view, review row with checks or unavailable, action sentences. All four PR checks pass; suite, lint, build and format rerun clean. Branch and scope correct.",
       "notes": null
     },
     {
@@ -8985,6 +8985,22 @@
       "chosen": "A: yes, P2-N048 waits on that child. Its own note says what it needs - task_next answering a session only the steps of the repository it was fired for - and firing before that repeats the two misclaims the trial by hand recorded (T216, T219; D129).",
       "decided": "2026-11-22",
       "rationale": "Asked by T228 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D142",
+      "node": "P2-N038",
+      "question": "Section 1 of docs/plans/view-that-leads-and-updates.md also says the commit header shrinks to one line still carrying the full SHA. No criterion 7-11 carries it, and PR #54 leaves the header at three lines. Where should that be done?",
+      "options": [
+        "add it to P2-N040 (Feedback in place and the node panel), the remaining child that edits the tree page",
+        "open a new child of P2-N028 for it",
+        "drop it: the header stays as it is"
+      ],
+      "default": "add it to P2-N040 (Feedback in place and the node panel), the remaining child that edits the tree page",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T235 at close.",
       "standing": false,
       "source": null
     }

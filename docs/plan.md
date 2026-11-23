@@ -8,9 +8,15 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
+Open decisions:
+
+- D142 on Four lists ahead of the tree (P2-N038): Section 1 of docs/plans/view-that-leads-and-updates.md also says the commit header shrinks to one line still carrying the full SHA. No criterion 7-11 carries it, and PR #54 leaves the header at three lines. Where should that be done? Default: add it to P2-N040 (Feedback in place and the node panel), the remaining child that edits the tree page
+
 Gated nodes:
 
 - methodology-tools' Binding block at the pinned methodology version (P4-N059): start needs the owner's approval
+- Session, duration and criteria on pages (P2-N039): start needs the owner's approval
+- Feedback in place and the node panel (P2-N040): start needs the owner's approval
 - Scratch project that compares review regimes (P2-N051): Held by the owner, 2026-11-21, until the discussion of what the test includes is settled: outcomes in place of planned deliverables, larger leaf nodes, and one review for several nodes
 
 ## Ready, starting automatically when the loop runs
@@ -19,7 +25,6 @@ Gated nodes:
 
 ## In flight
 
-- Verification of Four lists ahead of the tree (P2-N060) [specified] — T235
 - Rework cost measured against the reviews it replaces (P2-N029) [executing] — T236
 
 ## In progress, children carry the work
@@ -32,7 +37,6 @@ Gated nodes:
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - Tasks started by the service through scheduled tasks (P2-N046) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
-- Four lists ahead of the tree (P2-N038) [verifying]
 
 ## Waiting on a dependency
 
@@ -48,8 +52,6 @@ Gated nodes:
 - The fire in the service (P2-N048) [specified] — after The repository on a node (P2-N055)
 - The owner's setup recorded (P2-N049) [specified] — after The fire in the service (P2-N048)
 - The old orchestrator parts retired (P2-N050) [specified] — after Orchestrator trial with its measured cost (P2-N033)
-- Session, duration and criteria on pages (P2-N039) [specified] — after Four lists ahead of the tree (P2-N038)
-- Feedback in place and the node panel (P2-N040) [specified] — after Four lists ahead of the tree (P2-N038)
 - View trial with its measured delay (P2-N041) [specified] — after Session, duration and criteria on pages (P2-N039), Feedback in place and the node panel (P2-N040)
 - Session field adopted in this repository (P2-N042) [specified] — after Session, duration and criteria on pages (P2-N039)
 
@@ -454,19 +456,17 @@ Documents: [plan](plans/orchestration-service.md).
     An open view page shows a plan change within 30 seconds without a reload, through one first-party script and a version route, and never replaces a form that holds typed text.
     after P2-N032
     Note: Slice A of docs/plans/view-that-leads-and-updates.md: section 3, criteria 1 to 4 and 6. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. Links no plan document because it edits none here.
-  - **Four lists ahead of the tree** (P2-N038, verifying)
+  - **Four lists ahead of the tree** (P2-N038, done 2026-11-23)
     The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.
-    after P2-N032
+    after P2-N032 · 1 open decision
     Note: Slice B of docs/plans/view-that-leads-and-updates.md: sections 1 and 2, criteria 7 to 11. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside P2-N037; both edit src/view/html.ts and test/viewPages.test.ts, in different places. Links no plan document because it edits none here.
-    - check: **Verification of Four lists ahead of the tree** (P2-N060, specified)
-      P2-N038 is verified against its outcome.
   - **Session, duration and criteria on pages** (P2-N039, specified)
     A task records the session that opened it, and the view shows each task's session and duration, each node's criteria from its documents, and the other nodes that link the same documents.
     after P2-N038
     Note: Slice C of docs/plans/view-that-leads-and-updates.md: sections 6 and 7, criteria 12 to 15 and 18. Waits for P2-N038, whose "Running" row shows the session. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside the panel slice: it edits the schema, nodePage.ts and taskPage.ts. Links no plan document because it edits none here.
   - **Feedback in place and the node panel** (P2-N040, specified)
     A submitted form shows its result on the page without a reload, the tab's title counts what needs the owner, and on a wide window a node opens in a panel beside the tree.
-    after P2-N038
+    after P2-N037, P2-N038
     Note: Slice D of docs/plans/view-that-leads-and-updates.md: sections 4 and 5, criteria 5, 16 and 17. Waits for P2-N037, whose script it extends, and P2-N038, whose rows it counts and opens. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside the session slice: it edits the script and src/view/html.ts. Links no plan document because it edits none here.
   - **View trial with its measured delay** (P2-N041, specified)
     A record in the service's runbook gives, for five plan changes on the deployed view, the time from commit to shown, and the number of GitHub reads one open tab causes in an hour.

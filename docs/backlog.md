@@ -83,6 +83,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Orchestrator fixes before its trial** (P2-N036) — When: 2026-11-18. Status: done. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [x] **Fired-session trial by hand** (P2-N047) — When: 2026-11-22. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Tree page that updates itself** (P2-N037) — When: 2026-11-22. Status: done. Pointer: `orchestration/state.json`.
+- [x] **Four lists ahead of the tree** (P2-N038) — When: 2026-11-23. Status: done. Pointer: `orchestration/state.json`.
 
 ## Upcoming
 
@@ -120,9 +121,8 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **The owner's setup recorded** (P2-N049) — When: after P2-N048. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **The old orchestrator parts retired** (P2-N050) — When: after P2-N033. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/view-that-leads-and-updates.md).
-- [ ] **Four lists ahead of the tree** (P2-N038) — When: not dated. Status: verifying, in progress, its children carry the work. Pointer: `orchestration/state.json`.
-- [ ] **Session, duration and criteria on pages** (P2-N039) — When: after P2-N038. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
-- [ ] **Feedback in place and the node panel** (P2-N040) — When: after P2-N038. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
+- [ ] **Session, duration and criteria on pages** (P2-N039) — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
+- [ ] **Feedback in place and the node panel** (P2-N040) — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
 - [ ] **View trial with its measured delay** (P2-N041) — When: after P2-N039, P2-N040. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Session field adopted in this repository** (P2-N042) — When: after P2-N039. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Rework cost measured against the reviews it replaces** (P2-N029) — When: not dated. Status: executing, in flight. Pointer: [plan](plans/p2-n029-rework-cost.md).
