@@ -9161,8 +9161,8 @@
         "B: merge #55 first, as D145 reads, let that deploy run fail closed at the MCP_PROJECTS guard, then set the variable and re-run the Deploy workflow"
       ],
       "default": "A: the variable and the App installation first, then the merge. B spends a red deploy run and deploys nothing; A matches the order the service's own runbook now gives under \"Adding a project\" (the state file, the App, then the list). Keep majodali/project-orchestrator first in the list: the bare /mcp path and the view both serve the first entry, and every repository enlisted today names the bare path.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: the variable and the App installation first, then the merge. B spends a red deploy run and deploys nothing; A matches the order the service's own runbook now gives under \"Adding a project\" (the state file, the App, then the list). Keep majodali/project-orchestrator first in the list: the bare /mcp path and the view both serve the first entry, and every repository enlisted today names the bare path.",
+      "decided": "2026-11-23",
       "rationale": "Asked by T239 at close.",
       "standing": false,
       "source": null
