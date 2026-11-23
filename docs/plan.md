@@ -11,6 +11,7 @@ its stage and its outcome. The state file holds the rest.
 Open decisions:
 
 - D147 on The project on the endpoint path (P2-N054): The service's README.md environment-variable table is stale after criterion 6: it still lists GITHUB_APP_INSTALLATION_ID as "yes, for plan_read", still says MCP_PROJECT "Defaults to majodali/project-orchestrator" (both DEFAULT_PROJECT constants are gone), has no MCP_PROJECTS row although a deployment with no list refuses every call, and still says "none of the three GITHUB_APP_* variables" where there are now two. docs/runbook.md is correct; criterion 6 names only the code, the template and the deploy script, so this does not fail the node. Where should the README fix land? Default: A: a Backlog row picked up by P2-N055. It is three table rows and one sentence, in a file that child 2 already touches, and it needs no node of its own.
+- D148: Where does work go that proves hard to automate in the current system? Default: into the service: what is hard to automate is built into the orchestration service
 
 Gated nodes:
 
