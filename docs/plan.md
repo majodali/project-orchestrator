@@ -20,7 +20,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Verification of Four lists ahead of the tree (P2-N060) [specified] — T235
 
 ## In progress, children carry the work
 
@@ -458,6 +458,8 @@ Documents: [plan](plans/orchestration-service.md).
     The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.
     after P2-N032
     Note: Slice B of docs/plans/view-that-leads-and-updates.md: sections 1 and 2, criteria 7 to 11. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside P2-N037; both edit src/view/html.ts and test/viewPages.test.ts, in different places. Links no plan document because it edits none here.
+    - check: **Verification of Four lists ahead of the tree** (P2-N060, specified)
+      P2-N038 is verified against its outcome.
   - **Session, duration and criteria on pages** (P2-N039, specified)
     A task records the session that opened it, and the view shows each task's session and duration, each node's criteria from its documents, and the other nodes that link the same documents.
     after P2-N038
