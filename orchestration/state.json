@@ -7400,6 +7400,25 @@
       "pr": "majodali/project-orchestrator-service#56",
       "summary": "Added McpProjectRoute (ANY /mcp/{owner}/{repo}) to template.yaml, on the existing McpIntegration/LiveAlias, fixing the 404 T240 found. Criteria 3-8 already met; 1, 2 and 9 need the owner's merge and the redeploy it triggers. Build, 326 tests, lint, format and SAM validate --lint all pass on PR #56.",
       "notes": null
+    },
+    {
+      "id": "T242",
+      "node": "P2-N062",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-23T15:20:45Z",
+      "closed": null,
+      "base": "e8af132324f3b5f74977d68f976e7051c7638abc",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N054, the project on the endpoint path, against its criteria at the deployed commit, now that D146 chose the variable and App installation before the merge.",
+      "notes": null
     }
   ],
   "decisions": [
