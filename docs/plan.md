@@ -8,6 +8,10 @@ its stage and its outcome. The state file holds the rest.
 
 ## Waiting on the owner
 
+Open decisions:
+
+- D154 on Verification of The repository on a node (P2-N064): P2-N055's criterion 8 is "The owner merges the pull request and that merge deploys". majodali/project-orchestrator-service#57 is open, mergeable_state clean, its four checks (Build, Test, Lint, SAM validate --lint) are green at head a82e0c6, and criteria 1 to 7 are met there. Unlike P2-N054 (D146), no deployment setting has to be changed first: every criterion of this child is code-level. Merge #57 so the push-to-main Deploy workflow runs, after which this check node offers verify again and criterion 8 is recorded against the deployed commit? Default: A: merge #57 now. Criteria 1 to 7 are verified at a82e0c6, the pull request needs no deployment variable set first, and P2-N065, P2-N056 and P2-N048 all wait on this child. B is for a reason outside the node.
+
 Gated nodes:
 
 - methodology-tools' Binding block at the pinned methodology version (P4-N059): start needs the owner's approval
@@ -23,7 +27,7 @@ Gated nodes:
 
 ## In flight
 
-- Verification of The repository on a node (P2-N064) [specified] — T245
+None.
 
 ## In progress, children carry the work
 
@@ -386,8 +390,6 @@ Documents: [plan](plans/orchestration-service.md).
     A node carries the repository its work is claimed from, and task_next answers only that repository's candidates while task_open refuses a claim naming another, so neither misclaim of the trial by hand can repeat.
     after P2-N054
     Note: Child 2 of P2-N026. Criteria: docs/specs/p2-n026-several-projects.md, "The children", child 2, and this note. It builds design 3 of docs/plans/p2-n026-several-projects.md as the specification's S3 and S4 settle it, in the service only; the pin and the settings file follow in child 3. Writes to majodali/project-orchestrator-service (standing scope, RU-016), where the owner merges and a merge deploys, so it starts on approval. After P2-N054. This is the child P2-N048 waits on, by the owner's D141 answer A. Criteria. (1) nodeSchema carries repository, owner/name or null for the project's coordinating repository, defaulting to null, and SCHEMA_VERSION stays 0. (2) A state file validates and renders both with the field absent and with it set, and plan-state check passes over both. (3) task_next with a repository answers only candidates resolving to it, and every candidate without one, with tests over the trial's two cases: a first-in-line step in the asking repository, and one in another repository passed over (T216, T219; D129). (4) task_open refuses a node whose resolved repository is not the one the claim names, saying which repository it belongs to. (5) task_close defaults a branch's repository to the node's repository, and to state.project only when it is null; today it defaults to state.project (src/stateTools.ts:828). (6) The renderings of docs/plan.md and docs/backlog.md, and the view's node page, print a node's repository when it is not the coordinating one and nothing when it is. (7) SERVER_INSTRUCTIONS says a session passes its repository and task_next answers only that repository's steps. (8) The owner merges the pull request and that merge deploys. The schema version stays 0 because the field is additive and zod strips what it does not declare, so a plan-state pinned before this change reads a file carrying the field and renders without it. Hence the order: this child merges and deploys, then child 3 moves the pin, and only then may a write set the field. The specification's C-a, C-b and C-c bind this child as well as its own list.
-    - check: **Verification of The repository on a node** (P2-N064, specified)
-      P2-N055 is verified against its outcome.
   - **The view over several projects** (P2-N057, specified)
     The view's first page indexes the deployment's projects with their counts, each project's tree, node, task and form pages serve it under its own path, and the old paths redirect.
     after P2-N054
