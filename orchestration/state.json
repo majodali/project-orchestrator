@@ -2589,10 +2589,7 @@
       "parent": "P2-N048",
       "repository": null,
       "after": [],
-      "hold": {
-        "kind": "blocked",
-        "reason": "T250: Blocked. Design 1: the view's own writes — a decision answered, a start approved, a review accepted (src/view/routes.ts) — run no fire check, so the owner's unblocking fires nothing. Design 2: a no-task-configured report opens a decision, which gates the node for every session. Design 4: no daily cap. Build, lint, format, 376 tests pass."
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": null,
@@ -7909,7 +7906,7 @@
       "id": "T253",
       "node": "P2-N048",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -7917,11 +7914,11 @@
         "out": null
       },
       "opened": "2026-11-24T20:26:37Z",
-      "closed": null,
+      "closed": "2026-11-24T20:40:23Z",
       "base": "9df20380ba3864a0b3300ccea05a2a872287c020",
-      "ref": null,
-      "pr": null,
-      "summary": "Rework of P2-N048 (the fire in the service) after T250's failed verification: add the fire check to the view's own writes, drop the unconditional decision_open on no-task-configured, and add the daily fire cap.",
+      "ref": "5db9acf37cca5c2417fc63efe41083ac20ebf411",
+      "pr": "majodali/project-orchestrator-service#59",
+      "summary": "Rework of T250's three findings: the view's own writes (routes.ts) now run the fire check; no-task-configured is logged, not a gating decision (too-many-attempts still opens one); added the daily cap (design 4). Build/lint/format/386 tests green; CI green on PR #59.",
       "notes": null
     }
   ],
