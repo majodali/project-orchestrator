@@ -7923,6 +7923,25 @@
       "pr": "majodali/project-orchestrator-service#59",
       "summary": "Rework of T250's three findings: the view's own writes (routes.ts) now run the fire check; no-task-configured is logged, not a gating decision (too-many-attempts still opens one); added the daily cap (design 4). Build/lint/format/386 tests green; CI green on PR #59.",
       "notes": null
+    },
+    {
+      "id": "T254",
+      "node": "P2-N068",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-24T21:13:19Z",
+      "closed": null,
+      "base": "0954ba5847c68e9de14722ef1a3ca502f6ab0638",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N056, The node's repository in this project, against its outcome and criteria.",
+      "notes": null
     }
   ],
   "decisions": [
