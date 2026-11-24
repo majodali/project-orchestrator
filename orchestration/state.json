@@ -9918,8 +9918,8 @@
         "C: a second AWS account for previews (D151's option B), already declined on cost."
       ],
       "default": "A: a GitHub Environment named preview, and the preview role trusts the environment subject, which the production deploy role does not accept. It closes the hole for one Environment and one trust-policy line.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: a GitHub Environment named preview, and the preview role trusts the environment subject, which the production deploy role does not accept. It closes the hole for one Environment and one trust-policy line.",
+      "decided": "2026-11-24",
       "rationale": "Asked by T252 at close.",
       "standing": false,
       "source": null
