@@ -2686,7 +2686,7 @@
       "outcome": "The view opens with what needs the owner, what is ready, what is running and what just finished, each decision answerable in its row, and every action button says what its click changes.",
       "stage": "done",
       "parent": "P2-N028",
-      "repository": null,
+      "repository": "majodali/project-orchestrator-service",
       "after": [
         "P2-N032"
       ],

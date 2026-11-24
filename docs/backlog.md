@@ -86,7 +86,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Orchestrator fixes before its trial** (P2-N036) — When: 2026-11-18. Status: done. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [x] **Fired-session trial by hand** (P2-N047) — When: 2026-11-22. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Tree page that updates itself** (P2-N037) [majodali/project-orchestrator-service] — When: 2026-11-22. Status: done. Pointer: `orchestration/state.json`.
-- [x] **Four lists ahead of the tree** (P2-N038) — When: 2026-11-23. Status: done. Pointer: `orchestration/state.json`.
+- [x] **Four lists ahead of the tree** (P2-N038) [majodali/project-orchestrator-service] — When: 2026-11-23. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Rework cost measured against the reviews it replaces** (P2-N029) — When: 2026-11-23. Status: done. Pointer: [plan](plans/p2-n029-rework-cost.md).
 
 ## Upcoming
