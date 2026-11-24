@@ -61,10 +61,6 @@ export interface Settings {
   maxReworkRounds: number;
   checkAfterMinutes: number;
   weeklyBudget: number | null;
-  /** Every repository a session may be started in. An entry's `nodes`
-   * are started there; every other node is started in the state
-   * file's project, which must be listed too (S4). */
-  repositories: { repository: string; nodes: string[] }[];
 }
 
 /** One line of the journal, as far as the script reads it. */
@@ -219,9 +215,6 @@ export function parseJournal(text: string | null): Read<JournalLine[]> {
   return { ok: true, value: out };
 }
 
-const REPOSITORY = /^[\w.-]+\/[\w.-]+$/;
-const NODE_ID = /^P\d+-N\d+$/;
-
 function wholeAtLeast(v: unknown, min: number): v is number {
   return typeof v === "number" && Number.isInteger(v) && v >= min;
 }
@@ -244,7 +237,6 @@ export function parseSettings(text: string | null): Read<Settings> {
     "maxReworkRounds",
     "checkAfterMinutes",
     "weeklyBudget",
-    "repositories",
   ]);
   if (extra.length > 0) return bad(`unknown field ${extra.join(", ")}`);
   const limits = v.limits;
@@ -262,33 +254,6 @@ export function parseSettings(text: string | null): Read<Settings> {
   const budget = v.weeklyBudget;
   if (budget !== null && !(typeof budget === "number" && budget >= 0))
     return bad("`weeklyBudget` is neither null nor a number, 0 or more");
-  if (!Array.isArray(v.repositories)) return bad("`repositories` is no list");
-  const repositories: Settings["repositories"] = [];
-  const seenRepos = new Set<string>();
-  const seenNodes = new Set<string>();
-  for (const r of v.repositories as unknown[]) {
-    if (!isRecord(r)) return bad("an entry of `repositories` is no object");
-    if (unknownKeys(r, ["repository", "nodes"]).length > 0)
-      return bad(
-        "an entry of `repositories` has a field other than `repository` and `nodes`",
-      );
-    if (typeof r.repository !== "string" || !REPOSITORY.test(r.repository))
-      return bad("a `repository` is not of the form owner/name");
-    if (seenRepos.has(r.repository))
-      return bad(`${r.repository} is listed twice`);
-    seenRepos.add(r.repository);
-    if (!Array.isArray(r.nodes))
-      return bad(`\`nodes\` of ${r.repository} is no list`);
-    const nodes: string[] = [];
-    for (const n of r.nodes as unknown[]) {
-      if (typeof n !== "string" || !NODE_ID.test(n))
-        return bad(`a node of ${r.repository} is no node identifier`);
-      if (seenNodes.has(n)) return bad(`${n} is listed twice`);
-      seenNodes.add(n);
-      nodes.push(n);
-    }
-    repositories.push({ repository: r.repository, nodes });
-  }
   return {
     ok: true,
     value: {
@@ -296,7 +261,6 @@ export function parseSettings(text: string | null): Read<Settings> {
       maxReworkRounds: v.maxReworkRounds,
       checkAfterMinutes: v.checkAfterMinutes,
       weeklyBudget: budget,
-      repositories,
     },
   };
 }
@@ -596,15 +560,6 @@ export function decide(inputs: Inputs): { actions: Action[] } {
     const r = inputs[k];
     if (!r.ok) unreadable.push(r.why);
   }
-  if (inputs.state.ok && inputs.settings.ok) {
-    const project = inputs.state.value.project;
-    if (
-      !inputs.settings.value.repositories.some((r) => r.repository === project)
-    )
-      unreadable.push(
-        `the settings file does not list ${project}, the state file's project, under \`repositories\``,
-      );
-  }
   if (unreadable.length > 0) {
     reports.push(
       report(
@@ -830,19 +785,7 @@ export function decide(inputs: Inputs): { actions: Action[] } {
   }
   for (const [id, step] of pending) occupy(byId.get(id)!, step);
 
-  const repositoryOf = (node: Node): string | null => {
-    const listed = (id: string) =>
-      settings.repositories.find((r) => r.nodes.includes(id))?.repository;
-    const named =
-      listed(node.id) ??
-      (node.kind === "check" && node.parent !== null
-        ? listed(node.parent)
-        : undefined);
-    const repository = named ?? state.project;
-    return settings.repositories.some((r) => r.repository === repository)
-      ? repository
-      : null;
-  };
+  const repositoryOf = (node: Node): string => node.repository ?? state.project;
 
   // The walk (S4): the service's candidates, in the service's order.
   for (const c of candidates(state)) {
@@ -942,7 +885,7 @@ export function decide(inputs: Inputs): { actions: Action[] } {
 
     const repository = repositoryOf(node);
     const model = models[role];
-    if (repository === null || model === undefined) continue;
+    if (model === undefined) continue;
     const family = new Set([
       node.id,
       ...(children.get(node.id) ?? [])

@@ -33,6 +33,7 @@ function node(id: string, kind: "work" | "check", parent: string | null): Node {
     outcome: "an outcome",
     stage: "executing",
     parent,
+    repository: null,
     after: [],
     hold: null,
     start: "auto",
