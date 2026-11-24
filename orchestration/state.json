@@ -9660,8 +9660,8 @@
         "B: strike it under a new node: the importer takes the repository of a pull-request reference as an input instead"
       ],
       "default": "A: record it as a named exception. It predates every child of P2-N026, is confined to the one-off Backlog importer, and no criterion of P2-N055 or P2-N054 was verified against it. B is the answer if an import is ever run for a project whose work lands in another repository.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: record it as a named exception. It predates every child of P2-N026, is confined to the one-off Backlog importer, and no criterion of P2-N055 or P2-N054 was verified against it. B is the answer if an import is ever run for a project whose work lands in another repository.",
+      "decided": "2026-11-24",
       "rationale": "Asked by T246 at close.",
       "standing": false,
       "source": null
