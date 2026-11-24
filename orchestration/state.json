@@ -2279,7 +2279,7 @@
       "kind": "work",
       "title": "The node's repository in this project",
       "outcome": "This project's pinned plan-state carries the node's repository field, its state file sets it where work is in the service repository, and nothing reads the settings file's node lists any more.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N026",
       "repository": null,
       "after": [
@@ -7841,6 +7841,25 @@
       "ref": "ef4139b3f1e780ef76d50937a1aa18ac257741e8",
       "pr": "majodali/project-orchestrator-service#59",
       "summary": "Blocked. Design 1: the view's own writes — a decision answered, a start approved, a review accepted (src/view/routes.ts) — run no fire check, so the owner's unblocking fires nothing. Design 2: a no-task-configured report opens a decision, which gates the node for every session. Design 4: no daily cap. Build, lint, format, 376 tests pass.",
+      "notes": null
+    },
+    {
+      "id": "T251",
+      "node": "P2-N056",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-24T20:07:29Z",
+      "closed": null,
+      "base": "45e2742a7fe2fca385509f486cbf2c37cccfbab1",
+      "ref": null,
+      "pr": null,
+      "summary": "Add repository field to node model: package.json pin to child-2 commit, orchestrator.json drops per-repo node lists, repositoryOf reads node.repository with state.project fallback, state-model.md documents the field, and the six retired-list nodes get repository set.",
       "notes": null
     }
   ],

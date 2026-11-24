@@ -100,7 +100,7 @@ Dependencies are in the state file, not in sibling order.
     - P2-N058 [specified] The pilot on this deployment
     - P2-N059 [specified] The bare endpoint path retired
     - P2-N065 [done] Repository set through node_update, and the README's settings corrected
-    - P2-N056 [specified] The node's repository in this project
+    - P2-N056 [executing] The node's repository in this project
   - P2-N027 [broken-down] Orchestrator session that keeps work moving — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N030 [done] Decision script and settings of the orchestrator — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
     - P2-N031 [done] Orchestrator role and its watcher — plan: plans/orchestrator-session.md · spec: specs/orchestrator-session.md
