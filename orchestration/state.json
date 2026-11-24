@@ -2223,7 +2223,7 @@
       "outcome": "No enlisted repository names the bare endpoint any more, the route that served the first project without a project segment is gone, and the smoke test calls a project path.",
       "stage": "specified",
       "parent": "P2-N026",
-      "repository": null,
+      "repository": "majodali/project-orchestrator-service",
       "after": [
         "P2-N058"
       ],
