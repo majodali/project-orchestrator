@@ -2143,7 +2143,7 @@
       "kind": "work",
       "title": "The repository on a node",
       "outcome": "A node carries the repository its work is claimed from, and task_next answers only that repository's candidates while task_open refuses a claim naming another, so neither misclaim of the trial by hand can repeat.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N026",
       "repository": null,
       "after": [
@@ -2155,7 +2155,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-24",
       "note": "Child 2 of P2-N026. Criteria: docs/specs/p2-n026-several-projects.md, \"The children\", child 2, and this note. It builds design 3 of docs/plans/p2-n026-several-projects.md as the specification's S3 and S4 settle it, in the service only; the pin and the settings file follow in child 3. Writes to majodali/project-orchestrator-service (standing scope, RU-016), where the owner merges and a merge deploys, so it starts on approval. After P2-N054.\n\nThis is the child P2-N048 waits on, by the owner's D141 answer A.\n\nCriteria. (1) nodeSchema carries repository, owner/name or null for the project's coordinating repository, defaulting to null, and SCHEMA_VERSION stays 0. (2) A state file validates and renders both with the field absent and with it set, and plan-state check passes over both. (3) task_next with a repository answers only candidates resolving to it, and every candidate without one, with tests over the trial's two cases: a first-in-line step in the asking repository, and one in another repository passed over (T216, T219; D129). (4) task_open refuses a node whose resolved repository is not the one the claim names, saying which repository it belongs to. (5) task_close defaults a branch's repository to the node's repository, and to state.project only when it is null; today it defaults to state.project (src/stateTools.ts:828). (6) The renderings of docs/plan.md and docs/backlog.md, and the view's node page, print a node's repository when it is not the coordinating one and nothing when it is. (7) SERVER_INSTRUCTIONS says a session passes its repository and task_next answers only that repository's steps. (8) The owner merges the pull request and that merge deploys.\n\nThe schema version stays 0 because the field is additive and zod strips what it does not declare, so a plan-state pinned before this change reads a file carrying the field and renders without it. Hence the order: this child merges and deploys, then child 3 moves the pin, and only then may a write set the field.\n\nThe specification's C-a, C-b and C-c bind this child as well as its own list."
     },
     {
@@ -2163,7 +2163,7 @@
       "kind": "check",
       "title": "Verification of The repository on a node",
       "outcome": "P2-N055 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N055",
       "repository": null,
       "after": [],
@@ -2173,7 +2173,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-24",
       "note": null
     },
     {
@@ -7698,7 +7698,7 @@
       "id": "T246",
       "node": "P2-N064",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -7706,11 +7706,11 @@
         "out": null
       },
       "opened": "2026-11-24T03:34:03Z",
-      "closed": null,
+      "closed": "2026-11-24T03:39:13Z",
       "base": "99fb88cc7444fde5f16255b9cfbeddcc2d16e888",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N055 against its eight criteria, resuming from T245 which recorded criteria 1 to 7 met at PR #57 head a82e0c6 and left criterion 8, the owner's merge and the deploy, to be recorded after D154.",
+      "summary": "P2-N055 verified at merged 139258c: all eight criteria met. Schema field on all 151 live nodes, task_next filtered live, task_open refusal and task_close default by test, both renderings and the node page, SERVER_INSTRUCTIONS live. plan-state check passes with the field absent and set. Build, 333 tests, lint, format pass. Owner merged; service_identity reports 139258c.",
       "notes": null
     }
   ],
@@ -9645,6 +9645,21 @@
       "chosen": "A: merge #57 now. Criteria 1 to 7 are verified at a82e0c6, the pull request needs no deployment variable set first, and P2-N065, P2-N056 and P2-N048 all wait on this child. B is for a reason outside the node.",
       "decided": "2026-11-24",
       "rationale": "Asked by T245 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D155",
+      "node": "P2-N055",
+      "question": "src/model/importState.ts:299-306 branches on a project name: /project-orchestrator-service/.test(text) chooses the literal \"majodali/project-orchestrator-service\". C-a of docs/specs/p2-n026-several-projects.md says no code in src/ branches on a project name (D067), and a literal left there is named in the pull request with the reason it stays (F1). The line predates this child (5885a7f, milestone 1), sits in the Backlog importer, and is outside PR #57's diff, so it did not change this verdict. Record it as a named exception, or strike it?",
+      "options": [
+        "A: record it as a named exception, on P2-N056 or a new node",
+        "B: strike it under a new node: the importer takes the repository of a pull-request reference as an input instead"
+      ],
+      "default": "A: record it as a named exception. It predates every child of P2-N026, is confined to the one-off Backlog importer, and no criterion of P2-N055 or P2-N054 was verified against it. B is the answer if an import is ever run for a project whose work lands in another repository.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T246 at close.",
       "standing": false,
       "source": null
     }
