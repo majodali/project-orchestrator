@@ -2241,7 +2241,7 @@
       "kind": "work",
       "title": "Repository set through node_update, and the README's settings corrected",
       "outcome": "`node_update` sets and clears a node's repository under a task or the owner's instruction, and the service's README lists the deployment's settings as they now are.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N026",
       "repository": null,
       "after": [
@@ -2255,6 +2255,24 @@
       },
       "done": null,
       "note": "Added at the owner's instruction, 2026-11-23 (\"D153 answered with default; add the follow-up node\"). It carries two loose ends of P2-N054 and P2-N055 that fit no open task. This node's plan needs no file (D137, standing): the criteria below are its plan and its specification. Its work is in majodali/project-orchestrator-service, one pull request there; no pin move belongs to it, since P2-N056 moves this project's pin. It waits for P2-N055 because both change src/stateTools.ts. P2-N056 waits for this node.\n\nWhy. D153 (raised by T244, answered with its default): `node_update` has no way to set a node's repository field; only `node_add` and the check node's creation set it, by inheriting the parent's. P2-N056's criterion 6 writes majodali/project-orchestrator-service onto six existing nodes under its own task and cannot without this. D147 (raised by the reviewer of P2-N054, answered with its default): the README's environment-variable table is stale after P2-N054; P2-N055 was to pick it up and did not, because a session on P2-N055 is not given a decision that stands on its sibling.\n\nCriteria.\n1. `node_update`'s input accepts `repository`: an `owner/name` string, or null to clear it, validated as `node_add` validates it. It is applied under an open task or the owner's instruction like every other field, and refused with nothing committed when the result would violate an invariant.\n2. The tool's description and the service's instructions to a session name the field.\n3. A test shows `node_update` setting a node's repository and clearing it, and that `task_next` asked for that repository then answers the node and, asked for another, does not.\n4. The pull request says whether a change to a node's repository during another session's open task counts as a changed scope, as title, outcome, parent, dependencies and documents do, and a test pins whichever it is. If the plan documents do not settle it, that is an ask with a default, not a silent choice.\n5. README.md's settings table matches docs/runbook.md: the `GITHUB_APP_INSTALLATION_ID` row is gone; `MCP_PROJECT` no longer says it defaults to majodali/project-orchestrator; `MCP_PROJECTS` has a row saying it is required and that a deployment with no list refuses every call; and the sentence counting the `GITHUB_APP_*` variables gives the number there now is.\n6. No existing test changes except to add the field where a fixture lists a node's fields; any other change to an existing test is an ask.\n7. Build, tests, lint and format pass on the pull request."
+    },
+    {
+      "id": "P2-N066",
+      "kind": "check",
+      "title": "Verification of Repository set through node_update, and the README's settings corrected",
+      "outcome": "P2-N065 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N065",
+      "repository": null,
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N056",
@@ -7720,7 +7738,7 @@
       "id": "T247",
       "node": "P2-N065",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -7728,11 +7746,11 @@
         "out": null
       },
       "opened": "2026-11-24T04:21:23Z",
-      "closed": null,
+      "closed": "2026-11-24T04:29:56Z",
       "base": "87ab2fe00cc708b4869c1f876d2b0fb7b33eba4f",
-      "ref": null,
-      "pr": null,
-      "summary": "Add `repository` field support to node_update (set/clear), update tool description and instructions, test it, decide scope-change status for repository edits, and fix README's settings table after P2-N054/P2-N055.",
+      "ref": "8e93731ccea14b117d33d70a5ebacf3879012ee9",
+      "pr": "majodali/project-orchestrator-service#58",
+      "summary": "`node_update` sets/clears `repository`, validated as `node_add`'s schema does; named in the tool and SERVER_INSTRUCTIONS; tested with task_next's filter. Added to scopeOf as a default (asked). README's settings table matches docs/runbook.md. Build, tests, lint, format pass.",
       "notes": null
     }
   ],
@@ -9682,6 +9700,21 @@
       "chosen": "A: record it as a named exception. It predates every child of P2-N026, is confined to the one-off Backlog importer, and no criterion of P2-N055 or P2-N054 was verified against it. B is the answer if an import is ever run for a project whose work lands in another repository.",
       "decided": "2026-11-24",
       "rationale": "Asked by T246 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D156",
+      "node": "P2-N065",
+      "question": "Does changing a node's `repository` during another session's open task count as a changed scope, the way title, outcome, parent, dependencies and documents already do (closing the task needs-judgment)?",
+      "options": [
+        "Yes: repository joins scopeOf alongside title, outcome, parent, dependencies and documents (implemented on the pull request)",
+        "No: repository is excluded from scopeOf; only the other five fields count"
+      ],
+      "default": "Yes: repository joins scopeOf alongside title, outcome, parent, dependencies and documents (implemented on the pull request). The repository decides which branch and pull request the task's work already landed on, so changing it mid-task is at least as disruptive as changing the parent.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T247 at close.",
       "standing": false,
       "source": null
     }
