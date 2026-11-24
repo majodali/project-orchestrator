@@ -7861,6 +7861,25 @@
       "pr": null,
       "summary": "Add repository field to node model: package.json pin to child-2 commit, orchestrator.json drops per-repo node lists, repositoryOf reads node.repository with state.project fallback, state-model.md documents the field, and the six retired-list nodes get repository set.",
       "notes": null
+    },
+    {
+      "id": "T252",
+      "node": "P2-N063",
+      "step": "specify",
+      "status": "open",
+      "role": "planner",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-24T20:07:54Z",
+      "closed": null,
+      "base": "fb1ac5298d93a53b1ef3886ddac496e6ee263817",
+      "ref": null,
+      "pr": null,
+      "summary": "Specify P2-N063: take the plan's criteria to the depth the work needs, listing the owner's actions exactly (second GitHub App and permissions, preview-only secret names, preview deploy role policy) before the owner creates anything.",
+      "notes": null
     }
   ],
   "decisions": [

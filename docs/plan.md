@@ -20,11 +20,11 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - The fire in the service (P2-N048) [verifying]
-- Service change verified before it is deployed (P2-N063) [planned]
 
 ## In flight
 
 - The node's repository in this project (P2-N056) [executing] — T251
+- Service change verified before it is deployed (P2-N063) [planned] — T252
 
 ## In progress, children carry the work
 
