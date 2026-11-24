@@ -9956,8 +9956,8 @@
         "C: record the four as exemptions in the check and fix them later, which leaves the check green while the defect stands."
       ],
       "default": "A: child A's pull request, with the check that finds them. Answer B instead if you want the view working before P2-N063's children start.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "B: a node of its own, now, ahead of P2-N063, because the view is how you decide and two of its actions are dead; child A's check then runs over a tree already fixed.",
+      "decided": "2026-11-24",
       "rationale": "Asked by T252 at close.",
       "standing": false,
       "source": null
