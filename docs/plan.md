@@ -23,7 +23,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Verification of Repository set through node_update, and the README's settings corrected (P2-N066) [specified] — T249
 
 ## In progress, children carry the work
 
@@ -401,6 +401,8 @@ Documents: [plan](plans/orchestration-service.md).
     `node_update` sets and clears a node's repository under a task or the owner's instruction, and the service's README lists the deployment's settings as they now are.
     after P2-N055
     Note: Added at the owner's instruction, 2026-11-23 ("D153 answered with default; add the follow-up node"). It carries two loose ends of P2-N054 and P2-N055 that fit no open task. This node's plan needs no file (D137, standing): the criteria below are its plan and its specification. Its work is in majodali/project-orchestrator-service, one pull request there; no pin move belongs to it, since P2-N056 moves this project's pin. It waits for P2-N055 because both change src/stateTools.ts. P2-N056 waits for this node. Why. D153 (raised by T244, answered with its default): `node_update` has no way to set a node's repository field; only `node_add` and the check node's creation set it, by inheriting the parent's. P2-N056's criterion 6 writes majodali/project-orchestrator-service onto six existing nodes under its own task and cannot without this. D147 (raised by the reviewer of P2-N054, answered with its default): the README's environment-variable table is stale after P2-N054; P2-N055 was to pick it up and did not, because a session on P2-N055 is not given a decision that stands on its sibling. Criteria. 1. `node_update`'s input accepts `repository`: an `owner/name` string, or null to clear it, validated as `node_add` validates it. It is applied under an open task or the owner's instruction like every other field, and refused with nothing committed when the result would violate an invariant. 2. The tool's description and the service's instructions to a session name the field. 3. A test shows `node_update` setting a node's repository and clearing it, and that `task_next` asked for that repository then answers the node and, asked for another, does not. 4. The pull request says whether a change to a node's repository during another session's open task counts as a changed scope, as title, outcome, parent, dependencies and documents do, and a test pins whichever it is. If the plan documents do not settle it, that is an ask with a default, not a silent choice. 5. README.md's settings table matches docs/runbook.md: the `GITHUB_APP_INSTALLATION_ID` row is gone; `MCP_PROJECT` no longer says it defaults to majodali/project-orchestrator; `MCP_PROJECTS` has a row saying it is required and that a deployment with no list refuses every call; and the sentence counting the `GITHUB_APP_*` variables gives the number there now is. 6. No existing test changes except to add the field where a fixture lists a node's fields; any other change to an existing test is an ask. 7. Build, tests, lint and format pass on the pull request.
+    - check: **Verification of Repository set through node_update, and the README's settings corrected** (P2-N066, specified)
+      P2-N065 is verified against its outcome.
   - **The node's repository in this project** (P2-N056, specified)
     This project's pinned plan-state carries the node's repository field, its state file sets it where work is in the service repository, and nothing reads the settings file's node lists any more.
     after P2-N065

@@ -7795,6 +7795,25 @@
       "pr": "majodali/project-orchestrator-service#59",
       "summary": "Built the fire check (designs 1-6): decides what to fire from state+settings+journal, writes the ledger's fired/fire-429 lines before the call, enforces the three no-fire rules and both caps, calls the endpoint, reports to the owner otherwise. AWS Secrets Manager read is hand-signed (SigV4), no new dependency. PR majodali/project-orchestrator-service#59, CI green.",
       "notes": null
+    },
+    {
+      "id": "T249",
+      "node": "P2-N066",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-24T19:25:28Z",
+      "closed": null,
+      "base": "967721298178bf760d9f93bd07848b9824b56e3e",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N065 against its criteria and outcome: repository set through node_update, README settings corrected.",
+      "notes": null
     }
   ],
   "decisions": [
