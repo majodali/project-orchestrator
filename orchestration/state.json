@@ -2566,7 +2566,7 @@
       "outcome": "The service fires the scheduled task for an offered step after a write of its own, keeping its journal ledger and its limits, behind a setting that is off until the trial has passed.",
       "stage": "verifying",
       "parent": "P2-N046",
-      "repository": null,
+      "repository": "majodali/project-orchestrator-service",
       "after": [
         "P2-N047",
         "P2-N055"
