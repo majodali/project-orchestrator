@@ -2571,7 +2571,10 @@
       "parent": "P2-N048",
       "repository": null,
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "T250: Blocked. Design 1: the view's own writes — a decision answered, a start approved, a review accepted (src/view/routes.ts) — run no fire check, so the owner's unblocking fires nothing. Design 2: a no-task-configured report opens a decision, which gates the node for every session. Design 4: no daily cap. Build, lint, format, 376 tests pass."
+      },
       "start": "auto",
       "docs": {
         "plan": null,
@@ -7822,7 +7825,7 @@
       "id": "T250",
       "node": "P2-N067",
       "step": "verify",
-      "status": "open",
+      "status": "blocked",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -7830,11 +7833,11 @@
         "out": null
       },
       "opened": "2026-11-24T19:30:56Z",
-      "closed": null,
+      "closed": "2026-11-24T19:38:20Z",
       "base": "24a9f2766d89ea9521e9636e69470d85919e0145",
-      "ref": null,
-      "pr": null,
-      "summary": "Verify P2-N048 \"The fire in the service\" against its criteria and outcome: read its execute task's pull request at head, check each criterion, the pull request's checks and branch, and close with the verdict.",
+      "ref": "ef4139b3f1e780ef76d50937a1aa18ac257741e8",
+      "pr": "majodali/project-orchestrator-service#59",
+      "summary": "Blocked. Design 1: the view's own writes — a decision answered, a start approved, a review accepted (src/view/routes.ts) — run no fire check, so the owner's unblocking fires nothing. Design 2: a no-task-configured report opens a decision, which gates the node for every session. Design 4: no daily cap. Build, lint, format, 376 tests pass.",
       "notes": null
     }
   ],

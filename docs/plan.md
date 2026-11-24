@@ -20,11 +20,12 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - The node's repository in this project (P2-N056) [specified]
+- The fire in the service (P2-N048) [verifying]
 - Service change verified before it is deployed (P2-N063) [planned]
 
 ## In flight
 
-- Verification of The fire in the service (P2-N067) [specified] — T250
+None.
 
 ## In progress, children carry the work
 
@@ -35,7 +36,6 @@ Gated nodes:
 - Several projects and repositories in one instance (P2-N026) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - Tasks started by the service through scheduled tasks (P2-N046) [broken-down]
-- The fire in the service (P2-N048) [verifying]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
 
 ## Waiting on a dependency
@@ -54,6 +54,7 @@ Gated nodes:
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
 - Pin migrated to the release with the K-003 amendment (P4-N042) [identified] — Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.
+- Verification of The fire in the service (P2-N067) [specified] — T250: Blocked. Design 1: the view's own writes — a decision answered, a start approved, a review accepted (src/view/routes.ts) — run no fire check, so the owner's unblocking fires nothing. Design 2: a no-task-configured report opens a decision, which gates the node for every session. Design 4: no daily cap. Build, lint, format, 376 tests pass.
 
 ## Paused by a hold or a park above
 
@@ -439,7 +440,7 @@ Documents: [plan](plans/orchestration-service.md).
       The service fires the scheduled task for an offered step after a write of its own, keeping its journal ledger and its limits, behind a setting that is off until the trial has passed.
       after P2-N047, P2-N055
       Note: Slice 2 of P2-N046. Criteria: docs/plans/p2-n046-service-fired-sessions.md, Design 1 to 5 and criteria 1 to 6, and this note. Writes to majodali/project-orchestrator-service (standing, RU-016), where the owner merges and a merge deploys, so it starts on approval; a pin move in this repository follows. Waits for P2-N047: nothing is built until the trial's record stands. Criteria. (1) The service fires only after a write of its own commits, never on a timer or a poll. (2) It writes the journal's `fired` line before the HTTP call, naming the node, the step, the task and the session answered. (3) It does not fire for a node and step while the node has an open task, within checkAfterMinutes of a `fired` line for that pair, or when two such lines stand since the node's last close; the third case is reported to the owner. (4) The fire limits come from orchestration/orchestrator.json, are counted from the journal's last hour, stay under the documented caps of 30 an hour per task and 100 an hour per account, and a 429 stops firing for that task until Retry-After has passed. (5) At most two fires leave one write. (6) The call carries the documented headers, including anthropic-version, and the node, step and commit as `text`; nothing the session does depends on that text (D121). (7) The token is read at runtime from AWS Secrets Manager and cached briefly; no token is in git, in a log or in the function's configuration. (8) The whole path is behind one setting that is off until P2-N047's record stands, and the tests cover the ledger, the three no-fire rules, the limits and a 429. (9) No model inference runs in the service. (10) One pull request there; the owner merges it and that merge deploys; then this repository's project-orchestrator-service pin moves to the merged commit and npm run check stays green. Recorded at the owner's instruction, 2026-11-21 ("record it on P2-N048"). A session cannot judge from a node's note which repository an offered step belongs to. `task_next` answers every candidate for a role whatever repository the step's work is in, and the saved prompts told a session to take the first candidate whose work is in its own repository, by the note's prose. It went wrong both ways in the trial by hand: T216, the implementer in majodali/project-orchestrator, passed over P4-N057's pin move, which was first in line and was work in that repository, and took P2-N047; T219, the implementer in majodali/project-orchestrator-service, claimed P4-N073's second half, a pin move and a sentence in majodali/project-orchestrator, and had to close blocked (D129). A service fix is two steps in two repositories on one node (the pull request there, then the pin move here), and nothing in the state says which is left. For this node's work to settle: the service knows which repository each offered step belongs to, fires the scheduled task for that repository, and `task_next` answers a session only the steps of the repository it was fired for. Recorded at the owner's instruction, 2026-11-23 ("Add a note for verification before deploy."). The fired route still needs the owner's hand where a service change's criteria can only be checked on the live deployment: the service merges a pull request when its verification passes, the verification cannot pass before the deploy, and the deploy needs the merge. On P2-N054 this took two merges by hand (majodali/project-orchestrator-service#55 and #56), and the first deployed a change whose project paths the gateway did not route; the local run that both the implementer and the reviewer tested has no gateway in front. The deploy path already has a pre-production copy (the preprod alias and its function URL, "deploy, then promote"). Not planned anywhere yet: a way for a reviewer to verify a service pull request against a pre-production deployment before it is merged and promoted, so that such a node needs no merge by hand. It has no node of its own; whether it becomes one is the owner's to say. Also observed the same day: a session cannot fire the owner's scheduled tasks. The tool refused with "Agents can only fire routines they created". So until this node's fire exists, each fire is the owner's Run now.
-      - check: **Verification of The fire in the service** (P2-N067, specified)
+      - check: **Verification of The fire in the service** (P2-N067, specified, blocked: T250: Blocked. Design 1: the view's own writes — a decision answered, a start approved, a review accepted (src/view/routes.ts) — run no fire check, so the owner's unblocking fires nothing. Design 2: a no-task-configured report opens a decision, which gates the node for every session. Design 4: no daily cap. Build, lint, format, 376 tests pass.)
         P2-N048 is verified against its outcome.
     - **The owner's setup recorded** (P2-N049, specified)
       The settings file carries the fire section, the service's runbook says how to add a scheduled task and what the owner does, and the deploy role's resources are written before the owner applies them.
