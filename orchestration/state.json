@@ -2589,7 +2589,10 @@
       "parent": "P2-N048",
       "repository": null,
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "T255: Blocked. Criterion 2 as the owner's 2026-11-24 note (b) amends it: src/fire/client.ts parses claude_code_session_id but src/fire/run.ts discards it, so no second journal line ties a fired session to its fire. T250's three findings are fixed (view writes, logged no-task-configured, daily cap). Build, lint, format, 386 tests, CI green."
+      },
       "start": "auto",
       "docs": {
         "plan": null,
@@ -7970,7 +7973,7 @@
       "id": "T255",
       "node": "P2-N067",
       "step": "verify",
-      "status": "open",
+      "status": "blocked",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -7978,11 +7981,11 @@
         "out": null
       },
       "opened": "2026-11-24T21:46:45Z",
-      "closed": null,
+      "closed": "2026-11-24T21:51:19Z",
       "base": "bdcd0b3a31b56db759e56d304ad0f912e5f0ce9f",
       "ref": null,
-      "pr": null,
-      "summary": "Verify P2-N048 \"The fire in the service\" against its criteria and outcome, including the four designs T250 found unmet.",
+      "pr": "majodali/project-orchestrator-service#59",
+      "summary": "Blocked. Criterion 2 as the owner's 2026-11-24 note (b) amends it: src/fire/client.ts parses claude_code_session_id but src/fire/run.ts discards it, so no second journal line ties a fired session to its fire. T250's three findings are fixed (view writes, logged no-task-configured, daily cap). Build, lint, format, 386 tests, CI green.",
       "notes": null
     }
   ],
