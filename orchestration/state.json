@@ -2899,7 +2899,7 @@
       "outcome": "A reviewer verifies a service pull request against a preview deployment of that pull request, API Gateway included, before it is merged, so a node whose criteria need a running deployment completes with no merge by the owner's hand.",
       "stage": "specified",
       "parent": "P2-N001",
-      "repository": null,
+      "repository": "majodali/project-orchestrator-service",
       "after": [
         "P2-N069"
       ],
