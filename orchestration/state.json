@@ -9472,8 +9472,8 @@
         "B: hold the merge and say what should come first"
       ],
       "default": "A: merge #57 now. Criteria 1 to 7 are verified at a82e0c6, the pull request needs no deployment variable set first, and P2-N065, P2-N056 and P2-N048 all wait on this child. B is for a reason outside the node.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: merge #57 now. Criteria 1 to 7 are verified at a82e0c6, the pull request needs no deployment variable set first, and P2-N065, P2-N056 and P2-N048 all wait on this child. B is for a reason outside the node.",
+      "decided": "2026-11-24",
       "rationale": "Asked by T245 at close.",
       "standing": false,
       "source": null
