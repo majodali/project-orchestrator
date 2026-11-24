@@ -7829,9 +7829,12 @@
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 68,
+        "out": 25737,
+        "cacheRead": 3557630,
+        "cacheWrite": 126212
       },
+      "costSource": "transcript",
       "opened": "2026-11-24T19:30:56Z",
       "closed": "2026-11-24T19:38:20Z",
       "base": "24a9f2766d89ea9521e9636e69470d85919e0145",
