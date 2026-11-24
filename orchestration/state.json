@@ -7945,6 +7945,25 @@
       "pr": null,
       "summary": "All six criteria met at de201c0 (PR #99). Pin names 139258c, P2-N055's merge of service PR #57; check, 237 tests, lint and format green; the repositories key is gone; repositoryOf reads node.repository with a state.project fallback; state-model.md documents it; six nodes carry it under T251; renderings reproduce main exactly.",
       "notes": null
+    },
+    {
+      "id": "T255",
+      "node": "P2-N067",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-24T21:46:45Z",
+      "closed": null,
+      "base": "bdcd0b3a31b56db759e56d304ad0f912e5f0ce9f",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N048 \"The fire in the service\" against its criteria and outcome, including the four designs T250 found unmet.",
+      "notes": null
     }
   ],
   "decisions": [
