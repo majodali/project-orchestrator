@@ -14,7 +14,7 @@ Gated nodes:
 - The view over several projects (P2-N057): start needs the owner's approval
 - The pilot on this deployment (P2-N058): start needs the owner's approval
 - Session, duration and criteria on pages (P2-N039) [majodali/project-orchestrator-service]: start needs the owner's approval
-- Feedback in place and the node panel (P2-N040): start needs the owner's approval
+- Feedback in place and the node panel (P2-N040) [majodali/project-orchestrator-service]: start needs the owner's approval
 - Scratch project that compares review regimes (P2-N051): Held by the owner, 2026-11-21, until the discussion of what the test includes is settled: outcomes in place of planned deliverables, larger leaf nodes, and one review for several nodes
 
 ## Ready, starting automatically when the loop runs
@@ -46,7 +46,7 @@ Gated nodes:
 - Orchestrator trial with its measured cost (P2-N033) [executing] — after The owner's setup recorded (P2-N049)
 - The owner's setup recorded (P2-N049) [specified] — after The fire in the service (P2-N048)
 - The old orchestrator parts retired (P2-N050) [specified] — after Orchestrator trial with its measured cost (P2-N033)
-- View trial with its measured delay (P2-N041) [specified] — after Session, duration and criteria on pages (P2-N039) [majodali/project-orchestrator-service], Feedback in place and the node panel (P2-N040)
+- View trial with its measured delay (P2-N041) [specified] — after Session, duration and criteria on pages (P2-N039) [majodali/project-orchestrator-service], Feedback in place and the node panel (P2-N040) [majodali/project-orchestrator-service]
 - Session field adopted in this repository (P2-N042) [specified] — after Session, duration and criteria on pages (P2-N039) [majodali/project-orchestrator-service]
 
 ## Blocked
@@ -465,7 +465,7 @@ Documents: [plan](plans/orchestration-service.md).
     A task records the session that opened it, and the view shows each task's session and duration, each node's criteria from its documents, and the other nodes that link the same documents.
     after P2-N038
     Note: Slice C of docs/plans/view-that-leads-and-updates.md: sections 6 and 7, criteria 12 to 15 and 18. Waits for P2-N038, whose "Running" row shows the session. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside the panel slice: it edits the schema, nodePage.ts and taskPage.ts. Links no plan document because it edits none here.
-  - **Feedback in place and the node panel** (P2-N040, specified)
+  - **Feedback in place and the node panel** (P2-N040, specified) [majodali/project-orchestrator-service]
     A submitted form shows its result on the page without a reload, the tab's title counts what needs the owner, and on a wide window a node opens in a panel beside the tree.
     after P2-N037, P2-N038
     Note: Slice D of docs/plans/view-that-leads-and-updates.md: sections 4 and 5, criteria 5, 16 and 17. Waits for P2-N037, whose script it extends, and P2-N038, whose rows it counts and opens. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside the session slice: it edits the script and src/view/html.ts. Links no plan document because it edits none here.
