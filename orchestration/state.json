@@ -2546,7 +2546,7 @@
       "kind": "work",
       "title": "The fire in the service",
       "outcome": "The service fires the scheduled task for an offered step after a write of its own, keeping its journal ledger and its limits, behind a setting that is off until the trial has passed.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N046",
       "repository": null,
       "after": [
@@ -7754,6 +7754,25 @@
       "ref": "8e93731ccea14b117d33d70a5ebacf3879012ee9",
       "pr": "majodali/project-orchestrator-service#58",
       "summary": "`node_update` sets/clears `repository`, validated as `node_add`'s schema does; named in the tool and SERVER_INSTRUCTIONS; tested with task_next's filter. Added to scopeOf as a default (asked). README's settings table matches docs/runbook.md. Build, tests, lint, format pass.",
+      "notes": null
+    },
+    {
+      "id": "T248",
+      "node": "P2-N048",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-24T05:22:33Z",
+      "closed": null,
+      "base": "0b7dc2dbdfd3d48ca302f4700359cbea0407c924",
+      "ref": null,
+      "pr": null,
+      "summary": "Build the service's fire mechanism: after its own writes, fire the scheduled task for an offered step, with journal ledger, no-fire rules, hourly limits and a 429 backoff, behind a setting off until the trial passes.",
       "notes": null
     }
   ],
