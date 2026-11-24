@@ -2879,7 +2879,7 @@
       "kind": "work",
       "title": "Service change verified before it is deployed",
       "outcome": "A reviewer verifies a service pull request against a preview deployment of that pull request, API Gateway included, before it is merged, so a node whose criteria need a running deployment completes with no merge by the owner's hand.",
-      "stage": "planned",
+      "stage": "specified",
       "parent": "P2-N001",
       "repository": null,
       "after": [],
@@ -2887,7 +2887,7 @@
       "start": "auto",
       "docs": {
         "plan": "docs/plans/p2-n063-verify-before-deploy.md",
-        "spec": null
+        "spec": "docs/specs/p2-n063-verify-before-deploy.md"
       },
       "done": null,
       "note": "Asked for by the owner, 2026-11-23 (\"Add a note for verification before deploy.\", then \"I meant node\"). The owner's principle, the same day: \"Anything we find hard to automate in the current system, we should build into the service.\"\n\nThe gap. The service merges a node's pull requests when its verification passes. Where a criterion can only be checked on a running deployment, the verification cannot pass before the deploy, and the deploy needs the merge. On P2-N054 this took two merges by the owner's hand (majodali/project-orchestrator-service#55 and #56), and the first put live a change whose project paths the gateway did not route: the implementer and the reviewer had both tested a local run, which has no gateway in front. The reviewer said so (criteria 1, 2 and 9 awaited the deploy) and could do nothing about it.\n\nWhat exists, for the plan step to read and not take from this note: the deploy path keeps a pre-production copy and promotes after a smoke test (the template's preprod alias and its function URL, the words \"deploy, then promote\"; the earlier plan of P2-N012 and P2-N015). The function URL serves every path and so has no gateway in front either, which is the very layer P2-N054's fault was in.\n\nFor the plan step to settle: how a pull request that is not yet merged gets a deployment a reviewer can call, gateway included; who or what starts that deployment; how the reviewer's session reaches it and with which token; how it is torn down; what happens to the live service meanwhile; and what the owner's hand is still needed for. The standing constraints hold: no model inference in the service, no secret committed, pasted or logged. Writes to majodali/project-orchestrator-service and its deploy path, so it starts on approval once planned.\n\nAdded at the owner's instruction, 2026-11-23, as a clause to the answer to D149 (the owner had answered D149 with its default before the clause was proposed, and asked for it to be added: \"Can you add it?\"). The preview's deploy role may read the preview's own secrets only. D149's option A names \"the three secrets\"; those are the production ones, and the owner's answer to D151 rules them out for a preview: \"only with preview-only secrets: a second GitHub App installed on the fixture repository alone, and its own bearer token. No preview holds the production App key or the production token.\" So the second role of D149 is scoped to the preview stack, the SAM managed stack and the preview's own secrets; the fixture repository of D150 carries the second App's installation, not the present App's; and the present App still gains Actions: Read and write under D152, because it is the live service that starts a preview run. The specify and break down steps list the owner's actions exactly (the second App and its permissions, the secrets' names, the role's policy) before the owner creates anything."
@@ -7887,7 +7887,7 @@
       "id": "T252",
       "node": "P2-N063",
       "step": "specify",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": "claude-opus-5",
       "tokens": {
@@ -7895,11 +7895,11 @@
         "out": null
       },
       "opened": "2026-11-24T20:07:54Z",
-      "closed": null,
+      "closed": "2026-11-24T20:27:41Z",
       "base": "fb1ac5298d93a53b1ef3886ddac496e6ee263817",
-      "ref": null,
-      "pr": null,
-      "summary": "Specify P2-N063: take the plan's criteria to the depth the work needs, listing the owner's actions exactly (second GitHub App and permissions, preview-only secret names, preview deploy role policy) before the owner creates anything.",
+      "ref": "0c5d4435d0b4b2b5a2e0e8b1a5b5e8f0c5d44350",
+      "pr": "majodali/project-orchestrator#100",
+      "summary": "Specified in docs/specs/p2-n063-verify-before-deploy.md: six node criteria, each child's design, the owner's eight actions named exactly. Three findings: the preview job can assume the production deploy role (ask 1); four paths API Gateway does not route, two of them the view's actions (ask 2); a daily teardown moves the endpoint. Plan corrected twice.",
       "notes": null
     },
     {
@@ -9883,6 +9883,38 @@
       "chosen": "Yes: repository joins scopeOf alongside title, outcome, parent, dependencies and documents (implemented on the pull request). The repository decides which branch and pull request the task's work already landed on, so changing it mid-task is at least as disruptive as changing the parent.",
       "decided": "2026-11-24",
       "rationale": "Asked by T247 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D157",
+      "node": "P2-N063",
+      "question": "The preview run's OIDC subject (P2-N063, finding F1 of the specification). D149's option A trusts the preview role for \"the same OIDC subject (this repository's main ref)\" — the subject the production deploy role also trusts (deploy.yml's EXPECTED_OIDC_SUBJECT). A preview run is dispatched on main with id-token: write and runs the pull request's own scripts/deploy.sh, so that code can mint a second OIDC token, assume the production deploy role and deploy itself to production, defeating all four bounds D151 accepted. Which subject does the preview role trust?",
+      "options": [
+        "A: the preview job runs in a GitHub Environment named preview, so its token's sub is repo:majodali@576567/project-orchestrator-service@1347863895:environment:preview; the preview role trusts that, and the production role keeps trusting only ref:refs/heads/main. Child B proves it from the claim the run's own preflight prints.",
+        "B: the same main-ref subject D149's option A names, accepting that a pull request's code in a preview run can assume the production deploy role.",
+        "C: a second AWS account for previews (D151's option B), already declined on cost."
+      ],
+      "default": "A: a GitHub Environment named preview, and the preview role trusts the environment subject, which the production deploy role does not accept. It closes the hole for one Environment and one trust-policy line.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T252 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D158",
+      "node": "P2-N063",
+      "question": "Where four paths API Gateway does not route are fixed (P2-N063, finding F2). Observed 2026-11-24 at the production endpoint: GET /view/version and GET /view/app.js answer API Gateway's own 404, while /health answers 200 from the application. Read from the service repository at main and not probed, because a probe would be a write: POST /view/decision/{id}/close and POST /view/node/{id}/action are registered in src/view/routes.ts with no route key in template.yaml. Those two are how you close a decision and accept a node in the view, so by that reading they are unreachable through the gateway today. This is P2-N054's fault class, live, and recorded in no register.",
+      "options": [
+        "A: child A's pull request adds the four route keys together with the check that finds them, so the check is the proof of the fix.",
+        "B: a node of its own, now, ahead of P2-N063, because the view is how you decide and two of its actions are dead; child A's check then runs over a tree already fixed.",
+        "C: record the four as exemptions in the check and fix them later, which leaves the check green while the defect stands."
+      ],
+      "default": "A: child A's pull request, with the check that finds them. Answer B instead if you want the view working before P2-N063's children start.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T252 at close.",
       "standing": false,
       "source": null
     }
