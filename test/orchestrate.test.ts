@@ -52,6 +52,7 @@ function node(
     kind: "work",
     outcome: `${partial.title} exists.`,
     parent: null,
+    repository: null,
     after: [],
     hold: null,
     start: "auto",
@@ -110,10 +111,6 @@ const SETTINGS: Settings = {
   maxReworkRounds: 2,
   checkAfterMinutes: 45,
   weeklyBudget: null,
-  repositories: [
-    { repository: PROJECT, nodes: [] },
-    { repository: SERVICE, nodes: ["P1-N090"] },
-  ],
 };
 
 const MODELS = {
@@ -197,6 +194,9 @@ function verifying(
       title: `Verification of Work ${id}`,
       stage: "specified",
       parent: id,
+      // The service sets a check node's repository from its parent's
+      // at creation (node_add); the fixture mirrors that directly.
+      repository: extra.repository ?? null,
       hold: failed ? { kind: "blocked", reason: "T002: not met" } : null,
     }),
   ];
@@ -984,18 +984,6 @@ describe("an unreadable input (criterion 4, S2, plan section 8)", () => {
       { settings: parseSettings('{"limits":{"execute":2}}') },
     ],
     [
-      "the settings, not listing the project",
-      {
-        settings: {
-          ok: true,
-          value: {
-            ...SETTINGS,
-            repositories: [{ repository: SERVICE, nodes: [] }],
-          },
-        },
-      },
-    ],
-    [
       "an agent file, missing",
       {
         models: parseModels({
@@ -1088,37 +1076,16 @@ describe("orchestration/orchestrator.json (criterion 5)", () => {
         maxReworkRounds: 2,
         checkAfterMinutes: 45,
         weeklyBudget: null,
-        repositories: [
-          { repository: PROJECT, nodes: [] },
-          {
-            repository: SERVICE,
-            nodes: [
-              "P2-N032",
-              "P2-N037",
-              "P2-N038",
-              "P2-N039",
-              "P2-N040",
-              "P2-N041",
-            ],
-          },
-        ],
       },
     });
   });
 
-  it("lists the project of the state file", () => {
-    const project = (
-      JSON.parse(
-        readFileSync(path.join(ROOT, "orchestration/state.json"), "utf8"),
-      ) as { project: string }
-    ).project;
-    const settings = parseSettings(text);
-    expect(
-      settings.ok && settings.value.repositories.map((r) => r.repository),
-    ).toContain(project);
+  const valid = JSON.parse(text) as Record<string, unknown>;
+
+  it("no longer carries a `repositories` key (P2-N056 criterion 3, 4)", () => {
+    expect(valid).not.toHaveProperty("repositories");
   });
 
-  const valid = JSON.parse(text) as Record<string, unknown>;
   const broken: [string, Record<string, unknown>][] = [
     ["an unknown field", { ...valid, limit: 3 }],
     [
@@ -1129,34 +1096,9 @@ describe("orchestration/orchestrator.json (criterion 5)", () => {
     ["no rework rounds", { ...valid, maxReworkRounds: 0 }],
     ["a check time of text", { ...valid, checkAfterMinutes: "45" }],
     ["a negative budget", { ...valid, weeklyBudget: -1 }],
-    ["repositories that are no list", { ...valid, repositories: PROJECT }],
     [
-      "a repository that is no owner/name",
-      { ...valid, repositories: [{ repository: "orchestrator", nodes: [] }] },
-    ],
-    [
-      "a node that is no identifier",
-      { ...valid, repositories: [{ repository: PROJECT, nodes: ["N1"] }] },
-    ],
-    [
-      "a node listed under two repositories",
-      {
-        ...valid,
-        repositories: [
-          { repository: PROJECT, nodes: ["P1-N001"] },
-          { repository: SERVICE, nodes: ["P1-N001"] },
-        ],
-      },
-    ],
-    [
-      "a repository listed twice",
-      {
-        ...valid,
-        repositories: [
-          { repository: PROJECT, nodes: [] },
-          { repository: PROJECT, nodes: [] },
-        ],
-      },
+      "a `repositories` key, retired (P2-N056 criterion 4)",
+      { ...valid, repositories: [{ repository: PROJECT, nodes: [] }] },
     ],
   ];
 
@@ -1406,14 +1348,19 @@ describe("the step of a specified node (criterion 19)", () => {
   });
 });
 
-describe("the repository of a start (criterion 20, S4)", () => {
+describe("the repository of a start (P2-N056 criterion 4, F7)", () => {
   const s = () =>
     state([
-      node({ id: "P1-N090", title: "Work elsewhere", stage: "specified" }),
+      node({
+        id: "P1-N090",
+        title: "Work elsewhere",
+        stage: "specified",
+        repository: SERVICE,
+      }),
       node({ id: "P1-N091", title: "Work here", stage: "specified" }),
     ]);
 
-  it("is the one the settings list the node under, else the state file's project", () => {
+  it("is the node's own repository, else the state file's project when it is null", () => {
     expect(
       startsOf(run({ state: s() })).map((x) => [x.node, x.repository]),
     ).toEqual([
@@ -1422,28 +1369,15 @@ describe("the repository of a start (criterion 20, S4)", () => {
     ]);
   });
 
-  it("is its parent's for a check node", () => {
+  it("is a check node's own repository", () => {
     const actions = run({
-      state: state(verifying("P1-N090", "P1-N092", false)),
+      state: state(
+        verifying("P1-N090", "P1-N092", false, { repository: SERVICE }),
+      ),
     });
     expect(startsOf(actions).map((x) => [x.node, x.repository])).toEqual([
       ["P1-N092", SERVICE],
     ]);
-  });
-
-  it("is never one the settings do not list", () => {
-    const actions = run({
-      state: s(),
-      settings: { repositories: [{ repository: SERVICE, nodes: ["P1-N090"] }] },
-    });
-    expect(startsOf(actions)).toEqual([]);
-    expect(actions.map((a) => a.key)).toEqual(["report:project:1:input"]);
-    for (const settings of [SETTINGS, { ...SETTINGS, repositories: [] }]) {
-      const listed = settings.repositories.map((r) => r.repository);
-      for (const start of startsOf(run({ state: s(), settings }))) {
-        expect(listed).toContain(start.repository);
-      }
-    }
   });
 });
 

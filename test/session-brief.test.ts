@@ -22,6 +22,7 @@ function node(
     kind: "work",
     outcome: `${partial.title} exists.`,
     parent: null,
+    repository: null,
     after: [],
     hold: null,
     start: "auto",

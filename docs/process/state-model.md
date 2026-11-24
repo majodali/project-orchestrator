@@ -26,6 +26,7 @@ type's definition for Classification purposes.
       "outcome": "A signed-in owner sees the plan tree and drills to node and task, read at one commit.",
       "stage": "done",
       "parent": "P2-N003",
+      "repository": null,
       "after": [],
       "hold": null,
       "docs": { "plan": null, "spec": "docs/archive/specs/p2-n003-owner-questions-and-plan-view.md" },
@@ -73,6 +74,10 @@ Field rules:
   `broken-down`, `executing`, `verifying`, `done`, `parked`. `parked`
   is new: the node is kept and not planned.
 - `hold` is null or `{ "kind": "gated" | "blocked", "reason": "..." }`.
+- `repository` is `owner/name`, the repository the node's work is
+  claimed from and its pull request opened in, or `null` for the
+  project's coordinating repository (P2-N055). A repository need not
+  itself hold a state file.
 - `after` lists node identifiers this node waits for. Sibling order
   no longer implies dependency.
 - `start` is `auto` (the default: the loop takes the node when its
