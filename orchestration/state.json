@@ -7817,6 +7817,25 @@
       "pr": "majodali/project-orchestrator-service#58",
       "summary": "All seven criteria met. node_update sets and clears `repository` with node_add's validation, named in the tool and SERVER_INSTRUCTIONS; two additive tests pin the filter and the scope change (D156's default); README matches runbook.md, two GITHUB_APP_* rows. Build, 335 tests, lint, format pass locally; four CI checks green.",
       "notes": null
+    },
+    {
+      "id": "T250",
+      "node": "P2-N067",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-24T19:30:56Z",
+      "closed": null,
+      "base": "24a9f2766d89ea9521e9636e69470d85919e0145",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N048 \"The fire in the service\" against its criteria and outcome: read its execute task's pull request at head, check each criterion, the pull request's checks and branch, and close with the verdict.",
+      "notes": null
     }
   ],
   "decisions": [
