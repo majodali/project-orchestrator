@@ -82,7 +82,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Repository set through node_update, and the README's settings corrected** (P2-N065) — When: 2026-11-24. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Decision script and settings of the orchestrator** (P2-N030) — When: 2026-11-17. Status: done. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [x] **Orchestrator role and its watcher** (P2-N031) — When: 2026-11-17. Status: done. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
-- [x] **Service repository enlisted for delegated sessions** (P2-N032) — When: 2026-11-18. Status: done. Pointer: [spec](specs/orchestrator-session.md).
+- [x] **Service repository enlisted for delegated sessions** (P2-N032) [majodali/project-orchestrator-service] — When: 2026-11-18. Status: done. Pointer: [spec](specs/orchestrator-session.md).
 - [x] **Orchestrator fixes before its trial** (P2-N036) — When: 2026-11-18. Status: done. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [x] **Fired-session trial by hand** (P2-N047) — When: 2026-11-22. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Tree page that updates itself** (P2-N037) — When: 2026-11-22. Status: done. Pointer: `orchestration/state.json`.

@@ -2394,7 +2394,7 @@
       "outcome": "A session started in majodali/project-orchestrator-service reaches the orchestration service, opens and closes a task, and that task has a measured cost from a vendored copy of the cost hook.",
       "stage": "done",
       "parent": "P2-N027",
-      "repository": null,
+      "repository": "majodali/project-orchestrator-service",
       "after": [
         "P2-N030"
       ],
