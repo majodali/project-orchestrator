@@ -107,8 +107,8 @@ own `live`. That last step is load-bearing — it leaves the preview's
 `live` at a numbered version, so the next run's read-back does not hit
 `deploy.sh`'s `$LATEST` refusal. One reusable stack keeps one API id,
 so the preview URL is fixed and only the commit it serves changes,
-which `service_identity` says. A job in the same file and a scheduled
-daily run tear the stack down; the next run recreates it.
+which `service_identity` says. A dispatchable job tears the stack
+down; a daily run redeploys it from `main` (corrected by T252, F3).
 
 ### 3. The service starts it, and tells the reviewer
 
@@ -123,8 +123,8 @@ fails the claim: the reviewer falls back to the manual dispatch.
 
 The reviewer waits for `service_identity` on the preview to answer
 its own commit, then checks its criteria against that endpoint with
-the bearer token already in its session environment — the same
-secret, so none is minted, pasted or logged.
+the preview's own bearer token, `PREVIEW_MCP_AUTH_TOKEN` in its
+session environment (D151 as answered; corrected by T252, O-prev-7).
 
 ### 4. What the owner's hand is still needed for
 
@@ -174,8 +174,8 @@ and each child that writes the service repository carries
 
 ## Verification criteria
 
-Refined by the specification step; this is the plan-stage statement
-it grows from.
+Refined by [the specification](../specs/p2-n063-verify-before-deploy.md);
+this is the plan-stage statement it grew from.
 
 1. The pull-request checks fail when a path `src/httpApp.ts`
    registers has no route key in `template.yaml`, and when a route
@@ -209,9 +209,9 @@ it grows from.
     `majodali/project-orchestrator`'s `orchestration/state.json` gains
     no commit over a preview run that exercises a write tool, shown
     by that file's commits across the run.
-11. A dispatchable teardown job and a scheduled daily run delete the
-    preview stack; after a teardown production still answers
-    (recorded), and the next run recreates the stack.
+11. A dispatchable teardown job deletes the preview stack and a daily
+    run redeploys it from `main` (T252, F3); after a teardown
+    production still answers (recorded), and the next run recreates it.
 12. The service's `docs/runbook.md` has a preview section: the stable
     endpoint, how a preview is started, what it serves, how it is torn
     down, and O-prev-1 to O-prev-5. No token value appears in the
