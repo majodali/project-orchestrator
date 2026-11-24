@@ -9715,8 +9715,8 @@
         "No: repository is excluded from scopeOf; only the other five fields count"
       ],
       "default": "Yes: repository joins scopeOf alongside title, outcome, parent, dependencies and documents (implemented on the pull request). The repository decides which branch and pull request the task's work already landed on, so changing it mid-task is at least as disruptive as changing the parent.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Yes: repository joins scopeOf alongside title, outcome, parent, dependencies and documents (implemented on the pull request). The repository decides which branch and pull request the task's work already landed on, so changing it mid-task is at least as disruptive as changing the parent.",
+      "decided": "2026-11-24",
       "rationale": "Asked by T247 at close.",
       "standing": false,
       "source": null
