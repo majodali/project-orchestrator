@@ -2241,7 +2241,7 @@
       "kind": "work",
       "title": "Repository set through node_update, and the README's settings corrected",
       "outcome": "`node_update` sets and clears a node's repository under a task or the owner's instruction, and the service's README lists the deployment's settings as they now are.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N026",
       "repository": null,
       "after": [
@@ -2253,7 +2253,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-24",
       "note": "Added at the owner's instruction, 2026-11-23 (\"D153 answered with default; add the follow-up node\"). It carries two loose ends of P2-N054 and P2-N055 that fit no open task. This node's plan needs no file (D137, standing): the criteria below are its plan and its specification. Its work is in majodali/project-orchestrator-service, one pull request there; no pin move belongs to it, since P2-N056 moves this project's pin. It waits for P2-N055 because both change src/stateTools.ts. P2-N056 waits for this node.\n\nWhy. D153 (raised by T244, answered with its default): `node_update` has no way to set a node's repository field; only `node_add` and the check node's creation set it, by inheriting the parent's. P2-N056's criterion 6 writes majodali/project-orchestrator-service onto six existing nodes under its own task and cannot without this. D147 (raised by the reviewer of P2-N054, answered with its default): the README's environment-variable table is stale after P2-N054; P2-N055 was to pick it up and did not, because a session on P2-N055 is not given a decision that stands on its sibling.\n\nCriteria.\n1. `node_update`'s input accepts `repository`: an `owner/name` string, or null to clear it, validated as `node_add` validates it. It is applied under an open task or the owner's instruction like every other field, and refused with nothing committed when the result would violate an invariant.\n2. The tool's description and the service's instructions to a session name the field.\n3. A test shows `node_update` setting a node's repository and clearing it, and that `task_next` asked for that repository then answers the node and, asked for another, does not.\n4. The pull request says whether a change to a node's repository during another session's open task counts as a changed scope, as title, outcome, parent, dependencies and documents do, and a test pins whichever it is. If the plan documents do not settle it, that is an ask with a default, not a silent choice.\n5. README.md's settings table matches docs/runbook.md: the `GITHUB_APP_INSTALLATION_ID` row is gone; `MCP_PROJECT` no longer says it defaults to majodali/project-orchestrator; `MCP_PROJECTS` has a row saying it is required and that a deployment with no list refuses every call; and the sentence counting the `GITHUB_APP_*` variables gives the number there now is.\n6. No existing test changes except to add the field where a fixture lists a node's fields; any other change to an existing test is an ask.\n7. Build, tests, lint and format pass on the pull request."
     },
     {
@@ -2261,7 +2261,7 @@
       "kind": "check",
       "title": "Verification of Repository set through node_update, and the README's settings corrected",
       "outcome": "P2-N065 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N065",
       "repository": null,
       "after": [],
@@ -2271,7 +2271,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-24",
       "note": null
     },
     {
@@ -7800,7 +7800,7 @@
       "id": "T249",
       "node": "P2-N066",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -7808,11 +7808,11 @@
         "out": null
       },
       "opened": "2026-11-24T19:25:28Z",
-      "closed": null,
+      "closed": "2026-11-24T19:29:36Z",
       "base": "967721298178bf760d9f93bd07848b9824b56e3e",
-      "ref": null,
-      "pr": null,
-      "summary": "Verify P2-N065 against its criteria and outcome: repository set through node_update, README settings corrected.",
+      "ref": "8e93731ccea14b117d33d70a5ebacf3879012ee9",
+      "pr": "majodali/project-orchestrator-service#58",
+      "summary": "All seven criteria met. node_update sets and clears `repository` with node_add's validation, named in the tool and SERVER_INSTRUCTIONS; two additive tests pin the filter and the scope change (D156's default); README matches runbook.md, two GITHUB_APP_* rows. Build, 335 tests, lint, format pass locally; four CI checks green.",
       "notes": null
     }
   ],
