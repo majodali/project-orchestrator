@@ -2183,7 +2183,7 @@
       "outcome": "The view's first page indexes the deployment's projects with their counts, each project's tree, node, task and form pages serve it under its own path, and the old paths redirect.",
       "stage": "specified",
       "parent": "P2-N026",
-      "repository": null,
+      "repository": "majodali/project-orchestrator-service",
       "after": [
         "P2-N054"
       ],

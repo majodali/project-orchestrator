@@ -113,7 +113,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Pilot on methodology-tools: sessions on the task loop** (P2-N006) — When: after P4-N027. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Faster writes, a bounded journal and a deploy write test** (P2-N025) — When: after P4-N008. Status: identified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Several projects and repositories in one instance** (P2-N026) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/p2-n026-several-projects.md), [spec](specs/p2-n026-several-projects.md).
-- [ ] **The view over several projects** (P2-N057) — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
+- [ ] **The view over several projects** (P2-N057) [majodali/project-orchestrator-service] — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
 - [ ] **The pilot on this deployment** (P2-N058) — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
 - [ ] **The bare endpoint path retired** (P2-N059) — When: after P2-N058. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
