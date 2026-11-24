@@ -2241,7 +2241,7 @@
       "kind": "work",
       "title": "Repository set through node_update, and the README's settings corrected",
       "outcome": "`node_update` sets and clears a node's repository under a task or the owner's instruction, and the service's README lists the deployment's settings as they now are.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N026",
       "repository": null,
       "after": [
@@ -7714,6 +7714,25 @@
       "ref": null,
       "pr": null,
       "summary": "P2-N055 verified at merged 139258c: all eight criteria met. Schema field on all 151 live nodes, task_next filtered live, task_open refusal and task_close default by test, both renderings and the node page, SERVER_INSTRUCTIONS live. plan-state check passes with the field absent and set. Build, 333 tests, lint, format pass. Owner merged; service_identity reports 139258c.",
+      "notes": null
+    },
+    {
+      "id": "T247",
+      "node": "P2-N065",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-24T04:21:23Z",
+      "closed": null,
+      "base": "87ab2fe00cc708b4869c1f876d2b0fb7b33eba4f",
+      "ref": null,
+      "pr": null,
+      "summary": "Add `repository` field support to node_update (set/clear), update tool description and instructions, test it, decide scope-change status for repository edits, and fix README's settings table after P2-N054/P2-N055.",
       "notes": null
     }
   ],
