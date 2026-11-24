@@ -9997,8 +9997,8 @@
         "B: rename both under a small task, for example \"The node's repository on node_update\" and its verification"
       ],
       "default": "A: leave them. The nodes are done, no criterion of any node reads their titles, and the warnings do not fail the check. B is worth doing only if the two lines in every check run become a nuisance.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: leave them. The nodes are done, no criterion of any node reads their titles, and the warnings do not fail the check. B is worth doing only if the two lines in every check run become a nuisance.",
+      "decided": "2026-11-24",
       "rationale": "Asked by T254 at close.",
       "standing": false,
       "source": null
