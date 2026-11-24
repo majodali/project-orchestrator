@@ -46,7 +46,7 @@ Gated nodes:
 - Orchestrator trial with its measured cost (P2-N033) [executing] — after The owner's setup recorded (P2-N049)
 - The owner's setup recorded (P2-N049) [specified] — after The fire in the service (P2-N048)
 - The old orchestrator parts retired (P2-N050) [specified] — after Orchestrator trial with its measured cost (P2-N033)
-- View trial with its measured delay (P2-N041) [specified] — after Session, duration and criteria on pages (P2-N039) [majodali/project-orchestrator-service], Feedback in place and the node panel (P2-N040) [majodali/project-orchestrator-service]
+- View trial with its measured delay (P2-N041) [majodali/project-orchestrator-service] [specified] — after Session, duration and criteria on pages (P2-N039) [majodali/project-orchestrator-service], Feedback in place and the node panel (P2-N040) [majodali/project-orchestrator-service]
 - Session field adopted in this repository (P2-N042) [specified] — after Session, duration and criteria on pages (P2-N039) [majodali/project-orchestrator-service]
 
 ## Blocked
@@ -469,7 +469,7 @@ Documents: [plan](plans/orchestration-service.md).
     A submitted form shows its result on the page without a reload, the tab's title counts what needs the owner, and on a wide window a node opens in a panel beside the tree.
     after P2-N037, P2-N038
     Note: Slice D of docs/plans/view-that-leads-and-updates.md: sections 4 and 5, criteria 5, 16 and 17. Waits for P2-N037, whose script it extends, and P2-N038, whose rows it counts and opens. Writes to majodali/project-orchestrator-service (RU-016); the owner merges there by hand and a merge deploys. May run beside the session slice: it edits the script and src/view/html.ts. Links no plan document because it edits none here.
-  - **View trial with its measured delay** (P2-N041, specified)
+  - **View trial with its measured delay** (P2-N041, specified) [majodali/project-orchestrator-service]
     A record in the service's runbook gives, for five plan changes on the deployed view, the time from commit to shown, and the number of GitHub reads one open tab causes in an hour.
     after P2-N039, P2-N040
     Note: Slice E of docs/plans/view-that-leads-and-updates.md: criteria 19 and 20, each met by its record (RU-019). Needs the four slices before it merged and deployed. Writes docs/runbook.md in majodali/project-orchestrator-service (RU-016); the owner merges there by hand. D086 is decided again from this record. Links no plan document because it edits none here.
