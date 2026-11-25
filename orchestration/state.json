@@ -8031,6 +8031,25 @@
       "pr": "majodali/project-orchestrator-service#60",
       "summary": "Routed GET /view/app.js, GET /view/version, POST /view/decision/{id}/close, POST /view/node/{id}/action (and optionally GET /view/{proxy+}) at the production gateway; added a general route-coverage test; updated docs/runbook.md's view address guidance. Blocked on one pre-existing test's hardcoded route allow-list, which this node's criterion 5 says is an ask, not mine to edit.",
       "notes": null
+    },
+    {
+      "id": "T258",
+      "node": "P2-N067",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-25T05:14:10Z",
+      "closed": null,
+      "base": "5868d8d452335b48db43bbac98051f6826e7a968",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N048 \"The fire in the service\" against its criteria, third round, after T250 and T255 closed blocked. Read the work in a read-only clone of majodali/project-orchestrator-service at PR #59's head; change nothing and merge nothing.",
+      "notes": null
     }
   ],
   "decisions": [
