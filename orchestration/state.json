@@ -10090,8 +10090,8 @@
         "Add them now, in this same pull request"
       ],
       "default": "Add the four rows in a follow-up task",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Add them now, in this same pull request",
+      "decided": "2026-11-25",
       "rationale": "Asked by T257 at close.",
       "standing": false,
       "source": null
