@@ -8014,7 +8014,7 @@
       "id": "T257",
       "node": "P2-N069",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8022,11 +8022,11 @@
         "out": null
       },
       "opened": "2026-11-25T03:22:24Z",
-      "closed": null,
+      "closed": "2026-11-25T03:33:24Z",
       "base": "cde5c77e86fd68621619f2cd3f0a8c40f2407d03",
       "ref": null,
-      "pr": null,
-      "summary": "Route the view's unrouted paths (app.js, version, decision close, node action) on the production API Gateway, add a test comparing registered app paths to template.yaml route keys, and update the runbook to point the owner at the production view address.",
+      "pr": "majodali/project-orchestrator-service#60",
+      "summary": "Routed GET /view/app.js, GET /view/version, POST /view/decision/{id}/close, POST /view/node/{id}/action (and optionally GET /view/{proxy+}) at the production gateway; added a general route-coverage test; updated docs/runbook.md's view address guidance. Blocked on one pre-existing test's hardcoded route allow-list, which this node's criterion 5 says is an ask, not mine to edit.",
       "notes": null
     }
   ],
@@ -10038,6 +10038,36 @@
       "chosen": "A: leave them. The nodes are done, no criterion of any node reads their titles, and the warnings do not fail the check. B is worth doing only if the two lines in every check run become a nuisance.",
       "decided": "2026-11-24",
       "rationale": "Asked by T254 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D160",
+      "node": "P2-N069",
+      "question": "test/viewDeployWiring.test.ts's \"V18 — the template\" > \"routes the three E1 paths to the existing McpIntegration\" test hardcodes an allow-list regex of /view route keys that predates this node, and now fails CI (the Test job) because the four routes criterion 1 requires (plus the optional fifth) are not in that list. Criterion 5 says any change to an existing test besides adding is an ask. May I widen that allow-list, or fold its coverage into the new test/routeGatewayCoverage.test.ts and remove the now-redundant check?",
+      "options": [
+        "Widen the allow-list in test/viewDeployWiring.test.ts to include the five new route keys",
+        "Remove that test's allow-list check and rely on the new test/routeGatewayCoverage.test.ts, which already covers the same ground generally"
+      ],
+      "default": "Widen the allow-list in test/viewDeployWiring.test.ts to include the five new route keys",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T257 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D161",
+      "node": "P2-N069",
+      "question": "docs/runbook.md's \"The web view\" route table still lists only the original five /view routes, not the four this node adds (GET /view/app.js, GET /view/version, POST /view/decision/{id}/close, POST /view/node/{id}/action). This node's criterion 4 only asked for the address, so I left the table as is. Add the missing rows now or later?",
+      "options": [
+        "Add the four rows in a follow-up task",
+        "Add them now, in this same pull request"
+      ],
+      "default": "Add the four rows in a follow-up task",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T257 at close.",
       "standing": false,
       "source": null
     }
