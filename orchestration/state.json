@@ -10105,8 +10105,8 @@
         "B: hold the merge and say what should come first"
       ],
       "default": "A: merge #59 now. Criteria 1 to 9 are verified at 8efd7d0, the four checks are green, no deployment variable has to be set first, firing stays off until P2-N049's settings section turns it on, and P2-N049 and P2-N033 wait on this node. B is for a reason outside the node.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: merge #59 now. Criteria 1 to 9 are verified at 8efd7d0, the four checks are green, no deployment variable has to be set first, firing stays off until P2-N049's settings section turns it on, and P2-N049 and P2-N033 wait on this node. B is for a reason outside the node.",
+      "decided": "2026-11-25",
       "rationale": "Asked by T258 at close.",
       "standing": false,
       "source": null
