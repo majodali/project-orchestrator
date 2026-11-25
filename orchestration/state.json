@@ -8075,6 +8075,25 @@
       "pr": "majodali/project-orchestrator-service#59",
       "summary": "Closed. PR #59 head 8efd7d0: criteria 1-9 met, re-checked at the merged tree 7022a99. Criterion 10 as D163 amends it: the owner merged #59 at 16:25Z, Deploy run 55 succeeded, service_identity answers commit 7022a99 live. Four PR checks green; branch t248-p2-n048-fire-check, no commits after T256. Pin move passes to P2-N049.",
       "notes": null
+    },
+    {
+      "id": "T260",
+      "node": "P2-N069",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-25T16:46:10Z",
+      "closed": null,
+      "base": "8dd42f0cf54e364ad62dd7fc62b3f5b3d98246fc",
+      "ref": null,
+      "pr": null,
+      "summary": "Resume execute on P2-N069 after the owner answered D160 and D161: widen the existing allow-list test and add the four new /view route rows to docs/runbook.md, on the existing PR #60.",
+      "notes": null
     }
   ],
   "decisions": [

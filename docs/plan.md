@@ -24,11 +24,11 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- The view's four unrouted paths on the production gateway (P2-N069) [majodali/project-orchestrator-service] [executing]
+None.
 
 ## In flight
 
-None.
+- The view's four unrouted paths on the production gateway (P2-N069) [majodali/project-orchestrator-service] [executing] — T260
 
 ## In progress, children carry the work
 
