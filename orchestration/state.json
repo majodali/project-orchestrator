@@ -10075,8 +10075,8 @@
         "Remove that test's allow-list check and rely on the new test/routeGatewayCoverage.test.ts, which already covers the same ground generally"
       ],
       "default": "Widen the allow-list in test/viewDeployWiring.test.ts to include the five new route keys",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Widen the allow-list in test/viewDeployWiring.test.ts to include the five new route keys",
+      "decided": "2026-11-25",
       "rationale": "Asked by T257 at close.",
       "standing": false,
       "source": null
