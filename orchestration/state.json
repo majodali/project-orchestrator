@@ -2876,7 +2876,7 @@
       "kind": "work",
       "title": "The view's four unrouted paths on the production gateway",
       "outcome": "Every path the view registers answers from the service at the production endpoint, and a test fails when the view registers a path the gateway does not route.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N001",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -2888,6 +2888,24 @@
       },
       "done": null,
       "note": "Added at the owner's instruction, 2026-11-24 (\"I answered B on D158, go ahead and add a node\"). D158, raised by T252 on P2-N063 and answered B: a node of its own, now, ahead of P2-N063. This node's plan needs no file (D137, standing): the criteria below are its plan and its specification. Its work is one pull request in majodali/project-orchestrator-service. P2-N063 waits for this node, so its child A's check runs over a tree already fixed.\n\nWhat was observed, 2026-11-24, without credentials, so nothing was written. At the production endpoint (the HTTP API, host execute-api): GET /view and GET /view/node/{id} answer 303 to the sign-in page from the service; GET /view/version, GET /view/app.js, POST /view/decision/{id}/close, POST /view/node/{id}/action and any other GET /view/... answer API Gateway's own 404, {\"message\":\"Not Found\"}. template.yaml on main has route keys for ANY /mcp, ANY /mcp/{owner}/{repo}, GET /health, GET /view, GET /view/sign-in, POST /view/sign-in, GET /view/node/{nodeId} and GET /view/task/{taskId} only; src/view/routes.ts also registers GET /view/app.js, GET /view/version, POST /view/decision/:id/close, POST /view/node/:id/action and GET /view/*. At the preprod Function URL every one of those paths reaches the service. The owner has been using the view at the preprod Function URL, which is why the buttons and the live update work for them; the journal's answers by \"the owner, in the view\" came through it. So P2-N037's live update and P2-N021's actions were never reachable at the production endpoint. The owner moves to the production address once this node is deployed; preprod moves to each build before the smoke test, so it is the wrong address to decide on.\n\nCriteria.\n1. template.yaml routes, to the existing integration, every path src/view/routes.ts and src/httpApp.ts register: at least GET /view/app.js, GET /view/version, POST /view/decision/{id}/close and POST /view/node/{id}/action. Whether the catch-all GET /view/* is routed, so the service's own \"No page here yet\" answers instead of the gateway's 404, is the implementer's choice, stated in the pull request with its reason; a greedy route must not widen what is reachable beyond what the application registers under /view.\n2. A test reads the paths and methods the application registers and the route keys in template.yaml, and fails when a registered path has no route key that matches it. It fails on main as it is today and passes on the pull request. An exemption, if any is needed, is named in the test with its reason.\n3. No route's authentication changes: the view's paths stay behind the view's sign-in, the /mcp paths behind the bearer token.\n4. docs/runbook.md says which address the owner uses for the view, the production one, and why not the preprod Function URL.\n5. Build, tests, lint and format pass on the pull request. No existing test changes except to add; any other change to an existing test is an ask.\n6. After the owner's merge and the deploy, at the production endpoint and without credentials: GET /view/version, GET /view/app.js, POST /view/decision/D000/close and POST /view/node/P0-N000/action each answer from the service (a 303 to the sign-in page or the service's own page), not API Gateway's {\"message\":\"Not Found\"}. This cannot be met before the merge: when criteria 1 to 5 are verified the reviewer asks the owner for the merge, as on P2-N055 (D154), until P2-N063 exists."
+    },
+    {
+      "id": "P2-N070",
+      "kind": "check",
+      "title": "Verification of The view's four unrouted paths on the production gateway",
+      "outcome": "P2-N069 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N069",
+      "repository": "majodali/project-orchestrator-service",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N063",
@@ -8080,7 +8098,7 @@
       "id": "T260",
       "node": "P2-N069",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8088,11 +8106,11 @@
         "out": null
       },
       "opened": "2026-11-25T16:46:10Z",
-      "closed": null,
+      "closed": "2026-11-25T16:51:16Z",
       "base": "8dd42f0cf54e364ad62dd7fc62b3f5b3d98246fc",
-      "ref": null,
-      "pr": null,
-      "summary": "Resume execute on P2-N069 after the owner answered D160 and D161: widen the existing allow-list test and add the four new /view route rows to docs/runbook.md, on the existing PR #60.",
+      "ref": "8f7333f5202e3f82ce2cbd85d845c3e8d0daf120",
+      "pr": "majodali/project-orchestrator-service#60",
+      "summary": "Resumed on PR #60: widened test/viewDeployWiring.test.ts's V18 allow-list to the five new /view route keys (D160), and added the four new routes to docs/runbook.md's route table (D161). Build, test, lint, format and SAM validate all pass on the PR.",
       "notes": null
     }
   ],

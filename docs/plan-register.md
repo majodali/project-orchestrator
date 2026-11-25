@@ -121,5 +121,5 @@ Dependencies are in the state file, not in sibling order.
     - P2-N042 [specified] Session field adopted in this repository
   - P2-N029 [done] Rework cost measured against the reviews it replaces — plan: plans/p2-n029-rework-cost.md
   - P2-N051 [planned] [gated: Held by the owner, 2026-11-21, until the discussion of what the test includes is settled: outcomes in place of planned deliverables, larger leaf nodes, and one review for several nodes] Scratch project that compares review regimes — plan: plans/p2-n051-review-regimes.md
-  - P2-N069 [executing] The view's four unrouted paths on the production gateway
+  - P2-N069 [verifying] The view's four unrouted paths on the production gateway
   - P2-N063 [specified] Service change verified before it is deployed — plan: plans/p2-n063-verify-before-deploy.md · spec: specs/p2-n063-verify-before-deploy.md
