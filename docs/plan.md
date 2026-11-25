@@ -19,12 +19,11 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- The fire in the service (P2-N048) [majodali/project-orchestrator-service] [verifying]
 - The view's four unrouted paths on the production gateway (P2-N069) [majodali/project-orchestrator-service] [specified]
 
 ## In flight
 
-None.
+- The fire in the service (P2-N048) [majodali/project-orchestrator-service] [verifying] — T256
 
 ## In progress, children carry the work
 

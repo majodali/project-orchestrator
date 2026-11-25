@@ -7990,6 +7990,25 @@
       "pr": "majodali/project-orchestrator-service#59",
       "summary": "Blocked. Criterion 2 as the owner's 2026-11-24 note (b) amends it: src/fire/client.ts parses claude_code_session_id but src/fire/run.ts discards it, so no second journal line ties a fired session to its fire. T250's three findings are fixed (view writes, logged no-task-configured, daily cap). Build, lint, format, 386 tests, CI green.",
       "notes": null
+    },
+    {
+      "id": "T256",
+      "node": "P2-N048",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": "claude-sonnet-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-25T01:09:17Z",
+      "closed": null,
+      "base": "4c87f9c88532b07f77d9f6d3208dfde9c9dae82d",
+      "ref": null,
+      "pr": null,
+      "summary": "Rework of T255: wire the fire ledger's second journal line, recording the claude_code_session_id a successful fire call returns, tied to the first fired line (criterion 2 as the owner's 2026-11-24 note amends it).",
+      "notes": null
     }
   ],
   "decisions": [
