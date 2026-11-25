@@ -10234,8 +10234,8 @@
         "B: hold the merge and say what should come first"
       ],
       "default": "A: merge #60 now, as on P2-N055 (D154). Criteria 1 to 5 are verified at 8f7333f, the pull request needs no deployment variable set first, and P2-N063 waits on this node. B is for a reason outside the node.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: merge #60 now, as on P2-N055 (D154). Criteria 1 to 5 are verified at 8f7333f, the pull request needs no deployment variable set first, and P2-N063 waits on this node. B is for a reason outside the node.",
+      "decided": "2026-11-25",
       "rationale": "Asked by T261 at close.",
       "standing": false,
       "source": null
