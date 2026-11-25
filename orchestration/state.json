@@ -8120,7 +8120,7 @@
       "id": "T261",
       "node": "P2-N070",
       "step": "verify",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -8128,11 +8128,11 @@
         "out": null
       },
       "opened": "2026-11-25T16:54:27Z",
-      "closed": null,
+      "closed": "2026-11-25T16:58:32Z",
       "base": "f32fd61dd68429160e6600f45ce20ef228b3df2b",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N069, The view's four unrouted paths on the production gateway, against its criteria and outcome.",
+      "summary": "P2-N069 at PR #60 head 8f7333f: criteria 1-5 met. Every registered path now has a route key; the new test fails on main for the four paths and passes here; no src or auth change; the runbook names the production address and why not preprod; build, 347 tests, lint, format and four checks green. Criterion 6 awaits the owner's merge.",
       "notes": null
     }
   ],
@@ -10219,6 +10219,21 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T259 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D165",
+      "node": "P2-N070",
+      "question": "P2-N069's criterion 6 is the post-deploy check at the production endpoint: GET /view/version, GET /view/app.js, POST /view/decision/D000/close and POST /view/node/P0-N000/action each answer from the service, not API Gateway's {\"message\":\"Not Found\"}. majodali/project-orchestrator-service#60 is open, mergeable_state clean, its four checks (Build, Test, Lint, SAM validate --lint) are green at head 8f7333f, and criteria 1 to 5 are met there. No deployment setting has to be changed first; every one of those criteria is code-level. Merge #60 so the push-to-main Deploy workflow runs, after which this check node offers verify again and criterion 6 is recorded against the deployed commit?",
+      "options": [
+        "A: merge majodali/project-orchestrator-service#60 now and let that push deploy; verification then records criterion 6 against the deployed commit",
+        "B: hold the merge and say what should come first"
+      ],
+      "default": "A: merge #60 now, as on P2-N055 (D154). Criteria 1 to 5 are verified at 8f7333f, the pull request needs no deployment variable set first, and P2-N063 waits on this node. B is for a reason outside the node.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T261 at close.",
       "standing": false,
       "source": null
     }
