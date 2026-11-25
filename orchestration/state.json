@@ -10219,8 +10219,8 @@
         "B: leave both notes as they stand and rely on P2-N049's criterion 6, which already carries one pull request in each repository"
       ],
       "default": "A: record it on P2-N049's note and amend P2-N048's criterion 10. A task opening P2-N049 is handed the decisions on P2-N049 and above it, not those on P2-N067, so otherwise the pin move depends on a session reading another node's decisions.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: record it on P2-N049's note and amend P2-N048's criterion 10. A task opening P2-N049 is handed the decisions on P2-N049 and above it, not those on P2-N067, so otherwise the pin move depends on a session reading another node's decisions.",
+      "decided": "2026-11-25",
       "rationale": "Asked by T259 at close.",
       "standing": false,
       "source": null
