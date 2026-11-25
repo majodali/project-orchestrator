@@ -2876,7 +2876,7 @@
       "kind": "work",
       "title": "The view's four unrouted paths on the production gateway",
       "outcome": "Every path the view registers answers from the service at the production endpoint, and a test fails when the view registers a path the gateway does not route.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N001",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -8008,6 +8008,25 @@
       "ref": "8efd7d0fa69bfacbae73bc540e00576a1a3adc8b",
       "pr": "majodali/project-orchestrator-service#59",
       "summary": "Fixed criterion 2 as the owner's note amends it: after a successful fire call, a `fired-session` journal line now records claude_code_session_id and claude_code_session_url, tied to the `fired` line by ts, node, step and task. Build/lint/format green, 388 tests (2 new). CI green on PR #59.",
+      "notes": null
+    },
+    {
+      "id": "T257",
+      "node": "P2-N069",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-25T03:22:24Z",
+      "closed": null,
+      "base": "cde5c77e86fd68621619f2cd3f0a8c40f2407d03",
+      "ref": null,
+      "pr": null,
+      "summary": "Route the view's unrouted paths (app.js, version, decision close, node action) on the production API Gateway, add a test comparing registered app paths to template.yaml route keys, and update the runbook to point the owner at the production view address.",
       "notes": null
     }
   ],
