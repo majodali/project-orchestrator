@@ -10120,8 +10120,8 @@
         "B: keep it on P2-N048: the next verification closes blocked naming the pin move alone, so the node offers execute again for it"
       ],
       "default": "A: move the pin under P2-N049 and amend criterion 10 to end at the deploy, because an execute task on P2-N048 cannot be claimed from this repository, and P2-N055 settled its own pin the same way, in the next child (P2-N056). B keeps the criterion as approved but records a passing verification as blocked.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: move the pin under P2-N049 and amend criterion 10 to end at the deploy, because an execute task on P2-N048 cannot be claimed from this repository, and P2-N055 settled its own pin the same way, in the next child (P2-N056). B keeps the criterion as approved but records a passing verification as blocked.",
+      "decided": "2026-11-25",
       "rationale": "Asked by T258 at close.",
       "standing": false,
       "source": null
