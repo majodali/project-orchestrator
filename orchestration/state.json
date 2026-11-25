@@ -8053,6 +8053,25 @@
       "pr": null,
       "summary": "PR #59 head 8efd7d0: criteria 1-9 met. Fire check runs after every tool write and the view's two write routes; fired then fired-session lines; three no-fire rules, both hourly caps, the daily cap, the 429; token from Secrets Manager, never logged. Build, lint, format, 388 tests and four PR checks pass. Criterion 10 awaits the owner's merge.",
       "notes": null
+    },
+    {
+      "id": "T259",
+      "node": "P2-N067",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-25T16:30:28Z",
+      "closed": null,
+      "base": "5d9a148adbd059227bb978ff9143fed58d794fa2",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N048 \"The fire in the service\" against its ten criteria, as D162 and D163 amend criterion 10, at the head of majodali/project-orchestrator-service#59.",
+      "notes": null
     }
   ],
   "decisions": [
