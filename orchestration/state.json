@@ -8115,6 +8115,25 @@
       "pr": "majodali/project-orchestrator-service#60",
       "summary": "Resumed on PR #60: widened test/viewDeployWiring.test.ts's V18 allow-list to the five new /view route keys (D160), and added the four new routes to docs/runbook.md's route table (D161). Build, test, lint, format and SAM validate all pass on the PR.",
       "notes": null
+    },
+    {
+      "id": "T261",
+      "node": "P2-N070",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-25T16:54:27Z",
+      "closed": null,
+      "base": "f32fd61dd68429160e6600f45ce20ef228b3df2b",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N069, The view's four unrouted paths on the production gateway, against its criteria and outcome.",
+      "notes": null
     }
   ],
   "decisions": [
