@@ -2,5 +2,12 @@
   "limits": { "execute": 2, "plan": 1 },
   "maxReworkRounds": 2,
   "checkAfterMinutes": 45,
-  "weeklyBudget": null
+  "weeklyBudget": null,
+  "fire": {
+    "enabled": false,
+    "perTaskHourlyCap": 30,
+    "perAccountHourlyCap": 100,
+    "perAccountDailyCap": 200,
+    "repositories": {}
+  }
 }
