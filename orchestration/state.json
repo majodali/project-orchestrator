@@ -2990,7 +2990,7 @@
       "outcome": "The reviewer's page and the two process pages say that a criterion needing a running deployment is verified against a preview before the merge, and which token reaches it.",
       "stage": "specified",
       "parent": "P2-N063",
-      "repository": "majodali/project-orchestrator-service",
+      "repository": null,
       "after": [
         "P2-N073",
         "P2-N074"
