@@ -8259,7 +8259,7 @@
       "id": "T263",
       "node": "P2-N049",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8267,11 +8267,11 @@
         "out": null
       },
       "opened": "2026-11-26T15:59:31Z",
-      "closed": null,
+      "closed": "2026-11-26T16:14:56Z",
       "base": "69796d2810ab2c7875cece82114f2ae91818863b",
       "ref": null,
-      "pr": null,
-      "summary": "Add the fire section to orchestration/orchestrator.json and its check; write the service's runbook and deploy-role-permissions entries; move this repo's project-orchestrator-service pin to the D163 commit.",
+      "pr": "majodali/project-orchestrator#101",
+      "summary": "Built the fire section's shape check, the runbook's O1/O2 steps, the execution-role Secrets Manager grant, and the pin move. PRs open: project-orchestrator#101, project-orchestrator-service#61. fire.enabled stays false and repositories empty: the real trig_ identifiers and secret names for the two already-created scheduled tasks are owner-only.",
       "notes": null
     },
     {
@@ -10392,6 +10392,22 @@
       "chosen": "A: merge #60 now, as on P2-N055 (D154). Criteria 1 to 5 are verified at 8f7333f, the pull request needs no deployment variable set first, and P2-N063 waits on this node. B is for a reason outside the node.",
       "decided": "2026-11-25",
       "rationale": "Asked by T261 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D166",
+      "node": "P2-N049",
+      "question": "orchestration/orchestrator.json's fire.repositories is empty and fire.enabled is false in PR #101: criterion 1 needs the real trig_ identifier and Secrets Manager secret name for each of the two scheduled tasks (planner, implementer) already created in majodali/project-orchestrator under O1/O2 during the P2-N047 trial. No file this session can read carries them (the trial's record deliberately omits identifiers). How should the rework get them?",
+      "options": [
+        "Supply both trig_ identifiers directly; store each task's existing token under the documented name project-orchestrator-service/fire/project-orchestrator-<role> (rotating it in place if it is stored elsewhere today), and a rework task fills in fire.repositories and sets fire.enabled: true on PR #101",
+        "Tell the rework task the two secrets' current names as already stored, whatever they are, instead of moving them to the documented convention",
+        "Recreate both scheduled tasks and their secrets from scratch under docs/runbook.md's new \"Adding a scheduled task\" section (PR #61), then supply the resulting identifiers"
+      ],
+      "default": "Supply both trig_ identifiers directly and adopt the documented secret-naming convention (option 1): it keeps the two already-proven tasks from P2-N047 and matches the ReadFireTokens grant PR #61 already scopes to that prefix.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T263 at close.",
       "standing": false,
       "source": null
     }
