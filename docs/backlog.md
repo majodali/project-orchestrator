@@ -131,4 +131,5 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Scratch project that compares review regimes** (P2-N051) — When: not dated. Status: planned, waiting on the owner. Pointer: [plan](plans/p2-n051-review-regimes.md).
 - [ ] **Service change verified before it is deployed** (P2-N063) [majodali/project-orchestrator-service] — When: not dated. Status: broken-down, in flight. Pointer: [plan](plans/p2-n063-verify-before-deploy.md), [spec](specs/p2-n063-verify-before-deploy.md).
 - [ ] **Route coverage in the pull-request checks** (P2-N072) [majodali/project-orchestrator-service] — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
+- [ ] **Preview deployment of an unmerged pull request** (P2-N073) [majodali/project-orchestrator-service] — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
 - [ ] **The break down step on offer to a planner** (P2-N071) — When: not dated. Status: identified, waiting on the owner. Pointer: `orchestration/state.json`.

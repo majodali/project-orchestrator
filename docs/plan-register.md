@@ -124,4 +124,5 @@ Dependencies are in the state file, not in sibling order.
   - P2-N069 [done] The view's four unrouted paths on the production gateway
   - P2-N063 [broken-down] Service change verified before it is deployed — plan: plans/p2-n063-verify-before-deploy.md · spec: specs/p2-n063-verify-before-deploy.md
     - P2-N072 [specified] Route coverage in the pull-request checks
+    - P2-N073 [specified] Preview deployment of an unmerged pull request
   - P2-N071 [identified] The break down step on offer to a planner
