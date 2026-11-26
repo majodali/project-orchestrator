@@ -2603,7 +2603,7 @@
       "kind": "work",
       "title": "The owner's setup recorded",
       "outcome": "The settings file carries the fire section, the service's runbook says how to add a scheduled task and what the owner does, and the deploy role's resources are written before the owner applies them.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N046",
       "repository": null,
       "after": [
@@ -8176,6 +8176,25 @@
       "ref": "9874d871a5de84960a77f29a3b959a3e98d77909",
       "pr": "majodali/project-orchestrator-service#60",
       "summary": "All six criteria met at main 9874d87 (PR #60, head 8f7333f, checks green, Deploy run 56 succeeded). Every registered path is routed; the new test fails on 4fb22f0 for exactly the four paths and passes here; auth unchanged; the runbook names $ENDPOINT and why not preprod; build, 402 tests, lint, format pass; the four production paths answer 303 to sign-in.",
+      "notes": null
+    },
+    {
+      "id": "T263",
+      "node": "P2-N049",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-26T15:59:31Z",
+      "closed": null,
+      "base": "69796d2810ab2c7875cece82114f2ae91818863b",
+      "ref": null,
+      "pr": null,
+      "summary": "Add the fire section to orchestration/orchestrator.json and its check; write the service's runbook and deploy-role-permissions entries; move this repo's project-orchestrator-service pin to the D163 commit.",
       "notes": null
     }
   ],
