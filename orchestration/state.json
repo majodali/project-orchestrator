@@ -2937,7 +2937,7 @@
       "repository": "majodali/project-orchestrator-service",
       "after": [],
       "hold": null,
-      "start": "approve",
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null

@@ -20,13 +20,13 @@ Gated nodes:
 - Session, duration and criteria on pages (P2-N039) [majodali/project-orchestrator-service]: start needs the owner's approval
 - Feedback in place and the node panel (P2-N040) [majodali/project-orchestrator-service]: start needs the owner's approval
 - Scratch project that compares review regimes (P2-N051): Held by the owner, 2026-11-21, until the discussion of what the test includes is settled: outcomes in place of planned deliverables, larger leaf nodes, and one review for several nodes
-- Route coverage in the pull-request checks (P2-N072) [majodali/project-orchestrator-service]: start needs the owner's approval
 - Preview deployment of an unmerged pull request (P2-N073) [majodali/project-orchestrator-service]: start needs the owner's approval
 - The break down step on offer to a planner (P2-N071): start needs the owner's approval
 
 ## Ready, starting automatically when the loop runs
 
 - The owner's setup recorded (P2-N049) [executing]
+- Route coverage in the pull-request checks (P2-N072) [majodali/project-orchestrator-service] [specified]
 
 ## In flight
 
