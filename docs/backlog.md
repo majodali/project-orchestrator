@@ -121,7 +121,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: after P2-N049. Status: executing, waiting on a dependency. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Tasks started by the service through scheduled tasks** (P2-N046) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/p2-n046-service-fired-sessions.md).
-- [ ] **The owner's setup recorded** (P2-N049) — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
+- [ ] **The owner's setup recorded** (P2-N049) — When: not dated. Status: specified, ready, starts automatically. Pointer: `orchestration/state.json`.
 - [ ] **The old orchestrator parts retired** (P2-N050) — When: after P2-N033. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/view-that-leads-and-updates.md).
 - [ ] **Session, duration and criteria on pages** (P2-N039) [majodali/project-orchestrator-service] — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.

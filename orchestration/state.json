@@ -2610,7 +2610,7 @@
         "P2-N048"
       ],
       "hold": null,
-      "start": "approve",
+      "start": "auto",
       "docs": {
         "plan": null,
         "spec": null
