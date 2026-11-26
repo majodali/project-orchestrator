@@ -27,7 +27,6 @@ None.
 ## In flight
 
 - The owner's setup recorded (P2-N049) [executing] — T263
-- Service change verified before it is deployed (P2-N063) [majodali/project-orchestrator-service] [broken-down] — T264
 
 ## In progress, children carry the work
 
@@ -39,6 +38,7 @@ None.
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
 - Tasks started by the service through scheduled tasks (P2-N046) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
+- Service change verified before it is deployed (P2-N063) [majodali/project-orchestrator-service] [broken-down]
 
 ## Waiting on a dependency
 

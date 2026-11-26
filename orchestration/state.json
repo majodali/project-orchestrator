@@ -8278,7 +8278,7 @@
       "id": "T264",
       "node": "P2-N063",
       "step": "break down",
-      "status": "open",
+      "status": "closed",
       "role": "planner",
       "model": null,
       "tokens": {
@@ -8286,11 +8286,11 @@
         "out": null
       },
       "opened": "2026-11-26T16:04:52Z",
-      "closed": null,
+      "closed": "2026-11-26T16:06:44Z",
       "base": "a5ed8c45ebcea884b95024b932538319f9535c14",
       "ref": null,
       "pr": null,
-      "summary": "Break P2-N063 down into the four children its specification names, criteria in each note, entered at the owner's instruction from the text a planner agent prepared.",
+      "summary": "Four children added, criteria in each note (D123): P2-N072 route coverage in the checks, independent; P2-N073 the preview deployment; P2-N074 the service dispatch, after P2-N073; P2-N075 the process rule, after both. No file changed, so no pull request. No asks: D149 to D152, D157 and D158 settle every question.",
       "notes": null
     }
   ],
