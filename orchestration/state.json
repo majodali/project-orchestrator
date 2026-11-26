@@ -2932,7 +2932,7 @@
       "kind": "work",
       "title": "Route coverage in the pull-request checks",
       "outcome": "The pull-request checks fail when the gateway's route keys and the application's registered paths disagree in either direction, with every exemption in one place and the reason it stays.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N063",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -8294,6 +8294,25 @@
       "ref": null,
       "pr": null,
       "summary": "Four children added, criteria in each note (D123): P2-N072 route coverage in the checks, independent; P2-N073 the preview deployment; P2-N074 the service dispatch, after P2-N073; P2-N075 the process rule, after both. No file changed, so no pull request. No asks: D149 to D152, D157 and D158 settle every question.",
+      "notes": null
+    },
+    {
+      "id": "T265",
+      "node": "P2-N072",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-26T20:31:15Z",
+      "closed": null,
+      "base": "4ffe71edbd22c11588221355f7aff327e0ed453f",
+      "ref": null,
+      "pr": null,
+      "summary": "Add the gateway-to-application route coverage check, break-and-restore proofs both directions, and the single exemption place for the view proxy routes.",
       "notes": null
     }
   ],
