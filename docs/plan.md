@@ -20,11 +20,12 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- Service change verified before it is deployed (P2-N063) [majodali/project-orchestrator-service] [specified]
+None.
 
 ## In flight
 
 - The owner's setup recorded (P2-N049) [executing] — T263
+- Service change verified before it is deployed (P2-N063) [majodali/project-orchestrator-service] [specified] — T264
 
 ## In progress, children carry the work
 

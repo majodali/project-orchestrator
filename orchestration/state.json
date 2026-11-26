@@ -8196,6 +8196,25 @@
       "pr": null,
       "summary": "Add the fire section to orchestration/orchestrator.json and its check; write the service's runbook and deploy-role-permissions entries; move this repo's project-orchestrator-service pin to the D163 commit.",
       "notes": null
+    },
+    {
+      "id": "T264",
+      "node": "P2-N063",
+      "step": "break down",
+      "status": "open",
+      "role": "planner",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-26T16:04:52Z",
+      "closed": null,
+      "base": "a5ed8c45ebcea884b95024b932538319f9535c14",
+      "ref": null,
+      "pr": null,
+      "summary": "Break P2-N063 down into the four children its specification names, criteria in each note, entered at the owner's instruction from the text a planner agent prepared.",
+      "notes": null
     }
   ],
   "decisions": [
