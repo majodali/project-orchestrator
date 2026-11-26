@@ -130,3 +130,4 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Session field adopted in this repository** (P2-N042) — When: after P2-N039. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Scratch project that compares review regimes** (P2-N051) — When: not dated. Status: planned, waiting on the owner. Pointer: [plan](plans/p2-n051-review-regimes.md).
 - [ ] **Service change verified before it is deployed** (P2-N063) [majodali/project-orchestrator-service] — When: not dated. Status: specified, ready, starts automatically. Pointer: [plan](plans/p2-n063-verify-before-deploy.md), [spec](specs/p2-n063-verify-before-deploy.md).
+- [ ] **The break down step on offer to a planner** (P2-N071) — When: not dated. Status: identified, waiting on the owner. Pointer: `orchestration/state.json`.
