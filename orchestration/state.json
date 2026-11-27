@@ -8907,7 +8907,7 @@
       "id": "T281",
       "node": "P2-N073",
       "step": "execute",
-      "status": "open",
+      "status": "blocked",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8915,11 +8915,11 @@
         "out": null
       },
       "opened": "2026-11-27T22:34:14Z",
-      "closed": null,
+      "closed": "2026-11-27T22:41:18Z",
       "base": "f256f5de2862faa1e3b88307310b987307ca9419",
-      "ref": null,
-      "pr": null,
-      "summary": "Rework on P2-N073: rename the PREVIEW_DEPLOYS switch used in preview.yml/runbook to avoid colliding with P2-N074's setting, and fix the runbook/ask to require the owner to merge #63 by hand before any preview run, per T266's rework note.",
+      "ref": "f441dc2",
+      "pr": "majodali/project-orchestrator-service#63",
+      "summary": "Fixed the two faults T266's rework named: renamed the schedule-holding switch from PREVIEW_DEPLOYS to PREVIEW_SCHEDULE_ENABLED (PREVIEW_DEPLOYS is P2-N074's own setting); documented that preview.yml and preview-teardown.yml must be on main before any dispatch, and that the owner merges #63 by hand first. CI green (Build, Lint, Test, SAM validate --lint).",
       "notes": null
     }
   ],
@@ -11252,6 +11252,21 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T279 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D181",
+      "node": "P2-N073",
+      "question": "Criteria 1-6, 13 and 15 of P2-N073 are now met in #63 (CI green: Build, Lint, Test, SAM validate --lint). Criteria 7-12 and 14 need a real preview run, and GitHub only dispatches workflow_dispatch/schedule from a workflow file on the default branch — so preview.yml and preview-teardown.yml must be on main before any run can happen. Merge #63 by hand now, as on P2-N055 (D154)?",
+      "options": [
+        "Merge #63 now; the merge deploys production but changes only workflow and documentation files. Once it's on main, execute resumes for the real-run criteria (7-12, 14), with any fix the first runs find going into a second pull request on a new branch.",
+        "Hold the merge; say what should happen first."
+      ],
+      "default": "Merge #63 now; the merge deploys production but changes only workflow and documentation files. Once it's on main, execute resumes for the real-run criteria (7-12, 14), with any fix the first runs find going into a second pull request on a new branch.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T281 at close.",
       "standing": false,
       "source": null
     }
