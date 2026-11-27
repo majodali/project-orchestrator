@@ -70,6 +70,8 @@ naming your task as `task`:
   already written, `identified` when it still needs planning.
 - `after` lists only real dependencies. Sibling order means nothing.
 - A child that writes to another repository says which, in the plan.
+  Pass that repository as `repository` in the same `node_add` call,
+  so the service never offers or fires the child under its parent's.
   Set `start: approve` on it. A repository new to the project is an
   ask of the owner.
 - An obsolete node is removed with `node_remove`, never parked. A
