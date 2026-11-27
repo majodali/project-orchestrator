@@ -8400,11 +8400,14 @@
       "step": "execute",
       "status": "closed",
       "role": "implementer",
-      "model": null,
+      "model": "claude-sonnet-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 172,
+        "out": 47341,
+        "cacheRead": 12783841,
+        "cacheWrite": 158650
       },
+      "costSource": "transcript",
       "opened": "2026-11-27T08:29:29Z",
       "closed": "2026-11-27T08:40:00Z",
       "base": "f0c415e0fcaf8a794cbe457be6ba9c3b24f35faf",
