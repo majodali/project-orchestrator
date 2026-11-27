@@ -8391,6 +8391,25 @@
       "pr": null,
       "summary": "Render node notes, decision text, hold reasons and task summaries in the view preserving line breaks, lists and backtick code styling, without allowing HTML injection.",
       "notes": null
+    },
+    {
+      "id": "T268",
+      "node": "P2-N076",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T08:29:35Z",
+      "closed": null,
+      "base": "0e889c2f2224e021a63dc74acd95866f915b7f63",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N072, Route coverage in the pull-request checks, against its criteria and outcome.",
+      "notes": null
     }
   ],
   "decisions": [
