@@ -2791,7 +2791,10 @@
       "parent": "P2-N087",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "T280: Criterion 5 not met: the test for a node with two pull requests in different repositories (test/reviewFixes.test.ts, \"carries each pull request's detail, whichever repository it is in\") only asserts the state is valid; it never opens the claim nor reads the answer. Criteria 1-4, 6-9 met; build, tests, lint, format pass at 98f6b21."
+      },
       "start": "auto",
       "docs": {
         "plan": null,
@@ -8882,7 +8885,7 @@
       "id": "T280",
       "node": "P2-N089",
       "step": "verify",
-      "status": "open",
+      "status": "blocked",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -8890,11 +8893,11 @@
         "out": null
       },
       "opened": "2026-11-27T20:21:24Z",
-      "closed": null,
+      "closed": "2026-11-27T20:26:49Z",
       "base": "b6baecb19564f0d5f5b9d61ef5b81cdbc46f82bd",
-      "ref": null,
+      "ref": "98f6b21c44a4940d4d002cff8e9d783b4f68ca7c",
       "pr": null,
-      "summary": "Verify P2-N087 (pull request description and checks in the verify claim's answer) against its criteria, in a read-only clone of majodali/project-orchestrator-service at the pull request head.",
+      "summary": "Criterion 5 not met: the test for a node with two pull requests in different repositories (test/reviewFixes.test.ts, \"carries each pull request's detail, whichever repository it is in\") only asserts the state is valid; it never opens the claim nor reads the answer. Criteria 1-4, 6-9 met; build, tests, lint, format pass at 98f6b21.",
       "notes": null
     }
   ],
