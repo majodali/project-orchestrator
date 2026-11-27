@@ -1102,6 +1102,10 @@ describe("orchestration/orchestrator.json (criterion 5)", () => {
                 trig: "trig_01BU5iiU2c7K1XTyquEbJLMG",
                 secret: "agent/project-orchestrator-service/implementer",
               },
+              reviewer: {
+                trig: "trig_01NAdmvA9ib1UZAeLBe8p7mj",
+                secret: "agent/project-orchestrator/reviewer",
+              },
             },
           },
         },
