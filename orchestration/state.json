@@ -8902,6 +8902,25 @@
       "pr": null,
       "summary": "Criterion 5 not met: the test for a node with two pull requests in different repositories (test/reviewFixes.test.ts, \"carries each pull request's detail, whichever repository it is in\") only asserts the state is valid; it never opens the claim nor reads the answer. Criteria 1-4, 6-9 met; build, tests, lint, format pass at 98f6b21.",
       "notes": null
+    },
+    {
+      "id": "T281",
+      "node": "P2-N073",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T22:34:14Z",
+      "closed": null,
+      "base": "f256f5de2862faa1e3b88307310b987307ca9419",
+      "ref": null,
+      "pr": null,
+      "summary": "Rework on P2-N073: rename the PREVIEW_DEPLOYS switch used in preview.yml/runbook to avoid colliding with P2-N074's setting, and fix the runbook/ask to require the owner to merge #63 by hand before any preview run, per T266's rework note.",
+      "notes": null
     }
   ],
   "decisions": [
