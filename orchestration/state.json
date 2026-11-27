@@ -8504,7 +8504,7 @@
       "id": "T271",
       "node": "P2-N078",
       "step": "verify",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -8512,11 +8512,11 @@
         "out": null
       },
       "opened": "2026-11-27T09:17:10Z",
-      "closed": null,
+      "closed": "2026-11-27T09:24:04Z",
       "base": "8bfd6402c474c13356473bb29b0f5b474f592cf9",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N077, Readable long text on the view's node page, against its outcome and criteria: check each criterion on the pull request at its head, its checks and its branch.",
+      "summary": "Criteria 1, 3, 4, 5, 7 met on #64 at e0d7048 in a read-only clone: build, 406 tests, lint, format pass. Criteria 2 and 6 are met in substance, but their pull-request-body clauses, and #64's own checks, are unreadable: GitHub refuses this repository to this session. Two asks.",
       "notes": null
     }
   ],
@@ -10696,6 +10696,39 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T270 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D171",
+      "node": "P2-N078",
+      "question": "P2-N077 criterion 2 ends \"The pull request lists each place it changed and each it left, with the reason\", and criterion 6 \"each such change is named in the pull request with its reason\". This reviewer session cannot read a pull request body or its check runs in majodali/project-orchestrator-service: the GitHub tools, gh and api.github.com all answer 'Access denied: repository \"majodali/project-orchestrator-service\" is not configured for this session. Allowed repositories: majodali/project-orchestrator', and github.com returns 403. Everything else in the seven criteria was checked on #64's head e0d7048 in a read-only clone and is met, with build, 406 tests, lint and format passing there. How are the two body clauses settled?",
+      "options": [
+        "A: read #64's body yourself and accept the review on P2-N077 in the view, which completes the verification without another reviewer session; fastest, and the fix you wanted asap merges",
+        "B: give reviewer sessions GitHub read access to majodali/project-orchestrator-service, then answer this so verify is offered again and a reviewer reads the body and the checks; the lasting fix, and it delays this node",
+        "C: amend the criteria so such a list goes in the commit message, which a reviewer reads from a clone; e0d7048's message names the places changed but neither the places left nor the test change's reason, so this node still needs a rework",
+        "D: treat the clauses as met on this node by T267's task summary, which names the places changed only"
+      ],
+      "default": "A: read #64's body yourself and accept the review on P2-N077 in the view",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T271 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D172",
+      "node": "P2-N078",
+      "question": "richText (src/view/html.ts at e0d7048) turns a field whose whole text is backticks and nothing else into an empty code element: \"`\" and \"``\" both render as \"<code></code>\", dropping the backticks; \"```\" renders one backtick inside a code element. Observed by calling the built richText directly, not inferred. Any field holding one non-backtick character is unaffected, and no unescaped text is ever emitted, so nothing here is a safety hole. Fix it or record it?",
+      "options": [
+        "A: record it and leave it; no field in the plan is backticks only",
+        "B: fix it in a rework of P2-N077 before the node closes, by treating a part with no inner text as plain text",
+        "C: enter it in the Backlog as its own node"
+      ],
+      "default": "A: record it and leave it",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T271 at close.",
       "standing": false,
       "source": null
     }
