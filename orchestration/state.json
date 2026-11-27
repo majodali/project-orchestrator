@@ -8499,6 +8499,25 @@
       "pr": null,
       "summary": "All seven criteria met. Verified #101 at eab4fe0 (fire section with the owner's four tasks, no token; strict parseSettings; pin 139258c to 7022a99) and #61 at b2026f0 (runbook O1/O2, rotation, firing stopped; ReadFireTokens on agent/project-orchestrator*; deploy-role note). check, test, lint, format green locally and in CI.",
       "notes": null
+    },
+    {
+      "id": "T271",
+      "node": "P2-N078",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T09:17:10Z",
+      "closed": null,
+      "base": "8bfd6402c474c13356473bb29b0f5b474f592cf9",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N077, Readable long text on the view's node page, against its outcome and criteria: check each criterion on the pull request at its head, its checks and its branch.",
+      "notes": null
     }
   ],
   "decisions": [

@@ -32,7 +32,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Verification of Readable long text on the view's node page (P2-N078) [majodali/project-orchestrator-service] [specified] — T271
 
 ## In progress, children carry the work
 
@@ -521,6 +521,8 @@ Documents: [plan](plans/orchestration-service.md).
 - **Readable long text on the view's node page** (P2-N077, verifying) [majodali/project-orchestrator-service]
   A node's note, a decision's question and a task's summary show in the view with the line breaks and lists their authors wrote.
   Note: Added at the owner's instruction, 2026-11-27: "In the view a node's text content is displayed without preserving whitespace, so it's a huge blob of undifferentiated text. P2-N073 node text is almost completely unusable. Let's fix that asap." The owner asked for it as soon as possible, so it starts by itself. This node's plan needs no file (D137, standing): the criteria below are its plan and its specification. Its work is one pull request in majodali/project-orchestrator-service. No criterion needs the running deployment, so the service merges the pull request when the verification closes. What is there now, read at the service's main on 2026-11-27. src/view/nodePage.ts renders the note as `<p class="note" data-note>` with the escaped text, so the browser collapses every line break. Notes now carry the criteria of a node (D123, D137): numbered lists, paragraphs and lists of the owner's actions, as on P2-N073. src/view/html.ts already has a `.pre{white-space:pre-wrap}` rule. Criteria. 1. On the node page, a node's note shows its line breaks and blank lines as written: a note with a numbered list shows one item per line, and paragraphs are separated. Long lines still wrap and the page does not scroll sideways (V12). 2. The same holds wherever the view shows text an author wrote in several lines: a decision's question, options, default, answer and rationale, a hold's reason, and a task's summary, on the node page, the task page and the Plan page. The pull request lists each place it changed and each it left, with the reason. 3. Text between backticks in a note shows in the page's code style. Nothing else is interpreted: no HTML from the text is ever emitted, every character is still escaped, and the Content-Security-Policy is unchanged. 4. A test renders a node whose note has two paragraphs, a numbered list and a backticked name, and shows the breaks and the code style in the page's HTML; a second shows a note containing `<script>` and `&` comes out escaped. 5. The live update (src/view/appScript.ts) still replaces the page without losing the new rendering, shown by the existing tests passing unchanged. 6. No existing test changes except to add, or to follow the changed markup where a test compares the note's exact HTML; each such change is named in the pull request with its reason. 7. Build, tests, lint and format pass on the pull request.
+  - check: **Verification of Readable long text on the view's node page** (P2-N078, specified) [majodali/project-orchestrator-service]
+    P2-N077 is verified against its outcome.
 
 ## Decisions taken
 
