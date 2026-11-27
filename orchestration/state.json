@@ -2733,7 +2733,7 @@
       "kind": "work",
       "title": "Repository field on node_add",
       "outcome": "A node is added with its repository in one write, so the fire check never sees it under the wrong repository.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N046",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -2743,7 +2743,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-27",
       "note": "Added at the owner's instruction, 2026-11-27 (\"add a node\"). This node's plan needs no file (D137, standing): the criteria below are its plan and its specification. Its work is one pull request in majodali/project-orchestrator-service. No criterion needs the running deployment, so the service merges the pull request when the verification closes. It was added with start `approve`, given its repository, and only then set to start by itself, so that it was not fired under the wrong repository as P2-N082 was.\n\nWhat happened. `node_add` has no repository field: a new node takes its parent's repository, and `node_update` (P2-N065) corrects it in a second write. The fire check runs after every write. On 2026-11-27 at 11:45:43Z P2-N082 was added under P2-N046, whose repository is none, and at 11:45:49Z the service fired this repository's implementer for it; the repository was set to majodali/project-orchestrator-service at 11:46:01Z. The session fired for it found the node was no longer its work. One fire was wasted and the node carried a bare `fired` line. The same gap would misdirect any break down that adds children in another repository than their parent's (P2-N063's child for this repository, P2-N075, was added and corrected in two writes before firing was on).\n\nCriteria.\n1. `node_add` accepts `repository`: an `owner/name` string, or null for the coordinating repository, validated as `node_update` validates it. When the field is absent the node takes its parent's repository, as today.\n2. The node is committed with that repository in the same write, so the fire check after that write reads the right one. A test shows a node added under a parent with no repository, with a repository given, is answered by `task_next` for that repository and not for the coordinating one.\n3. The tool's description and the service's instructions to a session name the field and say when to use it: a child whose work is in another repository than its parent's.\n4. .claude/agents/planner.md in majodali/project-orchestrator is not this node's to change; if the planner's page should mention the field, the pull request says so as an ask.\n5. No existing test changes except to add the field where a fixture lists a tool's input; any other change to an existing test is an ask.\n6. Build, tests, lint and format pass on the pull request."
     },
     {
@@ -2751,7 +2751,7 @@
       "kind": "check",
       "title": "Verification of Repository field on node_add",
       "outcome": "P2-N086 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N086",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -2761,7 +2761,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-27",
       "note": null
     },
     {
@@ -8820,7 +8820,7 @@
       "id": "T278",
       "node": "P2-N088",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -8828,11 +8828,11 @@
         "out": null
       },
       "opened": "2026-11-27T19:17:58Z",
-      "closed": null,
+      "closed": "2026-11-27T19:22:27Z",
       "base": "b606e1b32fe64c59ce7f5f86d5272d488079ae1c",
-      "ref": null,
+      "ref": "ddb98c69bd895de920a6aca1c4a55cd8e4d917be",
       "pr": null,
-      "summary": "Verify P2-N086, Repository field on node_add, against its criteria and outcome: each criterion checked against the pull request's diff and the files as they are, the branch, and the pull request's own checks.",
+      "summary": "All six criteria of P2-N086 met at PR #67 head ddb98c6: node_add takes repository with node_update's validation, commits it in the same write (the fire check reads the committed state), both descriptions name the field, no existing test changed, build, test, lint and format pass in a read-only clone. Branch t276-p2-n086-repo-on-add is the task's own.",
       "notes": null
     }
   ],
