@@ -11267,8 +11267,8 @@
         "Hold the merge; say what should happen first."
       ],
       "default": "Merge #63 now; the merge deploys production but changes only workflow and documentation files. Once it's on main, execute resumes for the real-run criteria (7-12, 14), with any fix the first runs find going into a second pull request on a new branch.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Merge #63 now; the merge deploys production but changes only workflow and documentation files. Once it's on main, execute resumes for the real-run criteria (7-12, 14), with any fix the first runs find going into a second pull request on a new branch.",
+      "decided": "2026-11-27",
       "rationale": "Asked by T281 at close.",
       "standing": false,
       "source": null
