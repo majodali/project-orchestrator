@@ -281,10 +281,9 @@ carry each criterion: P2-N030 has 1 to 6, 8, 19 and 20; P2-N031 has
     `service_identity`, opens and closes a task, and the task has a
     measured cost. The record states what loaded and what did not.
     The generator's `--check` passes against that repository's copy.
-17. A replacement orchestrator session, started while delegated tasks
-    are open, prints the same action keys from the same commit and a
-    fresh snapshot as the one it replaces, and starts no session
-    twice. The trial records one replacement.
+17. Struck by D124, for the reason D119 gave for 18: it measured an
+    orchestrator session being replaced mid-trial, and the fired
+    mechanism has no orchestrator session for anything to replace.
 19. A test shows a `specified` node whose note contains
     `Next step: break down` gets a `start` for `break down`, and one
     without it gets `execute`.
