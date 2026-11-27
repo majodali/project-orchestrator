@@ -11278,8 +11278,8 @@
         "Hold: keep offering execute on P2-N033 until three nodes other than it are each fully carried by fired sessions, two of them overlapping"
       ],
       "default": "Proceed under RU-019 on what the record shows once P2-N086 settles, as D138 did for P2-N047's short count",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Proceed under RU-019 on what the record shows once P2-N086 settles, as D138 did for P2-N047's short count",
+      "decided": "2026-11-27",
       "rationale": "Asked by T277 at close.",
       "standing": false,
       "source": null
