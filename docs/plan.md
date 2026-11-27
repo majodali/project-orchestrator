@@ -25,11 +25,11 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
-- The owner's setup recorded (P2-N049) [executing]
 - Preview deployment of an unmerged pull request (P2-N073) [majodali/project-orchestrator-service] [executing]
 
 ## In flight
 
+- The owner's setup recorded (P2-N049) [executing] — T269
 - Readable long text on the view's node page (P2-N077) [majodali/project-orchestrator-service] [executing] — T267
 
 ## In progress, children carry the work

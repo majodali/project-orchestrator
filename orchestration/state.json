@@ -8416,6 +8416,25 @@
       "pr": null,
       "summary": "All nine criteria met. Verified in a read-only clone at PR #62 head 7328abb: both directions run, and I reproduced each break-and-restore (ALL /mcp/:owner/:repo; GET /no-such-path-t268). npm test 414 passed, 2 skipped; lint and prettier clean; CI's four checks pass. One file changed; checks.yml unchanged; branch used by PR #62 alone.",
       "notes": null
+    },
+    {
+      "id": "T269",
+      "node": "P2-N049",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T08:38:32Z",
+      "closed": null,
+      "base": "7aa8943d8b030f79d45fc290c3d77e7507cb4a5e",
+      "ref": null,
+      "pr": null,
+      "summary": "Continue rework of P2-N049: fill fire.repositories with the four scheduled-task entries, adjust the ReadFireTokens secret-name grant and runbook naming convention per D166 option 1.",
+      "notes": null
     }
   ],
   "decisions": [
