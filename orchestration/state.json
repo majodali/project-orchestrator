@@ -8946,6 +8946,25 @@
       "pr": null,
       "summary": "PR #63 merged to main (criteria 1-6,13,15 proven; preview.yml now on main). Criteria 7-12,14 need a real dispatch of preview.yml against open PR #68. This session's own auto-mode classifier denied that dispatch as destructive - no AWS credential reached, nothing deployed. Also could not list the preview GitHub Environment's variables (proxy refused that API path) to confirm O-prev-3 to O-prev-5.",
       "notes": null
+    },
+    {
+      "id": "T283",
+      "node": "P2-N087",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T23:33:26Z",
+      "closed": null,
+      "base": "1723a8327928539ed43a60edad8da6e0be01d19c",
+      "ref": null,
+      "pr": null,
+      "summary": "Rework T280: fix the two-pull-request test (test/reviewFixes.test.ts) so it actually opens the verify claim and reads the answer, instead of only asserting state validity.",
+      "notes": null
     }
   ],
   "decisions": [
