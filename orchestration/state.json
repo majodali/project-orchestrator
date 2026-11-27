@@ -10647,8 +10647,8 @@
         "C: rework P2-N072 now to match the pair structurally"
       ],
       "default": "A: accept it as recorded. The gap is one documented pair, and B can be raised whenever the view's catch-all is next touched.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: accept it as recorded. The gap is one documented pair, and B can be raised whenever the view's catch-all is next touched.",
+      "decided": "2026-11-27",
       "rationale": "Asked by T268 at close.",
       "standing": false,
       "source": null
