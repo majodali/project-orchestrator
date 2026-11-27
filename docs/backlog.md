@@ -93,6 +93,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Rework cost measured against the reviews it replaces** (P2-N029) — When: 2026-11-23. Status: done. Pointer: [plan](plans/p2-n029-rework-cost.md).
 - [x] **The view's four unrouted paths on the production gateway** (P2-N069) [majodali/project-orchestrator-service] — When: 2026-11-26. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Route coverage in the pull-request checks** (P2-N072) [majodali/project-orchestrator-service] — When: 2026-11-27. Status: done. Pointer: `orchestration/state.json`.
+- [x] **Readable long text on the view's node page** (P2-N077) [majodali/project-orchestrator-service] — When: 2026-11-27. Status: done. Pointer: `orchestration/state.json`.
 
 ## Upcoming
 
@@ -135,6 +136,5 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Preview dispatch from the service** (P2-N074) [majodali/project-orchestrator-service] — When: after P2-N073. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Verification against a preview in the process pages** (P2-N075) — When: after P2-N073, P2-N074. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **The break down step on offer to a planner** (P2-N071) — When: not dated. Status: identified, waiting on the owner. Pointer: `orchestration/state.json`.
-- [ ] **Readable long text on the view's node page** (P2-N077) [majodali/project-orchestrator-service] — When: not dated. Status: verifying, in progress, its children carry the work. Pointer: `orchestration/state.json`.
 - [ ] **Report of a failed deploy after the service's own merge** (P2-N080) [majodali/project-orchestrator-service] — When: not dated. Status: identified, waiting on the owner. Pointer: `orchestration/state.json`.
 - [ ] **Bounded size of the service's answers** (P2-N081) [majodali/project-orchestrator-service] — When: not dated. Status: identified, waiting on the owner. Pointer: `orchestration/state.json`.
