@@ -11244,8 +11244,8 @@
         "Yes: the overlap already observed meets criterion 14 once a second node (P2-N086) reaches done, without waiting for two nodes other than P2-N033 to overlap"
       ],
       "default": "No: require two nodes other than P2-N033 to overlap with each other before calling criterion 14 met, as D117 preferred waiting for a clean case over a looser reading",
-      "chosen": null,
-      "decided": null,
+      "chosen": "No: require two nodes other than P2-N033 to overlap with each other before calling criterion 14 met, as D117 preferred waiting for a clean case over a looser reading",
+      "decided": "2026-11-27",
       "rationale": "Asked by T277 at close.",
       "standing": false,
       "source": null
