@@ -2661,7 +2661,7 @@
       "kind": "work",
       "title": "Recovery of a node after an acknowledged fire report",
       "outcome": "A node whose fires were reported to the owner is fired again once the owner acknowledges the report, and is reported again only after fresh bare attempts.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N046",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -8654,6 +8654,25 @@
       "ref": "ee45ec5c2c3c7a210bda8a028a98e8ab480cd4a1",
       "pr": null,
       "summary": "P2-N083 verified at majodali/project-orchestrator#102 head ee45ec5. All four criteria met: the service reviewer entry matches the project-orchestrator one and nothing else in the settings file changed; the PR's cap and permission statements check out against the service source; check, test, lint and format pass here; no token value, no service-owned file touched.",
+      "notes": null
+    },
+    {
+      "id": "T274",
+      "node": "P2-N082",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T12:35:06Z",
+      "closed": null,
+      "base": "4ee4d4c701183300f10c2e93f8d89eeeff072bc2",
+      "ref": null,
+      "pr": null,
+      "summary": "Reset the fired-attempt count at a too-many-attempts report's closing, so acknowledgement lets the node fire once more and only two fresh bare fires reopen a report.",
       "notes": null
     }
   ],
