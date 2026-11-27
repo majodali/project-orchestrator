@@ -11046,8 +11046,8 @@
         "Hold the node here; the preview feature is not wanted yet"
       ],
       "default": "Perform O-prev-1 to O-prev-5 now, then signal this node so execute resumes on pull request #63 for the real-run criteria (7-12, 14)",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Perform O-prev-1 to O-prev-5 now, then signal this node so execute resumes on pull request #63 for the real-run criteria (7-12, 14)",
+      "decided": "2026-11-27",
       "rationale": "Asked by T266 at close.",
       "standing": false,
       "source": null
