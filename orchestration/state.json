@@ -11022,8 +11022,8 @@
         "leave it, and let reviewer sessions for that repository verify from a read-only clone without the pull request's checks"
       ],
       "default": "attach it now: the reviewer's own page requires checking a pull request's own checks before passing work, and without the attachment a service-repository verification cannot do that at all",
-      "chosen": null,
-      "decided": null,
+      "chosen": "attach it now: the reviewer's own page requires checking a pull request's own checks before passing work, and without the attachment a service-repository verification cannot do that at all",
+      "decided": "2026-11-27",
       "rationale": "Asked by T273 at close.",
       "standing": false,
       "source": null
