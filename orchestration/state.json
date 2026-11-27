@@ -8695,6 +8695,25 @@
       "pr": "majodali/project-orchestrator-service#66",
       "summary": "Restarted a node's bare-attempt count at a closed too-many-attempts report's journal timestamp; acknowledge or Run-now both restart it, Run-now's own write never fires. New tests only; build/tests/lint/format and PR CI pass.",
       "notes": null
+    },
+    {
+      "id": "T275",
+      "node": "P2-N085",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T12:51:56Z",
+      "closed": null,
+      "base": "aa933fda46ba088cdfaec6c3861af5610ff7b815",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N082, Recovery of a node after an acknowledged fire report, against its criteria and outcome, reading the work read-only in majodali/project-orchestrator-service.",
+      "notes": null
     }
   ],
   "decisions": [
