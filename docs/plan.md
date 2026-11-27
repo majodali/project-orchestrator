@@ -19,7 +19,6 @@ Gated nodes:
 - methodology-tools' Binding block at the pinned methodology version (P4-N059): start needs the owner's approval
 - The view over several projects (P2-N057) [majodali/project-orchestrator-service]: start needs the owner's approval
 - The pilot on this deployment (P2-N058): start needs the owner's approval
-- Repository field on node_add (P2-N086) [majodali/project-orchestrator-service]: start needs the owner's approval
 - Session, duration and criteria on pages (P2-N039) [majodali/project-orchestrator-service]: start needs the owner's approval
 - Feedback in place and the node panel (P2-N040) [majodali/project-orchestrator-service]: start needs the owner's approval
 - Scratch project that compares review regimes (P2-N051): Held by the owner, 2026-11-21, until the discussion of what the test includes is settled: outcomes in place of planned deliverables, larger leaf nodes, and one review for several nodes
@@ -30,6 +29,7 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Orchestrator trial with its measured cost (P2-N033) [executing]
+- Repository field on node_add (P2-N086) [majodali/project-orchestrator-service] [specified]
 - Preview deployment of an unmerged pull request (P2-N073) [majodali/project-orchestrator-service] [executing]
 
 ## In flight
