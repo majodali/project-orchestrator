@@ -2679,7 +2679,7 @@
       "kind": "work",
       "title": "Reviewer entry for the service repository in the fire settings",
       "outcome": "A verify step on a node whose work is in majodali/project-orchestrator-service is fired by the service, to the owner's one reviewer task.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N046",
       "repository": null,
       "after": [],
@@ -2691,6 +2691,24 @@
       },
       "done": null,
       "note": "Added at the owner's instruction, 2026-11-27 (\"add the reviewer entry\"). D169, raised by T270 on P2-N049 and answered with its default: the same scheduled task and secret are listed under majodali/project-orchestrator-service.reviewer in a follow-up task. This node's plan needs no file (D137, standing): the criteria below are its plan and its specification. Its work is one pull request in this repository, majodali/project-orchestrator.\n\nCriteria.\n1. orchestration/orchestrator.json, under `fire.repositories`, gains `majodali/project-orchestrator-service`.`reviewer` with `trig` `trig_01NAdmvA9ib1UZAeLBe8p7mj` and `secret` `agent/project-orchestrator/reviewer`, the same values as the reviewer entry under majodali/project-orchestrator. Nothing else in the file changes.\n2. The pull request says, from the service's source at this repository's pin, that one scheduled task listed under two repositories is counted once against its hourly cap (the cap is counted by `trig_` identifier), and that the service's permission to read the secret already covers the name (`agent/project-orchestrator*`).\n3. `npm run check`, `npm test`, `npm run lint` and `npm run format` pass. No pull request changes one of the five files the service owns.\n4. No token value appears anywhere.\n\nFor the owner, not a criterion: the reviewer's scheduled task has only majodali/project-orchestrator attached, so a reviewer session cannot read a pull request's description or check runs in the service repository (D130, D171). Adding majodali/project-orchestrator-service to that scheduled task in the Claude app removes that gap; it is a setting on the owner's task, not a change in a repository."
+    },
+    {
+      "id": "P2-N084",
+      "kind": "check",
+      "title": "Verification of Reviewer entry for the service repository in the fire settings",
+      "outcome": "P2-N083 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N083",
+      "repository": null,
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N028",
@@ -8598,7 +8616,7 @@
       "id": "T272",
       "node": "P2-N083",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8606,11 +8624,11 @@
         "out": null
       },
       "opened": "2026-11-27T11:46:28Z",
-      "closed": null,
+      "closed": "2026-11-27T11:56:16Z",
       "base": "5e85878f3fc01f664bcb2db521a2e454c7e5825b",
-      "ref": null,
-      "pr": null,
-      "summary": "Add the service repository's reviewer entry under fire.repositories in orchestration/orchestrator.json, mirroring the existing project-orchestrator reviewer entry.",
+      "ref": "ee45ec5c2c3c7a210bda8a028a98e8ab480cd4a1",
+      "pr": "majodali/project-orchestrator#102",
+      "summary": "Added majodali/project-orchestrator-service.reviewer to fire.repositories (same trig and secret as the project-orchestrator reviewer entry). Updated the golden-file test. Verified from the service's source that the hourly cap is counted by trig_, and the agent/project-orchestrator* grant already covers this secret name.",
       "notes": null
     }
   ],
@@ -10853,6 +10871,21 @@
       "chosen": null,
       "decided": null,
       "rationale": "Opened by the service's fire check (P2-N048, design 2 and 3).",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D175",
+      "node": "P2-N083",
+      "question": "This repository's package.json pins project-orchestrator-service at 7022a99 (PR #59, 2026-11-25), which predates b2026f0 (PR #61, 2026-11-27) — the commit that added the ReadFireTokens grant on agent/project-orchestrator* that P2-N049 relied on. The actual AWS permission is already applied (verified when P2-N049 closed), so nothing is broken, but this repository's pinned devDependency no longer reflects the service's documented fire-secrets permission story. Add a node to move the pin to the service's current main?",
+      "options": [
+        "yes, add a node to move the pin",
+        "no, leave it for whenever a later node next needs newer service code"
+      ],
+      "default": "no, leave it for whenever a later node next needs newer service code — the pin lagging behind by itself caused no failure here, and a pin move is its own deliberate, verified change (as P2-N048 criterion 10's was), not something to fold into an unrelated node",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T272 at close.",
       "standing": false,
       "source": null
     }
