@@ -10780,8 +10780,8 @@
         "fire it by hand with Run now"
       ],
       "default": "acknowledge",
-      "chosen": null,
-      "decided": null,
+      "chosen": "acknowledge",
+      "decided": "2026-11-27",
       "rationale": "Opened by the service's fire check (P2-N048, design 2 and 3).",
       "standing": false,
       "source": null
