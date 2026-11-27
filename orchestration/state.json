@@ -8754,6 +8754,25 @@
       "pr": null,
       "summary": "Add a repository field to node_add so a new node can take an explicit repository in the same write, instead of always inheriting its parent's and needing a later node_update correction.",
       "notes": null
+    },
+    {
+      "id": "T277",
+      "node": "P2-N033",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": "claude-sonnet-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T19:14:14Z",
+      "closed": null,
+      "base": "a7a6a440be9a441433cf0abda661404db37e01d7",
+      "ref": null,
+      "pr": null,
+      "summary": "Compile the recorded trial for criteria 14-16: read the journal/state for service-fired sessions that carried nodes from an offered step to done since fire.enabled went live, their models, stops and measured costs, set beside hand-started work, and write the record.",
+      "notes": null
     }
   ],
   "decisions": [
