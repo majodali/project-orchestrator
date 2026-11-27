@@ -4,10 +4,31 @@
   "checkAfterMinutes": 45,
   "weeklyBudget": null,
   "fire": {
-    "enabled": false,
+    "enabled": true,
     "perTaskHourlyCap": 30,
     "perAccountHourlyCap": 100,
     "perAccountDailyCap": 200,
-    "repositories": {}
+    "repositories": {
+      "majodali/project-orchestrator": {
+        "planner": {
+          "trig": "trig_01EL3D7C5ZaAcmCnvGVUAoxd",
+          "secret": "agent/project-orchestrator/planner"
+        },
+        "implementer": {
+          "trig": "trig_01C5J6Q2eQGVpW3bkL4ffDdx",
+          "secret": "agent/project-orchestrator/implementer"
+        },
+        "reviewer": {
+          "trig": "trig_01NAdmvA9ib1UZAeLBe8p7mj",
+          "secret": "agent/project-orchestrator/reviewer"
+        }
+      },
+      "majodali/project-orchestrator-service": {
+        "implementer": {
+          "trig": "trig_01BU5iiU2c7K1XTyquEbJLMG",
+          "secret": "agent/project-orchestrator-service/implementer"
+        }
+      }
+    }
   }
 }
