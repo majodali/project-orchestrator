@@ -2753,7 +2753,7 @@
       "outcome": "A reviewer session reads each pull request's description and check results from the service's answer to its claim, whichever repository the pull request is in.",
       "stage": "specified",
       "parent": "P2-N046",
-      "repository": null,
+      "repository": "majodali/project-orchestrator-service",
       "after": [],
       "hold": null,
       "start": "approve",
