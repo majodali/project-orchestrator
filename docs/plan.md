@@ -11,6 +11,8 @@ its stage and its outcome. The state file holds the rest.
 Open decisions:
 
 - D182 on Preview deployment of an unmerged pull request (P2-N073) [majodali/project-orchestrator-service]: Criteria 7-12 and 14 of P2-N073 need a real dispatch of .github/workflows/preview.yml (pull_request_number, e.g. 68), which this unattended session's permission classifier refuses as a destructive action. How should that run happen? Default: The owner dispatches it by hand and a session resumes execute to finish the remaining criteria
+- D183 on Orchestrator trial with its measured cost (P2-N033): P2-N033's note says its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027 instead of P3-N015. This task's node_remove(P3-N015) call was denied by the auto-mode classifier verbatim: "Permission for this action was denied by the Claude Code auto mode classifier. Reason: [Destructive or Unwanted Actions]." Per standing instruction this was not retried or worked around. How should D075's removal and re-pointing happen? Default: The owner performs the node_remove(P3-N015) and node_update(P3-N016, after: P2-N027) by hand in the view, or adjusts the classifier, then signals this node to resume so a session can re-verify
+- D184 on Orchestrator trial with its measured cost (P2-N033): P2-N033's outcome sentence states the trial "shows three nodes carried to done..., two at once." The finalized record (T284) shows criterion 14's bar is not met under D178's reading: only two nodes other than P2-N033 (P2-N083, P2-N086) are carried to done by fired sessions, and no two nodes other than P2-N033 have ever overlapped. Should the outcome be reworded to match what the record actually found, per RU-019 (an unfavourable result is answered by a plan change, not a failed node)? Default: Reword the outcome to describe what the finalized record shows
 
 Gated nodes:
 
@@ -26,11 +28,12 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
+- Orchestrator trial with its measured cost (P2-N033) [executing]
 - Preview deployment of an unmerged pull request (P2-N073) [majodali/project-orchestrator-service] [executing]
 
 ## In flight
 
-- Orchestrator trial with its measured cost (P2-N033) [executing] — T284
+None.
 
 ## In progress, children carry the work
 
@@ -432,7 +435,7 @@ Documents: [plan](plans/orchestration-service.md).
     Note: Added on the owner's answers of 2026-11-17 to D087 (on P2-N030), D088 and D089 (on P2-N031), which each name this node. Criteria: (1) D088: the keys of `decision` and `asks` reports carry the decisions' identifiers, so a second decision on a node changes a key; specification S1 and the two expected keys in test/orchestrate.test.ts follow, which the owner's answer to D088 allows. (2) D087: a verify start is exempt from the shared-document rule of S4, in lib/orchestrate.ts and its test, and S4 says so. (3) D089, in .claude/agents/orchestrator.md, still at most 120 lines: it tells the session to give the background watcher the two-hour limit and what to do if the watcher is stopped with no output; how the session learns its own identifier for --self; one rule for what it tells the owner at a wake, the time-limit wake included; and archive_session is used or dropped. (4) T159's other finding is settled: the status bucket that never says archived. (5) plugin/agents/ is regenerated and the checks pass.
   - **Orchestrator trial with its measured cost** (P2-N033, executing)
     A recorded trial shows three nodes carried to done by sessions the service fired, two at once, with no message from the owner, and the fired sessions' costs set beside the same work started by hand.
-    after P2-N031, P2-N032, P4-N038, P2-N036, P2-N049 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    after P2-N031, P2-N032, P4-N038, P2-N036, P2-N049 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 2 open decisions
     Note: Slice 4 of P2-N046's sequence, re-pointed at the fired mechanism by D119: the trial is of sessions the service fires, not of an orchestrator session. Criteria 14 to 16 in docs/plans/orchestrator-session.md, restated by task T210; criterion 18 struck there, because there is no orchestrator session whose writes to the plan could be counted. Criterion 17, the orchestrator session's replacement mid-trial (docs/specs/orchestrator-session.md), measures the same vanished session and is T210's ask. Waits for P2-N049 as well as its earlier dependencies: the fire must be built and the owner's setup recorded before the run. Its last act still carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027. D117's answer, "Wait", is now structural: the node waits for P2-N049.
   - **Tasks started by the service through scheduled tasks** (P2-N046, broken-down)
     When a node offers a step, the service fires the owner's scheduled task for that role and repository, and the fired session pulls its task and completes it with no message from any person or session.

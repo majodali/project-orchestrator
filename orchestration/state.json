@@ -8970,7 +8970,7 @@
       "id": "T284",
       "node": "P2-N033",
       "step": "execute",
-      "status": "open",
+      "status": "blocked",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8978,11 +8978,11 @@
         "out": null
       },
       "opened": "2026-11-27T23:34:35Z",
-      "closed": null,
+      "closed": "2026-11-27T23:46:24Z",
       "base": "152936b2c37fd24b49e303ff44584961712d76c4",
-      "ref": null,
-      "pr": null,
-      "summary": "Continue the orchestrator-trial record: check whether P2-N086 has settled per D179, update the trial record and criterion 14/15/16 status accordingly.",
+      "ref": "d0085b9279e6b8a266e3edb3ebce53ccfc1a6f80",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Finalized the trial record (P2-N086 settled, T276-T283 added; criterion 14 not met per D178's reading, recorded under RU-019 per D179; criteria 15-16 updated). PR #103 updated, CI green. P2-N033's own required last act (D075: remove P3-N015/P3-N020, point P3-N016 at P2-N027) is blocked: node_remove was denied by the auto-mode classifier; not retried or worked around, per instruction.",
       "notes": null
     },
     {
@@ -11368,6 +11368,36 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T282 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D183",
+      "node": "P2-N033",
+      "question": "P2-N033's note says its last act carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027 instead of P3-N015. This task's node_remove(P3-N015) call was denied by the auto-mode classifier verbatim: \"Permission for this action was denied by the Claude Code auto mode classifier. Reason: [Destructive or Unwanted Actions].\" Per standing instruction this was not retried or worked around. How should D075's removal and re-pointing happen?",
+      "options": [
+        "The owner performs the node_remove(P3-N015) and node_update(P3-N016, after: P2-N027) by hand in the view, or adjusts the classifier, then signals this node to resume so a session can re-verify",
+        "Leave P3-N015, P3-N020 and P3-N016 as they are, and strike D075's remaining action from P2-N033's scope"
+      ],
+      "default": "The owner performs the node_remove(P3-N015) and node_update(P3-N016, after: P2-N027) by hand in the view, or adjusts the classifier, then signals this node to resume so a session can re-verify",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T284 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D184",
+      "node": "P2-N033",
+      "question": "P2-N033's outcome sentence states the trial \"shows three nodes carried to done..., two at once.\" The finalized record (T284) shows criterion 14's bar is not met under D178's reading: only two nodes other than P2-N033 (P2-N083, P2-N086) are carried to done by fired sessions, and no two nodes other than P2-N033 have ever overlapped. Should the outcome be reworded to match what the record actually found, per RU-019 (an unfavourable result is answered by a plan change, not a failed node)?",
+      "options": [
+        "Reword the outcome to describe what the finalized record shows",
+        "Leave the outcome as written"
+      ],
+      "default": "Reword the outcome to describe what the finalized record shows",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T284 at close.",
       "standing": false,
       "source": null
     }
