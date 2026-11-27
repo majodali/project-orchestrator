@@ -2735,7 +2735,7 @@
       "outcome": "A node is added with its repository in one write, so the fire check never sees it under the wrong repository.",
       "stage": "specified",
       "parent": "P2-N046",
-      "repository": null,
+      "repository": "majodali/project-orchestrator-service",
       "after": [],
       "hold": null,
       "start": "approve",
