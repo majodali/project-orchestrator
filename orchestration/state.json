@@ -10696,8 +10696,8 @@
         "A follow-up task sets fire.enabled false until #61 has deployed, and a later one turns it on"
       ],
       "default": "Merge #61 now and accept the gap: a failed fire leaves the plan correct and the work merely unstarted (P2-N046, design 1), so the only cost is a delay.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Merge #61 now and accept the gap: a failed fire leaves the plan correct and the work merely unstarted (P2-N046, design 1), so the only cost is a delay.",
+      "decided": "2026-11-27",
       "rationale": "Asked by T270 at close.",
       "standing": false,
       "source": null
