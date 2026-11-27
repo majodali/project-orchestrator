@@ -2791,10 +2791,7 @@
       "parent": "P2-N087",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
-      "hold": {
-        "kind": "blocked",
-        "reason": "T280: Criterion 5 not met: the test for a node with two pull requests in different repositories (test/reviewFixes.test.ts, \"carries each pull request's detail, whichever repository it is in\") only asserts the state is valid; it never opens the claim nor reads the answer. Criteria 1-4, 6-9 met; build, tests, lint, format pass at 98f6b21."
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": null,
@@ -8951,7 +8948,7 @@
       "id": "T283",
       "node": "P2-N087",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8959,11 +8956,11 @@
         "out": null
       },
       "opened": "2026-11-27T23:33:26Z",
-      "closed": null,
+      "closed": "2026-11-27T23:38:59Z",
       "base": "1723a8327928539ed43a60edad8da6e0be01d19c",
-      "ref": null,
-      "pr": null,
-      "summary": "Rework T280: fix the two-pull-request test (test/reviewFixes.test.ts) so it actually opens the verify claim and reads the answer, instead of only asserting state validity.",
+      "ref": "6d3dce7e7cbc32f1b42b674decfed24d35618110",
+      "pr": "majodali/project-orchestrator-service#68",
+      "summary": "Rework of T280: the two-pull-request test now opens the verify claim's task_open and asserts structuredContent.pullRequests for both PRs, instead of only checkState. Build, test, lint, format pass at 6d3dce7.",
       "notes": null
     },
     {
