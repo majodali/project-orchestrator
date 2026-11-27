@@ -3101,7 +3101,7 @@
       "outcome": "When the service merges a pull request in a repository whose merge deploys, a deploy that then fails is reported to the owner and the node is not left looking finished.",
       "stage": "identified",
       "parent": "P2-N001",
-      "repository": null,
+      "repository": "majodali/project-orchestrator-service",
       "after": [],
       "hold": null,
       "start": "approve",
