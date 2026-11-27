@@ -2769,7 +2769,7 @@
       "kind": "work",
       "title": "Pull request description and checks in the verify claim's answer",
       "outcome": "A reviewer session reads each pull request's description and check results from the service's answer to its claim, whichever repository the pull request is in.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N046",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -8836,6 +8836,25 @@
       "ref": "ddb98c69bd895de920a6aca1c4a55cd8e4d917be",
       "pr": null,
       "summary": "All six criteria of P2-N086 met at PR #67 head ddb98c6: node_add takes repository with node_update's validation, commits it in the same write (the fire check reads the committed state), both descriptions name the field, no existing test changed, build, test, lint and format pass in a read-only clone. Branch t276-p2-n086-repo-on-add is the task's own.",
+      "notes": null
+    },
+    {
+      "id": "T279",
+      "node": "P2-N087",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T20:02:21Z",
+      "closed": null,
+      "base": "b23a292ddec58089db8b91e544a9a0f8a76c19f6",
+      "ref": null,
+      "pr": null,
+      "summary": "Add pull request description and check-run data to the verify claim's task_open answer, read through the GitHub App, bounded in size, with unreadable PRs named rather than failing the claim.",
       "notes": null
     }
   ],
