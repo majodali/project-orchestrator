@@ -2679,7 +2679,7 @@
       "kind": "work",
       "title": "Reviewer entry for the service repository in the fire settings",
       "outcome": "A verify step on a node whose work is in majodali/project-orchestrator-service is fired by the service, to the owner's one reviewer task.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N046",
       "repository": null,
       "after": [],
@@ -8592,6 +8592,25 @@
       "ref": null,
       "pr": null,
       "summary": "Criteria 1, 3, 4, 5, 7 met on #64 at e0d7048 in a read-only clone: build, 406 tests, lint, format pass. Criteria 2 and 6 are met in substance, but their pull-request-body clauses, and #64's own checks, are unreadable: GitHub refuses this repository to this session. Two asks.",
+      "notes": null
+    },
+    {
+      "id": "T272",
+      "node": "P2-N083",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T11:46:28Z",
+      "closed": null,
+      "base": "5e85878f3fc01f664bcb2db521a2e454c7e5825b",
+      "ref": null,
+      "pr": null,
+      "summary": "Add the service repository's reviewer entry under fire.repositories in orchestration/orchestrator.json, mirroring the existing project-orchestrator reviewer entry.",
       "notes": null
     }
   ],
