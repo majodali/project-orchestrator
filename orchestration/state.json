@@ -10717,8 +10717,8 @@
         "Create a separate reviewer scheduled task for the service repository, with its own token and secret"
       ],
       "default": "Add the same trig and secret under majodali/project-orchestrator-service.reviewer in a follow-up task: the node's note of 2026-11-27 says the one reviewer task verifies work in both repositories, and the per-task hourly cap is counted by trig_ identifier (src/fire/ledger.ts), so one task listed twice shares one cap.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Add the same trig and secret under majodali/project-orchestrator-service.reviewer in a follow-up task: the node's note of 2026-11-27 says the one reviewer task verifies work in both repositories, and the per-task hourly cap is counted by trig_ identifier (src/fire/ledger.ts), so one task listed twice shares one cap.",
+      "decided": "2026-11-27",
       "rationale": "Asked by T270 at close.",
       "standing": false,
       "source": null
