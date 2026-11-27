@@ -8924,6 +8924,25 @@
       "pr": "majodali/project-orchestrator-service#63",
       "summary": "Fixed the two faults T266's rework named: renamed the schedule-holding switch from PREVIEW_DEPLOYS to PREVIEW_SCHEDULE_ENABLED (PREVIEW_DEPLOYS is P2-N074's own setting); documented that preview.yml and preview-teardown.yml must be on main before any dispatch, and that the owner merges #63 by hand first. CI green (Build, Lint, Test, SAM validate --lint).",
       "notes": null
+    },
+    {
+      "id": "T282",
+      "node": "P2-N073",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T23:27:09Z",
+      "closed": null,
+      "base": "9684bcc315cb7db248bf19ae19be0ee9bc4f3bf6",
+      "ref": null,
+      "pr": null,
+      "summary": "Resume P2-N073 execute: verify owner setup (O-prev-1..5) and #63 merge status, then work the real-run criteria 7-12, 14 on PR #63.",
+      "notes": null
     }
   ],
   "decisions": [
