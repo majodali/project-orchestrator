@@ -11274,8 +11274,8 @@
         "add a standing rule for a node whose note names a second repository's pull request, so the service merges it too"
       ],
       "default": "merge #104 by hand, alongside accepting this node's verification",
-      "chosen": null,
-      "decided": null,
+      "chosen": "merge #104 by hand, alongside accepting this node's verification",
+      "decided": "2026-11-27",
       "rationale": "Asked by T279 at close.",
       "standing": false,
       "source": null
