@@ -2603,7 +2603,7 @@
       "kind": "work",
       "title": "The owner's setup recorded",
       "outcome": "The settings file carries the fire section, the service's runbook says how to add a scheduled task and what the owner does, and the deploy role's resources are written before the owner applies them.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N046",
       "repository": null,
       "after": [
@@ -2615,7 +2615,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-27",
       "note": "Slice 3 of P2-N046. Criteria: docs/plans/p2-n046-service-fired-sessions.md, \"What the owner sets up\" and Design 2 and 6, and this note. Writes orchestration/orchestrator.json here and docs in majodali/project-orchestrator-service (standing, RU-016), so it starts on approval. Waits for P2-N048, whose code decides what the settings file must carry.\n\nCriteria. (1) orchestration/orchestrator.json gains a `fire` section: per repository, per role, the task's trig_ identifier and the name of its AWS Secrets Manager secret, with the fire limits of slice 2. No token is in it. (2) Its shape is checked where the settings file is already checked, and a missing task for an offered step is reported, not fired. (3) The service's docs/runbook.md gains \"Adding a scheduled task\": the owner's actions O1 and O2 in order, where the token is generated and stored, how it is rotated, and that regenerating revokes the previous one at once. (4) The service's docs/deploy-role-permissions.md records the exact resources the IAM change of design 6 needs, written before the owner applies them, as P4-N046 did. (5) The runbook says what to do when firing stops: the 429 and Retry-After, a rotated token, and the setting that turns firing off. (6) One pull request in each repository; the owner merges the service's, and that merge deploys.\n\nAdded at the owner's instruction, 2026-11-25 (\"apply D163\"). D163, a decision on P2-N067 that a task on this node is not handed, answered A by the owner: this node carries the pin move that was P2-N048's criterion 10. So, as one more criterion of this node: this repository's project-orchestrator-service pin (package.json, at 139258c before this node) moves to the commit majodali/project-orchestrator-service#59 merged as, 7022a99, or to a later commit of the service's main if this node's own pull request there has merged by then, and `npm run check` stays green. It belongs in this node's pull request in this repository.\n\nFor the rework after T263, recorded at the owner's instruction, 2026-11-27 (\"record them\"). D166 is answered with option 1. There are four scheduled tasks, not two; the owner created all four, and each one's fire token is stored in AWS Secrets Manager under the name the owner gave here. Identifiers and secret names are not secret; no token value is recorded anywhere.\n- majodali/project-orchestrator, planner: `trig_01EL3D7C5ZaAcmCnvGVUAoxd`, secret `agent/project-orchestrator/planner`.\n- majodali/project-orchestrator, implementer: `trig_01C5J6Q2eQGVpW3bkL4ffDdx`, secret `agent/project-orchestrator/implementer`.\n- majodali/project-orchestrator, reviewer: `trig_01NAdmvA9ib1UZAeLBe8p7mj`, secret `agent/project-orchestrator/reviewer`.\n- majodali/project-orchestrator-service, implementer: `trig_01BU5iiU2c7K1XTyquEbJLMG`, secret `agent/project-orchestrator-service/implementer`.\nThe identifiers are as the delegating session read them from the account's list of scheduled tasks earlier; the rework states them in `fire.repositories` and the owner confirms them at the merge. The reviewer's task verifies work in both repositories and is one task. If the settings shape or FIRE_ROLES has no place for a reviewer, or for one reviewer serving two repositories, the rework says so and asks; it does not leave the reviewer out silently.\nOpen point, the owner's to settle, not the rework's: the stored names begin `agent/`, while majodali/project-orchestrator-service#61 grants the service `secretsmanager:GetSecretValue` on names beginning `project-orchestrator-service/fire/` only. Either the grant and the runbook's convention change to the stored names (scoped to these four, or to `agent/project-orchestrator*`, never to `agent/*` or the whole account), or the owner renames the four secrets to the documented form. Until the owner says which, the rework fills in the identifiers and the stored names, keeps `fire.enabled` false, and asks.\n\nThe open point above is settled by the owner, 2026-11-27 (\"Go with A\"): the stored names stand and nothing is renamed. The rework changes the `ReadFireTokens` grant in majodali/project-orchestrator-service#61 from `project-orchestrator-service/fire/*` to the stored names, scoped to `agent/project-orchestrator*` (which covers the four secrets and no other prefix), and changes docs/runbook.md's naming convention for a scheduled task's secret to `agent/<repository name>/<role>` to match. It fills `fire.repositories` in majodali/project-orchestrator#101 with the four entries above. Whether `fire.enabled` becomes true in that pull request is as this node's criteria and D166's option 1 say; turning firing on is the owner's merge."
     },
     {
@@ -2623,7 +2623,7 @@
       "kind": "check",
       "title": "Verification of The owner's setup recorded",
       "outcome": "P2-N049 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N049",
       "repository": null,
       "after": [],
@@ -2633,7 +2633,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-27",
       "note": null
     },
     {
@@ -8482,7 +8482,7 @@
       "id": "T270",
       "node": "P2-N079",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -8490,11 +8490,11 @@
         "out": null
       },
       "opened": "2026-11-27T08:58:21Z",
-      "closed": null,
+      "closed": "2026-11-27T09:05:34Z",
       "base": "082788b542165546fdd243a8f532f263888f8ffa",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N049, The owner's setup recorded, against its criteria and outcome.",
+      "summary": "All seven criteria met. Verified #101 at eab4fe0 (fire section with the owner's four tasks, no token; strict parseSettings; pin 139258c to 7022a99) and #61 at b2026f0 (runbook O1/O2, rotation, firing stopped; ReadFireTokens on agent/project-orchestrator*; deploy-role note). check, test, lint, format green locally and in CI.",
       "notes": null
     }
   ],
@@ -10643,6 +10643,37 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T266 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D169",
+      "node": "P2-N049",
+      "question": "Should the reviewer scheduled task trig_01NAdmvA9ib1UZAeLBe8p7mj also be listed under majodali/project-orchestrator-service in fire.repositories? Today that repository has only an implementer entry, so a verify step on a node resolving to it is logged \"no scheduled task is configured\" and never fired (src/fire/decide.ts, src/fire/run.ts at pin 7022a99).",
+      "options": [
+        "Add the same trig and secret under majodali/project-orchestrator-service.reviewer in a follow-up task",
+        "Leave it out: verify steps in the service repository stay unfired and only logged",
+        "Create a separate reviewer scheduled task for the service repository, with its own token and secret"
+      ],
+      "default": "Add the same trig and secret under majodali/project-orchestrator-service.reviewer in a follow-up task: the node's note of 2026-11-27 says the one reviewer task verifies work in both repositories, and the per-task hourly cap is counted by trig_ identifier (src/fire/ledger.ts), so one task listed twice shares one cap.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T270 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D170",
+      "node": "P2-N049",
+      "question": "This close has the service merge #101, which sets fire.enabled true. The ReadFireTokens grant reaches the deployed function only when you merge majodali/project-orchestrator-service#61. Between the two merges every fire's token read fails with AccessDenied on secretsmanager:GetSecretValue and nothing is fired. Accept that gap, or hold firing off until #61 has deployed?",
+      "options": [
+        "Merge #61 now and accept the gap",
+        "A follow-up task sets fire.enabled false until #61 has deployed, and a later one turns it on"
+      ],
+      "default": "Merge #61 now and accept the gap: a failed fire leaves the plan correct and the work merely unstarted (P2-N046, design 1), so the only cost is a delay.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T270 at close.",
       "standing": false,
       "source": null
     }
