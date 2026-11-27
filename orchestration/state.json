@@ -2932,7 +2932,7 @@
       "kind": "work",
       "title": "Route coverage in the pull-request checks",
       "outcome": "The pull-request checks fail when the gateway's route keys and the application's registered paths disagree in either direction, with every exemption in one place and the reason it stays.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N063",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -2942,7 +2942,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-27",
       "note": "Child A of P2-N063, the plan's items 1 to 3 and the specification's child A (docs/specs/p2-n063-verify-before-deploy.md). Its criteria are here, not in that document, which stands at its 300-line bound (D123 on P2-N046). No credentials, no deployment; on its own it would have caught P2-N054. Its work is in majodali/project-orchestrator-service, where a merge deploys, so it starts on approval.\n\nWhat P2-N069 already delivered, read at majodali/project-orchestrator-service main on 2026-11-26, commit 9874d87: test/routeGatewayCoverage.test.ts compares every path and method the application registers with template.yaml's route keys in one direction only, application to gateway, exempting `GET /view/*` with its reason. template.yaml now carries thirteen route keys, including `GET /view/{proxy+}`. So the four paths of finding F2 are fixed, and this node adds the direction that is missing (the gateway-to-application direction, a term the owner ratified 2026-11-26: failing when the template routes a path the application does not register), the proof that both directions fail when they should, and the standing guarantee about checks.yml's permissions.\n\nCriteria.\n1. A test in test/, run by the existing Test job under `npm test`, compares every `RouteKey` of an `AWS::ApiGatewayV2::Route` in template.yaml with every path and method the application registers (src/httpApp.ts and the src/view/routes.ts registrations it mounts), and fails when either side has a path the other lacks. The gateway-to-application direction is what this node adds, in test/routeGatewayCoverage.test.ts or beside it, reusing the reading that file and test/viewDeployWiring.test.ts already do.\n2. Comparison is by method and path: Hono's `:name` read as `{name}`, `app.get`/`app.post` as `GET`/`POST`, `app.all` as `ANY`, and a path variable's name normalised away on both sides, because API Gateway matches positionally.\n3. Break-and-restore in the application-to-gateway direction, both runs recorded in the pull request: with `McpProjectRoute` removed from template.yaml the check fails naming `/mcp/{owner}/{repo}`; restored, it passes.\n4. Break-and-restore in the gateway-to-application direction, both runs recorded in the pull request: with a route key in template.yaml that the application registers no path for, the check fails naming that route key; removed, it passes.\n5. Every exemption is in one place with the reason it stays. template.yaml's `GET /view/{proxy+}` and the application's `GET /view/*` fallback are either matched to each other or exempted there, so neither direction reports a failure that is not one.\n6. No dependency is added (R14): the files are read, nothing is deployed, and no credential is used.\n7. .github/workflows/checks.yml still declares `permissions: contents: read` and no `id-token: write` with the check added, and gains no job.\n8. No existing test changes except to add. Any other change to an existing test is an ask, not a decision this node takes.\n9. `npm test`, `npm run lint`, `npm run format` and `sam validate --lint` pass; documentation moves in the same pull request as the work; no pull request changes one of the five files the service owns.\n\nNeeds none of the owner's setup actions: it holds no credential and deploys nothing."
     },
     {
@@ -2950,7 +2950,7 @@
       "kind": "check",
       "title": "Verification of Route coverage in the pull-request checks",
       "outcome": "P2-N072 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N072",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -2960,7 +2960,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-27",
       "note": null
     },
     {
@@ -8396,7 +8396,7 @@
       "id": "T268",
       "node": "P2-N076",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -8404,11 +8404,11 @@
         "out": null
       },
       "opened": "2026-11-27T08:29:35Z",
-      "closed": null,
+      "closed": "2026-11-27T08:35:59Z",
       "base": "0e889c2f2224e021a63dc74acd95866f915b7f63",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N072, Route coverage in the pull-request checks, against its criteria and outcome.",
+      "summary": "All nine criteria met. Verified in a read-only clone at PR #62 head 7328abb: both directions run, and I reproduced each break-and-restore (ALL /mcp/:owner/:repo; GET /no-such-path-t268). npm test 414 passed, 2 skipped; lint and prettier clean; CI's four checks pass. One file changed; checks.yml unchanged; branch used by PR #62 alone.",
       "notes": null
     }
   ],
@@ -10526,6 +10526,22 @@
       "chosen": "Supply both trig_ identifiers directly and adopt the documented secret-naming convention (option 1): it keeps the two already-proven tasks from P2-N047 and matches the ReadFireTokens grant PR #61 already scopes to that prefix.",
       "decided": "2026-11-27",
       "rationale": "Asked by T263 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D167",
+      "node": "P2-N072",
+      "question": "The exemption pairs the application's GET /view/* with template.yaml's GET /view/{proxy+} and exempts both sides, so neither direction fails if ViewCatchAllRoute is deleted from template.yaml: the view's catch-all is the one path pair the check cannot police. Criterion 5 permits this with its reason recorded. Accept it, or ask for the pair to be matched structurally?",
+      "options": [
+        "A: accept it as recorded; the reason is in the one exemption table and nothing further is owed",
+        "B: a Backlog item to teach the check greedy-segment matching (a literal * against {proxy+}), so the pair is matched instead of exempted",
+        "C: rework P2-N072 now to match the pair structurally"
+      ],
+      "default": "A: accept it as recorded. The gap is one documented pair, and B can be raised whenever the view's catch-all is next touched.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T268 at close.",
       "standing": false,
       "source": null
     }
