@@ -34,7 +34,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Verification of Reviewer entry for the service repository in the fire settings (P2-N084) [specified] — T273
 
 ## In progress, children carry the work
 
@@ -465,6 +465,8 @@ Documents: [plan](plans/orchestration-service.md).
       A verify step on a node whose work is in majodali/project-orchestrator-service is fired by the service, to the owner's one reviewer task.
       1 open decision
       Note: Added at the owner's instruction, 2026-11-27 ("add the reviewer entry"). D169, raised by T270 on P2-N049 and answered with its default: the same scheduled task and secret are listed under majodali/project-orchestrator-service.reviewer in a follow-up task. This node's plan needs no file (D137, standing): the criteria below are its plan and its specification. Its work is one pull request in this repository, majodali/project-orchestrator. Criteria. 1. orchestration/orchestrator.json, under `fire.repositories`, gains `majodali/project-orchestrator-service`.`reviewer` with `trig` `trig_01NAdmvA9ib1UZAeLBe8p7mj` and `secret` `agent/project-orchestrator/reviewer`, the same values as the reviewer entry under majodali/project-orchestrator. Nothing else in the file changes. 2. The pull request says, from the service's source at this repository's pin, that one scheduled task listed under two repositories is counted once against its hourly cap (the cap is counted by `trig_` identifier), and that the service's permission to read the secret already covers the name (`agent/project-orchestrator*`). 3. `npm run check`, `npm test`, `npm run lint` and `npm run format` pass. No pull request changes one of the five files the service owns. 4. No token value appears anywhere. For the owner, not a criterion: the reviewer's scheduled task has only majodali/project-orchestrator attached, so a reviewer session cannot read a pull request's description or check runs in the service repository (D130, D171). Adding majodali/project-orchestrator-service to that scheduled task in the Claude app removes that gap; it is a setting on the owner's task, not a change in a repository.
+      - check: **Verification of Reviewer entry for the service repository in the fire settings** (P2-N084, specified)
+        P2-N083 is verified against its outcome.
 - **View that updates itself and leads with what matters** (P2-N028, broken-down)
   The view shows a plan change within a minute without a reload, and opens with what needs the owner, what is ready, what is running and what just finished; node and task pages show criteria, duration and the session.
   [plan](plans/view-that-leads-and-updates.md)

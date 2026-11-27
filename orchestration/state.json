@@ -8633,6 +8633,25 @@
       "pr": "majodali/project-orchestrator#102",
       "summary": "Added majodali/project-orchestrator-service.reviewer to fire.repositories (same trig and secret as the project-orchestrator reviewer entry). Updated the golden-file test. Verified from the service's source that the hourly cap is counted by trig_, and the agent/project-orchestrator* grant already covers this secret name.",
       "notes": null
+    },
+    {
+      "id": "T273",
+      "node": "P2-N084",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T11:56:51Z",
+      "closed": null,
+      "base": "8c5e11d8d163c006cfb29c356f57687501b4052f",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N083, the Reviewer entry for the service repository in the fire settings, against its criteria and outcome.",
+      "notes": null
     }
   ],
   "decisions": [
