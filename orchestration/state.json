@@ -8798,7 +8798,7 @@
       "id": "T277",
       "node": "P2-N033",
       "step": "execute",
-      "status": "open",
+      "status": "needs-judgment",
       "role": "implementer",
       "model": "claude-sonnet-5",
       "tokens": {
@@ -8806,11 +8806,11 @@
         "out": null
       },
       "opened": "2026-11-27T19:14:14Z",
-      "closed": null,
+      "closed": "2026-11-27T19:21:18Z",
       "base": "a7a6a440be9a441433cf0abda661404db37e01d7",
       "ref": null,
-      "pr": null,
-      "summary": "Compile the recorded trial for criteria 14-16: read the journal/state for service-fired sessions that carried nodes from an offered step to done since fire.enabled went live, their models, stops and measured costs, set beside hand-started work, and write the record.",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Wrote docs/plans/p2-n033-trial-record.md from the journal/state: P2-N083 carried end-to-end by fired sessions; P2-N086 carried through execute, verify fired and open; first observed overlap of two fired tasks, both involving this task itself. Criteria 15-16 costs recorded beside hand baselines. Struck criterion 17 per D124. Criterion 14's bar not yet met by two nodes other than P2-N033.",
       "notes": null
     },
     {
@@ -11117,6 +11117,36 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T276 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D178",
+      "node": "P2-N033",
+      "question": "Criterion 14 needs three nodes carried to done by fired sessions, two of them at the same time. This task's own run (T277, P2-N033 execute) overlapped with two other fired tasks' open windows (P2-N086 execute, then P2-N088 verify), but no two nodes other than P2-N033 have yet overlapped with each other. Does the recording node count as one of the \"two at once\"?",
+      "options": [
+        "No: require two nodes other than P2-N033 to overlap with each other before calling criterion 14 met, as D117 preferred waiting for a clean case over a looser reading",
+        "Yes: the overlap already observed meets criterion 14 once a second node (P2-N086) reaches done, without waiting for two nodes other than P2-N033 to overlap"
+      ],
+      "default": "No: require two nodes other than P2-N033 to overlap with each other before calling criterion 14 met, as D117 preferred waiting for a clean case over a looser reading",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T277 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D179",
+      "node": "P2-N033",
+      "question": "Right now only one node (P2-N083) is confirmed carried end-to-end by fired sessions; a second (P2-N086) has its execute step fired and its verify step fired but still open. Proceed on the record as it stands once that settles, or hold this node for a third fully fired node and a clean two-at-once pair first?",
+      "options": [
+        "Proceed under RU-019 on what the record shows once P2-N086 settles, as D138 did for P2-N047's short count",
+        "Hold: keep offering execute on P2-N033 until three nodes other than it are each fully carried by fired sessions, two of them overlapping"
+      ],
+      "default": "Proceed under RU-019 on what the record shows once P2-N086 settles, as D138 did for P2-N047's short count",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T277 at close.",
       "standing": false,
       "source": null
     }
