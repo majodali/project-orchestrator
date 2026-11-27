@@ -8984,6 +8984,25 @@
       "pr": null,
       "summary": "Continue the orchestrator-trial record: check whether P2-N086 has settled per D179, update the trial record and criterion 14/15/16 status accordingly.",
       "notes": null
+    },
+    {
+      "id": "T285",
+      "node": "P2-N089",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T23:39:36Z",
+      "closed": null,
+      "base": "243b98b48cbe0987dbd9a153fe54f3a0d7617cfb",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N087, Pull request description and checks in the verify claim's answer, against its criteria, after T280 failed criterion 5.",
+      "notes": null
     }
   ],
   "decisions": [
