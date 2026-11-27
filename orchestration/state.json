@@ -8965,6 +8965,25 @@
       "pr": null,
       "summary": "Rework T280: fix the two-pull-request test (test/reviewFixes.test.ts) so it actually opens the verify claim and reads the answer, instead of only asserting state validity.",
       "notes": null
+    },
+    {
+      "id": "T284",
+      "node": "P2-N033",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T23:34:35Z",
+      "closed": null,
+      "base": "152936b2c37fd24b49e303ff44584961712d76c4",
+      "ref": null,
+      "pr": null,
+      "summary": "Continue the orchestrator-trial record: check whether P2-N086 has settled per D179, update the trial record and criterion 14/15/16 status accordingly.",
+      "notes": null
     }
   ],
   "decisions": [
