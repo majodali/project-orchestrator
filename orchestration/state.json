@@ -11109,8 +11109,8 @@
         "no, leave it for whenever a later node next needs newer service code"
       ],
       "default": "no, leave it for whenever a later node next needs newer service code — the pin lagging behind by itself caused no failure here, and a pin move is its own deliberate, verified change (as P2-N048 criterion 10's was), not something to fold into an unrelated node",
-      "chosen": null,
-      "decided": null,
+      "chosen": "no, leave it for whenever a later node next needs newer service code — the pin lagging behind by itself caused no failure here, and a pin move is its own deliberate, verified change (as P2-N048 criterion 10's was), not something to fold into an unrelated node",
+      "decided": "2026-11-27",
       "rationale": "Asked by T272 at close.",
       "standing": false,
       "source": null
