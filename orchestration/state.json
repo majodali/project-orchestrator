@@ -8929,7 +8929,7 @@
       "id": "T282",
       "node": "P2-N073",
       "step": "execute",
-      "status": "open",
+      "status": "blocked",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8937,11 +8937,11 @@
         "out": null
       },
       "opened": "2026-11-27T23:27:09Z",
-      "closed": null,
+      "closed": "2026-11-27T23:28:54Z",
       "base": "9684bcc315cb7db248bf19ae19be0ee9bc4f3bf6",
       "ref": null,
       "pr": null,
-      "summary": "Resume P2-N073 execute: verify owner setup (O-prev-1..5) and #63 merge status, then work the real-run criteria 7-12, 14 on PR #63.",
+      "summary": "PR #63 merged to main (criteria 1-6,13,15 proven; preview.yml now on main). Criteria 7-12,14 need a real dispatch of preview.yml against open PR #68. This session's own auto-mode classifier denied that dispatch as destructive - no AWS credential reached, nothing deployed. Also could not list the preview GitHub Environment's variables (proxy refused that API path) to confirm O-prev-3 to O-prev-5.",
       "notes": null
     }
   ],
@@ -11289,6 +11289,22 @@
       "chosen": "Merge #63 now; the merge deploys production but changes only workflow and documentation files. Once it's on main, execute resumes for the real-run criteria (7-12, 14), with any fix the first runs find going into a second pull request on a new branch.",
       "decided": "2026-11-27",
       "rationale": "Asked by T281 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D182",
+      "node": "P2-N073",
+      "question": "Criteria 7-12 and 14 of P2-N073 need a real dispatch of .github/workflows/preview.yml (pull_request_number, e.g. 68), which this unattended session's permission classifier refuses as a destructive action. How should that run happen?",
+      "options": [
+        "The owner dispatches it by hand (Actions tab, or `gh workflow run preview.yml -f pull_request_number=68`) and a session resumes execute on this node to read the run's results and finish the remaining criteria",
+        "A live session (not a scheduled/unattended one) is asked to dispatch it, where a human present can approve the classifier's prompt",
+        "Hold the node here; the real-run criteria wait"
+      ],
+      "default": "The owner dispatches it by hand and a session resumes execute to finish the remaining criteria",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T282 at close.",
       "standing": false,
       "source": null
     }
