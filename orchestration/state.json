@@ -2968,7 +2968,7 @@
       "kind": "work",
       "title": "Preview deployment of an unmerged pull request",
       "outcome": "An explicit dispatch deploys a named pull request's merge ref to the preview stack, which answers through its own API Gateway endpoint, with production untouched and no production secret in reach.",
-      "stage": "specified",
+      "stage": "executing",
       "parent": "P2-N063",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -8352,6 +8352,25 @@
       "ref": "7328abb18e351cf0097f175cb87919337bd3ed91",
       "pr": "majodali/project-orchestrator-service#62",
       "summary": "Added the gateway-to-application route coverage test, sharing one exemption table with the existing application-to-gateway check. Proved both break-and-restore cases by hand, recorded in the pull request. npm test, lint and format pass; sam validate --lint not run locally (no sam CLI; template.yaml unchanged).",
+      "notes": null
+    },
+    {
+      "id": "T266",
+      "node": "P2-N073",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T08:26:20Z",
+      "closed": null,
+      "base": "d35b853d4bd9b31126fc46a8222d27f6fb6a49ed",
+      "ref": null,
+      "pr": null,
+      "summary": "Add preview-deployment workflow, IAM policy doc, template.yaml preview parameters and runbook section for dispatch-driven preview deploys of an unmerged PR's merge ref.",
       "notes": null
     }
   ],
