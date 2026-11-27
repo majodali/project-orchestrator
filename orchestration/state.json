@@ -8972,11 +8972,14 @@
       "step": "execute",
       "status": "blocked",
       "role": "implementer",
-      "model": null,
+      "model": "claude-sonnet-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 104,
+        "out": 52583,
+        "cacheRead": 7882997,
+        "cacheWrite": 171586
       },
+      "costSource": "transcript",
       "opened": "2026-11-27T23:34:35Z",
       "closed": "2026-11-27T23:46:24Z",
       "base": "152936b2c37fd24b49e303ff44584961712d76c4",
