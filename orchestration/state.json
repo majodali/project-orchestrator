@@ -8358,7 +8358,7 @@
       "id": "T266",
       "node": "P2-N073",
       "step": "execute",
-      "status": "open",
+      "status": "blocked",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8366,11 +8366,11 @@
         "out": null
       },
       "opened": "2026-11-27T08:26:20Z",
-      "closed": null,
+      "closed": "2026-11-27T08:37:30Z",
       "base": "d35b853d4bd9b31126fc46a8222d27f6fb6a49ed",
       "ref": null,
-      "pr": null,
-      "summary": "Add preview-deployment workflow, IAM policy doc, template.yaml preview parameters and runbook section for dispatch-driven preview deploys of an unmerged PR's merge ref.",
+      "pr": "majodali/project-orchestrator-service#63",
+      "summary": "Added preview.yml/preview-teardown.yml workflows, docs/deploy-role-permissions-preview.md, and a runbook section: criteria 1-6, 13, 15 met (provable from files; npm test/lint/format pass; sam validate --lint not run, no SAM CLI here). Criteria 7-12 and 14 need a real run, which needs O-prev-1 to O-prev-5.",
       "notes": null
     },
     {
@@ -10545,6 +10545,21 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T268 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D168",
+      "node": "P2-N073",
+      "question": "O-prev-1 to O-prev-5 (the second GitHub App on majodali/orchestrator-preview, the fixture repository itself, the three preview secrets, the preview deploy role with docs/deploy-role-permissions-preview.md's policy, and the preview GitHub Environment's seven variables) are owner actions no session holds credentials to perform. Perform them, in that order, per docs/runbook.md's new \"Preview deployments\" section?",
+      "options": [
+        "Perform O-prev-1 to O-prev-5 now, then signal this node so execute resumes on pull request #63 for the real-run criteria (7-12, 14)",
+        "Hold the node here; the preview feature is not wanted yet"
+      ],
+      "default": "Perform O-prev-1 to O-prev-5 now, then signal this node so execute resumes on pull request #63 for the real-run criteria (7-12, 14)",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T266 at close.",
       "standing": false,
       "source": null
     }
