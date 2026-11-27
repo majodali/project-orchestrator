@@ -3097,7 +3097,7 @@
     {
       "id": "P2-N080",
       "kind": "work",
-      "title": "Failed deploy after a merge the service made, reported",
+      "title": "Report of a failed deploy after the service's own merge",
       "outcome": "When the service merges a pull request in a repository whose merge deploys, a deploy that then fails is reported to the owner and the node is not left looking finished.",
       "stage": "identified",
       "parent": "P2-N001",

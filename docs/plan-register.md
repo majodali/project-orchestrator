@@ -129,5 +129,5 @@ Dependencies are in the state file, not in sibling order.
     - P2-N075 [specified] Verification against a preview in the process pages
   - P2-N071 [identified] The break down step on offer to a planner
   - P2-N077 [verifying] Readable long text on the view's node page
-  - P2-N080 [identified] Failed deploy after a merge the service made, reported
+  - P2-N080 [identified] Report of a failed deploy after the service's own merge
   - P2-N081 [identified] Bounded size of the service's answers
