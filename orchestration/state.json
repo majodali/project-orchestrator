@@ -2663,7 +2663,7 @@
       "outcome": "A node whose fires were reported to the owner is fired again once the owner acknowledges the report, and is reported again only after fresh bare attempts.",
       "stage": "specified",
       "parent": "P2-N046",
-      "repository": null,
+      "repository": "majodali/project-orchestrator-service",
       "after": [],
       "hold": null,
       "start": "auto",
