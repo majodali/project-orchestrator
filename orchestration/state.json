@@ -10765,8 +10765,8 @@
         "C: enter it in the Backlog as its own node"
       ],
       "default": "A: record it and leave it",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: record it and leave it",
+      "decided": "2026-11-27",
       "rationale": "Asked by T271 at close.",
       "standing": false,
       "source": null
