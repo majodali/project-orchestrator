@@ -10523,8 +10523,8 @@
         "Recreate both scheduled tasks and their secrets from scratch under docs/runbook.md's new \"Adding a scheduled task\" section (PR #61), then supply the resulting identifiers"
       ],
       "default": "Supply both trig_ identifiers directly and adopt the documented secret-naming convention (option 1): it keeps the two already-proven tasks from P2-N047 and matches the ReadFireTokens grant PR #61 already scopes to that prefix.",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Supply both trig_ identifiers directly and adopt the documented secret-naming convention (option 1): it keeps the two already-proven tasks from P2-N047 and matches the ReadFireTokens grant PR #61 already scopes to that prefix.",
+      "decided": "2026-11-27",
       "rationale": "Asked by T263 at close.",
       "standing": false,
       "source": null
