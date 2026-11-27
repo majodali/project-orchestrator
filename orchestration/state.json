@@ -2679,7 +2679,7 @@
       "kind": "work",
       "title": "Reviewer entry for the service repository in the fire settings",
       "outcome": "A verify step on a node whose work is in majodali/project-orchestrator-service is fired by the service, to the owner's one reviewer task.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N046",
       "repository": null,
       "after": [],
@@ -2689,7 +2689,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-27",
       "note": "Added at the owner's instruction, 2026-11-27 (\"add the reviewer entry\"). D169, raised by T270 on P2-N049 and answered with its default: the same scheduled task and secret are listed under majodali/project-orchestrator-service.reviewer in a follow-up task. This node's plan needs no file (D137, standing): the criteria below are its plan and its specification. Its work is one pull request in this repository, majodali/project-orchestrator.\n\nCriteria.\n1. orchestration/orchestrator.json, under `fire.repositories`, gains `majodali/project-orchestrator-service`.`reviewer` with `trig` `trig_01NAdmvA9ib1UZAeLBe8p7mj` and `secret` `agent/project-orchestrator/reviewer`, the same values as the reviewer entry under majodali/project-orchestrator. Nothing else in the file changes.\n2. The pull request says, from the service's source at this repository's pin, that one scheduled task listed under two repositories is counted once against its hourly cap (the cap is counted by `trig_` identifier), and that the service's permission to read the secret already covers the name (`agent/project-orchestrator*`).\n3. `npm run check`, `npm test`, `npm run lint` and `npm run format` pass. No pull request changes one of the five files the service owns.\n4. No token value appears anywhere.\n\nFor the owner, not a criterion: the reviewer's scheduled task has only majodali/project-orchestrator attached, so a reviewer session cannot read a pull request's description or check runs in the service repository (D130, D171). Adding majodali/project-orchestrator-service to that scheduled task in the Claude app removes that gap; it is a setting on the owner's task, not a change in a repository."
     },
     {
@@ -2697,7 +2697,7 @@
       "kind": "check",
       "title": "Verification of Reviewer entry for the service repository in the fire settings",
       "outcome": "P2-N083 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N083",
       "repository": null,
       "after": [],
@@ -2707,7 +2707,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-27",
       "note": null
     },
     {
@@ -8638,7 +8638,7 @@
       "id": "T273",
       "node": "P2-N084",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -8646,11 +8646,11 @@
         "out": null
       },
       "opened": "2026-11-27T11:56:51Z",
-      "closed": null,
+      "closed": "2026-11-27T12:01:26Z",
       "base": "8c5e11d8d163c006cfb29c356f57687501b4052f",
-      "ref": null,
+      "ref": "ee45ec5c2c3c7a210bda8a028a98e8ab480cd4a1",
       "pr": null,
-      "summary": "Verify P2-N083, the Reviewer entry for the service repository in the fire settings, against its criteria and outcome.",
+      "summary": "P2-N083 verified at majodali/project-orchestrator#102 head ee45ec5. All four criteria met: the service reviewer entry matches the project-orchestrator one and nothing else in the settings file changed; the PR's cap and permission statements check out against the service source; check, test, lint and format pass here; no token value, no service-owned file touched.",
       "notes": null
     }
   ],
@@ -10908,6 +10908,21 @@
       "chosen": null,
       "decided": null,
       "rationale": "Asked by T272 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D176",
+      "node": "P2-N083",
+      "question": "The reviewer's scheduled task has only majodali/project-orchestrator attached, so a reviewer session fired for a node in majodali/project-orchestrator-service cannot read its pull request description or check runs (D130, D171) — it can only read a clone. Attach majodali/project-orchestrator-service to the reviewer scheduled task in the Claude app?",
+      "options": [
+        "attach it now, so a fired reviewer can read the service repository's pull requests and checks",
+        "leave it, and let reviewer sessions for that repository verify from a read-only clone without the pull request's checks"
+      ],
+      "default": "attach it now: the reviewer's own page requires checking a pull request's own checks before passing work, and without the attachment a service-repository verification cannot do that at all",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T273 at close.",
       "standing": false,
       "source": null
     }
