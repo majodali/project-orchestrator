@@ -111,6 +111,7 @@ const SETTINGS: Settings = {
   maxReworkRounds: 2,
   checkAfterMinutes: 45,
   weeklyBudget: null,
+  fire: null,
 };
 
 const MODELS = {
@@ -1076,6 +1077,34 @@ describe("orchestration/orchestrator.json (criterion 5)", () => {
         maxReworkRounds: 2,
         checkAfterMinutes: 45,
         weeklyBudget: null,
+        fire: {
+          enabled: true,
+          perTaskHourlyCap: 30,
+          perAccountHourlyCap: 100,
+          perAccountDailyCap: 200,
+          repositories: {
+            "majodali/project-orchestrator": {
+              planner: {
+                trig: "trig_01EL3D7C5ZaAcmCnvGVUAoxd",
+                secret: "agent/project-orchestrator/planner",
+              },
+              implementer: {
+                trig: "trig_01C5J6Q2eQGVpW3bkL4ffDdx",
+                secret: "agent/project-orchestrator/implementer",
+              },
+              reviewer: {
+                trig: "trig_01NAdmvA9ib1UZAeLBe8p7mj",
+                secret: "agent/project-orchestrator/reviewer",
+              },
+            },
+            "majodali/project-orchestrator-service": {
+              implementer: {
+                trig: "trig_01BU5iiU2c7K1XTyquEbJLMG",
+                secret: "agent/project-orchestrator-service/implementer",
+              },
+            },
+          },
+        },
       },
     });
   });
@@ -1084,6 +1113,10 @@ describe("orchestration/orchestrator.json (criterion 5)", () => {
 
   it("no longer carries a `repositories` key (P2-N056 criterion 3, 4)", () => {
     expect(valid).not.toHaveProperty("repositories");
+  });
+
+  it("carries no token anywhere in `fire` (criterion 1)", () => {
+    expect(text).not.toContain("token");
   });
 
   const broken: [string, Record<string, unknown>][] = [
@@ -1100,10 +1133,104 @@ describe("orchestration/orchestrator.json (criterion 5)", () => {
       "a `repositories` key, retired (P2-N056 criterion 4)",
       { ...valid, repositories: [{ repository: PROJECT, nodes: [] }] },
     ],
+    ["`fire` as no object", { ...valid, fire: "on" }],
+    [
+      "`fire` with an unknown field",
+      {
+        ...valid,
+        fire: { ...(valid.fire as object), token: "sk-ant-oat01-x" },
+      },
+    ],
+    [
+      "`fire.enabled` as no boolean",
+      { ...valid, fire: { ...(valid.fire as object), enabled: "false" } },
+    ],
+    [
+      "`fire.perTaskHourlyCap` of zero",
+      { ...valid, fire: { ...(valid.fire as object), perTaskHourlyCap: 0 } },
+    ],
+    [
+      "`fire.repositories` as no object",
+      { ...valid, fire: { ...(valid.fire as object), repositories: [] } },
+    ],
+    [
+      "a `fire.repositories` entry with an unknown role",
+      {
+        ...valid,
+        fire: {
+          ...(valid.fire as object),
+          repositories: {
+            [PROJECT]: { owner: { trig: "trig_x", secret: "fire/x" } },
+          },
+        },
+      },
+    ],
+    [
+      "a `fire.repositories` role entry carrying a token field",
+      {
+        ...valid,
+        fire: {
+          ...(valid.fire as object),
+          repositories: {
+            [PROJECT]: {
+              implementer: {
+                trig: "trig_x",
+                secret: "fire/x",
+                token: "sk-ant-oat01-x",
+              },
+            },
+          },
+        },
+      },
+    ],
+    [
+      "a `fire.repositories` role entry with an empty trig",
+      {
+        ...valid,
+        fire: {
+          ...(valid.fire as object),
+          repositories: {
+            [PROJECT]: { implementer: { trig: "", secret: "fire/x" } },
+          },
+        },
+      },
+    ],
   ];
 
   it.each(broken)("the schema refuses %s", (_name, value) => {
     expect(parseSettings(JSON.stringify(value)).ok).toBe(false);
+  });
+
+  it("accepts a real repository/role fire configuration", () => {
+    const withFire = {
+      ...valid,
+      fire: {
+        ...(valid.fire as object),
+        enabled: true,
+        repositories: {
+          [PROJECT]: {
+            planner: { trig: "trig_planner", secret: "fire/planner" },
+            implementer: { trig: "trig_impl", secret: "fire/impl" },
+          },
+        },
+      },
+    };
+    const result = parseSettings(JSON.stringify(withFire));
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.value.fire).toEqual({
+        enabled: true,
+        perTaskHourlyCap: 30,
+        perAccountHourlyCap: 100,
+        perAccountDailyCap: 200,
+        repositories: {
+          [PROJECT]: {
+            planner: { trig: "trig_planner", secret: "fire/planner" },
+            implementer: { trig: "trig_impl", secret: "fire/impl" },
+          },
+        },
+      });
+    }
   });
 
   it("is not among the files CI lets only the service write", () => {

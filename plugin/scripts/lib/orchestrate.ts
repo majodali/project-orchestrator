@@ -56,11 +56,46 @@ type Step = Task["step"];
 /** An input as read: its value, or why it could not be read. */
 export type Read<T> = { ok: true; value: T } | { ok: false; why: string };
 
+/** One scheduled task's identifier and the Secrets Manager secret
+ * holding its bearer token (P2-N046 design 2; P2-N049, criterion 1).
+ * Never a token: only the `trig_` identifier and the secret's name
+ * are settings-file data. */
+export interface FireTaskRef {
+  trig: string;
+  secret: string;
+}
+
+export const FIRE_ROLES: readonly string[] = [
+  "planner",
+  "implementer",
+  "reviewer",
+];
+
+/** `orchestration/orchestrator.json`'s `fire` section (P2-N046 design
+ * 2 and 4), the settings file's own copy of the shape
+ * majodali/project-orchestrator-service's `src/fire/settings.ts`
+ * parses at runtime (RU-012: that is the canonical implementation;
+ * this is this repository's own strict check of the same file, so a
+ * malformed section is caught here, in `npm test`, rather than only
+ * failing open at the service). */
+export interface FireSettings {
+  enabled: boolean;
+  perTaskHourlyCap: number;
+  perAccountHourlyCap: number;
+  perAccountDailyCap: number;
+  repositories: Record<string, Partial<Record<string, FireTaskRef>>>;
+}
+
 export interface Settings {
   limits: { execute: number; plan: number };
   maxReworkRounds: number;
   checkAfterMinutes: number;
   weeklyBudget: number | null;
+  /** Absent until the owner's O1/O2 setup and this field are both in
+   * place (docs/plans/p2-n046-service-fired-sessions.md, "What the
+   * owner sets up"); `null` means no `fire` section, equivalent to
+   * the service's own disabled default. */
+  fire: FireSettings | null;
 }
 
 /** One line of the journal, as far as the script reads it. */
@@ -237,6 +272,7 @@ export function parseSettings(text: string | null): Read<Settings> {
     "maxReworkRounds",
     "checkAfterMinutes",
     "weeklyBudget",
+    "fire",
   ]);
   if (extra.length > 0) return bad(`unknown field ${extra.join(", ")}`);
   const limits = v.limits;
@@ -254,6 +290,8 @@ export function parseSettings(text: string | null): Read<Settings> {
   const budget = v.weeklyBudget;
   if (budget !== null && !(typeof budget === "number" && budget >= 0))
     return bad("`weeklyBudget` is neither null nor a number, 0 or more");
+  const fireResult = parseFire(v.fire, bad);
+  if (!fireResult.ok) return fireResult;
   return {
     ok: true,
     value: {
@@ -261,6 +299,96 @@ export function parseSettings(text: string | null): Read<Settings> {
       maxReworkRounds: v.maxReworkRounds,
       checkAfterMinutes: v.checkAfterMinutes,
       weeklyBudget: budget,
+      fire: fireResult.value,
+    },
+  };
+}
+
+/** `fire` is optional: absent means no scheduled task is configured
+ * yet (P2-N046, slice 3 not yet applied here). When present every
+ * field is required and no unknown field or token value is accepted
+ * (criterion 1: "No token is in it"). */
+function parseFire(
+  raw: unknown,
+  bad: (why: string) => Read<Settings>,
+): Read<FireSettings | null> {
+  if (raw === undefined || raw === null) return { ok: true, value: null };
+  if (!isRecord(raw)) return bad("`fire` is no object") as Read<never>;
+  const extra = unknownKeys(raw, [
+    "enabled",
+    "perTaskHourlyCap",
+    "perAccountHourlyCap",
+    "perAccountDailyCap",
+    "repositories",
+  ]);
+  if (extra.length > 0)
+    return bad(
+      `\`fire\` has an unknown field ${extra.join(", ")}`,
+    ) as Read<never>;
+  if (typeof raw.enabled !== "boolean")
+    return bad("`fire.enabled` is not a boolean") as Read<never>;
+  if (!wholeAtLeast(raw.perTaskHourlyCap, 1))
+    return bad(
+      "`fire.perTaskHourlyCap` is not a whole number, 1 or more",
+    ) as Read<never>;
+  if (!wholeAtLeast(raw.perAccountHourlyCap, 1))
+    return bad(
+      "`fire.perAccountHourlyCap` is not a whole number, 1 or more",
+    ) as Read<never>;
+  if (!wholeAtLeast(raw.perAccountDailyCap, 1))
+    return bad(
+      "`fire.perAccountDailyCap` is not a whole number, 1 or more",
+    ) as Read<never>;
+  const repositories = raw.repositories;
+  if (!isRecord(repositories))
+    return bad("`fire.repositories` is no object") as Read<never>;
+  const parsedRepositories: Record<
+    string,
+    Partial<Record<string, FireTaskRef>>
+  > = {};
+  for (const [repository, rolesRaw] of Object.entries(repositories)) {
+    if (!isRecord(rolesRaw))
+      return bad(
+        `\`fire.repositories[${JSON.stringify(repository)}]\` is no object`,
+      ) as Read<never>;
+    const unknownRoles = unknownKeys(rolesRaw, FIRE_ROLES);
+    if (unknownRoles.length > 0)
+      return bad(
+        `\`fire.repositories[${JSON.stringify(repository)}]\` has a field other than ${FIRE_ROLES.join(", ")}: ${unknownRoles.join(", ")}`,
+      ) as Read<never>;
+    const roles: Partial<Record<string, FireTaskRef>> = {};
+    for (const role of FIRE_ROLES) {
+      const entry = rolesRaw[role];
+      if (entry === undefined) continue;
+      if (!isRecord(entry))
+        return bad(
+          `\`fire.repositories[${JSON.stringify(repository)}].${role}\` is no object`,
+        ) as Read<never>;
+      const unknownEntryKeys = unknownKeys(entry, ["trig", "secret"]);
+      if (unknownEntryKeys.length > 0)
+        return bad(
+          `\`fire.repositories[${JSON.stringify(repository)}].${role}\` has a field other than trig, secret: ${unknownEntryKeys.join(", ")}`,
+        ) as Read<never>;
+      if (typeof entry.trig !== "string" || entry.trig.length === 0)
+        return bad(
+          `\`fire.repositories[${JSON.stringify(repository)}].${role}.trig\` is not a non-empty string`,
+        ) as Read<never>;
+      if (typeof entry.secret !== "string" || entry.secret.length === 0)
+        return bad(
+          `\`fire.repositories[${JSON.stringify(repository)}].${role}.secret\` is not a non-empty string`,
+        ) as Read<never>;
+      roles[role] = { trig: entry.trig, secret: entry.secret };
+    }
+    parsedRepositories[repository] = roles;
+  }
+  return {
+    ok: true,
+    value: {
+      enabled: raw.enabled,
+      perTaskHourlyCap: raw.perTaskHourlyCap,
+      perAccountHourlyCap: raw.perAccountHourlyCap,
+      perAccountDailyCap: raw.perAccountDailyCap,
+      repositories: parsedRepositories,
     },
   };
 }
