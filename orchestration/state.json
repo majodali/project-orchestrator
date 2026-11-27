@@ -10749,8 +10749,8 @@
         "D: treat the clauses as met on this node by T267's task summary, which names the places changed only"
       ],
       "default": "A: read #64's body yourself and accept the review on P2-N077 in the view",
-      "chosen": null,
-      "decided": null,
+      "chosen": "A: read #64's body yourself and accept the review on P2-N077 in the view",
+      "decided": "2026-11-27",
       "rationale": "Asked by T271 at close.",
       "standing": false,
       "source": null
