@@ -2661,7 +2661,7 @@
       "kind": "work",
       "title": "Recovery of a node after an acknowledged fire report",
       "outcome": "A node whose fires were reported to the owner is fired again once the owner acknowledges the report, and is reported again only after fresh bare attempts.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N046",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -2671,7 +2671,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-27",
       "note": "Added at the owner's instruction, 2026-11-27 (\"add the node\"). The owner wants it now, so it starts by itself. This node's plan needs no file (D137, standing): the criteria below are its plan and its specification. Its work is one pull request in majodali/project-orchestrator-service. No criterion needs the running deployment, so the service merges the pull request when the verification closes.\n\nWhat happened. src/fire/decide.ts counts the `fired` lines for a node and step since the node's last task close (`lastCloseTimestamp`); two with no task opened make a `too-many-attempts` report, which src/fire/run.ts opens as a decision on the node. An open decision gates the node. Acknowledging the decision does not change the count, so the fire check that runs after the owner's answer finds the same two lines and opens the report again. On P2-N033: fired 2026-11-27T09:05:41Z and 11:06:20Z, both before the token permission was deployed, so neither made a session; D173 opened; the owner answered \"acknowledge\" at 11:22:31Z; D174 opened at 11:22:39Z with the same words. The count resets only at a task close on the node, and no task can open on a node a report gates, so the node is locked for the service and for a run fired by hand alike. D174 is left open on purpose until this node is deployed.\n\nCriteria.\n1. A closed `too-many-attempts` report on a node restarts the count for that node: only `fired` lines after the report's closing are counted, as after a task close. The closing's time is read from the journal (the `decision_close` line), since a decision records a date and not a time; if the journal cannot give it, the pull request says what is used instead and why it cannot count a fire twice or miss one.\n2. After the owner acknowledges, the next write's fire check fires the node once if it is still on offer, and opens no report. A test shows this from a state and a journal shaped like P2-N033's on 2026-11-27: two `fired` lines, a report opened, the report closed.\n3. Two further bare fires after the acknowledgement open one new report. A test shows it.\n4. The answer \"fire it by hand with Run now\" restarts the count the same way; the service does not fire on that answer's write for that node, because the owner said they would. A test shows it, or the pull request says why the option is treated as an acknowledgement and asks.\n5. A report still open stops a second report from opening on the same node, as today (`hasOpenReport`), and nothing in this node changes the two hourly caps, the daily cap, the 429 rule or the wait of `checkAfterMinutes` between two fires.\n6. The rule is stated in the comment at the top of src/fire/decide.ts or src/fire/run.ts and in docs/runbook.md where firing is described: what a report means, what acknowledging does, and what to do when it repeats.\n7. No existing test changes except to add; any other change to an existing test is an ask.\n8. Build, tests, lint and format pass on the pull request.\n\nAfter the deploy, not a criterion of this node: the owner answers D174, and the journal should then show a `fired` line for P2-N033 followed by a `fired-session` line and a task opened by that session. That is the first proof that a fire makes a session, and it belongs to P2-N033's record."
     },
     {
@@ -2679,7 +2679,7 @@
       "kind": "check",
       "title": "Verification of Recovery of a node after an acknowledged fire report",
       "outcome": "P2-N082 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N082",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -2689,7 +2689,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-27",
       "note": null
     },
     {
@@ -8700,7 +8700,7 @@
       "id": "T275",
       "node": "P2-N085",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -8708,11 +8708,11 @@
         "out": null
       },
       "opened": "2026-11-27T12:51:56Z",
-      "closed": null,
+      "closed": "2026-11-27T12:56:41Z",
       "base": "aa933fda46ba088cdfaec6c3861af5610ff7b815",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N082, Recovery of a node after an acknowledged fire report, against its criteria and outcome, reading the work read-only in majodali/project-orchestrator-service.",
+      "summary": "Verified P2-N082 at PR #66 head 5e67cab: all eight criteria met. A closed too-many-attempts report restarts the count at its journal decision_close line; Run-now suppresses only its own write; caps, the 429 rule and checkAfterMinutes untouched; tests added only; build, lint, format and 431 tests pass locally and in CI.",
       "notes": null
     }
   ],

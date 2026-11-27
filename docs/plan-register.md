@@ -112,7 +112,7 @@ Dependencies are in the state file, not in sibling order.
       - P2-N048 [done] The fire in the service
       - P2-N049 [done] The owner's setup recorded
       - P2-N050 [specified] The old orchestrator parts retired
-      - P2-N082 [verifying] Recovery of a node after an acknowledged fire report
+      - P2-N082 [done] Recovery of a node after an acknowledged fire report
       - P2-N083 [done] Reviewer entry for the service repository in the fire settings
   - P2-N028 [broken-down] View that updates itself and leads with what matters — plan: plans/view-that-leads-and-updates.md
     - P2-N037 [done] Tree page that updates itself

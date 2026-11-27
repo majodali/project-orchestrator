@@ -88,6 +88,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Fired-session trial by hand** (P2-N047) — When: 2026-11-22. Status: done. Pointer: `orchestration/state.json`.
 - [x] **The fire in the service** (P2-N048) [majodali/project-orchestrator-service] — When: 2026-11-25. Status: done. Pointer: `orchestration/state.json`.
 - [x] **The owner's setup recorded** (P2-N049) — When: 2026-11-27. Status: done. Pointer: `orchestration/state.json`.
+- [x] **Recovery of a node after an acknowledged fire report** (P2-N082) [majodali/project-orchestrator-service] — When: 2026-11-27. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Reviewer entry for the service repository in the fire settings** (P2-N083) — When: 2026-11-27. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Tree page that updates itself** (P2-N037) [majodali/project-orchestrator-service] — When: 2026-11-22. Status: done. Pointer: `orchestration/state.json`.
 - [x] **Four lists ahead of the tree** (P2-N038) [majodali/project-orchestrator-service] — When: 2026-11-23. Status: done. Pointer: `orchestration/state.json`.
@@ -126,7 +127,6 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: not dated. Status: executing, ready, starts automatically. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Tasks started by the service through scheduled tasks** (P2-N046) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/p2-n046-service-fired-sessions.md).
 - [ ] **The old orchestrator parts retired** (P2-N050) — When: after P2-N033. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
-- [ ] **Recovery of a node after an acknowledged fire report** (P2-N082) [majodali/project-orchestrator-service] — When: not dated. Status: verifying, in progress, its children carry the work. Pointer: `orchestration/state.json`.
 - [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/view-that-leads-and-updates.md).
 - [ ] **Session, duration and criteria on pages** (P2-N039) [majodali/project-orchestrator-service] — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
 - [ ] **Feedback in place and the node panel** (P2-N040) [majodali/project-orchestrator-service] — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
