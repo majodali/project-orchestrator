@@ -8877,6 +8877,25 @@
       "pr": "majodali/project-orchestrator-service#68",
       "summary": "Carries each verified pull request's description, head commit, open/mergeable state and check runs in a verify claim's task_open and plan_read answers, read through the App; an unreadable one is named, not fatal. The description is bounded (fitWords, marked [cut]) pending P2-N081. #68 here; #104 in majodali/project-orchestrator updates reviewer.md for criterion 6.",
       "notes": null
+    },
+    {
+      "id": "T280",
+      "node": "P2-N089",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-27T20:21:24Z",
+      "closed": null,
+      "base": "b6baecb19564f0d5f5b9d61ef5b81cdbc46f82bd",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N087 (pull request description and checks in the verify claim's answer) against its criteria, in a read-only clone of majodali/project-orchestrator-service at the pull request head.",
+      "notes": null
     }
   ],
   "decisions": [
