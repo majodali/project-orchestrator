@@ -2769,7 +2769,7 @@
       "kind": "work",
       "title": "Pull request description and checks in the verify claim's answer",
       "outcome": "A reviewer session reads each pull request's description and check results from the service's answer to its claim, whichever repository the pull request is in.",
-      "stage": "verifying",
+      "stage": "done",
       "parent": "P2-N046",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -2779,7 +2779,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-27",
       "note": "Added at the owner's instruction, 2026-11-27 (\"add the node for A\"), under D148 (standing). It corrects the record of D176 (on P2-N083), which the owner had answered \"attach it now\" before asking whether two repositories on the reviewer's scheduled task would be safe. They are not known to be: a session with two repositories starts in the parent folder, both repositories carry a CLAUDE.md, a .mcp.json and a .claude/settings.json, and which one's hooks and service connection a fired run loads is not established; the owner has met that fault before. So the reviewer's scheduled task keeps one repository, and the owner chose option A of three: the service supplies what the reviewer cannot read. This node's plan needs no file (D137, standing): the criteria below are its plan and its specification. Its work is one pull request in majodali/project-orchestrator-service, where a merge deploys, so it starts on approval; a second pull request in majodali/project-orchestrator carries criterion 6.\n\nWhy. A session's GitHub access is scoped to the repositories its scheduled task has attached. The reviewer's task has majodali/project-orchestrator only, so for a node in majodali/project-orchestrator-service it can clone and read the code but cannot read the pull request's description or its check runs (D130, D171, D176). On P2-N077 that ended in `needs-judgment` over two clauses of criteria that named the pull request's description, and T275 verified P2-N082 without seeing its checks. The service's GitHub App is installed on both repositories and already reads check results for the view's header.\n\nCriteria.\n1. The answer to `task_open` of a `verify` step carries, for each pull request the verified node's closed tasks name: the repository and number, the title, the description in full, the head commit, whether it is open and mergeable, and each check run's name and conclusion at that head. Read through the App at the time of the claim.\n2. `plan_read` for a node, or a tool of its own, answers the same on request, so a reviewer can read it again later in the run, for instance after waiting for checks. The pull request says which was chosen and why.\n3. No code in src/ branches on a repository or project name for this (D067); it works for any pull request in a repository the App can read, and a pull request it cannot read is named in the answer with the reason, and the claim still commits.\n4. A failure to read GitHub never fails the claim: the answer says what could not be read. A test shows it.\n5. Tests cover: a node with one pull request, a node with two in different repositories, a pull request with a failing check, and an unreadable one. No existing test changes except to add; any other change to an existing test is an ask.\n6. In majodali/project-orchestrator, .claude/agents/reviewer.md says where the reviewer reads a pull request's description and checks, and that it no longer asks the owner when it cannot read them directly; `node plugin/scripts/sync_agents.ts --check` reports the plugin copy current. docs/process/task-loop.md is at its 300-line bound, so nothing is added there unless a line is removed.\n7. The size of the answer is bounded: a description over a stated length is cut with a marker, and the pull request says how this sits with P2-N081 (bounded size of the service's answers).\n8. The pull request states which permissions of the App this uses (Pull requests: read, Checks: read or Actions: read) and whether the App holds them today on both repositories; if one is missing it is an ask for the owner, named exactly, and not a silent failure.\n9. Build, tests, lint and format pass on each pull request. No pull request changes one of the five files the service owns.\n\nRelated: P2-N074 (preview dispatch from the service) extends the same answer of `task_open` for a verify step; the two must not overwrite each other's fields."
     },
     {
@@ -2787,7 +2787,7 @@
       "kind": "check",
       "title": "Verification of Pull request description and checks in the verify claim's answer",
       "outcome": "P2-N087 is verified against its outcome.",
-      "stage": "specified",
+      "stage": "done",
       "parent": "P2-N087",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -2797,7 +2797,7 @@
         "plan": null,
         "spec": null
       },
-      "done": null,
+      "done": "2026-11-27",
       "note": null
     },
     {
@@ -8989,7 +8989,7 @@
       "id": "T285",
       "node": "P2-N089",
       "step": "verify",
-      "status": "open",
+      "status": "closed",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -8997,11 +8997,11 @@
         "out": null
       },
       "opened": "2026-11-27T23:39:36Z",
-      "closed": null,
+      "closed": "2026-11-27T23:45:14Z",
       "base": "243b98b48cbe0987dbd9a153fe54f3a0d7617cfb",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N087, Pull request description and checks in the verify claim's answer, against its criteria, after T280 failed criterion 5.",
+      "summary": "All nine criteria met at #68 head 6d3dce7 and #104 head cdd98fc. Verified each field of the claim's answer, the two-repository test now opening a real task_open (T280's failure fixed), reviewer.md and sync_agents --check, and the description bound. Build, test, lint and format pass locally and on both pull requests' checks.",
       "notes": null
     }
   ],
