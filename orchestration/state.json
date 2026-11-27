@@ -2733,7 +2733,7 @@
       "kind": "work",
       "title": "Repository field on node_add",
       "outcome": "A node is added with its repository in one write, so the fire check never sees it under the wrong repository.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N046",
       "repository": "majodali/project-orchestrator-service",
       "after": [],
@@ -2745,6 +2745,24 @@
       },
       "done": null,
       "note": "Added at the owner's instruction, 2026-11-27 (\"add a node\"). This node's plan needs no file (D137, standing): the criteria below are its plan and its specification. Its work is one pull request in majodali/project-orchestrator-service. No criterion needs the running deployment, so the service merges the pull request when the verification closes. It was added with start `approve`, given its repository, and only then set to start by itself, so that it was not fired under the wrong repository as P2-N082 was.\n\nWhat happened. `node_add` has no repository field: a new node takes its parent's repository, and `node_update` (P2-N065) corrects it in a second write. The fire check runs after every write. On 2026-11-27 at 11:45:43Z P2-N082 was added under P2-N046, whose repository is none, and at 11:45:49Z the service fired this repository's implementer for it; the repository was set to majodali/project-orchestrator-service at 11:46:01Z. The session fired for it found the node was no longer its work. One fire was wasted and the node carried a bare `fired` line. The same gap would misdirect any break down that adds children in another repository than their parent's (P2-N063's child for this repository, P2-N075, was added and corrected in two writes before firing was on).\n\nCriteria.\n1. `node_add` accepts `repository`: an `owner/name` string, or null for the coordinating repository, validated as `node_update` validates it. When the field is absent the node takes its parent's repository, as today.\n2. The node is committed with that repository in the same write, so the fire check after that write reads the right one. A test shows a node added under a parent with no repository, with a repository given, is answered by `task_next` for that repository and not for the coordinating one.\n3. The tool's description and the service's instructions to a session name the field and say when to use it: a child whose work is in another repository than its parent's.\n4. .claude/agents/planner.md in majodali/project-orchestrator is not this node's to change; if the planner's page should mention the field, the pull request says so as an ask.\n5. No existing test changes except to add the field where a fixture lists a tool's input; any other change to an existing test is an ask.\n6. Build, tests, lint and format pass on the pull request."
+    },
+    {
+      "id": "P2-N088",
+      "kind": "check",
+      "title": "Verification of Repository field on node_add",
+      "outcome": "P2-N086 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N086",
+      "repository": "majodali/project-orchestrator-service",
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": null,
+        "spec": null
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N087",
@@ -8758,7 +8776,7 @@
       "id": "T276",
       "node": "P2-N086",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8766,11 +8784,11 @@
         "out": null
       },
       "opened": "2026-11-27T19:11:34Z",
-      "closed": null,
+      "closed": "2026-11-27T19:17:23Z",
       "base": "eba09e2aa66fc6c2e7f60666a9838e75d5d870c2",
-      "ref": null,
-      "pr": null,
-      "summary": "Add a repository field to node_add so a new node can take an explicit repository in the same write, instead of always inheriting its parent's and needing a later node_update correction.",
+      "ref": "ddb98c69bd895de920a6aca1c4a55cd8e4d917be",
+      "pr": "majodali/project-orchestrator-service#67",
+      "summary": "node_add now accepts a repository field (owner/name or null), committed with the node in the same write; defaults to the parent's/project's as before. SERVER_INSTRUCTIONS and the tool's description name the field. New tests cover task_next filtering and validation; no existing test changed.",
       "notes": null
     },
     {
@@ -11062,6 +11080,21 @@
       "chosen": "attach it now: the reviewer's own page requires checking a pull request's own checks before passing work, and without the attachment a service-repository verification cannot do that at all",
       "decided": "2026-11-27",
       "rationale": "Asked by T273 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D177",
+      "node": "P2-N086",
+      "question": "Should .claude/agents/planner.md in majodali/project-orchestrator mention node_add's new repository field, for a break down that adds children in another repository than their parent's?",
+      "options": [
+        "Yes, add a sentence to planner.md",
+        "No, leave planner.md as is"
+      ],
+      "default": "Yes: add one sentence pointing to it, since a break down is exactly the case P2-N086 fixes a gap for.",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T276 at close.",
       "standing": false,
       "source": null
     }
