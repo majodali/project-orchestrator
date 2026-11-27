@@ -10752,6 +10752,21 @@
       "rationale": "Asked by T271 at close.",
       "standing": false,
       "source": null
+    },
+    {
+      "id": "D173",
+      "node": "P2-N033",
+      "question": "Fire: too many bare attempts: P2-N033 execute has been fired twice since its last close with no task opened.",
+      "options": [
+        "acknowledge",
+        "fire it by hand with Run now"
+      ],
+      "default": "acknowledge",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Opened by the service's fire check (P2-N048, design 2 and 3).",
+      "standing": false,
+      "source": null
     }
   ],
   "highWater": {
