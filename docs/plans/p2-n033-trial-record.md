@@ -174,19 +174,25 @@ already recorded on each task in `orchestration/state.json`:
 | T273 | P2-N084 | verify | claude-opus-5 | 56 | 12,008 | 2,295,259 | 69,580 |
 | T275 | P2-N085 | verify | claude-opus-5 | 48 | 13,424 | 2,221,235 | 88,729 |
 | T276 | P2-N086 | execute | claude-sonnet-5 | 138 | 20,636 | 7,756,373 | 103,449 |
+| T277 | P2-N033 | execute | claude-sonnet-5 | 72 | 60,986 | 6,223,099 | 185,743 |
 | T278 | P2-N088 | verify | claude-opus-5 | 40 | 13,268 | 1,678,993 | 72,872 |
 | T279 | P2-N087 | execute | claude-sonnet-5 | 282 | 74,878 | 26,806,761 | 233,529 |
 | T280 | P2-N089 | verify | claude-opus-5 | 52 | 21,944 | 2,425,594 | 97,663 |
 | T282 | P2-N073 | execute (resume) | claude-sonnet-5 | 26 | 9,520 | 1,091,838 | 78,678 |
 | T283 | P2-N087 | execute (rework) | claude-sonnet-5 | 100 | 19,958 | 5,585,643 | 103,801 |
+| T284 | P2-N033 | execute | claude-sonnet-5 | 104 | 52,583 | 7,882,997 | 171,586 |
 | T285 | P2-N089 | verify (rework) | claude-opus-5 | 46 | 19,523 | 2,310,548 | 101,982 |
 
-T274 (P2-N082 execute) and T281 (P2-N073 execute) are left out of the
-fired rows above because neither session is confirmed fired
-(Criterion 14): T274's tokens are 172 in, 72,955 out, 15,547,033 cache
-read, 201,723 cache write, claude-sonnet-5; T281's are 94 in, 23,689
-out, 5,519,185 cache read, 112,714 cache write, claude-sonnet-5; both
-for comparison only.
+**Which fired, costed tasks appear here and in criterion 16's table.**
+The bar: the session matches a `fired-session` line (Criterion 14)
+and the task-cost hook recorded a cost — not whether the node ever
+reached done (T282, P2-N073, still blocked) or whether the node is
+this one (T277, T284: P2-N033's own two prior rounds). T274 and T281
+are the only exclusions, both because neither session is confirmed
+fired, not for what happened to their node: T274 is 172 in, 72,955
+out, 15,547,033 cache read, 201,723 cache write; T281 is 94 in,
+23,689 out, 5,519,185 cache read, 112,714 cache write; both
+claude-sonnet-5, for comparison only.
 
 **The cost of the firing itself is zero tokens.** The fire is one HTTP
 call the service makes to the documented endpoint; no model runs
@@ -210,17 +216,20 @@ Hand/delegated baselines are tasks whose session is not named in any
 | T269 | P2-N049 | hand/delegated | 25,187 |
 | T272 | P2-N083 | **fired** | 29,667 |
 | T276 | P2-N086 | **fired** | 20,636 |
+| T277 | P2-N033 | **fired** | 60,986 |
 | T279 | P2-N087 | **fired** | 74,878 |
 | T282 | P2-N073 | **fired** (resume) | 9,520 |
 | T283 | P2-N087 | **fired** (rework) | 19,958 |
+| T284 | P2-N033 | **fired** | 52,583 |
 
 Hand/delegated execute costs range 25,187–60,692 output tokens across
-three tasks; fired execute costs now range 9,520–74,878 across five.
-The fired range contains the whole hand range rather than sitting
-above or below it: three fired tasks (T276, T282, T283) cost less
-than every hand baseline, one (T272) falls inside the hand range, and
-one (T279) costs more than every hand baseline. No consistent
-direction holds.
+three tasks; fired execute costs now range 9,520–74,878 across seven
+(same cut-off as criterion 15: T277 and T284 are included on the same
+basis as T282). The fired range contains the whole hand range rather
+than sitting above or below it: three fired tasks (T276, T282, T283)
+cost less than every hand baseline, two (T272, T284) fall inside the
+hand range, and two (T277, T279) cost more than every hand baseline.
+No consistent direction holds.
 
 **Verify, claude-opus-5:**
 
