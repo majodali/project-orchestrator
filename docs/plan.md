@@ -23,11 +23,10 @@ Gated nodes:
 ## Ready, starting automatically when the loop runs
 
 - Orchestrator trial with its measured cost (P2-N033) [executing]
-- Preview deployment of an unmerged pull request (P2-N073) [majodali/project-orchestrator-service] [executing]
 
 ## In flight
 
-None.
+- Preview deployment of an unmerged pull request (P2-N073) [majodali/project-orchestrator-service] [executing] — T286
 
 ## In progress, children carry the work
 
