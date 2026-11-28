@@ -2420,10 +2420,7 @@
       "parent": "P2-N033",
       "repository": null,
       "after": [],
-      "hold": {
-        "kind": "blocked",
-        "reason": "T294: Blocked. Criterion 14: two fired sessions inside the record's own frozen window are unlisted — cse_015Vm2Mqj79iuQmq3BY2PLZY (P2-N073 execute, 22:33:22Z, no task found) and T284's cse_015Vm2MuDazwjkbsCub9rMTY — and it still says \"four real fires\" where the window holds 14. Criterion 16: the hand verify baseline omits T271 (24,306 out), which its own rule admits."
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestrator-session.md",
@@ -9063,7 +9060,7 @@
       "id": "T295",
       "node": "P2-N033",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -9071,11 +9068,11 @@
         "out": null
       },
       "opened": "2026-11-28T08:53:16Z",
-      "closed": null,
+      "closed": "2026-11-28T09:02:55Z",
       "base": "0daebdafdba4b30f54bcf8c5f2c7a2dd57432bb7",
-      "ref": null,
-      "pr": null,
-      "summary": null,
+      "ref": "0def413b17db0f6e985266133dbb019533affa7d",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Fixed T294's finding: added the unclaimed P2-N073 fire (22:33:22) and T284's own fire (23:34:01) to criterion 14, noted the T284/T285 overlap, and corrected \"four real fires\" to the frozen window's actual fourteen. Added T271 (24,306 out) to criterion 16's hand verify baseline per its own rule; recalculated the hand mean (22,021) and ratio (0.73:1). PR #103 updated, CI green.",
       "notes": null
     }
   ],
