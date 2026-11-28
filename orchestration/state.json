@@ -9102,6 +9102,25 @@
       "pr": "majodali/project-orchestrator#103",
       "summary": "Blocked. Criterion 14: line 55 still reads \"The four real fires\" over four rows while line 15 says fourteen — the mislabel T294 named, fixed in one place only. Also docs/plans/p2-n033-trial-record.md is 316 lines, bound 300 (how-we-work.md); T293 held it at 300. Criteria 15-16 met: every figure matches state.json.",
       "notes": null
+    },
+    {
+      "id": "T297",
+      "node": "P2-N033",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-28T09:09:25Z",
+      "closed": null,
+      "base": "0a52600234f53dad0ec03d0c0807b7b8bc9432f2",
+      "ref": null,
+      "pr": null,
+      "summary": "Rework PR #103 for P2-N033's trial record: fix the remaining \"four real fires\" mislabel at line 55 and trim the document back under the 300-line bound.",
+      "notes": null
     }
   ],
   "decisions": [
