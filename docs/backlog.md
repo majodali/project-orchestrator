@@ -110,6 +110,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Reversibility and its measurement** (P3-N004) — When: after P3-N002. Status: identified, paused by a hold or a park above. Pointer: `orchestration/state.json`.
 - [ ] **Sequence mode** (P3-N005) — When: not dated. Status: broken-down, paused by a hold or a park above. Pointer: [plan](plans/p3-n005-sequence-mode.md), [spec](specs/p3-n005-sequence-mode.md).
 - [ ] **Determination on W-001 sequence mode** (P3-N016) — When: after P2-N027. Status: identified, paused by a hold or a park above. Pointer: `orchestration/state.json`.
+- [ ] **Checker extension-point proposal ready to carry** (P3-N024) — When: not dated. Status: specified, paused by a hold or a park above. Pointer: [plan](plans/p3-n015-sequence-demonstration.md).
 - [ ] **Rebuild: the orchestrator runs on a checked data model** (P4-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Re-plan, prune and hand back** (P4-N008) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Pilot enlistment of methodology-tools** (P4-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/pilot-enlistment-methodology-tools.md).
