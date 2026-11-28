@@ -283,11 +283,18 @@ What the finished record shows, as of T284:
 
 Criterion 14's bar, as answered, is not met; criteria 15 and 16 are
 met by the numbers recorded above, whichever way they fall (RU-019).
-The node's outcome sentence states that the trial *shows* three nodes
-carried to done, two at once — this record does not show that, and
-rewording the outcome to match what was actually found is a plan
-change (RU-019) for the owner to make, not something this task's own
-node can do to itself.
+T284 asked the owner to reword the node's outcome sentence, which had
+stated that the trial *shows* three nodes carried to done, two at
+once — this record does not show that. D184 answered: reword it. The
+owner reworded the outcome directly, 2026-11-28, to describe what
+this record found, rather than what was originally hoped for.
+
+T284 also asked how P2-N033's last act (D075: remove P3-N015 and
+P3-N020, make P3-N016 wait for P2-N027 instead) should happen, after
+a session's `node_remove` call was denied by the auto-mode classifier.
+D183 answered: the owner performs it by hand. The owner did so
+directly, 2026-11-28: P3-N015 and P3-N020 are removed, and P3-N016
+now waits for P2-N027.
 
 ## Terms introduced
 
