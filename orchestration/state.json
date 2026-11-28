@@ -11368,8 +11368,8 @@
         "Hold the node here; the real-run criteria wait"
       ],
       "default": "The owner dispatches it by hand and a session resumes execute to finish the remaining criteria",
-      "chosen": null,
-      "decided": null,
+      "chosen": "The owner dispatches it by hand and a session resumes execute to finish the remaining criteria",
+      "decided": "2026-11-28",
       "rationale": "Asked by T282 at close.",
       "standing": false,
       "source": null
