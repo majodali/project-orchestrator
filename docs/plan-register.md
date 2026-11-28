@@ -36,6 +36,7 @@ Dependencies are in the state file, not in sibling order.
     - P3-N013 [done] Decidable stop conditions — plan: archive/plans/p3-n013-stop-conditions-decidable.md · spec: specs/p3-n005-sequence-mode.md
     - P3-N014 [done] Sequence mode in the dispatch loop — plan: archive/plans/p3-n014-loop-runs-sequence-mode.md · spec: specs/p3-n005-sequence-mode.md
     - P3-N016 [identified] Determination on W-001 sequence mode
+    - P3-N022 [specified] Methodology citations pinned in the process specification — plan: plans/p3-n015-sequence-demonstration.md
 - P4-N001 [broken-down] Rebuild: the orchestrator runs on a checked data model — plan: plans/rebuild.md
   - P4-N002 [done] Freeze and declare — plan: plans/rebuild.md
   - P4-N003 [done] State file and checker — plan: plans/rebuild.md
