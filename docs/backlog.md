@@ -33,6 +33,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [x] **Sequence mode in the dispatch loop** (P3-N014) — When: 2026-10-30. Status: done. Pointer: [plan](archive/plans/p3-n014-loop-runs-sequence-mode.md), [spec](specs/p3-n005-sequence-mode.md).
 - [x] **Methodology citations pinned in the process specification** (P3-N022) — When: 2026-11-28. Status: done. Pointer: [plan](plans/p3-n015-sequence-demonstration.md).
 - [x] **Anchors on Risk register entries** (P3-N023) — When: 2026-11-28. Status: done. Pointer: [plan](plans/p3-n015-sequence-demonstration.md).
+- [x] **Checker extension-point proposal ready to carry** (P3-N024) — When: 2026-11-28. Status: done. Pointer: [plan](plans/p3-n015-sequence-demonstration.md).
 - [x] **Freeze and declare** (P4-N002) — When: 2026-11-09. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **State file and checker** (P4-N003) — When: 2026-11-09. Status: done. Pointer: [plan](plans/rebuild.md).
 - [x] **View on the state file** (P4-N004) — When: 2026-11-10. Status: done. Pointer: [plan](plans/rebuild.md).
@@ -110,7 +111,6 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Reversibility and its measurement** (P3-N004) — When: after P3-N002. Status: identified, paused by a hold or a park above. Pointer: `orchestration/state.json`.
 - [ ] **Sequence mode** (P3-N005) — When: not dated. Status: broken-down, paused by a hold or a park above. Pointer: [plan](plans/p3-n005-sequence-mode.md), [spec](specs/p3-n005-sequence-mode.md).
 - [ ] **Determination on W-001 sequence mode** (P3-N016) — When: after P2-N027. Status: identified, paused by a hold or a park above. Pointer: `orchestration/state.json`.
-- [ ] **Checker extension-point proposal ready to carry** (P3-N024) — When: not dated. Status: specified, paused by a hold or a park above. Pointer: [plan](plans/p3-n015-sequence-demonstration.md).
 - [ ] **Rebuild: the orchestrator runs on a checked data model** (P4-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Re-plan, prune and hand back** (P4-N008) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Pilot enlistment of methodology-tools** (P4-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/pilot-enlistment-methodology-tools.md).

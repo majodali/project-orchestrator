@@ -72,7 +72,6 @@ None.
 - Reversibility and its measurement (P3-N004) [identified] — under Project comprehension and continuous implementation (P3-N001)
 - Sequence mode (P3-N005) [broken-down] — under Project comprehension and continuous implementation (P3-N001)
 - Determination on W-001 sequence mode (P3-N016) [identified] — under Project comprehension and continuous implementation (P3-N001)
-- Checker extension-point proposal ready to carry (P3-N024) [specified] — under Project comprehension and continuous implementation (P3-N001)
 
 ## The plan
 
@@ -186,7 +185,7 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
     Each Risk register entry carries an anchor that other documents can cite.
     [plan](plans/p3-n015-sequence-demonstration.md)
     Note: Restored at the owner's instruction, 2026-11-28 ("restore them"). This node was P3-N018, done 2026-11-07, a child of P3-N015 (Sequence mode demonstration). It was removed by mistake on 2026-11-28 when P3-N015 was removed under D075 and D183: the service removes a node's children with it, and the session that removed P3-N015 had not read its children. The owner's rule: a done node that contributed stays. It carries a new identifier because an identifier is never reused. Its original note: "T106 accepted 2026-11-07, member 2 of the ratified sequence". Its outcome sentence is rewritten from its title, since the original repeated its parent's.
-  - **Checker extension-point proposal ready to carry** (P3-N024, specified)
+  - **Checker extension-point proposal ready to carry** (P3-N024, done 2026-11-28)
     A proposal for a checker extension point is written and ready to carry upstream.
     [plan](plans/p3-n015-sequence-demonstration.md)
     Note: Restored at the owner's instruction, 2026-11-28 ("restore them"). This node was P3-N019, done 2026-11-08, a child of P3-N015 (Sequence mode demonstration). It was removed by mistake on 2026-11-28 when P3-N015 was removed under D075 and D183: the service removes a node's children with it, and the session that removed P3-N015 had not read its children. The owner's rule: a done node that contributed stays. It carries a new identifier because an identifier is never reused. Its original note: "T107 accepted 2026-11-08, member 3 of the ratified sequence". Its outcome sentence is rewritten from its title, since the original repeated its parent's.
