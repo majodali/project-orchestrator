@@ -2420,7 +2420,10 @@
       "parent": "P2-N033",
       "repository": null,
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "T294: Blocked. Criterion 14: two fired sessions inside the record's own frozen window are unlisted — cse_015Vm2Mqj79iuQmq3BY2PLZY (P2-N073 execute, 22:33:22Z, no task found) and T284's cse_015Vm2MuDazwjkbsCub9rMTY — and it still says \"four real fires\" where the window holds 14. Criterion 16: the hand verify baseline omits T271 (24,306 out), which its own rule admits."
+      },
       "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestrator-session.md",
@@ -9038,7 +9041,7 @@
       "id": "T294",
       "node": "P2-N090",
       "step": "verify",
-      "status": "open",
+      "status": "blocked",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -9046,11 +9049,11 @@
         "out": null
       },
       "opened": "2026-11-28T08:48:09Z",
-      "closed": null,
+      "closed": "2026-11-28T08:52:39Z",
       "base": "38a0efa858331c43f5aa0c814a892c89ec4187f1",
-      "ref": null,
-      "pr": null,
-      "summary": "Verify P2-N033 (Orchestrator trial with its measured cost) against its criteria and outcome, at the head of its pull request, and close with the verdict.",
+      "ref": "480f74e752e2a837de89bb88ec5fd760198fc592",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Blocked. Criterion 14: two fired sessions inside the record's own frozen window are unlisted — cse_015Vm2Mqj79iuQmq3BY2PLZY (P2-N073 execute, 22:33:22Z, no task found) and T284's cse_015Vm2MuDazwjkbsCub9rMTY — and it still says \"four real fires\" where the window holds 14. Criterion 16: the hand verify baseline omits T271 (24,306 out), which its own rule admits.",
       "notes": null
     }
   ],
