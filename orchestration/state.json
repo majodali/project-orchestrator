@@ -2420,10 +2420,7 @@
       "parent": "P2-N033",
       "repository": null,
       "after": [],
-      "hold": {
-        "kind": "blocked",
-        "reason": "T292: Blocked. Criterion 15: the record calls T274 and T281 its only exclusions, but five fired, costed tasks closed before T291's claim and are absent — T286, T287, T288, T289, T290. Freeze the window at a named time (T285's close) so later rounds fall outside it. Criterion 16: no ratio is stated. Criterion 14 met as recorded."
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestrator-session.md",
@@ -9019,7 +9016,7 @@
       "id": "T293",
       "node": "P2-N033",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -9027,11 +9024,11 @@
         "out": null
       },
       "opened": "2026-11-28T08:33:52Z",
-      "closed": null,
+      "closed": "2026-11-28T08:47:31Z",
       "base": "042988a465df8efa0cae57b113c6e863553a3a66",
-      "ref": null,
-      "pr": null,
-      "summary": "Rework: fix the trial record's criterion 15 window (freeze at T285's close so T286-T290 are properly in/out) and state criterion 16's ratio, per T292's verification findings.",
+      "ref": "480f74e752e2a837de89bb88ec5fd760198fc592",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Fixed T292's finding: named and froze criterion 15's window at T285's close so T286-T292 (later rework/verify rounds) are excluded by when they opened, not left unstated; stated criterion 16's ratio (execute ≈0.86:1, verify ≈0.77:1, fired:hand). Trimmed a stale, duplicate section to hold the 300-line bound. PR #103 updated, CI green.",
       "notes": null
     }
   ],
