@@ -2392,7 +2392,7 @@
       "kind": "work",
       "title": "Orchestrator trial with its measured cost",
       "outcome": "The record of the service-fired trial states which nodes fired sessions carried to done, with their models, stops and measured costs beside hand-started work.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N027",
       "repository": null,
       "after": [
@@ -2410,6 +2410,27 @@
       },
       "done": null,
       "note": "Slice 4 of P2-N046's sequence, re-pointed at the fired mechanism by D119: the trial is of sessions the service fires, not of an orchestrator session. Criteria 14 to 16 in docs/plans/orchestrator-session.md, restated by task T210; criterion 18 struck there, because there is no orchestrator session whose writes to the plan could be counted. Criterion 17 struck per D124. The trial record (docs/plans/p2-n033-trial-record.md), finalized at T284: criterion 14 not met on D178's reading, recorded under RU-019 per D179; criteria 15-16 met by the numbers recorded. The outcome was reworded by the owner to match (D184, 2026-11-28). The last act (D075) is done: the owner removed P3-N015 and P3-N020 and made P3-N016 wait for P2-N027 (D183, 2026-11-28), after a session's node_remove call was denied by the auto-mode classifier."
+    },
+    {
+      "id": "P2-N090",
+      "kind": "check",
+      "title": "Verification of Orchestrator trial with its measured cost",
+      "outcome": "P2-N033 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N033",
+      "repository": null,
+      "after": [],
+      "hold": {
+        "kind": "blocked",
+        "reason": "T292: Blocked. Criterion 15: the record calls T274 and T281 its only exclusions, but five fired, costed tasks closed before T291's claim and are absent — T286, T287, T288, T289, T290. Freeze the window at a named time (T285's close) so later rounds fall outside it. Criterion 16: no ratio is stated. Criterion 14 met as recorded."
+      },
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/orchestrator-session.md",
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N046",
@@ -8844,23 +8865,158 @@
       "id": "T286",
       "node": "P2-N073",
       "step": "execute",
-      "status": "open",
+      "status": "blocked",
       "role": "implementer",
-      "model": null,
+      "model": "claude-sonnet-5",
       "tokens": {
-        "in": null,
-        "out": null
+        "in": 90,
+        "out": 26051,
+        "cacheRead": 5577107,
+        "cacheWrite": 116355
       },
+      "costSource": "transcript",
       "opened": "2026-11-28T07:50:56Z",
-      "closed": null,
+      "closed": "2026-11-28T07:58:14Z",
       "base": "478acc4eb7d1ecfb6713f3a0fbe70f4775104951",
-      "ref": null,
-      "pr": null,
-      "summary": "Resume P2-N073 execute: check results of the owner's hand dispatch of preview.yml (D182) and finish criteria 7-12 and 14 if the run succeeded, or report what it showed.",
+      "ref": "e3e4b238865c88986ef245536d7a27f33f141548",
+      "pr": "majodali/project-orchestrator-service#69",
+      "summary": "Corrected docs/deploy-role-permissions-preview.md's three IAM role resources to project-orchestrator-service-previe* (CloudFormation's 64-char role-name cut) and runbook recovery notes, matching the policy the owner already applied. CI green on #69. Run 3 (against merged PR #68) failed at checkout before touching AWS, unrelated to the IAM fix; criteria 7-12 and 14 still need a real run against an open pull request.",
       "notes": null
     },
     {
       "id": "T287",
+      "node": "P2-N033",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": "claude-sonnet-5",
+      "tokens": {
+        "in": 90,
+        "out": 31245,
+        "cacheRead": 5781831,
+        "cacheWrite": 113200
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-28T07:51:38Z",
+      "closed": "2026-11-28T07:58:33Z",
+      "base": "cd2af3eb46c91133acd1d690acd96ebb6446a64f",
+      "ref": "1485b64a17a935baf849712960a6147caf962a12",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Confirmed the owner's hand actions for D183 (P3-N015/P3-N020 removed, P3-N016 waits for P2-N027) and D184 (outcome reworded) landed on main. Updated the trial record and orchestrator-session.md's P3-N005/P3-N016 section to say so, since both still read as pending. All criteria recorded/met; PR #103 rebased, CI green.",
+      "notes": null
+    },
+    {
+      "id": "T288",
+      "node": "P2-N090",
+      "step": "verify",
+      "status": "blocked",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": 36,
+        "out": 20100,
+        "cacheRead": 1624161,
+        "cacheWrite": 98461
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-28T07:59:08Z",
+      "closed": "2026-11-28T08:03:39Z",
+      "base": "bec23422bdebf85168c94e01246daf34c123a1c0",
+      "ref": null,
+      "pr": null,
+      "summary": "Blocked. The record (PR #103, 1485b64a) is stale: T283 (closed 23:38:59Z) and T285 (closed 23:45:14Z) are fired, costed tasks it omits, and P2-N087 reached done 2026-11-27, so three nodes — not two — were carried to done by fired sessions. Criteria 14-16 and the outcome fail. Also 303 lines, bound 300.</summary>\n<parameter name=\"ref\">1485b64a17a935baf849712960a6147caf962a12",
+      "notes": null
+    },
+    {
+      "id": "T289",
+      "node": "P2-N033",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": "claude-sonnet-5",
+      "tokens": {
+        "in": 94,
+        "out": 27437,
+        "cacheRead": 5888069,
+        "cacheWrite": 115258
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-28T08:04:26Z",
+      "closed": "2026-11-28T08:11:32Z",
+      "base": "5431adb8c9500a0fe1883fadacf732d2cb7bc63a",
+      "ref": "e47a219eb9d60f09561c8defbd5366a2ac6f8806",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Fixed the trial record's staleness T288 named: added T283 and T285 (fired, costed; P2-N087 reached done 2026-11-27), so three nodes other than P2-N033 are now carried to done by fired sessions, none overlapping each other. Updated criteria 15-16 cost tables; trimmed 303→288 lines. PR #103 updated, CI green.",
+      "notes": null
+    },
+    {
+      "id": "T290",
+      "node": "P2-N090",
+      "step": "verify",
+      "status": "blocked",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": 48,
+        "out": 25987,
+        "cacheRead": 2296746,
+        "cacheWrite": 102583
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-28T08:12:10Z",
+      "closed": "2026-11-28T08:18:08Z",
+      "base": "4f6134e8a13fd9c5fd72a10bb51079da8b8d4d28",
+      "ref": "e47a219eb9d60f09561c8defbd5366a2ac6f8806",
+      "pr": null,
+      "summary": "Blocked. Criteria 15-16: two fired, costed tasks on P2-N033 itself are absent from the cost tables with no stated exclusion — T277 (60,986 out) and T284 (52,583) — while fired T282, on a node never carried to done, is included. Add both and state a cut-off, so later tasks do not reopen this. Criterion 14 met as recorded (RU-019, D179).",
+      "notes": null
+    },
+    {
+      "id": "T291",
+      "node": "P2-N033",
+      "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": "claude-sonnet-5",
+      "tokens": {
+        "in": 112,
+        "out": 29643,
+        "cacheRead": 7083844,
+        "cacheWrite": 120564
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-28T08:18:49Z",
+      "closed": "2026-11-28T08:27:33Z",
+      "base": "2b89ec6a55544970adce27122548cd815389301c",
+      "ref": "76d23ea3eeeda14455ca16b218b3cfc90111aa08",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Fixed T290's finding: added T277 (60,986 out) and T284 (52,583 out), fired/costed tasks on P2-N033 itself, to criteria 15-16's cost tables, and stated the cut-off (fired + costed, regardless of the node's outcome or identity) so it covers T282 too. PR #103 updated, CI green.",
+      "notes": null
+    },
+    {
+      "id": "T292",
+      "node": "P2-N090",
+      "step": "verify",
+      "status": "blocked",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": 36,
+        "out": 22666,
+        "cacheRead": 1623819,
+        "cacheWrite": 94964
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-28T08:28:08Z",
+      "closed": "2026-11-28T08:33:07Z",
+      "base": "5023c5cf527d06128829f588cbe5ba4a4db1483e",
+      "ref": "76d23ea3eeeda14455ca16b218b3cfc90111aa08",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Blocked. Criterion 15: the record calls T274 and T281 its only exclusions, but five fired, costed tasks closed before T291's claim and are absent — T286, T287, T288, T289, T290. Freeze the window at a named time (T285's close) so later rounds fall outside it. Criterion 16: no ratio is stated. Criterion 14 met as recorded.",
+      "notes": null
+    },
+    {
+      "id": "T293",
       "node": "P2-N033",
       "step": "execute",
       "status": "open",
@@ -8870,12 +9026,12 @@
         "in": null,
         "out": null
       },
-      "opened": "2026-11-28T07:51:38Z",
+      "opened": "2026-11-28T08:33:52Z",
       "closed": null,
-      "base": "cd2af3eb46c91133acd1d690acd96ebb6446a64f",
+      "base": "042988a465df8efa0cae57b113c6e863553a3a66",
       "ref": null,
       "pr": null,
-      "summary": "Continue P2-N033 execute on PR #103 now that D183 and D184 are answered: check whether the owner's hand actions (D075 node_remove/node_update) have landed, and whether anything within the implementer's scope remains, without retrying the denied node_remove or changing P2-N033's own outcome.",
+      "summary": "Rework: fix the trial record's criterion 15 window (freeze at T285's close so T286-T290 are properly in/out) and state criterion 16's ratio, per T292's verification findings.",
       "notes": null
     }
   ],
@@ -11269,6 +11425,21 @@
       "chosen": "Reword the outcome to describe what the finalized record shows",
       "decided": "2026-11-28",
       "rationale": "Asked by T284 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D185",
+      "node": "P2-N073",
+      "question": "Criteria 7-12 and 14 of P2-N073 still need a successful real dispatch of .github/workflows/preview.yml. Run 3 (2026-11-28T06:18Z) was dispatched against pull request #68, which had already merged by then, so its refs/pull/68/merge ref was gone and the run failed at checkout before reaching AWS — an unrelated failure to the IAM fix this task made. There is currently no open pull request except this fix's own #69. Dispatch preview.yml against PR #69 (or another open pull request) while it is still open, then resume execute on this node to read the run's results?",
+      "options": [
+        "Dispatch preview.yml with pull_request_number=69 now, while #69 is open, and signal this node so execute resumes to read the run's results against the corrected IAM policy",
+        "Hold the node until a different open pull request is chosen first"
+      ],
+      "default": "Dispatch preview.yml with pull_request_number=69 now, while #69 is open, and signal this node so execute resumes to read the run's results",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T286 at close.",
       "standing": false,
       "source": null
     }

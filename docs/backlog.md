@@ -121,7 +121,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **The pilot on this deployment** (P2-N058) — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.
 - [ ] **The bare endpoint path retired** (P2-N059) [majodali/project-orchestrator-service] — When: after P2-N058. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Orchestrator session that keeps work moving** (P2-N027) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
-- [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: not dated. Status: executing, in flight. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
+- [ ] **Orchestrator trial with its measured cost** (P2-N033) — When: not dated. Status: verifying, in flight. Pointer: [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md).
 - [ ] **Tasks started by the service through scheduled tasks** (P2-N046) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/p2-n046-service-fired-sessions.md).
 - [ ] **The old orchestrator parts retired** (P2-N050) — When: after P2-N033. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **View that updates itself and leads with what matters** (P2-N028) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/view-that-leads-and-updates.md).
@@ -131,7 +131,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Session field adopted in this repository** (P2-N042) — When: after P2-N039. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Scratch project that compares review regimes** (P2-N051) — When: not dated. Status: planned, waiting on the owner. Pointer: [plan](plans/p2-n051-review-regimes.md).
 - [ ] **Service change verified before it is deployed** (P2-N063) [majodali/project-orchestrator-service] — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/p2-n063-verify-before-deploy.md), [spec](specs/p2-n063-verify-before-deploy.md).
-- [ ] **Preview deployment of an unmerged pull request** (P2-N073) [majodali/project-orchestrator-service] — When: not dated. Status: executing, in flight. Pointer: `orchestration/state.json`.
+- [ ] **Preview deployment of an unmerged pull request** (P2-N073) [majodali/project-orchestrator-service] — When: not dated. Status: executing, ready, starts automatically. Pointer: `orchestration/state.json`.
 - [ ] **Preview dispatch from the service** (P2-N074) [majodali/project-orchestrator-service] — When: after P2-N073. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **Verification against a preview in the process pages** (P2-N075) — When: after P2-N073, P2-N074. Status: specified, waiting on a dependency. Pointer: `orchestration/state.json`.
 - [ ] **The break down step on offer to a planner** (P2-N071) — When: not dated. Status: identified, waiting on the owner. Pointer: `orchestration/state.json`.
