@@ -2420,7 +2420,10 @@
       "parent": "P2-N033",
       "repository": null,
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "T292: Blocked. Criterion 15: the record calls T274 and T281 its only exclusions, but five fired, costed tasks closed before T291's claim and are absent — T286, T287, T288, T289, T290. Freeze the window at a named time (T285's close) so later rounds fall outside it. Criterion 16: no ratio is stated. Criterion 14 met as recorded."
+      },
       "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestrator-session.md",
@@ -8994,7 +8997,7 @@
       "id": "T292",
       "node": "P2-N090",
       "step": "verify",
-      "status": "open",
+      "status": "blocked",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -9002,11 +9005,11 @@
         "out": null
       },
       "opened": "2026-11-28T08:28:08Z",
-      "closed": null,
+      "closed": "2026-11-28T08:33:07Z",
       "base": "5023c5cf527d06128829f588cbe5ba4a4db1483e",
-      "ref": null,
-      "pr": null,
-      "summary": "Verify P2-N033, Orchestrator trial with its measured cost, against its criteria and outcome at the third verification round, after T288 and T290 both closed blocked.",
+      "ref": "76d23ea3eeeda14455ca16b218b3cfc90111aa08",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Blocked. Criterion 15: the record calls T274 and T281 its only exclusions, but five fired, costed tasks closed before T291's claim and are absent — T286, T287, T288, T289, T290. Freeze the window at a named time (T285's close) so later rounds fall outside it. Criterion 16: no ratio is stated. Criterion 14 met as recorded.",
       "notes": null
     }
   ],
