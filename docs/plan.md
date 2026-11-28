@@ -11,12 +11,14 @@ its stage and its outcome. The state file holds the rest.
 Open decisions:
 
 - D185 on Preview deployment of an unmerged pull request (P2-N073) [majodali/project-orchestrator-service]: Criteria 7-12 and 14 of P2-N073 still need a successful real dispatch of .github/workflows/preview.yml. Run 3 (2026-11-28T06:18Z) was dispatched against pull request #68, which had already merged by then, so its refs/pull/68/merge ref was gone and the run failed at checkout before reaching AWS — an unrelated failure to the IAM fix this task made. There is currently no open pull request except this fix's own #69. Dispatch preview.yml against PR #69 (or another open pull request) while it is still open, then resume execute on this node to read the run's results? Default: Dispatch preview.yml with pull_request_number=69 now, while #69 is open, and signal this node so execute resumes to read the run's results
+- D186 on Orchestrator trial with its measured cost (P2-N033): The trial record says T274 "closes four seconds before T275 opens"; its own table and the journal give 12:51:17Z and 12:51:56Z, 39 seconds. The claim the sentence supports (no overlap among T272-T275) holds either way. Correct the number, or leave it? Default: Leave it as recorded: the record's own table carries the right timestamps and no finding turns on the interval
 
 Gated nodes:
 
 - methodology-tools' Binding block at the pinned methodology version (P4-N059): start needs the owner's approval
 - The view over several projects (P2-N057) [majodali/project-orchestrator-service]: start needs the owner's approval
 - The pilot on this deployment (P2-N058): start needs the owner's approval
+- The old orchestrator parts retired (P2-N050): start needs the owner's approval
 - Session, duration and criteria on pages (P2-N039) [majodali/project-orchestrator-service]: start needs the owner's approval
 - Feedback in place and the node panel (P2-N040) [majodali/project-orchestrator-service]: start needs the owner's approval
 - Scratch project that compares review regimes (P2-N051): Held by the owner, 2026-11-21, until the discussion of what the test includes is settled: outcomes in place of planned deliverables, larger leaf nodes, and one review for several nodes
@@ -30,7 +32,7 @@ Gated nodes:
 
 ## In flight
 
-- Verification of Orchestrator trial with its measured cost (P2-N090) [specified] — T298
+None.
 
 ## In progress, children carry the work
 
@@ -40,7 +42,6 @@ Gated nodes:
 - Orchestration service (P2-N001) [broken-down]
 - Several projects and repositories in one instance (P2-N026) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
-- Orchestrator trial with its measured cost (P2-N033) [verifying]
 - Tasks started by the service through scheduled tasks (P2-N046) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
 - Service change verified before it is deployed (P2-N063) [majodali/project-orchestrator-service] [broken-down]
@@ -51,7 +52,6 @@ Gated nodes:
 - Pilot on methodology-tools: sessions on the task loop (P2-N006) [identified] — after Pilot enlistment of methodology-tools (P4-N027)
 - Faster writes, a bounded journal and a deploy write test (P2-N025) [identified] — after Re-plan, prune and hand back (P4-N008)
 - The bare endpoint path retired (P2-N059) [majodali/project-orchestrator-service] [specified] — after The pilot on this deployment (P2-N058)
-- The old orchestrator parts retired (P2-N050) [specified] — after Orchestrator trial with its measured cost (P2-N033)
 - View trial with its measured delay (P2-N041) [majodali/project-orchestrator-service] [specified] — after Session, duration and criteria on pages (P2-N039) [majodali/project-orchestrator-service], Feedback in place and the node panel (P2-N040) [majodali/project-orchestrator-service]
 - Session field adopted in this repository (P2-N042) [specified] — after Session, duration and criteria on pages (P2-N039) [majodali/project-orchestrator-service]
 - Preview dispatch from the service (P2-N074) [majodali/project-orchestrator-service] [specified] — after Preview deployment of an unmerged pull request (P2-N073) [majodali/project-orchestrator-service]
@@ -410,13 +410,10 @@ Documents: [plan](plans/orchestration-service.md).
     A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.
     after P2-N031 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Added on the owner's answers of 2026-11-17 to D087 (on P2-N030), D088 and D089 (on P2-N031), which each name this node. Criteria: (1) D088: the keys of `decision` and `asks` reports carry the decisions' identifiers, so a second decision on a node changes a key; specification S1 and the two expected keys in test/orchestrate.test.ts follow, which the owner's answer to D088 allows. (2) D087: a verify start is exempt from the shared-document rule of S4, in lib/orchestrate.ts and its test, and S4 says so. (3) D089, in .claude/agents/orchestrator.md, still at most 120 lines: it tells the session to give the background watcher the two-hour limit and what to do if the watcher is stopped with no output; how the session learns its own identifier for --self; one rule for what it tells the owner at a wake, the time-limit wake included; and archive_session is used or dropped. (4) T159's other finding is settled: the status bucket that never says archived. (5) plugin/agents/ is regenerated and the checks pass.
-  - **Orchestrator trial with its measured cost** (P2-N033, verifying)
+  - **Orchestrator trial with its measured cost** (P2-N033, done 2026-11-28)
     The record of the service-fired trial states which nodes fired sessions carried to done, with their models, stops and measured costs beside hand-started work.
-    after P2-N031, P2-N032, P4-N038, P2-N036, P2-N049 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
+    after P2-N031, P2-N032, P4-N038, P2-N036, P2-N049 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md) · 1 open decision
     Note: Slice 4 of P2-N046's sequence, re-pointed at the fired mechanism by D119: the trial is of sessions the service fires, not of an orchestrator session. Criteria 14 to 16 in docs/plans/orchestrator-session.md, restated by task T210; criterion 18 struck there, because there is no orchestrator session whose writes to the plan could be counted. Criterion 17 struck per D124. The trial record (docs/plans/p2-n033-trial-record.md), finalized at T284: criterion 14 not met on D178's reading, recorded under RU-019 per D179; criteria 15-16 met by the numbers recorded. The outcome was reworded by the owner to match (D184, 2026-11-28). The last act (D075) is done: the owner removed P3-N015 and P3-N020 and made P3-N016 wait for P2-N027 (D183, 2026-11-28), after a session's node_remove call was denied by the auto-mode classifier.
-    - check: **Verification of Orchestrator trial with its measured cost** (P2-N090, specified)
-      P2-N033 is verified against its outcome.
-      [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
   - **Tasks started by the service through scheduled tasks** (P2-N046, broken-down)
     When a node offers a step, the service fires the owner's scheduled task for that role and repository, and the fired session pulls its task and completes it with no message from any person or session.
     [plan](plans/p2-n046-service-fired-sessions.md)
