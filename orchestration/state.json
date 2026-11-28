@@ -2420,7 +2420,10 @@
       "parent": "P2-N033",
       "repository": null,
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "T288: Blocked. The record (PR #103, 1485b64a) is stale: T283 (closed 23:38:59Z) and T285 (closed 23:45:14Z) are fired, costed tasks it omits, and P2-N087 reached done 2026-11-27, so three nodes — not two — were carried to done by fired sessions. Criteria 14-16 and the outcome fail. Also 303 lines, bound 300.</summary>\n<parameter name=\"ref\">1485b64a17a935baf849712960a6147caf962a12"
+      },
       "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestrator-session.md",
@@ -8906,7 +8909,7 @@
       "id": "T288",
       "node": "P2-N090",
       "step": "verify",
-      "status": "open",
+      "status": "blocked",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -8914,11 +8917,11 @@
         "out": null
       },
       "opened": "2026-11-28T07:59:08Z",
-      "closed": null,
+      "closed": "2026-11-28T08:03:39Z",
       "base": "bec23422bdebf85168c94e01246daf34c123a1c0",
       "ref": null,
       "pr": null,
-      "summary": "Verify P2-N033, Orchestrator trial with its measured cost, against its outcome and the criteria in its plan and specification, and close with the verdict.",
+      "summary": "Blocked. The record (PR #103, 1485b64a) is stale: T283 (closed 23:38:59Z) and T285 (closed 23:45:14Z) are fired, costed tasks it omits, and P2-N087 reached done 2026-11-27, so three nodes — not two — were carried to done by fired sessions. Criteria 14-16 and the outcome fail. Also 303 lines, bound 300.</summary>\n<parameter name=\"ref\">1485b64a17a935baf849712960a6147caf962a12",
       "notes": null
     }
   ],
