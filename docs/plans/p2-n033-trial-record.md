@@ -17,26 +17,24 @@ no session that ever opened a task, each reported under the "too many
 bare attempts" check and acknowledged by the owner: D173, D174, and a
 third that is this task's own claim).
 
-**This record is now final** (T284, closing the decisions D178 and
-D179 left open at T277). Since `fire.enabled` went true, two nodes
-other than P2-N033 are carried from an offered step to done by fired
-sessions: P2-N083 and P2-N086. Only P2-N083's carry is also clear of
-any owner message in between; P2-N086's carrying window contains two
-(D176's `decision_close` and the `node_add` for P2-N087 under an
-owner instruction). No two nodes other than P2-N033 have ever held an
-open task at the same time — every overlap the journal shows has
-P2-N033's own recording task, T277, as one side. By D178's answer
-(the recording node does not count toward the "two at once"),
-criterion 14's bar — three nodes, two of them at once, clean of an
-owner message — is not met by what the journal shows, and by D179
-this record proceeds on that finding under RU-019 rather than holding
-for a cleaner case, as D138 did for P2-N047's short count. Measured by
-output tokens, the fired `execute` tasks span a wider range than the
-hand/delegated baselines and show no consistent direction; three of
-four fired `verify` tasks cost less than both hand/delegated `verify`
-baselines, the fourth falls inside their range. Firing itself costs no
-tokens: no model runs in the service (P2-N048, criterion 6, verified
-at T270).
+**This record is now final** (T289, adding the two fired tasks, T283
+and T285, that closed after T284 and carried P2-N087 to done). Since
+`fire.enabled` went true, three nodes other than P2-N033 are carried
+from an offered step to done by fired sessions: P2-N083, P2-N086 and
+P2-N087. Only P2-N083's carry is clear of any owner message in
+between; P2-N086's and P2-N087's each have owner writes inside their
+carrying window. No two of these three nodes have ever held an open
+task at the same time — every overlap the journal shows has
+P2-N033's own recording task as one side. Criterion 14 now clears its
+"three nodes" bar but not its "two at once" bar: this record proceeds
+on that finding under RU-019 rather than holding for a cleaner case,
+as D138 did for P2-N047's short count. Measured by output tokens, the
+fired `execute` tasks span a wider range than the hand/delegated
+baselines and show no consistent direction; three of five fired
+`verify` tasks cost less than both hand/delegated `verify` baselines,
+the other two fall inside their range. Firing itself costs no tokens:
+no model runs in the service (P2-N048, criterion 6, verified at
+T270).
 
 ## Method
 
@@ -95,12 +93,6 @@ to "the owner, in the view": every line in that window is a task's own
 P2-N083 (adding them, setting their repository) all precede 11:46:14,
 before any of these four tasks opened.
 
-**Conclusion as of the first four fires.** One node (P2-N083) is
-carried from an offered step to done entirely by fired sessions. One
-more (P2-N082) is carried to done with only its last step confirmed
-fired. No two nodes were ever carried at the same time in this
-window.
-
 **What happened while T277 was open.** T277 (opened 19:14:14Z by the
 fired session `cse_015Vm2Mrs6t9RWr7xfkdXUqe`) overlapped with two
 further fires that arrived while it was being written, from the
@@ -131,42 +123,45 @@ owner's own instruction ("add the node for A"). Unlike P2-N083's
 window, P2-N086's carry has owner messages in between, even though
 every step of it was itself fired.
 
-**Further fires since T278.** The journal records three more real
+**Further fires since T278.** The journal records five more real
 fires through this task's own claim, none overlapping another node's
-task window and none clear of an owner message either:
+task window:
 
 | Task | Node | Step | Fired session | Opened | Closed | Status |
 |---|---|---|---|---|---|---|
 | T279 | P2-N087 | execute | `cse_015Vm2MsiVzHySxmdMWJGsGo` | 20:02:21 | 20:20:50 | closed |
 | T280 | P2-N089 | verify | `cse_015Vm2MtyoXFky4xg3n276iY` | 20:21:24 | 20:26:49 | blocked (P2-N087 offered `execute` again, rework) |
 | T282 | P2-N073 | execute (resume) | `cse_015Vm2MujusejBf3ysNcP5qP` | 23:27:09 | 23:29:03 | blocked (D182) |
-| T283 | P2-N087 | execute (rework) | `cse_015Vm2Mt8HUbhmL7oZsM9WY8` | 23:33:26 | open at this writing | — |
+| T283 | P2-N087 | execute (rework) | `cse_015Vm2Mt8HUbhmL7oZsM9WY8` | 23:33:26 | 23:38:59 | closed |
+| T285 | P2-N089 | verify (rework) | `cse_015Vm2Ms9uvrJpj6wN8HwTwP` | 23:39:36 | 23:45:14 | closed; P2-N089 done, P2-N087 done |
 
-`decision_close` D175, at 20:03:06Z, falls inside T279's window, so
-P2-N087's carry is not clear of an owner message either, and it has
-not reached done: T280's verification failed
-(criterion 5 of P2-N087), sending it back for the rework T283 now
-holds open. T281 (22:34:14–22:41:18, also on P2-N073) is excluded:
-its session, `cloud-session-db52c044-implementer`, matches no
-`fired-session` line. T283 is still open at this writing; this record
-does not wait on it (D179).
+T280's verification failed (criterion 5 of P2-N087), sending it back
+for the rework T283 fixed; T285 then verified that rework and closed
+P2-N089, which carried P2-N087 to done, 2026-11-27. Both of P2-N087's
+steps now match a `fired-session` line. T281 (22:34:14–22:41:18, also
+on P2-N073) stays excluded: its session,
+`cloud-session-db52c044-implementer`, matches no `fired-session`
+line. P2-N087's carry is not clear of an owner message: between
+T279's open (20:02:21) and T285's close (23:45:14) the journal has
+several writes attributed to "the owner, in the view" — `decision_close`
+D175, D168, D181, D180, D178, D179 and D177 all fall in that window.
 
-**Conclusion.** Since `fire.enabled` went true, two nodes other than
-P2-N033 are carried to done entirely by fired sessions: P2-N083 and
-P2-N086. P2-N083's carry alone is also clear of any owner message in
-between; P2-N086's is not. A third node, P2-N087, was fired for both
-its steps but failed verification and has not reached done. No two
-nodes other than P2-N033 have ever held an open task at the same
-time — every overlap observed (T276/T277, T277/T278) has this
-recording node's own task as one side. By D178's answer, that does
-not count toward the "two at once" criterion 14 asks for.
+**Conclusion.** Since `fire.enabled` went true, three nodes other than
+P2-N033 are carried to done entirely by fired sessions: P2-N083,
+P2-N086 and P2-N087. Only P2-N083's carry is clear of any owner
+message in between; P2-N086's and P2-N087's are not. No two of these
+three nodes have ever held an open task at the same time — every
+overlap observed (T276/T277, T277/T278) has this recording node's own
+task as one side, which D178 settled does not count toward the "two
+at once" criterion 14 asks for.
 
-**Criterion 14 is not met**, on the reading D178 settled: three nodes
-other than the one recording the trial, carried to done by fired
-sessions with no owner message in between, two of them overlapping.
-By D179, this record proceeds on that finding under RU-019 (as D138
-did for P2-N047's short count) rather than holding P2-N033 open for a
-cleaner case.
+**Criterion 14 is not met.** The "three nodes carried to done" part
+is now cleared, but no two of those three nodes have ever overlapped
+each other, so the "two of them at once" part is not, and only one of
+the three is clear of an owner message in between. By D179, this
+record proceeds on that finding under RU-019 (as D138 did for
+P2-N047's short count) rather than holding P2-N033 open for a cleaner
+case.
 
 ## Criterion 15 — each fired session's own cost, and the cost of firing
 
@@ -183,14 +178,15 @@ already recorded on each task in `orchestration/state.json`:
 | T279 | P2-N087 | execute | claude-sonnet-5 | 282 | 74,878 | 26,806,761 | 233,529 |
 | T280 | P2-N089 | verify | claude-opus-5 | 52 | 21,944 | 2,425,594 | 97,663 |
 | T282 | P2-N073 | execute (resume) | claude-sonnet-5 | 26 | 9,520 | 1,091,838 | 78,678 |
+| T283 | P2-N087 | execute (rework) | claude-sonnet-5 | 100 | 19,958 | 5,585,643 | 103,801 |
+| T285 | P2-N089 | verify (rework) | claude-opus-5 | 46 | 19,523 | 2,310,548 | 101,982 |
 
 T274 (P2-N082 execute) and T281 (P2-N073 execute) are left out of the
 fired rows above because neither session is confirmed fired
 (Criterion 14): T274's tokens are 172 in, 72,955 out, 15,547,033 cache
 read, 201,723 cache write, claude-sonnet-5; T281's are 94 in, 23,689
 out, 5,519,185 cache read, 112,714 cache write, claude-sonnet-5; both
-for comparison only. T283 is still open at this writing and has no
-cost recorded yet.
+for comparison only.
 
 **The cost of the firing itself is zero tokens.** The fire is one HTTP
 call the service makes to the documented endpoint; no model runs
@@ -216,13 +212,15 @@ Hand/delegated baselines are tasks whose session is not named in any
 | T276 | P2-N086 | **fired** | 20,636 |
 | T279 | P2-N087 | **fired** | 74,878 |
 | T282 | P2-N073 | **fired** (resume) | 9,520 |
+| T283 | P2-N087 | **fired** (rework) | 19,958 |
 
 Hand/delegated execute costs range 25,187–60,692 output tokens across
-three tasks; fired execute costs now range 9,520–74,878 across four.
+three tasks; fired execute costs now range 9,520–74,878 across five.
 The fired range contains the whole hand range rather than sitting
-above or below it: two fired tasks (T276, T282) cost less than every
-hand baseline, one (T272) falls inside the hand range, and one (T279)
-costs more than every hand baseline. No consistent direction holds.
+above or below it: three fired tasks (T276, T282, T283) cost less
+than every hand baseline, one (T272) falls inside the hand range, and
+one (T279) costs more than every hand baseline. No consistent
+direction holds.
 
 **Verify, claude-opus-5:**
 
@@ -234,11 +232,12 @@ costs more than every hand baseline. No consistent direction holds.
 | T275 | P2-N085 | **fired** | 13,424 |
 | T278 | P2-N088 | **fired** | 13,268 |
 | T280 | P2-N089 | **fired** | 21,944 |
+| T285 | P2-N089 | **fired** (rework) | 19,523 |
 
-Three of four fired verify tasks (T273, T275, T278) cost less than
-both hand/delegated verify tasks measured; the fourth (T280) falls
-inside their range (19,348–22,410). No fired verify task measured
-costs more than both hand baselines.
+Three of five fired verify tasks (T273, T275, T278) cost less than
+both hand/delegated verify tasks measured; the other two (T280, T285)
+fall inside their range (19,348–22,410). No fired verify task
+measured costs more than both hand baselines.
 
 Read plainly: fired verify tasks consistently cost at or below the
 hand-started verify tasks measured; fired execute tasks span a wider
@@ -255,46 +254,32 @@ session for anything to replace.
 
 ## What this record settles for P2-N033
 
-D178 and D179 answer the two questions T277 left open:
+D178 and D179 (T277) and D183 and D184 (T284) are already answered
+and carried out, confirmed at T287. This task (T289) adds T283 and
+T285, the two fired tasks that closed after T284 and carried P2-N087
+to done, 2026-11-27.
 
-- **D178:** P2-N033's own carrying task does not count as one of
-  criterion 14's "two of them at once" — the overlap must be between
-  two nodes other than the one doing the recording. By that reading,
-  criterion 14 is not met: no two such nodes have ever overlapped.
-- **D179:** this record proceeds on that finding now, under RU-019,
-  rather than holding the node open for the service to produce a
-  cleaner case.
+What the finished record shows:
 
-What the finished record shows, as of T284:
-
-1. Two nodes other than P2-N033 are carried from an offered step to
-   done entirely by fired sessions: P2-N083 and P2-N086. Only
-   P2-N083's carry is also clear of any owner message in between.
-2. A third, P2-N087, was fired for both `execute` and `verify` but
-   failed verification (criterion 5) and is back for rework (T283,
-   still open); it has not reached done.
-3. No two nodes other than P2-N033 have ever held an open task at the
+1. Three nodes other than P2-N033 are carried from an offered step to
+   done entirely by fired sessions: P2-N083, P2-N086 and P2-N087.
+   Only P2-N083's carry is clear of any owner message in between.
+2. No two of those three nodes have ever held an open task at the
    same time. Every overlap the journal shows (T276/T277, T277/T278)
    has P2-N033's own task as one side.
-4. P2-N082's `execute` step (T274) and P2-N073's first resumed
+3. P2-N082's `execute` step (T274) and P2-N073's first resumed
    attempt (T281) stay unconfirmed as fired or hand-started from what
    this task can read, the same gap P2-N047's record hit with
    T217–T223.
 
-Criterion 14's bar, as answered, is not met; criteria 15 and 16 are
-met by the numbers recorded above, whichever way they fall (RU-019).
-T284 asked the owner to reword the node's outcome sentence, which had
-stated that the trial *shows* three nodes carried to done, two at
-once — this record does not show that. D184 answered: reword it. The
-owner reworded the outcome directly, 2026-11-28, to describe what
-this record found, rather than what was originally hoped for.
-
-T284 also asked how P2-N033's last act (D075: remove P3-N015 and
-P3-N020, make P3-N016 wait for P2-N027 instead) should happen, after
-a session's `node_remove` call was denied by the auto-mode classifier.
-D183 answered: the owner performs it by hand. The owner did so
-directly, 2026-11-28: P3-N015 and P3-N020 are removed, and P3-N016
-now waits for P2-N027.
+Criterion 14 is not met: the "three nodes" part is now cleared, but
+the "two of them at once" part is not, since no two of those three
+nodes have ever overlapped. Criteria 15 and 16 are met by the numbers
+recorded above, whichever way they fall (RU-019). The outcome
+sentence (D184) and the last act (D183, D075: P3-N015 and P3-N020
+removed, P3-N016 waits for P2-N027) were both already carried out by
+the owner, 2026-11-28, and confirmed at T287; nothing further is open
+on either.
 
 ## Terms introduced
 
