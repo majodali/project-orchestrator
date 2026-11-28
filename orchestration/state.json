@@ -2420,10 +2420,7 @@
       "parent": "P2-N033",
       "repository": null,
       "after": [],
-      "hold": {
-        "kind": "blocked",
-        "reason": "T290: Blocked. Criteria 15-16: two fired, costed tasks on P2-N033 itself are absent from the cost tables with no stated exclusion — T277 (60,986 out) and T284 (52,583) — while fired T282, on a node never carried to done, is included. Add both and state a cut-off, so later tasks do not reopen this. Criterion 14 met as recorded (RU-019, D179)."
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestrator-session.md",
@@ -8975,7 +8972,7 @@
       "id": "T291",
       "node": "P2-N033",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8983,11 +8980,11 @@
         "out": null
       },
       "opened": "2026-11-28T08:18:49Z",
-      "closed": null,
+      "closed": "2026-11-28T08:27:33Z",
       "base": "2b89ec6a55544970adce27122548cd815389301c",
-      "ref": null,
-      "pr": null,
-      "summary": "Rework of T290's verification failure: add T277 and T284's fired costs to the trial record's criteria 15-16 tables and state the cut-off that excludes T282.",
+      "ref": "76d23ea3eeeda14455ca16b218b3cfc90111aa08",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Fixed T290's finding: added T277 (60,986 out) and T284 (52,583 out), fired/costed tasks on P2-N033 itself, to criteria 15-16's cost tables, and stated the cut-off (fired + costed, regardless of the node's outcome or identity) so it covers T282 too. PR #103 updated, CI green.",
       "notes": null
     }
   ],
