@@ -9014,6 +9014,25 @@
       "pr": "majodali/project-orchestrator#103",
       "summary": "Blocked. Criterion 15: the record calls T274 and T281 its only exclusions, but five fired, costed tasks closed before T291's claim and are absent — T286, T287, T288, T289, T290. Freeze the window at a named time (T285's close) so later rounds fall outside it. Criterion 16: no ratio is stated. Criterion 14 met as recorded.",
       "notes": null
+    },
+    {
+      "id": "T293",
+      "node": "P2-N033",
+      "step": "execute",
+      "status": "open",
+      "role": "implementer",
+      "model": null,
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-28T08:33:52Z",
+      "closed": null,
+      "base": "042988a465df8efa0cae57b113c6e863553a3a66",
+      "ref": null,
+      "pr": null,
+      "summary": "Rework: fix the trial record's criterion 15 window (freeze at T285's close so T286-T290 are properly in/out) and state criterion 16's ratio, per T292's verification findings.",
+      "notes": null
     }
   ],
   "decisions": [
