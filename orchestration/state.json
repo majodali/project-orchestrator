@@ -8901,6 +8901,25 @@
       "pr": "majodali/project-orchestrator#103",
       "summary": "Confirmed the owner's hand actions for D183 (P3-N015/P3-N020 removed, P3-N016 waits for P2-N027) and D184 (outcome reworded) landed on main. Updated the trial record and orchestrator-session.md's P3-N005/P3-N016 section to say so, since both still read as pending. All criteria recorded/met; PR #103 rebased, CI green.",
       "notes": null
+    },
+    {
+      "id": "T288",
+      "node": "P2-N090",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-28T07:59:08Z",
+      "closed": null,
+      "base": "bec23422bdebf85168c94e01246daf34c123a1c0",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N033, Orchestrator trial with its measured cost, against its outcome and the criteria in its plan and specification, and close with the verdict.",
+      "notes": null
     }
   ],
   "decisions": [
