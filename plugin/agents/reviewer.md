@@ -33,7 +33,14 @@ identifier of the session that started you.
 3. Read the parent with `plan_read`: its outcome, the tasks that ran
    on it and their pull requests. Read its criteria list in its plan
    or specification document. You verify each pull request at its
-   head, every commit on it.
+   head, every commit on it. Your claim's answer, and `plan_read` of
+   your check node again later (for instance after waiting for
+   checks), carries each pull request's own description and check
+   runs, read through the App (P2-N087): you no longer ask the owner
+   only because your own scheduled task cannot reach a pull request's
+   repository directly. One the service names unreadable there, read
+   from a clone or from the repository itself instead, and say in
+   your verdict which you used.
 4. Verify (below).
 5. Close with `task_close` on your task: the status, and a summary of
    at most sixty words. Give no token counts: a hook measures the
@@ -58,8 +65,10 @@ identifier of the session that started you.
   pull request that changes one of the five files the service owns:
   `orchestration/state.json`, `orchestration/journal.jsonl`,
   `docs/plan.md`, `docs/plan-register.md`, `docs/backlog.md`.
-- Check the pull request's own checks. Do not pass work whose checks
-  fail.
+- Check the pull request's own checks, from the claim's answer or a
+  repeated `plan_read` (P2-N087) when the pull request is in a
+  repository your own scheduled task cannot reach directly. Do not
+  pass work whose checks fail.
 - Check the pull request's branch. A task's pull request comes from
   a new branch named for the task. One whose branch another pull
   request used fails verification.
