@@ -2422,7 +2422,7 @@
       "after": [],
       "hold": {
         "kind": "blocked",
-        "reason": "T294: Blocked. Criterion 14: two fired sessions inside the record's own frozen window are unlisted — cse_015Vm2Mqj79iuQmq3BY2PLZY (P2-N073 execute, 22:33:22Z, no task found) and T284's cse_015Vm2MuDazwjkbsCub9rMTY — and it still says \"four real fires\" where the window holds 14. Criterion 16: the hand verify baseline omits T271 (24,306 out), which its own rule admits."
+        "reason": "T296: Blocked. Criterion 14: line 55 still reads \"The four real fires\" over four rows while line 15 says fourteen — the mislabel T294 named, fixed in one place only. Also docs/plans/p2-n033-trial-record.md is 316 lines, bound 300 (how-we-work.md); T293 held it at 300. Criteria 15-16 met: every figure matches state.json."
       },
       "start": "auto",
       "docs": {
@@ -9063,6 +9063,50 @@
       "id": "T295",
       "node": "P2-N033",
       "step": "execute",
+      "status": "closed",
+      "role": "implementer",
+      "model": "claude-sonnet-5",
+      "tokens": {
+        "in": 82,
+        "out": 34149,
+        "cacheRead": 4976178,
+        "cacheWrite": 116820
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-28T08:53:16Z",
+      "closed": "2026-11-28T09:02:55Z",
+      "base": "0daebdafdba4b30f54bcf8c5f2c7a2dd57432bb7",
+      "ref": "0def413b17db0f6e985266133dbb019533affa7d",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Fixed T294's finding: added the unclaimed P2-N073 fire (22:33:22) and T284's own fire (23:34:01) to criterion 14, noted the T284/T285 overlap, and corrected \"four real fires\" to the frozen window's actual fourteen. Added T271 (24,306 out) to criterion 16's hand verify baseline per its own rule; recalculated the hand mean (22,021) and ratio (0.73:1). PR #103 updated, CI green.",
+      "notes": null
+    },
+    {
+      "id": "T296",
+      "node": "P2-N090",
+      "step": "verify",
+      "status": "blocked",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": 44,
+        "out": 21218,
+        "cacheRead": 2164325,
+        "cacheWrite": 106858
+      },
+      "costSource": "transcript",
+      "opened": "2026-11-28T09:03:32Z",
+      "closed": "2026-11-28T09:08:22Z",
+      "base": "c655b124ddf20bddfa9b97a9f1ea6a0484169ade",
+      "ref": "0def413b17db0f6e985266133dbb019533affa7d",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Blocked. Criterion 14: line 55 still reads \"The four real fires\" over four rows while line 15 says fourteen — the mislabel T294 named, fixed in one place only. Also docs/plans/p2-n033-trial-record.md is 316 lines, bound 300 (how-we-work.md); T293 held it at 300. Criteria 15-16 met: every figure matches state.json.",
+      "notes": null
+    },
+    {
+      "id": "T297",
+      "node": "P2-N033",
+      "step": "execute",
       "status": "open",
       "role": "implementer",
       "model": null,
@@ -9070,12 +9114,12 @@
         "in": null,
         "out": null
       },
-      "opened": "2026-11-28T08:53:16Z",
+      "opened": "2026-11-28T09:09:25Z",
       "closed": null,
-      "base": "0daebdafdba4b30f54bcf8c5f2c7a2dd57432bb7",
+      "base": "0a52600234f53dad0ec03d0c0807b7b8bc9432f2",
       "ref": null,
       "pr": null,
-      "summary": null,
+      "summary": "Rework PR #103 for P2-N033's trial record: fix the remaining \"four real fires\" mislabel at line 55 and trim the document back under the 300-line bound.",
       "notes": null
     }
   ],
