@@ -8844,7 +8844,7 @@
       "id": "T286",
       "node": "P2-N073",
       "step": "execute",
-      "status": "open",
+      "status": "blocked",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8852,11 +8852,11 @@
         "out": null
       },
       "opened": "2026-11-28T07:50:56Z",
-      "closed": null,
+      "closed": "2026-11-28T07:58:14Z",
       "base": "478acc4eb7d1ecfb6713f3a0fbe70f4775104951",
-      "ref": null,
-      "pr": null,
-      "summary": "Resume P2-N073 execute: check results of the owner's hand dispatch of preview.yml (D182) and finish criteria 7-12 and 14 if the run succeeded, or report what it showed.",
+      "ref": "e3e4b238865c88986ef245536d7a27f33f141548",
+      "pr": "majodali/project-orchestrator-service#69",
+      "summary": "Corrected docs/deploy-role-permissions-preview.md's three IAM role resources to project-orchestrator-service-previe* (CloudFormation's 64-char role-name cut) and runbook recovery notes, matching the policy the owner already applied. CI green on #69. Run 3 (against merged PR #68) failed at checkout before touching AWS, unrelated to the IAM fix; criteria 7-12 and 14 still need a real run against an open pull request.",
       "notes": null
     },
     {
@@ -11269,6 +11269,21 @@
       "chosen": "Reword the outcome to describe what the finalized record shows",
       "decided": "2026-11-28",
       "rationale": "Asked by T284 at close.",
+      "standing": false,
+      "source": null
+    },
+    {
+      "id": "D185",
+      "node": "P2-N073",
+      "question": "Criteria 7-12 and 14 of P2-N073 still need a successful real dispatch of .github/workflows/preview.yml. Run 3 (2026-11-28T06:18Z) was dispatched against pull request #68, which had already merged by then, so its refs/pull/68/merge ref was gone and the run failed at checkout before reaching AWS — an unrelated failure to the IAM fix this task made. There is currently no open pull request except this fix's own #69. Dispatch preview.yml against PR #69 (or another open pull request) while it is still open, then resume execute on this node to read the run's results?",
+      "options": [
+        "Dispatch preview.yml with pull_request_number=69 now, while #69 is open, and signal this node so execute resumes to read the run's results against the corrected IAM policy",
+        "Hold the node until a different open pull request is chosen first"
+      ],
+      "default": "Dispatch preview.yml with pull_request_number=69 now, while #69 is open, and signal this node so execute resumes to read the run's results",
+      "chosen": null,
+      "decided": null,
+      "rationale": "Asked by T286 at close.",
       "standing": false,
       "source": null
     }
