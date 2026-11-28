@@ -2409,7 +2409,7 @@
         "spec": "docs/specs/orchestrator-session.md"
       },
       "done": null,
-      "note": "Slice 4 of P2-N046's sequence, re-pointed at the fired mechanism by D119: the trial is of sessions the service fires, not of an orchestrator session. Criteria 14 to 16 in docs/plans/orchestrator-session.md, restated by task T210; criterion 18 struck there, because there is no orchestrator session whose writes to the plan could be counted. Criterion 17, the orchestrator session's replacement mid-trial (docs/specs/orchestrator-session.md), measures the same vanished session and is T210's ask. Waits for P2-N049 as well as its earlier dependencies: the fire must be built and the owner's setup recorded before the run. Its last act still carries out D075: remove P3-N015 and P3-N020, and make P3-N016 wait for P2-N027. D117's answer, \"Wait\", is now structural: the node waits for P2-N049."
+      "note": "Slice 4 of P2-N046's sequence, re-pointed at the fired mechanism by D119: the trial is of sessions the service fires, not of an orchestrator session. Criteria 14 to 16 in docs/plans/orchestrator-session.md, restated by task T210; criterion 18 struck there, because there is no orchestrator session whose writes to the plan could be counted. Criterion 17 struck per D124. The trial record (docs/plans/p2-n033-trial-record.md), finalized at T284: criterion 14 not met on D178's reading, recorded under RU-019 per D179; criteria 15-16 met by the numbers recorded. The outcome was reworded by the owner to match (D184, 2026-11-28). The last act (D075) is done: the owner removed P3-N015 and P3-N020 and made P3-N016 wait for P2-N027 (D183, 2026-11-28), after a session's node_remove call was denied by the auto-mode classifier."
     },
     {
       "id": "P2-N046",
