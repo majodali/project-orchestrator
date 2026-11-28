@@ -17,8 +17,8 @@ no session that ever opened a task, each reported under the "too many
 bare attempts" check and acknowledged by the owner: D173, D174, and a
 third that is this task's own claim).
 
-**This record is now final** (T289, adding the two fired tasks, T283
-and T285, that closed after T284 and carried P2-N087 to done). Since
+**This record is now final** (T293, naming and freezing criterion
+15's window at T285's close, and stating criterion 16's ratio). Since
 `fire.enabled` went true, three nodes other than P2-N033 are carried
 from an offered step to done by fired sessions: P2-N083, P2-N086 and
 P2-N087. Only P2-N083's carry is clear of any owner message in
@@ -183,16 +183,26 @@ already recorded on each task in `orchestration/state.json`:
 | T284 | P2-N033 | execute | claude-sonnet-5 | 104 | 52,583 | 7,882,997 | 171,586 |
 | T285 | P2-N089 | verify (rework) | claude-opus-5 | 46 | 19,523 | 2,310,548 | 101,982 |
 
-**Which fired, costed tasks appear here and in criterion 16's table.**
-The bar: the session matches a `fired-session` line (Criterion 14)
-and the task-cost hook recorded a cost — not whether the node ever
-reached done (T282, P2-N073, still blocked) or whether the node is
-this one (T277, T284: P2-N033's own two prior rounds). T274 and T281
-are the only exclusions, both because neither session is confirmed
-fired, not for what happened to their node: T274 is 172 in, 72,955
-out, 15,547,033 cache read, 201,723 cache write; T281 is 94 in,
-23,689 out, 5,519,185 cache read, 112,714 cache write; both
-claude-sonnet-5, for comparison only.
+**The window this table measures: `fire.enabled` going true
+(09:05:35Z) through T285's close (23:45:14Z, 2026-11-27)** — the
+point the last node this record counts, P2-N087, reached done.
+Freezing the window there, named, means a further rework round does
+not have to add itself to this table each time the record turns
+over. Within the window, the bar: `task_open` at or before the
+window's end, the session matches a `fired-session` line (Criterion
+14), and the task-cost hook recorded a cost — not whether the node
+ever reached done (T282, still blocked) or is this one (T277, T284,
+both opened inside the window, before it closed). T274 and T281 are
+the window's only exclusions, neither session confirmed fired: T274
+is 172 in, 72,955 out, 15,547,033 cache read, 201,723 cache write;
+T281 is 94 in, 23,689 out, 5,519,185 cache read, 112,714 cache write;
+both claude-sonnet-5, for comparison only.
+
+**Outside the window:** T286 (P2-N073, resumed under D182) and this
+node's later rounds — T287, T289, T291, T293 execute; T288, T290,
+T292 verify — opened after T285's close, fired and costed the same
+way, excluded by when they opened rather than left as an undisclosed
+gap.
 
 **The cost of the firing itself is zero tokens.** The fire is one HTTP
 call the service makes to the documented endpoint; no model runs
@@ -251,8 +261,12 @@ measured costs more than both hand baselines.
 Read plainly: fired verify tasks consistently cost at or below the
 hand-started verify tasks measured; fired execute tasks span a wider
 range than the hand-started execute tasks measured, with examples on
-both sides. Met by these numbers as they fall (RU-019), not by a rule
-that a fired task must cost less or more.
+both sides. As a ratio, by the mean of the same output-token measure
+criterion 15 uses: fired execute averages 38,318 against
+hand/delegated's 44,407 (about 0.86:1, fired:hand); fired verify
+averages 16,033 against hand/delegated's 20,879 (about 0.77:1). Met
+by these numbers as they fall (RU-019), not by a rule that a fired
+task must cost less or more.
 
 ## Criterion 17 — struck
 
@@ -263,32 +277,21 @@ session for anything to replace.
 
 ## What this record settles for P2-N033
 
-D178 and D179 (T277) and D183 and D184 (T284) are already answered
-and carried out, confirmed at T287. This task (T289) adds T283 and
-T285, the two fired tasks that closed after T284 and carried P2-N087
-to done, 2026-11-27.
-
-What the finished record shows:
-
-1. Three nodes other than P2-N033 are carried from an offered step to
-   done entirely by fired sessions: P2-N083, P2-N086 and P2-N087.
-   Only P2-N083's carry is clear of any owner message in between.
-2. No two of those three nodes have ever held an open task at the
-   same time. Every overlap the journal shows (T276/T277, T277/T278)
-   has P2-N033's own task as one side.
-3. P2-N082's `execute` step (T274) and P2-N073's first resumed
-   attempt (T281) stay unconfirmed as fired or hand-started from what
-   this task can read, the same gap P2-N047's record hit with
-   T217–T223.
-
-Criterion 14 is not met: the "three nodes" part is now cleared, but
-the "two of them at once" part is not, since no two of those three
-nodes have ever overlapped. Criteria 15 and 16 are met by the numbers
-recorded above, whichever way they fall (RU-019). The outcome
-sentence (D184) and the last act (D183, D075: P3-N015 and P3-N020
-removed, P3-N016 waits for P2-N027) were both already carried out by
-the owner, 2026-11-28, and confirmed at T287; nothing further is open
-on either.
+D178, D179, D183 and D184 are answered and carried out, confirmed at
+T287. This round (T293) fixes the staleness T292's verification
+named: criterion 15's table now names and freezes its window at
+T285's close, and criterion 16 states its ratio.
+Criterion 14 is not met, for the reasons its own conclusion above
+gives, and is recorded under RU-019 rather than holding the node open
+for a cleaner case (D179). P2-N082's `execute` step (T274) and
+P2-N073's first resumed attempt (T281) stay unconfirmed as fired or
+hand-started from what this task can read, the same gap P2-N047's
+record hit with T217–T223. Criteria 15 and 16 are now met by the
+numbers and ratios recorded above, whichever way they fall (RU-019).
+The outcome sentence (D184) and the last act (D183, D075: P3-N015 and
+P3-N020 removed, P3-N016 waits for P2-N027) were both already carried
+out by the owner, 2026-11-28, and confirmed at T287; nothing further
+is open on either.
 
 ## Terms introduced
 
