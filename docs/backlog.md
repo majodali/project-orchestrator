@@ -140,3 +140,4 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **The break down step on offer to a planner** (P2-N071) — When: not dated. Status: identified, waiting on the owner. Pointer: `orchestration/state.json`.
 - [ ] **Report of a failed deploy after the service's own merge** (P2-N080) [majodali/project-orchestrator-service] — When: not dated. Status: identified, waiting on the owner. Pointer: `orchestration/state.json`.
 - [ ] **Bounded size of the service's answers** (P2-N081) [majodali/project-orchestrator-service] — When: not dated. Status: identified, waiting on the owner. Pointer: `orchestration/state.json`.
+- [ ] **Refusal to remove a node with done children** (P2-N091) [majodali/project-orchestrator-service] — When: not dated. Status: specified, waiting on the owner. Pointer: `orchestration/state.json`.

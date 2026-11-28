@@ -133,3 +133,4 @@ Dependencies are in the state file, not in sibling order.
   - P2-N077 [done] Readable long text on the view's node page
   - P2-N080 [identified] Report of a failed deploy after the service's own merge
   - P2-N081 [identified] Bounded size of the service's answers
+  - P2-N091 [specified] Refusal to remove a node with done children
