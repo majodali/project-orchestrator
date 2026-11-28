@@ -11383,8 +11383,8 @@
         "Leave P3-N015, P3-N020 and P3-N016 as they are, and strike D075's remaining action from P2-N033's scope"
       ],
       "default": "The owner performs the node_remove(P3-N015) and node_update(P3-N016, after: P2-N027) by hand in the view, or adjusts the classifier, then signals this node to resume so a session can re-verify",
-      "chosen": null,
-      "decided": null,
+      "chosen": "The owner performs the node_remove(P3-N015) and node_update(P3-N016, after: P2-N027) by hand in the view, or adjusts the classifier, then signals this node to resume so a session can re-verify",
+      "decided": "2026-11-28",
       "rationale": "Asked by T284 at close.",
       "standing": false,
       "source": null
