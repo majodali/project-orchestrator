@@ -109,8 +109,7 @@ Each row has four fields, in this order: what, when, status, pointer.
 - [ ] **Article 8 amendment proposal** (P3-N012) — When: not dated. Status: identified, paused by a hold or a park above. Pointer: `orchestration/state.json`.
 - [ ] **Reversibility and its measurement** (P3-N004) — When: after P3-N002. Status: identified, paused by a hold or a park above. Pointer: `orchestration/state.json`.
 - [ ] **Sequence mode** (P3-N005) — When: not dated. Status: broken-down, paused by a hold or a park above. Pointer: [plan](plans/p3-n005-sequence-mode.md), [spec](specs/p3-n005-sequence-mode.md).
-- [ ] **Sequence mode demonstration** (P3-N015) — When: not dated. Status: broken-down, paused by a hold or a park above. Pointer: [plan](plans/p3-n015-sequence-demonstration.md), [spec](specs/p3-n005-sequence-mode.md).
-- [ ] **Plugin tools tested as run** (P3-N020) — When: not dated. Status: parked. Pointer: [plan](plans/p3-n015-sequence-demonstration.md).
+- [ ] **Sequence mode demonstration** (P3-N015) — When: not dated. Status: verifying, paused by a hold or a park above. Pointer: [plan](plans/p3-n015-sequence-demonstration.md), [spec](specs/p3-n005-sequence-mode.md).
 - [ ] **Determination on W-001 sequence mode** (P3-N016) — When: after P2-N027. Status: identified, paused by a hold or a park above. Pointer: `orchestration/state.json`.
 - [ ] **Rebuild: the orchestrator runs on a checked data model** (P4-N001) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).
 - [ ] **Re-plan, prune and hand back** (P4-N008) — When: not dated. Status: broken-down, in progress, its children carry the work. Pointer: [plan](plans/rebuild.md).

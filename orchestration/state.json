@@ -550,7 +550,7 @@
       "kind": "work",
       "title": "Sequence mode demonstration",
       "outcome": "The owner ratifies a sequence of four members once.",
-      "stage": "broken-down",
+      "stage": "verifying",
       "parent": "P3-N005",
       "repository": null,
       "after": [
@@ -620,24 +620,22 @@
       "note": "T107 accepted 2026-11-08, member 3 of the ratified sequence"
     },
     {
-      "id": "P3-N020",
-      "kind": "work",
-      "title": "Plugin tools tested as run",
-      "outcome": "The owner ratifies a sequence of four members once.",
-      "stage": "parked",
+      "id": "P3-N021",
+      "kind": "check",
+      "title": "Verification of Sequence mode demonstration",
+      "outcome": "P3-N015 is verified against its outcome.",
+      "stage": "specified",
       "parent": "P3-N015",
       "repository": null,
-      "after": [
-        "P3-N019"
-      ],
+      "after": [],
       "hold": null,
       "start": "auto",
       "docs": {
         "plan": "docs/plans/p3-n015-sequence-demonstration.md",
-        "spec": null
+        "spec": "docs/specs/p3-n005-sequence-mode.md"
       },
       "done": null,
-      "note": "The hold on P3-N001 covers this node: it resumes with the P3 line, by the owner's decision (D005, D063)."
+      "note": null
     },
     {
       "id": "P3-N016",
@@ -11428,6 +11426,7 @@
     "P2": 44,
     "T": 207,
     "D": 62,
-    "P4": 72
+    "P4": 72,
+    "P3": 20
   }
 }
