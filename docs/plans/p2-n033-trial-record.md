@@ -10,12 +10,13 @@ Assumes [the plan](orchestrator-session.md),
 
 `fire.enabled` went true at T270's close (2026-11-27T09:05:35Z,
 merging majodali/project-orchestrator#101 and
-majodali/project-orchestrator-service#61). From then to this task's
-own fire, the journal records four real fires (a `fired` line paired
-with a `fired-session` line) and three bare ones (a `fired` line with
-no session that ever opened a task, each reported under the "too many
-bare attempts" check and acknowledged by the owner: D173, D174, and a
-third that is this task's own claim).
+majodali/project-orchestrator-service#61). Within this record's
+frozen window (through T285's close, 23:45:14Z, 2026-11-27 — named
+below, Criterion 15), the journal records fourteen real fires (a
+`fired` line paired with a `fired-session` line) and two bare ones (a
+`fired` line with no session that ever opened a task, both reported
+under the "too many bare attempts" check and acknowledged by the
+owner: D173 and D174).
 
 **This record is now final** (T293, naming and freezing criterion
 15's window at T285's close, and stating criterion 16's ratio). Since
@@ -31,8 +32,8 @@ on that finding under RU-019 rather than holding for a cleaner case,
 as D138 did for P2-N047's short count. Measured by output tokens, the
 fired `execute` tasks span a wider range than the hand/delegated
 baselines and show no consistent direction; three of five fired
-`verify` tasks cost less than both hand/delegated `verify` baselines,
-the other two fall inside their range. Firing itself costs no tokens:
+`verify` tasks cost less than all three hand/delegated `verify`
+baselines, the other two fall inside their range. Firing itself costs no tokens:
 no model runs in the service (P2-N048, criterion 6, verified at
 T270).
 
@@ -123,17 +124,28 @@ owner's own instruction ("add the node for A"). Unlike P2-N083's
 window, P2-N086's carry has owner messages in between, even though
 every step of it was itself fired.
 
-**Further fires since T278.** The journal records five more real
-fires through this task's own claim, none overlapping another node's
-task window:
+**Further fires since T278.** The journal records seven more real
+fires through this task's own claim. Besides T279, T280, T282 and
+T283 below, a fire for P2-N073 execute at 22:33:22
+(`cse_015Vm2Mqj79iuQmq3BY2PLZY`) has no task this record can find
+that ever claimed it — the pattern already seen at 11:46:14, a real
+fire with no matching task. T284 is this task's own claim, fired at
+23:34:01 (`cse_015Vm2MuDazwjkbsCub9rMTY`) and opened at 23:34:35:
 
 | Task | Node | Step | Fired session | Opened | Closed | Status |
 |---|---|---|---|---|---|---|
 | T279 | P2-N087 | execute | `cse_015Vm2MsiVzHySxmdMWJGsGo` | 20:02:21 | 20:20:50 | closed |
 | T280 | P2-N089 | verify | `cse_015Vm2MtyoXFky4xg3n276iY` | 20:21:24 | 20:26:49 | blocked (P2-N087 offered `execute` again, rework) |
+| — | P2-N073 | execute | `cse_015Vm2Mqj79iuQmq3BY2PLZY` | 22:33:22 | — | no task this record can find ever claimed it |
 | T282 | P2-N073 | execute (resume) | `cse_015Vm2MujusejBf3ysNcP5qP` | 23:27:09 | 23:29:03 | blocked (D182) |
 | T283 | P2-N087 | execute (rework) | `cse_015Vm2Mt8HUbhmL7oZsM9WY8` | 23:33:26 | 23:38:59 | closed |
+| T284 | P2-N033 | execute | `cse_015Vm2MuDazwjkbsCub9rMTY` | 23:34:35 | 23:46:24 | blocked (D183, D184); this task's own claim |
 | T285 | P2-N089 | verify (rework) | `cse_015Vm2Ms9uvrJpj6wN8HwTwP` | 23:39:36 | 23:45:14 | closed; P2-N089 done, P2-N087 done |
+
+T284 overlaps T285 (opened 23:39:36, closed 23:45:14, inside T284's
+23:34:35–23:46:24 window) the same way T277 overlapped T276 and
+T278: this recording node as one side, not two nodes independent of
+it.
 
 T280's verification failed (criterion 5 of P2-N087), sending it back
 for the rework T283 fixed; T285 then verified that rework and closed
@@ -151,9 +163,9 @@ P2-N033 are carried to done entirely by fired sessions: P2-N083,
 P2-N086 and P2-N087. Only P2-N083's carry is clear of any owner
 message in between; P2-N086's and P2-N087's are not. No two of these
 three nodes have ever held an open task at the same time — every
-overlap observed (T276/T277, T277/T278) has this recording node's own
-task as one side, which D178 settled does not count toward the "two
-at once" criterion 14 asks for.
+overlap observed (T276/T277, T277/T278, T284/T285) has this recording
+node's own task as one side, which D178 settled does not count toward
+the "two at once" criterion 14 asks for.
 
 **Criterion 14 is not met.** The "three nodes carried to done" part
 is now cleared, but no two of those three nodes have ever overlapped
@@ -247,16 +259,20 @@ No consistent direction holds.
 |---|---|---|---|
 | T268 | P2-N076 | hand/delegated | 19,348 |
 | T270 | P2-N079 | hand/delegated | 22,410 |
+| T271 | P2-N078 | hand/delegated | 24,306 |
 | T273 | P2-N084 | **fired** | 12,008 |
 | T275 | P2-N085 | **fired** | 13,424 |
 | T278 | P2-N088 | **fired** | 13,268 |
 | T280 | P2-N089 | **fired** | 21,944 |
 | T285 | P2-N089 | **fired** (rework) | 19,523 |
 
-Three of five fired verify tasks (T273, T275, T278) cost less than
-both hand/delegated verify tasks measured; the other two (T280, T285)
-fall inside their range (19,348–22,410). No fired verify task
-measured costs more than both hand baselines.
+T271 (verify, P2-N078, opened 09:17:10Z, after `fire.enabled`, on a
+node never fired) qualifies as hand/delegated by this section's own
+rule and is counted here. Three of five fired verify tasks (T273,
+T275, T278) cost less than all three hand/delegated verify tasks
+measured; the other two (T280, T285) fall inside their range
+(19,348–24,306). No fired verify task measured costs more than any
+hand baseline measured.
 
 Read plainly: fired verify tasks consistently cost at or below the
 hand-started verify tasks measured; fired execute tasks span a wider
@@ -264,7 +280,7 @@ range than the hand-started execute tasks measured, with examples on
 both sides. As a ratio, by the mean of the same output-token measure
 criterion 15 uses: fired execute averages 38,318 against
 hand/delegated's 44,407 (about 0.86:1, fired:hand); fired verify
-averages 16,033 against hand/delegated's 20,879 (about 0.77:1). Met
+averages 16,033 against hand/delegated's 22,021 (about 0.73:1). Met
 by these numbers as they fall (RU-019), not by a rule that a fired
 task must cost less or more.
 
