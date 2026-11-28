@@ -2420,10 +2420,7 @@
       "parent": "P2-N033",
       "repository": null,
       "after": [],
-      "hold": {
-        "kind": "blocked",
-        "reason": "T288: Blocked. The record (PR #103, 1485b64a) is stale: T283 (closed 23:38:59Z) and T285 (closed 23:45:14Z) are fired, costed tasks it omits, and P2-N087 reached done 2026-11-27, so three nodes — not two — were carried to done by fired sessions. Criteria 14-16 and the outcome fail. Also 303 lines, bound 300.</summary>\n<parameter name=\"ref\">1485b64a17a935baf849712960a6147caf962a12"
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestrator-session.md",
@@ -8931,7 +8928,7 @@
       "id": "T289",
       "node": "P2-N033",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8939,11 +8936,11 @@
         "out": null
       },
       "opened": "2026-11-28T08:04:26Z",
-      "closed": null,
+      "closed": "2026-11-28T08:11:32Z",
       "base": "5431adb8c9500a0fe1883fadacf732d2cb7bc63a",
-      "ref": null,
-      "pr": null,
-      "summary": "Rework: fix trial record found stale by T288 (omits T283/T285 as fired costed tasks; P2-N087 reached done 2026-11-27 making three nodes, not two, carried to done by fired sessions) and trim it under the 300-line bound.",
+      "ref": "e47a219eb9d60f09561c8defbd5366a2ac6f8806",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Fixed the trial record's staleness T288 named: added T283 and T285 (fired, costed; P2-N087 reached done 2026-11-27), so three nodes other than P2-N033 are now carried to done by fired sessions, none overlapping each other. Updated criteria 15-16 cost tables; trimmed 303→288 lines. PR #103 updated, CI green.",
       "notes": null
     }
   ],
