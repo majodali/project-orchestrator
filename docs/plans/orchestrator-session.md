@@ -186,15 +186,18 @@ sequence. That loop is retired. Its durable result is P3-N013
 (Decidable stop conditions), which section 8 reuses.
 
 - P3-N015 (Sequence mode demonstration) and its parked child P3-N020
-  (Plugin tools tested as run) would demonstrate a loop that no
+  (Plugin tools tested as run) would have demonstrated a loop that no
   longer exists. The trial in criterion 14 is the demonstration that
-  replaces them. This plan recommends removing both.
+  replaces them. Removed by the owner directly, 2026-11-28 (ask 2,
+  D075 and D183), once a session's `node_remove` call was denied by
+  the auto-mode classifier.
 - P3-N016 (Determination on W-001 sequence mode) is still wanted: it
   tells the methodology whether a run without owner review works. It
-  should wait for P2-N027 instead of P3-N015, and take its evidence
-  from criterion 14's record.
+  now waits for P2-N027 instead of P3-N015 (the owner, 2026-11-28),
+  and takes its evidence from criterion 14's record
+  ([the trial record](p2-n033-trial-record.md)).
 - P3-N005 stays, held with the P3 line, with P3-N016 its one open
-  child. These change another line's scope, so they are ask 2.
+  child.
 
 ## Children
 
