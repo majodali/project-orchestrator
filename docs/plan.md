@@ -26,11 +26,12 @@ Gated nodes:
 
 ## Ready, starting automatically when the loop runs
 
+- Orchestrator trial with its measured cost (P2-N033) [verifying]
 - Preview deployment of an unmerged pull request (P2-N073) [majodali/project-orchestrator-service] [executing]
 
 ## In flight
 
-- Verification of Orchestrator trial with its measured cost (P2-N090) [specified] — T296
+None.
 
 ## In progress, children carry the work
 
@@ -40,7 +41,6 @@ Gated nodes:
 - Orchestration service (P2-N001) [broken-down]
 - Several projects and repositories in one instance (P2-N026) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
-- Orchestrator trial with its measured cost (P2-N033) [verifying]
 - Tasks started by the service through scheduled tasks (P2-N046) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
 - Service change verified before it is deployed (P2-N063) [majodali/project-orchestrator-service] [broken-down]
@@ -61,6 +61,7 @@ Gated nodes:
 
 - Project comprehension and continuous implementation (P3-N001) [broken-down] — Paused by the owner (D005) and kept held by D063. The line resumes when the owner decides to resume it and lifts this hold in the view.
 - Pin migrated to the release with the K-003 amendment (P4-N042) [identified] — Waits for majodali/methodology to tag the release that carries the K-003 amendment (D079). The owner lifts this hold when it is tagged.
+- Verification of Orchestrator trial with its measured cost (P2-N090) [specified] — T296: Blocked. Criterion 14: line 55 still reads "The four real fires" over four rows while line 15 says fourteen — the mislabel T294 named, fixed in one place only. Also docs/plans/p2-n033-trial-record.md is 316 lines, bound 300 (how-we-work.md); T293 held it at 300. Criteria 15-16 met: every figure matches state.json.
 
 ## Paused by a hold or a park above
 
@@ -414,7 +415,7 @@ Documents: [plan](plans/orchestration-service.md).
     The record of the service-fired trial states which nodes fired sessions carried to done, with their models, stops and measured costs beside hand-started work.
     after P2-N031, P2-N032, P4-N038, P2-N036, P2-N049 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 4 of P2-N046's sequence, re-pointed at the fired mechanism by D119: the trial is of sessions the service fires, not of an orchestrator session. Criteria 14 to 16 in docs/plans/orchestrator-session.md, restated by task T210; criterion 18 struck there, because there is no orchestrator session whose writes to the plan could be counted. Criterion 17 struck per D124. The trial record (docs/plans/p2-n033-trial-record.md), finalized at T284: criterion 14 not met on D178's reading, recorded under RU-019 per D179; criteria 15-16 met by the numbers recorded. The outcome was reworded by the owner to match (D184, 2026-11-28). The last act (D075) is done: the owner removed P3-N015 and P3-N020 and made P3-N016 wait for P2-N027 (D183, 2026-11-28), after a session's node_remove call was denied by the auto-mode classifier.
-    - check: **Verification of Orchestrator trial with its measured cost** (P2-N090, specified)
+    - check: **Verification of Orchestrator trial with its measured cost** (P2-N090, specified, blocked: T296: Blocked. Criterion 14: line 55 still reads "The four real fires" over four rows while line 15 says fourteen — the mislabel T294 named, fixed in one place only. Also docs/plans/p2-n033-trial-record.md is 316 lines, bound 300 (how-we-work.md); T293 held it at 300. Criteria 15-16 met: every figure matches state.json.)
       P2-N033 is verified against its outcome.
       [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
   - **Tasks started by the service through scheduled tasks** (P2-N046, broken-down)

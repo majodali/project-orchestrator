@@ -2420,7 +2420,10 @@
       "parent": "P2-N033",
       "repository": null,
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "T296: Blocked. Criterion 14: line 55 still reads \"The four real fires\" over four rows while line 15 says fourteen — the mislabel T294 named, fixed in one place only. Also docs/plans/p2-n033-trial-record.md is 316 lines, bound 300 (how-we-work.md); T293 held it at 300. Criteria 15-16 met: every figure matches state.json."
+      },
       "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestrator-session.md",
@@ -9082,7 +9085,7 @@
       "id": "T296",
       "node": "P2-N090",
       "step": "verify",
-      "status": "open",
+      "status": "blocked",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -9090,11 +9093,11 @@
         "out": null
       },
       "opened": "2026-11-28T09:03:32Z",
-      "closed": null,
+      "closed": "2026-11-28T09:08:22Z",
       "base": "c655b124ddf20bddfa9b97a9f1ea6a0484169ade",
-      "ref": null,
-      "pr": null,
-      "summary": "Verify P2-N033, Orchestrator trial with its measured cost, against its criteria and outcome at the head of its pull request, round five after T288, T290, T292 and T294 each closed blocked.",
+      "ref": "0def413b17db0f6e985266133dbb019533affa7d",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Blocked. Criterion 14: line 55 still reads \"The four real fires\" over four rows while line 15 says fourteen — the mislabel T294 named, fixed in one place only. Also docs/plans/p2-n033-trial-record.md is 316 lines, bound 300 (how-we-work.md); T293 held it at 300. Criteria 15-16 met: every figure matches state.json.",
       "notes": null
     }
   ],
