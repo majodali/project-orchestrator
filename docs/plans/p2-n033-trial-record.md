@@ -22,20 +22,16 @@ owner: D173 and D174).
 15's window at T285's close, and stating criterion 16's ratio). Since
 `fire.enabled` went true, three nodes other than P2-N033 are carried
 from an offered step to done by fired sessions: P2-N083, P2-N086 and
-P2-N087. Only P2-N083's carry is clear of any owner message in
-between; P2-N086's and P2-N087's each have owner writes inside their
-carrying window. No two of these three nodes have ever held an open
-task at the same time — every overlap the journal shows has
-P2-N033's own recording task as one side. Criterion 14 now clears its
-"three nodes" bar but not its "two at once" bar: this record proceeds
-on that finding under RU-019 rather than holding for a cleaner case,
-as D138 did for P2-N047's short count. Measured by output tokens, the
-fired `execute` tasks span a wider range than the hand/delegated
-baselines and show no consistent direction; three of five fired
-`verify` tasks cost less than all three hand/delegated `verify`
-baselines, the other two fall inside their range. Firing itself costs no tokens:
-no model runs in the service (P2-N048, criterion 6, verified at
-T270).
+P2-N087, clearing criterion 14's "three nodes" bar but not its "two
+at once" bar — every overlap the journal shows has P2-N033's own
+recording task as one side, and only P2-N083's carry is clear of any
+owner message in between. This proceeds under RU-019 rather than
+holding for a cleaner case, as D138 did for P2-N047. By output
+tokens, fired `execute` tasks span a wider range than the
+hand/delegated baselines with no consistent direction; fired
+`verify` tasks cost at or below the hand/delegated range measured.
+Firing costs no tokens: no model runs in the service (P2-N048,
+criterion 6, verified at T270).
 
 ## Method
 
@@ -52,7 +48,7 @@ guessing which way it started.
 
 ## Criterion 14 — three nodes carried to done, two at once, no owner message
 
-**The four real fires**, in order:
+**The first four real fires**, in order:
 
 | Time (UTC) | Fired for | `fired-session` | What it actually claimed |
 |---|---|---|---|
@@ -158,22 +154,17 @@ T279's open (20:02:21) and T285's close (23:45:14) the journal has
 several writes attributed to "the owner, in the view" — `decision_close`
 D175, D168, D181, D180, D178, D179 and D177 all fall in that window.
 
-**Conclusion.** Since `fire.enabled` went true, three nodes other than
-P2-N033 are carried to done entirely by fired sessions: P2-N083,
-P2-N086 and P2-N087. Only P2-N083's carry is clear of any owner
-message in between; P2-N086's and P2-N087's are not. No two of these
-three nodes have ever held an open task at the same time — every
-overlap observed (T276/T277, T277/T278, T284/T285) has this recording
-node's own task as one side, which D178 settled does not count toward
-the "two at once" criterion 14 asks for.
-
-**Criterion 14 is not met.** The "three nodes carried to done" part
-is now cleared, but no two of those three nodes have ever overlapped
-each other, so the "two of them at once" part is not, and only one of
-the three is clear of an owner message in between. By D179, this
-record proceeds on that finding under RU-019 (as D138 did for
-P2-N047's short count) rather than holding P2-N033 open for a cleaner
-case.
+**Conclusion: criterion 14 is not met.** Since `fire.enabled` went
+true, three nodes other than P2-N033 are carried to done entirely by
+fired sessions: P2-N083, P2-N086 and P2-N087, clearing the "three
+nodes carried to done" part. Only P2-N083's carry is clear of any
+owner message in between; P2-N086's and P2-N087's are not. No two of
+these three nodes have ever held an open task at the same time —
+every overlap observed (T276/T277, T277/T278, T284/T285) has this
+recording node's own task as one side, which D178 settled does not
+count toward the "two at once" part. By D179, this record proceeds
+under RU-019 rather than holding P2-N033 open for a cleaner case, as
+D138 did for P2-N047's short count.
 
 ## Criterion 15 — each fired session's own cost, and the cost of firing
 
@@ -216,12 +207,11 @@ T292 verify — opened after T285's close, fired and costed the same
 way, excluded by when they opened rather than left as an undisclosed
 gap.
 
-**The cost of the firing itself is zero tokens.** The fire is one HTTP
-call the service makes to the documented endpoint; no model runs
-inside the service to make it (P2-N048, criterion 6: "no model
-inference runs in the service," verified at T270's close). Met by
-that number, whichever way it falls (RU-019): there is no per-fire
-token or dollar cost to add beside the sessions' own.
+**The cost of the firing itself is zero tokens.** The fire is one
+HTTP call the service makes; no model runs inside the service to make
+it (P2-N048, criterion 6, verified at T270's close). Met by that
+number (RU-019): there is no per-fire token or dollar cost to add
+beside the sessions' own.
 
 ## Criterion 16 — the same work started by hand, as a ratio
 
@@ -294,20 +284,14 @@ session for anything to replace.
 ## What this record settles for P2-N033
 
 D178, D179, D183 and D184 are answered and carried out, confirmed at
-T287. This round (T293) fixes the staleness T292's verification
-named: criterion 15's table now names and freezes its window at
-T285's close, and criterion 16 states its ratio.
-Criterion 14 is not met, for the reasons its own conclusion above
-gives, and is recorded under RU-019 rather than holding the node open
-for a cleaner case (D179). P2-N082's `execute` step (T274) and
-P2-N073's first resumed attempt (T281) stay unconfirmed as fired or
-hand-started from what this task can read, the same gap P2-N047's
-record hit with T217–T223. Criteria 15 and 16 are now met by the
-numbers and ratios recorded above, whichever way they fall (RU-019).
-The outcome sentence (D184) and the last act (D183, D075: P3-N015 and
-P3-N020 removed, P3-N016 waits for P2-N027) were both already carried
-out by the owner, 2026-11-28, and confirmed at T287; nothing further
-is open on either.
+T287. Criterion 14 is not met, for the reasons given above, recorded
+under RU-019 rather than holding the node open for a cleaner case
+(D179). P2-N082's `execute` step (T274) and P2-N073's first resumed
+attempt (T281) stay unconfirmed as fired or hand-started (the same
+gap P2-N047's record hit with T217–T223); criteria 15 and 16 are met
+by the numbers and ratios recorded above (RU-019). The outcome
+sentence (D184) and the last act (D183, D075) were carried out by the
+owner, 2026-11-28, confirmed at T287, with nothing further open.
 
 ## Terms introduced
 
