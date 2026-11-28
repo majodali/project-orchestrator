@@ -11398,8 +11398,8 @@
         "Leave the outcome as written"
       ],
       "default": "Reword the outcome to describe what the finalized record shows",
-      "chosen": null,
-      "decided": null,
+      "chosen": "Reword the outcome to describe what the finalized record shows",
+      "decided": "2026-11-28",
       "rationale": "Asked by T284 at close.",
       "standing": false,
       "source": null
