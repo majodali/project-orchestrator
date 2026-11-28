@@ -9033,6 +9033,25 @@
       "pr": "majodali/project-orchestrator#103",
       "summary": "Fixed T292's finding: named and froze criterion 15's window at T285's close so T286-T292 (later rework/verify rounds) are excluded by when they opened, not left unstated; stated criterion 16's ratio (execute ≈0.86:1, verify ≈0.77:1, fired:hand). Trimmed a stale, duplicate section to hold the 300-line bound. PR #103 updated, CI green.",
       "notes": null
+    },
+    {
+      "id": "T294",
+      "node": "P2-N090",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-28T08:48:09Z",
+      "closed": null,
+      "base": "38a0efa858331c43f5aa0c814a892c89ec4187f1",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N033 (Orchestrator trial with its measured cost) against its criteria and outcome, at the head of its pull request, and close with the verdict.",
+      "notes": null
     }
   ],
   "decisions": [
