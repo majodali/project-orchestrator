@@ -67,7 +67,6 @@ None.
 - Article 8 amendment proposal (P3-N012) [identified] — under Project comprehension and continuous implementation (P3-N001)
 - Reversibility and its measurement (P3-N004) [identified] — under Project comprehension and continuous implementation (P3-N001)
 - Sequence mode (P3-N005) [broken-down] — under Project comprehension and continuous implementation (P3-N001)
-- Sequence mode demonstration (P3-N015) [verifying] — under Project comprehension and continuous implementation (P3-N001)
 - Determination on W-001 sequence mode (P3-N016) [identified] — under Project comprehension and continuous implementation (P3-N001)
 
 ## The plan
@@ -171,22 +170,6 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
     This project's dispatch loop can run methodology W-001 (two delivery modes, human-gated)'s pre-ratified sequence.
     after P3-N013, P1-N014 · [plan](archive/plans/p3-n014-loop-runs-sequence-mode.md), [spec](specs/p3-n005-sequence-mode.md)
     Note: depends on P3-N013 and on P1-N014's execute
-  - **Sequence mode demonstration** (P3-N015, verifying)
-    The owner ratifies a sequence of four members once.
-    after P3-N014 · [plan](plans/p3-n015-sequence-demonstration.md), [spec](specs/p3-n005-sequence-mode.md)
-    Note: depends on P3-N014; plan gate crossed 2026-11-04, decisions 1 to 7 at their defaults; specified by the parent's Child C with the plan's criteria (decision 3); its children run as a ratified sequence, in this order; the first is dispatched only when no other task is in flight (decision 5)
-    - **Methodology citations pinned in the process specification** (P3-N017, done 2026-11-07)
-      The owner ratifies a sequence of four members once.
-      [plan](plans/p3-n015-sequence-demonstration.md)
-      Note: T105 accepted 2026-11-07, member 1 of the ratified sequence
-    - **Anchors on Risk register entries** (P3-N018, done 2026-11-07)
-      The owner ratifies a sequence of four members once.
-      [plan](plans/p3-n015-sequence-demonstration.md)
-      Note: T106 accepted 2026-11-07, member 2 of the ratified sequence
-    - **Checker extension-point proposal ready to carry** (P3-N019, done 2026-11-08)
-      The owner ratifies a sequence of four members once.
-      [plan](plans/p3-n015-sequence-demonstration.md)
-      Note: T107 accepted 2026-11-08, member 3 of the ratified sequence
   - **Determination on W-001 sequence mode** (P3-N016, identified)
     after P2-N027
     Note: depends on P3-N015

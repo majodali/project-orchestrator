@@ -546,98 +546,6 @@
       "note": "depends on P3-N013 and on P1-N014's execute"
     },
     {
-      "id": "P3-N015",
-      "kind": "work",
-      "title": "Sequence mode demonstration",
-      "outcome": "The owner ratifies a sequence of four members once.",
-      "stage": "verifying",
-      "parent": "P3-N005",
-      "repository": null,
-      "after": [
-        "P3-N014"
-      ],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": "docs/plans/p3-n015-sequence-demonstration.md",
-        "spec": "docs/specs/p3-n005-sequence-mode.md"
-      },
-      "done": null,
-      "note": "depends on P3-N014; plan gate crossed 2026-11-04, decisions 1 to 7 at their defaults; specified by the parent's Child C with the plan's criteria (decision 3); its children run as a ratified sequence, in this order; the first is dispatched only when no other task is in flight (decision 5)"
-    },
-    {
-      "id": "P3-N017",
-      "kind": "work",
-      "title": "Methodology citations pinned in the process specification",
-      "outcome": "The owner ratifies a sequence of four members once.",
-      "stage": "done",
-      "parent": "P3-N015",
-      "repository": null,
-      "after": [],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": "docs/plans/p3-n015-sequence-demonstration.md",
-        "spec": null
-      },
-      "done": "2026-11-07",
-      "note": "T105 accepted 2026-11-07, member 1 of the ratified sequence"
-    },
-    {
-      "id": "P3-N018",
-      "kind": "work",
-      "title": "Anchors on Risk register entries",
-      "outcome": "The owner ratifies a sequence of four members once.",
-      "stage": "done",
-      "parent": "P3-N015",
-      "repository": null,
-      "after": [],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": "docs/plans/p3-n015-sequence-demonstration.md",
-        "spec": null
-      },
-      "done": "2026-11-07",
-      "note": "T106 accepted 2026-11-07, member 2 of the ratified sequence"
-    },
-    {
-      "id": "P3-N019",
-      "kind": "work",
-      "title": "Checker extension-point proposal ready to carry",
-      "outcome": "The owner ratifies a sequence of four members once.",
-      "stage": "done",
-      "parent": "P3-N015",
-      "repository": null,
-      "after": [],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": "docs/plans/p3-n015-sequence-demonstration.md",
-        "spec": null
-      },
-      "done": "2026-11-08",
-      "note": "T107 accepted 2026-11-08, member 3 of the ratified sequence"
-    },
-    {
-      "id": "P3-N021",
-      "kind": "check",
-      "title": "Verification of Sequence mode demonstration",
-      "outcome": "P3-N015 is verified against its outcome.",
-      "stage": "specified",
-      "parent": "P3-N015",
-      "repository": null,
-      "after": [],
-      "hold": null,
-      "start": "auto",
-      "docs": {
-        "plan": "docs/plans/p3-n015-sequence-demonstration.md",
-        "spec": "docs/specs/p3-n005-sequence-mode.md"
-      },
-      "done": null,
-      "note": null
-    },
-    {
       "id": "P3-N016",
       "kind": "work",
       "title": "Determination on W-001 sequence mode",
@@ -4624,25 +4532,6 @@
       "notes": "~175k subagent tokens over 54 tool calls, 8m59s dispatch→result (unattended); no input/output split reported. Advanced tier; read-only reach to the service repository. Plan: two children (the web view's first version as three execute tasks starting with a thin slice; the owner question queue after the pilot); ten decisions staged; a register deadlock found between P2-N003 and P2-N006 (broken by a note on P2-N006); three located findings on the struck live-update text (drafted corrections in decision 1). Packet widened: the service's httpApp.ts and auth.ts, plan-model.md, the P2-N002 plan, cost log and journal heads, methodology vocabulary, the P3-N014 plan, process README."
     },
     {
-      "id": "T076",
-      "node": "P3-N015",
-      "step": "plan",
-      "status": "closed",
-      "role": "planner",
-      "model": "claude-opus-5-5",
-      "tokens": {
-        "in": null,
-        "out": null
-      },
-      "opened": "2026-10-30T21:55:00Z",
-      "closed": "2026-10-31T00:35:00Z",
-      "base": null,
-      "ref": null,
-      "pr": null,
-      "summary": "~299k subagent tokens over 59 tool calls, 18m53s dispatch→result (unattended); no input/output split reported.",
-      "notes": "~299k subagent tokens over 59 tool calls, 18m53s dispatch→result (unattended); no input/output split reported. Advanced tier. Plan docs/plans/p3-n015-sequence-demonstration.md (548 lines) written in the working tree, no commit: four members chosen from open Backlog rows, the ratification record drafted, the predicate table per landing, the stop summary, the plan after the stop, criteria C10 to C14, seven decisions with defaults. Two located findings (R16's preflight placed in this repository by the P3-N005 plan; a Backlog entry that can close). Packet widened: the journal, the P3-N011 plan and P3-N003 gate record, the P1-N016 plan, open-risks.md, the checker proposal, plugin scripts and tests, process README, methodology prose.md at v1.6.0, one git log."
-    },
-    {
       "id": "T078",
       "node": "P3-N007",
       "step": "execute",
@@ -5097,63 +4986,6 @@
       "pr": "majodali/project-orchestrator-service#27",
       "summary": "The harness reported no usage; no input/output split.",
       "notes": "The harness reported no usage; no input/output split. Dispatched 2026-11-03 20:50 UTC, result 21:15 UTC (unattended); accepted 2026-11-05. Task E2, on branch p1-n016-e1: commits 514c102 (plan-model, profiles, observability, auditing, the ruling taxonomy, README, docs/vocabulary.md, Backlog header and rows) and 5a94f10 (a row count corrected) in majodali/project-orchestrator. Returned `needs-judgment` on two decisions and one finding; the owner ruled A26 to A28 (defaults). Acceptance commits ba2ef2c (the kinds `unblocked` and `risk-opened`, the pre-cleared test change, the owner-attended rule) and this acceptance; majodali/project-orchestrator-service a031c2e (merged by pull request #27) re-vendors the unit. Checks: sync_agents in sync, form_check 0 violations, npm test 74/74, typecheck pass, format pass, run_corpus 19 fixtures match, sync_shared_unit in sync; npm run lint fails over a file outside the task's writes, read under the owner's A25 ruling on V14. In the service: npm test 299/299, npm run lint pass. Packet widened read-only: six groups, listed in the result."
-    },
-    {
-      "id": "T105",
-      "node": "P3-N017",
-      "step": "execute",
-      "status": "closed",
-      "role": "implementer",
-      "model": "claude-opus-5-5",
-      "tokens": {
-        "in": null,
-        "out": null
-      },
-      "opened": "2026-11-07T21:00:00Z",
-      "closed": "2026-11-07T22:00:00Z",
-      "base": null,
-      "ref": "ee5f2d0",
-      "pr": null,
-      "summary": "The harness reported no usage; no input/output split.",
-      "notes": "The harness reported no usage; no input/output split. Member 1 of the sequence ratified 2026-11-04. Dispatched 2026-11-07 21:00 UTC, result 21:45 UTC (unattended). Commit ee5f2d0 in majodali/project-orchestrator, on branch p3-n017-m1, the same tree as the result's 0d46860: eleven links in eight files retargeted from tag v1.3.0 to v1.6.0, each identifier named. Checks as M1 reported: the M1.1 grep pass, form_check 0 violations, npm test pass, typecheck pass, format pass, sync_agents in sync; M1.1 to M1.4 and S1 to S3 met. Packet widened read-only: three groups, listed in the result."
-    },
-    {
-      "id": "T106",
-      "node": "P3-N018",
-      "step": "execute",
-      "status": "closed",
-      "role": "implementer",
-      "model": "claude-opus-5-5",
-      "tokens": {
-        "in": null,
-        "out": null
-      },
-      "opened": "2026-11-07T22:30:00Z",
-      "closed": "2026-11-07T23:00:00Z",
-      "base": null,
-      "ref": "47aac88",
-      "pr": null,
-      "summary": "The harness reported no usage; no input/output split.",
-      "notes": "The harness reported no usage; no input/output split. Member 2 of the sequence ratified 2026-11-04. Dispatched 2026-11-07 22:30 UTC, result 22:50 UTC (unattended). Commit 47aac88 in majodali/project-orchestrator, on branch p3-n017-m1, the same tree as the result's a2fdffc: eighteen Risk register entries, R1 to R18, anchored. Checks as M2 reported: the M2.1 to M2.3 greps pass, form_check 0 violations, npm test pass, typecheck pass, format pass; M2.1 to M2.5 and S1 to S3 met. No packet widening."
-    },
-    {
-      "id": "T107",
-      "node": "P3-N019",
-      "step": "execute",
-      "status": "closed",
-      "role": "implementer",
-      "model": "claude-opus-5-5",
-      "tokens": {
-        "in": null,
-        "out": null
-      },
-      "opened": "2026-11-07T23:30:00Z",
-      "closed": "2026-11-08T00:30:00Z",
-      "base": null,
-      "ref": "41ddcc4",
-      "pr": null,
-      "summary": "The harness reported no usage; no input/output split.",
-      "notes": "The harness reported no usage; no input/output split. Member 3 of the sequence ratified 2026-11-04. Dispatched 2026-11-07 23:30 UTC, result 2026-11-08 00:10 UTC (unattended). Commit 41ddcc4 in majodali/project-orchestrator, on branch p3-n017-m1, the same tree as the result's e0890bc: the cover note `docs/proposals/mtool-custom-type-checker-cover-note.md` written, naming seven changes since 2026-08-26 with pointers and quoting Article 7 at both tags; the proposal unchanged. Checks as M3 reported: the M3.4 git diff pass, form_check 0 violations, npm test pass, typecheck pass, format pass; M3.1 to M3.6 and S1 to S3 met. Packet widened read-only: five groups, listed in the result."
     },
     {
       "id": "T108",
@@ -11446,6 +11278,6 @@
     "T": 207,
     "D": 62,
     "P4": 72,
-    "P3": 20
+    "P3": 21
   }
 }
