@@ -2485,7 +2485,7 @@
       "id": "P2-N033",
       "kind": "work",
       "title": "Orchestrator trial with its measured cost",
-      "outcome": "A recorded trial shows three nodes carried to done by sessions the service fired, two at once, with no message from the owner, and the fired sessions' costs set beside the same work started by hand.",
+      "outcome": "The record of the service-fired trial states which nodes fired sessions carried to done, with their models, stops and measured costs beside hand-started work.",
       "stage": "executing",
       "parent": "P2-N027",
       "repository": null,
