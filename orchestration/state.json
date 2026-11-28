@@ -8945,6 +8945,25 @@
       "pr": "majodali/project-orchestrator#103",
       "summary": "Fixed the trial record's staleness T288 named: added T283 and T285 (fired, costed; P2-N087 reached done 2026-11-27), so three nodes other than P2-N033 are now carried to done by fired sessions, none overlapping each other. Updated criteria 15-16 cost tables; trimmed 303→288 lines. PR #103 updated, CI green.",
       "notes": null
+    },
+    {
+      "id": "T290",
+      "node": "P2-N090",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-28T08:12:10Z",
+      "closed": null,
+      "base": "4f6134e8a13fd9c5fd72a10bb51079da8b8d4d28",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N033, Orchestrator trial with its measured cost, against its criteria and outcome at the head of its pull request.",
+      "notes": null
     }
   ],
   "decisions": [

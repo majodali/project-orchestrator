@@ -30,7 +30,7 @@ Gated nodes:
 
 ## In flight
 
-None.
+- Verification of Orchestrator trial with its measured cost (P2-N090) [specified] — T290
 
 ## In progress, children carry the work
 
@@ -414,6 +414,9 @@ Documents: [plan](plans/orchestration-service.md).
     The record of the service-fired trial states which nodes fired sessions carried to done, with their models, stops and measured costs beside hand-started work.
     after P2-N031, P2-N032, P4-N038, P2-N036, P2-N049 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 4 of P2-N046's sequence, re-pointed at the fired mechanism by D119: the trial is of sessions the service fires, not of an orchestrator session. Criteria 14 to 16 in docs/plans/orchestrator-session.md, restated by task T210; criterion 18 struck there, because there is no orchestrator session whose writes to the plan could be counted. Criterion 17 struck per D124. The trial record (docs/plans/p2-n033-trial-record.md), finalized at T284: criterion 14 not met on D178's reading, recorded under RU-019 per D179; criteria 15-16 met by the numbers recorded. The outcome was reworded by the owner to match (D184, 2026-11-28). The last act (D075) is done: the owner removed P3-N015 and P3-N020 and made P3-N016 wait for P2-N027 (D183, 2026-11-28), after a session's node_remove call was denied by the auto-mode classifier.
+    - check: **Verification of Orchestrator trial with its measured cost** (P2-N090, specified)
+      P2-N033 is verified against its outcome.
+      [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
   - **Tasks started by the service through scheduled tasks** (P2-N046, broken-down)
     When a node offers a step, the service fires the owner's scheduled task for that role and repository, and the fired session pulls its task and completes it with no message from any person or session.
     [plan](plans/p2-n046-service-fired-sessions.md)
