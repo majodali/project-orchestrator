@@ -2420,7 +2420,10 @@
       "parent": "P2-N033",
       "repository": null,
       "after": [],
-      "hold": null,
+      "hold": {
+        "kind": "blocked",
+        "reason": "T290: Blocked. Criteria 15-16: two fired, costed tasks on P2-N033 itself are absent from the cost tables with no stated exclusion — T277 (60,986 out) and T284 (52,583) — while fired T282, on a node never carried to done, is included. Add both and state a cut-off, so later tasks do not reopen this. Criterion 14 met as recorded (RU-019, D179)."
+      },
       "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestrator-session.md",
@@ -8950,7 +8953,7 @@
       "id": "T290",
       "node": "P2-N090",
       "step": "verify",
-      "status": "open",
+      "status": "blocked",
       "role": "reviewer",
       "model": "claude-opus-5",
       "tokens": {
@@ -8958,11 +8961,11 @@
         "out": null
       },
       "opened": "2026-11-28T08:12:10Z",
-      "closed": null,
+      "closed": "2026-11-28T08:18:08Z",
       "base": "4f6134e8a13fd9c5fd72a10bb51079da8b8d4d28",
-      "ref": null,
+      "ref": "e47a219eb9d60f09561c8defbd5366a2ac6f8806",
       "pr": null,
-      "summary": "Verify P2-N033, Orchestrator trial with its measured cost, against its criteria and outcome at the head of its pull request.",
+      "summary": "Blocked. Criteria 15-16: two fired, costed tasks on P2-N033 itself are absent from the cost tables with no stated exclusion — T277 (60,986 out) and T284 (52,583) — while fired T282, on a node never carried to done, is included. Add both and state a cut-off, so later tasks do not reopen this. Criterion 14 met as recorded (RU-019, D179).",
       "notes": null
     }
   ],
