@@ -9077,6 +9077,25 @@
       "pr": "majodali/project-orchestrator#103",
       "summary": "Fixed T294's finding: added the unclaimed P2-N073 fire (22:33:22) and T284's own fire (23:34:01) to criterion 14, noted the T284/T285 overlap, and corrected \"four real fires\" to the frozen window's actual fourteen. Added T271 (24,306 out) to criterion 16's hand verify baseline per its own rule; recalculated the hand mean (22,021) and ratio (0.73:1). PR #103 updated, CI green.",
       "notes": null
+    },
+    {
+      "id": "T296",
+      "node": "P2-N090",
+      "step": "verify",
+      "status": "open",
+      "role": "reviewer",
+      "model": "claude-opus-5",
+      "tokens": {
+        "in": null,
+        "out": null
+      },
+      "opened": "2026-11-28T09:03:32Z",
+      "closed": null,
+      "base": "c655b124ddf20bddfa9b97a9f1ea6a0484169ade",
+      "ref": null,
+      "pr": null,
+      "summary": "Verify P2-N033, Orchestrator trial with its measured cost, against its criteria and outcome at the head of its pull request, round five after T288, T290, T292 and T294 each closed blocked.",
+      "notes": null
     }
   ],
   "decisions": [
