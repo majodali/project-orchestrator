@@ -191,7 +191,7 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
       after P3-N019 · [plan](plans/p3-n015-sequence-demonstration.md)
       Note: The hold on P3-N001 covers this node: it resumes with the P3 line, by the owner's decision (D005, D063).
   - **Determination on W-001 sequence mode** (P3-N016, identified)
-    after P3-N015
+    after P2-N027
     Note: depends on P3-N015
 
 ### Rebuild: the orchestrator runs on a checked data model (P4-N001)
