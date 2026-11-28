@@ -2420,10 +2420,7 @@
       "parent": "P2-N033",
       "repository": null,
       "after": [],
-      "hold": {
-        "kind": "blocked",
-        "reason": "T296: Blocked. Criterion 14: line 55 still reads \"The four real fires\" over four rows while line 15 says fourteen — the mislabel T294 named, fixed in one place only. Also docs/plans/p2-n033-trial-record.md is 316 lines, bound 300 (how-we-work.md); T293 held it at 300. Criteria 15-16 met: every figure matches state.json."
-      },
+      "hold": null,
       "start": "auto",
       "docs": {
         "plan": "docs/plans/orchestrator-session.md",
@@ -9107,7 +9104,7 @@
       "id": "T297",
       "node": "P2-N033",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -9115,11 +9112,11 @@
         "out": null
       },
       "opened": "2026-11-28T09:09:25Z",
-      "closed": null,
+      "closed": "2026-11-28T09:19:49Z",
       "base": "0a52600234f53dad0ec03d0c0807b7b8bc9432f2",
-      "ref": null,
-      "pr": null,
-      "summary": "Rework PR #103 for P2-N033's trial record: fix the remaining \"four real fires\" mislabel at line 55 and trim the document back under the 300-line bound.",
+      "ref": "d880983428728601de2f57dede3fe19ca8f17174",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Fixed T296's finding: relabeled line 55 \"The first four real fires\" (scoped to the first batch; line 15 states the frozen total of fourteen). Trimmed duplicate prose in Result, Criterion 14's conclusion, Criterion 15's cost note and \"What this record settles\" to 300 lines, the how-we-work.md bound; no figure or finding changed. Lint, tests, check pass; CI green.",
       "notes": null
     }
   ],
