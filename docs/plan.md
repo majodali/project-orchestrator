@@ -72,7 +72,6 @@ None.
 - Reversibility and its measurement (P3-N004) [identified] — under Project comprehension and continuous implementation (P3-N001)
 - Sequence mode (P3-N005) [broken-down] — under Project comprehension and continuous implementation (P3-N001)
 - Determination on W-001 sequence mode (P3-N016) [identified] — under Project comprehension and continuous implementation (P3-N001)
-- Methodology citations pinned in the process specification (P3-N022) [specified] — under Project comprehension and continuous implementation (P3-N001)
 
 ## The plan
 
@@ -178,7 +177,7 @@ Documents: [plan](plans/comprehension-and-continuous-implementation.md), [spec](
   - **Determination on W-001 sequence mode** (P3-N016, identified)
     after P2-N027
     Note: depends on P3-N015
-  - **Methodology citations pinned in the process specification** (P3-N022, specified)
+  - **Methodology citations pinned in the process specification** (P3-N022, done 2026-11-28)
     The process specification cites the methodology at a pinned version.
     [plan](plans/p3-n015-sequence-demonstration.md)
     Note: Restored at the owner's instruction, 2026-11-28 ("restore them"). This node was P3-N017, done 2026-11-07, a child of P3-N015 (Sequence mode demonstration). It was removed by mistake on 2026-11-28 when P3-N015 was removed under D075 and D183: the service removes a node's children with it, and the session that removed P3-N015 had not read its children. The owner's rule: a done node that contributed stays. It carries a new identifier because an identifier is never reused. Its original note: "T105 accepted 2026-11-07, member 1 of the ratified sequence". Its outcome sentence is rewritten from its title, since the original repeated its parent's.
