@@ -30,7 +30,7 @@ Gated nodes:
 
 ## In flight
 
-- Orchestrator trial with its measured cost (P2-N033) [executing] — T287
+None.
 
 ## In progress, children carry the work
 
@@ -40,6 +40,7 @@ Gated nodes:
 - Orchestration service (P2-N001) [broken-down]
 - Several projects and repositories in one instance (P2-N026) [broken-down]
 - Orchestrator session that keeps work moving (P2-N027) [broken-down]
+- Orchestrator trial with its measured cost (P2-N033) [verifying]
 - Tasks started by the service through scheduled tasks (P2-N046) [broken-down]
 - View that updates itself and leads with what matters (P2-N028) [broken-down]
 - Service change verified before it is deployed (P2-N063) [majodali/project-orchestrator-service] [broken-down]
@@ -409,7 +410,7 @@ Documents: [plan](plans/orchestration-service.md).
     A new decision on a node already reported wakes the watcher, a verification starts beside work on the same plan document, and the orchestrator role leaves a cold session nothing to guess in the four places its verification found.
     after P2-N031 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Added on the owner's answers of 2026-11-17 to D087 (on P2-N030), D088 and D089 (on P2-N031), which each name this node. Criteria: (1) D088: the keys of `decision` and `asks` reports carry the decisions' identifiers, so a second decision on a node changes a key; specification S1 and the two expected keys in test/orchestrate.test.ts follow, which the owner's answer to D088 allows. (2) D087: a verify start is exempt from the shared-document rule of S4, in lib/orchestrate.ts and its test, and S4 says so. (3) D089, in .claude/agents/orchestrator.md, still at most 120 lines: it tells the session to give the background watcher the two-hour limit and what to do if the watcher is stopped with no output; how the session learns its own identifier for --self; one rule for what it tells the owner at a wake, the time-limit wake included; and archive_session is used or dropped. (4) T159's other finding is settled: the status bucket that never says archived. (5) plugin/agents/ is regenerated and the checks pass.
-  - **Orchestrator trial with its measured cost** (P2-N033, executing)
+  - **Orchestrator trial with its measured cost** (P2-N033, verifying)
     The record of the service-fired trial states which nodes fired sessions carried to done, with their models, stops and measured costs beside hand-started work.
     after P2-N031, P2-N032, P4-N038, P2-N036, P2-N049 · [plan](plans/orchestrator-session.md), [spec](specs/orchestrator-session.md)
     Note: Slice 4 of P2-N046's sequence, re-pointed at the fired mechanism by D119: the trial is of sessions the service fires, not of an orchestrator session. Criteria 14 to 16 in docs/plans/orchestrator-session.md, restated by task T210; criterion 18 struck there, because there is no orchestrator session whose writes to the plan could be counted. Criterion 17 struck per D124. The trial record (docs/plans/p2-n033-trial-record.md), finalized at T284: criterion 14 not met on D178's reading, recorded under RU-019 per D179; criteria 15-16 met by the numbers recorded. The outcome was reworded by the owner to match (D184, 2026-11-28). The last act (D075) is done: the owner removed P3-N015 and P3-N020 and made P3-N016 wait for P2-N027 (D183, 2026-11-28), after a session's node_remove call was denied by the auto-mode classifier.

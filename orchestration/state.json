@@ -2392,7 +2392,7 @@
       "kind": "work",
       "title": "Orchestrator trial with its measured cost",
       "outcome": "The record of the service-fired trial states which nodes fired sessions carried to done, with their models, stops and measured costs beside hand-started work.",
-      "stage": "executing",
+      "stage": "verifying",
       "parent": "P2-N027",
       "repository": null,
       "after": [
@@ -2410,6 +2410,24 @@
       },
       "done": null,
       "note": "Slice 4 of P2-N046's sequence, re-pointed at the fired mechanism by D119: the trial is of sessions the service fires, not of an orchestrator session. Criteria 14 to 16 in docs/plans/orchestrator-session.md, restated by task T210; criterion 18 struck there, because there is no orchestrator session whose writes to the plan could be counted. Criterion 17 struck per D124. The trial record (docs/plans/p2-n033-trial-record.md), finalized at T284: criterion 14 not met on D178's reading, recorded under RU-019 per D179; criteria 15-16 met by the numbers recorded. The outcome was reworded by the owner to match (D184, 2026-11-28). The last act (D075) is done: the owner removed P3-N015 and P3-N020 and made P3-N016 wait for P2-N027 (D183, 2026-11-28), after a session's node_remove call was denied by the auto-mode classifier."
+    },
+    {
+      "id": "P2-N090",
+      "kind": "check",
+      "title": "Verification of Orchestrator trial with its measured cost",
+      "outcome": "P2-N033 is verified against its outcome.",
+      "stage": "specified",
+      "parent": "P2-N033",
+      "repository": null,
+      "after": [],
+      "hold": null,
+      "start": "auto",
+      "docs": {
+        "plan": "docs/plans/orchestrator-session.md",
+        "spec": "docs/specs/orchestrator-session.md"
+      },
+      "done": null,
+      "note": null
     },
     {
       "id": "P2-N046",
@@ -8866,7 +8884,7 @@
       "id": "T287",
       "node": "P2-N033",
       "step": "execute",
-      "status": "open",
+      "status": "closed",
       "role": "implementer",
       "model": null,
       "tokens": {
@@ -8874,11 +8892,11 @@
         "out": null
       },
       "opened": "2026-11-28T07:51:38Z",
-      "closed": null,
+      "closed": "2026-11-28T07:58:33Z",
       "base": "cd2af3eb46c91133acd1d690acd96ebb6446a64f",
-      "ref": null,
-      "pr": null,
-      "summary": "Continue P2-N033 execute on PR #103 now that D183 and D184 are answered: check whether the owner's hand actions (D075 node_remove/node_update) have landed, and whether anything within the implementer's scope remains, without retrying the denied node_remove or changing P2-N033's own outcome.",
+      "ref": "1485b64a17a935baf849712960a6147caf962a12",
+      "pr": "majodali/project-orchestrator#103",
+      "summary": "Confirmed the owner's hand actions for D183 (P3-N015/P3-N020 removed, P3-N016 waits for P2-N027) and D184 (outcome reworded) landed on main. Updated the trial record and orchestrator-session.md's P3-N005/P3-N016 section to say so, since both still read as pending. All criteria recorded/met; PR #103 rebased, CI green.",
       "notes": null
     }
   ],
